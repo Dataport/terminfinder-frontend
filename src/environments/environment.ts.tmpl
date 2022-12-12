@@ -1,0 +1,25 @@
+@GENERATED_COMMENT_TS@
+// Only edit the file with the extension *.tmpl
+
+import {EnvConfig} from './env-config.interface';
+import {LogLevel} from '../app/shared/services/logging/logLevel';
+
+export const environment: EnvConfig = {
+production: @PRODUCTION@,
+version: @VERSION@,
+buildDateUtc: @BUILD_DATE@,
+surveyLinkAdmin: @SURVEY_LINK_ADMIN@,
+surveyLinkUser: @SURVEY_LINK_USER@,
+title: @TITLE@,
+locale: @LOCALE@,
+addressing: @ADDRESSING@,
+apiBaseUrl: @API_URL@,
+email: @EMAIL@,
+customerId: @CUSTOMER_ID@,
+imprint: @IMPRINT@,
+privacy: @PRIVACY@,
+termsOfService: @TOS@,
+accessibility: @ACCESSIBILITY@,
+apiRequestTimeoutInMs: @API_REQUEST_TIMEOUT_IN_MS@,
+consoleLoggingOptions: @CONSOLE_LOGGING_OPTIONS@,
+};

@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+#head {
+  padding-top: 0.5rem;
+  margin-bottom: 8px;
+}
+
+#logo {
+  margin-left: 0;
+  padding-left: 0.5rem;
+  width: $head-logo-width;
+  height: $head-logo-height;
+  object-fit: contain;
+}
+
+.header-title {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.connectionError {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px !important;
+  background-color: #f6ccdb;
+}
+
+@include media-breakpoint-up(lg) {
+
+  #main {
+    padding-bottom: 100px;
+  }
+}

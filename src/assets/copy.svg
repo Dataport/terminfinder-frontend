@@ -1,0 +1,19 @@
+<svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #003064;
+    }
+
+    .cls-2 {
+      fill: none;
+      stroke: #003064;
+      stroke-miterlimit: 10;
+      stroke-width: 2px;
+    }</style>
+  </defs>
+  <title>icn_copy</title>
+  <g id="Links">
+    <rect class="cls-1" height="16.79" width="16.79" x="10.21" y="10.18"/>
+    <polyline class="cls-2" points="6 19.15 6 6.03 18.68 6.03"/>
+  </g>
+</svg>

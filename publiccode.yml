@@ -1,0 +1,77 @@
+publiccodeYmlVersion: "0.2"
+
+name: Terminfinder
+url: "https://github.com/Dataport/terminfinder-frontend"
+releaseDate: "2022-12-12"
+platforms:
+  - web
+
+categories:
+  - project-collaboration
+  - collaboration
+  - communications
+  - event-management
+  - time-management
+
+developmentStatus: development
+
+softwareType: "standalone/web"
+
+description:
+  en:
+    genericName: Terminfinder
+    shortDescription: >
+      The "Terminfinder" offers a fast and easy way to create digital polls.
+
+    longDescription: >
+      The "Terminfinder" (frontend, backend, database) allows you to quickly and easily create polls for appointments.
+      Simply select a title for your poll and, if required, the location where the appointment should take place.
+      Afterwards you can directly get started and share the link to your poll with those you want to share it with.
+      With the help of the "Terminfinder" you can flexibly decide whether you want to offer different days,
+      different times or a combination of both within your poll.
+      For increased security it is also possible to set a password for your poll.
+      The slim design of the "Terminfinder" ensures that you and the participants can easily navigate through the
+      application. In addition, the "Terminfinder" only collects necessary data which is not shared with third parties.
+      After the last appointment option expires the data is automatically deleted.
+      Thus, data is kept only as long as necessary.
+
+    features:
+      - Create appointment polls and put one or more options to the vote
+      - Participate in appointment polls and respond to the appointment suggestions
+      - Choices for responding - "Accept, Decline or Questionable"
+
+  de:
+    genericName: Terminfinder
+    shortDescription: >
+      Mit dem Terminfinder können Sie schnell und einfach digitale Abstimmungen für Gruppen realisieren.
+
+    longDescription: >
+      Der Terminfinder (Frontend, Backend, Datenbank) ermöglicht es schnell und unkompliziert Terminabstimmungen
+      durchzuführen. Wählen Sie einfach einen Titel für Ihre Umfrage und bei Bedarf den Ort aus, an welchem Ihr Termin
+      stattfinden soll. Schon können Sie loslegen und den Link zu Ihrer Umfrage mit Ihrem Umfeld teilen. Mithilfe des
+      Terminfinders können Sie flexibel entscheiden, ob Sie verschiedene Tage, verschiedene Uhrzeiten oder eine
+      Kombination aus beidem zur Abstimmung stellen wollen. Für eine erhöhte Sicherheit ist es darüber hinaus möglich
+      eine Umfrage mit einem Passwort zu versehen. Das schlanke Design des Terminfinders sorgt dafür, dass Sie und die
+      Teilnehmenden sich unkompliziert zurechtfinden können. Nach Ablauf der letzten Terminoption werden die Daten
+      gemäß der Standard-Einstellungen im Backend automatisch gelöscht. Somit werden Daten nur so lange aufbewahrt wie
+      dies notwendig ist.
+
+    features:
+      - Erstellen von Termin-Umfragen und einen oder mehrere Termine zur Auswahl stellen
+      - An Termin-Umfragen teilnehmen und auf die Termine reagieren
+      - Auswahlmöglichkeiten zur Beantwortung - "Akzeptieren, Ablehnen oder Fraglich"
+
+legal:
+  license: EUPL-1.2
+
+maintenance:
+  type: "internal"
+
+  contacts:
+    - name: Dataport AöR
+
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - de

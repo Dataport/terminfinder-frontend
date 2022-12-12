@@ -1,0 +1,10 @@
+<button
+  (click)="back()"
+  aria-label="Zurück"
+  class="btn btn-secondary w-100"
+  data-cy="backBtn"
+>
+  {{ 'navigation.back' | translate }}
+</button>
+<h1 data-cy="accessibilityHeadline">Erklärung zur Barrierefreiheit</h1>
+<div [innerHTML]="accessibility" class="content" data-cy="content"></div>

@@ -1,0 +1,47 @@
+/debug.log
+# compiled output
+/dist
+/tmp
+/out-tsc
+.npm
+
+# auto generated
+src/environments/environment.ts
+src/index.html
+
+#download from cypress
+cypress/downloads
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode
+
+# IDE - VSCode
+.vscode/*
+
+# misc
+.angular
+.venv
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+.nyc_output
+nyc_out
+
+# System Files
+.DS_Store
+Thumbs.db

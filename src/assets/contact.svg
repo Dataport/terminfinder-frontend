@@ -1,0 +1,19 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+  <title>dataport</title>
+  <defs>
+    <style>.cls-1 {
+      fill: none;
+      stroke: #9E292B;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+      stroke-width: 2px;
+    }
+    </style>
+  </defs>
+  <g id="Dashboard">
+    <g id="Back">
+      <ellipse class="cls-1" cx="45" cy="45" rx="38.86" ry="39.58"/>
+      <path class="cls-1" d="M24.26,34.38,45.4,48.32,66.54,34.24m0,26.78H24.22V33.63H66.53Z"/>
+    </g>
+  </g>
+</svg>

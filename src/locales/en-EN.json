@@ -1,0 +1,157 @@
+{
+  "lang": {
+    "language": "language"
+  },
+  "navigation": {
+    "back": "back",
+    "nextToDateSelection": "Next to date selection",
+    "next": "next",
+    "revise": "revise",
+    "step": "step"
+  },
+  "home": {
+    "planning": "Planning",
+    "security": "Security",
+    "networking": "Networking",
+    "slogan": "Create appointments and get on the same page with your people!",
+    "testEnvironmentBanner": "This is a test environment of {{value}}. Please do not fill in personal data."
+  },
+  "poll": {
+    "create": "Create poll",
+    "createNew": "Create new poll",
+    "configure": "Configure your poll",
+    "start": "Start poll",
+    "pause": "Pause poll",
+    "paused": "You can't edit this poll, because it's paused.",
+    "continue": "Continue poll",
+    "continueEverytime": "You can continue this poll at anytime.",
+    "change": "Change poll",
+    "changeDetails": "Change details of your poll",
+    "addDetails": "Add further details to your poll!",
+    "checkData": "Check your input!",
+    "participate": "Participate at poll",
+    "edit": "Edit poll",
+    "editAlert": "Attention, you are editing a running poll.",
+    "editSaveLastStep": "In step \"4\" you can save your changes.",
+    "answer": "Participate at poll of",
+    "addParticipant": "Add participant",
+    "noParticipation": "I can't participate",
+    "send": "Send",
+    "downloadIcs": "Download this date as .ics-File to import it to your calendar. Check the voting of your participants in the description.",
+    "downloadCsv": "Download the table of participants and their voting. You can import it into Excel and plan your event.",
+    "title": {
+      "title": "Title",
+      "set": "Set a title!",
+      "placeholder": "Title of poll",
+      "noTitle": "Please set a title.",
+      "invalid": "The title contains invalid characters.",
+      "tooLong": "The title is too long."
+    },
+    "details": {
+      "name": {
+        "name": "Name",
+        "yourName": "Your name",
+        "noName": "Please enter your name.",
+        "invalid": "The name contains invalid characters.",
+        "tooLong": "The name is too long."
+      },
+      "place": {
+        "place": "Location",
+        "placeOptional": "Location (optional)",
+        "invalid": "The location contains invalid characters.",
+        "tooLong": "The location is too long."
+      },
+      "description": {
+        "description": "Description",
+        "descriptionOptional": "Description (optional)",
+        "tooLong": "The description is too long."
+      }
+    }
+  },
+  "date": {
+    "choose": "Choose the dates!",
+    "change": "Change dates!",
+    "delete": "Delete the date",
+    "enter": "Enter date",
+    "start": "Start date",
+    "add": "Add another date",
+    "rejected": "Date rejected",
+    "questionable": "Date questionable",
+    "accepted": "Date accepted",
+    "placeholder": "DD.MM.YYYY",
+    "setStart": "Please set a start date.",
+    "startInvalid": "Please set a valid start date.",
+    "startFuture": "Please set a start date, wich is in the future.",
+    "end": "End date",
+    "setEnd": "Please set an end date.",
+    "endAtOtherDay": "End at other day",
+    "startAfterEnd": "Please set a valid start and end date combination. The end date must be after the start date.",
+    "noStart": "Please set a start date. If there is an end date, there has to be a start date.",
+    "inPast": "Please enter a valid start date. The start date must be in the future.",
+    "noValue": "There must be at least one date.",
+    "tooMuchValues": "More than 100 dates are not possible."
+  },
+  "time": {
+    "time": "Time",
+    "add": "Add times",
+    "start": "Start time",
+    "placeholder": "HH:MM",
+    "end": "End time"
+  },
+  "imprint": {
+    "imprint": "Imprint",
+    "oss": "Open source licences"
+  },
+  "accessibility": {
+    "accessibility": "Accessibility"
+  },
+  "privacy": {
+    "privacy": "Privacy",
+    "declaration": "Privacy declaration"
+  },
+  "links": {
+    "done": "Done!",
+    "share": "Share your poll",
+    "invite": "You can invite others to your poll with this link.",
+    "loosingLink": "ATTENTION: If this link is not saved, it will be lost.",
+    "copy": "Copy link",
+    "open": "open",
+    "change": "You can change your poll with this link.",
+    "satisfactionSurvey": "How satisfied is our service? Do you have any suggestions for making the service more enjoyable? We would be pleased if you would let us know your opinion with a few clicks. Your feedback will be collected by the development team at Dataport AöR.",
+    "satisfactionSurveyButton": "Go to survey"
+  },
+  "password": {
+    "password": "Password",
+    "minimum": "(min. 8 characters, one number, one capital letter, one special character)",
+    "locked": "This poll is protected with a password",
+    "enter": "Enter the password to participate in this poll.",
+    "placeholder": "Enter password",
+    "placeholderEnter": "enter",
+    "placeholderChange": "change",
+    "enterPassword": "Enter password",
+    "changePassword": "Change password",
+    "invalid": "The entered password is invalid.",
+    "generate": "Generate password protection",
+    "securePoll": "Secure your poll with a password!",
+    "set": "Please enter a password.",
+    "setMinimum": "Please enter a password with min. 8 characters, one number, one capital letter and one special character.",
+    "repeat": "Repeat password",
+    "noMatch": "The entered passwords do not match."
+  },
+  "participant": {
+    "participants": "Participants",
+    "select": "Select participant",
+    "name": "Name of participant"
+  },
+  "settings": {
+    "additional": "You can change other settings!",
+    "change": "Change your settings!"
+  },
+  "tos": {
+    "tos": "Terms of service",
+    "accept_0": "Yes, i accept the",
+    "accept_1": " and have read the ",
+    "accept_2": " .",
+    "accept": "Please accept the privacy declaration and the terms of use."
+  }
+}

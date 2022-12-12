@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="row justify-content-center mt-4 mb-0">
+      <div class="col text-center">
+        <h2 class="text-primary">{{ 'links.done' | translate }}</h2>
+        <h3 class="text-center font-medium text-bold" data-id="linksHeading">
+          {{ 'links.share' | translate }}
+        </h3>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col section-container pt-3 pb-4">
+        <div
+          class="link-description"
+          data-id="inviteLinkDescription"
+        >
+          {{ 'links.invite' | translate }}
+        </div>
+        <div class="row no-gutters pb-1">
+          <div
+            class="col text-danger text-bold my-1"
+            data-id="inviteLinkWarning"
+          >
+            {{ 'links.loosingLink' | translate }}
+          </div>
+        </div>
+        <div class="row no-gutters link-container justify-content-end align-items-center px-2 py-1">
+          <div class="col-12 text-primary">
+            <div
+              class="link"
+              data-id="inviteLink"
+              id="link-appointment"
+            >
+              {{absoluteAppointmentLink}}
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-end">
+            <button
+              [cbContent]="absoluteAppointmentLink"
+              class="btn btn-transparent text-primary"
+              data-id="inviteLinkCopy"
+              ngxClipboard
+              type="button"
+            >
+              {{ 'links.copy' | translate }}
+            </button>
+            <button
+              (click)="navigate(absoluteAppointmentLink)"
+              class="btn btn-transparent text-primary btn-with-image"
+              data-id="inviteLinkNavigate"
+              type="button"
+            >
+              {{ 'links.open' | translate }}
+              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col section-container pt-3 pb-4">
+        <div
+          class="link-description"
+          data-id="adminLinkDescription"
+        >
+          {{ 'links.change' | translate }}
+        </div>
+        <div class="row no-gutters pb-1">
+          <div
+            class="col text-danger text-bold my-1"
+            data-id="adminLinkWarning"
+          >
+            {{ 'links.loosingLink' | translate }}
+          </div>
+        </div>
+        <div class="row no-gutters link-container justify-content align-items-center px-2 py-1">
+          <div class="col-12 text-primary">
+            <div
+              class="link"
+              data-id="adminLink"
+              id="link-admin"
+            >
+              {{absoluteAdminLink}}
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-end">
+            <button
+              [cbContent]="absoluteAdminLink"
+              class="btn btn-transparent text-primary"
+              data-id="adminLinkCopy"
+              ngxClipboard
+              type="button"
+            >
+              {{ 'links.copy' | translate }}
+            </button>
+            <button
+              (click)="navigate(absoluteAdminLink)"
+              class="btn btn-transparent text-primary btn-with-image"
+              data-id="adminLinkNavigate"
+              type="button"
+            >
+              {{ 'links.open' | translate }}
+              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="surveyLinkAdmin" class="row mt-3">
+      <div class="col section-container pt-3 pb-4">
+        {{ 'links.satisfactionSurvey' | translate }}
+        <div class="d-flex justify-content-end button-row">
+          <button
+            (click)="navigate(surveyLinkAdmin)"
+            class="btn btn-transparent text-primary btn-with-image"
+            data-id="surveyLinkNavigate"
+            type="button"
+          >
+            {{ 'links.satisfactionSurveyButton' | translate }}
+            <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <button
+        (click)="createNewAppointment()"
+        class="btn btn-secondary btn-block w-100"
+        data-id="newAppointmentButton"
+        id="create-poll"
+        type="button"
+      >
+        {{ 'poll.createNew' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

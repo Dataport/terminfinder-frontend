@@ -1,0 +1,475 @@
+@import "default";
+
+@font-face {
+  font-family: Roboto;
+  src: url(/assets/fonts/Roboto-Regular.ttf);  /* EOT for IE */
+  src: local("Roboto"),
+  url(/assets/fonts/Roboto-Regular.ttf) format("truetype"); /* non-IE */
+}
+
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+}
+
+h1 {
+  color: $primary !important;
+  font-weight: $font-weight-bold !important;
+  font-size: $font-size-small-mobile !important;
+  @include media-breakpoint-up(sm) {
+    font-size: $font-size-large !important;
+  }
+  margin-top: 0;
+  padding: 0 !important;
+  display: inline;
+  text-align: center;
+  line-height: 1.47;
+}
+
+h2 {
+  color: $primary !important;
+  font-size: $font-size-x-large-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-x-large !important;
+  }
+  font-weight: $font-weight-x-bold !important;
+}
+
+h3 {
+  color: $primary !important;
+  font-size: $font-size-medium-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
+}
+
+label {
+  color: $primary;
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+  font-weight: $font-weight-bold !important;
+}
+
+.logo {
+  width: 200px;
+}
+
+.invalid-message {
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+  color: $input-invalid-color;
+  font-weight: bold;
+}
+
+.checkbox-label:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.checkbox .checkbox-box {
+  position: relative;
+  display: inline-block;
+  border: 1px solid #a9a9a9;
+  border-radius: .25em;
+  width: 1.3em;
+  height: 1.3em;
+  float: left;
+}
+
+.checkbox .checkbox-box .checkbox-icon {
+  position: absolute;
+  font-size: .8em;
+  line-height: 0;
+  top: 50%;
+  left: 15%;
+}
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox input[type="checkbox"] + .checkbox-box > .checkbox-icon {
+  opacity: 0;
+}
+
+.checkbox input[type="checkbox"]:checked + .checkbox-box > .checkbox-icon {
+  opacity: 1;
+}
+
+.checkbox input[type="checkbox"]:disabled + .checkbox-box {
+  opacity: .5;
+}
+
+.section-container {
+  background-color: white;
+  border-radius: $border-radius;
+  box-shadow: $theme-shadow;
+}
+
+.section-container label {
+  margin: 0;
+}
+
+.wizard .section-container {
+  .form-control {
+    border: none !important;
+    border-radius: unset !important;
+    border-bottom: 1px solid $medium-gray !important;
+    margin-bottom: 0.5rem;
+    padding: 0 !important;
+  }
+
+  .form-control:focus {
+    border-bottom-color: $s-h-blue !important;
+    border-width: 1px !important;
+  }
+
+  .input-group .form-control {
+    padding-left: $spacer !important;
+  }
+
+  input {
+    border-radius: 0;
+
+    :focus {
+      border-color: #eeeeee;
+    }
+  }
+}
+
+.btn {
+  font-size: $font-size-medium-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
+}
+
+.form-control {
+  font-size: $font-size-medium-mobile !important;
+  height: auto !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
+}
+
+/* overwrite some styles for timepicker */
+
+.ngb-dp-arrow-btn {
+  min-width: 0 !important;
+  box-shadow: none !important;
+}
+
+.ngb-tp-input-container .form-control {
+  font-size: $font-size-large-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-large;
+  }
+}
+
+.ngb-tp-input-container .btn {
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+}
+
+.btn.btn-link {
+  min-width: 0 !important;
+  box-shadow: none !important;
+}
+
+.btn.btn-round {
+  width: 40px;
+  height: 40px;
+
+  img.icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+#main {
+  background-color: $primary-background-color;
+}
+
+#bottom-edge {
+  height: $spacer*7;
+  min-height: $spacer*7;
+  max-height: $spacer*7;
+  margin-bottom: $spacer;
+  background: linear-gradient(175deg, $primary-background-color 49.5%, transparent 50.5%) no-repeat bottom;
+}
+
+.has-error label {
+  color: $input-invalid-color;
+}
+
+.divider {
+  border: 1px solid $divider-border-color;
+  background-color: $divider-background-color;
+  min-height: $spacer*1;
+  margin: $spacer*0.25 0;
+}
+
+.divider-single {
+  border-top: 1px solid #b2b2b2;
+}
+
+.divider, .divider-single {
+  border-right-width: 0;
+  border-left-width: 0;
+}
+
+.scrollable-date-pane {
+  overflow-y: auto;
+  white-space: nowrap;
+
+  .btn-trash {
+    padding-left: 8px !important;
+  }
+
+  .data-cell {
+
+  }
+}
+
+.poll-summary-row {
+  background-color: $divider-background-color;
+  border-top: 1px solid $poll-row-border-color;
+
+  .data-cell {
+    min-height: 60px;
+  }
+
+  .poll-summary-data-cell {
+    .voting-status-summary-image {
+      margin-right: 4px;
+
+      img {
+        height: $form-status-icon-height-small;
+        width: $form-status-icon-width-small;
+      }
+    }
+
+    .voting-status-summary-number {
+      vertical-align: sub;
+    }
+  }
+
+  .voting-status-summary-suggestion-date {
+    height: 58px;
+    min-height: 58px;
+  }
+}
+
+.scrollable-date-pane .data-cell, .poll-summary-row .data-cell, .poll-add-user-row .data-cell, .votings .data-cell {
+  vertical-align: top;
+  border-right: 1px solid $poll-data-cell-border-left-right-color;
+  width: 120px;
+}
+
+.date-time-overview > .row .d-sm-inline-block .date-time-entry {
+  @include media-breakpoint-down(md) {
+    padding: $spacer*1 0;
+    //border-bottom: 1px solid $divider-border-color;
+  }
+  @include media-breakpoint-up(lg) {
+    //border-right: 1px solid $divider-border-color;
+  }
+}
+
+.date-time-overview > .row .d-sm-inline-block:last-child .date-time-entry {
+  border: none;
+}
+
+.dropdown-menu {
+  color: $primary;
+}
+
+.bootstrap-datetimepicker-widget {
+  .btn {
+    min-width: auto;
+    box-shadow: none;
+  }
+
+  table td.active, table td.active:hover, table td span.active {
+    background-color: $secondary;
+  }
+
+  table td.today:before {
+    border-bottom-color: $secondary;
+  }
+}
+
+.btn-circle {
+  border: none;
+  background: none;
+
+  &:hover {
+    text-decoration: underline;
+
+    span {
+      text-decoration: $primary;
+    }
+  }
+
+  img.icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  &:disabled .icon {
+    filter: grayscale(1);
+  }
+}
+
+.btn-transparent {
+  background-color: transparent;
+  box-shadow: none;
+
+  &:focus, &:hover, &active {
+    box-shadow: none !important;
+  }
+}
+
+.btn-add-participant, .btn-edit-participant {
+  padding: 0 !important;
+}
+
+.btn-with-image {
+  background-repeat: no-repeat;
+  background-size: $form-icon-width $form-icon-height;
+  background-origin: content-box;
+  background-position-y: 5px;
+}
+
+.btn-with-image.btn-next {
+  background-position: 95% center;
+  background-origin: border-box;
+  background-size: $form-status-icon-width-small auto;
+  padding-right: $form-status-icon-width-small + 11px !important;
+  padding-left: $form-status-icon-width + 11px !important;
+
+  &, &:active {
+    background-image: url("/assets/next.svg") !important;
+  }
+
+  .disabled, &:disabled {
+    @include btn-disabled;
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-size: $form-status-icon-width auto;
+    padding-right: $form-status-icon-width + 15px !important;
+    padding-left: $form-status-icon-width + 15px !important;
+  }
+}
+
+.btn-next.disabled, .btn-next:disabled, .btn-secondary.disabled, .btn-secondary:disabled,
+.btn.btn-secondary.disabled, .btn.btn-secondary:disabled {
+  @include btn-disabled;
+}
+
+.btn-with-image.btn-back {
+  background-position: 5% center;
+  background-origin: border-box;
+  background-size: $form-status-icon-width-small auto;
+  padding-left: $form-status-icon-width-small + 11px !important;
+  padding-right: $form-status-icon-width + 11px !important;
+
+  &, &:active {
+    background-image: url("/assets/back.svg") !important;
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-size: $form-status-icon-width auto;
+    padding-left: $form-status-icon-width + 15px !important;
+    padding-right: $form-status-icon-width + 15px !important;
+  }
+}
+
+.btn.btn-with-link {
+  white-space: normal;
+}
+
+.btn:active {
+  background-image: inherit !important;
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .btn-with-image.btn-back, .btn-with-image.btn-next {
+    min-width: 12.5rem;
+  }
+}
+
+.circletag {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid $circle-tag-border-color;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.circletag img {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+.voting-status-summary-added-participants {
+  margin-top: 3px;
+}
+
+.font-large {
+  font-size: $font-size-large-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-large;
+  }
+}
+
+.font-medium {
+  color: $primary;
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+}
+
+.font-small {
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+}
+
+.text-bold {
+  color: $primary;
+  font-weight: $font-weight-bold !important;
+}
+
+.text-dark-gray {
+  color: $dark-gray
+}
+
+/* Importing Bootstrap SCSS file.
+@import '~bootstrap/scss/bootstrap'; */

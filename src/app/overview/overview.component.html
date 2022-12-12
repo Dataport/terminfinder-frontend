@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+  <app-stepper [currentStep]="3" data-id="stepperComponent"></app-stepper>
+</div>
+<div class="row justify-content-center mt-4 mb-0">
+  <h2
+    class="text-center"
+    data-id="overviewHeading"
+  >
+    {{ 'poll.checkData' | translate }}
+  </h2>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <div class="section-container">
+          <div class="p-3">
+            <app-appointment-summary [appointment]="model"></app-appointment-summary>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="divider"></div>
+            </div>
+          </div>
+          <app-dates-overview [appointment]="model"></app-dates-overview>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="apiError" class="row mt-2">
+      <app-message-box [message]="apiError" data-id="errorMessageBox"></app-message-box>
+    </div>
+    <app-navigation
+      (backward)="goBack()"
+      (forward)="sendUpdateAppointment()"
+      *ngIf="isAdmin"
+      [hasBackwardButton]="true"
+      [hasForwardButton]="true"
+      [invalid]="false"
+      backwardText="{{ 'navigation.revise' | translate }}"
+      class="btn-next-large"
+      forwardText="{{ 'poll.change' | translate }}"
+    ></app-navigation>
+    <app-navigation
+      (backward)="goBack()"
+      (forward)="sendCreateAppointment()"
+      *ngIf="!isAdmin"
+      [hasBackwardButton]="true"
+      [hasForwardButton]="true"
+      [invalid]="false"
+      backwardText="{{ 'navigation.revise' | translate }}"
+      class="btn-next-large"
+      forwardText="{{ 'poll.start' | translate }}"
+    ></app-navigation>
+  </div>
+</div>

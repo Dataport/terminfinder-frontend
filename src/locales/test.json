@@ -1,0 +1,157 @@
+{
+  "lang": {
+    "language": "."
+  },
+  "navigation": {
+    "back": ".",
+    "nextToDateSelection": ".",
+    "next": ".",
+    "revise": ".",
+    "step": "."
+  },
+  "home": {
+    "planning": ".",
+    "security": ".",
+    "networking": ".",
+    "slogan": ".",
+    "testEnvironmentBanner": "."
+  },
+  "poll": {
+    "create": ".",
+    "createNew": ".",
+    "configure": ".",
+    "start": ".",
+    "pause": ".",
+    "paused": ".",
+    "continue": ".",
+    "continueEverytime": ".",
+    "change": ".",
+    "changeDetails": ".",
+    "addDetails": ".",
+    "checkData": ".",
+    "participate": ".",
+    "edit": ".",
+    "editAlert": ".",
+    "editSaveLastStep": ".",
+    "answer": ".",
+    "addParticipant": ".",
+    "noParticipation": ".",
+    "send": ".",
+    "downloadIcs": ".",
+    "downloadCsv": ".",
+    "title": {
+      "title": ".",
+      "set": ".",
+      "placeholder": ".",
+      "noTitle": ".",
+      "invalid": ".",
+      "tooLong": "."
+    },
+    "details": {
+      "name": {
+        "name": ".",
+        "yourName": ".",
+        "noName": ".",
+        "invalid": ".",
+        "tooLong": "."
+      },
+      "place": {
+        "place": ".",
+        "placeOptional": ".",
+        "invalid": ".",
+        "tooLong": "."
+      },
+      "description": {
+        "description": ".",
+        "descriptionOptional": ".",
+        "tooLong": "."
+      }
+    }
+  },
+  "date": {
+    "choose": ".",
+    "change": ".",
+    "delete": ".",
+    "enter": ".",
+    "start": ".",
+    "add": ".",
+    "rejected": ".",
+    "questionable": ".",
+    "accepted": ".",
+    "placeholder": ".",
+    "setStart": ".",
+    "startInvalid": ".",
+    "startFuture": ".",
+    "end": ".",
+    "setEnd": ".",
+    "endAtOtherDay": ".",
+    "startAfterEnd": ".",
+    "noStart": ".",
+    "inPast": ".",
+    "noValue": ".",
+    "tooMuchValues": "."
+  },
+  "time": {
+    "time": ".",
+    "add": ".",
+    "start": ".",
+    "placeholder": ".",
+    "end": "."
+  },
+  "imprint": {
+    "imprint": ".",
+    "oss": "."
+  },
+  "accessibility": {
+    "accessibility": "."
+  },
+  "privacy": {
+    "privacy": ".",
+    "declaration": "."
+  },
+  "links": {
+    "done": ".",
+    "share": ".",
+    "invite": ".",
+    "loosingLink": ".",
+    "copy": ".",
+    "open": ".",
+    "change": ".",
+    "satisfactionSurvey": ".",
+    "satisfactionSurveyButton": "."
+  },
+  "password": {
+    "password": ".",
+    "minimum": ".",
+    "locked": ".",
+    "enter": ".",
+    "placeholder": ".",
+    "placeholderEnter": ".",
+    "placeholderChange": ".",
+    "enterPassword": ".",
+    "changePassword": ".",
+    "invalid": ".",
+    "generate": ".",
+    "securePoll": ".",
+    "set": ".",
+    "setMinimum": ".",
+    "repeat": ".",
+    "noMatch": "."
+  },
+  "participant": {
+    "participants": ".",
+    "select": ".",
+    "name": "."
+  },
+  "settings": {
+    "additional": ".",
+    "change": "."
+  },
+  "tos": {
+    "tos": ".",
+    "accept_0": ".",
+    "accept_1": ".",
+    "accept_2": ".",
+    "accept": "."
+  }
+}

@@ -1,0 +1,244 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+$icon-width: 30px;
+$icon-height: 30px;
+
+.form-control {
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+}
+
+.toolbar {
+  background-color: $toolbar-background-color;
+}
+
+.divider {
+  margin: 0;
+}
+
+.btn-add-participant {
+  .add-participant-icon {
+    height: $form-status-icon-height;
+    width: $form-status-icon-width;
+  }
+}
+
+.circle-tag {
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 4px;
+  margin: 0 8px 0 8px;
+}
+
+img.icon {
+  width: $form-icon-width;
+  height: $form-icon-height;
+}
+
+.icon.icon-edit {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-transparent:hover {
+  background-color: $medium-gray;
+  border-color: $medium-gray;
+}
+
+button.btn-with-image {
+  display: flex;
+  padding-left: 6px;
+  border: 0;
+
+  img {
+    margin-left: 4px;
+    height: $icon-height * 0.66;
+    width: $icon-width * 0.66;
+  }
+
+  text-align: left;
+
+  @include media-breakpoint-up(lg) {
+    img {
+      height: $icon-height;
+      width: $icon-width;
+    }
+  }
+}
+
+.poll-table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  border: none;
+
+  th.suggested-date {
+    position: relative;
+    min-width: $suggested-date-desktop-min-width;
+    max-width: $suggested-date-desktop-max-width;
+    padding: 0.75rem 0.2rem 0.75rem 0.2rem;
+
+    .spacer {
+      flex-grow: 1;
+      min-height: 8px;
+    }
+
+    .table-header-content {
+      min-height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .download-cal {
+      font-size: 16px !important;
+    }
+  }
+
+  td.total-participants {
+    vertical-align: middle;
+    font-size: 1.8rem;
+  }
+
+  td {
+    border-color: $poll-row-border-color;
+  }
+
+  td.suggested-date {
+    width: $suggested-date-desktop-min-width;
+  }
+
+  td.total-participants {
+    padding: 0;
+    width: 50px;
+  }
+
+  img.poll-option-icon {
+    width: $poll-option-width-large;
+    height: $poll-option-width-large;
+  }
+}
+
+.add-participant-form .form-group {
+  margin-bottom: 0;
+}
+
+.voting-status-summary-image {
+  margin-right: 4px;
+
+  img {
+    width: $poll-option-width-small;
+    height: $poll-option-width-small;
+  }
+}
+
+.poll-summary-row {
+  .total-participants {
+    min-width: 320px;
+  }
+
+  border-top: 1px solid $poll-row-border-color;
+
+  .data-cell {
+    min-height: 60px;
+  }
+
+  .poll-summary-data-cell {
+    padding: 0;
+
+    .voting-status-summary-number {
+      vertical-align: sub;
+      font-size: $font-size-small;
+      font-weight: $font-weight-bold !important;
+    }
+  }
+
+  .voting-status-summary-suggestion-date {
+    min-height: 58px;
+  }
+}
+
+#name-add {
+  background: #fff;
+}
+
+$poll-data-cell-invalid-message-min-height: 24px;
+.poll-add-user-row, .poll-edit-user-row, .table-hover tbody tr.poll-add-user-row:hover {
+  background-color: $toolbar-background-color !important;
+
+  .poll-data-cell {
+    width: 350px;
+
+    &.name {
+      background: $toolbar-background-color;
+    }
+
+    .invalid-message {
+      min-height: $poll-data-cell-invalid-message-min-height;
+    }
+
+    .form-check {
+      padding-left: 0;
+      margin-top: 3px;
+
+      .form-check-label {
+        img {
+          height: 20px;
+        }
+      }
+
+      .form-check-input {
+        text-align: center;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-control {
+      color: $primary;
+      border-color: $medium-gray;
+      background-color: $light-gray;
+    }
+
+  }
+
+  img.poll-option-icon {
+    width: $poll-option-width-small;
+    height: $poll-option-width-small;
+  }
+}
+
+.section-container {
+  margin-bottom: 40px;
+}
+
+.section-container label.form-check-label {
+  margin: 0;
+}
+
+.row .form-check {
+  width: $form-status-icon-width-small;
+}
+
+.alert.alert-secondary {
+  font-weight: $font-weight-bold !important;
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+  color: $danger;
+  border: 2px solid $danger;
+  background-color: transparent;
+  border-radius: 0;
+}

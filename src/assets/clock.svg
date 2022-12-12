@@ -1,0 +1,12 @@
+<svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>icn_zeit</title>
+  <g id="Beantworten">
+    <path class="cls-1"
+          d="M4.76,16.76a12,12,0,1,0,12-12A12,12,0,0,0,4.76,16.76Zm9.9-6.13a1.27,1.27,0,1,1,2.54,0V17.4l5.14,3.72a1.27,1.27,0,0,1-1.49,2.06l-5.66-4.1a1.27,1.27,0,0,1-.53-1Z"/>
+  </g>
+</svg>

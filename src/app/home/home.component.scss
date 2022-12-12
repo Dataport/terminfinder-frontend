@@ -1,0 +1,38 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+.circle-text {
+  margin-top: -1 * $spacer;
+}
+
+/* custom styles */
+label[for="title"] {
+  margin-bottom: 0.25 * $spacer;
+  font-weight: $font-weight-bold !important;
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+}
+
+#btn-submit {
+  display: flex;
+  color: $btn-text;
+  background: $secondary;
+  background-origin: content-box;
+  background-size: $form-icon-width * 0.6 $form-icon-height * 0.6;
+  align-items: center;
+  justify-content: space-between;
+  @include media-breakpoint-up(lg) {
+    background-size: $form-icon-width $form-icon-height;
+  }
+}
+
+.icon-create-poll {
+  height: $form-icon-height;
+  width: $form-icon-height;
+}
+
+#btn-submit.disabled, #btn-submit:disabled {
+  @include btn-disabled;
+}

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>icn_plus</title>
+  <g id="Beantworten">
+    <g data-name="Beantworten" id="Beantworten-2">
+      <path class="cls-1"
+            d="M25,8a12,12,0,1,0,0,17A12.06,12.06,0,0,0,25,8ZM23.5,18H18v5.5H15V18H9.5V15H15V9.5h3V15h5.5Z"/>
+    </g>
+  </g>
+</svg>

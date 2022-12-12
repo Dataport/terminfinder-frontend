@@ -1,0 +1,87 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+#name {
+  color: $primary;
+}
+
+#title {
+  color: $primary;
+}
+
+#location {
+  color: $primary;
+}
+
+#description {
+  color: $primary;
+}
+
+img.icon {
+  height: 30px;
+  width: 30px;
+}
+
+.header {
+  color: $primary;
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+  font-weight: $font-weight-bold !important;
+}
+
+.value {
+  //color: $bootstrap-form-control-color;
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+  word-wrap: break-word;
+}
+
+#descriptionContainer div.collapse:not(.show) {
+  height: 1.5em !important;
+  overflow: hidden;
+  display: block;
+}
+
+#descriptionContainer div.collapsing {
+  min-height: 1.5rem !important;
+}
+
+#description {
+  position: relative;
+  text-align: justify;
+  padding-right: 1em;
+}
+
+#description:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#description:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+
+#descriptionContainer a {
+  font-weight: $font-weight-bold !important;
+  text-decoration: underline;
+}
+
+#descriptionContainer a.collapsed:after {
+  content: 'mehr';
+}
+
+#descriptionContainer a:not(.collapsed):after {
+  content: 'weniger';
+}

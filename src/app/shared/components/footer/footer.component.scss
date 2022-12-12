@@ -1,0 +1,75 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+#email {
+  color: $secondary;
+}
+
+#contact {
+  display: block;
+  text-align: center;
+  width: 100%;
+  color: $footer-text-color;
+  margin-bottom: 8px;
+}
+
+#contact * {
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+}
+
+#contact img {
+  width: 60px;
+  height: 60px;
+}
+
+#contact > a {
+  color: $secondary;
+}
+
+#contact > a:hover {
+  color: $secondary;
+  text-decoration: underline;
+}
+
+#reference {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 0 4px 0 4px;
+  color: $footer-text-color;
+  margin-bottom: 8px;
+  font-size: $font-size-small-mobile;
+
+  a {
+    color: $footer-text-color;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+}
+
+#links {
+  margin-top: 1em;
+  display: contents;
+
+  a {
+    font-size: $font-size-small-mobile;
+    @include media-breakpoint-up(lg) {
+      font-size: $font-size-small;
+    }
+    color: $dark-gray;
+    text-decoration: none;
+    margin: 0 4px 0 4px;
+  }
+}
+
+#impressum {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-top: 10pt;
+}

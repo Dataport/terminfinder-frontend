@@ -1,0 +1,23 @@
+@import "src/default";
+
+.btn {
+  color: $btn-text;
+  min-width: 140px !important;
+  font-size: $font-size-large;
+  font-weight: $font-weight-normal;
+  margin-top: 5px;
+}
+
+.btn-with-image {
+  color: $btn-text;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+
+:host.btn-next-large {
+  color: $btn-text;
+
+  .btn.btn-next.btn-with-image {
+    min-width: 172px !important;
+  }
+}

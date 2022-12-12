@@ -1,0 +1,29 @@
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #f5f6f7;
+      stroke: #003064;
+      stroke-miterlimit: 10;
+    }
+
+    .cls-2 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>icons_terminfinder</title>
+  <g id="Dashboard">
+    <g id="Back">
+      <circle class="cls-1" cx="40" cy="40" r="34.5"/>
+    </g>
+  </g>
+  <g id="Beantworten">
+    <g data-name="Beantworten" id="Beantworten-2">
+      <path class="cls-2"
+            d="M58.73,43.6a9.45,9.45,0,1,0,0,13.37A9.48,9.48,0,0,0,58.73,43.6Zm-1.17,7.87H53.22V55.8H50.86V51.47H46.53V49.1h4.33V44.77h2.36V49.1h4.34Z"/>
+    </g>
+    <path class="cls-2"
+          d="M47.6,26H45.46V21.69a1.42,1.42,0,1,0-2.83,0V26H28.44V21.69a1.42,1.42,0,1,0-2.83,0V26H23.47a5,5,0,0,0-4.89,4.25h33.9A4.93,4.93,0,0,0,47.6,26Z"/>
+    <path class="cls-2"
+          d="M39.76,50.28a12.23,12.23,0,0,1,3.59-8.69l0,0h-.77V35.88H48.3v2.7A12.6,12.6,0,0,1,52,38l.51,0V33h-34V50.78a5,5,0,0,0,4.95,4.95H41A12.2,12.2,0,0,1,39.76,50.28Zm-11.32,1.2H22.77V45.8h5.67Zm0-9.93H22.77V35.88h5.67Zm9.93,9.93H32.7V45.8h5.67Zm0-9.93H32.7V35.88h5.67Z"/>
+  </g>
+</svg>

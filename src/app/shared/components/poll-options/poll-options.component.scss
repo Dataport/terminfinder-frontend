@@ -1,0 +1,14 @@
+@import "src/default";
+
+.form-check-label {
+  margin: 0;
+
+  img {
+    width: $poll-option-width-small;
+    height: $poll-option-width-small;
+  }
+}
+
+.max-content {
+  min-width: max-content;
+}

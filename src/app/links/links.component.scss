@@ -1,0 +1,84 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+$icon-width: 30px;
+$icon-height: 30px;
+
+.link {
+  display: block;
+  color: black;
+
+  @include media-breakpoint-up(lg) {
+    word-wrap: break-word;
+  }
+
+  @include media-breakpoint-down(md) {
+    word-wrap: break-word;
+  }
+
+  font-size: $font-size-medium-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+  font-weight: $font-weight-normal;
+}
+
+.link-container {
+  border: 1px solid $circle-tag-border-color;
+  border-radius: 0.5rem;
+  background-color: $light-gray;
+}
+
+.btn {
+  font-size: $font-size-medium-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
+}
+
+.button-row {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.btn-transparent:hover {
+  background-color: $medium-gray;
+  border-color: $medium-gray;
+}
+
+button.btn-with-image {
+  display: flex;
+  color: $primary;
+  padding-left: 6px;
+  border: 0;
+
+  img {
+    margin-left: 4px;
+    height: $icon-height * 0.66;
+    width: $icon-width * 0.66;
+  }
+
+  text-align: left;
+
+  @include media-breakpoint-up(lg) {
+    img {
+      height: $icon-height;
+      width: $icon-width;
+    }
+  }
+}
+
+.text-danger {
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+}
+
+.link-description {
+  font-size: $font-size-medium-mobile;
+  font-weight: bold;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
+}

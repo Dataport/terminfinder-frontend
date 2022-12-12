@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress XmlUnusedNamespaceDeclaration, CssUnknownProperty -->
+<svg style="enable-background:new 0 0 48 48;" viewBox="0 0 48 48" x="0px"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
+  <style type="text/css">
+    .st49 {
+      fill: none;
+      stroke: #C0392B;
+      stroke-width: 8;
+      stroke-miterlimit: 10;
+    }
+  </style>
+  <g id="Backround">
+  </g>
+  <g id="Startseite">
+    <g id="Sprache_auswählen">
+    </g>
+  </g>
+  <g id="Detaileingabe">
+  </g>
+  <g id="Termineingabe">
+  </g>
+  <g id="Einstellungen">
+  </g>
+  <g id="Termineingabe_x5F_opionen">
+  </g>
+  <g id="Übersicht">
+  </g>
+  <g id="Bearbeiten">
+  </g>
+  <g id="Beantworten">
+    <g>
+      <line class="st49" x1="37.9" x2="10.1" y1="37.9" y2="10.1"/>
+      <line class="st49" x1="37.9" x2="10.1" y1="10.1" y2="37.9"/>
+    </g>
+  </g>
+  <g id="Links">
+  </g>
+  <g id="Header_x2F_Back">
+  </g>
+</svg>

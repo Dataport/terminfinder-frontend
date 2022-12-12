@@ -1,0 +1,224 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+$border-color-input: $medium-gray;
+$border-color-divider-icon-input: $border-color-input;
+$height-icon: 2rem;
+$width-icon: 2rem;
+
+// overwrite some bootstrap defaults for improved display
+
+form {
+  @include media-breakpoint-down(md) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-control {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+//input.form-control {
+//  font-size: $font-size-medium-mobile !important;
+//  @include media-breakpoint-up(lg) {
+//    font-size: $font-size-large !important;
+//  }
+//}
+
+.ngb-tp-input-container .form-control {
+  font-size: $font-size-large-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-large;
+  }
+  font-weight: $font-weight-normal;
+}
+
+// overwrite some global styles
+
+.btn {
+  min-width: 1px;
+  //font-size: $font-size-medium-mobile !important;
+  //@include media-breakpoint-up(lg) {
+  //  font-size: $font-size-large !important;
+  //}
+}
+
+// component-specific classes
+
+.section-container {
+  margin-top: 20px;
+}
+
+.section-container:first-child {
+  margin-top: 0;
+}
+
+.section-container .input-group .form-control {
+  border: 1px solid $medium-gray !important;
+  border-radius: 0.5em !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.btn-with-image.btn-add-suggested-date, .btn-with-image.btn-suggested-date-end-at-different-day {
+  color: $primary;
+  background-size: $height-icon * 0.8 $width-icon * 0.8;
+  @include media-breakpoint-up(lg) {
+    background-size: $height-icon $width-icon;
+  }
+  min-width: 100%;
+}
+
+.btn-with-image.btn-add-suggested-date {
+  @include media-breakpoint-down(md) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.btn-with-image.btn-suggested-date-end-at-different-day {
+  img {
+    height: $height-icon;
+    width: $width-icon;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .btn-with-image.btn-add-suggested-date, .btn-with-image.btn-suggested-date-end-at-different-day {
+    min-width: 22rem;
+  }
+}
+
+$input-background-color: $light-gray;
+
+.input-group-prepend, input {
+  background-color: $input-background-color !important;
+}
+
+.input-group-prepend {
+  border-top: 0.0625rem solid $border-color-input !important;
+  border-bottom: 0.0625rem solid $border-color-input !important;
+  border-left: 0.0625rem solid $border-color-input !important;
+}
+
+input {
+  border-top-color: $border-color-input !important;
+  border-right-color: $border-color-input !important;
+  border-bottom-color: $border-color-input !important;
+
+  &:focus {
+    border-top-color: $input-focus-border-color !important;
+    border-right-color: $input-focus-border-color !important;
+    border-bottom-color: $input-focus-border-color !important;
+  }
+}
+
+.section-container[aria-readonly=true] > :not(.section-title) {
+  opacity: 0.7;
+}
+
+.section-container label {
+  margin: 0;
+}
+
+.input-group-prepend {
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+.input-group-text {
+  padding: 0 0.5rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.3125rem;
+  background-color: transparent;
+
+  img {
+    height: $height-icon * 0.8;
+    width: $width-icon * 0.8;
+    @include media-breakpoint-up(lg) {
+      height: $height-icon;
+      width: $width-icon;
+    }
+    vertical-align: sub;
+  }
+}
+
+.input-group-divider {
+  border-right: 0.0625rem solid $border-color-divider-icon-input;
+}
+
+.input-group > .form-control, .input-group > .custom-select, .input-group > .custom-file {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+
+.input-group > .input-group-prepend > .input-group-text {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group input {
+  outline: none;
+
+  &:focus {
+    border-color: $border-color-input !important;
+  }
+}
+
+.btn-delete-date img.icon {
+  height: $height-icon * 0.8;
+  width: $width-icon * 0.8;
+  @include media-breakpoint-up(lg) {
+    height: $height-icon;
+    width: $width-icon;
+  }
+}
+
+.correct-delete-button-width {
+  margin-left: $width-icon;
+}
+
+//noinspection CssUnusedSymbol
+.suggested-date-timepicker-start button.btn-timepicker,
+  //noinspection CssUnusedSymbol
+.suggested-date-timepicker-start button.btn-timepicker:active {
+  background-origin: border-box;
+  color: $primary;
+  font-weight: bold;
+  border-radius: $border-radius;
+  border: 1px solid $border-color-input;
+  box-shadow: none;
+  text-align: left;
+
+  // TODO this is a workaround for alignment, till we make bootstrap use our font-sizes
+  padding-top: 5.92px;
+  padding-bottom: 5.92px;
+
+  height: 39.84px;
+  margin-top: 26px;
+
+  @include media-breakpoint-up(lg) {
+    height: 46px;
+    margin-top: 30px;
+  }
+}
+
+.no-padding {
+  padding-left: 0 !important;
+}

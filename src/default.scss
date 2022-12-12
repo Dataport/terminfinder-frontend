@@ -1,0 +1,84 @@
+$derivate: 'default';
+$primary: #003064;
+$secondary: #d4004b;
+$light-gray: #F5F6F7;
+$medium-gray: #A4ADB6;
+$dark-gray: #666666;
+$s-h-blue: $primary;
+$s-h-blue-50: #8497af;
+$s-h-blue-15: #d9dfe7;
+$s-h-light-blue: #c9daef;
+$input-focus-border-color: $primary;
+$danger: $secondary;
+$stepperLine: $medium-gray;
+$btn-text: #ffffff;
+$border-radius: 0.5rem;
+$border-radius-lg: 1rem;
+$border-radius-sm: 0.2rem;
+$btn-border-radius: 4rem;
+$input-color: black;
+$input-border-color: transparent;
+$input-focus-box-shadow: none;
+$input-invalid-color: #bb0042;
+$divider-background-color: #f5f6f7;
+$divider-border-color: #8c8c8c;
+$poll-data-cell-border-left-right-color: #d9d9d9;
+$poll-data-cell-background-color: $s-h-blue-15;
+$poll-row-border-color: #d9d9d9;
+$circle-tag-border-color: $poll-row-border-color;
+$theme-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 2px 5px 0 rgba(0, 0, 0, 0.18);
+$primary-background-color: $s-h-light-blue;
+$toolbar-background-color: $s-h-blue-15;
+$form-icon-width: 1.8rem;
+$form-icon-height: 1.8rem;
+$form-status-icon-width: 30px;
+$form-status-icon-height: 30px;
+$form-status-icon-width-small: 20px;
+$form-status-icon-height-small: 20px;
+$poll-option-width-small: 30px;
+$poll-option-height-small: 30px;
+$poll-option-width-large: 50px;
+$poll-option-height-large: 50px;
+$bootstrap-form-control-color: black; /* #495057; */
+$head-logo-width: auto !important;
+$head-logo-height: 6rem !important;
+$suggested-date-desktop-min-width: 140px;
+$suggested-date-desktop-max-width: 160px;
+$suggested-date-mobile-min-width: 70px;
+$suggested-date-mobile-max-width: 100px;
+$font-size-small: 16px;
+$small-font-size: $font-size-small;
+$font-size-medium: 20px;
+$font-size-large: 32px;
+$font-size-x-large: 32px;
+$font-size-small-mobile: 12pt;
+$font-size-medium-mobile: 13pt;
+$font-size-large-mobile: 15pt;
+$font-size-x-large-mobile: 20pt;
+$font-weight-light: 400;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+$font-weight-x-bold: 900;
+$headings-font-weight: $font-weight-normal;
+$btn-font-weight: $font-weight-normal;
+$btn-box-shadow: $theme-shadow;
+$link-color: $primary;
+$label-margin-bottom: 0;
+$footer-text-color: $secondary;
+$spacer: 1rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@mixin btn-disabled {
+  opacity: 1;
+  background-color: #a4adb6 !important;
+  color: #ffffff !important;
+  box-shadow: none;
+  border: none;
+}

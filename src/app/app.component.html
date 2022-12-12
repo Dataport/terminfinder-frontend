@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center" id="head">
+    <img alt="Logo" class="col-2 col-md-3" data-id="headerLogo" id="logo" src="assets/logo.svg">
+    <h1 class="col header-title" data-id="headerTitle">
+      {{ headlineHome }}
+    </h1>
+    <div class="col-2 col-md-3 d-flex justify-content-end">
+      <div class="d-inline-block" ngbDropdown placement="bottom-right">
+        <label class="sr-only" id="language">{{ 'lang.language' | translate }}</label>
+        <button
+          class="btn btn-outline-primary"
+          data-id="languageDropdown"
+          ngbDropdownToggle
+          title="{{ 'lang.language' | translate }}"
+        >
+          <span *ngIf="localeService.getLocale().languageCode === 'de-DE'">DE</span>
+          <span *ngIf="localeService.getLocale().languageCode === 'en-EN'">EN</span>
+        </button>
+        <div aria-labelledby="language" ngbDropdownMenu>
+          <button (click)="changeLanguage('de-DE')" class="dropdown-item" data-id="langGerman">Deutsch</button>
+          <button (click)="changeLanguage('en-EN')" class="dropdown-item" data-id="langEnglish">English</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngb-toast
+    *ngIf="connectionError"
+    [autohide]="false"
+    class="connectionError"
+    data-cy="connectionErrorNotification"
+  >
+    Wichtige Bestandteile der Seite konnten nicht geladen werden. Bitte laden Sie die Seite neu!
+  </ngb-toast>
+  <div class="row justify-content-center" id="main">
+    <div class="col-12 py-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="row d-none d-lg-block" id="bottom-edge"></div>
+  <div class="row justify-content-center">
+    <div class="col-12 py-2">
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

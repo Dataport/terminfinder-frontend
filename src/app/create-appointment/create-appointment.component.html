@@ -1,0 +1,175 @@
+<div class="row justify-content-center">
+  <app-stepper [currentStep]="0" data-id="stepperComponent"></app-stepper>
+</div>
+<div class="row justify-content-center mt-4 mb-0">
+  <h2 *ngIf="!isAdmin" class="text-center mb-2" data-id="addDetailsHeading">
+    {{ 'poll.addDetails' | translate }}
+  </h2>
+  <h2 *ngIf="isAdmin" class="text-center">
+    {{ 'poll.change' | translate }}
+  </h2>
+</div>
+<app-admin-info *ngIf="isAdmin"></app-admin-info>
+<form (ngSubmit)="onSubmit()" [formGroup]="detailsForm" class="row justify-content-center wizard">
+  <div class="col-11 col-lg-8">
+    <div class="row justify-content-center px-3">
+      <div class="section-container w-100 p-4">
+        <div [ngClass]="{'has-error': title.invalid  && (title.dirty || title.touched)}"
+             class="form-group-divider form-group">
+          <div class="row no-gutters">
+            <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
+              <img alt="key" class="icon m-2 mt-3 mt-lg-4" src="assets/title.svg">
+            </div>
+            <div class="col">
+              <label data-id="titleLabel" for="title">{{ 'poll.title.placeholder' | translate }}</label>
+              <input class="form-control" data-id="titleInput" formControlName="title" id="title"
+                     placeholder="{{ 'poll.title.title' | translate }}" type="text">
+              <div
+                *ngIf="(title.dirty || title.touched) && !!title.errors?.required" class="invalid-message"
+                data-id="msgRequiredTitle"
+                id="required-title"
+              >
+                {{ 'poll.title.noTitle' | translate }}
+              </div>
+              <div
+                *ngIf="!!title.errors?.invalidName"
+                class="invalid-message"
+                data-id="msgInvalidTitle"
+                id="invalid-title"
+              >
+                {{ 'poll.title.invalid' | translate }}
+              </div>
+              <div
+                *ngIf="!!title.errors?.maxlength"
+                class="invalid-message"
+                data-id="msgLongTitle"
+                id="maxLength-title"
+              >
+                {{ 'poll.title.tooLong' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div [ngClass]="{'has-error': name.invalid  && (name.dirty || name.touched)}"
+             class="form-group-divider form-group">
+          <div class="row no-gutters">
+            <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
+              <img alt="key" class="icon m-2 mt-3 mt-lg-4" src="assets/user.svg">
+            </div>
+            <div class="col">
+              <label data-id="nameLabel" for="name">{{ 'poll.details.name.yourName' | translate }}</label>
+              <input
+                appAutoFocus
+                class="form-control"
+                data-id="nameInput"
+                formControlName="name"
+                id="name"
+                placeholder="{{ 'poll.details.name.name' | translate }}"
+                required
+                type="text"
+              >
+              <div
+                *ngIf="(name.dirty || name.touched) && !!name.errors?.required"
+                class="invalid-message"
+                data-id="msgRequiredName"
+              >
+                {{ 'poll.details.name.noName' | translate }}
+              </div>
+              <div
+                *ngIf="!!name.errors?.invalidName"
+                class="invalid-message"
+                data-id="msgInvalidName"
+                id="invalid-name"
+              >
+                {{ 'poll.details.name.invalid' | translate }}
+              </div>
+              <div
+                *ngIf="!!name.errors?.maxlength"
+                class="invalid-message"
+                data-id="msgLongName"
+              >
+                {{ 'poll.details.name.tooLong' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div [ngClass]="{'has-error': location.invalid  && (location.dirty || location.touched)}"
+             class="form-group-divider form-group">
+          <div class="row no-gutters">
+            <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
+              <img alt="Ort" class="icon m-2 mt-3 mt-lg-4" src="assets/location.svg">
+            </div>
+            <div class="col">
+              <label data-id="locationLabel" for="location">{{ 'poll.details.place.placeOptional' | translate }}</label>
+              <input
+                class="form-control"
+                data-id="locationInput"
+                formControlName="location"
+                id="location"
+                placeholder="{{ 'poll.details.place.place' | translate }}"
+                type="text"
+              >
+              <div
+                *ngIf="!!location.errors?.invalidName"
+                class="invalid-message"
+                data-id="msgInvalidLocation"
+                id="invalid-location"
+              >
+                {{ 'poll.details.place.invalid' | translate }}
+              </div>
+              <div
+                *ngIf="!!location.errors?.maxlength"
+                class="invalid-message"
+                data-id="msgLongLocation"
+                id="maxLength-location"
+              >
+                {{ 'poll.details.place.tooLong' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div [ngClass]="{'has-error': description.invalid  && (description.dirty || description.touched)}"
+             class="form-group-divider form-group">
+          <div class="row no-gutters">
+            <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
+              <img alt="Sprechblase" class="icon m-2 mt-3 mt-lg-4" src="assets/description.svg">
+            </div>
+            <div class="col">
+              <label
+                data-id="descriptionLabel"
+                for="description"
+              >
+                {{ 'poll.details.description.descriptionOptional' | translate }}
+              </label>
+              <textarea
+                class="form-control"
+                data-id="descriptionInput"
+                formControlName="description"
+                id="description"
+                placeholder="{{ 'poll.details.description.description' | translate }}"
+                rows="4"
+                type="text"
+              ></textarea>
+              <div
+                *ngIf="!!description.errors?.maxlength"
+                class="invalid-message"
+                data-id="msgLongDescription"
+                id="maxLength-description"
+              >
+                {{ 'poll.details.description.tooLong' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-navigation
+      (forward)="onSubmit()"
+      [hasBackwardButton]="false"
+      [hasForwardButton]="true"
+      [invalid]="detailsForm.invalid"
+      data-id="navigationComponent"
+      forwardText="{{ 'navigation.nextToDateSelection' | translate }}"
+    ></app-navigation>
+  </div>
+</form>

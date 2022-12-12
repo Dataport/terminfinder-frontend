@@ -1,0 +1,14 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>icons_terminfinder</title>
+  <g id="Beantworten">
+    <path class="cls-1" d="M7,29a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1V11H7Z"/>
+    <path class="cls-1"
+          d="M26.69,7.76,26,5H21V3a1.15,1.15,0,0,0-1.25-1h-7.5A1.15,1.15,0,0,0,11,3V5H6L5.31,7.76A1,1,0,0,0,6.28,9H25.72A1,1,0,0,0,26.69,7.76ZM13,5V4h6V5Z"/>
+    <rect class="cls-1" height="19" width="18" x="7" y="11"/>
+  </g>
+</svg>

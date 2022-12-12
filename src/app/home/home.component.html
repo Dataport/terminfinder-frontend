@@ -1,0 +1,92 @@
+<div class="row no-gutters justify-content-center">
+  <div class="col-11 col-lg-8">
+    <div *ngIf="!isProduction()" class="row alert alert-warning" data-id="testBanner">
+      {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
+    </div>
+    <div *ngFor="let notification of localUserNotifications" class="row alert alert-warning">
+      {{notification.message}}
+    </div>
+    <div class="row no-gutters justify-content-between" data-id="adIcons">
+      <div class="col">
+        <img alt="Planung" src="assets/search.svg">
+        <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.planning' | translate }}</h3>
+      </div>
+      <div class="col">
+        <img alt="Sicherheit" src="assets/lock.svg">
+        <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.security' | translate }}</h3>
+      </div>
+      <div class="col">
+        <img alt="Vernetzung" src="assets/calendar_network.svg">
+        <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.networking' | translate }}</h3>
+      </div>
+    </div>
+    <div class="row justify-content-center my-2 my-lg-4" data-id="createPollSlogan">
+      <h2 class="text-center">
+        {{ 'home.slogan' | translate }}
+      </h2>
+    </div>
+    <div class="row no-gutters justify-content-center">
+      <form (ngSubmit)="onSubmit()" [formGroup]="titleForm" class="col">
+        <div class="form-row justify-content-center">
+          <label class="col" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>
+        </div>
+        <div class="form-row mb-2">
+          <div class="col">
+            <input
+              class="form-control"
+              data-id="createPollInput"
+              formControlName="title"
+              id="title"
+              placeholder="{{ 'poll.title.placeholder' | translate }}"
+              required
+              type="text">
+            <div
+              *ngIf="(title.dirty || title.touched) && !!title.errors?.required"
+              class="invalid-message"
+              data-id="msgRequiredTitle"
+            >
+              {{ 'poll.title.noTitle' | translate }}
+            </div>
+            <div
+              *ngIf="!!title.errors?.invalidName"
+              class="invalid-message"
+              data-id="msgInvalidTitle"
+              id="invalid-title"
+            >
+              {{ 'poll.title.invalid' | translate }}
+            </div>
+            <div
+              *ngIf="!!title.errors?.maxlength"
+              class="invalid-message"
+              data-id="msgLongTitle"
+            >
+              {{ 'poll.title.tooLong' | translate }}
+            </div>
+          </div>
+        </div>
+        <app-tos [tosFormGroup]="titleForm" data-id="tosComponent"></app-tos>
+        <div class="form-row mt-2">
+          <div class="col pt-3">
+            <button
+              [disabled]="titleForm.invalid"
+              class="btn btn-secondary w-100"
+              data-id="createPollButton"
+              id="btn-submit"
+              type="submit"
+            >
+              <span class="icon-create-poll"></span>
+              {{ 'poll.create' | translate }}
+              <img alt="{{ 'poll.create' | translate }}" class="icon-create-poll"
+                   src="assets/icn_umfrage_erstellen.svg">
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="apiError" class="row mt-2">
+      <div class="col">
+        <app-message-box [message]="apiError" data-id="apiErrorComponent"></app-message-box>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+div {
+  font-weight: $font-weight-light;
+}
+
+.date-time-entry {
+  line-height: 1.5em;
+}
+
+.day {
+  font-size: $font-size-medium;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.date-time-divider {
+  height: 30px;
+  border-right: 1px solid $dark-gray;
+}
+
+.hyphen {
+  font-size: 25px;
+}
+
+.suggested-date-container .column {
+  font-size: $font-size-small;
+}
+
+.suggested-date-container {
+  @include media-breakpoint-up(lg) {
+    min-width: $suggested-date-desktop-min-width;
+    max-width: $suggested-date-desktop-max-width;
+    .column {
+      width: $suggested-date-desktop-min-width * 0.4;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    max-width: $suggested-date-mobile-max-width;
+    .column {
+      width: $suggested-date-mobile-max-width * 0.4;
+    }
+  }
+}

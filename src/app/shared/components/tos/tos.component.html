@@ -1,0 +1,29 @@
+<div class="col section-container p-2">
+  <div class="row no-gutters align-items-center">
+    <div class="col-11" data-id="tos">
+      <label for="tos">
+        {{ 'tos.accept_0' | translate }}
+        <a data-cy="tosLink" routerLink="/termsOfService">{{ 'tos.tos' | translate }}</a>
+        {{ 'tos.accept_1' | translate }}
+        <a data-cy="tosPrivacyLink" routerLink="/privacy">{{ 'privacy.declaration' | translate }}</a>
+        {{ 'tos.accept_2' | translate }}
+      </label>
+    </div>
+    <div class="col-1">
+      <div class="row align-items-center justify-content-center">
+        <label class="checkbox align-self-center align-middle">
+          <input [formControl]="isTosRead" id="tos" type="checkbox" value="">
+          <span class="checkbox-box" data-id="tosCheckbox">
+            <i class="checkbox-icon fa fa-check"></i>
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      *ngIf="(isTosRead.dirty || isTosRead.dirty) &&  isTosRead.invalid"
+      class="col-12 invalid-message"
+    >
+      {{ 'tos.accept' | translate }}
+    </div>
+  </div>
+</div>

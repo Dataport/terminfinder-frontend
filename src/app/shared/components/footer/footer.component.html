@@ -1,0 +1,20 @@
+<div class="row justify-content-center" data-id="footer">
+
+  <div *ngIf="email" id="contact">
+    <a href="mailto:{{email}}">
+      <div><img alt="contact" src="assets/contact.svg"></div>
+    </a>
+    <div>e-mail: <a href="mailto:{{email}}" id="email">{{email}}</a></div>
+  </div>
+
+  <div id="reference">
+    Ein Angebot von <a href="https://dataport.de" target="_blank">Dataport</a>
+    und dem <a href="https://schleswig-holstein.de" target="_blank">Land Schleswig-Holstein</a>
+  </div>
+
+  <div id="links">
+    <a data-cy="imprintLink" routerLink="/imprint">{{ 'imprint.imprint' | translate }}</a>
+    <a data-cy="accessibilityLink" routerLink="/accessibility">{{ 'accessibility.accessibility' | translate }}</a>
+    <a data-cy="privacyLink" routerLink="/privacy">{{ 'privacy.privacy' | translate }}</a>
+  </div>
+</div>

@@ -1,0 +1,374 @@
+<div *ngIf="model" class="row justify-content-center">
+  <div class="col-12 text-center">
+  </div>
+  <div class="col-12">
+    <h2 class="text-center" data-id="pollHeading">
+      {{ 'poll.answer' | translate }} {{model.name}}
+    </h2>
+  </div>
+</div>
+<div class="row mt-4 justify-content-center">
+  <app-message-box *ngIf="apiError" [message]="apiError"></app-message-box>
+</div>
+<div *ngFor="let notification of localUserNotifications" class="col my-2 alert alert-warning">
+  {{notification.message}}
+</div>
+<form *ngIf="formHelper" [formGroup]="formHelper.pollForm">
+  <div class="row">
+    <div class="col">
+      <div *ngIf="model" class="section-container">
+        <div class="pt-2 px-3">
+          <app-appointment-summary [appointment]="model" [showUsername]="false"></app-appointment-summary>
+        </div>
+        <div *ngIf="isAppointmentPaused" class="alert alert-secondary">
+          {{ 'poll.paused' | translate }}
+        </div>
+        <div class="divider">
+          <div class="d-lg-none font-small font-weight-bold px-3 py-2" data-id="numberParticipants">
+            {{formHelper.getNumberOfParticipants()}} {{ 'participant.participants' | translate }}
+          </div>
+        </div>
+
+        <!-- mobile table -->
+        <app-mobile-poll-table></app-mobile-poll-table>
+
+        <!-- desktop table -->
+        <table class="table table-striped table-hover mb-0 table-bordered poll-table d-none d-lg-block">
+          <!-- first row contains the suggested dates -->
+          <thead class="h-100" data-id="tableHead">
+          <tr class="h-100">
+            <th>
+              <button
+                (click)="formHelper.downloadCsv()"
+                class="download-csv btn btn-rounded btn-sm btn-light"
+                data-id="downloadCsvButton"
+                data-placement="top"
+                data-toggle="tooltip"
+                id="download-csv"
+                title="{{ 'poll.downloadCsv' | translate }}"
+                type="button"
+              >
+                <img alt="{{ 'poll.downloadCsv' | translate }}" aria-hidden="true" src="assets/calendar_grey.svg">
+              </button>
+            </th>
+            <th *ngFor="let date of model.suggestedDates; index as i"
+                class="suggested-date text-center font-weight-normal">
+              <div class="table-header-content">
+                <app-suggested-date [date]="date" id="suggested-date-{{i}}"></app-suggested-date>
+                <div class="spacer"></div>
+                <button
+                  (click)="formHelper.downloadCal(date, i)"
+                  class="download-cal btn btn-rounded btn-sm btn-light"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="download-cal-{{i}}"
+                  title="{{ 'poll.downloadIcs' | translate }}"
+                  type="button"
+                >
+                  <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
+                </button>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody data-id="tableBody">
+          <!-- summary row -->
+          <tr class="poll-summary-row">
+            <td class="total-participants">
+              <div class="row no-gutters align-items-center">
+                <!-- total participants -->
+                <div class="col-7 ml-3 font-small text-bold participant-summary" data-id="participantSummary">
+                  {{formHelper.getNumberOfParticipants()}} {{ 'participant.participants' | translate }}
+                </div>
+                <!-- button to add a participant -->
+                <div *ngIf="!formHelper.hasAddOrEditParticipantForm() && !isAppointmentPaused" class="col-4">
+                  <button
+                    (click)="formHelper.addParticipant()"
+                    class="btn btn-round btn-secondary btn-add-participant float-right"
+                    data-id="addParticipantButton"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                    id="add-participant"
+                    title="{{ 'poll.addParticipant' | translate }}"
+                    type="button"
+                  >
+                    <img alt="" aria-hidden="true" class="add-participant-icon" src="assets/add-user.svg">
+                  </button>
+                </div>
+              </div>
+            </td>
+            <!-- amount of confirmations per date -->
+            <td *ngFor="let date of model.suggestedDates; index as index" class="text-center poll-summary-data-cell">
+              <div
+                class="row no-gutters justify-content-center voting-status-summary-suggestion-date align-items-center">
+                <div class="d-inline-block voting-status-summary-image">
+                  <img alt="checkmark" aria-hidden="true" class="align-text-bottom" src="assets/status_accepted.svg">
+                </div>
+                <div class="font-weight-bold d-inline-block voting-status-summary-number" id="summary-column-{{index}}">
+                  {{formHelper.getNumberOfAcceptedVotingsBySuggestedDate(date.suggestedDateId)}}
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- ui elements to add a participant -->
+          <tr (keydown.enter)="$event.preventDefault()" *ngIf="formHelper.hasAddParticipantForm()"
+              [formGroup]="formHelper.getParticipantForm()"
+              class="poll-add-user-row">
+            <td class="p-2 poll-data-cell name">
+              <div class="row no-gutters">
+                <!-- name -->
+                <div
+                  [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
+                  && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
+                  class="col-10 form-group">
+                  <label class="sr-only" for="name-add">{{ 'poll.details.name.name' | translate }}</label>
+                  <input
+                    appAutoFocus
+                    class="form-control ml-2 name-add"
+                    data-id="nameInput"
+                    formControlName="name"
+                    id="name-add"
+                    placeholder="{{ 'participant.name' | translate }}"
+                    type="text"
+                  >
+                </div>
+                <!-- button to remove the form elements (so the participant won't be added) -->
+                <div class="ml-2 col-auto">
+                  <button
+                    (click)="formHelper.deleteParticipantForm()"
+                    class="btn btn-round p-0 btn-transparent btn-trash w-100 h-100"
+                    data-id="deleteParticipantButton"
+                    id="delete-new-participant"
+                    type="button"
+                  >
+                    <img alt="trashcan" class="icon" src="assets/trash.svg"/>
+                  </button>
+                </div>
+                <div class="w-100"></div>
+                <!-- validation messages -->
+                <div class="col-auto">
+                  <div
+                    *ngIf="(formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
+                    && !!formHelper.getParticipantFormName().errors?.required"
+                    class="invalid-message ml-2"
+                    data-id="noNameMsg"
+                  >
+                    {{ 'poll.details.name.noName' | translate }}
+                  </div>
+                  <div
+                    *ngIf="!!formHelper.getParticipantFormName().errors?.invalidName" class="invalid-message"
+                    data-id="nameInvalidMsg"
+                    id="invalid-add-name"
+                  >
+                    {{ 'poll.details.name.invalid' | translate }}
+                  </div>
+                  <div
+                    *ngIf="!!formHelper.getParticipantFormName().errors?.maxlength"
+                    class="invalid-message"
+                    data-id="tooLongMsg"
+                  >
+                    {{ 'poll.details.name.tooLong' | translate }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <!-- the new participant's poll options -->
+            <ng-container *ngIf="formHelper.getParticipantFormVotings()">
+              <td
+                *ngFor="let voting of formHelper.getParticipantFormVotings().controls; index as j"
+                [formGroup]="formHelper.castToFormGroup(voting)"
+                class="p-0 align-middle"
+              >
+                <app-poll-options
+                  [formGroup]="formHelper.castToFormGroup(voting)"
+                  [isMobile]="false"
+                  [selectorId]="j.toString()"
+                ></app-poll-options>
+              </td>
+            </ng-container>
+          </tr>
+
+          <!-- display the votings of all participants -->
+          <tr *ngFor="let participant of model.participants; index as index"
+              [ngClass]="{'poll-edit-user-row': formHelper.isEditInParticipantForm(participant.participantId)}">
+            <!-- if the current row is not being edited just display the name & votes of the participant -->
+            <ng-container *ngIf="!formHelper.isEditInParticipantForm(participant.participantId)">
+              <td class="pl-3 align-middle">
+                <!-- name -->
+                <span class="ml-3 mt-1 float-left text-bold">{{participant.name}}</span>
+                <!-- button to edit the participant -->
+                <span
+                  *ngIf="!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused"
+                  class="float-right"
+                >
+                  <button
+                    (click)="formHelper.editParticipant(participant)"
+                    class="btn btn-transparent p-0 border-0"
+                    id="editButton-{{index}}"
+                    type="button"
+                  >
+                    <img alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
+                  </button>
+                </span>
+              </td>
+              <td *ngFor="let date of model.suggestedDates;">
+                <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
+                <img
+                  alt="voting-status"
+                  aria-hidden="true"
+                  class="mx-auto d-block poll-option-icon" src="assets/status_{{
+                  formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
+                  }}.svg">
+              </td>
+            </ng-container>
+
+            <!-- if the current row _is_ being edited display the ui-elements for altering the name and votes of the participant -->
+            <ng-container *ngIf="formHelper.isEditInParticipantForm(participant.participantId)">
+              <td (keydown.enter)="$event.preventDefault()"
+                  [formGroup]="formHelper.getParticipantForm()" class="p-2 poll-data-cell name">
+                <div class="row no-gutters">
+                  <!-- name input -->
+                  <div
+                    [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid  &&
+                    (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
+                    class="col-10 form-group">
+                    <label
+                      class="sr-only"
+                      data-id="nameEditLabel"
+                      for="name-edit"
+                    >
+                      {{ 'poll.details.name.name' | translate }}
+                    </label>
+                    <input
+                      class="form-control ml-2"
+                      data-id="nameEditInput"
+                      formControlName="name"
+                      id="name-edit"
+                      placeholder="{{ 'participant.name' | translate }}"
+                      type="text"
+                    >
+                  </div>
+                  <!-- button to delete the currently edited participant -->
+                  <div class="col-2 d-flex align-items-center justify-content-center">
+                    <button
+                      (click)="formHelper.deleteEditParticipant(participant)"
+                      class="btn btn-transparent btn-trash p-0 ml-auto mr-0"
+                      data-id="deleteEditedParticipantButton"
+                      id="delete-edit-participant"
+                      type="button"
+                    >
+                      <img alt="trashcan" class="icon" src="assets/trash.svg"/>
+                    </button>
+                  </div>
+                  <div class="w-100"></div>
+                  <!-- validation messages -->
+                  <div class="col-auto">
+                    <div
+                      *ngIf="formHelper.getParticipantFormName()
+                      && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
+                      && !!formHelper.getParticipantFormName().errors?.required" class="invalid-message">
+                      {{ 'poll.details.name.noName' | translate }}
+                    </div>
+                    <div *ngIf="formHelper.getParticipantFormName() && !!formHelper.getParticipantFormName().errors?.invalidName"
+                         class="invalid-message"
+                         id="invalid-edit-name"
+                    >
+                      {{ 'poll.details.name.invalid' | translate }}
+                    </div>
+                    <div
+                      *ngIf="formHelper.getParticipantFormName() && !!formHelper.getParticipantFormName().errors?.maxlength"
+                      class="invalid-message"
+                    >
+                      {{ 'poll.details.name.tooLong' | translate }}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <!-- poll options per date -->
+              <td *ngFor="let date of model.suggestedDates;" class='p-0 align-middle'>
+                <ng-container
+                  *ngFor="let voting of formHelper.getParticipantFormVotings().controls; index as j"
+                  [formGroup]="formHelper.castToFormGroup(voting)"
+                  class="row no-gutters justify-content-around align-items-center align-self-center"
+                >
+                  <ng-container *ngIf="formHelper.isVotingFromSuggestedDate(date, voting)">
+                    <app-poll-options
+                      [formGroup]="formHelper.castToFormGroup(voting)"
+                      [isMobile]="false"
+                      [selectorId]="j.toString()"
+                    ></app-poll-options>
+                  </ng-container>
+                </ng-container>
+              </td>
+            </ng-container>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="surveyLinkUser" class="row">
+    <div class="col">
+      <div class="section-container">
+        <div class="pt-3 pb-4 px-3">
+          {{ 'links.satisfactionSurvey' | translate }}
+          <div class="d-flex justify-content-end">
+            <button
+              (click)="navigate(surveyLinkUser)"
+              class="btn btn-transparent text-primary btn-with-image"
+              data-id="surveyLinkNavigate"
+              type="button"
+            >
+              {{ 'links.satisfactionSurveyButton' | translate }}
+              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="model && !isAppointmentPaused">
+    <app-tos [tosFormGroup]="formHelper.pollForm"></app-tos>
+    <div
+      *ngIf="formHelper.hasParticipantVotings() && !formHelper.hasParticipantAcceptedOrQuestionableVotings(); else showSendButton"
+      class="align-items-center">
+      <button
+        (click)="sendReply()"
+        [disabled]="isFormInvalid()"
+        class="btn btn-secondary w-100"
+        data-id="submitNoParticipationButton"
+        id="create-poll-negative"
+        type="submit"
+      >
+        <span>{{ 'poll.noParticipation' | translate }}</span>
+      </button>
+    </div>
+
+    <ng-template #showSendButton>
+      <div class="row no-gutters justify-content-end align-items-center">
+        <div *ngIf="formHelper.hasParticipantVotings()"
+             class="col-3 d-inline-flex align-items-center justify-content-end text-right mr-4">
+          <img alt="" aria-hidden="true" class="circle-tag" src="assets/status_accepted.svg">
+          <div class="font-weight-bold voting-status-summary-added-participants" data-id="addedParticipation">
+            {{formHelper.getNumberOfVotingsWithVotingStatusAcceptedOfAddedParticipant() | leadingZero: 2}}
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <button
+            (click)="sendReply()"
+            [disabled]="isFormInvalid()"
+            class="btn btn-secondary btn-with-image btn-next align-self-end"
+            data-id="submitPoll"
+            id="create-poll"
+            type="submit"
+          >
+            {{ 'poll.send' | translate }}
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</form>

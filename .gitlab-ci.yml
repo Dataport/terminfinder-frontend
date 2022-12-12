@@ -1,0 +1,57 @@
+stages:
+  - build
+  - test
+  - docker
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+
+build-prod:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  stage: build
+  artifacts:
+    paths:
+      - dist
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build-prod
+
+lint:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  stage: test
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run lint
+
+audit:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  stage: test
+  allow_failure: true
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm audit --production
+
+e2e-prod:
+  image:
+    name: $ARTIFACTORY_DOCKER_COMMON/cypress/included:10.10.0
+  needs:
+    - build-prod
+  stage: test
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run cy-verify
+    - npm run ci-cypress
+
+build-and-release-container:
+  image: $ARTIFACTORY_SERVICE_IMAGES_URL/buildah
+  stage: docker
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    # Patch for correct docker.io mirror:
+    - sed -i "s/docker\.io/$ARTIFACTORY_DOCKER_COMMON/g" Dockerfile
+
+    - buildah bud --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} -t ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}
+    - buildah push --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}

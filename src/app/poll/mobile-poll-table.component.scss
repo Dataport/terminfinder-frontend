@@ -1,0 +1,27 @@
+@import './poll.component';
+
+.poll-table.mobile td {
+  vertical-align: middle;
+  padding: 6px 0 6px 6px;
+}
+
+.btn.btn-transparent {
+  display: inline-block;
+  width: 45px;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.poll-table td.suggested-date {
+  width: 120px;
+}
+
+.toolbar {
+  background-color: $s-h-blue-15;
+  min-height: 50px;
+}
+
+.poll-table td.total-participants {
+  padding: 0;
+  width: 60px;
+}

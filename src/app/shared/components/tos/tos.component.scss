@@ -1,0 +1,23 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+a {
+  text-decoration: underline;
+  color: $primary;
+}
+
+label {
+  color: $primary;
+  font-weight: $font-weight-normal !important;
+  font-size: $font-size-small-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small !important;
+  }
+}
+
+.section-container {
+  margin-bottom: 10px;
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 40px;
+  }
+}

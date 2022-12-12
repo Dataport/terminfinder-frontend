@@ -1,0 +1,29 @@
+<button (click)="back()" aria-label="Zurück"
+        class="btn btn-secondary w-100">{{ 'navigation.back' | translate }}</button>
+<div class="headline">
+  <h1>{{ 'imprint.oss' | translate }}</h1>
+</div>
+<section>
+  <h2>Zusammenfassung</h2>
+  <table>
+    <tr>
+      <th>Lizenz</th>
+      <th>Anzahl</th>
+    </tr>
+    <tr *ngFor="let element of amountOfLicences">
+      <td>{{element.license}}</td>
+      <td>{{element.amount}}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2>Lizenzen:</h2>
+  <div *ngFor="let element of summary">
+    <div><em>{{element.packageName}}:</em></div>
+    <span>Author: {{element.author}}</span>
+    <div *ngFor="let license of element.licenses">
+      <div *ngIf="!!license">{{license.id}}</div>
+      <div *ngIf="!license">{{license}}</div>
+    </div>
+  </div>
+</section>

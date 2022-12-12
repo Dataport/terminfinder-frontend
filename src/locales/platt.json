@@ -1,0 +1,157 @@
+{
+  "lang": {
+    "language": "Spraak"
+  },
+  "navigation": {
+    "back": "Trügg",
+    "nextToDateSelection": "Wähl dien Termine ut!",
+    "next": "Wedder",
+    "revise": "Överarbeiten",
+    "step": "Schritt"
+  },
+  "home": {
+    "planning": "Planung",
+    "security": "Sekerheit",
+    "networking": "Wessel",
+    "slogan": "Stell Umfragen un kaam mit dien Lüüd op en Nömer!",
+    "testEnvironmentBanner": "Dat is de Testwelt vun {{value}}. Bitte bruukt keen persönlichen Daten."
+  },
+  "poll": {
+    "create": "Umfraag maken",
+    "createNew": "Nee Umfraag maken ",
+    "configure": "Konfigureer dien Umfraag",
+    "start": "Umfraag starten",
+    "pause": "Umfraag pauseren",
+    "paused": "De Umfraag kann opstunns nich bearbeit warrn, wiel se pauseert is.",
+    "continue": "Umfraag fortsetten",
+    "continueEverytime": "Du kannst de Umfraag jedermal fortsetten.",
+    "change": "Umfraag ännern",
+    "changeDetails": "Ännern wichtige Details Diner Umfraag",
+    "addDetails": "Föög wiedere Details darto!",
+    "checkData": "Överprüf dien Ingaaven!",
+    "participate": "An de Umfraag deelnehmen",
+    "edit": "Umfraag bearbeiten",
+    "editAlert": "Achtung, Du bearbeitest jüst en bestahn Umfraag.",
+    "editSaveLastStep": "In Schritt \"4\" kannst Du all Ännern lagern.",
+    "answer": "Beantwoort de Umfraag vun",
+    "addParticipant": "Deelnehmer:in tügen",
+    "noParticipation": "Ik kann nich deelnehmen",
+    "send": "Afschicken",
+    "downloadIcs": "Lader vun dissen Dag as ics-Datei dal un importeer dat in dien Kalenner.",
+    "downloadCsv": ".",
+    "title": {
+      "title": "Titel",
+      "set": "Geev Diner Umfraag en Titel!",
+      "placeholder": "Titel vun de Umfraag",
+      "noTitle": "Bitte geef en Titel in.",
+      "invalid": "De Titel bargt ungüllige Teken.",
+      "tooLong": "De Titel is to lang."
+    },
+    "details": {
+      "name": {
+        "name": "Naam",
+        "yourName": "Dien Naam",
+        "noName": "Bitte geef en Naam in.",
+        "invalid": "De Naam hett ungüllige Teken.",
+        "tooLong": "De Naam is to lang."
+      },
+      "place": {
+        "place": "Oort",
+        "placeOptional": "Oort (optional)",
+        "invalid": "De Oort hett ungüllige Teken.",
+        "tooLong": "De Oort is to lang."
+      },
+      "description": {
+        "description": "Beschrieven",
+        "descriptionOptional": "Beschrieven (optional)",
+        "tooLong": "De Beschrieven is to lang."
+      }
+    }
+  },
+  "date": {
+    "choose": "Wähl dien Termin ut!",
+    "change": "Ännern dien Termin!",
+    "delete": "Lösch dat Datum",
+    "enter": "Termineingaav",
+    "start": "Startdaag",
+    "add": "Annere Datum toföög",
+    "rejected": "Termin aflehnen",
+    "questionable": "Termin fraglich",
+    "accepted": "Termin tostimmen",
+    "placeholder": "TT.MM.JJJJ",
+    "setStart": "Bitte geef en Startdatum an.",
+    "startInvalid": "Bitte giff en gültig Startdatum an.",
+    "startFuture": "Bitte geef en Start-Datum in, wat hüüd oder in de Tokunft liggt. ",
+    "end": "Enndag",
+    "setEnd": "Bitte giff en gültig Enndatum an.",
+    "endAtOtherDay": "Enn' an en anner Dag",
+    "startAfterEnd": "Bitte giff en nöömten Start-/Endtiet an. De Startquote muss vör dat Endtietpunkt ween.",
+    "noStart": "Bitte giff en gültig Starttiet an. Wenn en Enn angeven warrt, mutt en Starttiet angeven warrn.",
+    "inPast": "Bitte giff en gültig Startdatum bzw. Startstiet an. De Startstiet muss in de Tokunft liggen.",
+    "noValue": "Dat mutt mindst en Termin angeven warrn.",
+    "tooMuchValues": "Dat drööft nich mehr as 100 Terminschonen angeven warrn."
+  },
+  "time": {
+    "time": "Uhrtied",
+    "add": "Tieden toföög",
+    "start": "Starttiet",
+    "placeholder": "HH:MM",
+    "end": "Enntiet"
+  },
+  "imprint": {
+    "imprint": "Impressum",
+    "oss": "Open Source Lizenzen"
+  },
+  "accessibility": {
+    "accessibility": "Barrierefreiheit"
+  },
+  "privacy": {
+    "privacy": "Datenschutz",
+    "declaration": "Datenschutzerklärung"
+  },
+  "links": {
+    "done": "Wi hebben düchtig wat an de Kant sett!",
+    "share": "Delen dien Umfraag",
+    "invite": "Mit dat folgen Lenk kannst du nochmals Brukers inladen.",
+    "loosingLink": "Wahrschau! Wenn de Lenk nich lagert warrt, geiht he verloren!",
+    "copy": "Lenk koperen",
+    "open": "openmaken",
+    "change": "Mit dat folgen Lenk kannst du dien Umfraag bearbeiten.",
+    "satisfactionSurvey": "",
+    "satisfactionSurveyButton": "Hier gehts zur Umfrage"
+  },
+  "password": {
+    "password": "Kennwoord",
+    "minimum": "(8 Teken, en Tall, en Grootbookstack, en Sünnerteken)",
+    "locked": "Disse Umfraag is passlich schuulsch.",
+    "enter": "Bitte geef dat Dir inbrocht Passwoort in, üm de Umfraag antern köönt.",
+    "placeholder": "Kennwoord ingeven",
+    "placeholderEnter": "ingeven",
+    "placeholderChange": "ännern",
+    "enterPassword": "Kennwoord ingeven",
+    "changePassword": "Kennwoord ännern",
+    "invalid": "Dat inföhrt Kennwoord is ungültig.",
+    "generate": "Giff en Kennwoord.",
+    "securePoll": "Schütt dien Umfraag mit en Kennwoord!",
+    "set": "Bitte giff en Kennwoord.",
+    "setMinimum": "Bitte verwenn mindst acht Teken, darvun en Tall, en Grootbookstack un en Sünnerteken.",
+    "repeat": "Passwoort wedderhalen",
+    "noMatch": "De Passwöör stimmt nich övereen."
+  },
+  "participant": {
+    "participants": "Deelnahm",
+    "select": "Deelnehmer wählen",
+    "name": "Naam vun de Deelnehmer"
+  },
+  "settings": {
+    "additional": "Du kannst noch mehr Instellen vörstellen!",
+    "change": "Änner dien Instellen!"
+  },
+  "tos": {
+    "tos": "Bruukbedingen",
+    "accept_0": "Ja, ik stimme för de",
+    "accept_1": " to un heff de ",
+    "accept_2": " to Kenntnisnommen.",
+    "accept": "Bitte bestimme de Datenschuul un de Bruukbedingen."
+  }
+}

@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="xMinYMid" viewBox="0 0 40.61 42.82" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: none;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      stroke-width: 3px;
+    }</style>
+  </defs>
+  <title>Element 2</title>
+  <g data-name="Ebene 2" id="Ebene_2">
+    <g id="Startseite">
+      <path class="cls-1" d="M5,7.48A19.91,19.91,0,1,1,5,35.35"/>
+      <polyline class="cls-1" points="15.64 14.3 23.47 22.12 16 29.59"/>
+      <line class="cls-1" x1="23.47" y1="22.12" y2="22.12"/>
+    </g>
+  </g>
+</svg>

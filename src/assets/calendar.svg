@@ -1,0 +1,15 @@
+<svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>icn_kalender</title>
+  <g id="Beantworten">
+    <path class="cls-1" d="M10.5,10.69a1,1,0,0,1-1-1V5a1,1,0,0,1,2,0V9.69A1,1,0,0,1,10.5,10.69Z"/>
+    <path class="cls-1" d="M22.5,10.69a1,1,0,0,1-1-1V5a1,1,0,0,1,2,0V9.69A1,1,0,0,1,22.5,10.69Z"/>
+    <path class="cls-1"
+          d="M4.5,13V25.51A3.49,3.49,0,0,0,8,29H25a3.49,3.49,0,0,0,3.49-3.49V13Zm7,13h-4V22h4Zm0-7h-4V15h4Zm7,7h-4V22h4Zm0-7h-4V15h4Zm7,7h-4V22h4Zm0-7h-4V15h4Z"/>
+    <path class="cls-1" d="M28.45,11A3.48,3.48,0,0,0,25,8H8a3.48,3.48,0,0,0-3.44,3Z"/>
+  </g>
+</svg>

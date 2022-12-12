@@ -1,0 +1,17 @@
+<button
+  (click)="back()"
+  aria-label="Zurück"
+  class="btn btn-secondary w-100"
+  data-cy="backBtn"
+>
+  {{ 'navigation.back' | translate }}
+</button>
+<div class="headline" data-cy="imprintHeadline">
+  <h1>{{ 'imprint.imprint' | translate }}</h1>
+</div>
+<div [innerHTML]="imprint" class="content" data-cy="content"></div>
+<div class="content">
+  <h2>{{ 'imprint.oss' | translate }}</h2>
+  <a routerLink="/bom">{{ 'imprint.oss' | translate }}</a>
+</div>
+<div class="version" data-id="version">Terminfinder-Version: {{version}}-</div>

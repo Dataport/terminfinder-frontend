@@ -1,0 +1,20 @@
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #f5f6f7;
+      stroke: #003064;
+      stroke-miterlimit: 10;
+    }
+
+    .cls-2 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>AppWebdesign</title>
+  <g id="Dashboard">
+    <g id="Back">
+      <circle class="cls-1" cx="40" cy="40" r="34.5"/>
+      <polygon class="cls-2" points="29.68 23.04 29.68 58.08 53.68 40.56 29.68 23.04"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<div *ngIf="appointment" class="date-time-overview">
+  <table class="table mobile d-table d-lg-none w-100" data-id="overviewDatesMobile">
+    <tbody>
+    <tr *ngFor="let date of appointment.suggestedDates">
+      <td>
+        <app-suggested-date [date]="date"></app-suggested-date>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="table-responsive d-none d-lg-block">
+    <table class="table table-borderless desktop d-inline-block mt-3 mb-1" data-id="overviewDatesDesktop">
+      <tbody>
+      <tr>
+        <td *ngFor="let date of appointment.suggestedDates">
+          <app-suggested-date [date]="date"></app-suggested-date>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

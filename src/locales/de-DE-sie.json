@@ -1,0 +1,157 @@
+{
+  "lang": {
+    "language": "Sprache"
+  },
+  "navigation": {
+    "back": "Zurück",
+    "nextToDateSelection": "Weiter zur Terminauswahl",
+    "next": "Weiter",
+    "revise": "Überarbeiten",
+    "step": "Schritt"
+  },
+  "home": {
+    "planning": "Planung",
+    "security": "Sicherheit",
+    "networking": "Vernetzung",
+    "slogan": "Sie suchen einen gemeinsamen Termin mit mehreren Personen? Erstellen Sie eine Termin-Umfrage.",
+    "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwenden Sie keine personenbezogenen Daten."
+  },
+  "poll": {
+    "create": "Umfrage erstellen",
+    "createNew": "Neue Umfrage erstellen",
+    "configure": "Konfigurieren Sie Ihre Umfrage",
+    "start": "Umfrage starten",
+    "pause": "Umfrage pausieren",
+    "paused": "Die Umfrage kann derzeit nicht bearbeitet werden, da sie pausiert ist.",
+    "continue": "Umfrage fortsetzen",
+    "continueEverytime": "Sie können die Umfrage jederzeit fortsetzen",
+    "change": "Umfrage ändern",
+    "changeDetails": "Ändern Sie wichtige Details Ihrer Umfrage",
+    "addDetails": "Fügen Sie weitere Details hinzu!",
+    "checkData": "Überprüfen Sie Ihre Eingaben!",
+    "participate": "An der Umfrage teilnehmen",
+    "edit": "Umfrage bearbeiten",
+    "editAlert": "Achtung, Sie bearbeiten gerade eine bestehende Umfrage.",
+    "editSaveLastStep": "In Schritt \"4\" können Sie alle Änderungen speichern.",
+    "answer": "Beantworten Sie die Umfrage von",
+    "addParticipant": "Teilnehmer:in hinzufügen",
+    "noParticipation": "Ich kann nicht teilnehmen",
+    "send": "Abschicken",
+    "downloadIcs": "Laden Sie dieses Datum als .ics-Datei herunter und importieren Sie es in deinen Kalender. Erfahren Sie in der Beschreibung des Termins, wie die Teilnehmer:innen abgestimmt haben.",
+    "downloadCsv": "Laden Sie die Tabelle der Teilnehmenden mit ihren Entscheidungen herunter. Sie können sie in Excel importieren, um Ihre Veranstaltung besser zu planen.",
+    "title": {
+      "title": "Titel",
+      "set": "Geben Sie Ihrer Umfrage einen Titel!",
+      "placeholder": "Titel der Umfrage",
+      "noTitle": "Bitte geben Sie einen Titel ein.",
+      "invalid": "Der Titel enthält ungültige Zeichen",
+      "tooLong": "Der Titel ist zu lang."
+    },
+    "details": {
+      "name": {
+        "name": "Name",
+        "yourName": "Ihr Name",
+        "noName": "Bitte geben Sie einen Namen ein.",
+        "invalid": "Der Name enthält ungültige Zeichen.",
+        "tooLong": "Der Name ist zu lang."
+      },
+      "place": {
+        "place": "Ort",
+        "placeOptional": "Ort (optional)",
+        "invalid": "Der Ort enthält ungültige Zeichen.",
+        "tooLong": "Der Ort ist zu lang."
+      },
+      "description": {
+        "description": "Beschreibung",
+        "descriptionOptional": "Beschreibung (optional)",
+        "tooLong": "Die Beschreibung ist zu lang."
+      }
+    }
+  },
+  "date": {
+    "choose": "Wählen Sie Ihre Termine aus!",
+    "change": "Ändern Sie Ihre Termine!",
+    "delete": "Löschen Sie das Datum",
+    "enter": "Termineingabe",
+    "start": "Startdatum",
+    "add": "Weiteres Datum hinzufügen",
+    "rejected": "Termin abgelehnt",
+    "questionable": "Termin fraglich",
+    "accepted": "Termin zugestimmt",
+    "placeholder": "TT.MM.JJJJ",
+    "setStart": "Bitte geben Sie ein Startdatum an.",
+    "startInvalid": "Bitte geben Sie ein gültiges Startdatum an.",
+    "startFuture": "Bitte geben Sie ein Startdatum ein, welches heute ist oder in der Zukunft liegt.",
+    "end": "Endedatum",
+    "setEnd": "Bitte geben Sie ein gültiges Endedatum an.",
+    "endAtOtherDay": "Ende an einem anderen Tag",
+    "startAfterEnd": "Bitte geben Sie ein gültigen Start-/Endezeitpunkt an. Der Startzeitpunkt muss vor dem Endezeitpunkt sein.",
+    "noStart": "Bitte geben Sie eine gültige Startzeit an. Wenn eine Endezeit angegeben wird, muss eine Startzeit angegeben werden.",
+    "inPast": "Bitte geben Sie ein gültiges Startdatum bzw. Startzeitpunkt an. Der Startzeitpunkt muss in der Zukunft liegen.",
+    "noValue": "Es muss mindestens eine Terminoption angegeben werden.",
+    "tooMuchValues": "Es dürfen nicht mehr als 100 Terminoptionen angegeben werden."
+  },
+  "time": {
+    "time": "Uhrzeit",
+    "add": "Zeiten hinzufügen",
+    "start": "Startzeit",
+    "placeholder": "HH:MM",
+    "end": "Endezeit"
+  },
+  "imprint": {
+    "imprint": "Impressum",
+    "oss": "Open Source Lizenzen"
+  },
+  "accessibility": {
+    "accessibility": "Barrierefreiheit"
+  },
+  "privacy": {
+    "privacy": "Datenschutz",
+    "declaration": "Datenschutzerklärung"
+  },
+  "links": {
+    "done": "Geschafft!",
+    "share": "Teilen Sie Ihre Umfrage",
+    "invite": "Mit dem folgenden Link können Sie weitere Nutzer einladen.",
+    "loosingLink": "ACHTUNG: Wenn der Link nicht gespeichert wird, geht er verloren!",
+    "copy": "Link kopieren",
+    "open": "öffnen",
+    "change": "Mit dem folgenden Link können Sie Ihre Umfrage bearbeiten.",
+    "satisfactionSurvey": "Schenken Sie uns noch einen Augenblick? Mit Ihrem Feedback können wir den Terminfinder noch besser machen. Ihr Feedback wird vom Entwicklungsteam bei Dataport AöR erhoben.",
+    "satisfactionSurveyButton": "Zum Feedback geben"
+  },
+  "password": {
+    "password": "Passwort",
+    "minimum": "(mind. 8 Zeichen, eine Zahl, ein Großbuchstabe, ein Sonderzeichen)",
+    "locked": "Diese Umfrage ist passwortgeschützt",
+    "enter": "Bitte geben Sie das Ihnen übermittelte Passwort ein, um die Umfrage beantworten zu können.",
+    "placeholder": "Passwort eingeben",
+    "placeholderEnter": "eingeben",
+    "placeholderChange": "ändern",
+    "enterPassword": "Passwort eingeben",
+    "changePassword": "Passwort ändern",
+    "invalid": "Das eingegebene Passwort ist ungültig.",
+    "generate": "Passwortschutz generieren",
+    "securePoll": "Schützen Sie Ihre Umfrage mit einem Passwort!",
+    "set": "Bitte geben Sie ein Passwort ein.",
+    "setMinimum": "Bitte verwenden Sie mindestens acht Zeichen, davon eine Zahl, ein Großbuchstabe und ein Sonderzeichen.",
+    "repeat": "Passwort wiederholen",
+    "noMatch": "Die Passwörter stimmen nicht überein."
+  },
+  "participant": {
+    "participants": "Teilnehmende",
+    "select": "TeilnehmerIn auswählen",
+    "name": "Name der TeilnehmerIn"
+  },
+  "settings": {
+    "additional": "Sie können weitere Einstellungen vornehmen!",
+    "change": "Ändern Sie Ihre Einstellungen!"
+  },
+  "tos": {
+    "tos": "Nutzungsbedingungen",
+    "accept_0": "Ja, ich stimme den",
+    "accept_1": "zu und habe die",
+    "accept_2": "zur Kenntnis genommen.",
+    "accept": "Bitte akzeptieren Sie die Datenschutzerklärung und die Nutzungsbedingungen."
+  }
+}

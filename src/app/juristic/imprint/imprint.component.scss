@@ -1,0 +1,91 @@
+@import "src/default";
+@import '~bootstrap/scss/mixins';
+
+.headline {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.version {
+  padding-left: 5pt;
+  margin-top: 24px;
+}
+
+.version::after {
+  content: $derivate;
+}
+
+.content {
+  font-size: $font-size-small-mobile;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
+  text-align: left;
+  padding-left: 5pt;
+  padding-right: 5pt;
+}
+
+.content h1 {
+  display: block;
+  font-size: $font-size-medium-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
+  text-transform: none;
+  margin-top: 14pt;
+  margin-bottom: 14pt;
+  text-align: center;
+}
+
+.content h1 > a {
+  color: $primary;
+  display: inline;
+  text-align: center;
+}
+
+.content h1 > a:hover {
+  text-decoration: underline;
+}
+
+.content h2 {
+  display: block;
+  text-align: left;
+  font-size: $font-size-medium-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
+  text-transform: none;
+  margin-top: 14pt;
+  margin-bottom: 14pt;
+}
+
+.content h3 {
+  display: block;
+  text-align: left;
+  font-size: $font-size-small-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small !important;
+  }
+  text-transform: none;
+  margin-top: 5pt;
+  margin-bottom: 5pt;
+}
+
+.btn {
+  color: $btn-text;
+  min-width: 140px !important;
+  font-size: $font-size-large;
+  font-weight: $font-weight-normal;
+  margin-top: 5px;
+  margin-bottom: 24px;
+}
+
+.btn-with-image {
+  color: $btn-text;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}

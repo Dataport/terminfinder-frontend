@@ -1,0 +1,16 @@
+@import "src/default";
+
+span {
+  color: $primary;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+.btn-circle {
+  cursor: pointer;
+}

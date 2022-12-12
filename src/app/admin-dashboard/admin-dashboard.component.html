@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+  <div class="col-2">
+    <img alt="Zahnrad" class="w-100" src="assets/dashboard.svg">
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-12 text-center">
+    <h2 class="text-primary" data-id="adminHeading">{{ 'poll.configure' | translate }}</h2>
+  </div>
+</div>
+<div class="row justify-content-center mt-2">
+  <div class="col col-lg-10">
+    <div class="row">
+      <div class="col">
+        <div class="section-container">
+          <div class="pt-2 px-4">
+            <app-appointment-summary *ngIf="model" [appointment]="model"></app-appointment-summary>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="divider"></div>
+            </div>
+          </div>
+          <app-dates-overview [appointment]="model"></app-dates-overview>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row pt-4 justify-content-center">
+  <div class="col col-lg-8">
+    <div class="section-container pt-3 pb-4 px-3">
+      <div class="row">
+        <div class="col-10 offset-1 text-center">
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col col-12">
+                  <button
+                    (click)="toggleStatus()"
+                    [disabled]="isStatusDisabled"
+                    class="w-100 btn-circle"
+                    data-id="statusPollButton"
+                    role="link"
+                  >
+                    <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
+                    <img alt="pause/play symbol" class="icon" id="img_pause"
+                         src="assets/dashboard_{{isStarted ? 'pause' : 'continue'}}.svg">
+                    <span
+                      *ngIf="isStarted"
+                      class="d-block font-medium text-bold"
+                      data-id="pauseText"
+                    >
+                      {{ 'poll.pause' | translate }}
+                    </span>
+                    <span
+                      *ngIf="!isStarted"
+                      class="d-block font-medium text-bold"
+                      data-id="continueText"
+                    >
+                      {{ 'poll.continue' | translate }}
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="col-12 text-left mt-2 font-small text-dark-gray"
+                  data-id="continueEverytime"
+                >
+                  {{ 'poll.continueEverytime' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col col-12">
+                  <a class="w-100" data-id="changePollLink" routerLink="/poll-admin">
+                    <img alt="Stift" class="icon" id="img_edit" src="assets/dashboard_edit.svg">
+                    <span
+                      class="d-block font-medium text-bold"
+                      data-id="changePollText"
+                    >
+                      {{ 'poll.change' | translate }}
+                    </span>
+                  </a>
+                </div>
+                <div class="col-12 text-left mt-2 font-small text-dark-gray" data-id="changeDetails">
+                  {{ 'poll.changeDetails' | translate }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

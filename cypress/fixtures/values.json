@@ -1,0 +1,356 @@
+{
+  "password": "Hallo2021!",
+  "getAppUrl": "/api/app",
+  "getApp": {
+    "versionNumber": "0.5.0",
+    "buildDate": "2020-10-01"
+  },
+  "postCreateAppointmentUrl": "/api/appointment/customerId",
+  "postCreateAppointment": {
+    "appointmentId": "appointmentId",
+    "adminId": "adminId",
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "place": "Test-Ort",
+    "status": "started",
+    "description": "Test-Beschreibung",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      }
+    ],
+    "participants": []
+  },
+  "appointmentProtectionUrl": "/api/appointment/customerId/appointmentId/protection",
+  "appointmentProtection": {
+    "appointmentId": "appointmentId",
+    "protected": true
+  },
+  "appointmentProtectionFalse": {
+    "appointmentId": "appointmentId",
+    "protected": false
+  },
+  "adminProtectionUrl": "/api/admin/customerId/adminId/protection",
+  "adminProtection": {
+    "adminId": "appointmentId",
+    "protected": true
+  },
+  "adminProtectionFalse": {
+    "adminId": "appointmentId",
+    "protected": false
+  },
+  "appointmentVerificationUrl": "/api/appointment/customerId/appointmentId/passwordverification",
+  "appointmentVerificationFail": {
+    "appointmentId": "appointmentId",
+    "protected": true,
+    "passwordvalidation": false
+  },
+  "appointmentVerificationSuccess": {
+    "appointmentId": "appointmentId",
+    "protected": true,
+    "passwordvalidation": true
+  },
+  "getAdminUrl": "/api/admin/customerId/adminId",
+  "getAdmin": {
+    "appointmentId": "appointmentId",
+    "customerId": "customerId",
+    "adminId": "adminId",
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "description": "Test-Beschreibung",
+    "place": "Test-Ort",
+    "status": "started",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      }
+    ],
+    "participants": []
+  },
+  "putAdminStatusPausedUrl": "/api/admin/customerId/adminId/paused/status",
+  "putAdminStatusPaused": {
+    "appointmentId": "appointmentId",
+    "customerId": "customerId",
+    "adminId": "adminId",
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "description": "Test-Beschreibung",
+    "place": "Test-Ort",
+    "status": "paused",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      }
+    ],
+    "participants": []
+  },
+  "putAdminStatusStartedUrl": "/api/admin/customerId/adminId/started/status",
+  "putAdminStatusStarted": {
+    "appointmentId": "appointmentId",
+    "customerId": "customerId",
+    "adminId": "adminId",
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "description": "Test-Beschreibung",
+    "place": "Test-Ort",
+    "status": "started",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      }
+    ],
+    "participants": []
+  },
+  "getAppointmentUrl": "/api/appointment/customerId/appointmentId",
+  "getAppointment": {
+    "appointmentId": "appointmentId",
+    "adminId": null,
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "place": "Test-Ort",
+    "description": "Test-Beschreibung",
+    "status": "started",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId-0",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "startDate": "2021-04-25",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-25",
+        "endTime": "12:00:00.000+00:00"
+      }
+    ],
+    "participants": []
+  },
+  "deleteParticipantUrl": "/api/participant/customerId/appointmentId/participant-0",
+  "deleteSuggestedDateUrl": "/api/suggestedDate/customerId/appointmentId/suggestedDateId",
+  "putParticipantUrl": "/api/votings/customerId/appointmentId",
+  "putParticipant": {
+    "name": "Test",
+    "participantId": "participant-0",
+    "votings": [
+      {
+        "suggestedDateId": "suggestedDateId-0",
+        "status": "questionable",
+        "votingId": "voting-0",
+        "participantId": "participant-0"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "status": "accepted",
+        "votingId": "voting-1",
+        "participantId": "participant-0"
+      }
+    ]
+  },
+  "putParticipant_1": {
+    "name": "Test",
+    "participantId": "participant-1",
+    "votings": [
+      {
+        "suggestedDateId": "suggestedDateId-0",
+        "status": "questionable",
+        "votingId": "voting-0",
+        "participantId": "participant-1"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "status": "accepted",
+        "votingId": "voting-1",
+        "participantId": "participant-1"
+      }
+    ]
+  },
+  "getAppointment_1_user": {
+    "appointmentId": "appointmentId",
+    "adminId": null,
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "place": "Test-Ort",
+    "description": "Test-Beschreibung",
+    "status": "started",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId-0",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "startDate": "2021-04-25",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-25",
+        "endTime": "12:00:00.000+00:00"
+      }
+    ],
+    "participants": [
+      {
+        "participantId": "participant-0",
+        "name": "Test",
+        "votings": [
+          {
+            "suggestedDateId": "suggestedDateId-0",
+            "status": "questionable",
+            "votingId": "voting-0",
+            "participantId": "participant-0"
+          },
+          {
+            "suggestedDateId": "suggestedDateId-1",
+            "status": "accepted",
+            "votingId": "voting-1",
+            "participantId": "participant-0"
+          }
+        ]
+      }
+    ]
+  },
+  "getAppointment_1_user_incomplete": {
+    "appointmentId": "appointmentId",
+    "adminId": null,
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "place": "Test-Ort",
+    "description": "Test-Beschreibung",
+    "status": "started",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId-0",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "startDate": "2021-04-25",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-25",
+        "endTime": "12:00:00.000+00:00"
+      }
+    ],
+    "participants": [
+      {
+        "participantId": "participant-0",
+        "name": "Test",
+        "votings": [
+          {
+            "suggestedDateId": "suggestedDateId-0",
+            "status": "questionable",
+            "votingId": "voting-0",
+            "participantId": "participant-0"
+          }
+        ]
+      },
+      {
+        "participantId": "participant-1",
+        "name": "Tester",
+        "votings": [
+          {
+            "suggestedDateId": "suggestedDateId-1",
+            "status": "questionable",
+            "votingId": "voting-0",
+            "participantId": "participant-0"
+          }
+        ]
+      }
+    ]
+  },
+  "getAppointment_2_user": {
+    "appointmentId": "appointmentId",
+    "adminId": null,
+    "creatorName": "Test-Name",
+    "subject": "Test-Titel",
+    "place": "Test-Ort",
+    "description": "Test-Beschreibung",
+    "status": "started",
+    "password": null,
+    "suggestedDates": [
+      {
+        "suggestedDateId": "suggestedDateId-0",
+        "startDate": "2021-04-23",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-24",
+        "endTime": "10:00:00.000+00:00"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "startDate": "2021-04-25",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-25",
+        "endTime": "12:00:00.000+00:00"
+      }
+    ],
+    "participants": [
+      {
+        "participantId": "participant-0",
+        "name": "Test",
+        "votings": [
+          {
+            "suggestedDateId": "suggestedDateId-0",
+            "status": "questionable",
+            "votingId": "voting-0",
+            "participantId": "participant-0"
+          },
+          {
+            "suggestedDateId": "suggestedDateId-1",
+            "status": "accepted",
+            "votingId": "voting-1",
+            "participantId": "participant-0"
+          }
+        ]
+      },
+      {
+        "participantId": "participant-1",
+        "name": "Testerin",
+        "votings": [
+          {
+            "suggestedDateId": "suggestedDateId-0",
+            "status": "declined",
+            "votingId": "voting-0",
+            "participantId": "participant-1"
+          },
+          {
+            "suggestedDateId": "suggestedDateId-1",
+            "status": "accepted",
+            "votingId": "voting-1",
+            "participantId": "participant-1"
+          }
+        ]
+      }
+    ]
+  },
+  "inviteLink": "/#/poll/appointmentId",
+  "adminLink": "/#/admin/dashboard/adminId",
+  "tooLongString": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

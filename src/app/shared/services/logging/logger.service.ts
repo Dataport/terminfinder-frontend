@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AppStateService} from '../app-state/app-state.service';
 import {EnvConfig} from '../../../../environments/env-config.interface';
-import {Utils, DateTimeGeneratorService} from '../utils';
+import {DateTimeGeneratorService, Utils} from '../utils';
 import {LogLevel} from './logLevel';
 import {LogInterface} from './log.interface';
 import {ConsoleProvider} from './console-provider.service';

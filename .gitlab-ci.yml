@@ -28,12 +28,11 @@ lint:
 audit:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
   stage: test
-  allow_failure: true
   script:
     - npm ci --cache .npm --prefer-offline
-    - npm audit --production
+    - npm audit --omit=dev
 
-e2e-prod:
+e2e:
   image:
     name: $ARTIFACTORY_DOCKER_COMMON/cypress/included:10.10.0
   needs:

@@ -1,7 +1,11 @@
 import {Injectable} from '@angular/core';
 import {
-  Participant as ApiParticipant, Voting as ApiVoting, VotingStatusType as ApiVotingStatusType,
-  SuggestedDate as ApiSuggestedDate, Appointment as ApiAppointment, AppointmentStatusType as ApiAppointmentStatusType
+  Appointment as ApiAppointment,
+  AppointmentStatusType as ApiAppointmentStatusType,
+  Participant as ApiParticipant,
+  SuggestedDate as ApiSuggestedDate,
+  Voting as ApiVoting,
+  VotingStatusType as ApiVotingStatusType
 } from '../../models/api-data-v1-dto';
 import {Appointment, Participant, SuggestedDate, Voting, VotingStatusType} from '../../models';
 import {Utils} from '../utils';
@@ -229,6 +233,41 @@ export class ModelTransformerService {
   }
 
   /**
+   * Takes api date and (optional) time string to create a moment object.
+   * @param date date to parse
+   * @param time optional time to parse
+   */
+  private static createMomentFromApiDateAndTime(date: string, time: string): moment.Moment {
+    if (Utils.isObjectNullOrUndefined(date)) {
+      return null;
+    }
+    // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
+    // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
+    if (Utils.isObjectNullOrUndefined(time)) {
+      time = '12:00:00+00:00';
+    }
+    const dateTime = `${date}T${time}`;
+    return moment.utc(dateTime, ApiConstants.MOMENT_FORMAT_DATE_TIME);
+  }
+
+  /**
+   * Takes date and (optional) time string to create a moment object.
+   * @param date date to parse
+   * @param time optional time to parse
+   */
+  private static createMomentFromDateAndTime(date: string, time: string): moment.Moment {
+    if (Utils.isObjectNullOrUndefined(date)) {
+      return null;
+    }
+    // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
+    // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
+    const timeMoment = Utils.isObjectNullOrUndefined(time) ? moment('12:00', 'HH:MM') : moment(time, ApiConstants.MOMENT_FORMAT_DATE_TIME);
+    const dateMoment = moment(date, ApiConstants.MOMENT_FORMAT_DATE);
+    const dateTime = `${dateMoment.format(ApiConstants.MOMENT_FORMAT_DATE)}T${timeMoment.format(ApiConstants.MOMENT_FORMAT_TIME)}`;
+    return moment.utc(dateTime, ApiConstants.MOMENT_FORMAT_DATE_TIME);
+  }
+
+  /**
    * Transform api suggested date instance to suggested date instance
    * @return the transformed instance
    * */
@@ -349,40 +388,5 @@ export class ModelTransformerService {
       return AppointmentStatusType.Paused;
     }
     throw new Error(`Submitted value ${statusType} is not supported`);
-  }
-
-  /**
-   * Takes api date and (optional) time string to create a moment object.
-   * @param date date to parse
-   * @param time optional time to parse
-   */
-  private static createMomentFromApiDateAndTime(date: string, time: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(date)) {
-      return null;
-    }
-    // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
-    // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
-    if (Utils.isObjectNullOrUndefined(time)) {
-      time = '12:00:00+00:00';
-    }
-    const dateTime = `${date}T${time}`;
-    return moment.utc(dateTime, ApiConstants.MOMENT_FORMAT_DATE_TIME);
-  }
-
-  /**
-   * Takes date and (optional) time string to create a moment object.
-   * @param date date to parse
-   * @param time optional time to parse
-   */
-  private static createMomentFromDateAndTime(date: string, time: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(date)) {
-      return null;
-    }
-    // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
-    // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
-    const timeMoment = Utils.isObjectNullOrUndefined(time) ? moment('12:00', 'HH:MM') : moment(time, ApiConstants.MOMENT_FORMAT_DATE_TIME);
-    const dateMoment = moment(date, ApiConstants.MOMENT_FORMAT_DATE);
-    const dateTime = `${dateMoment.format(ApiConstants.MOMENT_FORMAT_DATE)}T${timeMoment.format(ApiConstants.MOMENT_FORMAT_TIME)}`;
-    return moment.utc(dateTime, ApiConstants.MOMENT_FORMAT_DATE_TIME);
   }
 }

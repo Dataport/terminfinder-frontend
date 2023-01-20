@@ -11,12 +11,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class PasswordComponent implements OnInit {
 
-  passwordForm: FormGroup;
-  model: Appointment;
-  isAdmin: boolean;
-  isInvalid: boolean;
-  showIsInvalid = true;
-
   constructor(
     private appStateService: AppStateService,
     private router: Router,
@@ -26,6 +20,12 @@ export class PasswordComponent implements OnInit {
       return false;
     };
   }
+
+  passwordForm: FormGroup;
+  model: Appointment;
+  isAdmin: boolean;
+  isInvalid: boolean;
+  showIsInvalid = true;
 
   ngOnInit() {
     this.showIsInvalid = true;
@@ -39,6 +39,10 @@ export class PasswordComponent implements OnInit {
     });
   }
 
+  private readIsInvalidParam(): void {
+    this.isInvalid = this.route.snapshot.paramMap.get('invalid') != null;
+  }
+
   onSubmit() {
     if (!this.passwordForm.invalid) {
       const appointmentFromForm = this.passwordForm.value as Appointment;
@@ -49,10 +53,6 @@ export class PasswordComponent implements OnInit {
         this.router.navigate(['/poll/', this.model.appointmentId]).then();
       }
     }
-  }
-
-  private readIsInvalidParam(): void {
-    this.isInvalid = this.route.snapshot.paramMap.get('invalid') != null;
   }
 
 }

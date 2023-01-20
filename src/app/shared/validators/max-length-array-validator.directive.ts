@@ -1,5 +1,5 @@
 import {Attribute, Directive, forwardRef} from '@angular/core';
-import {NG_VALIDATORS, AbstractControl, Validator, ValidatorFn} from '@angular/forms';
+import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
 
 const MIN_VALUE = 0;
 

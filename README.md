@@ -44,6 +44,7 @@ Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL=
 | ADDRESSING (used on german only) | ja      | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
 | API_URL                          | ja      | `string` (url)           | `window.location.origin + '/api'`      | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
 | PRODUCTION                       | -       | `boolean`                | `true`                                 | Flag für Angular, Log-Level, Timeout-Zeit für XHR                     |
+| VERSION                          | -       | `string`                 | package.json - version                 | Versionsnummer, die im Impressum angezeigt wird                       |
 | DOCKER                           | -       | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |
 | SURVEY_LINK_ADMIN                | -       | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Admins          |
 | SURVEY_LINK_USER                 | -       | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Teilnehmenden   |

@@ -97,6 +97,21 @@ export class PasswordRequiredGuard implements CanActivate {
               private router: Router) {
   }
 
+  private initAppointment(route: ActivatedRouteSnapshot): void {
+    const appointment: Appointment = this.appStateService.getAppointment();
+    const paramAdminId = route.paramMap.get('adminId');
+    if (!Utils.isStringNullOrEmpty(paramAdminId)) {
+      appointment.adminId = paramAdminId;
+    }
+    if (appointment.adminId) {
+      this.appStateService.isAdmin = true;
+    } else {
+      appointment.appointmentId = route.paramMap.get('id');
+      this.appStateService.isAdmin = false;
+    }
+    this.appStateService.updateAppointment(appointment);
+  }
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     this.initAppointment(route);
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -131,20 +146,5 @@ export class PasswordRequiredGuard implements CanActivate {
         return true;
       }
     });
-  }
-
-  private initAppointment(route: ActivatedRouteSnapshot): void {
-    const appointment: Appointment = this.appStateService.getAppointment();
-    const paramAdminId = route.paramMap.get('adminId');
-    if (!Utils.isStringNullOrEmpty(paramAdminId)) {
-      appointment.adminId = paramAdminId;
-    }
-    if (appointment.adminId) {
-      this.appStateService.isAdmin = true;
-    } else {
-      appointment.appointmentId = route.paramMap.get('id');
-      this.appStateService.isAdmin = false;
-    }
-    this.appStateService.updateAppointment(appointment);
   }
 }

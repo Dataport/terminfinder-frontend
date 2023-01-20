@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Message} from '../../models';
-import {MessageType} from '../../models';
+import {Message, MessageType} from '../../models';
 import {Utils} from '../../services/utils';
 
 @Component({
@@ -9,12 +8,11 @@ import {Utils} from '../../services/utils';
   styleUrls: ['./message-box.component.scss']
 })
 export class MessageBoxComponent {
+  _message: Message = {message: '', messageType: MessageType.UNDEFINED};
   isError = false;
   isWarning = false;
   isInfo = false;
   isSuccess = false;
-
-  _message: Message = {message: '', messageType: MessageType.UNDEFINED};
 
   @Input()
   set message(message: Message) {

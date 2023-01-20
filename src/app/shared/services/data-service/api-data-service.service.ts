@@ -21,7 +21,7 @@ import {timeout} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiDataService {
-  static MEDIA_TYPE_API = 'application/terminfinder.api-v1+json';
+  private readonly apiMediaType: string;
   private readonly apiBaseUrl: string;
   private readonly requestTimeoutInMs: number;
   private readonly requestTimeoutInSeconds: number;
@@ -45,6 +45,7 @@ export class ApiDataService {
     this.requestTimeoutInSeconds = this.requestTimeoutInMs / 1000;
     this.costumerId = envConfig.customerId;
     this.uriEncodedCostumerId = encodeURIComponent(envConfig.customerId);
+    this.apiMediaType = envConfig.apiMediaType;
   }
 
   /**
@@ -386,8 +387,8 @@ export class ApiDataService {
     let headers = new HttpHeaders();
     headers = headers
       .set(HttpConstants.HTTP_HEADER_ACCEPT_LANGUAGE, this.localeId)
-      .set(HttpConstants.HTTP_HEADER_ACCEPT, ApiDataService.MEDIA_TYPE_API)
-      .set(HttpConstants.HTTP_HEADER_CONTENT_TYPE, ApiDataService.MEDIA_TYPE_API);
+      .set(HttpConstants.HTTP_HEADER_ACCEPT, this.apiMediaType)
+      .set(HttpConstants.HTTP_HEADER_CONTENT_TYPE, this.apiMediaType);
     return {headers: headers, responseType: 'json', observe: 'response'};
   }
 
@@ -405,7 +406,7 @@ export class ApiDataService {
         errorMsg = 'Bitte prüfe ob du mit dem Internet verbunden bist und ob die API erreichbar ist.';
       } else {
         if (res.headers.has(HttpConstants.HTTP_HEADER_CONTENT_TYPE)) {
-          if (res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE).startsWith(ApiDataService.MEDIA_TYPE_API)) {
+          if (res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE).startsWith(this.apiMediaType)) {
             const apiError: ApiError = res.error as ApiError;
             if (res.status === HttpConstants.HTTP_STATUS_BADREQUEST) {
               if (apiError.code === '0063') {

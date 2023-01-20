@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpInterceptor, HttpRequest, HttpHandler} from '@angular/common/http';
+import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {AppStateService} from './shared/services/app-state/app-state.service';
 import {Utils} from './shared/services/utils';
 import {HttpConstants} from './shared/services/data-service';

@@ -20,11 +20,14 @@ context('overview-view', () => {
       cy.get('[data-id=overviewNameLabel]');
       cy.get('[data-id=overviewNameValue]');
       cy.get('[data-id=overviewTitleLabel]');
-      cy.get('[data-id=overviewTitleValue]');
+      cy.get('[data-id=overviewTitleValue]')
+        .should("contain.html", "Test-Titel");
       cy.get('[data-id=overviewPlaceLabel]');
-      cy.get('[data-id=overviewPlaceValue]');
+      cy.get('[data-id=overviewPlaceValue]')
+        .should("contain.html", "Test-Ort");
       cy.get('[data-id=overviewDescriptionLabel]');
-      cy.get('[data-id=overviewDescriptionValue]');
+      cy.get('[data-id=overviewDescriptionValue]')
+        .should("contain.html", "Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2");
       cy.get('[data-id=overviewDatesDesktop]');
 
       cy.get('[data-id=back]')

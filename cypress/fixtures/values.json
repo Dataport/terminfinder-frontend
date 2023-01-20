@@ -128,7 +128,7 @@
     "creatorName": "Test-Name",
     "subject": "Test-Titel",
     "place": "Test-Ort",
-    "description": "Test-Beschreibung",
+    "description": "Test-Beschreibung\nNeue Zeile 1\n\nNeue Zeile 2",
     "status": "started",
     "password": null,
     "suggestedDates": [

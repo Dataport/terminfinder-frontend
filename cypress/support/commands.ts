@@ -41,7 +41,7 @@ function moveToSelectDatesView() {
     .type('Test-Ort');
 
   cy.get('[data-id=descriptionInput]')
-    .type('Test-Beschreibung');
+    .type('Test-Beschreibung\nNeue Zeile 1\n\nNeue Zeile 2');
 
   cy.get('[data-id=next]').click();
 

@@ -20,6 +20,13 @@ export class SettingsComponent implements OnInit {
 
   @Input() isAdmin = false;
 
+  static checkPasswords(group: FormGroup): ValidationErrors | null {
+    const password = group.controls.password;
+    const passwordRepeat = group.controls.passwordRepeat;
+    return password == null || passwordRepeat == null || password.value === passwordRepeat.value ? null
+      : {notSame: true};
+  }
+
   constructor(
     private appStateService: AppStateService,
     private logger: Logger,
@@ -27,13 +34,6 @@ export class SettingsComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder
   ) {
-  }
-
-  static checkPasswords(group: FormGroup): ValidationErrors | null {
-    const password = group.controls.password;
-    const passwordRepeat = group.controls.passwordRepeat;
-    return password == null || passwordRepeat == null || password.value === passwordRepeat.value ? null
-      : {notSame: true};
   }
 
   ngOnInit() {
@@ -104,29 +104,6 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-  public onSubmit(): void {
-    this.appStateService.isAppointmentProtected = this.hasPassword().value;
-    if (this.appStateService.isAppointmentProtected) {
-      // if placeholder is shown that means we are in admin mode, the appointment is password protected and no new password is entered
-      // in this case we get the password from credentials
-      if (this.showPlaceholder && Utils.isStringNullOrEmpty(this.getPassword().value)) {
-        const credentials = atob(this.appStateService.getCredentials());
-        this.model.password = credentials.substring(credentials.lastIndexOf(':') + 1, credentials.length);
-      } else {
-        this.model.password = this.getPassword().value;
-      }
-    } else {
-      this.model.password = null;
-    }
-
-    this.appStateService.updateAppointment(this.model);
-    if (!this.isAdmin) {
-      this.router.navigate(['/overview']).then();
-    } else {
-      this.router.navigate(['/admin/overview']).then();
-    }
-  }
-
   private addValidators() {
     if (!this.getPassword().validator) {
       this.getPassword().setValidators([Validators.required, invalidPasswordValidator()]);
@@ -153,6 +130,29 @@ export class SettingsComponent implements OnInit {
     }
     if (this.settingsForm.validator) {
       this.settingsForm.clearValidators();
+    }
+  }
+
+  public onSubmit(): void {
+    this.appStateService.isAppointmentProtected = this.hasPassword().value;
+    if (this.appStateService.isAppointmentProtected) {
+      // if placeholder is shown that means we are in admin mode, the appointment is password protected and no new password is entered
+      // in this case we get the password from credentials
+      if (this.showPlaceholder && Utils.isStringNullOrEmpty(this.getPassword().value)) {
+        const credentials = atob(this.appStateService.getCredentials());
+        this.model.password = credentials.substring(credentials.lastIndexOf(':') + 1, credentials.length);
+      } else {
+        this.model.password = this.getPassword().value;
+      }
+    } else {
+      this.model.password = null;
+    }
+
+    this.appStateService.updateAppointment(this.model);
+    if (!this.isAdmin) {
+      this.router.navigate(['/overview']).then();
+    } else {
+      this.router.navigate(['/admin/overview']).then();
     }
   }
 }

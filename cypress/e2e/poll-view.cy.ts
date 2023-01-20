@@ -48,12 +48,16 @@ context('poll-view', () => {
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=pollHeading]');
 
-      cy.get('[data-id=overviewTitleLabel]');
-      cy.get('[data-id=overviewTitleValue]');
+      cy.get('[data-id=overviewTitleValue]')
+        .should("contain.html", "Test-Titel");
       cy.get('[data-id=overviewPlaceLabel]');
-      cy.get('[data-id=overviewPlaceValue]');
+      cy.get('[data-id=overviewPlaceValue]')
+        .should("contain.html", "Test-Ort");
       cy.get('[data-id=overviewDescriptionLabel]');
-      cy.get('[data-id=overviewDescriptionValue]');
+      cy.get('[data-id=overviewDescriptionValue]')
+        .should("contain.html", "Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2");
+      cy.get('[data-cy=descriptionMoreButton]')
+        .should('not.be.hidden');
 
       cy.get('[data-id=numberParticipants]');
       cy.get('[data-id=tableHead]');
@@ -68,6 +72,30 @@ context('poll-view', () => {
       cy.get('[data-id=addParticipantButton]');
 
       cy.get('[data-id=footer]');
+    });
+  });
+
+  describe('Main components visible', () => {
+    beforeEach(() => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          body: values.getAppointment_1_user
+        }
+      ).as('apiCheckAppointment');
+
+      cy.visit(getBaseHref(values.inviteLink));
+    });
+
+    it('Does not show more button on single line description', () => {
+      cy.get('[data-cy=descriptionMoreButton]')
+        .should('be.hidden');
     });
   });
 

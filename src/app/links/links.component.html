@@ -6,6 +6,7 @@
         <h3 class="text-center font-medium text-bold" data-id="linksHeading">
           {{ 'links.share' | translate }}
         </h3>
+        <h4 data-id="appointmentTitle">{{model.title}}</h4>
       </div>
     </div>
     <div class="row mt-4">
@@ -35,6 +36,15 @@
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end">
+            <button
+              (click)="createPollMail()"
+              class="btn btn-transparent text-primary"
+              data-id="inviteLinkEmail"
+              ngxClipboard
+              type="button"
+            >
+              {{ 'links.email.send' | translate }}
+            </button>
             <button
               [cbContent]="absoluteAppointmentLink"
               class="btn btn-transparent text-primary"
@@ -84,6 +94,15 @@
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end">
+            <button
+              (click)="createAdminMail()"
+              class="btn btn-transparent text-primary"
+              data-id="linkAdmin"
+              ngxClipboard
+              type="button"
+            >
+              {{ 'links.email.send' | translate }}
+            </button>
             <button
               [cbContent]="absoluteAdminLink"
               class="btn btn-transparent text-primary"

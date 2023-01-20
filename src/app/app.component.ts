@@ -16,7 +16,6 @@ import {LocaleService} from './shared/services/locale/locale.service';
 export class AppComponent implements OnInit {
 
   connectionError = false;
-  headlineHome = environment.title;
 
   constructor(
     public localeService: LocaleService,
@@ -27,6 +26,8 @@ export class AppComponent implements OnInit {
     private localStorageService: LocalStorageService,
   ) {
   }
+
+  headlineHome = environment.title;
 
   ngOnInit(): void {
     this.logger.debug('ENV: ', environment);

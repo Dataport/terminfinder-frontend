@@ -111,14 +111,18 @@
   },
   "links": {
     "done": "Geschafft!",
-    "share": "Teilen Sie Ihre Umfrage",
+    "share": "Teilen Sie Ihre Umfrage mit dem Titel:",
     "invite": "Mit dem folgenden Link können Sie weitere Nutzer einladen.",
     "loosingLink": "ACHTUNG: Wenn der Link nicht gespeichert wird, geht er verloren!",
     "copy": "Link kopieren",
     "open": "öffnen",
     "change": "Mit dem folgenden Link können Sie Ihre Umfrage bearbeiten.",
     "satisfactionSurvey": "Schenken Sie uns noch einen Augenblick? Mit Ihrem Feedback können wir den Terminfinder noch besser machen. Ihr Feedback wird vom Entwicklungsteam bei Dataport AöR erhoben.",
-    "satisfactionSurveyButton": "Zum Feedback geben"
+    "satisfactionSurveyButton": "Zum Feedback geben",
+    "email": {
+      "send": "E-Mail versenden",
+      "participate": "Möchten Sie an dem Termin teilnehmen? Schön! Dann wählen Sie eine Terminoption unter:"
+    }
   },
   "password": {
     "password": "Passwort",

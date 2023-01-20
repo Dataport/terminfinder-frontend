@@ -185,6 +185,40 @@ export class PollFormHelperService {
   }
 
   /**
+   * Creates a form to edit a participant's name and votings. If a participant is passed the form is filled with its values.
+   * @param participant
+   */
+  private createParticipantForm(participant?: Participant): FormGroup {
+    if (Utils.isObjectNullOrUndefined(this.appointment.suggestedDates)) {
+      throw new Error(`this.appointment.suggestedDates must not be null`);
+    }
+    const votings: Voting[] = this.appointment.suggestedDates.map((date) => (
+      {
+        suggestedDateId: date.suggestedDateId,
+        status: participant ? this.getVotingStatusBySuggestedDateIdAndParticipantId(
+          date.suggestedDateId, participant.participantId) : VotingStatusType.Declined,
+        votingId: participant && this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
+          ? this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId).votingId
+          : null
+      } as Voting
+    ));
+    const votingsFormGroup: FormGroup[] = (votings.map((voting) => (
+      new FormGroup({
+        'status': new FormControl(voting.status),
+        'suggestedDateId': new FormControl(voting.suggestedDateId),
+        'votingId': new FormControl(voting.votingId ? voting.votingId : null)
+      })
+    )));
+    return new FormGroup({
+      'participantId': new FormControl(participant ? participant.participantId : null),
+      'name': new FormControl(participant ? participant.name : '', [
+        Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)]
+      ),
+      'votings': new FormArray(votingsFormGroup)
+    });
+  }
+
+  /**
    * Switches the form to "add" mode and creates a form to add the new participant's values.
    */
   public addParticipant(): void {
@@ -208,6 +242,15 @@ export class PollFormHelperService {
     }
   }
 
+  private subscribeToParticipantChanges(): void {
+    if (Utils.isObjectNullOrUndefined(this.participantForm)) {
+      throw new Error(`this.participantForm must not be null`);
+    }
+    this.participantForm.valueChanges.subscribe(value => {
+      this.participantForm.setValue(value, {onlySelf: true, emitEvent: false});
+    });
+  }
+
   /**
    * Switches the form to "view" mode and the participant form.
    */
@@ -226,6 +269,17 @@ export class PollFormHelperService {
     }
     this.selectFirstParticipant();
     this.deleteParticipantForm();
+  }
+
+  private deleteParticipantFromModel(participant: Participant): void {
+    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+      throw new Error(`this.appointment.participants must not be null`);
+    }
+    this.appointment.participants.forEach((item, index) => {
+      if (item === participant) {
+        this.appointment.participants.splice(index, 1);
+      }
+    });
   }
 
   public selectFirstParticipant(): void {
@@ -259,6 +313,24 @@ export class PollFormHelperService {
     } else {
       return VotingStatusType.Undefined;
     }
+  }
+
+  /**
+   * Returns the voting of the currently edited participant that belongs to the passed suggestedDateId.
+   * @param suggestedDateId
+   */
+  private getVotingFromParticipantFormBySuggestedDateId(suggestedDateId: string) {
+    const votingsFromParticipantForm: FormArray = this.getParticipantFormVotings();
+    if (votingsFromParticipantForm != null) {
+      const votings: Voting[] = votingsFromParticipantForm.value as Voting[];
+      for (let i = 0, len = votings.length; i < len; ++i) {
+        const voting = votings[i];
+        if (voting.suggestedDateId === suggestedDateId) {
+          return voting;
+        }
+      }
+    }
+    return null;
   }
 
   /**
@@ -355,6 +427,22 @@ export class PollFormHelperService {
     }
   }
 
+  // noinspection JSMethodCanBeStatic
+  /**
+   * this can not be static, because the html-part of the code only has access to the instance at runtime
+   * since it has no access to the class itself, it also has no access to it's static members
+   * **/
+  private getNumberOfVotings(formArray: FormArray, votingStatus: VotingStatusType): number {
+    let result = 0;
+    const votings: Voting[] = formArray != null ? formArray.value as Voting[] : [];
+    for (let j = 0, lenVotings = votings.length; j < lenVotings; ++j) {
+      if (votings[j].status === votingStatus) {
+        result++;
+      }
+    }
+    return result;
+  }
+
   /**
    * Returns the total number of accepted votings of the currently edited participant.
    */
@@ -400,93 +488,5 @@ export class PollFormHelperService {
         return true;
       }
     }
-  }
-
-  /**
-   * Creates a form to edit a participant's name and votings. If a participant is passed the form is filled with its values.
-   * @param participant
-   */
-  private createParticipantForm(participant?: Participant): FormGroup {
-    if (Utils.isObjectNullOrUndefined(this.appointment.suggestedDates)) {
-      throw new Error(`this.appointment.suggestedDates must not be null`);
-    }
-    const votings: Voting[] = this.appointment.suggestedDates.map((date) => (
-      {
-        suggestedDateId: date.suggestedDateId,
-        status: participant ? this.getVotingStatusBySuggestedDateIdAndParticipantId(
-          date.suggestedDateId, participant.participantId) : VotingStatusType.Declined,
-        votingId: participant && this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
-          ? this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId).votingId
-          : null
-      } as Voting
-    ));
-    const votingsFormGroup: FormGroup[] = (votings.map((voting) => (
-      new FormGroup({
-        'status': new FormControl(voting.status),
-        'suggestedDateId': new FormControl(voting.suggestedDateId),
-        'votingId': new FormControl(voting.votingId ? voting.votingId : null)
-      })
-    )));
-    return new FormGroup({
-      'participantId': new FormControl(participant ? participant.participantId : null),
-      'name': new FormControl(participant ? participant.name : '', [
-        Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)]
-      ),
-      'votings': new FormArray(votingsFormGroup)
-    });
-  }
-
-  private subscribeToParticipantChanges(): void {
-    if (Utils.isObjectNullOrUndefined(this.participantForm)) {
-      throw new Error(`this.participantForm must not be null`);
-    }
-    this.participantForm.valueChanges.subscribe(value => {
-      this.participantForm.setValue(value, {onlySelf: true, emitEvent: false});
-    });
-  }
-
-  private deleteParticipantFromModel(participant: Participant): void {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
-      throw new Error(`this.appointment.participants must not be null`);
-    }
-    this.appointment.participants.forEach((item, index) => {
-      if (item === participant) {
-        this.appointment.participants.splice(index, 1);
-      }
-    });
-  }
-
-  /**
-   * Returns the voting of the currently edited participant that belongs to the passed suggestedDateId.
-   * @param suggestedDateId
-   */
-  private getVotingFromParticipantFormBySuggestedDateId(suggestedDateId: string) {
-    const votingsFromParticipantForm: FormArray = this.getParticipantFormVotings();
-    if (votingsFromParticipantForm != null) {
-      const votings: Voting[] = votingsFromParticipantForm.value as Voting[];
-      for (let i = 0, len = votings.length; i < len; ++i) {
-        const voting = votings[i];
-        if (voting.suggestedDateId === suggestedDateId) {
-          return voting;
-        }
-      }
-    }
-    return null;
-  }
-
-  // noinspection JSMethodCanBeStatic
-  /**
-   * this can not be static, because the html-part of the code only has access to the instance at runtime
-   * since it has no access to the class itself, it also has no access to it's static members
-   * **/
-  private getNumberOfVotings(formArray: FormArray, votingStatus: VotingStatusType): number {
-    let result = 0;
-    const votings: Voting[] = formArray != null ? formArray.value as Voting[] : [];
-    for (let j = 0, lenVotings = votings.length; j < lenVotings; ++j) {
-      if (votings[j].status === votingStatus) {
-        result++;
-      }
-    }
-    return result;
   }
 }

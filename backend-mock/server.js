@@ -4,12 +4,17 @@ const btoa = require('btoa');
 const cors = require('cors')
 const app = express();
 
-const mediaType = 'application/terminfinder.api-v1+json'
+const mediaType = process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json';
 let appointments = []
 
 app.use(cors());
 app.use(express.json({type: mediaType}));
 app.use(express.urlencoded({extended: false}));
+app.use((req, res, _) => {
+  if (req.headers["content-type"] !== mediaType) {
+    res.status(406).send();
+  }
+});
 
 function isAppointmentValid(appointment) {
   return !!appointment.appointmentId ||
@@ -43,7 +48,7 @@ function isAuthenticated(isAdmin, requestAuth, appointment) {
 }
 
 app.get('/api/app', (req, res) => {
-  res.status(200).json({
+  res.contentType(mediaType).status(200).json({
     "versionNumber": '0.5.0',
     "buildDate": '2020-10-01'
   });

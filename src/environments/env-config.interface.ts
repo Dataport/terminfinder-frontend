@@ -35,4 +35,6 @@ export interface EnvConfig {
   readonly surveyLinkAdmin?: string;
   /** Link to survey as user*/
   readonly surveyLinkUser?: string;
+  /** Media type of api **/
+  readonly apiMediaType: string;
 }

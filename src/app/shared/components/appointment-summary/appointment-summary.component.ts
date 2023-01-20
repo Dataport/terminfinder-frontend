@@ -27,4 +27,8 @@ export class AppointmentSummaryComponent implements AfterViewInit {
       }
     });
   }
+
+  getDescription(): string {
+    return this.appointment.description.replace(/\n\r?/g, '<br/>');
+  }
 }

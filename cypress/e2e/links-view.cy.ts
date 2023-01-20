@@ -11,9 +11,12 @@ context('links-view', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=linksHeading]');
+      cy.get('[data-id=appointmentTitle]');
 
       cy.get('[data-id=inviteLinkDescription]');
       cy.get('[data-id=inviteLinkWarning]');
+      cy.get('[data-id=inviteLinkEmail]');
+      cy.get('[data-id=linkAdmin]');
       cy.get('[data-id=inviteLink]');
       cy.get('[data-id=inviteLinkCopy]');
       cy.get('[data-id=inviteLinkNavigate]');

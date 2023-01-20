@@ -33,7 +33,7 @@
     <div class="header"
          data-id="overviewDescriptionLabel">{{ 'poll.details.description.description' | translate }}</div>
     <div data-id="overviewDescriptionValue" id="descriptionContainer">
-      <div #description class="collapse value" id="description">{{appointment.description}}</div>
+      <div #description [innerHTML]="getDescription()" class="collapse value" id="description"></div>
       <a
         [hidden]="!moreButtonRequired"
         aria-controls="description"
@@ -41,6 +41,7 @@
         class="collapsed float-right pt-2"
         data-toggle="collapse"
         href="#description"
+        data-cy="descriptionMoreButton"
       ></a>
     </div>
   </div>

@@ -41,12 +41,12 @@
               <button
                 (click)="formHelper.downloadCsv()"
                 class="download-csv btn btn-rounded btn-sm btn-light"
-                data-id="downloadCsvButton"
                 data-placement="top"
                 data-toggle="tooltip"
                 id="download-csv"
                 title="{{ 'poll.downloadCsv' | translate }}"
                 type="button"
+                data-id="downloadCsvButton"
               >
                 <img alt="{{ 'poll.downloadCsv' | translate }}" aria-hidden="true" src="assets/calendar_grey.svg">
               </button>
@@ -61,9 +61,9 @@
                   class="download-cal btn btn-rounded btn-sm btn-light"
                   data-placement="top"
                   data-toggle="tooltip"
-                  id="download-cal-{{i}}"
                   title="{{ 'poll.downloadIcs' | translate }}"
                   type="button"
+                  id="download-cal-{{i}}"
                 >
                   <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
                 </button>
@@ -88,8 +88,8 @@
                     data-id="addParticipantButton"
                     data-placement="top"
                     data-toggle="tooltip"
-                    id="add-participant"
                     title="{{ 'poll.addParticipant' | translate }}"
+                    id="add-participant"
                     type="button"
                   >
                     <img alt="" aria-hidden="true" class="add-participant-icon" src="assets/add-user.svg">
@@ -181,8 +181,8 @@
               >
                 <app-poll-options
                   [formGroup]="formHelper.castToFormGroup(voting)"
-                  [isMobile]="false"
                   [selectorId]="j.toString()"
+                  [isMobile]="false"
                 ></app-poll-options>
               </td>
             </ng-container>
@@ -204,8 +204,8 @@
                   <button
                     (click)="formHelper.editParticipant(participant)"
                     class="btn btn-transparent p-0 border-0"
-                    id="editButton-{{index}}"
                     type="button"
+                    id="editButton-{{index}}"
                   >
                     <img alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
                   </button>
@@ -270,8 +270,8 @@
                       {{ 'poll.details.name.noName' | translate }}
                     </div>
                     <div *ngIf="formHelper.getParticipantFormName() && !!formHelper.getParticipantFormName().errors?.invalidName"
-                         class="invalid-message"
                          id="invalid-edit-name"
+                         class="invalid-message"
                     >
                       {{ 'poll.details.name.invalid' | translate }}
                     </div>

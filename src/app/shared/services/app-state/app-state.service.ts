@@ -9,6 +9,8 @@ import {AppointmentStatusType} from '../../models/appointmentStatusType';
   providedIn: 'root'
 })
 export class AppStateService {
+  isAdmin = false;
+  isAppointmentProtected = false;
   private appointment: Appointment = {
     adminId: '',
     appointmentId: '',
@@ -22,10 +24,7 @@ export class AppStateService {
     participants: [],
     status: AppointmentStatusType.Started
   };
-
   private credentials = '';
-  isAdmin = false;
-  isAppointmentProtected = false;
 
   constructor() {
   }

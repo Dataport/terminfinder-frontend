@@ -125,6 +125,14 @@ export class PollComponent implements OnInit {
     }
   }
 
+  navigate(link: string): void {
+    const anchor = document.createElement('a');
+    anchor.href = link;
+    anchor.rel = 'noopener noreferrer';
+    anchor.target = '_blank';
+    anchor.click();
+  }
+
   private initModel(): void {
     this.model = null;
     this.formHelper.participantsToDelete = [];
@@ -161,13 +169,5 @@ export class PollComponent implements OnInit {
           messageType: MessageType.ERROR
         };
       });
-  }
-
-  navigate(link: string): void {
-    const anchor = document.createElement('a');
-    anchor.href = link;
-    anchor.rel = 'noopener noreferrer';
-    anchor.target = '_blank';
-    anchor.click();
   }
 }

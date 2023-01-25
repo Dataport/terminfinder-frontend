@@ -26,9 +26,40 @@ export class CreateAppointmentComponent implements OnInit {
   ) {
   }
 
+  get name(): AbstractControl {
+    return this.detailsForm.get('name');
+  }
+
+  get title(): AbstractControl {
+    return this.detailsForm.get('title');
+  }
+
+  get location(): AbstractControl {
+    return this.detailsForm.get('location');
+  }
+
+  get description(): AbstractControl {
+    return this.detailsForm.get('description');
+  }
+
   ngOnInit(): void {
     this.model = this.appStateService.getAppointment();
     this.fillForm();
+  }
+
+  public onSubmit(): void {
+    this.logger.debug(`Detail-Formular abgeschickt mit den Werten: ${JSON.stringify(this.detailsForm.value)}`);
+    const appointmentFromForm: Appointment = this.detailsForm.value as Appointment;
+    this.model.name = appointmentFromForm.name;
+    this.model.title = appointmentFromForm.title;
+    this.model.location = appointmentFromForm.location;
+    this.model.description = appointmentFromForm.description;
+    this.appStateService.updateAppointment(this.model);
+    if (!this.isAdmin) {
+      this.router.navigate(['/dates']).then();
+    } else {
+      this.router.navigate(['/admin/dates']).then();
+    }
   }
 
   private fillForm() {
@@ -46,36 +77,5 @@ export class CreateAppointmentComponent implements OnInit {
         Validators.maxLength(ValidatorConstants.MAX_LENGTH_DESCRIPTION)
       ])
     });
-  }
-
-  get name(): AbstractControl {
-    return this.detailsForm.get('name');
-  }
-
-  get title(): AbstractControl {
-    return this.detailsForm.get('title');
-  }
-
-  get location(): AbstractControl {
-    return this.detailsForm.get('location');
-  }
-
-  get description(): AbstractControl {
-    return this.detailsForm.get('description');
-  }
-
-  public onSubmit(): void {
-    this.logger.debug(`Detail-Formular abgeschickt mit den Werten: ${JSON.stringify(this.detailsForm.value)}`);
-    const appointmentFromForm: Appointment = this.detailsForm.value as Appointment;
-    this.model.name = appointmentFromForm.name;
-    this.model.title = appointmentFromForm.title;
-    this.model.location = appointmentFromForm.location;
-    this.model.description = appointmentFromForm.description;
-    this.appStateService.updateAppointment(this.model);
-    if (!this.isAdmin) {
-      this.router.navigate(['/dates']).then();
-    } else {
-      this.router.navigate(['/admin/dates']).then();
-    }
   }
 }

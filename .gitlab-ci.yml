@@ -1,12 +1,27 @@
 stages:
+  - version
   - build
   - test
-  - docker
+  - release
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - .npm
+
+version:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  stage: version
+  artifacts:
+    reports:
+      dotenv: variables.env
+  before_script:
+    - curl -L https://github.com/idc101/git-mkver/releases/download/v1.2.2/git-mkver-linux-amd64-1.2.2.tar.gz | tar xvz
+    - mv git-mkver /usr/local/bin
+  script:
+    - VERSION=$(git mkver next)
+    - echo $VERSION
+    - echo "VERSION=$VERSION" >> variables.env
 
 build-prod:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
@@ -43,14 +58,31 @@ e2e:
     - npm run cy-verify
     - npm run ci-cypress
 
-build-and-release-container:
+docker-build-and-release:
   image: $ARTIFACTORY_SERVICE_IMAGES_URL/buildah
-  stage: docker
+  stage: release
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     # Patch for correct docker.io mirror:
     - sed -i "s/docker\.io/$ARTIFACTORY_DOCKER_COMMON/g" Dockerfile
-
     - buildah bud --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} -t ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}
     - buildah push --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}
+
+release-gitlab:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  stage: release
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  before_script:
+    - curl --location --output /usr/local/bin/release-cli "https://release-cli-downloads.s3.amazonaws.com/latest/release-cli-linux-amd64"
+    - chmod +x /usr/local/bin/release-cli
+    - release-cli -v
+  script:
+    - echo "Create Release in GitLab $TAG_NAME"
+  release:
+    name: "Release v$VERSION"
+    description: "Automatically generated release v$VERSION"
+    tag_name: "v$VERSION"
+    ref: "$CI_COMMIT_SHA"
+

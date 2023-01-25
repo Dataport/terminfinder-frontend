@@ -25,10 +25,6 @@ export class LinksComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-    this.model = this.appStateService.getAppointment();
-  }
-
   get adminLink(): string {
     return this.linkGeneratorService.generateAdminLink();
   }
@@ -43,6 +39,10 @@ export class LinksComponent implements OnInit {
 
   get absoluteAppointmentLink(): string {
     return `${document.location.origin}${document.location.pathname}#${this.appointmentLink}`;
+  }
+
+  ngOnInit(): void {
+    this.model = this.appStateService.getAppointment();
   }
 
   navigate(link: string): void {

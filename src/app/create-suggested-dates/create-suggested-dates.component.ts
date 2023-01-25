@@ -64,6 +64,15 @@ export class CreateSuggestedDatesComponent implements OnInit {
   );
   now: moment.Moment = new DateTimeGeneratorService().now();
 
+  constructor(private dataRepoService: DataRepositoryService,
+              private appStateService: AppStateService,
+              @Inject(LOCALE_ID) private localeId: string,
+              private router: Router,
+              private logger: Logger,
+              private dateTimeGenerator: DateTimeGeneratorService) {
+    moment.locale(this.localeId);
+  }
+
   private static formatDate(value: moment.Moment): string | null {
     if (Utils.isObjectNullOrUndefined(value)) {
       return null;
@@ -76,15 +85,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
       return null;
     }
     return value.format(ApiConstants.MOMENT_FORMAT_DATE_TIME);
-  }
-
-  constructor(private dataRepoService: DataRepositoryService,
-              private appStateService: AppStateService,
-              @Inject(LOCALE_ID) private localeId: string,
-              private router: Router,
-              private logger: Logger,
-              private dateTimeGenerator: DateTimeGeneratorService) {
-    moment.locale(this.localeId);
   }
 
   ngOnInit(): void {
@@ -289,10 +289,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
     }
   }
 
-  private addExistingSuggestedDate(suggestedDate: SuggestedDate): void {
-    this.getSuggestedDatesFromForm().push(this.createSuggestedDateForm(suggestedDate));
-  }
-
   public showSuggestedDateEndDateOnDifferentDayForm(index: number): void {
     this.getShowSuggestedDateEndDateOnDifferentDayForm(index).setValue(true);
     this.getShowEndDateEndTimeControl(index).setValue(this.getShowStartDateEndTimeControlValue(index));
@@ -311,6 +307,10 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public isSuggestedDateFromDatabase(index: number): boolean {
     return this.getSuggestedDateIdControlValue(index) !== null;
+  }
+
+  private addExistingSuggestedDate(suggestedDate: SuggestedDate): void {
+    this.getSuggestedDatesFromForm().push(this.createSuggestedDateForm(suggestedDate));
   }
 
   private createSuggestedDateForm(suggestedDate: SuggestedDate = null): FormGroup {

@@ -63,11 +63,11 @@
                     [minDate]="{ year: now.year(), month: now.month()+1, day: now.date() }"
                     appAutoFocus
                     class="form-control date"
+                    data-id="startDateInput"
                     data-target-input="nearest"
                     formControlName="startDate"
                     id="suggested-date-start-date-{{i}}"
                     ngbDatepicker
-                    data-id="startDateInput"
                     placeholder="{{ 'date.placeholder' | translate }}"
                   >
                 </div>
@@ -144,11 +144,11 @@
                     [minDate]="getStartDateOfSuggestedStartDateByIndex(i).value"
                     appAutoFocus
                     class="form-control date"
-                    formControlName="endDate"
                     data-id="endDateInput"
+                    formControlName="endDate"
                     id="suggested-date-end-date-{{i}}"
-                    placeholder="{{ 'date.placeholder' | translate }}"
                     ngbDatepicker
+                    placeholder="{{ 'date.placeholder' | translate }}"
                   >
                 </div>
               </ng-template>
@@ -317,11 +317,11 @@
         <div class="my-2 divider-single"></div>
         <div class="p-0 col text-center mt-1 align-items-start">
           <button
-            class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
-            type="button"
             (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
             [disabled]="isSuggestedDateFromDatabase(i)"
+            class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
             data-id="endAtOtherDayButton"
+            type="button"
           >
             {{ 'date.endAtOtherDay' | translate }}
             <img alt="add" src="assets/add.svg">

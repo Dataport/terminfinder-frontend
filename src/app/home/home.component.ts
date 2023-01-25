@@ -19,6 +19,14 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  localUserNotifications: Array<UserNotification> = [];
+  apiVersion = '';
+  buildDate = '';
+  apiError: Message;
+  titleForm: FormGroup;
+  model: Appointment;
+  derivateTitle = {value: environment.title ? environment.title : 'Terminfinder'};
+
   constructor(
     private dataRepoService: DataRepositoryService,
     private appStateService: AppStateService,
@@ -27,14 +35,6 @@ export class HomeComponent implements OnInit {
     public translate: TranslateService
   ) {
   }
-
-  localUserNotifications: Array<UserNotification> = [];
-  apiVersion = '';
-  buildDate = '';
-  apiError: Message;
-  titleForm: FormGroup;
-  model: Appointment;
-  derivateTitle = {value: environment.title ? environment.title : 'Terminfinder'};
 
   get isTosRead() {
     return this.titleForm.get('isTosRead') as FormControl;

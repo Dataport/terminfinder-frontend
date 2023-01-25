@@ -8,11 +8,12 @@ import {Utils} from '../../services/utils';
   styleUrls: ['./message-box.component.scss']
 })
 export class MessageBoxComponent {
-  _message: Message = {message: '', messageType: MessageType.UNDEFINED};
   isError = false;
   isWarning = false;
   isInfo = false;
   isSuccess = false;
+
+  _message: Message = {message: '', messageType: MessageType.UNDEFINED};
 
   @Input()
   set message(message: Message) {

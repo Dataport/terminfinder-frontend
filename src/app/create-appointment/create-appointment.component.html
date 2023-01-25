@@ -61,11 +61,11 @@
               <input
                 appAutoFocus
                 class="form-control"
+                data-id="nameInput"
                 formControlName="name"
                 id="name"
                 placeholder="{{ 'poll.details.name.name' | translate }}"
                 required
-                data-id="nameInput"
                 type="text"
               >
               <div
@@ -103,11 +103,11 @@
               <label data-id="locationLabel" for="location">{{ 'poll.details.place.placeOptional' | translate }}</label>
               <input
                 class="form-control"
+                data-id="locationInput"
                 formControlName="location"
                 id="location"
                 placeholder="{{ 'poll.details.place.place' | translate }}"
                 type="text"
-                data-id="locationInput"
               >
               <div
                 *ngIf="!!location.errors?.invalidName"
@@ -143,12 +143,12 @@
               </label>
               <textarea
                 class="form-control"
+                data-id="descriptionInput"
                 formControlName="description"
                 id="description"
                 placeholder="{{ 'poll.details.description.description' | translate }}"
                 rows="4"
                 type="text"
-                data-id="descriptionInput"
               ></textarea>
               <div
                 *ngIf="!!description.errors?.maxlength"
@@ -168,8 +168,8 @@
       [hasBackwardButton]="false"
       [hasForwardButton]="true"
       [invalid]="detailsForm.invalid"
-      forwardText="{{ 'navigation.nextToDateSelection' | translate }}"
       data-id="navigationComponent"
+      forwardText="{{ 'navigation.nextToDateSelection' | translate }}"
     ></app-navigation>
   </div>
 </form>

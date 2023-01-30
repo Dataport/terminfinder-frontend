@@ -39,10 +39,10 @@ Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL=
 
 | env-variable                     | docker* | type                     | default                                | description                                                           |
 |----------------------------------|---------|--------------------------|----------------------------------------|-----------------------------------------------------------------------|
-| TITLE                            | ja      | `string`                 | 'Terminfinder-SH'                      | Headline, <title>                                                     |
+| TITLE                            | ja      | `string`                 | ''                                     | Headline, <title>                                                     |
 | LOCALE                           | ja      | `'de-DE'` or `'en-EN'`   | `'de-DE'`                              | Initiale Sprache, bis User die Sprache ändert                         |
 | ADDRESSING (used on german only) | ja      | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
-| API_URL                          | ja      | `string` (url)           | `window.location.origin + '/api'`      | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
+| API_URL                          | ja      | `string` (url)           | ''                                     | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
 | PRODUCTION                       | -       | `boolean`                | `true`                                 | Flag für Angular, Log-Level, Timeout-Zeit für XHR                     |
 | VERSION                          | -       | `string`                 | package.json - version                 | Versionsnummer, die im Impressum angezeigt wird                       |
 | DOCKER                           | -       | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |

@@ -10,19 +10,19 @@
     "test": "npm run prebuild && ng serve --configuration production",
     "build-prod": "npm run prebuild && ng build --configuration production ",
     "build-test": "npm run prebuild && ng build --configuration test",
-    "build-docker": "export DOCKER=true && npm run prebuild && npm run build-prod",
+    "build-docker": "export DOCKER=true PRODUCTION=false && npm run prebuild && npm run build-prod",
     "build-docker-image": "docker image build --build-arg APP_FILES=dist -t terminfinder-docker:0.0.0 .",
     "lint": "npm run prebuild && ng lint",
     "lint-fix": "npm run prebuild && ng lint --fix",
     "prebuild": "node prebuild.js",
     "generate-sbom": "npx @cyclonedx/cyclonedx-npm --omit dev --omit optional --omit peer --output-file src/sbom.json",
-    "ci-cypress": "(npm run http-server &) && (npx cypress run --env baseHref=http://localhost:4200,apiUrl=http://localhost:4200,customerId=00000000-0000-0000-0000-000000000000)",
+    "ci-cypress": "(npm run http-server &) && (npx cypress run --env baseHref=http://localhost:4200,apiUrl=http://localhost:4200,customerId=80248A42-8FE2-4D4A-89DA-02E683511F76)",
     "http-server": "npx http-server dist -c-1 -s -p 4200",
     "cy-verify": "npx cypress verify",
     "cy-info": "npx cypress info",
     "cy-version": "npx cypress version",
     "cy-cache-list": "npx cypress cache list",
-    "cy-open-local": "npx cypress open --env baseHref=http://localhost:4200,apiUrl=http://localhost:4200,customerId=00000000-0000-0000-0000-000000000000"
+    "cy-open-local": "npx cypress open --env baseHref=http://localhost:4200,apiUrl=http://localhost:4200,customerId=80248A42-8FE2-4D4A-89DA-02E683511F76"
   },
   "private": true,
   "dependencies": {

@@ -94,7 +94,7 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
     .replace('@SURVEY_LINK_ADMIN@', reformat(process.env.SURVEY_LINK_ADMIN ? process.env.SURVEY_LINK_ADMIN : undefined))
     .replace('@SURVEY_LINK_USER@', reformat(process.env.SURVEY_SURVEY_LINK_USER ? process.env.SURVEY_SURVEY_LINK_USER : undefined))
     .replace('@EMAIL@', reformat(process.env.EMAIL ? process.env.EMAIL : 'demo@example.com'))
-    .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '00000000-0000-0000-0000-000000000000'))
+    .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '80248A42-8FE2-4D4A-89DA-02E683511F76'))
     .replace('@IMPRINT@', process.env.IMPRINT ? process.env.IMPRINT : `\`${imprint}\``)
     .replace('@PRIVACY@', process.env.PRIVACY ? process.env.PRIVACY : `\`${privacy}\``)
     .replace('@TOS@', process.env.TOS ? process.env.TOS : `\`${tos}\``)
@@ -114,17 +114,8 @@ fs.readFile('./src/index.html.tmpl', 'utf8', function (err, data) {
     throw err;
   }
 
-  if (process.env.DOCKER === 'true') {
-    data = data
-      .replace('@TITLE@', reformat('@TITLE@'));
-  } else {
-    let title = process.env.TITLE;
-    if (!title) {
-      title = 'Terminfinder';
-    }
-    data = data
-      .replace('@TITLE@', title);
-  }
+  data = data
+    .replace('@TITLE@', process.env.TITLE);
 
   fs.writeFile('./src/index.html', data, 'utf8', function (err) {
     if (err) {

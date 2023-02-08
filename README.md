@@ -1,5 +1,7 @@
 # Terminfinder-SH (Frontend)
 
+https://img.shields.io/github/license/Dataport/terminfinder-frontend
+
 Digital polls from Northern Germany - made by Dataport and the state of Schleswig-Holstein
 
 The "Terminfinder" offers a fast and easy way to create digital polls.
@@ -7,6 +9,8 @@ The "Terminfinder" offers a fast and easy way to create digital polls.
 **Digitale Abstimmungen aus dem Norden - ein Angebot von Dataport und dem Land Schleswig-Holstein**
 
 Mit dem Terminfinder können Sie schnell und einfach digitale Abstimmungen für Gruppen realisieren.
+
+[SECURITY.md](./SECURITY.md)
 
 ## Beschreibung
 
@@ -39,7 +43,7 @@ Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL=
 
 | env-variable                     | docker* | type                     | default                                | description                                                           |
 |----------------------------------|---------|--------------------------|----------------------------------------|-----------------------------------------------------------------------|
-| TITLE                            | ja      | `string`                 | ''                                     | Headline, <title>                                                     |
+| TITLE                            | ja      | `string`                 | ''                                     | Headline                                                              |
 | LOCALE                           | ja      | `'de-DE'` or `'en-EN'`   | `'de-DE'`                              | Initiale Sprache, bis User die Sprache ändert                         |
 | ADDRESSING (used on german only) | ja      | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
 | API_URL                          | ja      | `string` (url)           | ''                                     | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
@@ -59,6 +63,10 @@ Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL=
 z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (docker-replace-parameters.sh)
 
 ## Development
+
+[contributing](./CONTRIBUTING.md)
+
+[contributor-agreement](./CONTRIBUTOR-AGREEMENT.md)
 
 ### install and run
 

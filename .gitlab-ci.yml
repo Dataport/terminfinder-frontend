@@ -1,9 +1,3 @@
-stages:
-  - version
-  - build
-  - test
-  - docker
-
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
@@ -11,7 +5,10 @@ cache:
 
 version:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
-  stage: version
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "scheduled"
+  needs: [ ]
   artifacts:
     reports:
       dotenv: variables.env
@@ -19,16 +16,16 @@ version:
     - curl -L https://github.com/idc101/git-mkver/releases/download/v1.2.2/git-mkver-linux-amd64-1.2.2.tar.gz | tar xvz
     - mv git-mkver /usr/local/bin
   script:
-    - VERSION=$(git mkver next)
+    - VERSION=$(git mkver next --format '{Docker}')
     - echo $VERSION
     - echo "VERSION=$VERSION" >> variables.env
 
 release-gitlab:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"
   needs:
     - version
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   before_script:
     - curl --location --output /usr/local/bin/release-cli "https://release-cli-downloads.s3.amazonaws.com/latest/release-cli-linux-amd64"
     - chmod +x /usr/local/bin/release-cli
@@ -41,9 +38,13 @@ release-gitlab:
     tag_name: "v$VERSION"
     ref: "$CI_COMMIT_SHA"
 
-build-prod:
+build:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
-  stage: build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "scheduled"
+  needs:
+    - version
   artifacts:
     paths:
       - dist
@@ -53,24 +54,31 @@ build-prod:
 
 lint:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
-  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "scheduled"
+  needs: [ ]
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run lint
 
 audit:
   image: $ARTIFACTORY_DOCKER_COMMON/node:lts
-  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "scheduled"
+  needs: [ ]
   script:
     - npm ci --cache .npm --prefer-offline
     - npm audit --omit=dev
 
 e2e:
-  image:
-    name: $ARTIFACTORY_DOCKER_COMMON/cypress/included:10.10.0
+  image: $ARTIFACTORY_DOCKER_COMMON/cypress/included:10.10.0
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "scheduled"
   needs:
-    - build-prod
-  stage: test
+    - build
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run cy-verify
@@ -78,11 +86,11 @@ e2e:
 
 docker-build-and-release:
   image: $ARTIFACTORY_SERVICE_IMAGES_URL/buildah
-  stage: docker
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "push"
+  needs:
+    - version
   script:
-    # Patch for correct docker.io mirror:
     - sed -i "s/docker\.io/$ARTIFACTORY_DOCKER_COMMON/g" Dockerfile
-    - buildah bud --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} -t ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}
-    - buildah push --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}
+    - buildah bud --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} -t ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${VERSION}
+    - buildah push --creds ${DOCKER_DEV_USER}:${DOCKER_DEV_PASSWORD} ${DOCKER_DEV_URL}/${DOCKER_IMAGE_NAME}:${VERSION}

@@ -1,4 +1,4 @@
-FROM docker.io/node:lts-alpine as build
+FROM docker.io/node:18.13.0 as build
 WORKDIR /app
 
 # Install dependencies

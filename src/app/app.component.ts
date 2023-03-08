@@ -59,5 +59,6 @@ export class AppComponent implements OnInit {
     );
     moment.locale(newLocale.languageCode);
     this.localStorageService.set('language', newLocale.languageCode);
+    document.querySelector('html')?.setAttribute('lang', this.localeService.getIsoLanguageCode());
   }
 }

@@ -29,6 +29,17 @@ export class LocaleService {
     }
   }
 
+  getIsoLanguageCode(): string {
+    switch (this._locale.languageCode) {
+      case 'de-DE': {
+        return 'de';
+      }
+      case 'en-EN': {
+        return 'en';
+      }
+    }
+  }
+
   getLocale(): Locale {
     return this._locale;
   }

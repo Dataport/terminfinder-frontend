@@ -32,14 +32,6 @@ context('app-component', () => {
       cy.get('[data-id=languageDropdown]')
         .contains('EN')
         .click();
-
-      /*
-      cy.get('[data-id=langPlatt]')
-        .click();
-      cy.get('[data-id=languageDropdown]')
-        .contains('Platt')
-        .click();
-       */
     });
 
     it('Changes content lang', () => {
@@ -47,6 +39,9 @@ context('app-component', () => {
         .should(($span) => {
           expect($span.text()).to.match(/Erstelle Umfragen|Sie suchen einen/);
         });
+      cy.get('html')
+        .invoke('attr', 'lang')
+        .should('eq', 'de');
 
       cy.get('[data-id=languageDropdown]')
         .click();
@@ -55,19 +50,11 @@ context('app-component', () => {
       cy.get('[data-id=languageDropdown]')
         .contains('EN')
         .click();
-
       cy.get('[data-id=createPollSlogan]')
         .contains('Create appointments');
-
-      /*
-      cy.get('[data-id=langPlatt]')
-        .click();
-      cy.get('[data-id=languageDropdown]')
-        .contains('Platt')
-        .click();
-      cy.get('[data-id=createPollSlogan]')
-        .contains('Stell Umfragen un kaam');
-       */
+      cy.get('html')
+        .invoke('attr', 'lang')
+        .should('eq', 'en');
     });
 
     it('Changes local storage', () => {
@@ -103,22 +90,6 @@ context('app-component', () => {
 
       cy.get('[data-id=createPollSlogan]')
         .contains('Create appointments');
-
-      /*
-      cy.get('[data-id=languageDropdown]')
-        .click();
-      cy.get('[data-id=langPlatt]')
-        .click();
-      cy.get('[data-id=languageDropdown]')
-        .contains('Platt')
-        .click()
-        .should(() => {
-          expect(localStorage.getItem('language')).to.eq('"platt"');
-        });
-      cy.moveToHomeView();
-      cy.get('[data-id=createPollSlogan]')
-        .contains('Stell Umfragen un kaam');
-       */
     });
   });
 });

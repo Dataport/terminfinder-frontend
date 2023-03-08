@@ -1,18 +1,21 @@
 const express = require('express');
 const uuid = require('uuid');
 const btoa = require('btoa');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 
+const PORT = 4201;
 const mediaType = process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json';
-let appointments = []
+let appointments = [];
 
 app.use(cors());
 app.use(express.json({type: mediaType}));
 app.use(express.urlencoded({extended: false}));
-app.use((req, res, _) => {
+app.use((req, res, next) => {
   if (req.headers["content-type"] !== mediaType) {
     res.status(406).send();
+  } else {
+    next();
   }
 });
 
@@ -25,25 +28,25 @@ function isAppointmentValid(appointment) {
     !!appointment.description ||
     !!appointment.place ||
     !!appointment.status ||
-    !!appointment.suggestedDates.length
+    !!appointment.suggestedDates.length;
 }
 
 function filterAppointment(obj) {
   const filtered = appointments.filter(appointment =>
     (appointment.appointmentId === obj.appointmentId && appointment.customerId === obj.customerId) ||
-    (appointment.adminId === obj.adminId && appointment.customerId === obj.customerId))
-  return (filtered.length === 1) ? filtered[0] : null
+    (appointment.adminId === obj.adminId && appointment.customerId === obj.customerId));
+  return (filtered.length === 1) ? filtered[0] : null;
 }
 
 function copyObject(obj) {
-  return JSON.parse(JSON.stringify(obj))
+  return JSON.parse(JSON.stringify(obj));
 }
 
 function isAuthenticated(isAdmin, requestAuth, appointment) {
   if (isAdmin) {
-    return requestAuth === 'Basic ' + btoa(`${appointment.adminId}:${appointment.password}`)
+    return requestAuth === 'Basic ' + btoa(`${appointment.adminId}:${appointment.password}`);
   } else {
-    return requestAuth === 'Basic ' + btoa(`${appointment.customerId}:${appointment.password}`)
+    return requestAuth === 'Basic ' + btoa(`${appointment.customerId}:${appointment.password}`);
   }
 }
 
@@ -67,7 +70,7 @@ app.post('/api/appointment/:customerId', (req, res) => {
     "password": req.body.password,
     "suggestedDates": req.body.suggestedDates,
     "participants": req.body.participants
-  }
+  };
 
   if (!isAppointmentValid(obj)) {
     return res.contentType(mediaType).status(400).json({
@@ -76,16 +79,16 @@ app.post('/api/appointment/:customerId', (req, res) => {
     });
   }
   obj.suggestedDates.forEach(suggestedDate => {
-    suggestedDate.suggestedDateId = uuid.v4()
+    suggestedDate.suggestedDateId = uuid.v4();
   });
   appointments.push(obj);
 
-  const output = copyObject(filterAppointment(obj))
+  const output = copyObject(filterAppointment(obj));
   if (output) {
-    output.password = null
+    output.password = null;
     res.contentType(mediaType).status(201).json(output);
   }
-})
+});
 
 app.put('/api/appointment/:customerId', (req, res) => {
   const obj = {
@@ -100,7 +103,7 @@ app.put('/api/appointment/:customerId', (req, res) => {
     "password": req.body.password,
     "suggestedDates": req.body.suggestedDates,
     "participants": req.body.participants
-  }
+  };
 
   if (!isAppointmentValid(obj)) {
     return res.contentType(mediaType).status(400).json({
@@ -110,22 +113,22 @@ app.put('/api/appointment/:customerId', (req, res) => {
   }
 
   appointments = appointments.filter(appointment =>
-    appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId)
+    appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId);
   appointments.push(obj);
 
-  const output = copyObject(filterAppointment(obj))
+  const output = copyObject(filterAppointment(obj));
   if (output) {
-    output.password = null
+    output.password = null;
     res.contentType(mediaType).status(200).json(output);
   }
-})
+});
 
 app.get('/api/appointment/:customerId/:appointmentId/protection', (req, res) => {
   const obj = {
     'appointmentId': req.params.appointmentId,
     'customerId': req.params.customerId
-  }
-  const filtered = filterAppointment(obj)
+  };
+  const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
@@ -141,8 +144,8 @@ app.get('/api/appointment/:customerId/:appointmentId/passwordverification', (req
   const obj = {
     'appointmentId': req.params.appointmentId,
     'customerId': req.params.customerId
-  }
-  const filtered = filterAppointment(obj)
+  };
+  const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
@@ -178,8 +181,8 @@ app.get('/api/appointment/:customerId/:appointmentId', (req, res) => {
   const obj = {
     'appointmentId': req.params.appointmentId,
     'customerId': req.params.customerId
-  }
-  const filtered = copyObject(filterAppointment(obj))
+  };
+  const filtered = copyObject(filterAppointment(obj));
   filtered.participants = shuffle(filtered.participants);
   filtered.participants.forEach(participant => {
     participant.votings = shuffle(participant.votings);
@@ -200,8 +203,8 @@ app.get('/api/admin/:customerId/:adminId/protection', (req, res) => {
   const obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
-  }
-  const filtered = filterAppointment(obj)
+  };
+  const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
@@ -217,8 +220,8 @@ app.get('/api/admin/:customerId/:adminId/passwordverification', (req, res) => {
   const obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
-  }
-  const filtered = filterAppointment(obj)
+  };
+  const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
@@ -235,8 +238,8 @@ app.get('/api/admin/:customerId/:adminId', (req, res) => {
   let obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
-  }
-  obj = copyObject(filterAppointment(obj))
+  };
+  obj = copyObject(filterAppointment(obj));
 
   if (obj) {
     obj.password = null;
@@ -250,8 +253,8 @@ app.put('/api/admin/:customerId/:adminId/paused/status', (req, res) => {
   let obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
-  }
-  obj = filterAppointment(obj)
+  };
+  obj = filterAppointment(obj);
 
   if (obj) {
     obj.status = 'paused';
@@ -267,12 +270,12 @@ app.put('/api/admin/:customerId/:adminId/started/status', (req, res) => {
   let obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
-  }
-  obj = filterAppointment(obj)
+  };
+  obj = filterAppointment(obj);
 
   if (obj) {
-    obj.status = 'started'
-    const filtered = copyObject(obj)
+    obj.status = 'started';
+    const filtered = copyObject(obj);
     filtered.password = null;
     res.contentType(mediaType).json(filtered);
   } else {
@@ -284,8 +287,8 @@ app.put('/api/votings/:customerId/:appointmentId', (req, res) => {
   let obj = {
     "appointmentId": req.params.appointmentId,
     "customerId": req.params.customerId,
-  }
-  obj = filterAppointment(obj)
+  };
+  obj = filterAppointment(obj);
   if (!obj) {
     return res.contentType(mediaType).status(400).json({
       msg: 'PUT Missing arguments for appointment!',
@@ -293,7 +296,7 @@ app.put('/api/votings/:customerId/:appointmentId', (req, res) => {
     });
   }
 
-  let newParticipants = req.body
+  let newParticipants = req.body;
   if (!newParticipants || newParticipants.length === 0) {
     return res.contentType(mediaType).status(400).json({
       msg: 'PUT Missing arguments for votings!',
@@ -303,21 +306,21 @@ app.put('/api/votings/:customerId/:appointmentId', (req, res) => {
 
   newParticipants.forEach(participant => {
     if (participant.participantId === null) {
-      participant.participantId = uuid.v4()
+      participant.participantId = uuid.v4();
     }
     participant.votings.forEach(voting => {
       if (voting.votingId === null) {
-        voting.votingId = uuid.v4()
+        voting.votingId = uuid.v4();
       }
       if (!voting.participantId) {
-        voting.participantId = participant.participantId
+        voting.participantId = participant.participantId;
       }
-    })
+    });
 
     obj.participants = obj.participants.filter(participantObj =>
       (participantObj.participantId !== participant.participantId)
-    )
-    obj.participants.push(participant)
+    );
+    obj.participants.push(participant);
   });
 
   if (!obj.participants) {
@@ -328,14 +331,13 @@ app.put('/api/votings/:customerId/:appointmentId', (req, res) => {
   }
 
   appointments = appointments.filter(appointment =>
-    appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId)
+    appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId);
   appointments.push(obj);
 
-  const output = filterAppointment(obj)
+  const output = filterAppointment(obj);
   if (output) {
     res.contentType(mediaType).status(201).json(output.participants);
   }
 });
 
-const PORT = 4201;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

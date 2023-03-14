@@ -7,7 +7,7 @@
     <div>e-mail: <a href="mailto:{{email}}" id="email">{{email}}</a></div>
   </div>
 
-  <div id="reference">
+  <div *ngIf="showReference" id="reference">
     Ein Angebot von <a href="https://dataport.de" target="_blank">Dataport</a>
     und dem <a href="https://schleswig-holstein.de" target="_blank">Land Schleswig-Holstein</a>
   </div>

@@ -9,6 +9,7 @@ import {environment} from '../../../../environments/environment';
 export class FooterComponent {
 
   email = environment.email;
+  showReference = environment.showReference;
 
   constructor() {
   }

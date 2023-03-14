@@ -23,6 +23,8 @@ export interface EnvConfig {
   readonly consoleLoggingOptions: ConsoleLogOptionsInterface;
   /** E-Mail to contact owner of website */
   readonly email?: string;
+  /** Show Reference of Dataport and Schleswig-Holstein */
+  readonly showReference?: boolean;
   /** HTMLElement of imprint */
   readonly imprint: string;
   /** HTMLElement of privacy declaration */

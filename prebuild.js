@@ -58,6 +58,10 @@ function reformat(value) {
   return `'${value}'`;
 }
 
+function isBoolean(value) {
+  return value === 'true' || value === 'false';
+}
+
 fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, data) {
   if (err) {
     throw err;
@@ -77,7 +81,7 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@API_URL@', reformat(process.env.API_URL));
   }
 
-  if (process.env.PRODUCTION === "true" || process.env.PRODUCTION === "false") {
+  if (isBoolean(process.env.PRODUCTION)) {
     data = data
       .replace('@PRODUCTION@', process.env.PRODUCTION)
       .replace('@CONSOLE_LOGGING_OPTIONS@', `{momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: ${process.env.PRODUCTION ? 'LogLevel.WARN' : 'LogLevel.DEBUG'}}`);
@@ -94,12 +98,13 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
     .replace('@SURVEY_LINK_ADMIN@', reformat(process.env.SURVEY_LINK_ADMIN ? process.env.SURVEY_LINK_ADMIN : undefined))
     .replace('@SURVEY_LINK_USER@', reformat(process.env.SURVEY_SURVEY_LINK_USER ? process.env.SURVEY_SURVEY_LINK_USER : undefined))
     .replace('@EMAIL@', reformat(process.env.EMAIL ? process.env.EMAIL : 'demo@example.com'))
+    .replace('@SHOW_REFERENCE@', isBoolean(process.env.SHOW_REFERENCE) ? process.env.SHOW_REFERENCE : 'true')
     .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '80248A42-8FE2-4D4A-89DA-02E683511F76'))
     .replace('@IMPRINT@', process.env.IMPRINT ? process.env.IMPRINT : `\`${imprint}\``)
     .replace('@PRIVACY@', process.env.PRIVACY ? process.env.PRIVACY : `\`${privacy}\``)
     .replace('@TOS@', process.env.TOS ? process.env.TOS : `\`${tos}\``)
-    .replace('@ACCESSIBILITY@', process.env.TOS ? process.env.ACCESSIBILITY : `\`${accessibility}\``)
-    .replace('@API_REQUEST_TIMEOUT_IN_MS@', process.env.PRODUCTION === false ? '180000' : '20000')
+    .replace('@ACCESSIBILITY@', process.env.ACCESSIBILITY ? process.env.ACCESSIBILITY : `\`${accessibility}\``)
+    .replace('@API_REQUEST_TIMEOUT_IN_MS@', process.env.PRODUCTION === 'false' ? '180000' : '20000')
     .replace('@API_MEDIA_TYPE@', reformat(process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json'));
 
   fs.writeFile('./src/environments/environment.ts', data, 'utf8', function (err) {

@@ -157,5 +157,10 @@
     "accept_1": "zu und habe die",
     "accept_2": "zur Kenntnis genommen.",
     "accept": "Bitte akzeptieren Sie die Datenschutzerklärung und die Nutzungsbedingungen."
+  },
+  "footer": {
+    "reference_0": "Ein Produkt von",
+    "reference_1": "und dem",
+    "sh": "Land Schleswig-Holstein"
   }
 }

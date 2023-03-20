@@ -7,9 +7,10 @@
     <div>e-mail: <a href="mailto:{{email}}" id="email">{{email}}</a></div>
   </div>
 
-  <div id="reference">
-    Ein Angebot von <a href="https://dataport.de" target="_blank">Dataport</a>
-    und dem <a href="https://schleswig-holstein.de" target="_blank">Land Schleswig-Holstein</a>
+  <div *ngIf="showReference" id="reference">
+    {{ 'footer.reference_0' | translate }} <a href="https://dataport.de" target="_blank">Dataport</a>
+    {{ 'footer.reference_1' | translate }}
+    <a href="https://schleswig-holstein.de" target="_blank">{{ 'footer.sh' | translate }}</a>
   </div>
 
   <div id="oss-code">

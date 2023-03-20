@@ -157,5 +157,10 @@
     "accept_1": " and have read the ",
     "accept_2": " .",
     "accept": "Please accept the privacy declaration and the terms of use."
+  },
+  "footer": {
+    "reference_0": "A product of",
+    "reference_1": "and the",
+    "sh": "State of Schleswig-Holstein"
   }
 }

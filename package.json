@@ -1,7 +1,7 @@
 {
   "name": "terminfinder",
   "version": "0.0.0",
-  "author": "Copyright © 2022 Dataport AöR",
+  "author": "Copyright © 2022-2023 Dataport AöR",
   "description": "Erstelle Umfragen und komme mit deinen Leuten auf einen Nenner!",
   "license": "EUPL-1.2",
   "scripts": {
@@ -12,6 +12,7 @@
     "build-test": "npm run prebuild && ng build --configuration test",
     "build-docker": "export DOCKER=true PRODUCTION=false && npm run prebuild && npm run build-prod",
     "build-docker-image": "docker image build --build-arg APP_FILES=dist -t terminfinder-docker:0.0.0 .",
+    "compare-locales": "node compare-locales.js",
     "lint": "npm run prebuild && ng lint",
     "lint-fix": "npm run prebuild && ng lint --fix",
     "prebuild": "node prebuild.js",

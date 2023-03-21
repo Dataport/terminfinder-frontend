@@ -1,7 +1,5 @@
 # Terminfinder-SH (Frontend)
 
-https://img.shields.io/github/license/Dataport/terminfinder-frontend
-
 Digital polls from Northern Germany - made by Dataport and the state of Schleswig-Holstein
 
 The "Terminfinder" offers a fast and easy way to create digital polls.
@@ -11,6 +9,8 @@ The "Terminfinder" offers a fast and easy way to create digital polls.
 Mit dem Terminfinder können Sie schnell und einfach digitale Abstimmungen für Gruppen realisieren.
 
 [SECURITY.md](./SECURITY.md)
+
+![An ongoing poll for a hackathon.](screenshot.jpeg "Screenshot of Terminfinder")
 
 ## Beschreibung
 

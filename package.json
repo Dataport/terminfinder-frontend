@@ -6,7 +6,7 @@
   "license": "EUPL-1.2",
   "scripts": {
     "backend-mock": "cross-env node backend-mock/server.js",
-    "start": "cross-env PRODUCTION=false npm run prebuild && ng serve",
+    "start": "cross-env PRODUCTION=false ADDRESSING=sie npm run prebuild && ng serve",
     "test": "npm run prebuild && ng serve --configuration production",
     "build-prod": "npm run prebuild && ng build --configuration production ",
     "build-test": "npm run prebuild && ng build --configuration test",

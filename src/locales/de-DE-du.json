@@ -17,6 +17,7 @@
     "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwende keine personenbezogenen Daten."
   },
   "poll": {
+    "poll": "Umfrage",
     "create": "Umfrage erstellen",
     "createNew": "Neue Umfrage erstellen",
     "configure": "Konfiguriere Deine Umfrage",
@@ -121,7 +122,11 @@
     "satisfactionSurveyButton": "Zum Feedback geben",
     "email": {
       "send": "E-Mail versenden",
-      "participate": "Möchtest du an dem Termin teilnehmen? Schön! Dann wähle eine Terminoption unter:"
+      "addressing": "Liebe Empfänger:in",
+      "creation": "zur gemeinsamen Terminfindung habe ich eine Termin-Umfrage erstellt",
+      "participate": "Wähle passende Terminoptionen unter",
+      "greetings": "Freundliche Grüße",
+      "admin": "Dies ist die Admin-URL zur Bearbeitung folgender Umfrage"
     }
   },
   "password": {

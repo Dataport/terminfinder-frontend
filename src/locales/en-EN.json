@@ -17,6 +17,7 @@
     "testEnvironmentBanner": "This is a test environment of {{value}}. Please do not fill in personal data."
   },
   "poll": {
+    "poll": "Poll",
     "create": "Create poll",
     "createNew": "Create new poll",
     "configure": "Configure your poll",
@@ -121,7 +122,11 @@
     "satisfactionSurveyButton": "Go to survey",
     "email": {
       "send": "Send mail",
-      "participate": "Would you like to attend the event? Great! Then choose a date option under:"
+      "addressing": "Dear recipients",
+      "creation": "I have created an appointment survey to find a common date",
+      "participate": "Select suitable date options at",
+      "greetings": "Kind regards",
+      "admin": "This is the admin URL for editing the following poll"
     }
   },
   "password": {

@@ -59,38 +59,33 @@ export class LinksComponent implements OnInit {
   }
 
   createPollMail(): void {
-    this.translate.get('links.email.participate').subscribe(participateTranslation => {
-      let subject = `[Terminfinder] Umfrage ${this.model.title}`;
-      let body = `Moin moin,%0D%0A`;
-      body += `ich habe eine Umfrage erstellt:%0D%0A%0D%0A`;
-      body += `Titel: ${this.model.title}%0D%0A`;
-      if (this.model.location) {
-        body += `Ort: ${this.model.location}%0D%0A`;
-      }
-      if (this.model.description) {
-        body += `Beschreibung: ${this.model.description}%0D%0A`;
-      }
-      body += `%0D%0A${participateTranslation}%0D%0A`;
-      body += `${this.absoluteAppointmentLink}%0D%0A`;
-      body += `%0D%0ABeste Grüße,%0D%0A${this.model.name}`;
-      window.open(`mailto:?subject=${subject}&body=${body}`, '_self');
-    });
+    let subject = `[Terminfinder] ${this.translate.instant('poll.poll')} ${this.model.title}`;
+    let body = `${this.translate.instant('links.email.addressing')},%0D%0A`;
+    body += `${this.translate.instant('links.email.creation')}:%0D%0A%0D%0A`;
+    body += this.getDetailsAsMailContent();
+    body += `%0D%0A${this.translate.instant('links.email.participate')}:%0D%0A`;
+    body += `${this.absoluteAppointmentLink}%0D%0A`;
+    body += `%0D%0A${this.translate.instant('links.email.greetings')},%0D%0A${this.model.name}`;
+    window.open(`mailto:?subject=${subject}&body=${body}`, '_self');
   }
 
   createAdminMail(): void {
     let subject = `[Terminfinder] Admin-URL ${this.model.title}`;
-    let body = `Moin moin,%0D%0A`;
-    body += `hier ist die Admin-URL für folgende Umfrage:%0D%0A%0D%0A`;
-    body += `Titel: ${this.model.title}%0D%0A`;
+    let body = `${this.translate.instant('links.email.admin')}:%0D%0A%0D%0A`;
+    body += this.getDetailsAsMailContent();
+    body += 'URL:%0D%0A';
+    body += `${this.absoluteAdminLink}%0D%0A`;
+    window.open(`mailto:?subject=${subject}&body=${body}`, '_self');
+  }
+
+  private getDetailsAsMailContent(): string {
+    let body = `${this.translate.instant('poll.title.title')}: ${this.model.title}%0D%0A`;
     if (this.model.location) {
-      body += `Ort: ${this.model.location}%0D%0A`;
+      body += `${this.translate.instant('poll.details.place.place')}: ${this.model.location}%0D%0A`;
     }
     if (this.model.description) {
-      body += `Beschreibung: ${this.model.description}%0D%0A`;
+      body += `${this.translate.instant('poll.details.description.description')}: ${this.model.description}%0D%0A`;
     }
-    body += `%0D%0AURL:%0D%0A`;
-    body += `${this.absoluteAdminLink}%0D%0A`;
-    body += `%0D%0ABeste Grüße,%0D%0A${this.model.name}`;
-    window.open(`mailto:?subject=${subject}&body=${body}`, '_self');
+    return body;
   }
 }

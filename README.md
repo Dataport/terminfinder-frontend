@@ -8,9 +8,9 @@ The "Terminfinder" offers a fast and easy way to create digital polls.
 
 Mit dem Terminfinder können Sie schnell und einfach digitale Abstimmungen für Gruppen realisieren.
 
-[SECURITY.md](./SECURITY.md)
+[SECURITY.md](./docs/SECURITY.md)
 
-![An ongoing poll for a hackathon.](screenshot.jpeg "Screenshot of Terminfinder")
+![An ongoing poll for a hackathon.](./docs/screenshot.jpeg "Screenshot of Terminfinder")
 
 ## Beschreibung
 
@@ -64,9 +64,9 @@ z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (do
 
 ## Development
 
-[contributing](./CONTRIBUTING.md)
+[contributing](./docs/CONTRIBUTING.md)
 
-[contributor-agreement](./CONTRIBUTOR-AGREEMENT.md)
+[contributor-agreement](./docs/CONTRIBUTOR-AGREEMENT.md)
 
 ### install and run
 

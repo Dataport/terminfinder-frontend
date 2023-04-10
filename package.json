@@ -40,7 +40,7 @@
     "@ng-bootstrap/ng-bootstrap": "12.1.2",
     "@ngx-translate/core": "13.0.0",
     "@ngx-translate/http-loader": "6.0.0",
-    "@popperjs/core": "2.11.5",
+    "@popperjs/core": "2.11.7",
     "bootstrap": "4.6.0",
     "calendar-link": "2.4.0",
     "core-js": "3.8.3",

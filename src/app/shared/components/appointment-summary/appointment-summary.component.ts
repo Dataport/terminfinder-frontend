@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Appointment} from '../../models';
+import {LinkGeneratorService} from "../../services/utils/link-generator.service";
 
 @Component({
   selector: 'app-appointment-summary',
@@ -7,14 +8,22 @@ import {Appointment} from '../../models';
   styleUrls: ['./appointment-summary.component.scss']
 })
 
-export class AppointmentSummaryComponent implements AfterViewInit {
+export class AppointmentSummaryComponent implements OnInit, AfterViewInit {
   moreButtonRequired = true;
+  absoluteAppointmentUrl: string = '';
 
   @Input() appointment: Appointment;
   @Input() showUsername = true;
+  @Input() showAppointmentUrl = false;
   @ViewChild('description', {static: false}) descriptionElement: ElementRef;
 
-  constructor() {
+  constructor(
+    private linkGeneratorService: LinkGeneratorService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.absoluteAppointmentUrl = this.linkGeneratorService.generateAbsoluteAppointmentLink();
   }
 
   ngAfterViewInit(): void {

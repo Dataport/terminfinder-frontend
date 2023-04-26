@@ -46,7 +46,10 @@ context('admin-view', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=adminHeading]');
-
+      cy.get('[data-id=overviewUrlLabel]');
+      cy.get('[data-id=overviewUrlValue]');
+      cy.get('[data-id=overviewNameLabel]');
+      cy.get('[data-id=overviewNameValue]');
       cy.get('[data-id=overviewTitleLabel]');
       cy.get('[data-id=overviewTitleValue]');
       cy.get('[data-id=overviewPlaceLabel]');

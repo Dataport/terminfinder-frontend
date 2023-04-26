@@ -1,3 +1,24 @@
+<div *ngIf="showAppointmentUrl && absoluteAppointmentUrl" class="row no-gutters mb-3">
+  <div class="col-auto align-self-center mr-2">
+    <img alt="url" class="icon" src="assets/calendar_grey.svg"/>
+  </div>
+  <div class="col align-self-top">
+    <div class="header" data-id="overviewUrlLabel">{{ 'poll.details.url.url' | translate }}</div>
+    <div class="value" data-id="overviewUrlValue" id="url">
+      <a [href]="absoluteAppointmentUrl" target="_blank">{{absoluteAppointmentUrl}}</a>
+      <button
+        [cbContent]="absoluteAppointmentUrl"
+        class="btn btn-transparent m-0 p-0"
+        data-id="inviteLinkCopy"
+        ngbTooltip="{{ 'links.copy' | translate }}"
+        ngxClipboard
+        type="button"
+      >
+        <img alt="{{ 'links.copy' | translate }}" class="icon" src="assets/copy.svg"/>
+      </button>
+    </div>
+  </div>
+</div>
 <div *ngIf="showUsername && appointment.name" class="row no-gutters mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="user" class="icon" src="assets/user.svg"/>

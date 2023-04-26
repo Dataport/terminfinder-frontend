@@ -66,6 +66,9 @@
         "description": "Beschreibung",
         "descriptionOptional": "Beschreibung (optional)",
         "tooLong": "Die Beschreibung ist zu lang."
+      },
+      "url": {
+        "url": "Umfrage-URL"
       }
     }
   },

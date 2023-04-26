@@ -1,6 +1,10 @@
 @import "src/default";
 @import '~bootstrap/scss/mixins';
 
+#url {
+  color: $primary;
+}
+
 #name {
   color: $primary;
 }

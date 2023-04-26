@@ -25,20 +25,12 @@ export class LinksComponent implements OnInit {
   ) {
   }
 
-  get adminLink(): string {
-    return this.linkGeneratorService.generateAdminLink();
-  }
-
-  get appointmentLink(): string {
-    return this.linkGeneratorService.generateAppointmentLink();
-  }
-
   get absoluteAdminLink(): string {
-    return `${document.location.origin}${document.location.pathname}#${this.adminLink}`;
+    return this.linkGeneratorService.generateAbsoluteAdminLink();
   }
 
   get absoluteAppointmentLink(): string {
-    return `${document.location.origin}${document.location.pathname}#${this.appointmentLink}`;
+    return this.linkGeneratorService.generateAbsoluteAppointmentLink();
   }
 
   ngOnInit(): void {

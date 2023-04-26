@@ -16,7 +16,6 @@ context('overview-view', () => {
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=stepperComponent]');
       cy.get('[data-id=overviewHeading]');
-
       cy.get('[data-id=overviewNameLabel]');
       cy.get('[data-id=overviewNameValue]');
       cy.get('[data-id=overviewTitleLabel]');

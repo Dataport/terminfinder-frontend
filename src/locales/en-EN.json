@@ -66,6 +66,9 @@
         "description": "Description",
         "descriptionOptional": "Description (optional)",
         "tooLong": "The description is too long."
+      },
+      "url": {
+        "url": "Appointment URL"
       }
     }
   },

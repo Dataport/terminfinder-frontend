@@ -69,6 +69,10 @@
       },
       "url": {
         "url": "Umfrage-URL"
+      },
+      "delete": {
+        "deleteDate": "Löschfrist",
+        "willBeDeleted": "Die Terminabfrage wird eine Woche nach dem letzten Termindatum gelöscht."
       }
     }
   },

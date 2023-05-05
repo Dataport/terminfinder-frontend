@@ -16,19 +16,22 @@ context('overview-view', () => {
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=stepperComponent]');
       cy.get('[data-id=overviewHeading]');
-      cy.get('[data-id=overviewNameLabel]');
-      cy.get('[data-id=overviewNameValue]');
-      cy.get('[data-id=overviewTitleLabel]');
-      cy.get('[data-id=overviewTitleValue]')
-        .should("contain.html", "Test-Titel");
-      cy.get('[data-id=overviewPlaceLabel]');
-      cy.get('[data-id=overviewPlaceValue]')
-        .should("contain.html", "Test-Ort");
-      cy.get('[data-id=overviewDescriptionLabel]');
-      cy.get('[data-id=overviewDescriptionValue]')
-        .should("contain.html", "Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2");
-      cy.get('[data-id=overviewDatesDesktop]');
 
+      cy.get('[data-cy=overviewNameLabel]');
+      cy.get('[data-cy=overviewNameValue]');
+      cy.get('[data-cy=overviewTitleLabel]');
+      cy.get('[data-cy=overviewTitleValue]')
+        .should("contain.html", "Test-Titel");
+      cy.get('[data-cy=overviewPlaceLabel]');
+      cy.get('[data-cy=overviewPlaceValue]')
+        .should("contain.html", "Test-Ort");
+      cy.get('[data-cy=overviewDescriptionLabel]');
+      cy.get('[data-cy=overviewDescriptionValue]')
+        .should("contain.html", "Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2");
+      cy.get('[data-cy=overviewDeleteLabel]');
+      cy.get('[data-cy=overviewDeleteValue]');
+
+      cy.get('[data-id=overviewDatesDesktop]');
       cy.get('[data-id=back]')
         .should('be.enabled');
       cy.get('[data-id=next]')

@@ -69,6 +69,10 @@
       },
       "url": {
         "url": "Appointment URL"
+      },
+      "delete": {
+        "deleteDate": "Deletion period",
+        "willBeDeleted": "The appointment request is deleted one week after the last possible appointment date."
       }
     }
   },

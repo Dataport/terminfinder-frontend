@@ -15,6 +15,7 @@ export class AppointmentSummaryComponent implements OnInit, AfterViewInit {
   @Input() appointment: Appointment;
   @Input() showUsername = true;
   @Input() showAppointmentUrl = false;
+  @Input() showDeleteWarning = false;
   @ViewChild('description', {static: false}) descriptionElement: ElementRef;
 
   constructor(

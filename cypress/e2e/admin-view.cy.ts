@@ -46,18 +46,21 @@ context('admin-view', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=adminHeading]');
-      cy.get('[data-id=overviewUrlLabel]');
-      cy.get('[data-id=overviewUrlValue]');
-      cy.get('[data-id=overviewNameLabel]');
-      cy.get('[data-id=overviewNameValue]');
-      cy.get('[data-id=overviewTitleLabel]');
-      cy.get('[data-id=overviewTitleValue]');
-      cy.get('[data-id=overviewPlaceLabel]');
-      cy.get('[data-id=overviewPlaceValue]');
-      cy.get('[data-id=overviewDescriptionLabel]');
-      cy.get('[data-id=overviewDescriptionValue]');
-      cy.get('[data-id=overviewDatesDesktop]');
 
+      cy.get('[data-cy=overviewUrlLabel]');
+      cy.get('[data-cy=overviewUrlValue]');
+      cy.get('[data-cy=overviewNameLabel]');
+      cy.get('[data-cy=overviewNameValue]');
+      cy.get('[data-cy=overviewTitleLabel]');
+      cy.get('[data-cy=overviewTitleValue]');
+      cy.get('[data-cy=overviewPlaceLabel]');
+      cy.get('[data-cy=overviewPlaceValue]');
+      cy.get('[data-cy=overviewDescriptionLabel]');
+      cy.get('[data-cy=overviewDescriptionValue]');
+      cy.get('[data-cy=overviewDeleteLabel]');
+      cy.get('[data-cy=overviewDeleteValue]');
+
+      cy.get('[data-id=overviewDatesDesktop]');
       cy.get('[data-id=statusPollButton]');
       cy.get('[data-id=pauseText]');
       cy.get('[data-id=continueEverytime]');

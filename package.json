@@ -76,7 +76,7 @@
     "cypress": "10.8.0",
     "dayjs": "1.10.4",
     "eslint": "8.38.0",
-    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsdoc": "39.3.2",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "express": "4.17.1",

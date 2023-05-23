@@ -47,7 +47,7 @@
     "jquery": "3.6.2",
     "mobile-detect": "1.4.5",
     "moment": "2.29.4",
-    "ngx-clipboard": "14.0.1",
+    "ngx-clipboard": "16.0.0",
     "popper.js": "1.16.1",
     "rxjs": "6.6.7",
     "tslib": "2.5.2",

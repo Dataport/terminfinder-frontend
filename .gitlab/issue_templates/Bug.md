@@ -1,11 +1,3 @@
----
-name: Bug report
-about: Erstellen Sie einen Bericht, der uns hilft, uns zu verbessern
-title: ''
-labels: ''
-assignees: ''
-
----
 # Bug
 
 Kurzbeschreibung des Bugs

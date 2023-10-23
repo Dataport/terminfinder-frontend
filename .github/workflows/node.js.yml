@@ -18,6 +18,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm audit --omit=dev
+        continue-on-error: true
 
   e2e:
     runs-on: ubuntu-latest

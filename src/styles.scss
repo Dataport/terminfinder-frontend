@@ -1,4 +1,6 @@
 @import "default";
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/mixins';
 
 @font-face {
   font-family: Roboto;
@@ -6,8 +8,6 @@
   src: local("Roboto"),
   url(/assets/fonts/Roboto-Regular.ttf) format("truetype"); /* non-IE */
 }
-
-@import '~bootstrap/scss/bootstrap';
 
 body {
   font-family: "Roboto", sans-serif;
@@ -242,10 +242,6 @@ input[type="radio"] {
   .btn-trash {
     padding-left: 8px !important;
   }
-
-  .data-cell {
-
-  }
 }
 
 .poll-summary-row {
@@ -286,10 +282,6 @@ input[type="radio"] {
 .date-time-overview > .row .d-sm-inline-block .date-time-entry {
   @include media-breakpoint-down(md) {
     padding: $spacer*1 0;
-    //border-bottom: 1px solid $divider-border-color;
-  }
-  @include media-breakpoint-up(lg) {
-    //border-right: 1px solid $divider-border-color;
   }
 }
 
@@ -470,6 +462,3 @@ input[type="radio"] {
 .text-dark-gray {
   color: $dark-gray
 }
-
-/* Importing Bootstrap SCSS file.
-@import '~bootstrap/scss/bootstrap'; */

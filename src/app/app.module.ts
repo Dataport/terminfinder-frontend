@@ -170,7 +170,7 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, {useHash: true, relativeLinkResolution: 'legacy'}),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     NgbDatepickerModule,
     NgbTimepickerModule,
     ClipboardModule,

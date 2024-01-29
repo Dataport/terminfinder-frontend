@@ -1,5 +1,5 @@
 @import "src/default";
-@import '~bootstrap/scss/mixins';
+@import 'bootstrap/scss/mixins';
 
 #url {
   color: $primary;
@@ -14,10 +14,6 @@
 }
 
 #location {
-  color: $primary;
-}
-
-#description {
   color: $primary;
 }
 
@@ -36,7 +32,6 @@ img.icon {
 }
 
 .value {
-  //color: $bootstrap-form-control-color;
   font-size: $font-size-medium-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
@@ -55,6 +50,7 @@ img.icon {
 }
 
 #description {
+  color: $primary;
   position: relative;
   text-align: justify;
   padding-right: 1em;

@@ -1,5 +1,5 @@
 @import "src/default";
-@import '~bootstrap/scss/mixins';
+@import 'bootstrap/scss/mixins';
 
 $border-color-input: $medium-gray;
 $border-color-divider-icon-input: $border-color-input;
@@ -25,13 +25,6 @@ form {
   padding-right: 0.5rem;
 }
 
-//input.form-control {
-//  font-size: $font-size-medium-mobile !important;
-//  @include media-breakpoint-up(lg) {
-//    font-size: $font-size-large !important;
-//  }
-//}
-
 .ngb-tp-input-container .form-control {
   font-size: $font-size-large-mobile;
   @include media-breakpoint-up(lg) {
@@ -44,10 +37,6 @@ form {
 
 .btn {
   min-width: 1px;
-  //font-size: $font-size-medium-mobile !important;
-  //@include media-breakpoint-up(lg) {
-  //  font-size: $font-size-large !important;
-  //}
 }
 
 // component-specific classes
@@ -99,17 +88,18 @@ form {
 
 $input-background-color: $light-gray;
 
-.input-group-prepend, input {
-  background-color: $input-background-color !important;
-}
-
 .input-group-prepend {
+  background-color: $input-background-color !important;
   border-top: 0.0625rem solid $border-color-input !important;
   border-bottom: 0.0625rem solid $border-color-input !important;
   border-left: 0.0625rem solid $border-color-input !important;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
 }
 
 input {
+  background-color: $input-background-color !important;
+
   border-top-color: $border-color-input !important;
   border-right-color: $border-color-input !important;
   border-bottom-color: $border-color-input !important;
@@ -127,11 +117,6 @@ input {
 
 .section-container label {
   margin: 0;
-}
-
-.input-group-prepend {
-  border-top-left-radius: $border-radius;
-  border-bottom-left-radius: $border-radius;
 }
 
 .input-group-text {

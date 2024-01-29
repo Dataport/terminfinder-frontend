@@ -1,5 +1,5 @@
 @import "src/default";
-@import '~bootstrap/scss/mixins';
+@import 'bootstrap/scss/mixins';
 
 $icon-width: 30px;
 $icon-height: 30px;
@@ -105,6 +105,8 @@ button.btn-with-image {
   td.total-participants {
     vertical-align: middle;
     font-size: 1.8rem;
+    padding: 0;
+    width: 50px;
   }
 
   td {
@@ -113,11 +115,6 @@ button.btn-with-image {
 
   td.suggested-date {
     width: $suggested-date-desktop-min-width;
-  }
-
-  td.total-participants {
-    padding: 0;
-    width: 50px;
   }
 
   img.poll-option-icon {

@@ -1,7 +1,7 @@
 // noinspection JSUnusedLocalSymbols
 
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 
 import {AppStateService} from '../app-state/app-state.service';
 import {DataRepositoryService} from '../data-service';
@@ -13,7 +13,7 @@ import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/
 @Injectable({
   providedIn: 'root'
 })
-export class NameRequiredGuard implements CanActivate {
+export class NameRequiredGuard {
 
   constructor(private appStateService: AppStateService, private router: Router) {
   }
@@ -31,7 +31,7 @@ export class NameRequiredGuard implements CanActivate {
 @Injectable({
   providedIn: 'root'
 })
-export class TitleRequiredGuard implements CanActivate {
+export class TitleRequiredGuard {
 
   constructor(private appStateService: AppStateService, private router: Router) {
   }
@@ -49,7 +49,7 @@ export class TitleRequiredGuard implements CanActivate {
 @Injectable({
   providedIn: 'root'
 })
-export class DatesRequiredGuard implements CanActivate {
+export class DatesRequiredGuard {
 
   constructor(private appStateService: AppStateService, private router: Router) {
   }
@@ -67,7 +67,7 @@ export class DatesRequiredGuard implements CanActivate {
 @Injectable({
   providedIn: 'root'
 })
-export class AppointmentIdRequiredGuard implements CanActivate {
+export class AppointmentIdRequiredGuard {
 
   constructor(private appStateService: AppStateService, private router: Router) {
   }
@@ -90,7 +90,7 @@ export class AppointmentIdRequiredGuard implements CanActivate {
 @Injectable({
   providedIn: 'root'
 })
-export class PasswordRequiredGuard implements CanActivate {
+export class PasswordRequiredGuard {
 
   constructor(private appStateService: AppStateService,
               private dataRepositoryService: DataRepositoryService,

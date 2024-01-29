@@ -1,10 +1,10 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
-import {FormControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
+import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
 import {Utils} from '../services/utils';
 import {MomentUtils} from '../services/utils/moment-utils';
 
 export function timeValidator(localeId: string): ValidatorFn {
-  return (control: FormControl) => {
+  return (control: UntypedFormControl) => {
     let isValid = !Utils.isStringNullOrEmpty(control.value);
 
     if (isValid) {
@@ -40,7 +40,7 @@ export class TimeValidatorDirective implements Validator {
     this.validator = timeValidator(localeId);
   }
 
-  validate(c: FormControl) {
+  validate(c: UntypedFormControl) {
     return this.validator(c);
   }
 }

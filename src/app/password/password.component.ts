@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class PasswordComponent implements OnInit {
 
-  passwordForm: FormGroup;
+  passwordForm: UntypedFormGroup;
   model: Appointment;
   isAdmin: boolean;
   isInvalid: boolean;
@@ -32,8 +32,8 @@ export class PasswordComponent implements OnInit {
     this.readIsInvalidParam();
     this.model = this.appStateService.getAppointment();
     this.isAdmin = this.appStateService.isAdmin;
-    this.passwordForm = new FormGroup({
-      'password': new FormControl('', [
+    this.passwordForm = new UntypedFormGroup({
+      'password': new UntypedFormControl('', [
         Validators.required
       ])
     });

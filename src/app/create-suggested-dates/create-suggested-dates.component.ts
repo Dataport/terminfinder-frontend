@@ -1,7 +1,7 @@
 import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
 import {DataRepositoryService} from '../shared/services/data-service';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {AbstractControl, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Logger} from '../shared/services/logging';
 import {Router} from '@angular/router';
 import {dateValidator} from '../shared/validators/date-validator.directive';
@@ -54,8 +54,8 @@ export class CreateSuggestedDatesComponent implements OnInit {
   model: SuggestedDate[];
   suggesteDatesToDelete: SuggestedDate[];
   adminId: string;
-  datesForm: FormGroup = new FormGroup({
-      'suggestedDates': new FormArray([],
+  datesForm: UntypedFormGroup = new UntypedFormGroup({
+    'suggestedDates': new UntypedFormArray([],
         [
           minLengthArrayValidator(CreateSuggestedDatesComponent.MIN_NUMBER_SUGGESTED_DATES),
           maxLengthArrayValidator(CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES)
@@ -137,16 +137,16 @@ export class CreateSuggestedDatesComponent implements OnInit {
     return this.getSuggestedDatesForm(index).get(key).value;
   }
 
-  public getSuggestedDatesFromForm(): FormArray {
-    return this.datesForm.get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATES) as FormArray;
+  public getSuggestedDatesFromForm(): UntypedFormArray {
+    return this.datesForm.get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATES) as UntypedFormArray;
   }
 
-  public castToFormGroup(abstractControl: AbstractControl): FormGroup {
-    return abstractControl as FormGroup;
+  public castToFormGroup(abstractControl: AbstractControl): UntypedFormGroup {
+    return abstractControl as UntypedFormGroup;
   }
 
-  public getSuggestedDatesForm(index: number): FormGroup {
-    return this.getSuggestedDatesFromForm().at(index) as FormGroup;
+  public getSuggestedDatesForm(index: number): UntypedFormGroup {
+    return this.getSuggestedDatesFromForm().at(index) as UntypedFormGroup;
   }
 
   public getSuggestedDateIdOfSuggestedDateByIndex(index: number): AbstractControl {
@@ -313,7 +313,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     this.getSuggestedDatesFromForm().push(this.createSuggestedDateForm(suggestedDate));
   }
 
-  private createSuggestedDateForm(suggestedDate: SuggestedDate = null): FormGroup {
+  private createSuggestedDateForm(suggestedDate: SuggestedDate = null): UntypedFormGroup {
     const suggestedDateSubmitted = !Utils.isObjectNullOrUndefined(suggestedDate);
     const suggestedDateIdValue: string = suggestedDateSubmitted ? suggestedDate.suggestedDateId : null;
     const startDateValue: NgbDateStruct = suggestedDateSubmitted && !Utils.isObjectNullOrUndefined(suggestedDate.startDate)
@@ -337,31 +337,31 @@ export class CreateSuggestedDatesComponent implements OnInit {
         this.localeId)
       : null;
 
-    return new FormGroup({
-      'suggestedDateId': new FormControl(suggestedDateIdValue),
-      'startDate': new FormControl({value: startDateValue, disabled: suggestedDateIdValue !== null},
+    return new UntypedFormGroup({
+      'suggestedDateId': new UntypedFormControl(suggestedDateIdValue),
+      'startDate': new UntypedFormControl({value: startDateValue, disabled: suggestedDateIdValue !== null},
         [
           Validators.required,
           dateValidator(this.localeId),
           dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator)]),
-      'startTime': new FormControl({value: startTimeValue, disabled: suggestedDateIdValue !== null},
+      'startTime': new UntypedFormControl({value: startTimeValue, disabled: suggestedDateIdValue !== null},
         [timeValidator(this.localeId)]),
-      'showStartTime': new FormControl(false),
-      'endDate': new FormControl({value: endDateValue, disabled: suggestedDateIdValue !== null},
+      'showStartTime': new UntypedFormControl(false),
+      'endDate': new UntypedFormControl({value: endDateValue, disabled: suggestedDateIdValue !== null},
         [dateValidator(this.localeId)]),
-      'startDateEndTime': new FormControl({
+      'startDateEndTime': new UntypedFormControl({
           value: endDateValue === null ? endTimeValue : null,
           disabled: suggestedDateIdValue !== null
         },
         [timeValidator(this.localeId)]),
-      'showStartDateEndTime': new FormControl(false),
-      'endDateEndTime': new FormControl({
+      'showStartDateEndTime': new UntypedFormControl(false),
+      'endDateEndTime': new UntypedFormControl({
           value: endDateValue !== null ? endTimeValue : null,
           disabled: suggestedDateIdValue !== null
         },
         [timeValidator(this.localeId)]),
-      'showEndDateEndTime': new FormControl(false),
-      'showSuggestedStartDateOnDifferentDayForm': new FormControl(endDateValue !== null)
+      'showEndDateEndTime': new UntypedFormControl(false),
+      'showSuggestedStartDateOnDifferentDayForm': new UntypedFormControl(endDateValue !== null)
     }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator)]);
   }
 

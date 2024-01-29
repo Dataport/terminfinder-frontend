@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-tos',
@@ -7,13 +7,13 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./tos.component.scss']
 })
 export class TosComponent {
-  @Input() tosFormGroup: FormGroup;
+  @Input() tosFormGroup: UntypedFormGroup;
 
   constructor() {
   }
 
   get isTosRead() {
-    return this.tosFormGroup.controls.isTosRead as FormControl;
+    return this.tosFormGroup.controls.isTosRead as UntypedFormControl;
   }
 
 }

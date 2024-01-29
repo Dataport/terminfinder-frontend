@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {UntypedFormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-poll-options',
@@ -7,7 +7,7 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./poll-options.component.scss']
 })
 export class PollOptionsComponent {
-  @Input() formGroup: FormGroup;
+  @Input() formGroup: UntypedFormGroup;
   @Input() selectorId: string;
   @Input() isMobile: boolean;
 

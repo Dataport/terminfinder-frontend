@@ -1,6 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Appointment, Participant, SuggestedDate, Voting, VotingStatusType} from '../shared/models';
-import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {
+  AbstractControl,
+  UntypedFormArray,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators
+} from '@angular/forms';
 import {Utils} from '../shared/services/utils';
 import {invalidNameValidator} from '../shared/validators/invalid-name.directive';
 import {ValidatorConstants} from '../shared/constants/validatorConstants';
@@ -20,14 +27,14 @@ export class PollFormHelperService {
    * Initially the form contains values for the tos checkbox only.
    * The participantForm is filled when the user wants to add/edit a participant and its votings.
    */
-  public participantForm: FormGroup;
-  public pollForm: FormGroup;
+  public participantForm: UntypedFormGroup;
+  public pollForm: UntypedFormGroup;
   public appointment: Appointment = new Appointment();
   public formMode: FormMode = FormMode.VIEW;
   public lastEditedParticipant: Participant;
   public participantsToDelete: Participant[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     this.formMode = FormMode.VIEW;
 
     this.pollForm = this.fb.group({
@@ -49,28 +56,28 @@ export class PollFormHelperService {
     return this.hasEditParticipantForm() || this.hasAddParticipantForm();
   }
 
-  public getParticipantForm(): FormGroup | null {
+  public getParticipantForm(): UntypedFormGroup | null {
     return this.participantForm;
   }
 
-  public getParticipantFormName(): FormControl | null {
-    return this.getParticipantForm() ? this.getParticipantForm().get('name') as FormControl : null;
+  public getParticipantFormName(): UntypedFormControl | null {
+    return this.getParticipantForm() ? this.getParticipantForm().get('name') as UntypedFormControl : null;
   }
 
-  public getParticipantFormVotings(): FormArray | null {
-    return this.getParticipantForm() != null ? this.getParticipantForm().get('votings') as FormArray : null;
+  public getParticipantFormVotings(): UntypedFormArray | null {
+    return this.getParticipantForm() != null ? this.getParticipantForm().get('votings') as UntypedFormArray : null;
   }
 
-  public getTosFormControl(): FormControl {
-    return this.pollForm.get('isTosRead') as FormControl;
+  public getTosFormControl(): UntypedFormControl {
+    return this.pollForm.get('isTosRead') as UntypedFormControl;
   }
 
-  public getSelectedParticipantControl(): FormControl {
-    return this.pollForm.get('selectedParticipant') as FormControl;
+  public getSelectedParticipantControl(): UntypedFormControl {
+    return this.pollForm.get('selectedParticipant') as UntypedFormControl;
   }
 
-  public castToFormGroup(abstractControl: AbstractControl): FormGroup {
-    return abstractControl as FormGroup;
+  public castToFormGroup(abstractControl: AbstractControl): UntypedFormGroup {
+    return abstractControl as UntypedFormGroup;
   }
 
   public downloadCsv(): void {
@@ -383,7 +390,7 @@ export class PollFormHelperService {
    * Returns if the currently edited participant has cast any votings.
    */
   public hasParticipantVotings(): boolean {
-    const votingsFormArray: FormArray = this.getParticipantFormVotings();
+    const votingsFormArray: UntypedFormArray = this.getParticipantFormVotings();
     const votings: Voting[] = votingsFormArray != null
       ? votingsFormArray.value as Voting[] : [];
     return votings.length > 0;
@@ -393,7 +400,7 @@ export class PollFormHelperService {
    * Returns if the currently edited participant has cast any accepted or questionable votings.
    */
   public hasParticipantAcceptedOrQuestionableVotings(): boolean {
-    const participantFormVotings: FormArray = this.getParticipantFormVotings();
+    const participantFormVotings: UntypedFormArray = this.getParticipantFormVotings();
     const votings: Voting[] = participantFormVotings != null ? participantFormVotings.value as Voting[] : [];
     for (let j = 0, lenVotings = votings.length; j < lenVotings; ++j) {
       if (votings[j].status !== VotingStatusType.Declined) {
@@ -406,7 +413,7 @@ export class PollFormHelperService {
    * Creates a form to edit a participant's name and votings. If a participant is passed the form is filled with its values.
    * @param participant
    */
-  private createParticipantForm(participant?: Participant): FormGroup {
+  private createParticipantForm(participant?: Participant): UntypedFormGroup {
     if (Utils.isObjectNullOrUndefined(this.appointment.suggestedDates)) {
       throw new Error(`this.appointment.suggestedDates must not be null`);
     }
@@ -420,19 +427,19 @@ export class PollFormHelperService {
           : null
       } as Voting
     ));
-    const votingsFormGroup: FormGroup[] = (votings.map((voting) => (
-      new FormGroup({
-        'status': new FormControl(voting.status),
-        'suggestedDateId': new FormControl(voting.suggestedDateId),
-        'votingId': new FormControl(voting.votingId ? voting.votingId : null)
+    const votingsFormGroup: UntypedFormGroup[] = (votings.map((voting) => (
+      new UntypedFormGroup({
+        'status': new UntypedFormControl(voting.status),
+        'suggestedDateId': new UntypedFormControl(voting.suggestedDateId),
+        'votingId': new UntypedFormControl(voting.votingId ? voting.votingId : null)
       })
     )));
-    return new FormGroup({
-      'participantId': new FormControl(participant ? participant.participantId : null),
-      'name': new FormControl(participant ? participant.name : '', [
+    return new UntypedFormGroup({
+      'participantId': new UntypedFormControl(participant ? participant.participantId : null),
+      'name': new UntypedFormControl(participant ? participant.name : '', [
         Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)]
       ),
-      'votings': new FormArray(votingsFormGroup)
+      'votings': new UntypedFormArray(votingsFormGroup)
     });
   }
 
@@ -461,7 +468,7 @@ export class PollFormHelperService {
    * @param suggestedDateId
    */
   private getVotingFromParticipantFormBySuggestedDateId(suggestedDateId: string) {
-    const votingsFromParticipantForm: FormArray = this.getParticipantFormVotings();
+    const votingsFromParticipantForm: UntypedFormArray = this.getParticipantFormVotings();
     if (votingsFromParticipantForm != null) {
       const votings: Voting[] = votingsFromParticipantForm.value as Voting[];
       for (let i = 0, len = votings.length; i < len; ++i) {
@@ -479,7 +486,7 @@ export class PollFormHelperService {
    * this can not be static, because the html-part of the code only has access to the instance at runtime
    * since it has no access to the class itself, it also has no access to it's static members
    * **/
-  private getNumberOfVotings(formArray: FormArray, votingStatus: VotingStatusType): number {
+  private getNumberOfVotings(formArray: UntypedFormArray, votingStatus: VotingStatusType): number {
     let result = 0;
     const votings: Voting[] = formArray != null ? formArray.value as Voting[] : [];
     for (let j = 0, lenVotings = votings.length; j < lenVotings; ++j) {

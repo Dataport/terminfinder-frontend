@@ -2,7 +2,7 @@ import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
 import {ApiVersion} from '../shared/models/api-data-v1-dto';
 import {Appointment, Message, MessageType} from '../shared/models';
 import {DataRepositoryService} from '../shared/services/data-service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Logger} from '../shared/services/logging';
 import {Router} from '@angular/router';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   apiVersion = '';
   buildDate = '';
   apiError: Message;
-  titleForm: FormGroup;
+  titleForm: UntypedFormGroup;
   model: Appointment;
   derivateTitle = {value: environment.title ? environment.title : 'Terminfinder'};
 
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   }
 
   get isTosRead() {
-    return this.titleForm.get('isTosRead') as FormControl;
+    return this.titleForm.get('isTosRead') as UntypedFormControl;
   }
 
   get title() {
@@ -53,11 +53,11 @@ export class HomeComponent implements OnInit {
       }
     });
     this.model = this.appStateService.getAppointment();
-    this.titleForm = new FormGroup({
-      title: new FormControl(this.model.title, [
+    this.titleForm = new UntypedFormGroup({
+      title: new UntypedFormControl(this.model.title, [
         Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)
       ]),
-      isTosRead: new FormControl(false, [Validators.requiredTrue])
+      isTosRead: new UntypedFormControl(false, [Validators.requiredTrue])
     });
 
     this.dataRepoService.getApiVersion()

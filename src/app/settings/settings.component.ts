@@ -1,5 +1,5 @@
 import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {Logger} from '../shared/services/logging';
@@ -13,7 +13,7 @@ import {Utils} from '../shared/services/utils';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  settingsForm: FormGroup;
+  settingsForm: UntypedFormGroup;
   model: Appointment;
   adminId: string;
   showPlaceholder = false;
@@ -25,11 +25,11 @@ export class SettingsComponent implements OnInit {
     private logger: Logger,
     @Inject(LOCALE_ID) private localeId: string,
     private router: Router,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {
   }
 
-  static checkPasswords(group: FormGroup): ValidationErrors | null {
+  static checkPasswords(group: UntypedFormGroup): ValidationErrors | null {
     const password = group.controls.password;
     const passwordRepeat = group.controls.passwordRepeat;
     return password == null || passwordRepeat == null || password.value === passwordRepeat.value ? null

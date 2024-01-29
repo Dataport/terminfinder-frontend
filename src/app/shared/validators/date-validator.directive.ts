@@ -1,11 +1,11 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
-import {FormControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
+import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
 import * as moment from 'moment';
 import {Utils} from '../services/utils';
 import {ValidatorConstants} from '../constants/validatorConstants';
 
 export function dateValidator(localeId: string): ValidatorFn {
-  return (control: FormControl) => {
+  return (control: UntypedFormControl) => {
     const type = typeof (control.value);
     let isValid: boolean;
     if (type === 'object') {
@@ -36,7 +36,7 @@ export class DateValidatorDirective implements Validator {
     this.validator = dateValidator(localeId);
   }
 
-  validate(c: FormControl) {
+  validate(c: UntypedFormControl) {
     return this.validator(c);
   }
 }

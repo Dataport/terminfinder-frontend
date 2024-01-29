@@ -1,5 +1,5 @@
 import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {invalidNameValidator} from '../shared/validators/invalid-name.directive';
@@ -14,7 +14,7 @@ import {invalidLocationValidator} from '../shared/validators/invalid-location.di
   styleUrls: ['./create-appointment.component.scss']
 })
 export class CreateAppointmentComponent implements OnInit {
-  detailsForm: FormGroup;
+  detailsForm: UntypedFormGroup;
   model: Appointment;
 
   @Input() isAdmin = false;
@@ -63,17 +63,17 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   private fillForm() {
-    this.detailsForm = new FormGroup({
-      'name': new FormControl(this.model.name, [
+    this.detailsForm = new UntypedFormGroup({
+      'name': new UntypedFormControl(this.model.name, [
         Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)
       ]),
-      'title': new FormControl(this.model.title, [
+      'title': new UntypedFormControl(this.model.title, [
         Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_TITLE)
       ]),
-      'location': new FormControl(this.model.location, [
+      'location': new UntypedFormControl(this.model.location, [
         invalidLocationValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_LOCATION)
       ]),
-      'description': new FormControl(this.model.description, [
+      'description': new UntypedFormControl(this.model.description, [
         Validators.maxLength(ValidatorConstants.MAX_LENGTH_DESCRIPTION)
       ])
     });

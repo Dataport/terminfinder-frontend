@@ -1,5 +1,5 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
-import {FormControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
+import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
 import * as moment from 'moment';
 import {DateTimeGeneratorService, Utils} from '../services/utils';
 import {dateValidator} from './date-validator.directive';
@@ -7,7 +7,7 @@ import {ValidatorUtils} from './validator-utils';
 import {MomentUtils} from '../services/utils/moment-utils';
 
 export function dateInFutureOrTodayValidator(localeId: string, dateTimeGenerator: DateTimeGeneratorService): ValidatorFn {
-  return (control: FormControl) => {
+  return (control: UntypedFormControl) => {
     if (Utils.isObjectNullOrUndefined(control.value)) {
       return null;
     }
@@ -50,7 +50,7 @@ export class DateTodayOrInFutureValidatorDirective implements Validator {
     this.validator = dateInFutureOrTodayValidator(localeId, dateTimeGenerator);
   }
 
-  validate(c: FormControl) {
+  validate(c: UntypedFormControl) {
     return this.validator(c);
   }
 }

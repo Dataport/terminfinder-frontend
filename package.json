@@ -73,7 +73,7 @@
     "clipboardy": "4.0.0",
     "cors": "2.7.2",
     "cross-env": "7.0.3",
-    "cypress": "10.8.0",
+    "cypress": "13.6.3",
     "dayjs": "1.10.4",
     "eslint": "8.40.0",
     "eslint-plugin-import": "2.27.5",

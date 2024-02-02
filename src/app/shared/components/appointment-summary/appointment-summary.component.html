@@ -54,16 +54,7 @@
     <div class="header"
          data-cy="overviewDescriptionLabel">{{ 'poll.details.description.description' | translate }}</div>
     <div data-cy="overviewDescriptionValue" id="descriptionContainer">
-      <div #description [innerHTML]="getDescription()" class="collapse value" id="description"></div>
-      <a
-        [hidden]="!moreButtonRequired"
-        aria-controls="description"
-        aria-expanded="false"
-        class="collapsed float-right pt-2"
-        data-cy="descriptionMoreButton"
-        data-toggle="collapse"
-        href="#description"
-      ></a>
+      <div #description [innerHTML]="getDescription()" id="description"></div>
     </div>
   </div>
 </div>

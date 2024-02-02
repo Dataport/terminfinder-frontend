@@ -86,12 +86,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "terminfinder:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/proxy.conf.json",
+            "buildTarget": "terminfinder:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "terminfinder:build:production"
+              "buildTarget": "terminfinder:build:production"
             }
           }
         },

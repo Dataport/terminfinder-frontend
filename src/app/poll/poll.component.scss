@@ -4,6 +4,18 @@
 $icon-width: 30px;
 $icon-height: 30px;
 
+.bordered {
+  border: 1px solid #dee2e6 !important;
+}
+
+th {
+  border-width: 1px !important;
+}
+
+td {
+  border-width: 1px !important;
+}
+
 .form-control {
   font-size: $font-size-medium-mobile;
   @include media-breakpoint-up(lg) {

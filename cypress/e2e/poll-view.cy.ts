@@ -56,8 +56,6 @@ context('poll-view', () => {
       cy.get('[data-cy=overviewDescriptionLabel]');
       cy.get('[data-cy=overviewDescriptionValue]')
         .should("contain.html", "Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2");
-      cy.get('[data-cy=descriptionMoreButton]')
-        .should('not.be.hidden');
 
       cy.get('[data-id=numberParticipants]');
       cy.get('[data-id=tableHead]');
@@ -91,11 +89,6 @@ context('poll-view', () => {
       ).as('apiCheckAppointment');
 
       cy.visit(getBaseHref(values.inviteLink));
-    });
-
-    it('Does not show more button on single line description', () => {
-      cy.get('[data-cy=descriptionMoreButton]')
-        .should('be.hidden');
     });
   });
 

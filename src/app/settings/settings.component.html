@@ -84,11 +84,14 @@
             </div>
           </div>
           <div class="row no-gutters">
-            <div class="col-11 offset-1">
+            <div class="col-1 d-flex justify-content-end align-items-center">
+              <img alt="key" class="icon m-2" src="assets/password.svg">
+            </div>
+            <div class="col-11 px-0">
               <input
                 [placeholder]="showPlaceholder ? '********' : ''"
                 autocomplete="new-password"
-                class="slim-input w-100"
+                class="slim-input w-100 px-0"
                 data-id="repeatPasswordInput" formControlName="passwordRepeat"
                 id="password-repeat"
                 type="password"

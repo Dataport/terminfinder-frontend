@@ -1,6 +1,10 @@
 @import "src/default";
 @import 'bootstrap/scss/mixins';
 
+.stepper-text {
+  width: max-content;
+}
+
 .circle {
   width: 20px;
   height: 20px;

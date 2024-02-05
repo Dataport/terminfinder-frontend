@@ -1,4 +1,0 @@
-include:
-  - project: "dabstimmbox/ci"
-    ref: "main"
-    file: "frontend-oss.yml"

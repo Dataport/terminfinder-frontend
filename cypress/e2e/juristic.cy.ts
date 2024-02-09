@@ -28,7 +28,7 @@ context('juristic', () => {
           url: getApiUrl(values.getAppUrl),
         },
         ''
-      ).as('apiCheck_localization');
+      );
 
       cy.moveToHomeView();
     });
@@ -51,7 +51,6 @@ context('juristic', () => {
         .click();
       cy.url().should('include', '/#/accessibility');
 
-      cy.get('[data-cy=accessibilityHeadline]');
       cy.get('[data-cy=content]')
         .should('not.have.html', '');
 

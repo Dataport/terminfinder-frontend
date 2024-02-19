@@ -68,12 +68,14 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
   }
 
   if (process.env.DOCKER === 'true') {
+    console.log('Build with docker mode');
     data = data
       .replace('@TITLE@', reformat('@TITLE@'))
       .replace('@LOCALE@', reformat('@LOCALE@'))
       .replace('@ADDRESSING@', reformat('@ADDRESSING@'))
       .replace('@API_URL@', reformat('@API_URL@'));
   } else {
+    console.log('Build with classic mode');
     data = data
       .replace('@TITLE@', reformat(process.env.TITLE ? process.env.TITLE : ''))
       .replace('@LOCALE@', reformat(process.env.LOCALE ? process.env.LOCALE : 'de-DE'))
@@ -82,10 +84,12 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
   }
 
   if (isBoolean(process.env.PRODUCTION)) {
+    console.log('as production =', process.env.PRODUCTION);
     data = data
       .replace('@PRODUCTION@', process.env.PRODUCTION)
       .replace('@CONSOLE_LOGGING_OPTIONS@', `{momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: ${process.env.PRODUCTION ? 'LogLevel.WARN' : 'LogLevel.DEBUG'}}`);
   } else {
+    console.log('as production');
     data = data
       .replace('@PRODUCTION@', 'true')
       .replace('@CONSOLE_LOGGING_OPTIONS@', `{momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: LogLevel.WARN}`);

@@ -2,7 +2,7 @@ ARG BASE_REPO_URI=docker.io
 ARG NODE_TAG=18.13.0
 ARG NGINX_TAG=1.23.3-alpine
 
-FROM ${BASE_REPO_URI}/node:${NODE_TAG} as build
+FROM ${BASE_REPO_URI}/node:${NODE_TAG} AS build
 WORKDIR /app
 
 # Install dependencies
@@ -12,7 +12,7 @@ RUN npm ci
 # Build project
 COPY tsconfig.json angular.json prebuild.js ./
 COPY src/ ./src/
-RUN npm run build-docker
+RUN npm run build-docker-prod
 
 # We use the officially supported unprivileged image from nginx,
 # as recommended here: https://hub.docker.com/_/nginx#Running%20nginx%20as%20a%20non-root%20user

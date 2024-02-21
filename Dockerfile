@@ -1,8 +1,6 @@
 ARG BASE_REPO_URI=docker.io
-ARG NODE_TAG=18.13.0
-ARG NGINX_TAG=1.23.3-alpine
 
-FROM ${BASE_REPO_URI}/node:${NODE_TAG} AS build
+FROM ${BASE_REPO_URI}/node:18.19.1-alpine AS build
 WORKDIR /app
 
 # Install dependencies
@@ -16,7 +14,7 @@ RUN npm run build-docker-prod
 
 # We use the officially supported unprivileged image from nginx,
 # as recommended here: https://hub.docker.com/_/nginx#Running%20nginx%20as%20a%20non-root%20user
-FROM ${BASE_REPO_URI}/nginxinc/nginx-unprivileged:${NGINX_TAG}
+FROM ${BASE_REPO_URI}/nginxinc/nginx-unprivileged:1.23.3-alpine
 # FROM docker.io/nginxinc/nginx-unprivileged:1.23.3-alpine
 WORKDIR /usr/share/nginx/html
 

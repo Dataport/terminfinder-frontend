@@ -1,0 +1,38 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "4200:80"
+  postgres:
+    image: "postgres:9.6-alpine"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  backend:
+    image: "dabsti-docker.repo-ex.zcdi.dataport.de/dabstimmbox/dpai/dpai-backend:0.1.0"
+    ports:
+      - "4201:80"
+    environment:
+      - Terminfinder__UseCors=true
+      - Terminfinder__UseHttps=false
+      - ConnectionStrings__TerminfinderConnection=Server=postgres;Port=5432;Database=terminfinder;User ID="postgres";Password=postgres
+    command: [ "dotnet", "Dataport.Terminfinder.WebAPI.dll", "--dbmigrate" ]
+    depends_on:
+      - postgres
+  nginx:
+    image: nginx:latest
+    expose:
+      - "80"
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d
+    links:
+      - frontend
+      - backend
+networks:
+  internal:
+    driver: bridge

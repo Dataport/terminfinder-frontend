@@ -4,6 +4,7 @@
 /tmp
 /out-tsc
 .npm
+.run
 
 # auto generated
 src/environments/environment.ts
@@ -45,3 +46,7 @@ nyc_out
 # System Files
 .DS_Store
 Thumbs.db
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

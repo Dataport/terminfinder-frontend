@@ -90,6 +90,20 @@ compiling to directory `dist`
 
 E2e integration tests with cypress `npm run cy-open-local`
 
+### Playwright
+
+#### Run Tests
+
+`npx playwright test`
+
+#### Generate Tests
+
+`npx playwright codegen`
+
+#### Debug Tests
+
+`npx playwright test --debug --project=chromium`
+
 ### create sbom
 
 ```

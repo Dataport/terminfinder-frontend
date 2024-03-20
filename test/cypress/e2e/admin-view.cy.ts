@@ -22,7 +22,7 @@ context('admin-view', () => {
       {
         body: values.adminProtectionFalse
       }
-    ).as('apiCheckProtection');
+    )
 
     cy.intercept(
       {
@@ -35,7 +35,7 @@ context('admin-view', () => {
         },
         body: values.getAdmin
       }
-    ).as('apiCheckAppointment');
+    )
 
     cy.visit(getBaseHref(values.adminLink));
     cy.location('href').should('include', '/#/admin/');
@@ -161,6 +161,7 @@ context('admin-view', () => {
         .click();
       cy.get('[data-id=startDateInput]')
         .type(dayjs().add(1, 'd').format('DD.MM.YYYY'))
+      cy.get('[data-id=startDateInput]')
         .should('have.value', dayjs().add(1, 'd').format('DD.MM.YYYY'));
       cy.get('[data-id=next]')
         .click();
@@ -172,6 +173,7 @@ context('admin-view', () => {
         .click();
       cy.get('[data-id=passwordInput]')
         .type('Hallo2021!')
+      cy.get('[data-id=passwordInput]')
         .should('have.value', 'Hallo2021!');
       cy.get('[data-id=repeatPasswordInput]')
         .type('Hallo2021!');

@@ -1,6 +1,6 @@
 <div class="row no-gutters justify-content-center">
   <div class="col-11 col-lg-8">
-    <div *ngIf="!isProduction()" class="row alert alert-warning" data-id="testBanner">
+    <div *ngIf="!isProduction()" class="row alert alert-warning" data-id="testBanner" data-testid="headline">
       {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
     </div>
     <div *ngFor="let notification of localUserNotifications" class="row alert alert-warning">

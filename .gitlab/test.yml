@@ -1,0 +1,47 @@
+lint:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  before_script:
+    - apt-get update -y && apt-get install rsync -y
+  script:
+    - npm ci
+    - npm run lint
+
+audit:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  script:
+    - npm ci
+    - npm audit --omit=dev
+
+build-prod:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  artifacts:
+    paths:
+      - dist
+  script:
+    - npm ci
+    - npm run build-prod
+
+cypress-prod:
+  image: $ARTIFACTORY_DOCKER_COMMON/cypress/included:10.10.0
+  needs:
+    - build-prod
+  before_script:
+    - apt-get update -y && apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb rsync -y
+  script:
+    - npm ci
+    - npm run cy-verify
+    - npm run http-server &
+    - npm run ci-cypress
+
+playwright-prod:
+  image: $ARTIFACTORY_DOCKER_COMMON/node:lts
+  artifacts:
+    paths:
+      - playwright-report
+  needs:
+    - build-prod
+  script:
+    - npm ci
+    - npx playwright install --with-deps
+    - npm run http-server &
+    - npx playwright test

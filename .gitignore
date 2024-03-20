@@ -5,13 +5,14 @@
 /out-tsc
 .npm
 .run
+.env.local
 
 # auto generated
 src/environments/environment.ts
 src/index.html
 
 #download from cypress
-cypress/downloads
+test/cypress/downloads
 
 # dependencies
 /node_modules

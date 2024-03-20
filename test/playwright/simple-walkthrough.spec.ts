@@ -2,7 +2,7 @@ import {expect, test} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 test('simple-walkthrough', async ({page}) => {
-  await page.goto('http://localhost:4200');
+  await page.goto('/');
   await page.getByTestId('headline').isVisible()
 
   const accessibilityScanResults = await new AxeBuilder({page})

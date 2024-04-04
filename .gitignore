@@ -4,6 +4,7 @@
 /tmp
 /out-tsc
 .npm
+.run
 
 # auto generated
 src/environments/environment.ts

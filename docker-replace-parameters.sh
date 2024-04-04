@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-TITLE=$(echo "$TITLE" | cat 'Terminfinder EU')
-LOCALE=$(echo "$LOCALE" | cat "de-DE")
-ADDRESSING=$(echo "$ADDRESSING" | cat "du")
+TITLE=$(echo "$TITLE" || echo "Terminfinder EU")
+LOCALE=$(echo "$LOCALE" || echo "de-DE")
+ADDRESSING=$(echo "$ADDRESSING" || echo "du")
 
 echo "/docker-entrypoint.d/60-docker-replace-parameters.sh: Replacing Env-Vars with parameters."
 

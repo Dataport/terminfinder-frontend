@@ -47,7 +47,7 @@
     "core-js": "3.8.3",
     "jquery": "3.7.0",
     "mobile-detect": "1.4.5",
-    "moment": "2.29.4",
+    "moment": "2.30.1",
     "ngx-clipboard": "16.0.0",
     "popper.js": "1.16.1",
     "rxjs": "6.6.7",

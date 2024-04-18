@@ -7,7 +7,7 @@ import {AppStateService} from './shared/services/app-state/app-state.service';
 import {ApiDataService, DataRepositoryService} from './shared/services/data-service';
 import {ModelTransformerService} from './shared/services/transformer';
 import {ConsoleProvider, Logger} from './shared/services/logging';
-import {DateTimeGeneratorService} from './shared/services/utils';
+import {DateTimeGeneratorService} from './shared/services/generators';
 import {MessageBoxComponent} from './shared/components/message-box/message-box.component';
 import {HomeComponent} from './home/home.component';
 import {CreateAppointmentComponent} from './create-appointment/create-appointment.component';
@@ -147,7 +147,6 @@ export function createTranslateLoader(http: HttpClient) {
     AdminOverviewComponent,
     AdminLinksComponent,
     AdminInfoComponent,
-    TosComponent,
     FooterComponent,
     SuggestedDateComponent,
     PollOptionsComponent,
@@ -182,13 +181,14 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    TosComponent,
   ],
   providers: [
     {
       provide: LOCALE_ID,
       deps: [LocaleService],
-      useFactory: (localeService) => localeService.getLocale().languageCode
+      useFactory: (localeService: LocaleService) => localeService.getLocale().languageCode
     },
     {provide: HTTP_INTERCEPTORS, useClass: DisableCacheInterceptor, multi: true},
     {provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter},

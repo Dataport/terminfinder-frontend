@@ -5,7 +5,7 @@ import {DataRepositoryService} from '../shared/services/data-service';
 import {Appointment as ApiAppointment, Participant as ApiParticipant} from '../shared/models/api-data-v1-dto';
 import {Appointment, Message, MessageType, Participant} from '../shared/models';
 import {Logger} from '../shared/services/logging';
-import {Utils} from '../shared/services/utils';
+import {NullableUtils} from '../shared/utils';
 import {ModelTransformerService} from '../shared/services/transformer';
 import {AppointmentStatusType} from '../shared/models/appointmentStatusType';
 import {PollFormHelperService} from './poll-form-helper.service';
@@ -49,7 +49,7 @@ export class PollComponent implements OnInit {
 
     this.model = null;
     const id = this.route.snapshot.paramMap.get('id');
-    if (Utils.isObjectNullOrUndefined(id)) {
+    if (NullableUtils.isObjectNullOrUndefined(id)) {
       throw new Error('id is null or undefined');
     }
     this.appointmentId = id;
@@ -92,7 +92,7 @@ export class PollComponent implements OnInit {
       ModelTransformerService.transformParticipantsToApiParticipants(this.formHelper.participantsToDelete);
     this.logger.debug(`Übermittle Daten zum Löschen der Teilnehmer: ${JSON.stringify(apiParticipantsToDelete)}`, apiParticipantsToDelete);
 
-    if (!Utils.isObjectNullOrUndefined(updatedOrCreatedParticipants)) {
+    if (!NullableUtils.isObjectNullOrUndefined(updatedOrCreatedParticipants)) {
       const apiParticipants: ApiParticipant[] =
         ModelTransformerService.transformParticipantsToApiParticipants(updatedOrCreatedParticipants);
       this.logger.debug(`Übermittle Daten zum Erstellen/Aktualisieren der Teilnehmer: ${JSON.stringify(apiParticipants)}`, apiParticipants);
@@ -140,16 +140,16 @@ export class PollComponent implements OnInit {
       this.logger.debug(`Abstimmung empfangen mit den Werten: ${JSON.stringify(data)}`, data);
       this.model = ModelTransformerService.transformApiAppointmentToAppointment(data);
       this.formHelper.appointment = this.model;
-      if (!Utils.isObjectNullOrUndefined(this.formHelper.appointment.participants)
+      if (!NullableUtils.isObjectNullOrUndefined(this.formHelper.appointment.participants)
         && this.formHelper.appointment.participants.length > 0) {
         // pre-select a participant in the select-box
         let selectedParticipant = this.formHelper.lastEditedParticipant;
         // if no participant has been edited yet pre-select the first existing participant
-        if (Utils.isObjectNullOrUndefined(selectedParticipant)) {
+        if (NullableUtils.isObjectNullOrUndefined(selectedParticipant)) {
           this.formHelper.selectFirstParticipant();
         } else {
           // otherwise select the recently edited participant
-          if (Utils.isObjectNullOrUndefined(selectedParticipant.participantId)) {
+          if (NullableUtils.isObjectNullOrUndefined(selectedParticipant.participantId)) {
             // if the participant has no participantId yet it has been recently added
             // -> determine its id by the participants name
             // FIXME it would be better if the backend returned the participant id when adding a participant

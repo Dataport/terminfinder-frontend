@@ -7,7 +7,7 @@ import {AppStateService} from '../app-state/app-state.service';
 import {DataRepositoryService} from '../data-service';
 import {Appointment} from '../../models';
 import {AppointmentProtectionResult} from '../../models/api-data-v1-dto';
-import {Utils} from '../utils';
+import {NullableUtils} from '../../utils';
 import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
 
 @Injectable({
@@ -77,8 +77,8 @@ export class AppointmentIdRequiredGuard {
     if (!appointment) {
       return false;
     }
-    const valid = this.appStateService.isAdmin && !Utils.isStringNullOrEmpty(appointment.adminId)
-      || !this.appStateService.isAdmin && !Utils.isStringNullOrEmpty(appointment.appointmentId);
+    const valid = this.appStateService.isAdmin && !NullableUtils.isStringNullOrEmpty(appointment.adminId)
+      || !this.appStateService.isAdmin && !NullableUtils.isStringNullOrEmpty(appointment.appointmentId);
     if (valid) {
       return true;
     }
@@ -107,7 +107,7 @@ export class PasswordRequiredGuard {
     return protectionFunction.then((data: AppointmentProtectionResult) => {
       if (data.protected) {
         this.appStateService.isAppointmentProtected = true;
-        if (Utils.isStringNullOrWhitespace(this.appStateService.getCredentials())) {
+        if (NullableUtils.isStringNullOrWhitespace(this.appStateService.getCredentials())) {
           this.router.navigate(['/password']).then();
           return false;
         }
@@ -136,7 +136,7 @@ export class PasswordRequiredGuard {
   private initAppointment(route: ActivatedRouteSnapshot): void {
     const appointment: Appointment = this.appStateService.getAppointment();
     const paramAdminId = route.paramMap.get('adminId');
-    if (!Utils.isStringNullOrEmpty(paramAdminId)) {
+    if (!NullableUtils.isStringNullOrEmpty(paramAdminId)) {
       appointment.adminId = paramAdminId;
     }
     if (appointment.adminId) {

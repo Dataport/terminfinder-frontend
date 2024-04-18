@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {EnvConfig} from '../../../../environments/env-config.interface';
 import {environment} from '../../../../environments/environment';
 import {Appointment} from '../../models';
-import {Utils} from '../utils';
+import {NullableUtils} from '../../utils';
 import {AppointmentStatusType} from '../../models/appointmentStatusType';
 
 @Injectable({
@@ -55,7 +55,7 @@ export class AppStateService {
   }
 
   public updateAppointment(appointment: Appointment) {
-    if (Utils.isObjectNullOrUndefined(appointment)) {
+    if (NullableUtils.isObjectNullOrUndefined(appointment)) {
       throw new Error('Appointment is null or undefined');
     }
     this.appointment = appointment;

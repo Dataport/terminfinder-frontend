@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Appointment} from '../../models';
-import {LinkGeneratorService} from "../../services/utils/link-generator.service";
+import {LinkGeneratorService} from "../../services/generators";
 
 @Component({
   selector: 'app-appointment-summary',

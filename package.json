@@ -45,7 +45,6 @@
     "bootstrap": "5.3.3",
     "calendar-link": "2.4.0",
     "core-js": "3.8.3",
-    "jquery": "3.7.0",
     "mobile-detect": "1.4.5",
     "moment": "2.30.1",
     "ngx-clipboard": "16.0.0",

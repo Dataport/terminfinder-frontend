@@ -1,5 +1,7 @@
 # How to contribute to the repos of Terminfinder
 
+By contributing You are accepting the [CONTRIBUTOR-AGREEMENT.md](CONTRIBUTOR-AGREEMENT.md).
+
 ## Did you find a bug?
 
 - **Do not open up a GitHub issue if the bug is a security vulnerability

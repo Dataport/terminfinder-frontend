@@ -73,6 +73,7 @@ z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (do
 ```bash
 npm install
 npm start
+npm run backend-mock
 ```
 
 ### build

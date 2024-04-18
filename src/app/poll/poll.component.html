@@ -331,7 +331,7 @@
   </div>
 
   <div *ngIf="model && !isAppointmentPaused" class="row mx-3">
-    <app-tos [tosFormGroup]="formHelper.pollForm"></app-tos>
+    <app-tos [tosFormGroup]="formHelper.pollForm" data-id="tos"></app-tos>
     <div
       *ngIf="formHelper.hasParticipantVotings() && !formHelper.hasParticipantAcceptedOrQuestionableVotings(); else showSendButton"
       class="align-items-center">

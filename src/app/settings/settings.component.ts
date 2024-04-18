@@ -1,8 +1,7 @@
-import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {Logger} from '../shared/services/logging';
 import {Router} from '@angular/router';
 import {invalidPasswordValidator} from '../shared/validators/invalid-password.directive';
 import {NullableUtils} from '../shared/utils';
@@ -10,7 +9,8 @@ import {NullableUtils} from '../shared/utils';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss']
+  styleUrls: ['./settings.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsComponent implements OnInit {
   settingsForm: UntypedFormGroup;
@@ -22,8 +22,6 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private appStateService: AppStateService,
-    private logger: Logger,
-    @Inject(LOCALE_ID) private localeId: string,
     private router: Router,
     private fb: UntypedFormBuilder
   ) {

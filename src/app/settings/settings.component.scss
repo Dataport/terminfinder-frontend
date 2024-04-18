@@ -1,20 +1,6 @@
 @import "src/default";
 @import 'bootstrap/scss/mixins';
 
-.section-container label {
-  color: $dark-gray;
-  display: block;
-  margin: 0;
-}
-
-.section-container .checkbox-label {
-  font-weight: $font-weight-normal !important;
-  font-size: $font-size-medium-mobile;
-  @include media-breakpoint-up(lg) {
-    font-size: $font-size-medium;
-  }
-}
-
 .invalid-message {
   padding-left: 0 !important;
 }
@@ -22,11 +8,6 @@
 .slim-input {
   border: 0;
   border-bottom: 1px solid grey;
-}
-
-.checkbox-label {
-  color: $dark-gray;
-  word-break: break-word;
 }
 
 img.icon {

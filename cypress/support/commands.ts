@@ -22,7 +22,7 @@ function moveToCreateView() {
 
   cy.get('[data-id=createPollInput]')
     .type('Test-Titel');
-  cy.get('[data-id=tosCheckbox]')
+  cy.get('[data-id=checkbox]')
     .click();
   cy.get('[data-id=createPollButton]')
     .click();
@@ -52,7 +52,8 @@ function moveToSettingsView() {
   moveToSelectDatesView();
 
   cy.get('[data-id=startDateInput]')
-    .type(dayjs().add(1, 'd').format('DD.MM.YYYY'))
+    .type(dayjs().add(1, 'd').format('DD.MM.YYYY'));
+  cy.get('[data-id=startDateInput]')
     .should('have.value', dayjs().add(1, 'd').format('DD.MM.YYYY'));
 
   cy.get('[data-id=addTimesButton]')
@@ -65,7 +66,8 @@ function moveToSettingsView() {
     .click();
 
   cy.get('[data-id=endDateInput]')
-    .type(dayjs().add(2, 'd').format('DD.MM.YYYY'))
+    .type(dayjs().add(2, 'd').format('DD.MM.YYYY'));
+  cy.get('[data-id=endDateInput]')
     .should('have.value', dayjs().add(2, 'd').format('DD.MM.YYYY'));
 
   cy.get('[data-id=endTimeInputSecondColumn]')
@@ -81,17 +83,19 @@ function moveToSettingsView() {
 function moveToOverviewView() {
   moveToSettingsView();
 
-  cy.get('[data-id=securePollCheckbox]').click();
+  cy.get('[data-id=checkbox]').click();
 
   cy.get('[data-id=passwordInput]')
     .click();
 
   cy.get('[data-id=passwordInput]')
-    .type('Hallo2021!')
+    .type('Hallo2021!');
+  cy.get('[data-id=passwordInput]')
     .should('have.value', 'Hallo2021!');
 
   cy.get('[data-id=repeatPasswordInput]')
-    .type('Hallo2021!')
+    .type('Hallo2021!');
+  cy.get('[data-id=repeatPasswordInput]')
     .should('have.value', 'Hallo2021!');
 
   cy.get('[data-id=next]')
@@ -112,7 +116,7 @@ function moveToLinksView() {
       statusCode: 201,
       body: values.postCreateAppointment
     }
-  ).as('apiCheck');
+  );
 
   cy.get('[data-id=next]')
     .click();

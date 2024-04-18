@@ -36,7 +36,7 @@ context('home-view', () => {
           url: getApiUrl(values.getAppUrl),
         },
         ''
-      ).as('apiCheck_localization');
+      );
       cy.intercept(
         {
           method: 'GET',
@@ -102,13 +102,14 @@ context('home-view', () => {
         .should('be.disabled');
 
       cy.get('[data-id=createPollInput]')
-        .type('Test-Titel')
+        .type('Test-Titel');
+      cy.get('[data-id=createPollInput]')
         .should('have.value', 'Test-Titel');
 
       cy.get('[data-id=createPollButton]')
         .should('be.disabled');
 
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=createPollButton]')

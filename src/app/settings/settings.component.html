@@ -2,14 +2,19 @@
   <app-stepper [currentStep]="2" data-id="stepperComponent"></app-stepper>
 </div>
 <div class="row justify-content-center mt-4 mb-0">
-  <h2 *ngIf="!isAdmin" class="text-center mb-2" data-id="addDetailsHeading">
-    {{ 'settings.additional' | translate }}
-  </h2>
-  <h2 *ngIf="isAdmin" class="text-center">
-    {{ 'settings.change' | translate }}
-  </h2>
+  @if (!isAdmin) {
+    <h2 class="text-center mb-2" data-id="addDetailsHeading">
+      {{ 'settings.additional' | translate }}
+    </h2>
+  } @else {
+    <h2 class="text-center">
+      {{ 'settings.change' | translate }}
+    </h2>
+  }
 </div>
-<app-admin-info *ngIf="isAdmin"></app-admin-info>
+@if (isAdmin) {
+  <app-admin-info></app-admin-info>
+}
 <div class="row justify-content-center">
   <div class="col col-lg-9">
     <form (ngSubmit)="onSubmit()" [formGroup]="settingsForm">
@@ -17,22 +22,9 @@
         <div class="row no-gutters">
           <h3 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h3>
         </div>
-        <div class="row no-gutters align-items-center justify-content-between">
-          <div class="col-11">
-            <label class="checkbox-label mr-3" data-id="securePollLabel" for="password-checkbox">
-              {{ 'password.securePoll' | translate }}
-            </label>
-          </div>
-          <div class="col-auto">
-            <label class="checkbox align-self-center align-middle">
-              <input formControlName="hasPassword" id="password-checkbox" type="checkbox" value=""/>
-              <span class="checkbox-box" data-id="securePollCheckbox">
-                <i class="checkbox-icon fa fa-check"></i>
-              </span>
-            </label>
-          </div>
-        </div>
-        <ng-container *ngIf="hasPassword().value">
+        <app-checkbox-field [label]="'password.securePoll' | translate" [reverse]="true" data-id="securePollLabel"
+                            formControlName="hasPassword"/>
+        @if (hasPassword().value) {
           <div class="row no-gutters pt-3">
             <div class="col-11 offset-1">
               <label
@@ -58,20 +50,22 @@
               id="password"
               type="password"
             />
-            <div
-              *ngIf="(getPassword().touched || getPassword().dirty) && !!getPassword().errors?.required"
-              class="offset-1 col invalid-message"
-              data-id="errorMsgSetPassword"
-            >
-              {{ 'password.set' | translate }}
-            </div>
-            <div
-              *ngIf="getPassword().touched && getPassword().dirty && !!getPassword().errors?.invalidPassword"
-              class="offset-1 col invalid-message"
-              data-id="errorMsgSetMinimum"
-            >
-              {{ 'password.setMinimum' | translate }}
-            </div>
+            @if ((getPassword().touched || getPassword().dirty) && !!getPassword().errors?.required) {
+              <div
+                class="offset-1 col invalid-message"
+                data-id="errorMsgSetPassword"
+              >
+                {{ 'password.set' | translate }}
+              </div>
+            }
+            @if (getPassword().touched && getPassword().dirty && !!getPassword().errors?.invalidPassword) {
+              <div
+                class="offset-1 col invalid-message"
+                data-id="errorMsgSetMinimum"
+              >
+                {{ 'password.setMinimum' | translate }}
+              </div>
+            }
           </div>
           <div class="row no-gutters mt-3">
             <div class="col-11 offset-1">
@@ -99,18 +93,19 @@
               <!-- show message if:
                     - passwordRepeat is 'dirty' and not same
                     - passwordRepeat has been auto-filled and password has been changed -->
-              <div
-                *ngIf="(getPasswordRepeat().touched && getPasswordRepeat().dirty
-                          || getPassword().dirty && !!getPasswordRepeat().value)
-                          && !!settingsForm.errors?.notSame"
-                class="col invalid-message"
-                data-id="errorMsgNoMatch"
-              >
-                {{ 'password.noMatch' | translate }}
-              </div>
+              @if ((getPasswordRepeat().touched && getPasswordRepeat().dirty
+                       || getPassword().dirty && !!getPasswordRepeat().value)
+                       && !!settingsForm.errors?.notSame) {
+                <div
+                  class="col invalid-message"
+                  data-id="errorMsgNoMatch"
+                >
+                  {{ 'password.noMatch' | translate }}
+                </div>
+              }
             </div>
           </div>
-        </ng-container>
+        }
       </div>
       <app-navigation
         (backward)="goBack()"

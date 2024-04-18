@@ -14,10 +14,10 @@ import {NgTemplateOutlet} from "@angular/common";
     NgTemplateOutlet
   ],
   template: `
-    <div class="form-check" data-id="tos">
-      <input [formControl]="ngControl.control" id="tos" data-id="tosCheckbox" class="form-check-input" type="checkbox"
+    <div [class]="reverse ? 'form-check-reverse' : 'form-check'">
+      <input [formControl]="ngControl.control" id="checkbox" data-id="checkbox" class="form-check-input" type="checkbox"
              value="">
-      <label for="tos" class="form-check-label">
+      <label for="checkbox" class="form-check-label w-100" [class.text-start]="reverse">
         @if (labelTemplate) {
           <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
         } @else {
@@ -35,4 +35,6 @@ export class CheckboxFieldComponent {
   label = '';
   @Input()
   labelTemplate: TemplateRef<any> | undefined;
+  @Input()
+  reverse = false;
 }

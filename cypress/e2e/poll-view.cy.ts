@@ -22,7 +22,7 @@ context('poll-view', () => {
       {
         body: values.appointmentProtectionFalse
       }
-    ).as('apiCheckProtection');
+    );
   });
 
   describe('Main components visible', () => {
@@ -38,7 +38,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment
         }
-      ).as('apiCheckAppointment');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -64,7 +64,7 @@ context('poll-view', () => {
       cy.get('[data-id=addParticipantButton]');
 
       cy.get('[data-id=tos]');
-      cy.get('[data-id=tosCheckbox]');
+      cy.get('[data-id=checkbox]');
       cy.get('[data-id=submitNoParticipationButton]')
         .should('not.exist');
       cy.get('[data-id=addParticipantButton]');
@@ -86,7 +86,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment_1_user
         }
-      ).as('apiCheckAppointment');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -105,7 +105,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment
         }
-      ).as('apiCheckAppointment');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -131,7 +131,8 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=nameInput]')
-        .clear()
+        .clear();
+      cy.get('[data-id=nameInput]')
         .type('❌');
       cy.get('[data-id=nameInvalidMsg]');
     });
@@ -141,7 +142,8 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=nameInput]')
-        .clear()
+        .clear();
+      cy.get('[data-id=nameInput]')
         .type(values.tooLongString);
       cy.get('[data-id=tooLongMsg]');
     });
@@ -151,7 +153,8 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=nameInput]')
-        .clear()
+        .clear();
+      cy.get('[data-id=nameInput]')
         .type('a');
       cy.get('[data-id=deleteParticipantButton]')
         .click();
@@ -173,7 +176,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment
         }
-      ).as('apiCheckAppointment');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -206,7 +209,8 @@ context('poll-view', () => {
       cy.get('#desktop-voting-status-questionable-0')
         .click();
       cy.get('#desktop-voting-status-accepted-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
 
       cy.get('#desktop-voting-status-declined-0')
@@ -222,7 +226,8 @@ context('poll-view', () => {
         .click();
 
       cy.get('#desktop-voting-status-questionable-1')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-questionable-1')
         .should('be.checked');
       cy.get('#desktop-voting-status-declined-1')
         .should('not.be.checked');
@@ -239,14 +244,16 @@ context('poll-view', () => {
       cy.get('#summary-column-0')
         .should('contain.html', '0');
       cy.get('#desktop-voting-status-accepted-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
       cy.get('#summary-column-0')
         .should('contain.html', '1');
       cy.get('#summary-column-1')
         .should('contain.html', '0');
       cy.get('#desktop-voting-status-questionable-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-questionable-0')
         .should('be.checked');
       cy.get('#summary-column-0')
         .should('contain.html', '0');
@@ -274,38 +281,45 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=nameInput]')
-        .type('Test')
+        .type('Test');
+      cy.get('[data-id=nameInput]')
         .should('have.value', 'Test');
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=addedParticipation]')
         .should('not.exist');
       cy.get('#desktop-voting-status-accepted-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
         .should('contain.html', '01');
       cy.get('#desktop-voting-status-questionable-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-questionable-0')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
         .should('contain.html', '00');
 
       cy.get('#desktop-voting-status-accepted-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
       cy.get('#desktop-voting-status-accepted-1')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-1')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
         .should('contain.html', '02');
 
       cy.get('#desktop-voting-status-declined-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-declined-0')
         .should('be.checked');
       cy.get('#desktop-voting-status-declined-1')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-declined-1')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
         .should('not.exist');
@@ -325,7 +339,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment
         }
-      ).as('apiCheckAppointment');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -338,7 +352,7 @@ context('poll-view', () => {
     });
 
     it('Shows inactive button on invalid form', () => {
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitPoll]')
@@ -350,9 +364,10 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=nameInput]')
-        .type('Test')
+        .type('Test');
+      cy.get('[data-id=nameInput]')
         .should('have.value', 'Test');
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitNoParticipationButton]')
@@ -360,7 +375,7 @@ context('poll-view', () => {
       cy.get('[data-id=submitPoll]')
         .should('not.exist');
 
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitPoll]')
@@ -369,7 +384,8 @@ context('poll-view', () => {
         .should('be.enabled');
 
       cy.get('#desktop-voting-status-accepted-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
 
       cy.get('[data-id=submitNoParticipationButton]')
@@ -391,7 +407,7 @@ context('poll-view', () => {
           statusCode: 201,
           body: values.putParticipant
         }
-      ).as('apiCheckPutParticipant');
+      );
 
       cy.intercept(
         {
@@ -404,15 +420,16 @@ context('poll-view', () => {
           },
           body: values.getAppointment_1_user
         }
-      ).as('apiCheckAppointment_1_participant');
+      );
 
       cy.get('[data-id=addParticipantButton]')
         .click();
 
       cy.get('[data-id=nameInput]')
-        .type('Test')
+        .type('Test');
+      cy.get('[data-id=nameInput]')
         .should('have.value', 'Test');
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitNoParticipationButton]')
@@ -435,7 +452,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment_1_user
         }
-      ).as('apiCheckAppointment_1_participant');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
 
@@ -451,23 +468,25 @@ context('poll-view', () => {
           statusCode: 201,
           body: values.putParticipant_1
         }
-      ).as('apiCheckPutParticipant_1');
+      );
 
       cy.get('[data-id=addParticipantButton]')
         .click();
 
       cy.get('[data-id=nameInput]')
-        .type('Testerin')
+        .type('Testerin');
+      cy.get('[data-id=nameInput]')
         .should('have.value', 'Testerin');
 
       cy.get('#desktop-voting-status-accepted-1')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-1')
         .should('be.checked');
 
       cy.get('#summary-column-1')
         .should('contain.html', '2');
 
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.intercept(
@@ -481,7 +500,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment_2_user
         }
-      ).as('apiCheckAppointment_2_participant');
+      );
 
       cy.get('[data-id=submitPoll]')
         .click();
@@ -507,7 +526,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment_1_user
         }
-      ).as('apiCheckAppointment_1_participant');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -525,10 +544,11 @@ context('poll-view', () => {
         .click();
 
       cy.get('#desktop-voting-status-accepted-0')
-        .click()
+        .click();
+      cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
 
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitPoll]')
@@ -566,11 +586,13 @@ context('poll-view', () => {
 
       cy.get('[data-id=nameEditLabel]');
       cy.get('[data-id=nameEditInput]')
-        .clear()
-        .type('NeuerName')
+        .clear();
+      cy.get('[data-id=nameEditInput]')
+        .type('NeuerName');
+      cy.get('[data-id=nameEditInput]')
         .should('have.value', 'NeuerName');
 
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitPoll]')
@@ -597,7 +619,7 @@ context('poll-view', () => {
       cy.get('[data-id=deleteEditedParticipantButton]')
         .click();
 
-      cy.get('[data-id=tosCheckbox]')
+      cy.get('[data-id=checkbox]')
         .click();
 
       cy.get('[data-id=submitPoll]')
@@ -623,7 +645,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment_1_user
         }
-      ).as('apiCheckAppointment_1_participant');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });
@@ -666,7 +688,7 @@ context('poll-view', () => {
           },
           body: values.getAppointment_1_user_incomplete
         }
-      ).as('apiCheckAppointment_1_participant_incomplete');
+      );
 
       cy.visit(getBaseHref(values.inviteLink));
     });

@@ -14,7 +14,7 @@ context('settings-view', () => {
 
       cy.get('[data-id=generatePassword]');
       cy.get('[data-id=securePollLabel]');
-      cy.get('[data-id=securePollCheckbox]');
+      cy.get('[data-id=checkbox]');
 
       cy.get('[data-id=back]')
         .should('be.enabled');
@@ -27,14 +27,14 @@ context('settings-view', () => {
   describe('Password Form is working', () => {
     it('Checkbox works correctly', () => {
       cy.get('[data-id=next]').should('be.enabled');
-      cy.get('[data-id=securePollCheckbox]').click();
+      cy.get('[data-id=checkbox]').click();
       cy.get('[data-id=next]').should('be.disabled');
-      cy.get('[data-id=securePollCheckbox]').click();
+      cy.get('[data-id=checkbox]').click();
       cy.get('[data-id=next]').should('be.enabled');
     });
 
     it('Shows errors on wrong input', () => {
-      cy.get('[data-id=securePollCheckbox]').click();
+      cy.get('[data-id=checkbox]').click();
 
       cy.get('[data-id=passwordInput]')
         .click();
@@ -44,7 +44,8 @@ context('settings-view', () => {
       cy.get('[data-id=next]').should('be.disabled');
 
       cy.get('[data-id=passwordInput]')
-        .type('a')
+        .type('a');
+      cy.get('[data-id=passwordInput]')
         .should('have.value', 'a');
       cy.get('[data-id=next]').should('be.disabled');
       cy.get('[data-id=repeatPasswordInput]').click();
@@ -52,8 +53,10 @@ context('settings-view', () => {
       cy.get('[data-id=next]').should('be.disabled');
 
       cy.get('[data-id=passwordInput]')
-        .clear()
-        .type('Hallo2021!')
+        .clear();
+      cy.get('[data-id=passwordInput]')
+        .type('Hallo2021!');
+      cy.get('[data-id=passwordInput]')
         .should('have.value', 'Hallo2021!');
       cy.get('[data-id=next]').should('be.disabled');
       cy.get('[data-id=repeatPasswordInput]').click();
@@ -65,8 +68,10 @@ context('settings-view', () => {
       cy.get('[data-id=next]').should('be.disabled');
 
       cy.get('[data-id=repeatPasswordInput]')
-        .clear()
-        .type('Hallo2021!')
+        .clear();
+      cy.get('[data-id=repeatPasswordInput]')
+        .type('Hallo2021!');
+      cy.get('[data-id=repeatPasswordInput]')
         .should('have.value', 'Hallo2021!');
       cy.get('[data-id=errorMsgNoMatch]').should('not.exist');
       cy.get('[data-id=next]').should('be.enabled');

@@ -69,6 +69,7 @@ import {LocaleService} from './shared/services/locale/locale.service';
 import {BomComponent} from './juristic/bom/bom.component';
 import {PrivacyComponent} from './juristic/privacy/privacy.component';
 import {TermsOfServiceComponent} from './juristic/terms-of-service/terms-of-service.component';
+import {CheckboxFieldComponent} from "./shared/components/checkbox-field/checkbox-field.component";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -183,6 +184,7 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     TosComponent,
+    CheckboxFieldComponent,
   ],
   providers: [
     {

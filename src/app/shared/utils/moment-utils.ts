@@ -1,7 +1,7 @@
 import * as moment from 'moment';
-import {Utils} from './utils';
-import {ApiConstants} from '../../constants/apiConstants';
-import {ValidatorConstants} from '../../constants/validatorConstants';
+import {NullableUtils} from './nullable-utils';
+import {ApiConstants} from '../constants/apiConstants';
+import {ValidatorConstants} from '../constants/validatorConstants';
 
 export class MomentUtils {
   /**
@@ -10,7 +10,7 @@ export class MomentUtils {
    * @return {moment.Moment} the resulting moment instance
    */
   public static resetTime(obj: moment.Moment): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(obj)) {
+    if (NullableUtils.isObjectNullOrUndefined(obj)) {
       throw new Error(`Submitted value is null or undefined`);
     }
     const result: moment.Moment = moment(obj);
@@ -28,8 +28,8 @@ export class MomentUtils {
    * @return {moment.Moment} the concatenated moment instance
    */
   public static concatDateTime(dateInstance: moment.Moment, timeInstance: moment.Moment): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(timeInstance)) {
-      if (Utils.isObjectNullOrUndefined(dateInstance)) {
+    if (NullableUtils.isObjectNullOrUndefined(timeInstance)) {
+      if (NullableUtils.isObjectNullOrUndefined(dateInstance)) {
         return null;
       } else {
         return moment(dateInstance.format(ApiConstants.MOMENT_FORMAT_DATE), ApiConstants.MOMENT_FORMAT_DATE);
@@ -54,10 +54,10 @@ export class MomentUtils {
    * @return {moment.Moment} the parsed value
    */
   public static parseMomentDateFromString(value: string, localeId: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       throw new Error(`Submitted value is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(localeId)) {
+    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
@@ -75,7 +75,7 @@ export class MomentUtils {
    * @return {moment.Moment} the parsed value
    */
   public static parseMomentTimeFromString(value: string, localeId: string): moment.Moment {
-    if (Utils.isStringNullOrEmpty(value)) {
+    if (NullableUtils.isStringNullOrEmpty(value)) {
       throw new Error(`value ${value} is null or undefined`);
     }
 

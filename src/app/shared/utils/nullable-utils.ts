@@ -1,4 +1,4 @@
-export class Utils {
+export class NullableUtils {
   /**
    * Detect if submitted instance is null or undefined
    * @param  obj<T>

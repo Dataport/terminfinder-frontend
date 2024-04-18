@@ -5,7 +5,7 @@ import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {Logger} from '../shared/services/logging';
 import {Router} from '@angular/router';
 import {invalidPasswordValidator} from '../shared/validators/invalid-password.directive';
-import {Utils} from '../shared/services/utils';
+import {NullableUtils} from '../shared/utils';
 
 @Component({
   selector: 'app-settings',
@@ -55,7 +55,7 @@ export class SettingsComponent implements OnInit {
     // Add/remove validators if password checkbox has been checked/unchecked
     this.hasPassword().valueChanges.subscribe(() => {
       if (this.hasPassword().value && this.showPlaceholder) {
-        if (!Utils.isStringNullOrEmpty(this.getPassword().value) || !Utils.isStringNullOrEmpty(this.getPasswordRepeat().value)) {
+        if (!NullableUtils.isStringNullOrEmpty(this.getPassword().value) || !NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value)) {
           this.addValidators();
         } else {
           this.removeValidators();
@@ -68,7 +68,7 @@ export class SettingsComponent implements OnInit {
     });
 
     this.getPassword().valueChanges.subscribe(() => {
-      if (!Utils.isStringNullOrEmpty(this.getPasswordRepeat().value) || !Utils.isStringNullOrEmpty(this.getPassword().value)) {
+      if (!NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value) || !NullableUtils.isStringNullOrEmpty(this.getPassword().value)) {
         this.addValidators();
       } else if (this.showPlaceholder) {
         this.removeValidators();
@@ -76,7 +76,7 @@ export class SettingsComponent implements OnInit {
     });
 
     this.getPasswordRepeat().valueChanges.subscribe(() => {
-      if (!Utils.isStringNullOrEmpty(this.getPasswordRepeat().value) || !Utils.isStringNullOrEmpty(this.getPassword().value)) {
+      if (!NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value) || !NullableUtils.isStringNullOrEmpty(this.getPassword().value)) {
         this.addValidators();
       } else if (this.showPlaceholder) {
         this.removeValidators();
@@ -109,7 +109,7 @@ export class SettingsComponent implements OnInit {
     if (this.appStateService.isAppointmentProtected) {
       // if placeholder is shown that means we are in admin mode, the appointment is password protected and no new password is entered
       // in this case we get the password from credentials
-      if (this.showPlaceholder && Utils.isStringNullOrEmpty(this.getPassword().value)) {
+      if (this.showPlaceholder && NullableUtils.isStringNullOrEmpty(this.getPassword().value)) {
         const credentials = atob(this.appStateService.getCredentials());
         this.model.password = credentials.substring(credentials.lastIndexOf(':') + 1, credentials.length);
       } else {

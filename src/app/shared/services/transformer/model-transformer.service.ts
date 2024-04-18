@@ -8,7 +8,7 @@ import {
   VotingStatusType as ApiVotingStatusType
 } from '../../models/api-data-v1-dto';
 import {Appointment, Participant, SuggestedDate, Voting, VotingStatusType} from '../../models';
-import {Utils} from '../utils';
+import {NullableUtils} from '../../utils';
 import * as moment from 'moment';
 import {ApiConstants} from '../../constants/apiConstants';
 import {AppointmentStatusType} from '../../models/appointmentStatusType';
@@ -26,7 +26,7 @@ export class ModelTransformerService {
    * @return the transformed instance
    * */
   static transformAppointmentToApiAppointment(appointment: Appointment): ApiAppointment | null {
-    if (Utils.isObjectNullOrUndefined(appointment)) {
+    if (NullableUtils.isObjectNullOrUndefined(appointment)) {
       return null;
     }
 
@@ -51,12 +51,12 @@ export class ModelTransformerService {
    * */
   static transformSuggestedDatesToApiSuggestedDates(suggestedDates: SuggestedDate[]): ApiSuggestedDate[] {
     const result: ApiSuggestedDate[] = [];
-    if (Utils.isObjectNullOrUndefined(suggestedDates)) {
+    if (NullableUtils.isObjectNullOrUndefined(suggestedDates)) {
       return result;
     }
     for (let i = 0, len = suggestedDates.length; i < len; ++i) {
       const itemToAdd = ModelTransformerService.transformSuggestedDateToApiSuggestedDate(suggestedDates[i]);
-      if (!Utils.isObjectNullOrUndefined(itemToAdd)) {
+      if (!NullableUtils.isObjectNullOrUndefined(itemToAdd)) {
         result.push(itemToAdd);
       }
     }
@@ -68,21 +68,21 @@ export class ModelTransformerService {
    * @return the transformed instance
    * */
   static transformSuggestedDateToApiSuggestedDate(suggestedDate: SuggestedDate): ApiSuggestedDate | null {
-    if (Utils.isObjectNullOrUndefined(suggestedDate)) {
+    if (NullableUtils.isObjectNullOrUndefined(suggestedDate)) {
       return null;
     }
     // convert date/time strings to moment values
     const startMoment = ModelTransformerService.createMomentFromDateAndTime(suggestedDate.startDate, suggestedDate.startTime);
-    const endMoment = Utils.isObjectNullOrUndefined(suggestedDate.endDate)
+    const endMoment = NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
       ? ModelTransformerService.createMomentFromDateAndTime(suggestedDate.startDate, suggestedDate.endTime)
       : ModelTransformerService.createMomentFromDateAndTime(suggestedDate.endDate, suggestedDate.endTime);
-    const setEndDate = !Utils.isObjectNullOrUndefined(suggestedDate.endDate) || !Utils.isObjectNullOrUndefined(suggestedDate.endTime);
+    const setEndDate = !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) || !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime);
     return {
       suggestedDateId: suggestedDate.suggestedDateId,
       startDate: startMoment.format(ApiConstants.MOMENT_FORMAT_DATE),
-      startTime: !Utils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null,
+      startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null,
       endDate: setEndDate ? endMoment.format(ApiConstants.MOMENT_FORMAT_DATE) : null,
-      endTime: !Utils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null
+      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null
     } as ApiSuggestedDate;
   }
 
@@ -92,12 +92,12 @@ export class ModelTransformerService {
    * */
   static transformParticipantsToApiParticipants(participants: Participant[]): ApiParticipant[] {
     const result: ApiParticipant[] = [];
-    if (Utils.isObjectNullOrUndefined(participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(participants)) {
       return result;
     }
     for (let i = 0, len = participants.length; i < len; ++i) {
       const itemToAdd = ModelTransformerService.transformParticipantToApiParticipant(participants[i]);
-      if (!Utils.isObjectNullOrUndefined(itemToAdd)) {
+      if (!NullableUtils.isObjectNullOrUndefined(itemToAdd)) {
         result.push(itemToAdd);
       }
     }
@@ -109,7 +109,7 @@ export class ModelTransformerService {
    * @return the transformed instances
    * */
   static transformParticipantToApiParticipant(participant: Participant): ApiParticipant | null {
-    if (Utils.isObjectNullOrUndefined(participant)) {
+    if (NullableUtils.isObjectNullOrUndefined(participant)) {
       return null;
     }
     return {
@@ -125,12 +125,12 @@ export class ModelTransformerService {
    * */
   static transformVotingsToApiVotings(votings: Voting[]): ApiVoting[] {
     const result: ApiVoting[] = [];
-    if (Utils.isObjectNullOrUndefined(votings)) {
+    if (NullableUtils.isObjectNullOrUndefined(votings)) {
       return result;
     }
     for (let i = 0, len = votings.length; i < len; ++i) {
       const itemToAdd = ModelTransformerService.transformVotingToApiVoting(votings[i]);
-      if (!Utils.isObjectNullOrUndefined(itemToAdd)) {
+      if (!NullableUtils.isObjectNullOrUndefined(itemToAdd)) {
         result.push(itemToAdd);
       }
     }
@@ -142,7 +142,7 @@ export class ModelTransformerService {
    * @return the transformed instance
    * */
   static transformVotingToApiVoting(voting: Voting): ApiVoting | null {
-    if (Utils.isObjectNullOrUndefined(voting)) {
+    if (NullableUtils.isObjectNullOrUndefined(voting)) {
       return null;
     }
     return {
@@ -191,7 +191,7 @@ export class ModelTransformerService {
    * @return the transformed instance
    * */
   static transformApiAppointmentToAppointment(appointment: ApiAppointment): Appointment | null {
-    if (Utils.isObjectNullOrUndefined(appointment)) {
+    if (NullableUtils.isObjectNullOrUndefined(appointment)) {
       return null;
     }
 
@@ -220,12 +220,12 @@ export class ModelTransformerService {
    * */
   static transformApiSuggestedDatesToSuggestedDates(suggestedDates: ApiSuggestedDate[]): SuggestedDate[] {
     const result: SuggestedDate[] = [];
-    if (Utils.isObjectNullOrUndefined(suggestedDates)) {
+    if (NullableUtils.isObjectNullOrUndefined(suggestedDates)) {
       return result;
     }
     for (let i = 0, len = suggestedDates.length; i < len; ++i) {
       const itemToAdd = ModelTransformerService.transformApiSuggestedDateToSuggestedDate(suggestedDates[i]);
-      if (!Utils.isObjectNullOrUndefined(itemToAdd)) {
+      if (!NullableUtils.isObjectNullOrUndefined(itemToAdd)) {
         result.push(itemToAdd);
       }
     }
@@ -237,22 +237,22 @@ export class ModelTransformerService {
    * @return the transformed instance
    * */
   static transformApiSuggestedDateToSuggestedDate(suggestedDate: ApiSuggestedDate): SuggestedDate | null {
-    if (Utils.isObjectNullOrUndefined(suggestedDate)) {
+    if (NullableUtils.isObjectNullOrUndefined(suggestedDate)) {
       return null;
     }
     const startMoment = ModelTransformerService.createMomentFromApiDateAndTime(suggestedDate.startDate, suggestedDate.startTime);
-    const endMoment = !Utils.isObjectNullOrUndefined(suggestedDate.endDate)
+    const endMoment = !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
       ? ModelTransformerService.createMomentFromApiDateAndTime(suggestedDate.endDate, suggestedDate.endTime)
       : ModelTransformerService.createMomentFromApiDateAndTime(suggestedDate.startDate, suggestedDate.endTime);
     const startDateDifferentFromEndDate = !endMoment.local().isSame(startMoment.local(), 'day');
     return {
       suggestedDateId: suggestedDate.suggestedDateId,
-      startDate: !Utils.isObjectNullOrUndefined(suggestedDate.startDate)
+      startDate: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
         ? startMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE) : null,
-      startTime: !Utils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.local().format() : null,
-      endDate: (!Utils.isObjectNullOrUndefined(suggestedDate.endDate) || !Utils.isObjectNullOrUndefined(suggestedDate.endTime))
+      startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.local().format() : null,
+      endDate: (!NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) || !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime))
       && startDateDifferentFromEndDate ? endMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE) : null,
-      endTime: !Utils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.local().format() : null
+      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.local().format() : null
     } as ApiSuggestedDate;
   }
 
@@ -262,12 +262,12 @@ export class ModelTransformerService {
    * */
   static transformApiParticipantsToParticipants(participants: ApiParticipant[]): Participant[] {
     const result: Participant[] = [];
-    if (Utils.isObjectNullOrUndefined(participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(participants)) {
       return result;
     }
     for (let i = 0, len = participants.length; i < len; ++i) {
       const itemToAdd = ModelTransformerService.transformApiParticipantToParticipant(participants[i]);
-      if (!Utils.isObjectNullOrUndefined(itemToAdd)) {
+      if (!NullableUtils.isObjectNullOrUndefined(itemToAdd)) {
         result.push(itemToAdd);
       }
     }
@@ -279,7 +279,7 @@ export class ModelTransformerService {
    * @return the transformed instances
    * */
   static transformApiParticipantToParticipant(participant: ApiParticipant): Participant | null {
-    if (Utils.isObjectNullOrUndefined(participant)) {
+    if (NullableUtils.isObjectNullOrUndefined(participant)) {
       return null;
     }
     return {
@@ -295,12 +295,12 @@ export class ModelTransformerService {
    * */
   static transformApiVotingsToVotings(votings: ApiVoting[]): Voting[] {
     const result: Voting[] = [];
-    if (Utils.isObjectNullOrUndefined(votings)) {
+    if (NullableUtils.isObjectNullOrUndefined(votings)) {
       return result;
     }
     for (let i = 0, len = votings.length; i < len; ++i) {
       const itemToAdd = ModelTransformerService.transformApiVotingToVoting(votings[i]);
-      if (!Utils.isObjectNullOrUndefined(itemToAdd)) {
+      if (!NullableUtils.isObjectNullOrUndefined(itemToAdd)) {
         result.push(itemToAdd);
       }
     }
@@ -312,7 +312,7 @@ export class ModelTransformerService {
    * @return the transformed instance
    * */
   static transformApiVotingToVoting(voting: ApiVoting): Voting | null {
-    if (Utils.isObjectNullOrUndefined(voting)) {
+    if (NullableUtils.isObjectNullOrUndefined(voting)) {
       return null;
     }
     return {
@@ -361,12 +361,12 @@ export class ModelTransformerService {
    * @param time optional time to parse
    */
   private static createMomentFromApiDateAndTime(date: string, time: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(date)) {
+    if (NullableUtils.isObjectNullOrUndefined(date)) {
       return null;
     }
     // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
     // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
-    if (Utils.isObjectNullOrUndefined(time)) {
+    if (NullableUtils.isObjectNullOrUndefined(time)) {
       time = '12:00:00+00:00';
     }
     const dateTime = `${date}T${time}`;
@@ -379,12 +379,12 @@ export class ModelTransformerService {
    * @param time optional time to parse
    */
   private static createMomentFromDateAndTime(date: string, time: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(date)) {
+    if (NullableUtils.isObjectNullOrUndefined(date)) {
       return null;
     }
     // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
     // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
-    const timeMoment = Utils.isObjectNullOrUndefined(time) ? moment('12:00', 'HH:MM') : moment(time, ApiConstants.MOMENT_FORMAT_DATE_TIME);
+    const timeMoment = NullableUtils.isObjectNullOrUndefined(time) ? moment('12:00', 'HH:MM') : moment(time, ApiConstants.MOMENT_FORMAT_DATE_TIME);
     const dateMoment = moment(date, ApiConstants.MOMENT_FORMAT_DATE);
     const dateTime = `${dateMoment.format(ApiConstants.MOMENT_FORMAT_DATE)}T${timeMoment.format(ApiConstants.MOMENT_FORMAT_TIME)}`;
     return moment.utc(dateTime, ApiConstants.MOMENT_FORMAT_DATE_TIME);

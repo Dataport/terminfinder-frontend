@@ -8,7 +8,7 @@ import {
   UntypedFormGroup,
   Validators
 } from '@angular/forms';
-import {Utils} from '../shared/services/utils';
+import {NullableUtils} from '../shared/utils';
 import {invalidNameValidator} from '../shared/validators/invalid-name.directive';
 import {ValidatorConstants} from '../shared/constants/validatorConstants';
 import {ApiConstants} from '../shared/constants/apiConstants';
@@ -236,7 +236,7 @@ export class PollFormHelperService {
   }
 
   public selectFirstParticipant(): void {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     if (this.appointment.participants.length > 0) {
@@ -245,10 +245,10 @@ export class PollFormHelperService {
   }
 
   public selectParticipant(participantId): void {
-    if (Utils.isObjectNullOrUndefined(participantId)) {
+    if (NullableUtils.isObjectNullOrUndefined(participantId)) {
       throw new Error(`participantId must not be null`);
     }
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     this.pollForm.patchValue({selectedParticipant: this.appointment.participants.find(value => value.participantId === participantId)});
@@ -261,7 +261,7 @@ export class PollFormHelperService {
    */
   public getVotingStatusBySuggestedDateIdAndParticipantId(suggestedDateId: string, participantId: string): string {
     const voting = this.getVotingBySuggestedDateIdAndParticipantId(suggestedDateId, participantId);
-    if (!Utils.isObjectNullOrUndefined(voting)) {
+    if (!NullableUtils.isObjectNullOrUndefined(voting)) {
       return voting.status;
     } else {
       return VotingStatusType.Undefined;
@@ -273,7 +273,7 @@ export class PollFormHelperService {
    * @param participantId ID of the participant to check
    */
   public isEditInParticipantForm(participantId: string): boolean {
-    if (!Utils.isObjectNullOrUndefined(this.getParticipantForm())) {
+    if (!NullableUtils.isObjectNullOrUndefined(this.getParticipantForm())) {
       const control = this.getParticipantForm().get('participantId') as AbstractControl;
       return control.value === participantId;
     }
@@ -284,7 +284,7 @@ export class PollFormHelperService {
    * @param suggestedDateId ID of the suggested date
    */
   public getNumberOfAcceptedVotingsBySuggestedDate(suggestedDateId: string): number {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     let result = 0;
@@ -317,7 +317,7 @@ export class PollFormHelperService {
    * @return acceptingParticipants Array of Names of participants which accepts the suggested date
    */
   public getParticipantsWithVotingsOnSuggestedDate(suggestedDateId: string, votingStatus: VotingStatusType): Participant[] {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     const acceptingParticipants = [];
@@ -337,10 +337,10 @@ export class PollFormHelperService {
    * since it has no access to the class itself, it also has no access to it's static members
    * **/
   public isVotingFromSuggestedDate(suggestedDate: SuggestedDate, votingOfSuggestedDate: AbstractControl): boolean {
-    if (Utils.isObjectNullOrUndefined(suggestedDate)) {
+    if (NullableUtils.isObjectNullOrUndefined(suggestedDate)) {
       throw new Error(`suggestedDate must not be null`);
     }
-    if (Utils.isObjectNullOrUndefined(votingOfSuggestedDate)) {
+    if (NullableUtils.isObjectNullOrUndefined(votingOfSuggestedDate)) {
       throw new Error(`votingOfSuggestedDate must not be null`);
     }
     const voting: Voting = votingOfSuggestedDate.value as Voting;
@@ -348,7 +348,7 @@ export class PollFormHelperService {
   }
 
   public getVotingBySuggestedDateIdAndParticipantId(suggestedDateId: string, participantId: string): Voting {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     for (const participant of this.appointment.participants) {
@@ -373,7 +373,7 @@ export class PollFormHelperService {
   }
 
   public getNumberOfParticipants(): number {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     return this.appointment.participants.length + (this.hasAddParticipantForm() ? 1 : 0);
@@ -383,7 +383,7 @@ export class PollFormHelperService {
    * Returns if the poll has any participants.
    */
   public hasParticipants(): boolean {
-    return !Utils.isObjectNullOrUndefined(this.appointment.participants) && this.getNumberOfParticipants() > 0;
+    return !NullableUtils.isObjectNullOrUndefined(this.appointment.participants) && this.getNumberOfParticipants() > 0;
   }
 
   /**
@@ -414,7 +414,7 @@ export class PollFormHelperService {
    * @param participant
    */
   private createParticipantForm(participant?: Participant): UntypedFormGroup {
-    if (Utils.isObjectNullOrUndefined(this.appointment.suggestedDates)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.suggestedDates)) {
       throw new Error(`this.appointment.suggestedDates must not be null`);
     }
     const votings: Voting[] = this.appointment.suggestedDates.map((date) => (
@@ -444,7 +444,7 @@ export class PollFormHelperService {
   }
 
   private subscribeToParticipantChanges(): void {
-    if (Utils.isObjectNullOrUndefined(this.participantForm)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.participantForm)) {
       throw new Error(`this.participantForm must not be null`);
     }
     this.participantForm.valueChanges.subscribe(value => {
@@ -453,7 +453,7 @@ export class PollFormHelperService {
   }
 
   private deleteParticipantFromModel(participant: Participant): void {
-    if (Utils.isObjectNullOrUndefined(this.appointment.participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     this.appointment.participants.forEach((item, index) => {

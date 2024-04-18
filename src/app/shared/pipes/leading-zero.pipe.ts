@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Utils} from '../services/utils';
+import {NullableUtils} from '../utils';
 
 @Pipe({
   name: 'leadingZero'
@@ -11,7 +11,7 @@ export class LeadingZeroPipe implements PipeTransform {
     if (size < LeadingZeroPipe.MIN_SIZE) {
       throw new Error(`Submitted value ${size} for size is smaller than ${LeadingZeroPipe.MIN_SIZE}`);
     }
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       return '0';
     }
 

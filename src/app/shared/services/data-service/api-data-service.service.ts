@@ -4,7 +4,7 @@ import {EnvConfig} from '../../../../environments/env-config.interface';
 import {TimeoutError} from 'rxjs';
 import {AppStateService} from '../app-state/app-state.service';
 import {HttpConstants} from './http-constants';
-import {Utils} from '../utils';
+import {NullableUtils} from '../../utils';
 import {
   ApiError,
   ApiVersion,
@@ -74,7 +74,7 @@ export class ApiDataService {
    * @returns {Promise<Appointment>} the created appointment
    */
   createAppointment(appointment: Appointment): Promise<Appointment> {
-    if (Utils.isObjectNullOrUndefined(appointment)) {
+    if (NullableUtils.isObjectNullOrUndefined(appointment)) {
       throw new Error('Submitted appointment is null or undefined');
     }
 
@@ -99,7 +99,7 @@ export class ApiDataService {
    * @returns {Promise<Appointment>} the updated appointment
    */
   updateAppointment(appointment: Appointment): Promise<Appointment> {
-    if (Utils.isObjectNullOrUndefined(appointment)) {
+    if (NullableUtils.isObjectNullOrUndefined(appointment)) {
       throw new Error('Submitted appointment is null or undefined');
     }
 
@@ -124,7 +124,7 @@ export class ApiDataService {
    * @returns {Promise<Appointment>} the appointment
    */
   readAppointmentById(id: string): Promise<Appointment> {
-    if (Utils.isStringNullOrWhitespace(id)) {
+    if (NullableUtils.isStringNullOrWhitespace(id)) {
       throw new Error('Submitted id is null or undefined or empty');
     }
 
@@ -149,7 +149,7 @@ export class ApiDataService {
    * @returns {Promise<Appointment>} the appointment
    */
   readAppointmentByAdminId(id: string): Promise<Appointment> {
-    if (Utils.isStringNullOrWhitespace(id)) {
+    if (NullableUtils.isStringNullOrWhitespace(id)) {
       throw new Error('Submitted id is null or undefined or empty');
     }
 
@@ -174,10 +174,10 @@ export class ApiDataService {
    * @returns {Promise<Participant[]>} the participants and their votings
    */
   createOrUpdateParticipantVotingsOfAppointmentById(appointmentId: string, participants: Participant[]): Promise<Participant[]> {
-    if (Utils.isStringNullOrWhitespace(appointmentId)) {
+    if (NullableUtils.isStringNullOrWhitespace(appointmentId)) {
       throw new Error('Submitted appointmentId value is null or undefined or empty');
     }
-    if (Utils.isObjectNullOrUndefined(participants)) {
+    if (NullableUtils.isObjectNullOrUndefined(participants)) {
       throw new Error('Submitted participants value is null or undefined');
     }
 
@@ -202,10 +202,10 @@ export class ApiDataService {
    * * @returns {Promise<void>}
    */
   deleteSuggestedDate(appointmentId: string, suggestedDateId: string): Promise<void> {
-    if (Utils.isStringNullOrWhitespace(appointmentId)) {
+    if (NullableUtils.isStringNullOrWhitespace(appointmentId)) {
       throw new Error('Submitted appointmentId value is null or undefined or empty');
     }
-    if (Utils.isStringNullOrWhitespace(suggestedDateId)) {
+    if (NullableUtils.isStringNullOrWhitespace(suggestedDateId)) {
       throw new Error('Submitted suggested dates value is null or undefined');
     }
 
@@ -239,10 +239,10 @@ export class ApiDataService {
    * * @returns {Promise<void>}
    */
   deleteParticipant(appointmentId: string, participantId: string): Promise<void> {
-    if (Utils.isStringNullOrWhitespace(appointmentId)) {
+    if (NullableUtils.isStringNullOrWhitespace(appointmentId)) {
       throw new Error('Submitted appointmentId value is null or undefined or empty');
     }
-    if (Utils.isStringNullOrWhitespace(participantId)) {
+    if (NullableUtils.isStringNullOrWhitespace(participantId)) {
       throw new Error('Submitted participant value is null or undefined');
     }
 
@@ -272,7 +272,7 @@ export class ApiDataService {
   }
 
   isAppointmentProtected(appointmentId: string): Promise<AppointmentProtectionResult> {
-    if (Utils.isStringNullOrWhitespace(appointmentId)) {
+    if (NullableUtils.isStringNullOrWhitespace(appointmentId)) {
       throw new Error('Submitted appointmentId value is null or undefined or empty');
     }
 
@@ -293,7 +293,7 @@ export class ApiDataService {
   }
 
   isAdminProtected(adminId: string): Promise<AppointmentProtectionResult> {
-    if (Utils.isStringNullOrWhitespace(adminId)) {
+    if (NullableUtils.isStringNullOrWhitespace(adminId)) {
       throw new Error('Submitted adminId value is null or undefined or empty');
     }
 
@@ -314,7 +314,7 @@ export class ApiDataService {
   }
 
   isPasswordCorrect(appointmentId: string): Promise<AppointmentPasswordValidationResult> {
-    if (Utils.isStringNullOrWhitespace(appointmentId)) {
+    if (NullableUtils.isStringNullOrWhitespace(appointmentId)) {
       throw new Error('Submitted appointmentId value is null or undefined or empty');
     }
 
@@ -336,11 +336,11 @@ export class ApiDataService {
   }
 
   updateAppointmentStatus(adminId: string, status: AppointmentStatusType): Promise<Appointment> {
-    if (Utils.isStringNullOrWhitespace(adminId)) {
+    if (NullableUtils.isStringNullOrWhitespace(adminId)) {
       throw new Error('Submitted adminId value is null or undefined or empty');
     }
 
-    if (Utils.isStringNullOrWhitespace(status)) {
+    if (NullableUtils.isStringNullOrWhitespace(status)) {
       throw new Error('Submitted status value is null or undefined or empty');
     }
 
@@ -362,7 +362,7 @@ export class ApiDataService {
   }
 
   isAdminPasswordCorrect(adminId: string): Promise<AppointmentPasswordValidationResult> {
-    if (Utils.isStringNullOrWhitespace(adminId)) {
+    if (NullableUtils.isStringNullOrWhitespace(adminId)) {
       throw new Error('Submitted adminId value is null or undefined or empty');
     }
 
@@ -416,7 +416,7 @@ export class ApiDataService {
                 errorMsg = `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}').`
                   + `Wenn es sich deiner Meinung nach um einen clientseitigen Fehler handelt, `
                   + 'leite die folgende Fehlermeldung bitte an die Betreuer des Clients weiter: '
-                  + ((Utils.isObjectNullOrUndefined(apiError)) ? '' : `${apiError.code} - ${apiError.message}`);
+                  + ((NullableUtils.isObjectNullOrUndefined(apiError)) ? '' : `${apiError.code} - ${apiError.message}`);
               }
             } else if (res.status === HttpConstants.HTTP_STATUS_FORBIDDEN) {
               errorMsg = 'Die verwendeten Zugangsdaten sind ungültig.';

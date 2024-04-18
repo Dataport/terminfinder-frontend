@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Message, MessageType} from '../../models';
-import {Utils} from '../../services/utils';
+import {NullableUtils} from '../../utils';
 
 @Component({
   selector: 'app-message-box',
@@ -26,7 +26,7 @@ export class MessageBoxComponent {
   }
 
   private detectIsError(): boolean {
-    return Utils.isObjectNullOrUndefined(this._message) || Utils.isObjectNullOrUndefined(this._message.messageType) ||
+    return NullableUtils.isObjectNullOrUndefined(this._message) || NullableUtils.isObjectNullOrUndefined(this._message.messageType) ||
       this._message.messageType === MessageType.ERROR || this._message.messageType === MessageType.UNDEFINED;
   }
 

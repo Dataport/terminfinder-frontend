@@ -9,18 +9,19 @@ import {timeValidator} from '../shared/validators/time-validator.directive';
 import {dateInFutureOrTodayValidator} from '../shared/validators/date-today-or-in-future-validator.directive';
 import {minLengthArrayValidator} from '../shared/validators/min-length-array-validator.directive';
 import {maxLengthArrayValidator} from '../shared/validators/max-length-array-validator.directive';
-import {DateTimeGeneratorService, Utils} from '../shared/services/utils';
+import {DateTimeGeneratorService} from '../shared/services/generators';
 import {ValidatorConstants} from '../shared/constants/validatorConstants';
 import {suggestedDateValidator} from '../shared/validators/suggested-date-validator.directive';
 import {SuggestedDatesFormConstants} from './suggested-dates-form-constants';
 import {Appointment, SuggestedDate} from '../shared/models';
 import {ValidatorUtils} from '../shared/validators/validator-utils';
 import * as moment from 'moment';
-import {MomentUtils} from '../shared/services/utils/moment-utils';
+import {MomentUtils} from '../shared/utils/moment-utils';
 import {ApiConstants} from '../shared/constants/apiConstants';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 import * as MobileDetect from 'mobile-detect';
+import {NullableUtils} from "../shared/utils";
 
 @Component({
   selector: 'app-create-suggested-dates',
@@ -55,7 +56,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   suggesteDatesToDelete: SuggestedDate[];
   adminId: string;
   datesForm: UntypedFormGroup = new UntypedFormGroup({
-    'suggestedDates': new UntypedFormArray([],
+      'suggestedDates': new UntypedFormArray([],
         [
           minLengthArrayValidator(CreateSuggestedDatesComponent.MIN_NUMBER_SUGGESTED_DATES),
           maxLengthArrayValidator(CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES)
@@ -74,14 +75,14 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   private static formatDate(value: moment.Moment): string | null {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       return null;
     }
     return value.format(ApiConstants.MOMENT_FORMAT_DATE_TIME);
   }
 
   private static formatDateTime(value: moment.Moment): string | null {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       return null;
     }
     return value.format(ApiConstants.MOMENT_FORMAT_DATE_TIME);
@@ -92,9 +93,9 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
     const appointmentModel: Appointment = this.appStateService.getAppointment();
     this.adminId = appointmentModel.adminId;
-    this.model = Utils.isObjectNullOrUndefined(appointmentModel) || Utils.isArrayNullOrEmpty(appointmentModel.suggestedDates)
+    this.model = NullableUtils.isObjectNullOrUndefined(appointmentModel) || NullableUtils.isArrayNullOrEmpty(appointmentModel.suggestedDates)
       ? [] : appointmentModel.suggestedDates;
-    if (Utils.isArrayNullOrEmpty(this.model)) {
+    if (NullableUtils.isArrayNullOrEmpty(this.model)) {
       this.addSuggestedDate();
     } else {
       for (let i = 0, len = this.model.length; i < len; ++i) {
@@ -314,24 +315,24 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   private createSuggestedDateForm(suggestedDate: SuggestedDate = null): UntypedFormGroup {
-    const suggestedDateSubmitted = !Utils.isObjectNullOrUndefined(suggestedDate);
+    const suggestedDateSubmitted = !NullableUtils.isObjectNullOrUndefined(suggestedDate);
     const suggestedDateIdValue: string = suggestedDateSubmitted ? suggestedDate.suggestedDateId : null;
-    const startDateValue: NgbDateStruct = suggestedDateSubmitted && !Utils.isObjectNullOrUndefined(suggestedDate.startDate)
+    const startDateValue: NgbDateStruct = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
       ? ValidatorUtils.parseNgbDateStructFromMoment(
         ValidatorUtils.parseMomentFromIsoString(suggestedDate.startDate, this.localeId),
         this.localeId)
       : null;
-    const endDateValue: NgbDateStruct = suggestedDateSubmitted && !Utils.isObjectNullOrUndefined(suggestedDate.endDate)
+    const endDateValue: NgbDateStruct = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
       ? ValidatorUtils.parseNgbDateStructFromMoment(
         ValidatorUtils.parseMomentFromIsoString(suggestedDate.endDate, this.localeId),
         this.localeId)
       : null;
-    const startTimeValue: string = suggestedDateSubmitted && !Utils.isObjectNullOrUndefined(suggestedDate.startTime)
+    const startTimeValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime)
       ? ValidatorUtils.serializeTimeFromMoment(
         ValidatorUtils.parseMomentFromIsoString(suggestedDate.startTime, this.localeId),
         this.localeId)
       : null;
-    const endTimeValue: string = suggestedDateSubmitted && !Utils.isObjectNullOrUndefined(suggestedDate.endTime)
+    const endTimeValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime)
       ? ValidatorUtils.serializeTimeFromMoment(
         ValidatorUtils.parseMomentFromIsoString(suggestedDate.endTime, this.localeId),
         this.localeId)
@@ -380,7 +381,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     itemToAdd.suggestedDateId = this.getSuggestedDateIdControlValue(index);
     const startDate: moment.Moment = this.parseDateFromString(this.getSuggestedDateStartDateControlValue(index));
     itemToAdd.startDate = this.createSerializedDateFromString(this.getSuggestedDateStartDateControlValue(index));
-    itemToAdd.startTime = !Utils.isStringNullOrEmpty(this.getSuggestedStartTimeControlValue(index))
+    itemToAdd.startTime = !NullableUtils.isStringNullOrEmpty(this.getSuggestedStartTimeControlValue(index))
       ? this.createSerializedDateTimeFromString(startDate, this.getSuggestedStartTimeControlValue(index)) : null;
     const endDateAsString: string = this.getShowSuggestedDateEndDateOnDifferentDayFormValue(index)
       ? this.getSuggestedDateEndDateControlValue(index)
@@ -390,7 +391,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
       ? this.getEndTimeOfSuggestedEndDateByIndex(index).value
       : this.getEndTimeOfSuggestedStartDateByIndex(index).value;
     itemToAdd.endDate = CreateSuggestedDatesComponent.formatDate(endDate);
-    itemToAdd.endTime = !Utils.isStringNullOrEmpty(endTimeAsString)
+    itemToAdd.endTime = !NullableUtils.isStringNullOrEmpty(endTimeAsString)
       ? this.createSerializedDateTimeFromString(endDate === null ? startDate : endDate, endTimeAsString)
       : null;
     return itemToAdd;
@@ -408,7 +409,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   private parseDateFromString(value: string): moment.Moment | null {
-    if (Utils.isStringNullOrEmpty(value)) {
+    if (NullableUtils.isStringNullOrEmpty(value)) {
       return null;
     }
     try {
@@ -419,7 +420,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   private parseTimeFromString(value: string): moment.Moment | null {
-    if (Utils.isStringNullOrEmpty(value)) {
+    if (NullableUtils.isStringNullOrEmpty(value)) {
       return null;
     }
     return MomentUtils.parseMomentTimeFromString(value, this.localeId);

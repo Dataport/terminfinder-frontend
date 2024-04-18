@@ -1,0 +1,10 @@
+@import "src/default";
+@import 'bootstrap/scss/mixins';
+
+label {
+  font-weight: $font-weight-normal !important;
+  font-size: $font-size-small-mobile !important;
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small !important;
+  }
+}

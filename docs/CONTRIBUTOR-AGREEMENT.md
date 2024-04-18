@@ -66,7 +66,7 @@ E-Mail-Listen und öffentliche Code-Repositories veröffentlicht. Öffentliche C
 Patch-Einreichungen, Pull-Requests, Diskussionen und Bug-Reports. Keines dieser Tools hält die übermittelten
 Informationen privat. Sie sind öffentlich zugänglich und an mehreren Orten archiviert. Der Beitraggeber sollte
 keinesfalls personenbezogene Informationen einreichen und für eine entsprechende Anonymisierung bzw. Pseudonymisierung
-sorgen. Im Übrigen gilt die Datenschutzrichtlinie von Dataport AöR: https://www.kultursphaere.sh/impressum/
+sorgen. Im Übrigen gilt die Datenschutzrichtlinie von Dataport AöR: https://www.dataport.de/datenschutz/
 
 ### 7. Anwendbares Recht.
 

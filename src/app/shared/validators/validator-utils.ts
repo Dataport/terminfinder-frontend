@@ -1,9 +1,9 @@
 import * as moment from 'moment';
 import {ValidatorConstants} from '../constants/validatorConstants';
-import {Utils} from '../services/utils';
+import {NullableUtils} from '../utils';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {AbstractControl} from '@angular/forms';
-import {MomentUtils} from '../services/utils/moment-utils';
+import {MomentUtils} from '../utils/moment-utils';
 
 export class ValidatorUtils {
   /**
@@ -13,10 +13,10 @@ export class ValidatorUtils {
    * @return {moment.Moment} the parsed value
    */
   public static parseMomentFromIsoString(value: string, localeId: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       throw new Error(`Submitted value for value is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(localeId)) {
+    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
@@ -35,10 +35,10 @@ export class ValidatorUtils {
    * @return {moment.Moment} the parsed value
    */
   public static serializeTimeFromMoment(value: moment.Moment, localeId: string): string {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       throw new Error(`Submitted value for value is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(localeId)) {
+    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
     if (!value.isValid()) {
@@ -51,10 +51,10 @@ export class ValidatorUtils {
   }
 
   public static serializeDateFromNgbDateStruct(date: NgbDateStruct, localeId: string): string {
-    if (Utils.isObjectNullOrUndefined(date)) {
+    if (NullableUtils.isObjectNullOrUndefined(date)) {
       throw new Error(`Submitted value for date is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(localeId)) {
+    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
@@ -66,10 +66,10 @@ export class ValidatorUtils {
   }
 
   public static parseMomentFromNgbDateStruct(date: NgbDateStruct, localeId: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(date)) {
+    if (NullableUtils.isObjectNullOrUndefined(date)) {
       throw new Error(`Submitted value for date is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(localeId)) {
+    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
@@ -82,10 +82,10 @@ export class ValidatorUtils {
   }
 
   public static parseNgbDateStructFromMoment(value: moment.Moment, localeId: string): NgbDateStruct {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       throw new Error(`Submitted value for value is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(localeId)) {
+    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
@@ -94,10 +94,10 @@ export class ValidatorUtils {
   }
 
   public static pad(value: number, length): string {
-    if (Utils.isObjectNullOrUndefined(value)) {
+    if (NullableUtils.isObjectNullOrUndefined(value)) {
       throw new Error(`Submitted value for value is null or undefined`);
     }
-    if (Utils.isObjectNullOrUndefined(length)) {
+    if (NullableUtils.isObjectNullOrUndefined(length)) {
       throw new Error(`Submitted value for length is null or undefined`);
     }
 
@@ -114,7 +114,7 @@ export class ValidatorUtils {
    * @param localeId: string, the localeId that should be used while parsing
    */
   public static parseDateValue(control: AbstractControl, localeId: string): moment.Moment {
-    if (Utils.isObjectNullOrUndefined(control)) {
+    if (NullableUtils.isObjectNullOrUndefined(control)) {
       throw new Error('control is null or undefined');
     }
 

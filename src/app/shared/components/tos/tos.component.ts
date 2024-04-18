@@ -1,10 +1,20 @@
 import {Component, Input} from '@angular/core';
-import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
+import {ReactiveFormsModule, UntypedFormControl, UntypedFormGroup} from '@angular/forms';
+import {TranslateModule} from "@ngx-translate/core";
+import {RouterLink} from "@angular/router";
+import {CheckboxFieldComponent} from "../checkbox-field/checkbox-field.component";
 
 @Component({
   selector: 'app-tos',
   templateUrl: './tos.component.html',
-  styleUrls: ['./tos.component.scss']
+  styleUrls: ['./tos.component.scss'],
+  standalone: true,
+  imports: [
+    CheckboxFieldComponent,
+    ReactiveFormsModule,
+    RouterLink,
+    TranslateModule,
+  ]
 })
 export class TosComponent {
   @Input() tosFormGroup: UntypedFormGroup;

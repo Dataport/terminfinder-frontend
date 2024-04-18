@@ -1,7 +1,7 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
 import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
 import * as moment from 'moment';
-import {Utils} from '../services/utils';
+import {NullableUtils} from '../utils';
 import {ValidatorConstants} from '../constants/validatorConstants';
 
 export function dateValidator(localeId: string): ValidatorFn {
@@ -11,7 +11,7 @@ export function dateValidator(localeId: string): ValidatorFn {
     if (type === 'object') {
       isValid = true;
     } else {
-      isValid = !Utils.isStringNullOrEmpty(control.value)
+      isValid = !NullableUtils.isStringNullOrEmpty(control.value)
         ? moment(control.value, ValidatorConstants.MOMENT_FORMAT_DATE, localeId, true).isValid()
         : true;
     }

@@ -1,9 +1,9 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
 import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
 import {ValidatorUtils} from './validator-utils';
-import {DateTimeGeneratorService} from '../services/utils';
+import {DateTimeGeneratorService} from '../services/generators';
 import * as moment from 'moment';
-import {MomentUtils} from '../services/utils/moment-utils';
+import {MomentUtils} from '../utils/moment-utils';
 import {SuggestedDatesFormConstants} from '../../create-suggested-dates/suggested-dates-form-constants';
 
 export function suggestedDateValidator(localeId: string, dateTimeGenerator: DateTimeGeneratorService): ValidatorFn {

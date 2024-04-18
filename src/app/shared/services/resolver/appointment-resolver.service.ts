@@ -2,7 +2,7 @@ import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ActivatedRouteSnapshot} from '@angular/router';
 import {Appointment} from '../../models';
-import {Utils} from '../utils';
+import {NullableUtils} from '../../utils';
 import {AppStateService} from '../app-state/app-state.service';
 import {Appointment as ApiAppointment} from '../../models/api-data-v1-dto';
 import {ModelTransformerService} from '../transformer';
@@ -26,7 +26,7 @@ export class AppointmentResolverService {
   resolve(route: ActivatedRouteSnapshot): Promise<Appointment> | Observable<never> {
     this.model = this.appStateService.getAppointment();
     const adminId = route.paramMap.get('adminId');
-    if (Utils.isObjectNullOrUndefined(adminId)) {
+    if (NullableUtils.isObjectNullOrUndefined(adminId)) {
       throw new Error('adminId is null or undefined');
     }
     return this.getAppointment(adminId);

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {Router} from '@angular/router';
-import {LinkGeneratorService} from '../shared/services/utils/link-generator.service';
+import {LinkGeneratorService} from '../shared/services/generators';
 import {environment} from '../../environments/environment';
 import {TranslateService} from "@ngx-translate/core";
 

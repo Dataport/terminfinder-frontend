@@ -67,6 +67,13 @@ $label-margin-bottom: 0;
 $footer-text-color: $secondary;
 $spacer: 1rem;
 
+/** Bootstrap Checkbox **/
+$form-check-input-border:                 1px solid $medium-gray;
+$form-check-input-checked-bg-color:       #ffffff;
+$form-check-input-checked-border-color:   $medium-gray;
+$form-check-input-checked-color:          $primary;
+$form-check-label-color:                  $primary;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,

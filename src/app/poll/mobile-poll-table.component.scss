@@ -1,8 +1,13 @@
 @import './poll.component';
 
+.form-control {
+  appearance: auto
+}
+
 .poll-table.mobile td {
   vertical-align: middle;
-  padding: 6px 0 6px 6px;
+  padding: 0;
+  border: unset;
 }
 
 .btn.btn-transparent {
@@ -24,4 +29,9 @@
 .poll-table td.total-participants {
   padding: 0;
   width: 60px;
+}
+
+.poll-table.mobile td.poll-options > img {
+  margin-left: auto;
+  margin-right: 1rem;
 }

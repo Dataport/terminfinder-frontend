@@ -4,8 +4,7 @@ By contributing You are accepting the [CONTRIBUTOR-AGREEMENT.md](CONTRIBUTOR-AGR
 
 ## Did you find a bug?
 
-- **Do not open up a GitHub issue if the bug is a security vulnerability
-  in Rails**, and instead to refer to our [security policy](SECURITY.md).
+- **Do not open up a GitHub issue if the bug is a security vulnerability**, and instead to refer to our [security policy](SECURITY.md).
 - **Ensure the bug was not already reported** by searching on GitHub under Issues.
 - If you're unable to find an open issue addressing the problem, open a new one. Be sure to include a **title and clear description**, as much relevant information as possible. Please use the bug template.
 
@@ -27,4 +26,4 @@ Changes that are cosmetic in nature and do not add anything substantial to the s
 - You can email us at: dataportdabstimmbox@dataport.de
 - You can tag the maintainers in existing issues or pull requests on GitHub
 
-Thank you for considering a contribution! :heart: :heart: :heart:
+Thank you for considering a contribution! :heart:

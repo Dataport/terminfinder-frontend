@@ -73,14 +73,16 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@TITLE@', reformat('@TITLE@'))
       .replace('@LOCALE@', reformat('@LOCALE@'))
       .replace('@ADDRESSING@', reformat('@ADDRESSING@'))
-      .replace('@API_URL@', reformat('@API_URL@'));
+      .replace('@API_URL@', reformat('@API_URL@'))
+      .replace('@CUSTOMER_ID@', reformat('@CUSTOMER_ID@'));
   } else {
     console.log('Build with classic mode');
     data = data
       .replace('@TITLE@', reformat(process.env.TITLE ? process.env.TITLE : ''))
       .replace('@LOCALE@', reformat(process.env.LOCALE ? process.env.LOCALE : 'de-DE'))
       .replace('@ADDRESSING@', reformat(process.env.ADDRESSING ? process.env.ADDRESSING : 'du'))
-      .replace('@API_URL@', reformat(process.env.API_URL));
+      .replace('@API_URL@', reformat(process.env.API_URL))
+      .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '11111111-1111-1111-1111-111111111111'));
   }
 
   if (isBoolean(process.env.PRODUCTION)) {
@@ -103,7 +105,6 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
     .replace('@SURVEY_LINK_USER@', reformat(process.env.SURVEY_SURVEY_LINK_USER ? process.env.SURVEY_SURVEY_LINK_USER : undefined))
     .replace('@EMAIL@', reformat(process.env.EMAIL ? process.env.EMAIL : 'demo@example.com'))
     .replace('@SHOW_REFERENCE@', isBoolean(process.env.SHOW_REFERENCE) ? process.env.SHOW_REFERENCE : 'true')
-    .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '80248A42-8FE2-4D4A-89DA-02E683511F76'))
     .replace('@IMPRINT@', process.env.IMPRINT ? process.env.IMPRINT : `\`${imprint}\``)
     .replace('@PRIVACY@', process.env.PRIVACY ? process.env.PRIVACY : `\`${privacy}\``)
     .replace('@TOS@', process.env.TOS ? process.env.TOS : `\`${tos}\``)

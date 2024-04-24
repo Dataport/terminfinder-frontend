@@ -39,6 +39,16 @@
     "send": "Afschicken",
     "downloadIcs": "Lader vun dissen Dag as ics-Datei dal un importeer dat in dien Kalenner.",
     "downloadCsv": ".",
+    "csvExport": {
+      "fileTitlePrefix": "Umfraag",
+      "participants": "Deelnehmer:innen",
+      "statusAccepted": ".",
+      "statusQuestionable": ".",
+      "statusDeclined": ".",
+      "statusUnknown": ".",
+      "timeAt": ".",
+      "dateTo": "."
+    },
     "title": {
       "title": "Titel",
       "set": "Geev Diner Umfraag en Titel!",

@@ -13,7 +13,9 @@ import {invalidNameValidator} from '../shared/validators/invalid-name.directive'
 import {ValidatorConstants} from '../shared/constants/validatorConstants';
 import {ApiConstants} from '../shared/constants/apiConstants';
 import {ics} from 'calendar-link';
-import * as moment from 'moment';
+import moment from 'moment';
+import {TranslateService} from '@ngx-translate/core';
+import {escapeCSVCell, generateCSVFileName} from './csv-utils';
 
 enum FormMode { VIEW, ADD, EDIT}
 
@@ -34,7 +36,7 @@ export class PollFormHelperService {
   public lastEditedParticipant: Participant;
   public participantsToDelete: Participant[] = [];
 
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(private fb: UntypedFormBuilder, private translate: TranslateService) {
     this.formMode = FormMode.VIEW;
 
     this.pollForm = this.fb.group({
@@ -80,57 +82,82 @@ export class PollFormHelperService {
     return abstractControl as UntypedFormGroup;
   }
 
+  private formatSuggestedDateAsRange(dates: SuggestedDate) {
+    const parts = [moment(dates.startDate).format("L")];
+
+    if (dates.startTime) {
+      const time = moment(dates.startTime).format("LT");
+      parts.push(this.translate.instant("poll.csvExport.timeAt", { time }));
+    }
+    if (dates.endDate || dates.endTime) {
+      const date = dates.endDate ? moment(dates.endDate).format("L") : "";
+      parts.push(
+        this.translate.instant("poll.csvExport.dateTo", { date }).trim(),
+      );
+    }
+
+    if (dates.endTime) {
+      const time = moment(dates.endTime).format("LT");
+      parts.push(this.translate.instant("poll.csvExport.timeAt", { time }));
+    }
+    return parts.join(" ");
+  }
+
+  private getVotingStatusText(votingStatus: VotingStatusType) {
+    switch (votingStatus) {
+      case VotingStatusType.Accepted:
+        return this.translate.instant("poll.csvExport.statusAccepted");
+      case VotingStatusType.Questionable:
+        return this.translate.instant("poll.csvExport.statusQuestionable");
+      case VotingStatusType.Declined:
+        return this.translate.instant("poll.csvExport.statusDeclined");
+      default:
+        return this.translate.instant("poll.csvExport.statusUnknown");
+    }
+  }
+
   public downloadCsv(): void {
-    let csvContent = '';
+    const lineBreak = "\n";
+    const separator = ",";
+    const metaInfoSeparator = `sep=${separator}`;
 
-    csvContent += 'sep=,\n';
+    const csv: string[][] = [
+      [
+        this.translate.instant("poll.csvExport.participants"),
+        ...this.appointment.suggestedDates.map((date) =>
+          this.formatSuggestedDateAsRange(date),
+        ),
+      ],
+    ];
 
-    csvContent += 'Teilnehmer:innen,';
-    this.appointment.suggestedDates.forEach(dates => {
-      csvContent += moment(dates.startDate).format('L');
-      if (dates.startTime) {
-        csvContent += ' um ' + moment(dates.startTime).format('LT');
-      }
-      if (dates.endDate || dates.endTime) {
-        csvContent += ' bis';
-      }
-      if (dates.endDate) {
-        csvContent += ' ' + moment(dates.endDate).format('L');
-      }
-      if (dates.endTime) {
-        csvContent += ' um ' + moment(dates.endTime).format('LT');
-      }
-      csvContent += ',';
-    });
-    csvContent = csvContent.slice(0, csvContent.length - 1);
-    csvContent += '\n';
+    for (const { name, participantId } of this.appointment.participants) {
+      csv.push([
+        name,
+        ...this.appointment.suggestedDates.map(({ suggestedDateId }) => {
+          const votingStatus = this.getVotingBySuggestedDateIdAndParticipantId(
+            suggestedDateId,
+            participantId,
+          )?.status;
+          return this.getVotingStatusText(votingStatus);
+        }),
+      ]);
+    }
 
-    this.appointment.participants.forEach(participant => {
-      csvContent += participant.name + ',';
-      this.appointment.suggestedDates.forEach(date => {
-        switch (this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)?.status) {
-          case VotingStatusType.Accepted:
-            csvContent += 'zugesagt,';
-            break;
-          case VotingStatusType.Questionable:
-            csvContent += 'vorbehaltlich,';
-            break;
-          case VotingStatusType.Declined:
-            csvContent += 'abgelehnt,';
-            break;
-          default:
-            csvContent += 'unbekannt,';
-        }
-      });
-      csvContent = csvContent.slice(0, csvContent.length - 1);
-      csvContent += '\n';
-    });
-    csvContent = csvContent.slice(0, csvContent.length - 1);
+    const csvContent = csv
+      .map((cells) => cells.map((cell) => escapeCSVCell(cell)).join(separator))
+      .join(lineBreak);
 
-    const anchor = document.createElement('a');
-    anchor.download = 'Umfrage-' + this.appointment.title + '.csv';
-    anchor.href = `data:text/csv;charset=utf8;base64,${window.btoa(unescape(encodeURIComponent(csvContent)))}`;
-    anchor.rel = 'noopener noreferrer';
+    const escapedCsvContent = window.btoa(
+      unescape(encodeURIComponent(metaInfoSeparator + lineBreak + csvContent)),
+    );
+
+    const anchor = document.createElement("a");
+    anchor.download = generateCSVFileName(
+      this.translate.instant("poll.csvExport.fileTitlePrefix"),
+      this.appointment.title,
+    );
+    anchor.href = `data:text/csv;charset=utf8;base64,${escapedCsvContent}`;
+    anchor.rel = "noopener noreferrer";
     anchor.click();
   }
 

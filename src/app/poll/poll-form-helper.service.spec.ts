@@ -20,7 +20,7 @@ describe("PollFormHelperService", () => {
     service = TestBed.inject(PollFormHelperService);
   });
 
-  it("should correctly generate and download a CSV file for a poll", () => {
+  it("should be created", () => {
     const createdDownloadAnchor = {
       click: jest.fn(),
     } as any as HTMLAnchorElement;

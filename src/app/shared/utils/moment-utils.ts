@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import {NullableUtils} from './nullable-utils';
 import {ApiConstants} from '../constants/apiConstants';
 import {ValidatorConstants} from '../constants/validatorConstants';

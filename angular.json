@@ -2,9 +2,8 @@
   "$schema": "node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"],
+    "analytics": false
   },
   "projects": {
     "terminfinder": {
@@ -102,6 +101,13 @@
               "src/**/*.html",
               "cypress/**/*.ts"
             ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:jest",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "tsconfig.spec.json"
           }
         }
       }

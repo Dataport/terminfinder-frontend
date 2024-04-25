@@ -91,7 +91,7 @@
     "startInvalid": "Please set a valid start date.",
     "startFuture": "Please set a start date, wich is in the future.",
     "end": "End date",
-    "setEnd": "Please set an end date.",
+    "endInvalid": "Please set an end date.",
     "endAtOtherDay": "End at other day",
     "startAfterEnd": "Please set a valid start and end date combination. The end date must be after the start date.",
     "noStart": "Please set a start date. If there is an end date, there has to be a start date.",

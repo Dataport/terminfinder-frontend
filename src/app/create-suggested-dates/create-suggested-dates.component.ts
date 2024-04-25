@@ -56,7 +56,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   suggesteDatesToDelete: SuggestedDate[];
   adminId: string;
   datesForm: UntypedFormGroup = new UntypedFormGroup({
-      'suggestedDates': new UntypedFormArray([],
+      [CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATES]: new UntypedFormArray([],
         [
           minLengthArrayValidator(CreateSuggestedDatesComponent.MIN_NUMBER_SUGGESTED_DATES),
           maxLengthArrayValidator(CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES)
@@ -339,30 +339,39 @@ export class CreateSuggestedDatesComponent implements OnInit {
       : null;
 
     return new UntypedFormGroup({
-      'suggestedDateId': new UntypedFormControl(suggestedDateIdValue),
-      'startDate': new UntypedFormControl({value: startDateValue, disabled: suggestedDateIdValue !== null},
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_ID]: new UntypedFormControl(suggestedDateIdValue),
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE]: new UntypedFormControl({
+          value: startDateValue,
+          disabled: suggestedDateIdValue !== null
+        },
         [
           Validators.required,
           dateValidator(this.localeId),
           dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator)]),
-      'startTime': new UntypedFormControl({value: startTimeValue, disabled: suggestedDateIdValue !== null},
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME]: new UntypedFormControl({
+          value: startTimeValue,
+          disabled: suggestedDateIdValue !== null
+        },
         [timeValidator(this.localeId)]),
-      'showStartTime': new UntypedFormControl(false),
-      'endDate': new UntypedFormControl({value: endDateValue, disabled: suggestedDateIdValue !== null},
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME]: new UntypedFormControl(false),
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE]: new UntypedFormControl({
+          value: endDateValue,
+          disabled: suggestedDateIdValue !== null
+        },
         [dateValidator(this.localeId)]),
-      'startDateEndTime': new UntypedFormControl({
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME]: new UntypedFormControl({
           value: endDateValue === null ? endTimeValue : null,
           disabled: suggestedDateIdValue !== null
         },
         [timeValidator(this.localeId)]),
-      'showStartDateEndTime': new UntypedFormControl(false),
-      'endDateEndTime': new UntypedFormControl({
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME]: new UntypedFormControl(false),
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME]: new UntypedFormControl({
           value: endDateValue !== null ? endTimeValue : null,
           disabled: suggestedDateIdValue !== null
         },
         [timeValidator(this.localeId)]),
-      'showEndDateEndTime': new UntypedFormControl(false),
-      'showSuggestedStartDateOnDifferentDayForm': new UntypedFormControl(endDateValue !== null)
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME]: new UntypedFormControl(false),
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]: new UntypedFormControl(endDateValue !== null)
     }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator)]);
   }
 

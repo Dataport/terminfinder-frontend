@@ -83,7 +83,7 @@
     "startInvalid": "Bitte giff en gültig Startdatum an.",
     "startFuture": "Bitte geef en Start-Datum in, wat hüüd oder in de Tokunft liggt. ",
     "end": "Enndag",
-    "setEnd": "Bitte giff en gültig Enndatum an.",
+    "endInvalid": "Bitte giff en gültig Enndatum an.",
     "endAtOtherDay": "Enn' an en anner Dag",
     "startAfterEnd": "Bitte giff en nöömten Start-/Endtiet an. De Startquote muss vör dat Endtietpunkt ween.",
     "noStart": "Bitte giff en gültig Starttiet an. Wenn en Enn angeven warrt, mutt en Starttiet angeven warrn.",

@@ -91,7 +91,7 @@
     "startInvalid": "Bitte geben Sie ein gültiges Startdatum an.",
     "startFuture": "Bitte geben Sie ein Startdatum ein, welches heute ist oder in der Zukunft liegt.",
     "end": "Endedatum",
-    "setEnd": "Bitte geben Sie ein gültiges Endedatum an.",
+    "endInvalid": "Bitte geben Sie ein gültiges Endedatum an.",
     "endAtOtherDay": "Ende an einem anderen Tag",
     "startAfterEnd": "Bitte geben Sie ein gültigen Start-/Endezeitpunkt an. Der Startzeitpunkt muss vor dem Endezeitpunkt sein.",
     "noStart": "Bitte geben Sie eine gültige Startzeit an. Wenn eine Endezeit angegeben wird, muss eine Startzeit angegeben werden.",

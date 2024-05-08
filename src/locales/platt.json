@@ -75,7 +75,7 @@
     "unknown": "."
   },
   "date": {
-    "dateTo": ".",
+    "dateTo": "{{date}}",
     "choose": "Wähl dien Termin ut!",
     "change": "Ännern dien Termin!",
     "delete": "Lösch dat Datum",
@@ -100,7 +100,7 @@
   },
   "time": {
     "time": "Uhrtied",
-    "timeAt": ".",
+    "timeAt": "{{time}}",
     "add": "Tieden toföög",
     "start": "Starttiet",
     "placeholder": "HH:MM",

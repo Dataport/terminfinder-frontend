@@ -40,16 +40,6 @@
     "send": "Send",
     "downloadIcs": "Download this date as .ics-File to import it to your calendar. Check the voting of your participants in the description.",
     "downloadCsv": "Download the table of participants and their voting. You can import it into Excel and plan your event.",
-    "csvExport": {
-      "fileTitlePrefix": "Poll",
-      "participants": "Participants",
-      "statusAccepted": "accepted",
-      "statusQuestionable": "questionable",
-      "statusDeclined": "declined",
-      "statusUnknown": "unknown",
-      "timeAt": "at {{time}}",
-      "dateTo": "to {{date}}"
-    },
     "title": {
       "title": "Title",
       "set": "Set a title!",
@@ -86,7 +76,14 @@
       }
     }
   },
+  "votingStatus": {
+    "accepted": "accepted",
+    "questionable": "questionable",
+    "declined": "declined",
+    "unknown": "unknown"
+  },
   "date": {
+    "dateTo": "to {{date}}",
     "choose": "Choose the dates!",
     "change": "Change dates!",
     "delete": "Delete the date",
@@ -111,6 +108,7 @@
   },
   "time": {
     "time": "Time",
+    "timeAt": "at {{time}}",
     "add": "Add times",
     "start": "Start time",
     "placeholder": "HH:MM",

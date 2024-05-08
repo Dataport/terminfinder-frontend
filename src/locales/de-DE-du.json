@@ -40,16 +40,6 @@
     "send": "Abschicken",
     "downloadIcs": "Lade dieses Datum als .ics-Datei herunter und importiere es in deinen Kalender. Erfahre in der Beschreibung des Termins, wie die Teilnehmenden abgestimmt haben.",
     "downloadCsv": "Lade die Tabelle der Teilnehmenden mit ihren Entscheidungen herunter. Du kannst sie in Excel importieren, um deine Veranstaltung besser zu planen.",
-    "csvExport": {
-      "fileTitlePrefix": "Umfrage",
-      "participants": "Teilnehmer:innen",
-      "statusAccepted": "zugesagt",
-      "statusQuestionable": "vorbehaltlich",
-      "statusDeclined": "abgelehnt",
-      "statusUnknown": "unbekannt",
-      "timeAt": "um {{time}}",
-      "dateTo": "bis {{date}}"
-    },
     "title": {
       "title": "Titel",
       "set": "Gib Deiner Umfrage einen Titel!",
@@ -86,7 +76,14 @@
       }
     }
   },
+  "votingStatus": {
+    "accepted": "zugesagt",
+    "questionable": "vorbehaltlich",
+    "declined": "abgelehnt",
+    "unknown": "unbekannt"
+  },
   "date": {
+    "dateTo": "bis {{date}}",
     "choose": "Wähle deine Termine aus!",
     "change": "Ändere deine Termine!",
     "delete": "Lösche das Datum",
@@ -111,6 +108,7 @@
   },
   "time": {
     "time": "Uhrzeit",
+    "timeAt": "um {{time}}",
     "add": "Zeiten hinzufügen",
     "start": "Startzeit",
     "placeholder": "HH:MM",

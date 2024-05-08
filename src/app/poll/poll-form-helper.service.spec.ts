@@ -90,7 +90,7 @@ describe("PollFormHelperService", () => {
     expect(encodeURIComponentMock).toHaveBeenCalledWith(
       [
         'sep=,',
-        "Teilnehmer:innen,01/10/2024 um 1:00 PM bis 01/11/2024 um 7:00 AM,01/20/2024 um 2:00 PM bis um 7:00 PM",
+        "Teilnehmende,01/10/2024 um 1:00 PM bis 01/11/2024 um 7:00 AM,01/20/2024 um 2:00 PM bis um 7:00 PM",
         "John Doe,zugesagt,abgelehnt",
         '"""Doe"", ""Jane""",vorbehaltlich,unbekannt',
       ].join("\n"),

@@ -1,8 +1,8 @@
-import { PollFormHelperService } from "./poll-form-helper.service";
-import { TestBed } from "@angular/core/testing";
-import { VotingStatusType } from "../shared/models";
+import {PollFormHelperService} from "./poll-form-helper.service";
+import {TestBed} from "@angular/core/testing";
+import {VotingStatusType} from "../shared/models";
 import moment from "moment";
-import { TranslateTestingModule } from "ngx-translate-testing";
+import {TranslateTestingModule} from "ngx-translate-testing";
 import * as de from "../../locales/de-DE-du.json";
 
 describe("PollFormHelperService", () => {
@@ -15,7 +15,7 @@ describe("PollFormHelperService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [PollFormHelperService],
-      imports: [TranslateTestingModule.withTranslations({ de })],
+      imports: [TranslateTestingModule.withTranslations({de})],
     });
     service = TestBed.inject(PollFormHelperService);
   });
@@ -90,7 +90,7 @@ describe("PollFormHelperService", () => {
     expect(encodeURIComponentMock).toHaveBeenCalledWith(
       [
         'sep=,',
-        "Teilnehmende,01/10/2024 um 1:00 PM bis 01/11/2024 um 7:00 AM,01/20/2024 um 2:00 PM bis um 7:00 PM",
+        `Teilnehmende,${moment("2024-01-10T12:00:00.000Z").format('MM/DD/YYYY [um] h:mm A')} bis ${moment("2024-01-11T06:00:00.000Z").format('MM/DD/YYYY [um] h:mm A')},${moment("2024-01-20T13:00:00.000Z").format('MM/DD/YYYY [um] h:mm A')} bis um ${moment("2024-01-21T18:00:00.000Z").format('h:mm A')}`,
         "John Doe,zugesagt,abgelehnt",
         '"""Doe"", ""Jane""",vorbehaltlich,unbekannt',
       ].join("\n"),

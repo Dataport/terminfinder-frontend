@@ -87,18 +87,18 @@ export class PollFormHelperService {
 
     if (dates.startTime) {
       const time = moment(dates.startTime).format("LT");
-      parts.push(this.translate.instant("poll.csvExport.timeAt", { time }));
+      parts.push(this.translate.instant("time.timeAt", { time }));
     }
     if (dates.endDate || dates.endTime) {
       const date = dates.endDate ? moment(dates.endDate).format("L") : "";
       parts.push(
-        this.translate.instant("poll.csvExport.dateTo", { date }).trim(),
+        this.translate.instant("date.dateTo", { date }).trim(),
       );
     }
 
     if (dates.endTime) {
       const time = moment(dates.endTime).format("LT");
-      parts.push(this.translate.instant("poll.csvExport.timeAt", { time }));
+      parts.push(this.translate.instant("time.timeAt", { time }));
     }
     return parts.join(" ");
   }
@@ -106,13 +106,13 @@ export class PollFormHelperService {
   private getVotingStatusText(votingStatus: VotingStatusType) {
     switch (votingStatus) {
       case VotingStatusType.Accepted:
-        return this.translate.instant("poll.csvExport.statusAccepted");
+        return this.translate.instant("votingStatus.accepted");
       case VotingStatusType.Questionable:
-        return this.translate.instant("poll.csvExport.statusQuestionable");
+        return this.translate.instant("votingStatus.questionable");
       case VotingStatusType.Declined:
-        return this.translate.instant("poll.csvExport.statusDeclined");
+        return this.translate.instant("votingStatus.declined");
       default:
-        return this.translate.instant("poll.csvExport.statusUnknown");
+        return this.translate.instant("votingStatus.unknown");
     }
   }
 
@@ -123,7 +123,7 @@ export class PollFormHelperService {
 
     const csv: string[][] = [
       [
-        this.translate.instant("poll.csvExport.participants"),
+        this.translate.instant("participant.participants"),
         ...this.appointment.suggestedDates.map((date) =>
           this.formatSuggestedDateAsRange(date),
         ),
@@ -153,7 +153,7 @@ export class PollFormHelperService {
 
     const anchor = document.createElement("a");
     anchor.download = generateCSVFileName(
-      this.translate.instant("poll.csvExport.fileTitlePrefix"),
+      this.translate.instant("poll.poll"),
       this.appointment.title,
     );
     anchor.href = `data:text/csv;charset=utf8;base64,${escapedCsvContent}`;

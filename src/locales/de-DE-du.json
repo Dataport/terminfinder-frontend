@@ -83,6 +83,7 @@
     "unknown": "unbekannt"
   },
   "date": {
+    "date": "Termin",
     "dateTo": "bis {{date}}",
     "choose": "Wähle deine Termine aus!",
     "change": "Ändere deine Termine!",
@@ -90,9 +91,6 @@
     "enter": "Termineingabe",
     "start": "Startdatum",
     "add": "Weiteres Datum hinzufügen",
-    "rejected": "Termin abgelehnt",
-    "questionable": "Termin fraglich",
-    "accepted": "Termin zugestimmt",
     "placeholder": "TT.MM.JJJJ",
     "setStart": "Bitte gib ein Startdatum an.",
     "startInvalid": "Bitte gib ein gültiges Startdatum an.",

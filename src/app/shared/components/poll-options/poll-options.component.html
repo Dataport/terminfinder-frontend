@@ -10,8 +10,10 @@
           class="form-check-label"
           for="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
         >
+          <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.declined' | translate }}</span>
           <img
-            alt="{{ 'date.rejected' | translate }}"
+            alt="hidden"
+            aria-hidden="true"
             class="poll-option-icon"
             id="{{getPrefix()}}-label-status-declined-{{selectorId}}"
             src="assets/status_declined.svg"
@@ -37,9 +39,9 @@
           class="w-100 form-check-label"
           for="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
         >
-          <span class="sr-only">{{ 'date.questionable' | translate }}</span>
+          <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.questionable' | translate }}</span>
           <img
-            alt="yellow question mark"
+            alt="hidden"
             aria-hidden="true"
             class="poll-option-icon"
             id="{{getPrefix()}}-label-status-questionable-{{selectorId}}"
@@ -66,9 +68,9 @@
           class="form-check-label"
           for="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
         >
-          <span class="sr-only">{{ 'date.accepted' | translate }}</span>
+          <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.accepted' | translate }}</span>
           <img
-            alt="green check mark"
+            alt="hidden"
             aria-hidden="true"
             class="poll-option-icon"
             id="{{getPrefix()}}-label-status-accepted-{{selectorId}}"

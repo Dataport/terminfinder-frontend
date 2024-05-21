@@ -75,6 +75,7 @@
     "unknown": "."
   },
   "date": {
+    "date": "Termin",
     "dateTo": "{{date}}",
     "choose": "Wähl dien Termin ut!",
     "change": "Ännern dien Termin!",

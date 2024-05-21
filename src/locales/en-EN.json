@@ -83,6 +83,7 @@
     "unknown": "unknown"
   },
   "date": {
+    "date": "Date",
     "dateTo": "to {{date}}",
     "choose": "Choose the dates!",
     "change": "Change dates!",
@@ -90,9 +91,6 @@
     "enter": "Enter date",
     "start": "Start date",
     "add": "Add another date",
-    "rejected": "Date rejected",
-    "questionable": "Date questionable",
-    "accepted": "Date accepted",
     "placeholder": "DD.MM.YYYY",
     "setStart": "Please set a start date.",
     "startInvalid": "Please set a valid start date.",

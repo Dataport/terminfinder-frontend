@@ -9,6 +9,9 @@
     "revise": "revise",
     "step": "step"
   },
+  "header": {
+    "navLabel": "Language menu"
+  },
   "home": {
     "planning": "Planning",
     "security": "Security",
@@ -117,7 +120,8 @@
     "oss": "Open source licences"
   },
   "accessibility": {
-    "accessibility": "Accessibility"
+    "accessibility": "Accessibility",
+    "logoOf": "Logo of {{name}}"
   },
   "privacy": {
     "privacy": "Privacy",
@@ -177,8 +181,16 @@
     "accept": "Please accept the privacy declaration and the terms of use."
   },
   "footer": {
-    "reference_0": "A product of",
-    "reference_1": "and the",
-    "sh": "State of Schleswig-Holstein"
+    "navLabel": {
+      "contact": "Contact",
+      "imprint": "Imprint",
+      "ossCode": "Links to the source code",
+      "reference": "Reference"
+    },
+    "reference": {
+      "0": "A product of",
+      "1": "and the",
+      "sh": "State of Schleswig-Holstein"
+    }
   }
 }

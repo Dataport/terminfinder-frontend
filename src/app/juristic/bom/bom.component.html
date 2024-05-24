@@ -1,5 +1,6 @@
 <button (click)="back()" aria-label="Zurück"
-        class="btn btn-secondary w-100">{{ 'navigation.back' | translate }}</button>
+        class="btn btn-secondary w-100">{{ 'navigation.back' | translate }}
+</button>
 <div class="headline">
   <h1>{{ 'imprint.oss' | translate }}</h1>
 </div>
@@ -10,20 +11,30 @@
       <th>Lizenz</th>
       <th>Anzahl</th>
     </tr>
-    <tr *ngFor="let element of amountOfLicences">
-      <td>{{element.license}}</td>
-      <td>{{element.amount}}</td>
-    </tr>
+    @for (element of amountOfLicences; track element) {
+      <tr>
+        <td>{{ element.license }}</td>
+        <td>{{ element.amount }}</td>
+      </tr>
+    }
   </table>
 </section>
 <section>
   <h2>Lizenzen:</h2>
-  <div *ngFor="let element of summary">
-    <div><em>{{element.packageName}}:</em></div>
-    <span>Author: {{element.author}}</span>
-    <div *ngFor="let license of element.licenses">
-      <div *ngIf="!!license">{{license.id}}</div>
-      <div *ngIf="!license">{{license}}</div>
+  @for (element of summary; track element.packageName) {
+    <div>
+      <div><em>{{ element.packageName }}:</em></div>
+      <span>Author: {{ element.author }}</span>
+      @for (license of element.licenses; track license.id) {
+        <div>
+          @if (!!license) {
+            <div>{{ license.id }}</div>
+          }
+          @if (!license) {
+            <div>{{ license }}</div>
+          }
+        </div>
+      }
     </div>
-  </div>
+  }
 </section>

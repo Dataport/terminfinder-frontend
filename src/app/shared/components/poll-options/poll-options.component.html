@@ -1,93 +1,94 @@
-<div
-  *ngIf="formGroup !== null"
-  [formGroup]="formGroup"
-  class="row g-0 justify-content-end justify-content-lg-around align-items-center align-self-center max-content"
->
-  <div class="col col-sm-auto">
-    <div class="row g-0 justify-content-center min-content">
-      <div class="col-auto">
-        <label
-          class="form-check-label"
-          for="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
-        >
-          <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.declined' | translate }}</span>
-          <img
-            alt="hidden"
-            aria-hidden="true"
-            class="poll-option-icon"
-            id="{{getPrefix()}}-label-status-declined-{{selectorId}}"
-            src="assets/status_declined.svg"
+@if (formGroup !== null) {
+  <div
+    [formGroup]="formGroup"
+    class="row g-0 justify-content-end justify-content-lg-around align-items-center align-self-center max-content"
+  >
+    <div class="col col-sm-auto">
+      <div class="row g-0 justify-content-center min-content">
+        <div class="col-auto">
+          <label
+            class="form-check-label"
+            for="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
           >
-        </label>
+            <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.declined' | translate }}</span>
+            <img
+              alt="hidden"
+              aria-hidden="true"
+              class="poll-option-icon"
+              id="{{getPrefix()}}-label-status-declined-{{selectorId}}"
+              src="assets/status_declined.svg"
+            >
+          </label>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-auto">
+          <input
+            class="status-declined"
+            formControlName="status"
+            id="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
+            type="radio"
+            value="declined"
+          >
+        </div>
       </div>
-      <div class="w-100"></div>
-      <div class="col-auto">
-        <input
-          class="status-declined"
-          formControlName="status"
-          id="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
-          type="radio"
-          value="declined"
-        >
+    </div>
+    <div class="col col-sm-auto">
+      <div class="row g-0 justify-content-center min-content">
+        <div class="col-auto">
+          <label
+            class="w-100 form-check-label"
+            for="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
+          >
+            <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.questionable' | translate }}</span>
+            <img
+              alt="hidden"
+              aria-hidden="true"
+              class="poll-option-icon"
+              id="{{getPrefix()}}-label-status-questionable-{{selectorId}}"
+              src="assets/status_questionable.svg"
+            >
+          </label>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-auto">
+          <input
+            class="status-questionable"
+            formControlName="status"
+            id="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
+            type="radio"
+            value="questionable"
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col col-sm-auto">
+      <div class="row g-0 justify-content-center min-content">
+        <div class="col-auto">
+          <label
+            class="form-check-label"
+            for="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
+          >
+            <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.accepted' | translate }}</span>
+            <img
+              alt="hidden"
+              aria-hidden="true"
+              class="poll-option-icon"
+              id="{{getPrefix()}}-label-status-accepted-{{selectorId}}"
+              src="assets/status_accepted.svg"
+            >
+          </label>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-auto">
+          <input
+            class="status-accepted"
+            formControlName="status"
+            id="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
+            type="radio"
+            value="accepted"
+          >
+        </div>
       </div>
     </div>
   </div>
-  <div class="col col-sm-auto">
-    <div class="row g-0 justify-content-center min-content">
-      <div class="col-auto">
-        <label
-          class="w-100 form-check-label"
-          for="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
-        >
-          <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.questionable' | translate }}</span>
-          <img
-            alt="hidden"
-            aria-hidden="true"
-            class="poll-option-icon"
-            id="{{getPrefix()}}-label-status-questionable-{{selectorId}}"
-            src="assets/status_questionable.svg"
-          >
-        </label>
-      </div>
-      <div class="w-100"></div>
-      <div class="col-auto">
-        <input
-          class="status-questionable"
-          formControlName="status"
-          id="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
-          type="radio"
-          value="questionable"
-        >
-      </div>
-    </div>
-  </div>
-  <div class="col col-sm-auto">
-    <div class="row g-0 justify-content-center min-content">
-      <div class="col-auto">
-        <label
-          class="form-check-label"
-          for="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
-        >
-          <span class="sr-only">{{ 'date.date' | translate }} {{ 'votingStatus.accepted' | translate }}</span>
-          <img
-            alt="hidden"
-            aria-hidden="true"
-            class="poll-option-icon"
-            id="{{getPrefix()}}-label-status-accepted-{{selectorId}}"
-            src="assets/status_accepted.svg"
-          >
-        </label>
-      </div>
-      <div class="w-100"></div>
-      <div class="col-auto">
-        <input
-          class="status-accepted"
-          formControlName="status"
-          id="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
-          type="radio"
-          value="accepted"
-        >
-      </div>
-    </div>
-  </div>
-</div>
+}

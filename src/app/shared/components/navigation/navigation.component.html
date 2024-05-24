@@ -1,25 +1,29 @@
 <div class="row justify-content-around mt-3">
-  <div *ngIf="hasBackwardButton" class="col">
-    <button
-      (click)="onBack()"
-      class="btn btn-secondary btn-with-image btn-back w-100"
-      data-id="back"
-      id="back"
-      type="button"
-    >
-      {{backwardText}}
-    </button>
-  </div>
-  <div *ngIf="hasForwardButton" class="col">
-    <button
-      (click)="onSubmit()"
-      [disabled]="invalid ? invalid : false"
-      class="btn btn-secondary btn-with-image btn-next w-100"
-      data-id="next"
-      id="next"
-      type="button"
-    >
-      {{forwardText}}
-    </button>
-  </div>
+  @if (hasBackwardButton) {
+    <div class="col">
+      <button
+        (click)="onBack()"
+        class="btn btn-secondary btn-with-image btn-back w-100"
+        data-id="back"
+        id="back"
+        type="button"
+      >
+        {{ backwardText }}
+      </button>
+    </div>
+  }
+  @if (hasForwardButton) {
+    <div class="col">
+      <button
+        (click)="onSubmit()"
+        [disabled]="invalid ? invalid : false"
+        class="btn btn-secondary btn-with-image btn-next w-100"
+        data-id="next"
+        id="next"
+        type="button"
+      >
+        {{ forwardText }}
+      </button>
+    </div>
+  }
 </div>

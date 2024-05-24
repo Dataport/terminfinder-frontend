@@ -1,70 +1,84 @@
-<div *ngIf="showAppointmentUrl && absoluteAppointmentUrl" class="row g-0 mb-3">
-  <div class="col-auto align-self-center mr-2">
-    <img alt="url" aria-hidden="true" class="icon" src="assets/calendar_grey.svg"/>
-  </div>
-  <div class="col align-self-top">
-    <div class="header" data-cy="overviewUrlLabel">{{ 'poll.details.url.url' | translate }}</div>
-    <div class="value" data-cy="overviewUrlValue" id="url">
-      <a [href]="absoluteAppointmentUrl" target="_blank">{{absoluteAppointmentUrl}}</a>
-      <button
-        [cbContent]="absoluteAppointmentUrl"
-        class="btn btn-transparent m-0 p-0"
-        data-cy="inviteLinkCopy"
-        ngbTooltip="{{ 'links.copy' | translate }}"
-        ngxClipboard
-        type="button"
-      >
-        <img alt="{{ 'links.copy' | translate }}" class="icon" src="assets/copy.svg"/>
-      </button>
+@if (showAppointmentUrl && absoluteAppointmentUrl) {
+  <div class="row g-0 mb-3">
+    <div class="col-auto align-self-center mr-2">
+      <img alt="url" aria-hidden="true" class="icon" src="assets/calendar_grey.svg"/>
+    </div>
+    <div class="col align-self-top">
+      <div class="header" data-cy="overviewUrlLabel">{{ 'poll.details.url.url' | translate }}</div>
+      <div class="value" data-cy="overviewUrlValue" id="url">
+        <a [href]="absoluteAppointmentUrl" target="_blank">{{ absoluteAppointmentUrl }}</a>
+        <button
+          [cbContent]="absoluteAppointmentUrl"
+          class="btn btn-transparent m-0 p-0"
+          data-cy="inviteLinkCopy"
+          ngbTooltip="{{ 'links.copy' | translate }}"
+          ngxClipboard
+          type="button"
+        >
+          <img alt="{{ 'links.copy' | translate }}" class="icon" src="assets/copy.svg"/>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-<div *ngIf="showUsername && appointment.name" class="row g-0 mb-3">
-  <div class="col-auto align-self-center mr-2">
-    <img alt="user" aria-hidden="true" class="icon" src="assets/user.svg"/>
-  </div>
-  <div class="col align-self-top">
-    <div class="header" data-cy="overviewNameLabel">{{ 'poll.details.name.name' | translate }}</div>
-    <div class="value" data-cy="overviewNameValue" id="name">{{appointment.name}}</div>
-  </div>
-</div>
-<div *ngIf="appointment.title" class="row g-0 mb-3">
-  <div class="col-auto align-self-center mr-2">
-    <img alt="title" aria-hidden="true" class="icon" src="assets/title.svg"/>
-  </div>
-  <div class="col align-self-top">
-    <div class="header" data-cy="overviewTitleLabel">{{ 'poll.title.title' | translate }}</div>
-    <div class="value" data-cy="overviewTitleValue" id="title">{{appointment.title}}</div>
-  </div>
-</div>
-<div *ngIf="appointment.location" class="row g-0 mb-3">
-  <div class="col-auto align-self-center mr-2">
-    <img alt="location" aria-hidden="true" class="icon" src="assets/location.svg"/>
-  </div>
-  <div class="col align-self-top">
-    <div class="header" data-cy="overviewPlaceLabel">{{ 'poll.details.place.place' | translate }}</div>
-    <div class="value" data-cy="overviewPlaceValue" id="location">{{appointment.location}}</div>
-  </div>
-</div>
-<div *ngIf="appointment.description" class="row g-0 mb-3">
-  <div class="col-auto align-self-center mr-2">
-    <img alt="description" aria-hidden="true" class="icon" src="assets/description.svg"/>
-  </div>
-  <div class="col align-self-top">
-    <div class="header"
-         data-cy="overviewDescriptionLabel">{{ 'poll.details.description.description' | translate }}</div>
-    <div data-cy="overviewDescriptionValue" id="descriptionContainer">
-      <div #description [innerHTML]="getDescription()" id="description"></div>
+}
+@if (showUsername && appointment.name) {
+  <div class="row g-0 mb-3">
+    <div class="col-auto align-self-center mr-2">
+      <img alt="user" aria-hidden="true" class="icon" src="assets/user.svg"/>
+    </div>
+    <div class="col align-self-top">
+      <div class="header" data-cy="overviewNameLabel">{{ 'poll.details.name.name' | translate }}</div>
+      <div class="value" data-cy="overviewNameValue" id="name">{{ appointment.name }}</div>
     </div>
   </div>
-</div>
-<div *ngIf="showDeleteWarning" class="row g-0 mb-3">
-  <div class="col-auto align-self-center mr-2">
-    <img alt="delete" aria-hidden="true" class="icon" src="assets/delete_gray.svg"/>
+}
+@if (appointment.title) {
+  <div class="row g-0 mb-3">
+    <div class="col-auto align-self-center mr-2">
+      <img alt="title" aria-hidden="true" class="icon" src="assets/title.svg"/>
+    </div>
+    <div class="col align-self-top">
+      <div class="header" data-cy="overviewTitleLabel">{{ 'poll.title.title' | translate }}</div>
+      <div class="value" data-cy="overviewTitleValue" id="title">{{ appointment.title }}</div>
+    </div>
   </div>
-  <div class="col align-self-top">
-    <div class="header" data-cy="overviewDeleteLabel">{{ 'poll.details.delete.deleteDate' | translate }}</div>
-    <div class="value" data-cy="overviewDeleteValue"
-         id="delete">{{ 'poll.details.delete.willBeDeleted' | translate }}</div>
+}
+@if (appointment.location) {
+  <div class="row g-0 mb-3">
+    <div class="col-auto align-self-center mr-2">
+      <img alt="location" aria-hidden="true" class="icon" src="assets/location.svg"/>
+    </div>
+    <div class="col align-self-top">
+      <div class="header" data-cy="overviewPlaceLabel">{{ 'poll.details.place.place' | translate }}</div>
+      <div class="value" data-cy="overviewPlaceValue" id="location">{{ appointment.location }}</div>
+    </div>
   </div>
-</div>
+}
+@if (appointment.description) {
+  <div class="row g-0 mb-3">
+    <div class="col-auto align-self-center mr-2">
+      <img alt="description" aria-hidden="true" class="icon" src="assets/description.svg"/>
+    </div>
+    <div class="col align-self-top">
+      <div class="header"
+           data-cy="overviewDescriptionLabel">{{ 'poll.details.description.description' | translate }}
+      </div>
+      <div data-cy="overviewDescriptionValue" id="descriptionContainer">
+        <div #description [innerHTML]="getDescription()" id="description"></div>
+      </div>
+    </div>
+  </div>
+}
+@if (showDeleteWarning) {
+  <div class="row g-0 mb-3">
+    <div class="col-auto align-self-center mr-2">
+      <img alt="delete" aria-hidden="true" class="icon" src="assets/delete_gray.svg"/>
+    </div>
+    <div class="col align-self-top">
+      <div class="header" data-cy="overviewDeleteLabel">{{ 'poll.details.delete.deleteDate' | translate }}</div>
+      <div class="value" data-cy="overviewDeleteValue"
+           id="delete">{{ 'poll.details.delete.willBeDeleted' | translate }}
+      </div>
+    </div>
+  </div>
+}

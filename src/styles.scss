@@ -58,10 +58,6 @@ label {
   font-weight: $font-weight-bold !important;
 }
 
-.logo {
-  width: 200px;
-}
-
 .invalid-message {
   font-size: $font-size-small-mobile;
   @include media-breakpoint-up(lg) {
@@ -202,18 +198,6 @@ input[type="radio"] {
     width: 28px;
     height: 28px;
   }
-}
-
-#main {
-  background-color: $primary-background-color;
-}
-
-#bottom-edge {
-  height: $spacer*7;
-  min-height: $spacer*7;
-  max-height: $spacer*7;
-  margin-bottom: $spacer;
-  background: linear-gradient(175deg, $primary-background-color 49.5%, transparent 50.5%) no-repeat bottom;
 }
 
 .has-error label {

@@ -4,7 +4,7 @@
       {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
     </div>
     <div *ngFor="let notification of localUserNotifications" class="row alert alert-warning">
-      {{notification.message}}
+      {{ notification.message }}
     </div>
     <div class="row g-0 justify-content-between" data-id="adIcons">
       <div class="col">
@@ -26,7 +26,10 @@
       </h2>
     </div>
     <div class="row g-0 justify-content-center">
-      <form (ngSubmit)="onSubmit()" [formGroup]="titleForm" class="col">
+      <form (ngSubmit)="onSubmit()"
+            [formGroup]="titleForm"
+            class="col"
+            [attr.aria-label]="'home.formLabel' | translate">
         <div class="form-row justify-content-center">
           <label class="col" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>
         </div>

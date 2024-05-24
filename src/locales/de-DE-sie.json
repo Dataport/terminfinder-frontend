@@ -9,6 +9,9 @@
     "revise": "Überarbeiten",
     "step": "Schritt"
   },
+  "header": {
+    "navLabel": "Sprachmenü"
+  },
   "home": {
     "planning": "Planung",
     "security": "Sicherheit",
@@ -117,7 +120,8 @@
     "oss": "Open Source Lizenzen"
   },
   "accessibility": {
-    "accessibility": "Barrierefreiheit"
+    "accessibility": "Barrierefreiheit",
+    "logoOf": "Logo von {{name}}"
   },
   "privacy": {
     "privacy": "Datenschutz",
@@ -177,8 +181,16 @@
     "accept": "Bitte akzeptieren Sie die Datenschutzerklärung und die Nutzungsbedingungen."
   },
   "footer": {
-    "reference_0": "Ein Produkt von",
-    "reference_1": "und dem",
-    "sh": "Land Schleswig-Holstein"
+    "navLabel": {
+      "contact": "Kontakt",
+      "imprint": "Impressum",
+      "ossCode": "Links zum Quellcode",
+      "reference": "Referenz"
+    },
+    "reference": {
+      "0": "Ein Produkt von",
+      "1": "und dem",
+      "sh": "Land Schleswig-Holstein"
+    }
   }
 }

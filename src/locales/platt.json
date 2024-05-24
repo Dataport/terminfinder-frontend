@@ -16,6 +16,9 @@
     "slogan": "Stell Umfragen un kaam mit dien Lüüd op en Nömer!",
     "testEnvironmentBanner": "Dat is de Testwelt vun {{value}}. Bitte bruukt keen persönlichen Daten."
   },
+  "header": {
+    "navLabel": "Spraakmenü"
+  },
   "poll": {
     "create": "Umfraag maken",
     "createNew": "Nee Umfraag maken ",
@@ -162,5 +165,18 @@
     "accept_1": " to un heff de ",
     "accept_2": " to Kenntnisnommen.",
     "accept": "Bitte bestimme de Datenschuul un de Bruukbedingen."
+  },
+  "footer": {
+    "navLabel": {
+      "contact": "Kontakt",
+      "imprint": "Impressum",
+      "ossCode": "Lenks zum Quellcode",
+      "reference": "Referenz"
+    },
+    "reference": {
+      "0": "Een Produkt vun",
+      "1": "un dat",
+      "sh": "Land Schleswig-Holstein"
+    }
   }
 }

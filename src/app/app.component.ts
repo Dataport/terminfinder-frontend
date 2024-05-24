@@ -1,4 +1,4 @@
-import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import './operators';
 import {environment} from '../environments/environment';
 import {Logger} from './shared/services/logging';
@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   constructor(
     public localeService: LocaleService,
     private logger: Logger,
-    @Inject(LOCALE_ID) private localeId: string,
     private titleService: Title,
     private translateService: TranslateService,
     private localStorageService: LocalStorageService,

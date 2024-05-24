@@ -20,7 +20,7 @@ import {MinLengthArrayValidatorDirective} from './shared/validators/min-length-a
 import {MaxLengthArrayValidatorDirective} from './shared/validators/max-length-array-validator.directive';
 import {SuggestedDateValidatorDirective} from './shared/validators/suggested-date-validator.directive';
 import {OverviewComponent} from './overview/overview.component';
-import {registerLocaleData} from '@angular/common';
+import {NgOptimizedImage, registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import {LinksComponent} from './links/links.component';
 import {PollComponent} from './poll/poll.component';
@@ -185,6 +185,7 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     TosComponent,
     CheckboxFieldComponent,
+    NgOptimizedImage,
   ],
   providers: [
     {

@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row justify-content-center align-items-center" id="head">
-    <img alt="Logo" class="col-2 col-md-3" data-id="headerLogo" id="logo" src="assets/logo.svg">
+<div class="container flex-grow-1">
+  <header class="row justify-content-center align-items-center" id="head">
+    <img alt="Logo" class="col-2 col-md-3" data-id="headerLogo" id="logo" ngSrc="assets/logo.svg" height="height"
+         width="width">
     <h1 class="col header-title" data-id="headerTitle">
       {{ headlineHome }}
     </h1>
-    <div class="col-2 col-md-3 d-flex justify-content-end">
+    <nav class="col-2 col-md-3 d-flex justify-content-end" [attr.aria-label]="'header.navLabel' | translate">
       <div class="d-inline-block" ngbDropdown placement="bottom-right">
         <label class="sr-only" id="language">{{ 'lang.language' | translate }}</label>
         <button
@@ -13,33 +14,35 @@
           ngbDropdownToggle
           title="{{ 'lang.language' | translate }}"
         >
-          <span *ngIf="localeService.getLocale().languageCode === 'de-DE'">DE</span>
-          <span *ngIf="localeService.getLocale().languageCode === 'en-EN'">EN</span>
+          @if (localeService.getLocale().languageCode === 'de-DE') {
+            DE
+          } @else if (localeService.getLocale().languageCode === 'en-EN') {
+            EN
+          }
         </button>
         <div aria-labelledby="language" ngbDropdownMenu>
-          <button (click)="changeLanguage('de-DE')" class="dropdown-item" data-id="langGerman">Deutsch</button>
-          <button (click)="changeLanguage('en-EN')" class="dropdown-item" data-id="langEnglish">English</button>
+          <button ngbDropdownItem (click)="changeLanguage('de-DE')" class="dropdown-item" data-id="langGerman">
+            Deutsch
+          </button>
+          <button ngbDropdownItem (click)="changeLanguage('en-EN')" class="dropdown-item" data-id="langEnglish">
+            English
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-  <ngb-toast
-    *ngIf="connectionError"
-    [autohide]="false"
-    class="connectionError"
-    data-cy="connectionErrorNotification"
-  >
-    Wichtige Bestandteile der Seite konnten nicht geladen werden. Bitte laden Sie die Seite neu!
-  </ngb-toast>
-  <div class="justify-content-center" id="main">
-    <div class="col-12 py-4">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-  <div class="row d-none d-lg-block m-0" id="bottom-edge"></div>
-  <div class="row justify-content-center">
-    <div class="col-12 py-2">
-      <app-footer></app-footer>
-    </div>
-  </div>
+    </nav>
+  </header>
+  @if (connectionError) {
+    <ngb-toast
+      [autohide]="false"
+      class="connectionError"
+      data-cy="connectionErrorNotification"
+    >
+      Wichtige Bestandteile der Seite konnten nicht geladen werden. Bitte laden Sie die Seite neu!
+    </ngb-toast>
+  }
+  <main class="row g-0 py-4 justify-content-center" id="main">
+    <router-outlet></router-outlet>
+  </main>
+  <div class="row g-0 d-none d-lg-flex" id="bottom-edge"></div>
+  <app-footer class="row justify-content-center py-2"></app-footer>
 </div>

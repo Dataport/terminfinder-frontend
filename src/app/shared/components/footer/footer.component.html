@@ -1,43 +1,52 @@
-<div class="row justify-content-center" data-id="footer">
+<footer class="row justify-content-center" data-id="footer">
 
-  <div *ngIf="email" id="contact">
-    <a href="mailto:{{email}}">
-      <div><img alt="contact" src="assets/contact.svg"></div>
-    </a>
-    <div>e-mail: <a href="mailto:{{email}}" id="email">{{email}}</a></div>
-  </div>
+  @if (email) {
+    <section id="contact" [attr.aria-label]="'footer.navLabel.contact' | translate">
+      <a aria-hidden="true" href="mailto:{{email}}">
+        <img alt="hidden" ngSrc="assets/contact.svg" height="height" width="width">
+      </a>
+      <div>e-mail: <a href="mailto:{{email}}" id="email">{{ email }}</a></div>
+    </section>
+  }
 
-  <div *ngIf="showReference" id="reference">
-    {{ 'footer.reference_0' | translate }} <a href="https://dataport.de" target="_blank">Dataport</a>
-    {{ 'footer.reference_1' | translate }}
-    <a href="https://schleswig-holstein.de" target="_blank">{{ 'footer.sh' | translate }}</a>
-  </div>
+  @if (showReference) {
+    <section id="reference" [attr.aria-label]="'footer.navLabel.reference' | translate">
+      {{ 'footer.reference.0' | translate }} <a href="https://dataport.de" target="_blank">Dataport</a>
+      {{ 'footer.reference.1' | translate }}
+      <a href="https://schleswig-holstein.de" target="_blank">{{ 'footer.reference.sh' | translate }}</a>
+    </section>
+  }
 
-  <div id="oss-code">
+  <nav id="oss-code" [attr.aria-label]="'footer.navLabel.ossCode' | translate">
     <a
       data-toggle="tooltip"
       href="https://github.com/Dataport"
-      target="_blank"
-      title="Github">
+      target="_blank">
+      <span class="sr-only">Github</span>
       <img
-        alt="github.com"
-        src="assets/github-mark.svg">
+        aria-hidden="true"
+        alt="hidden"
+        ngSrc="assets/github-mark.svg"
+        height="height"
+        width="width">
     </a>
     <a
       data-toggle="tooltip"
       href="https://gitlab.opencode.de/dataport/terminfinder"
-      target="_blank"
-      title="OpenCoDE">
+      target="_blank">
+      <span class="sr-only">OpenCoDE</span>
       <img
-        alt="opencode.de"
-        src="assets/opencode_signet.svg"
-      >
+        aria-hidden="true"
+        alt="hidden"
+        ngSrc="assets/opencode_signet.svg"
+        height="height"
+        width="width">
     </a>
-  </div>
+  </nav>
 
-  <div id="links">
+  <nav id="links" [attr.aria-label]="'footer.navLabel.imprint' | translate">
     <a data-cy="imprintLink" routerLink="/imprint">{{ 'imprint.imprint' | translate }}</a>
     <a data-cy="accessibilityLink" routerLink="/accessibility">{{ 'accessibility.accessibility' | translate }}</a>
     <a data-cy="privacyLink" routerLink="/privacy">{{ 'privacy.privacy' | translate }}</a>
-  </div>
-</div>
+  </nav>
+</footer>

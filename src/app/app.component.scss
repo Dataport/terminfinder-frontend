@@ -27,9 +27,20 @@
   background-color: #f6ccdb;
 }
 
-@include media-breakpoint-up(lg) {
+#main {
+  background-color: $primary-background-color;
+}
 
+#bottom-edge {
+  height: $spacer*7;
+  min-height: $spacer*7;
+  max-height: $spacer*7;
+  margin-bottom: $spacer;
+  background: linear-gradient(175deg, $primary-background-color 49.5%, transparent 50.5%) no-repeat bottom;
+}
+
+@include media-breakpoint-up(lg) {
   #main {
-    padding-bottom: 100px;
+    padding-bottom: 7.75rem !important;
   }
 }

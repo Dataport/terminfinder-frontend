@@ -1,4 +1,4 @@
-<div class="row no-gutters justify-content-center">
+<div class="row g-0 justify-content-center">
   <div class="col-11 col-lg-8">
     <div *ngIf="!isProduction()" class="row alert alert-warning" data-id="testBanner">
       {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
@@ -6,7 +6,7 @@
     <div *ngFor="let notification of localUserNotifications" class="row alert alert-warning">
       {{notification.message}}
     </div>
-    <div class="row no-gutters justify-content-between" data-id="adIcons">
+    <div class="row g-0 justify-content-between" data-id="adIcons">
       <div class="col">
         <img alt="Planung" src="assets/search.svg">
         <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.planning' | translate }}</h3>
@@ -25,7 +25,7 @@
         {{ 'home.slogan' | translate }}
       </h2>
     </div>
-    <div class="row no-gutters justify-content-center">
+    <div class="row g-0 justify-content-center">
       <form (ngSubmit)="onSubmit()" [formGroup]="titleForm" class="col">
         <div class="form-row justify-content-center">
           <label class="col" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>

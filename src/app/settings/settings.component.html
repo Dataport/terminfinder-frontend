@@ -19,13 +19,13 @@
   <div class="col col-lg-9">
     <form (ngSubmit)="onSubmit()" [formGroup]="settingsForm">
       <div class="section-container p-4 pr-5">
-        <div class="row no-gutters">
+        <div class="row g-0">
           <h3 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h3>
         </div>
         <app-checkbox-field [label]="'password.securePoll' | translate" [reverse]="true" data-id="securePollLabel"
                             formControlName="hasPassword"/>
         @if (hasPassword().value) {
-          <div class="row no-gutters pt-3">
+          <div class="row g-0 pt-3">
             <div class="col-11 offset-1">
               <label
                 class="font-small text-bold text-primary"
@@ -37,7 +37,7 @@
               </label>
             </div>
           </div>
-          <div class="row no-gutters">
+          <div class="row g-0">
             <div class="col-1 d-flex justify-content-end align-items-center">
               <img alt="key" class="icon m-2" src="assets/password.svg">
             </div>
@@ -67,7 +67,7 @@
               </div>
             }
           </div>
-          <div class="row no-gutters mt-3">
+          <div class="row g-0 mt-3">
             <div class="col-11 offset-1">
               <label
                 class="font-small text-bold text-primary"
@@ -77,7 +77,7 @@
               </label>
             </div>
           </div>
-          <div class="row no-gutters">
+          <div class="row g-0">
             <div class="col-1 d-flex justify-content-end align-items-center">
               <img alt="key" class="icon m-2" src="assets/password.svg">
             </div>

@@ -75,7 +75,7 @@
           <!-- summary row -->
           <tr class="poll-summary-row">
             <td class="total-participants">
-              <div class="row no-gutters align-items-center justify-content-between mx-2">
+              <div class="row g-0 align-items-center justify-content-between mx-2">
                 <!-- total participants -->
                 <div class="col-7 ml-3 font-small text-bold participant-summary" data-id="participantSummary">
                   {{formHelper.getNumberOfParticipants()}} {{ 'participant.participants' | translate }}
@@ -100,7 +100,7 @@
             <!-- amount of confirmations per date -->
             <td *ngFor="let date of model.suggestedDates; index as index" class="text-center poll-summary-data-cell">
               <div
-                class="row no-gutters justify-content-center voting-status-summary-suggestion-date align-items-center">
+                class="row g-0 justify-content-center voting-status-summary-suggestion-date align-items-center">
                 <div class="d-inline-block voting-status-summary-image">
                   <img alt="checkmark" aria-hidden="true" class="align-text-bottom" src="assets/status_accepted.svg">
                 </div>
@@ -115,7 +115,7 @@
               [formGroup]="formHelper.getParticipantForm()"
               class="poll-add-user-row">
             <td class="p-2 poll-data-cell name">
-              <div class="row no-gutters">
+              <div class="row g-0">
                 <!-- name -->
                 <div
                   [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
@@ -226,7 +226,7 @@
             <ng-container *ngIf="formHelper.isEditInParticipantForm(participant.participantId)">
               <td (keydown.enter)="$event.preventDefault()"
                   [formGroup]="formHelper.getParticipantForm()" class="p-2 poll-data-cell name">
-                <div class="row no-gutters">
+                <div class="row g-0">
                   <!-- name input -->
                   <div
                     [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid  &&
@@ -290,7 +290,7 @@
                 <ng-container
                   *ngFor="let voting of formHelper.getParticipantFormVotings().controls; index as j"
                   [formGroup]="formHelper.castToFormGroup(voting)"
-                  class="row no-gutters justify-content-around align-items-center align-self-center"
+                  class="row g-0 justify-content-around align-items-center align-self-center"
                 >
                   <ng-container *ngIf="formHelper.isVotingFromSuggestedDate(date, voting)">
                     <app-poll-options
@@ -348,7 +348,7 @@
     </div>
 
     <ng-template #showSendButton>
-      <div class="row no-gutters justify-content-end align-items-center">
+      <div class="row g-0 justify-content-end align-items-center">
         <div *ngIf="formHelper.hasParticipantVotings()"
              class="col-3 d-inline-flex align-items-center justify-content-end text-right mr-4">
           <img alt="" aria-hidden="true" class="circle-tag" src="assets/status_accepted.svg">

@@ -14,12 +14,13 @@
       <div class="col">
         <div class="section-container">
           <div class="pt-2 px-4">
-            <app-appointment-summary
-              *ngIf="model"
-              [appointment]="model"
-              [showAppointmentUrl]="true"
-              [showDeleteWarning]="true"
-            ></app-appointment-summary>
+            @if (model) {
+              <app-appointment-summary
+                [appointment]="model"
+                [showAppointmentUrl]="true"
+                [showDeleteWarning]="true"
+              ></app-appointment-summary>
+            }
           </div>
           <div class="row">
             <div class="col">
@@ -51,20 +52,22 @@
                     <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
                     <img alt="pause/play symbol" class="icon" id="img_pause"
                          src="assets/dashboard_{{isStarted ? 'pause' : 'continue'}}.svg">
-                    <span
-                      *ngIf="isStarted"
-                      class="d-block font-medium text-bold"
-                      data-id="pauseText"
-                    >
-                      {{ 'poll.pause' | translate }}
-                    </span>
-                    <span
-                      *ngIf="!isStarted"
-                      class="d-block font-medium text-bold"
-                      data-id="continueText"
-                    >
-                      {{ 'poll.continue' | translate }}
-                    </span>
+                    @if (isStarted) {
+                      <span
+                        class="d-block font-medium text-bold"
+                        data-id="pauseText"
+                      >
+                          {{ 'poll.pause' | translate }}
+                        </span>
+                    }
+                    @if (!isStarted) {
+                      <span
+                        class="d-block font-medium text-bold"
+                        data-id="continueText"
+                      >
+                          {{ 'poll.continue' | translate }}
+                        </span>
+                    }
                   </button>
                 </div>
                 <div
@@ -84,8 +87,8 @@
                       class="d-block font-medium text-bold"
                       data-id="changePollText"
                     >
-                      {{ 'poll.change' | translate }}
-                    </span>
+                        {{ 'poll.change' | translate }}
+                      </span>
                   </a>
                 </div>
                 <div class="col-12 text-left mt-2 font-small text-dark-gray" data-id="changeDetails">

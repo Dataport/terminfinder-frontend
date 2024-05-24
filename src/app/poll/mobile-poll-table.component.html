@@ -1,118 +1,135 @@
 <div class="container">
-  <div *ngIf="formHelper.pollForm && formHelper.appointment" [formGroup]="formHelper.pollForm"
-       class="row g-0 toolbar d-lg-none p-1">
-    <!-- add button ^ dropdown & edit button (only visible when _not_ in add or edit mode) -->
-    <ng-container *ngIf="!formHelper.hasAddOrEditParticipantForm()">
-      <div class="col-auto mx-1">
-        <button (click)="formHelper.addParticipant()" class="btn btn-round btn-secondary btn-add-participant"
-                type="button">
-          <img alt="plus" class="icon" src="assets/add-user.svg"/>
-        </button>
-      </div>
-      <ng-container *ngIf="formHelper.hasParticipants()">
-        <div class="col d-flex align-items-center">
-          <label class="sr-only" for="select-participant">{{ 'participant.select' | translate }}</label>
-          <select class="form-control" formControlName="selectedParticipant" id="select-participant">
-            <option *ngFor="let participant of formHelper.appointment.participants"
-                    [ngValue]="participant">{{ participant.name }}
-            </option>
-          </select>
-        </div>
-        <div class="col-auto px-1">
-          <button (click)="formHelper.editParticipant(getSelectedParticipant())"
-                  class="btn btn-transparent p-0 border-0"
+  @if (formHelper.pollForm && formHelper.appointment) {
+    <div [formGroup]="formHelper.pollForm"
+         class="row g-0 toolbar d-lg-none p-1">
+      <!-- add button ^ dropdown & edit button (only visible when _not_ in add or edit mode) -->
+      @if (!formHelper.hasAddOrEditParticipantForm()) {
+        <div class="col-auto mx-1">
+          <button (click)="formHelper.addParticipant()" class="btn btn-round btn-secondary btn-add-participant"
                   type="button">
-            <img alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
+            <img alt="plus" class="icon" src="assets/add-user.svg"/>
           </button>
         </div>
-      </ng-container>
-    </ng-container>
-    <!-- text input and delete button (only visible when in add or edit mode) -->
-    <ng-container *ngIf="formHelper.hasAddOrEditParticipantForm()" [formGroup]="formHelper.getParticipantForm()">
-      <div class="col d-flex align-items-center">
-        <!-- text input for entering/editing the participant name -->
-        <label class="sr-only" for="name-add">{{ 'participant.name' | translate }}</label>
-        <input [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
+        @if (formHelper.hasParticipants()) {
+          <div class="col d-flex align-items-center">
+            <label class="sr-only" for="select-participant">{{ 'participant.select' | translate }}</label>
+            <select class="form-control" formControlName="selectedParticipant" id="select-participant">
+              @for (participant of formHelper.appointment.participants; track participant) {
+                <option
+                  [ngValue]="participant">{{ participant.name }}
+                </option>
+              }
+            </select>
+          </div>
+          <div class="col-auto px-1">
+            <button (click)="formHelper.editParticipant(getSelectedParticipant())"
+                    class="btn btn-transparent p-0 border-0"
+                    type="button">
+              <img alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
+            </button>
+          </div>
+        }
+      }
+      <!-- text input and delete button (only visible when in add or edit mode) -->
+      @if (formHelper.hasAddOrEditParticipantForm()) {
+        <ng-container [formGroup]="formHelper.getParticipantForm()">
+          <div class="col d-flex align-items-center">
+            <!-- text input for entering/editing the participant name -->
+            <label class="sr-only" for="name-add">{{ 'participant.name' | translate }}</label>
+            <input [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
                   && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
-               class="form-control name-add" formControlName="name" id="name-add"
-               type="text">
-      </div>
-      <div class="col-auto px-1">
-        <!-- button to delete the currently edited participant -->
-        <button (click)="formHelper.deleteEditParticipant(getSelectedParticipant())"
-                class="btn btn-transparent p-0 border-0"
-                type="button">
-          <img alt="trashcan" class="icon icon-delete" src="assets/trash.svg"/>
-        </button>
-      </div>
-      <div class="w-100"></div>
-      <div class="col">
-        <div
-          *ngIf="(formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
-                    && !!formHelper.getParticipantFormName().errors?.required"
-          class="invalid-message">
-          {{ 'poll.details.name.noName' | translate }}
-        </div>
-        <div *ngIf="!!formHelper.getParticipantFormName().errors?.invalidName" class="invalid-message"
-             id="invalid-add-name"
-        >
-          {{ 'poll.details.name.invalid' | translate }}
-        </div>
-        <div *ngIf="!!formHelper.getParticipantFormName().errors?.maxlength" class="invalid-message">
-          {{ 'poll.details.name.tooLong' | translate }}
-        </div>
-      </div>
-    </ng-container>
-  </div>
-  <table *ngIf="formHelper.appointment" aria-hidden="true" class="table poll-table mobile d-lg-none">
-    <tbody class="d-table w-100">
-    <tr *ngFor="let date of formHelper.appointment.suggestedDates; index as i" class="text-center font-weight-normal">
-      <!-- suggested date -->
-      <td class="suggested-date pl-3">
-        <app-suggested-date [date]="date"></app-suggested-date>
-        <button
-          (click)="formHelper.downloadCal(date, i)"
-          class="download-cal btn btn-rounded btn-sm btn-light"
-          data-placement="top"
-          data-toggle="tooltip"
-          title="{{ 'poll.downloadIcs' | translate }}"
-          type="button"
-        >
-          <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
-        </button>
-      </td>
-      <td class="total-participants">
-        <div class="d-inline-block voting-status-summary-image text-center">
-          <img alt="checkmark" aria-hidden="true" src="assets/status_accepted.svg">
-        </div>
-        <div class="font-weight-bold d-inline-block voting-status-summary-number">
-          {{ formHelper.getNumberOfAcceptedVotingsBySuggestedDate(date.suggestedDateId) }}
-        </div>
-      </td>
-      <td class="poll-options pr-2">
-        <!--suppress HtmlUnknownTarget the image path is generated dynamically -->
-        <img
-          *ngIf="!formHelper.hasAddOrEditParticipantForm() && getSelectedParticipant()"
-          alt="voting-status" aria-hidden="true"
-          class="my-auto mr-3 ml-auto d-block poll-option-icon"
-          src="assets/status_{{ formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
-          date.suggestedDateId, getSelectedParticipant().participantId)}}.svg">
-        <ng-container *ngIf="formHelper.hasAddOrEditParticipantForm()">
-          <ng-container
-            *ngFor="let voting of formHelper.getParticipantFormVotings().controls; index as j"
-            [formGroup]="formHelper.castToFormGroup(voting)"
-            class="row g-0 justify-content-around align-items-center align-self-center">
-            <ng-container *ngIf="formHelper.isVotingFromSuggestedDate(date, voting)">
-              <app-poll-options
-                [formGroup]="formHelper.castToFormGroup(voting)"
-                [isMobile]="true"
-                [selectorId]="j.toString()"
-              ></app-poll-options>
-            </ng-container>
-          </ng-container>
+                   class="form-control name-add" formControlName="name" id="name-add"
+                   type="text">
+          </div>
+          <div class="col-auto px-1">
+            <!-- button to delete the currently edited participant -->
+            <button (click)="formHelper.deleteEditParticipant(getSelectedParticipant())"
+                    class="btn btn-transparent p-0 border-0"
+                    type="button">
+              <img alt="trashcan" class="icon icon-delete" src="assets/trash.svg"/>
+            </button>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            @if ((formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
+            && !!formHelper.getParticipantFormName().errors?.required) {
+              <div
+                class="invalid-message">
+                {{ 'poll.details.name.noName' | translate }}
+              </div>
+            }
+            @if (!!formHelper.getParticipantFormName().errors?.invalidName) {
+              <div class="invalid-message"
+                   id="invalid-add-name"
+              >
+                {{ 'poll.details.name.invalid' | translate }}
+              </div>
+            }
+            @if (!!formHelper.getParticipantFormName().errors?.maxlength) {
+              <div class="invalid-message">
+                {{ 'poll.details.name.tooLong' | translate }}
+              </div>
+            }
+          </div>
         </ng-container>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      }
+    </div>
+  }
+  @if (formHelper.appointment) {
+    <table aria-hidden="true" class="table poll-table mobile d-lg-none">
+      <tbody class="d-table w-100">
+        @for (date of formHelper.appointment.suggestedDates; track date; let i = $index) {
+          <tr class="text-center font-weight-normal">
+            <!-- suggested date -->
+            <td class="suggested-date pl-3">
+              <app-suggested-date [date]="date"></app-suggested-date>
+              <button
+                (click)="formHelper.downloadCal(date, i)"
+                class="download-cal btn btn-rounded btn-sm btn-light"
+                data-placement="top"
+                data-toggle="tooltip"
+                title="{{ 'poll.downloadIcs' | translate }}"
+                type="button"
+              >
+                <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
+              </button>
+            </td>
+            <td class="total-participants">
+              <div class="d-inline-block voting-status-summary-image text-center">
+                <img alt="checkmark" aria-hidden="true" src="assets/status_accepted.svg">
+              </div>
+              <div class="font-weight-bold d-inline-block voting-status-summary-number">
+                {{ formHelper.getNumberOfAcceptedVotingsBySuggestedDate(date.suggestedDateId) }}
+              </div>
+            </td>
+            <td class="poll-options pr-2">
+              <!--suppress HtmlUnknownTarget the image path is generated dynamically -->
+              @if (!formHelper.hasAddOrEditParticipantForm() && getSelectedParticipant()) {
+                <img
+                  alt="voting-status" aria-hidden="true"
+                  class="my-auto mr-3 ml-auto d-block poll-option-icon"
+                  src="assets/status_{{ formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
+          date.suggestedDateId, getSelectedParticipant().participantId)}}.svg">
+              }
+              @if (formHelper.hasAddOrEditParticipantForm()) {
+                @for (voting of formHelper.getParticipantFormVotings().controls; track voting; let j = $index) {
+                  <ng-container
+                    [formGroup]="formHelper.castToFormGroup(voting)"
+                    class="row g-0 justify-content-around align-items-center align-self-center">
+                    @if (formHelper.isVotingFromSuggestedDate(date, voting)) {
+                      <app-poll-options
+                        [formGroup]="formHelper.castToFormGroup(voting)"
+                        [isMobile]="true"
+                        [selectorId]="j + ''"
+                      ></app-poll-options>
+                    }
+                  </ng-container>
+                }
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
 </div>

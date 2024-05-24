@@ -2,14 +2,20 @@
   <app-stepper [currentStep]="0" data-id="stepperComponent"></app-stepper>
 </div>
 <div class="row justify-content-center mt-4 mb-0">
-  <h2 *ngIf="!isAdmin" class="text-center mb-2" data-id="addDetailsHeading">
-    {{ 'poll.addDetails' | translate }}
-  </h2>
-  <h2 *ngIf="isAdmin" class="text-center">
-    {{ 'poll.change' | translate }}
-  </h2>
+  @if (!isAdmin) {
+    <h2 class="text-center mb-2" data-id="addDetailsHeading">
+      {{ 'poll.addDetails' | translate }}
+    </h2>
+  }
+  @if (isAdmin) {
+    <h2 class="text-center">
+      {{ 'poll.change' | translate }}
+    </h2>
+  }
 </div>
-<app-admin-info *ngIf="isAdmin"></app-admin-info>
+@if (isAdmin) {
+  <app-admin-info></app-admin-info>
+}
 <form (ngSubmit)="onSubmit()" [formGroup]="detailsForm" class="row justify-content-center wizard">
   <div class="col-11 col-lg-8">
     <div class="row justify-content-center px-3">
@@ -24,29 +30,33 @@
               <label data-id="titleLabel" for="title">{{ 'poll.title.placeholder' | translate }}</label>
               <input class="form-control" data-id="titleInput" formControlName="title" id="title"
                      placeholder="{{ 'poll.title.title' | translate }}" type="text">
-              <div
-                *ngIf="(title.dirty || title.touched) && !!title.errors?.required" class="invalid-message"
-                data-id="msgRequiredTitle"
-                id="required-title"
-              >
-                {{ 'poll.title.noTitle' | translate }}
-              </div>
-              <div
-                *ngIf="!!title.errors?.invalidName"
-                class="invalid-message"
-                data-id="msgInvalidTitle"
-                id="invalid-title"
-              >
-                {{ 'poll.title.invalid' | translate }}
-              </div>
-              <div
-                *ngIf="!!title.errors?.maxlength"
-                class="invalid-message"
-                data-id="msgLongTitle"
-                id="maxLength-title"
-              >
-                {{ 'poll.title.tooLong' | translate }}
-              </div>
+              @if ((title.dirty || title.touched) && !!title.errors?.required) {
+                <div
+                  class="invalid-message"
+                  data-id="msgRequiredTitle"
+                  id="required-title"
+                >
+                  {{ 'poll.title.noTitle' | translate }}
+                </div>
+              }
+              @if (!!title.errors?.invalidName) {
+                <div
+                  class="invalid-message"
+                  data-id="msgInvalidTitle"
+                  id="invalid-title"
+                >
+                  {{ 'poll.title.invalid' | translate }}
+                </div>
+              }
+              @if (!!title.errors?.maxlength) {
+                <div
+                  class="invalid-message"
+                  data-id="msgLongTitle"
+                  id="maxLength-title"
+                >
+                  {{ 'poll.title.tooLong' | translate }}
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -68,28 +78,31 @@
                 required
                 type="text"
               >
-              <div
-                *ngIf="(name.dirty || name.touched) && !!name.errors?.required"
-                class="invalid-message"
-                data-id="msgRequiredName"
-              >
-                {{ 'poll.details.name.noName' | translate }}
-              </div>
-              <div
-                *ngIf="!!name.errors?.invalidName"
-                class="invalid-message"
-                data-id="msgInvalidName"
-                id="invalid-name"
-              >
-                {{ 'poll.details.name.invalid' | translate }}
-              </div>
-              <div
-                *ngIf="!!name.errors?.maxlength"
-                class="invalid-message"
-                data-id="msgLongName"
-              >
-                {{ 'poll.details.name.tooLong' | translate }}
-              </div>
+              @if ((name.dirty || name.touched) && !!name.errors?.required) {
+                <div
+                  class="invalid-message"
+                  data-id="msgRequiredName"
+                >
+                  {{ 'poll.details.name.noName' | translate }}
+                </div>
+              }
+              @if (!!name.errors?.invalidName) {
+                <div
+                  class="invalid-message"
+                  data-id="msgInvalidName"
+                  id="invalid-name"
+                >
+                  {{ 'poll.details.name.invalid' | translate }}
+                </div>
+              }
+              @if (!!name.errors?.maxlength) {
+                <div
+                  class="invalid-message"
+                  data-id="msgLongName"
+                >
+                  {{ 'poll.details.name.tooLong' | translate }}
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -109,22 +122,24 @@
                 placeholder="{{ 'poll.details.place.place' | translate }}"
                 type="text"
               >
-              <div
-                *ngIf="!!location.errors?.invalidName"
-                class="invalid-message"
-                data-id="msgInvalidLocation"
-                id="invalid-location"
-              >
-                {{ 'poll.details.place.invalid' | translate }}
-              </div>
-              <div
-                *ngIf="!!location.errors?.maxlength"
-                class="invalid-message"
-                data-id="msgLongLocation"
-                id="maxLength-location"
-              >
-                {{ 'poll.details.place.tooLong' | translate }}
-              </div>
+              @if (!!location.errors?.invalidName) {
+                <div
+                  class="invalid-message"
+                  data-id="msgInvalidLocation"
+                  id="invalid-location"
+                >
+                  {{ 'poll.details.place.invalid' | translate }}
+                </div>
+              }
+              @if (!!location.errors?.maxlength) {
+                <div
+                  class="invalid-message"
+                  data-id="msgLongLocation"
+                  id="maxLength-location"
+                >
+                  {{ 'poll.details.place.tooLong' | translate }}
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -150,14 +165,15 @@
                 rows="4"
                 type="text"
               ></textarea>
-              <div
-                *ngIf="!!description.errors?.maxlength"
-                class="invalid-message"
-                data-id="msgLongDescription"
-                id="maxLength-description"
-              >
-                {{ 'poll.details.description.tooLong' | translate }}
-              </div>
+              @if (!!description.errors?.maxlength) {
+                <div
+                  class="invalid-message"
+                  data-id="msgLongDescription"
+                  id="maxLength-description"
+                >
+                  {{ 'poll.details.description.tooLong' | translate }}
+                </div>
+              }
             </div>
           </div>
         </div>

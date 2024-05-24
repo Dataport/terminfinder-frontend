@@ -2,52 +2,58 @@
   <!-- column on the left or centered with start date and - for desktop resolutions - start and end time  -->
   <div class="col-5 column">
     <!-- start date -->
-    <div>{{date.startDate | date:'MMM': '': getLocale() | slice: 0:3}}</div>
-    <div class="day">{{date.startDate | date:'dd': '': getLocale()}}</div>
-    <div>{{date.startDate | date:'E': '': getLocale() | slice: 0:2}}</div>
+    <div>{{ date.startDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
+    <div class="day">{{ date.startDate | date:'dd': '': getLocale() }}</div>
+    <div>{{ date.startDate | date:'E': '': getLocale() | slice: 0:2 }}</div>
     <!-- display start time here if:
-          - on a desktop (lg+) device OR
-          - if there's also an end date  -->
+    - on a desktop (lg+) device OR
+    - if there's also an end date  -->
     <div [ngClass]="{'d-block': date.endDate}"
-         class="d-none d-lg-block">{{date.startTime | date:'HH:mm': '': getLocale()}}</div>
+         class="d-none d-lg-block">{{ date.startTime | date:'HH:mm': '': getLocale() }}
+    </div>
     <!-- display hyphen and endTime if:
-          - on a desktop (lg+) device AND
-          - if there's no end date  -->
+    - on a desktop (lg+) device AND
+    - if there's no end date  -->
     <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}" class="position-absolute d-none hyphen"
          style="left: 26px; bottom: 8px;">-
     </div>
     <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}"
-         class="d-none">{{date.endTime | date:'HH:mm': '': getLocale()}}</div>
+         class="d-none">{{ date.endTime | date:'HH:mm': '': getLocale() }}
+    </div>
   </div>
   <!-- column on the right for start and end time - only on mobile resolutions -->
-  <ng-container *ngIf="date.startTime && !date.endDate">
+  @if (date.startTime && !date.endDate) {
     <div class="col-auto align-self-center d-lg-none">
       <div class="ml-1 mr-2 d-inline-block date-time-divider"></div>
     </div>
     <div class="col d-flex d-lg-none column">
       <div class="row g-0 align-self-center w-100">
         <div class="col">
-          <div>{{date.startTime | date:'HH:mm': '': getLocale()}}</div>
+          <div>{{ date.startTime | date:'HH:mm': '': getLocale() }}</div>
         </div>
         <div class="col">
-          <div>{{date.endTime | date:'HH:mm': '': getLocale()}}</div>
+          <div>{{ date.endTime | date:'HH:mm': '': getLocale() }}</div>
         </div>
       </div>
-      <div *ngIf="date.endTime" class="position-absolute d-lg-none hyphen" style="left: 19px; top: 13px;">
-        -
-      </div>
+      @if (date.endTime) {
+        <div class="position-absolute d-lg-none hyphen" style="left: 19px; top: 13px;">
+          -
+        </div>
+      }
     </div>
-  </ng-container>
+  }
   <!-- column on the right for end date and end time -->
-  <ng-container *ngIf="date.endDate">
+  @if (date.endDate) {
     <div class="col-1 align-self-center hyphen">
       -
     </div>
     <div class="col-5 column">
-      <div>{{date.endDate | date:'MMM': '': getLocale() | slice: 0:3}}</div>
-      <div class="day">{{date.endDate | date:'dd': '': getLocale()}}</div>
-      <div>{{date.endDate | date:'E': '': getLocale() | slice: 0:2}}</div>
-      <div *ngIf="date.endDate">{{date.endTime | date:'HH:mm': '': getLocale()}}</div>
+      <div>{{ date.endDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
+      <div class="day">{{ date.endDate | date:'dd': '': getLocale() }}</div>
+      <div>{{ date.endDate | date:'E': '': getLocale() | slice: 0:2 }}</div>
+      @if (date.endDate) {
+        <div>{{ date.endTime | date:'HH:mm': '': getLocale() }}</div>
+      }
     </div>
-  </ng-container>
+  }
 </div>

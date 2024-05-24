@@ -2,29 +2,34 @@
   <app-stepper [currentStep]="1" data-id="stepperComponent"></app-stepper>
 </div>
 <div class="row justify-content-center mt-4 mb-0">
-  <h2
-    *ngIf="!isAdmin"
-    class="text-center mb-2"
-    data-id="addDetailsHeading"
-  >
-    {{ 'date.choose' | translate }}
-  </h2>
-  <h2
-    *ngIf="isAdmin"
-    class="text-center"
-  >
-    {{ 'date.change' | translate }}
-  </h2>
+  @if (!isAdmin) {
+    <h2
+      class="text-center mb-2"
+      data-id="addDetailsHeading"
+    >
+      {{ 'date.choose' | translate }}
+    </h2>
+  }
+  @if (isAdmin) {
+    <h2
+      class="text-center"
+    >
+      {{ 'date.change' | translate }}
+    </h2>
+  }
 </div>
-<app-admin-info *ngIf="isAdmin"></app-admin-info>
+@if (isAdmin) {
+  <app-admin-info></app-admin-info>
+}
 <div class="row justify-content-center">
   <form (ngSubmit)="onSubmit()" [formGroup]="datesForm" class="col col-lg-9">
     <!-- section container for each date entry -->
-    <div *ngFor="let suggestedDateForm of getSuggestedDatesFromForm().controls; index as i"
-         [attr.aria-readonly]="isSuggestedDateFromDatabase(i)" [formGroup]="castToFormGroup(suggestedDateForm)"
-         class="section-container pb-2">
-      <!-- title of the container -->
-      <div class="section-title text-center p-3">
+    @for (suggestedDateForm of getSuggestedDatesFromForm().controls; track suggestedDateForm; let i = $index) {
+      <div
+        [attr.aria-readonly]="isSuggestedDateFromDatabase(i)" [formGroup]="castToFormGroup(suggestedDateForm)"
+        class="section-container pb-2">
+        <!-- title of the container -->
+        <div class="section-title text-center p-3">
           <span class="float-end">
             <button
               (click)="deleteSuggestedDateFormByIndex(i)"
@@ -36,194 +41,216 @@
                    width="width"/>
             </button>
           </span>
-        <h3 class="font-medium text-bold correct-delete-button-width"
-            data-id="enterDate">{{ 'date.enter' | translate }}</h3>
-      </div>
-      <div class="divider-single mb-2"></div>
-      <!-- top row for date / time controls -->
-      <div class="row g-0 justify-content-around align-items-start">
-        <div class="col-12 col-lg">
-          <div class="row">
-            <!-- start date -->
-            <div [ngClass]="getShowSuggestedDateEndDateOnDifferentDayFormValue(i) ? 'col-6' : 'col'"
-                 class="col px-1 px-lg-3 my-1 form-group">
-              <label data-id="startDateLabel"
-                     for="suggested-date-start-date-{{i}}">{{ 'date.start' | translate }}</label>
-              <div *ngIf="!isMobileDevice; then desktopStartDate else mobileStartDate"></div>
-              <ng-template #desktopStartDate>
-                <div class="input-group date" data-target-input="nearest">
-                  <div class="input-group-prepend">
-                    <div (click)="datepicker_start.toggle()" class="input-group-text input-group-divider">
-                      <img alt="calendar" ngSrc="assets/calendar.svg" height="height" width="width">
-                    </div>
-                  </div>
-                  <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                  <input
-                    #datepicker_start="ngbDatepicker"
-                    (dateSelect)="datepicker_start.close()"
-                    [minDate]="{ year: now.year(), month: now.month()+1, day: now.date() }"
-                    appAutoFocus
-                    class="form-control date"
-                    data-id="startDateInput"
-                    data-target-input="nearest"
-                    formControlName="startDate"
-                    id="suggested-date-start-date-{{i}}"
-                    ngbDatepicker
-                    placeholder="{{ 'date.placeholder' | translate }}"
-                  >
-                </div>
-              </ng-template>
-              <ng-template #mobileStartDate>
-                <div class="input-group date" data-target-input="nearest">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text input-group-divider">
-                      <img alt="Kalender" ngSrc="assets/calendar.svg" height="height" width="width">
-                    </div>
-                  </div>
-                  <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                  <input
-                    #mobileStartDateInput
-                    (input)="parseAndSetDate('startDate', mobileStartDateInput.value, i)"
-                    [disabled]="isSuggestedDateFromDatabase(i)"
-                    [value]="getDateAsIsoString('startDate', i)"
-                    appAutoFocus
-                    class="form-control date"
-                    data-target-input="nearest"
-                    id="suggested-date-start-date-{{i}}"
-                    min="{{now.toDate() | date: 'yyyy-MM-dd'}}"
-                    name="startDate"
-                    type="date"
-                  >
-                </div>
-              </ng-template>
-              <div
-                *ngIf="(getStartDateOfSuggestedStartDateByIndex(i).dirty
-                  || getStartDateOfSuggestedStartDateByIndex(i).touched)
-                  && !!getStartDateOfSuggestedStartDateByIndex(i).errors?.required"
-                class="invalid-message no-padding"
-                data-id="msgRequiredStartDate"
-              >
-                {{ 'date.setStart' | translate }}
-              </div>
-              <div
-                *ngIf="(getStartDateOfSuggestedStartDateByIndex(i).dirty
-                  || getStartDateOfSuggestedStartDateByIndex(i).touched)
-                  && !!getStartDateOfSuggestedStartDateByIndex(i).errors?.invalidDate"
-                class="invalid-message no-padding"
-                data-id="msgInvalidStartDate"
-              >
-                {{ 'date.startInvalid' | translate }}
-              </div>
-              <div
-                *ngIf="(getStartDateOfSuggestedStartDateByIndex(i).dirty
-                  || getStartDateOfSuggestedStartDateByIndex(i).touched)
-                  && !!getStartDateOfSuggestedStartDateByIndex(i).errors?.invalidDateNotTodayNorInFuture"
-                class="invalid-message no-padding"
-                data-id="msgNotInFutureStartDate"
-              >
-                {{ 'date.startFuture' | translate }}
-              </div>
-            </div>
-            <!-- end date on the top row -->
-            <div *ngIf="getShowSuggestedDateEndDateOnDifferentDayFormValue(i)"
-                 [ngClass]="{'has-error': getEndDateOfSuggestedStartDateByIndex(i).invalid
-                  && (getEndDateOfSuggestedStartDateByIndex(i).dirty || getEndDateOfSuggestedStartDateByIndex(i).touched)}"
-                 class="col-6 col-lg px-1 px-lg-3 my-1 form-group">
-              <label for="suggested-date-end-date-{{i}}">{{ 'date.end' | translate }}</label>
-              <div *ngIf="!isMobileDevice; then desktopEndDate else mobileEndDate"></div>
-              <ng-template #desktopEndDate>
-                <div class="input-group date">
-                  <div class="input-group-prepend">
-                    <div (click)="datepicker_end.toggle()" class="input-group-text input-group-divider">
-                      <img alt="Uhr" ngSrc="assets/calendar.svg" height="height" width="width">
-                    </div>
-                  </div>
-                  <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                  <input
-                    #datepicker_end="ngbDatepicker"
-                    (dateSelect)="datepicker_end.close()"
-                    [minDate]="getStartDateOfSuggestedStartDateByIndex(i).value"
-                    appAutoFocus
-                    class="form-control date"
-                    data-id="endDateInput"
-                    formControlName="endDate"
-                    id="suggested-date-end-date-{{i}}"
-                    ngbDatepicker
-                    placeholder="{{ 'date.placeholder' | translate }}"
-                  >
-                </div>
-              </ng-template>
-              <ng-template #mobileEndDate>
-                <div class="input-group date" data-target-input="nearest">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text input-group-divider">
-                      <img alt="Kalender" ngSrc="assets/calendar.svg" height="height" width="width">
-                    </div>
-                  </div>
-                  <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                  <input
-                    #mobileEndDateInput
-                    (input)="parseAndSetDate('endDate', mobileEndDateInput.value, i)"
-                    [disabled]="isSuggestedDateFromDatabase(i)"
-                    [value]="getDateAsIsoString('endDate', i)"
-                    appAutoFocus
-                    class="form-control date" data-target-input="nearest" id="suggested-date-end-date-{{i}}"
-                    min="{{getDateAsIsoString('startDate', i)}}"
-                    name="endDate"
-                    type="date">
-                </div>
-              </ng-template>
-              <div
-                *ngIf="(getEndDateOfSuggestedStartDateByIndex(i).dirty
-                  || getEndDateOfSuggestedStartDateByIndex(i).touched)
-                  && !!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate"
-                class="invalid-message"
-              >
-                {{ 'date.endInvalid' | translate }}
-              </div>
-            </div>
-          </div>
+          <h3 class="font-medium text-bold correct-delete-button-width"
+                data-id="enterDate">{{ 'date.enter' | translate }}</h3>
         </div>
-        <!-- 2nd column on the top row for time controls - displayed if there's no end date -->
-        <ng-container *ngIf="!getShowSuggestedDateEndDateOnDifferentDayFormValue(i)">
-          <!-- button to display start time and end time controls on the top row -->
-          <div *ngIf="!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value"
-               class="col suggested-date-timepicker-start">
+        <div class="divider-single mb-2"></div>
+        <!-- top row for date / time controls -->
+        <div class="row g-0 justify-content-around align-items-start">
+          <div class="col-12 col-lg">
             <div class="row">
-              <div class="col px-1 px-lg-3 my-1 form-group">
-                <label for="suggested-date-start-time-{{i}}">{{ 'time.time' | translate }}</label>
-                <div class="input-group date">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text input-group-divider">
-                      <img alt="Add time" ngSrc="assets/add-time.svg" height="height" width="width">
+              <!-- start date -->
+              <div [ngClass]="getShowSuggestedDateEndDateOnDifferentDayFormValue(i) ? 'col-6' : 'col'"
+                   class="col px-1 px-lg-3 my-1 form-group">
+                <label data-id="startDateLabel"
+                       for="suggested-date-start-date-{{i}}">{{ 'date.start' | translate }}</label>
+                @if (!isMobileDevice) {
+                  <div class="input-group date" data-target-input="nearest">
+                    <div class="input-group-prepend">
+                      <div (click)="datepicker_start.toggle()" class="input-group-text input-group-divider">
+                        <img alt="calendar" ngSrc="assets/calendar.svg" height="height" width="width">
+                      </div>
                     </div>
+                    <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                    <input
+                      #datepicker_start="ngbDatepicker"
+                      (dateSelect)="datepicker_start.close()"
+                      [minDate]="{ year: now.year(), month: now.month()+1, day: now.date() }"
+                      appAutoFocus
+                      class="form-control date"
+                      data-id="startDateInput"
+                      data-target-input="nearest"
+                      formControlName="startDate"
+                      id="suggested-date-start-date-{{i}}"
+                      ngbDatepicker
+                      placeholder="{{ 'date.placeholder' | translate }}"
+                    >
                   </div>
-                  <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                  <button
-                    (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
-                    [disabled]="isSuggestedDateFromDatabase(i)"
-                    class="form-control col date"
-                    data-id="addTimesButton"
-                    type="button"
+                } @else {
+                  <div class="input-group date" data-target-input="nearest">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text input-group-divider">
+                        <img alt="Kalender" ngSrc="assets/calendar.svg" height="height" width="width">
+                      </div>
+                    </div>
+                    <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                    <input
+                      #mobileStartDateInput
+                      (input)="parseAndSetDate('startDate', mobileStartDateInput.value, i)"
+                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [value]="getDateAsIsoString('startDate', i)"
+                      appAutoFocus
+                      class="form-control date"
+                      data-target-input="nearest"
+                      id="suggested-date-start-date-{{i}}"
+                      min="{{now.toDate() | date: 'yyyy-MM-dd'}}"
+                      name="startDate"
+                      type="date"
+                    >
+                  </div>
+                }
+                @if ((getStartDateOfSuggestedStartDateByIndex(i).dirty
+                  || getStartDateOfSuggestedStartDateByIndex(i).touched)
+                && !!getStartDateOfSuggestedStartDateByIndex(i).errors?.required) {
+                  <div
+                    class="invalid-message no-padding"
+                    data-id="msgRequiredStartDate"
                   >
-                    {{ 'time.add' | translate }}
-                  </button>
-                </div>
+                    {{ 'date.setStart' | translate }}
+                  </div>
+                }
+                @if ((getStartDateOfSuggestedStartDateByIndex(i).dirty
+                  || getStartDateOfSuggestedStartDateByIndex(i).touched)
+                && !!getStartDateOfSuggestedStartDateByIndex(i).errors?.invalidDate) {
+                  <div
+                    class="invalid-message no-padding"
+                    data-id="msgInvalidStartDate"
+                  >
+                    {{ 'date.startInvalid' | translate }}
+                  </div>
+                }
+                @if ((getStartDateOfSuggestedStartDateByIndex(i).dirty
+                  || getStartDateOfSuggestedStartDateByIndex(i).touched)
+                && !!getStartDateOfSuggestedStartDateByIndex(i).errors?.invalidDateNotTodayNorInFuture) {
+                  <div
+                    class="invalid-message no-padding"
+                    data-id="msgNotInFutureStartDate"
+                  >
+                    {{ 'date.startFuture' | translate }}
+                  </div>
+                }
               </div>
+              <!-- end date on the top row -->
+              @if (getShowSuggestedDateEndDateOnDifferentDayFormValue(i)) {
+                <div
+                  [ngClass]="{'has-error': getEndDateOfSuggestedStartDateByIndex(i).invalid
+                  && (getEndDateOfSuggestedStartDateByIndex(i).dirty || getEndDateOfSuggestedStartDateByIndex(i).touched)}"
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group">
+                  <label for="suggested-date-end-date-{{i}}">{{ 'date.end' | translate }}</label>
+                  @if (!isMobileDevice) {
+                    <div class="input-group date">
+                      <div class="input-group-prepend">
+                        <div (click)="datepicker_end.toggle()" class="input-group-text input-group-divider">
+                          <img alt="Uhr" ngSrc="assets/calendar.svg" height="height" width="width">
+                        </div>
+                      </div>
+                      <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                      <input
+                        #datepicker_end="ngbDatepicker"
+                        (dateSelect)="datepicker_end.close()"
+                        [minDate]="getStartDateOfSuggestedStartDateByIndex(i).value"
+                        appAutoFocus
+                        class="form-control date"
+                        data-id="endDateInput"
+                        formControlName="endDate"
+                        id="suggested-date-end-date-{{i}}"
+                        ngbDatepicker
+                        placeholder="{{ 'date.placeholder' | translate }}"
+                      >
+                    </div>
+                  } @else {
+                    <div class="input-group date" data-target-input="nearest">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-divider">
+                          <img alt="Kalender" ngSrc="assets/calendar.svg" height="height" width="width">
+                        </div>
+                      </div>
+                      <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                      <input
+                        #mobileEndDateInput
+                        (input)="parseAndSetDate('endDate', mobileEndDateInput.value, i)"
+                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        [value]="getDateAsIsoString('endDate', i)"
+                        appAutoFocus
+                        class="form-control date" data-target-input="nearest" id="suggested-date-end-date-{{i}}"
+                        min="{{getDateAsIsoString('startDate', i)}}"
+                        name="endDate"
+                        type="date">
+                    </div>
+                  }
+                  @if ((getEndDateOfSuggestedStartDateByIndex(i).dirty
+                    || getEndDateOfSuggestedStartDateByIndex(i).touched)
+                  && !!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate) {
+                    <div
+                      class="invalid-message"
+                    >
+                      {{ 'date.endInvalid' | translate }}
+                    </div>
+                  }
+                </div>
+              }
             </div>
           </div>
-          <!-- controls to enter start time - displayed if the button has been clicked or if values have been entered before -->
-          <div *ngIf="getShowStartDateStartTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value"
-               [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
+          <!-- 2nd column on the top row for time controls - displayed if there's no end date -->
+          @if (!getShowSuggestedDateEndDateOnDifferentDayFormValue(i)) {
+            <!-- button to display start time and end time controls on the top row -->
+            @if (!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value) {
+              <div
+                class="col suggested-date-timepicker-start">
+                <div class="row">
+                  <div class="col px-1 px-lg-3 my-1 form-group">
+                    <label for="suggested-date-start-time-{{i}}">{{ 'time.time' | translate }}</label>
+                    <div class="input-group date">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-divider">
+                          <img alt="Add time" ngSrc="assets/add-time.svg" height="height" width="width">
+                        </div>
+                      </div>
+                      <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                      <button
+                        (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
+                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        class="form-control col date"
+                        data-id="addTimesButton"
+                        type="button"
+                      >
+                        {{ 'time.add' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+            <!-- controls to enter start time - displayed if the button has been clicked or if values have been entered before -->
+            @if (getShowStartDateStartTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value) {
+              <div
+                [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
                   && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
-               class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start form-group">
-            <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
-            <div *ngIf="!isMobileDevice; then desktopStartTime else mobileStartTime"></div>
-            <ng-template #desktopStartTime>
-              <div class="row g-0 input-group date justify-content-center align-items-start"
-                   data-target-input="nearest">
-                <div class="col">
-                  <div class="input-group date">
+                class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start form-group">
+                <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
+                @if (!isMobileDevice) {
+                  <div class="row g-0 input-group date justify-content-center align-items-start"
+                       data-target-input="nearest">
+                    <div class="col">
+                      <div class="input-group date">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text input-group-divider">
+                            <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                          </div>
+                        </div>
+                        <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                        <input
+                          class="form-control"
+                          data-id="startTimeInput"
+                          formControlName="startTime"
+                          id="suggested-date-start-time-{{i}}"
+                          placeholder="{{ 'time.placeholder' | translate }}"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="input-group" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
                         <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
@@ -231,267 +258,268 @@
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                     <input
-                      class="form-control"
-                      data-id="startTimeInput"
-                      formControlName="startTime"
+                      #mobileStartTimeInput
+                      (input)="parseAndSetTime('startTime', mobileStartTimeInput.value, i)"
+                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [value]="getTimeAsString('startTime', i)"
+                      appAutoFocus
+                      class="form-control time"
                       id="suggested-date-start-time-{{i}}"
-                      placeholder="{{ 'time.placeholder' | translate }}"
-                    >
+                      name="startTime"
+                      type="time">
                   </div>
-                </div>
+                }
               </div>
-            </ng-template>
-            <ng-template #mobileStartTime>
-              <div class="input-group" data-target-input="nearest">
-                <div class="input-group-prepend">
-                  <div class="input-group-text input-group-divider">
-                    <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
-                  </div>
-                </div>
-                <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                <input
-                  #mobileStartTimeInput
-                  (input)="parseAndSetTime('startTime', mobileStartTimeInput.value, i)"
-                  [disabled]="isSuggestedDateFromDatabase(i)"
-                  [value]="getTimeAsString('startTime', i)"
-                  appAutoFocus
-                  class="form-control time"
-                  id="suggested-date-start-time-{{i}}"
-                  name="startTime"
-                  type="time">
-              </div>
-            </ng-template>
-          </div>
-
-          <!-- controls to enter the end time - displayed if the button has been clicked or if values have been entered before -->
-          <div *ngIf="getShowStartDateEndTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value"
-               [ngClass]="{'has-error': getEndTimeOfSuggestedStartDateByIndex(i).invalid
+            }
+            <!-- controls to enter the end time - displayed if the button has been clicked or if values have been entered before -->
+            @if (getShowStartDateEndTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value) {
+              <div
+                [ngClass]="{'has-error': getEndTimeOfSuggestedStartDateByIndex(i).invalid
                  && (getEndTimeOfSuggestedStartDateByIndex(i).dirty || getEndTimeOfSuggestedStartDateByIndex(i).touched)}"
-               class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start form-group">
-            <label for="suggested-date-end-time-{{i}}">{{ 'time.end' | translate }}</label>
-            <div *ngIf="!isMobileDevice; then desktopStartDateEndTime else mobileStartDateEndTime"></div>
-            <ng-template #desktopStartDateEndTime>
-              <div class="row g-0 input-group date justify-content-center align-items-start"
-                   data-target-input="nearest">
-                <div class="col">
-                  <div class="input-group date">
+                class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start form-group">
+                <label for="suggested-date-end-time-{{i}}">{{ 'time.end' | translate }}</label>
+                @if (!isMobileDevice) {
+                  <div class="row g-0 input-group date justify-content-center align-items-start"
+                       data-target-input="nearest">
+                    <div class="col">
+                      <div class="input-group date">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text input-group-divider">
+                            <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                          </div>
+                        </div>
+                        <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                        <input
+                          class="form-control"
+                          data-id="endTimeInput"
+                          formControlName="startDateEndTime"
+                          id="suggested-date-end-time-{{i}}"
+                          placeholder="{{ 'time.placeholder' | translate }}"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="input-group" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                        <img alt=" clock" ngSrc="assets/starttime.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                     <input
-                      class="form-control"
-                      data-id="endTimeInput"
-                      formControlName="startDateEndTime"
+                      #mobileStartDateEndTimeInput
+                      (input)="parseAndSetTime('startDateEndTime', mobileStartDateEndTimeInput.value, i)"
+                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [value]="getTimeAsString('startDateEndTime', i)"
+                      appAutoFocus
+                      class="form-control time"
                       id="suggested-date-end-time-{{i}}"
-                      placeholder="{{ 'time.placeholder' | translate }}"
-                    >
+                      name="startDateEndTime"
+                      type="time">
                   </div>
-                </div>
+                }
               </div>
-            </ng-template>
-            <ng-template #mobileStartDateEndTime>
-              <div class="input-group" data-target-input="nearest">
-                <div class="input-group-prepend">
-                  <div class="input-group-text input-group-divider">
-                    <img alt=" clock" ngSrc="assets/starttime.svg" height="height" width="width">
-                  </div>
-                </div>
-                <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                <input
-                  #mobileStartDateEndTimeInput
-                  (input)="parseAndSetTime('startDateEndTime', mobileStartDateEndTimeInput.value, i)"
-                  [disabled]="isSuggestedDateFromDatabase(i)"
-                  [value]="getTimeAsString('startDateEndTime', i)"
-                  appAutoFocus
-                  class="form-control time"
-                  id="suggested-date-end-time-{{i}}"
-                  name="startDateEndTime"
-                  type="time">
-              </div>
-            </ng-template>
-          </div>
-        </ng-container>
-      </div>
-      <!-- button to add an end date -->
-      <ng-container *ngIf="!getShowSuggestedDateEndDateOnDifferentDayFormValue(i)">
-        <div class="my-2 divider-single"></div>
-        <div class="p-0 col text-center mt-1 align-items-start">
-          <button
-            (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
-            [disabled]="isSuggestedDateFromDatabase(i)"
-            class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
-            data-id="endAtOtherDayButton"
-            type="button"
-          >
-            {{ 'date.endAtOtherDay' | translate }}
-            <img alt="add" ngSrc="assets/add.svg" height="height" width="width">
-          </button>
+            }
+          }
         </div>
-      </ng-container>
-      <!-- bottom row for the time entry controls -->
-      <div *ngIf="getShowSuggestedDateEndDateOnDifferentDayFormValue(i)"
-           class="row g-0 justify-content-start align-items-start">
-        <div class="row">
-          <!-- button to display start time and end time controls on the bottom row -->
-          <div *ngIf="!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value"
-               class="col-12 col-lg-6 px-1 px-lg-3 suggested-date-timepicker-start text-center">
-            <div class="justify-content-start">
-              <label class="float-start" for="suggested-date-start-time-{{i}}">{{ 'time.time' | translate }}</label>
-              <div class="input-group date">
-                <div class="input-group-prepend">
-                  <div class="input-group-text input-group-divider">
-                    <img alt="Add time" ngSrc="assets/add-time.svg" height="height" width="width">
+        <!-- button to add an end date -->
+        @if (!getShowSuggestedDateEndDateOnDifferentDayFormValue(i)) {
+          <div class="my-2 divider-single"></div>
+          <div class="p-0 col text-center mt-1 align-items-start">
+            <button
+              (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
+              [disabled]="isSuggestedDateFromDatabase(i)"
+              class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
+              data-id="endAtOtherDayButton"
+              type="button"
+            >
+              {{ 'date.endAtOtherDay' | translate }}
+              <img alt="add" ngSrc="assets/add.svg" height="height" width="width">
+            </button>
+          </div>
+        }
+        <!-- bottom row for the time entry controls -->
+        @if (getShowSuggestedDateEndDateOnDifferentDayFormValue(i)) {
+          <div
+            class="row g-0 justify-content-start align-items-start">
+            <div class="row">
+              <!-- button to display start time and end time controls on the bottom row -->
+              @if (!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value) {
+                <div
+                  class="col-12 col-lg-6 px-1 px-lg-3 suggested-date-timepicker-start text-center">
+                  <div class="justify-content-start">
+                    <label class="float-start" for="suggested-date-start-time-{{i}}">
+                      {{ 'time.time' | translate }}
+                    </label>
+                    <div class="input-group date">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-divider">
+                          <img alt="Add time" ngSrc="assets/add-time.svg" height="height" width="width">
+                        </div>
+                      </div>
+                      <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                      <button
+                        (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);  setShowEndDateEndTimeControlValue(i, true)"
+                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        class="form-control col date"
+                        data-id="addTimesWithEndOnOtherDay"
+                        type="button"
+                      >
+                        {{ 'time.add' | translate }}
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                <button
-                  (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);  setShowEndDateEndTimeControlValue(i, true)"
-                  [disabled]="isSuggestedDateFromDatabase(i)"
-                  class="form-control col date"
-                  data-id="addTimesWithEndOnOtherDay"
-                  type="button"
-                >
-                  {{ 'time.add' | translate }}
-                </button>
-              </div>
+              }
+              <!-- controls to enter start time - displayed if the button has been clicked or if values have been entered before -->
+              @if (getShowStartDateStartTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value) {
+                <div
+                  [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
+                    && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start">
+                  <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
+                  @if (!isMobileDevice) {
+                    <div class="row g-0 input-group date"
+                         data-target-input="nearest">
+                      <div class="col-6">
+                        <div class="input-group date">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text input-group-divider">
+                              <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                            </div>
+                          </div>
+                          <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                          <input
+                            class="form-control"
+                            data-id="startTimeInputSecondColumn"
+                            formControlName="startTime"
+                            id="suggested-date-start-time-{{i}}"
+                            placeholder="{{ 'time.placeholder' | translate }}"
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  } @else {
+                    <div class="input-group" data-target-input="nearest">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-divider">
+                          <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                        </div>
+                      </div>
+                      <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                      <input
+                        #mobileStartTimeInput
+                        (input)="parseAndSetTime('startTime', mobileStartTimeInput.value, i)"
+                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        [value]="getTimeAsString('startTime', i)"
+                        appAutoFocus
+                        class="form-control time"
+                        id="suggested-date-start-time-{{i}}"
+                        name="startTime"
+                        type="time">
+                    </div>
+                  }
+                </div>
+              }
+              <!-- controls to enter the end time - displayed if the button has been clicked or if values have been entered before -->
+              @if (getShowStartDateStartTimeControlValue(i) && getShowEndDateEndTimeControlValue(i)
+              || getStartTimeOfSuggestedStartDateByIndex(i).value) {
+                <div
+                  [ngClass]="{'has-error': getEndTimeOfSuggestedEndDateByIndex(i).invalid
+                   && (getEndTimeOfSuggestedEndDateByIndex(i).dirty || getEndTimeOfSuggestedEndDateByIndex(i).touched)}"
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start">
+                  <label for="suggested-date-end-time-different-day-{{i}}">{{ 'time.end' | translate }}</label>
+                  @if (!isMobileDevice) {
+                    <div class="row g-0 input-group date"
+                         data-target-input="nearest">
+                      <div class="col-6">
+                        <div class="input-group date">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text input-group-divider">
+                              <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                            </div>
+                          </div>
+                          <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                          <input
+                            class="form-control"
+                            data-id="endTimeInputSecondColumn"
+                            formControlName="endDateEndTime"
+                            id="suggested-date-end-time-different-day-{{i}}"
+                            placeholder="{{ 'time.placeholder' | translate }}"
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  } @else {
+                    <div class="input-group" data-target-input="nearest">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text input-group-divider"><img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                        </div>
+                      </div>
+                      <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
+                      <input
+                        #mobileEndDateEndTimeInput
+                        (input)="parseAndSetTime('endDateEndTime', mobileEndDateEndTimeInput.value, i)"
+                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        [value]="getTimeAsString('endDateEndTime', i)"
+                        appAutoFocus
+                        class="form-control time"
+                        id="suggested-date-end-time-different-day-{{i}}"
+                        name="endDateEndTime"
+                        type="time">
+                    </div>
+                  }
+                </div>
+              }
             </div>
           </div>
-          <!-- controls to enter start time - displayed if the button has been clicked or if values have been entered before -->
-          <div *ngIf="getShowStartDateStartTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value"
-               [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
-                    && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
-               class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start">
-            <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
-            <div *ngIf="!isMobileDevice; then desktopStartTime else mobileStartTime"></div>
-            <ng-template #desktopStartTime>
-              <div class="row g-0 input-group date"
-                   data-target-input="nearest">
-                <div class="col-6">
-                  <div class="input-group date">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text input-group-divider">
-                        <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
-                      </div>
-                    </div>
-                    <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                    <input
-                      class="form-control"
-                      data-id="startTimeInputSecondColumn"
-                      formControlName="startTime"
-                      id="suggested-date-start-time-{{i}}"
-                      placeholder="{{ 'time.placeholder' | translate }}"
-                    >
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-            <ng-template #mobileStartTime>
-              <div class="input-group" data-target-input="nearest">
-                <div class="input-group-prepend">
-                  <div class="input-group-text input-group-divider">
-                    <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
-                  </div>
-                </div>
-                <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                <input
-                  #mobileStartTimeInput
-                  (input)="parseAndSetTime('startTime', mobileStartTimeInput.value, i)"
-                  [disabled]="isSuggestedDateFromDatabase(i)"
-                  [value]="getTimeAsString('startTime', i)"
-                  appAutoFocus
-                  class="form-control time"
-                  id="suggested-date-start-time-{{i}}"
-                  name="startTime"
-                  type="time">
-              </div>
-            </ng-template>
-          </div>
-          <!-- controls to enter the end time - displayed if the button has been clicked or if values have been entered before -->
-          <div *ngIf="getShowStartDateStartTimeControlValue(i) && getShowEndDateEndTimeControlValue(i)
-          || getStartTimeOfSuggestedStartDateByIndex(i).value"
-               [ngClass]="{'has-error': getEndTimeOfSuggestedEndDateByIndex(i).invalid
-                   && (getEndTimeOfSuggestedEndDateByIndex(i).dirty || getEndTimeOfSuggestedEndDateByIndex(i).touched)}"
-               class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start">
-            <label for="suggested-date-end-time-different-day-{{i}}">{{ 'time.end' | translate }}</label>
-            <div *ngIf="!isMobileDevice; then desktopEndDateEndTime else mobileEndDateEndTime"></div>
-            <ng-template #desktopEndDateEndTime>
-              <div class="row g-0 input-group date"
-                   data-target-input="nearest">
-                <div class="col-6">
-                  <div class="input-group date">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text input-group-divider">
-                        <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
-                      </div>
-                    </div>
-                    <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                    <input
-                      class="form-control"
-                      data-id="endTimeInputSecondColumn"
-                      formControlName="endDateEndTime"
-                      id="suggested-date-end-time-different-day-{{i}}"
-                      placeholder="{{ 'time.placeholder' | translate }}"
-                    >
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-            <ng-template #mobileEndDateEndTime>
-              <div class="input-group" data-target-input="nearest">
-                <div class="input-group-prepend">
-                  <div class="input-group-text input-group-divider">
-                    <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
-                  </div>
-                </div>
-                <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
-                <input
-                  #mobileEndDateEndTimeInput
-                  (input)="parseAndSetTime('endDateEndTime', mobileEndDateEndTimeInput.value, i)"
-                  [disabled]="isSuggestedDateFromDatabase(i)"
-                  [value]="getTimeAsString('endDateEndTime', i)"
-                  appAutoFocus
-                  class="form-control time"
-                  id="suggested-date-end-time-different-day-{{i}}"
-                  name="endDateEndTime"
-                  type="time">
-              </div>
-            </ng-template>
-          </div>
-        </div>
-      </div>
-      <!-- error messages for this date entry -->
-      <div *ngIf="getSuggestedDatesForm(i).invalid" class="row mb-2">
-        <div [ngClass]="{'has-error': getSuggestedDatesForm(i).invalid
+        }
+        <!-- error messages for this date entry -->
+        @if (getSuggestedDatesForm(i).invalid) {
+          <div class="row mb-2">
+            <div [ngClass]="{'has-error': getSuggestedDatesForm(i).invalid
                   && (getSuggestedDatesForm(i).dirty || getSuggestedDatesForm(i).touched)}"
-             class="col my-1 px-1 px-lg-3 my-1 form-group">
-          <div *ngIf="!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate" class="invalid-message">
-            {{ 'date.startAfterEnd' | translate }}
+                 class="col my-1 px-1 px-lg-3 my-1 form-group">
+              @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
+                <div class="invalid-message">
+                  {{ 'date.startAfterEnd' | translate }}
+                </div>
+              }
+              @if (!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered) {
+                <div class="invalid-message">
+                  {{ 'date.noStart' | translate }}
+                </div>
+              }
+              @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
+                <div class="invalid-message">
+                  {{ 'date.inPast' | translate }}
+                </div>
+              }
+            </div>
           </div>
-          <div *ngIf="!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered" class="invalid-message">
-            {{ 'date.noStart' | translate }}
-          </div>
-          <div *ngIf="!!getSuggestedDatesForm(i).errors?.startDateTimeInPast" class="invalid-message">
-            {{ 'date.inPast' | translate }}
-          </div>
-        </div>
+        }
       </div>
-    </div>
+    }
     <!-- error messages for the entire form -->
-    <div *ngIf="getSuggestedDatesFromForm().invalid" class="row g-0">
-      <div [ngClass]="{'has-error': getSuggestedDatesFromForm().invalid
+    @if (getSuggestedDatesFromForm().invalid) {
+      <div class="row g-0">
+        <div [ngClass]="{'has-error': getSuggestedDatesFromForm().invalid
                   && (getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched)}"
-           class="col my-1 px-1 form-group">
-        <div *ngIf="!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray" class="invalid-message">
-          {{ 'date.noValue' | translate }}
-        </div>
-        <div *ngIf="!!getSuggestedDatesFromForm().errors?.invalidMaxLengthArray" class="invalid-message">
-          {{ 'date.tooMuchValues' | translate }}
+             class="col my-1 px-1 form-group">
+          @if (!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray) {
+            <div class="invalid-message">
+              {{ 'date.noValue' | translate }}
+            </div>
+          }
+          @if (!!getSuggestedDatesFromForm().errors?.invalidMaxLengthArray) {
+            <div class="invalid-message">
+              {{ 'date.tooMuchValues' | translate }}
+            </div>
+          }
         </div>
       </div>
-    </div>
+    }
     <div class="row mt-2 justify-content-center">
       <div class="col-auto text-center">
         <button

@@ -1,11 +1,15 @@
 <div class="row g-0 justify-content-center">
   <div class="col-11 col-lg-8">
-    <div *ngIf="!isProduction()" class="row alert alert-warning" data-id="testBanner">
-      {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
-    </div>
-    <div *ngFor="let notification of localUserNotifications" class="row alert alert-warning">
-      {{ notification.message }}
-    </div>
+    @if (!isProduction()) {
+      <div class="row alert alert-warning" data-id="testBanner">
+        {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
+      </div>
+    }
+    @for (notification of localUserNotifications; track notification) {
+      <div class="row alert alert-warning">
+        {{ notification.message }}
+      </div>
+    }
     <div class="row g-0 justify-content-between" data-id="adIcons">
       <div class="col">
         <img alt="Planung" src="assets/search.svg">
@@ -43,28 +47,31 @@
               placeholder="{{ 'poll.title.placeholder' | translate }}"
               required
               type="text">
-            <div
-              *ngIf="(title.dirty || title.touched) && !!title.errors?.required"
-              class="invalid-message"
-              data-id="msgRequiredTitle"
-            >
-              {{ 'poll.title.noTitle' | translate }}
-            </div>
-            <div
-              *ngIf="!!title.errors?.invalidName"
-              class="invalid-message"
-              data-id="msgInvalidTitle"
-              id="invalid-title"
-            >
-              {{ 'poll.title.invalid' | translate }}
-            </div>
-            <div
-              *ngIf="!!title.errors?.maxlength"
-              class="invalid-message"
-              data-id="msgLongTitle"
-            >
-              {{ 'poll.title.tooLong' | translate }}
-            </div>
+            @if ((title.dirty || title.touched) && !!title.errors?.required) {
+              <div
+                class="invalid-message"
+                data-id="msgRequiredTitle"
+              >
+                {{ 'poll.title.noTitle' | translate }}
+              </div>
+            }
+            @if (!!title.errors?.invalidName) {
+              <div
+                class="invalid-message"
+                data-id="msgInvalidTitle"
+                id="invalid-title"
+              >
+                {{ 'poll.title.invalid' | translate }}
+              </div>
+            }
+            @if (!!title.errors?.maxlength) {
+              <div
+                class="invalid-message"
+                data-id="msgLongTitle"
+              >
+                {{ 'poll.title.tooLong' | translate }}
+              </div>
+            }
           </div>
         </div>
         <app-tos [tosFormGroup]="titleForm" data-id="tosComponent"></app-tos>
@@ -86,10 +93,12 @@
         </div>
       </form>
     </div>
-    <div *ngIf="apiError" class="row mt-2">
-      <div class="col">
-        <app-message-box [message]="apiError" data-id="apiErrorComponent"></app-message-box>
+    @if (apiError) {
+      <div class="row mt-2">
+        <div class="col">
+          <app-message-box [message]="apiError" data-id="apiErrorComponent"></app-message-box>
+        </div>
       </div>
-    </div>
+    }
   </div>
 </div>

@@ -6,7 +6,7 @@
         <h3 class="text-center font-medium text-bold" data-id="linksHeading">
           {{ 'links.share' | translate }}
         </h3>
-        <h4 data-id="appointmentTitle">{{model.title}}</h4>
+        <h4 data-id="appointmentTitle">{{ model.title }}</h4>
       </div>
     </div>
     <div class="row mt-4">
@@ -32,7 +32,7 @@
               data-id="inviteLink"
               id="link-appointment"
             >
-              {{absoluteAppointmentLink}}
+              {{ absoluteAppointmentLink }}
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end">
@@ -90,7 +90,7 @@
               data-id="adminLink"
               id="link-admin"
             >
-              {{absoluteAdminLink}}
+              {{ absoluteAdminLink }}
             </div>
           </div>
           <div class="col-12 d-flex justify-content-end">
@@ -126,22 +126,24 @@
       </div>
     </div>
 
-    <div *ngIf="surveyLinkAdmin" class="row mt-3">
-      <div class="col section-container pt-3 pb-4">
-        {{ 'links.satisfactionSurvey' | translate }}
-        <div class="d-flex justify-content-end button-row">
-          <button
-            (click)="navigate(surveyLinkAdmin)"
-            class="btn btn-transparent text-primary btn-with-image"
-            data-id="surveyLinkNavigate"
-            type="button"
-          >
-            {{ 'links.satisfactionSurveyButton' | translate }}
-            <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
-          </button>
+    @if (surveyLinkAdmin) {
+      <div class="row mt-3">
+        <div class="col section-container pt-3 pb-4">
+          {{ 'links.satisfactionSurvey' | translate }}
+          <div class="d-flex justify-content-end button-row">
+            <button
+              (click)="navigate(surveyLinkAdmin)"
+              class="btn btn-transparent text-primary btn-with-image"
+              data-id="surveyLinkNavigate"
+              type="button"
+            >
+              {{ 'links.satisfactionSurveyButton' | translate }}
+              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    }
 
     <div class="row mt-5">
       <button

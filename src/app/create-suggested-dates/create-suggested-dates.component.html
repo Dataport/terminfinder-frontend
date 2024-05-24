@@ -40,7 +40,7 @@
       </div>
       <div class="divider-single mb-2"></div>
       <!-- top row for date / time controls -->
-      <div class="row no-gutters justify-content-around align-items-start">
+      <div class="row g-0 justify-content-around align-items-start">
         <div class="col-12 col-lg">
           <div class="row">
             <!-- start date -->
@@ -219,7 +219,7 @@
             <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
             <div *ngIf="!isMobileDevice; then desktopStartTime else mobileStartTime"></div>
             <ng-template #desktopStartTime>
-              <div class="row no-gutters input-group date justify-content-center align-items-start"
+              <div class="row g-0 input-group date justify-content-center align-items-start"
                    data-target-input="nearest">
                 <div class="col">
                   <div class="input-group date">
@@ -270,7 +270,7 @@
             <label for="suggested-date-end-time-{{i}}">{{ 'time.end' | translate }}</label>
             <div *ngIf="!isMobileDevice; then desktopStartDateEndTime else mobileStartDateEndTime"></div>
             <ng-template #desktopStartDateEndTime>
-              <div class="row no-gutters input-group date justify-content-center align-items-start"
+              <div class="row g-0 input-group date justify-content-center align-items-start"
                    data-target-input="nearest">
                 <div class="col">
                   <div class="input-group date">
@@ -330,7 +330,7 @@
       </ng-container>
       <!-- bottom row for the time entry controls -->
       <div *ngIf="getShowSuggestedDateEndDateOnDifferentDayFormValue(i)"
-           class="row no-gutters justify-content-start align-items-start">
+           class="row g-0 justify-content-start align-items-start">
         <div class="row">
           <!-- button to display start time and end time controls on the bottom row -->
           <div *ngIf="!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value"
@@ -364,7 +364,7 @@
             <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
             <div *ngIf="!isMobileDevice; then desktopStartTime else mobileStartTime"></div>
             <ng-template #desktopStartTime>
-              <div class="row no-gutters input-group date"
+              <div class="row g-0 input-group date"
                    data-target-input="nearest">
                 <div class="col-6">
                   <div class="input-group date">
@@ -415,7 +415,7 @@
             <label for="suggested-date-end-time-different-day-{{i}}">{{ 'time.end' | translate }}</label>
             <div *ngIf="!isMobileDevice; then desktopEndDateEndTime else mobileEndDateEndTime"></div>
             <ng-template #desktopEndDateEndTime>
-              <div class="row no-gutters input-group date"
+              <div class="row g-0 input-group date"
                    data-target-input="nearest">
                 <div class="col-6">
                   <div class="input-group date">
@@ -475,7 +475,7 @@
       </div>
     </div>
     <!-- error messages for the entire form -->
-    <div *ngIf="getSuggestedDatesFromForm().invalid" class="row no-gutters">
+    <div *ngIf="getSuggestedDatesFromForm().invalid" class="row g-0">
       <div [ngClass]="{'has-error': getSuggestedDatesFromForm().invalid
                   && (getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched)}"
            class="col my-1 px-1 form-group">

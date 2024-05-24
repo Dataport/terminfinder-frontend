@@ -1,4 +1,4 @@
-<div *ngIf="showAppointmentUrl && absoluteAppointmentUrl" class="row no-gutters mb-3">
+<div *ngIf="showAppointmentUrl && absoluteAppointmentUrl" class="row g-0 mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="url" aria-hidden="true" class="icon" src="assets/calendar_grey.svg"/>
   </div>
@@ -19,7 +19,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="showUsername && appointment.name" class="row no-gutters mb-3">
+<div *ngIf="showUsername && appointment.name" class="row g-0 mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="user" aria-hidden="true" class="icon" src="assets/user.svg"/>
   </div>
@@ -28,7 +28,7 @@
     <div class="value" data-cy="overviewNameValue" id="name">{{appointment.name}}</div>
   </div>
 </div>
-<div *ngIf="appointment.title" class="row no-gutters mb-3">
+<div *ngIf="appointment.title" class="row g-0 mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="title" aria-hidden="true" class="icon" src="assets/title.svg"/>
   </div>
@@ -37,7 +37,7 @@
     <div class="value" data-cy="overviewTitleValue" id="title">{{appointment.title}}</div>
   </div>
 </div>
-<div *ngIf="appointment.location" class="row no-gutters mb-3">
+<div *ngIf="appointment.location" class="row g-0 mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="location" aria-hidden="true" class="icon" src="assets/location.svg"/>
   </div>
@@ -46,7 +46,7 @@
     <div class="value" data-cy="overviewPlaceValue" id="location">{{appointment.location}}</div>
   </div>
 </div>
-<div *ngIf="appointment.description" class="row no-gutters mb-3">
+<div *ngIf="appointment.description" class="row g-0 mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="description" aria-hidden="true" class="icon" src="assets/description.svg"/>
   </div>
@@ -58,7 +58,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="showDeleteWarning" class="row no-gutters mb-3">
+<div *ngIf="showDeleteWarning" class="row g-0 mb-3">
   <div class="col-auto align-self-center mr-2">
     <img alt="delete" aria-hidden="true" class="icon" src="assets/delete_gray.svg"/>
   </div>

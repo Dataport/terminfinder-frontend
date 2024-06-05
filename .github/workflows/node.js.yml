@@ -31,6 +31,8 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build-prod
+        env:
+          CUSTOMER_ID: '22222222-2222-2222-2222-222222222222'
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:

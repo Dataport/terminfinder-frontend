@@ -10,7 +10,7 @@
     "start-docker": "docker image build --build-arg APP_FILES=dist -t terminfinder-docker:0.0.0 .",
     "test": "npm run prebuild && ng serve --configuration production",
     "jest": "ng test",
-    "build-prod": "export PRODUCTION=true CUSTOMER_ID=22222222-2222-2222-2222-222222222222 && npm run prebuild && ng build --configuration production ",
+    "build-prod": "export PRODUCTION=true && npm run prebuild && ng build --configuration production ",
     "build-test": "export PRODUCTION=true && npm run prebuild && ng build --configuration test",
     "build-docker-prod": "export DOCKER=true PRODUCTION=true && npm run prebuild && npm run build-prod",
     "build-docker-test": "export DOCKER=true PRODUCTION=false && npm run prebuild && npm run build-test",

@@ -21,6 +21,9 @@
     "navItems": {
       "plainLanguage": {
         "buttonLabel": "Leichte Sprache"
+      },
+      "signLanguage": {
+        "buttonLabel": "Gebärdensprache"
       }
     }
   },
@@ -125,6 +128,12 @@
       "backToTheFuture": "Zurück",
       "header": "Leichte Sprache",
       "content": "Herzlich willkommen.\nDu findest hier Informationen über Dataport in Leichter Sprache.\nAlle Menschen können Texte in Leichter Sprache besser verstehen."
+    },
+    "signLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "header": "Gebärdensprache",
+      "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
+      "subheader": "Erklärung zur Barrierefreiheit"
     }
   },
   "privacy": {

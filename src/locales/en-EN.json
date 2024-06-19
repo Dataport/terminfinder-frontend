@@ -15,6 +15,9 @@
     "navItems": {
       "plainLanguage": {
         "buttonLabel": "Plain language"
+      },
+      "signLanguage": {
+        "buttonLabel": "Sign language"
       }
     }
   },
@@ -165,6 +168,12 @@
         "header": "3. Information about the declaration on accessibility",
         "content": "You will find the declaration on accessibility \nat the bottom of the start page.\nThe declaration on accessibility lists all barriers \nthat exist on the website.\nIt also explains why these barriers exist.\n\nBarriers on the Internet site are the things \nwhy some people find an Internet site \ndifficult to use.\nFor example, if the font is too small.\nOr if texts are not available in plain language.\n\nClick on the item <b>Accessibility</b>.\nThen you can read the declaration on accessibility.\nHave you found barriers \nthat are not in the accessibility statement?\nThen you can report these barriers.\nTo do this, contact the complaints office \n listed in the declaration on accessibility."
       }
+    },
+    "signLanguage": {
+      "backToTheFuture": "Return to homepage",
+      "header": "Sign language",
+      "content": "This is where we publish information about our website in sign language.",
+      "subheader": "Declaration on accessibility"
     }
   },
   "privacy": {

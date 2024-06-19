@@ -12,6 +12,21 @@
         <li>
           <a
             class="rounded-circle p-1"
+            routerLink="/sign-language"
+            data-id="signLanguageNav"
+            title="{{ 'header.navItems.signLanguage.buttonLabel' | translate }}"
+          >
+            <span class="sr-only">{{ 'header.navItems.signLanguage.buttonLabel' | translate }}</span>
+            <img alt="hands"
+                 aria-hidden="true"
+                 ngSrc="assets/sign-language.svg"
+                 width="width"
+                 height="height">
+          </a>
+        </li>
+        <li>
+          <a
+            class="rounded-circle p-1"
             routerLink="/plain-language"
             data-id="plainLanguageNav"
             title="{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}"

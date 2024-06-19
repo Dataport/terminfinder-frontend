@@ -15,6 +15,9 @@
     "navItems": {
       "plainLanguage": {
         "buttonLabel": "Leichte Sprache"
+      },
+      "signLanguage": {
+        "buttonLabel": "Gebärdensprache"
       }
     }
   },
@@ -165,6 +168,12 @@
         "header": "3. Informationen über die Erklärung zur Barriere-Freiheit",
         "content": "Sie finden die Erklärung zur Barriere-Freiheit \nunten am Seiten-Rand auf der Start-Seite. \nIn der Erklärung zur Barriere-Freiheit stehen alle Barrieren, \ndie es auf der Internet-Seite gibt. \nDort steht auch, warum es diese Barrieren gibt. \n\nBarrieren auf der Internet-Seite sind die Dinge, \nwarum für manche Menschen eine Internet-Seite \nschwer zu bedienen ist. \nZum Beispiel, wenn die Schrift zu klein ist. \nOder wenn es Texte nicht in Leichter Sprache gibt. \n\nKlicken Sie auf den Punkt <b>Barriere-Freiheit</b>. \nDann können Sie die Erklärung zur Barriere-Freiheit lesen. \nHaben Sie Barrieren gefunden, \ndie nicht in der Erklärung zur Barriere-Freiheit stehen? \nDann können Sie diese Barrieren melden. \nNehmen Sie dafür Kontakt zu der Beschwerde-Stelle auf, \ndie in der Erklärung zur Barriere-Freiheit steht."
       }
+    },
+    "signLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "header": "Gebärdensprache",
+      "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
+      "subheader": "Erklärung zur Barrierefreiheit"
     }
   },
   "privacy": {

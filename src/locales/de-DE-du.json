@@ -10,7 +10,13 @@
     "step": "Schritt"
   },
   "header": {
-    "navLabel": "Sprachmenü"
+    "home": "Startseite",
+    "navLabel": "Hauptmenü",
+    "navItems": {
+      "signLanguage": {
+        "buttonLabel": "Gebärdensprache"
+      }
+    }
   },
   "home": {
     "planning": "Planung",
@@ -120,7 +126,13 @@
     "oss": "Open Source Lizenzen"
   },
   "accessibility": {
-    "accessibility": "Barrierefreiheit"
+    "accessibility": "Barrierefreiheit",
+    "signLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
+      "header": "Gebärdensprache",
+      "subheader": "Erklärung zur Barrierefreiheit"
+    }
   },
   "privacy": {
     "privacy": "Datenschutz",

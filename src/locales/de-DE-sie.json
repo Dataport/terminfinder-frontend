@@ -10,7 +10,13 @@
     "step": "Schritt"
   },
   "header": {
-    "navLabel": "Sprachmenü"
+    "home": "Startseite",
+    "navLabel": "Hauptmenü",
+    "navItems": {
+      "signLanguage": {
+        "buttonLabel": "Gebärdensprache"
+      }
+    }
   },
   "home": {
     "planning": "Planung",
@@ -121,7 +127,12 @@
   },
   "accessibility": {
     "accessibility": "Barrierefreiheit",
-    "logoOf": "Logo von {{name}}"
+    "signLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "header": "Gebärdensprache",
+      "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
+      "subheader": "Erklärung zur Barrierefreiheit"
+    }
   },
   "privacy": {
     "privacy": "Datenschutz",

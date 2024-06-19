@@ -17,7 +17,12 @@
     "testEnvironmentBanner": "Dat is de Testwelt vun {{value}}. Bitte bruukt keen persönlichen Daten."
   },
   "header": {
-    "navLabel": "Spraakmenü"
+    "navLabel": "Hauptmenü",
+    "navItems": {
+      "signLanguage": {
+        "buttonLabel": "Gebärdensprache"
+      }
+    }
   },
   "poll": {
     "create": "Umfraag maken",
@@ -115,7 +120,13 @@
     "oss": "Open Source Lizenzen"
   },
   "accessibility": {
-    "accessibility": "Barrierefreiheit"
+    "accessibility": "Barrierefreiheit",
+    "signLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "header": "Gebärdensprache",
+      "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
+      "subheader": "Erklärung zur Barrierefreiheit"
+    }
   },
   "privacy": {
     "privacy": "Datenschutz",

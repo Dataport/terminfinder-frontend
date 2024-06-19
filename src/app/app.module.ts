@@ -72,6 +72,7 @@ import {TermsOfServiceComponent} from './juristic/terms-of-service/terms-of-serv
 import {CheckboxFieldComponent} from "./shared/components/checkbox-field/checkbox-field.component";
 import {PlainLanguageComponent} from "./signing-video/plain-language.component";
 import {AdIconsComponent} from "./shared/components/ad-icons/ad-icons.component";
+import {SignLanguageComponent} from "./signing-video/sign-language.component";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -110,6 +111,7 @@ export const appRoutes: Routes = [
   {path: 'accessibility', component: AccessibilityComponent},
   {path: 'termsOfService', component: TermsOfServiceComponent},
   {path: 'plain-language', component: PlainLanguageComponent},
+  {path: 'sign-language', component: SignLanguageComponent},
   {path: 'bom', component: BomComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}

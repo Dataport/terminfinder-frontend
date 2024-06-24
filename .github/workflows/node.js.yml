@@ -1,4 +1,4 @@
-name: Node.js
+name: node-js
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  lint_audit:
+  lint-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -38,3 +38,14 @@ jobs:
         with:
           start: npm run http-server
           command: npm run ci-cypress
+
+  create-release:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
+    needs: [ lint-audit, e2e ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cperezabo/setup-git-mkver@v1.2.0
+      - run: gh api --method POST /repos/dataport/terminfinder-frontend/releases -f "tag_name=$(git mkver next --format '{Docker}')" -F "generate_release_notes=true"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

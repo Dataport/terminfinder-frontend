@@ -15,7 +15,7 @@ import {Location, NgOptimizedImage} from "@angular/common";
   ],
   template: `
     <div class="d-flex flex-column px-4">
-      <a class="d-flex align-items-center" (click)="location.back()">
+      <a class="back-link" href="#" (click)="location.back()">
         <img ngSrc="../../assets/back-blue.svg" class="back-btn" aria-hidden="true" width="width" height="height" alt="chevron-left">
         {{ 'accessibility.signLanguage.backToTheFuture' | translate }}
       </a>

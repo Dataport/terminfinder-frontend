@@ -22,3 +22,9 @@ youtube-player {
 img.back-btn {
   width: 1rem;
 }
+
+a.back-link {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}

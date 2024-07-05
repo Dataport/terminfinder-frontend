@@ -170,7 +170,7 @@
       }
     },
     "signLanguage": {
-      "backToTheFuture": "Return to homepage",
+      "backToTheFuture": "Return",
       "header": "Sign language",
       "content": "This is where we publish information about our website in sign language.",
       "subheader": "Declaration on accessibility"

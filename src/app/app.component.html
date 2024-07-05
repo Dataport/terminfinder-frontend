@@ -1,34 +1,53 @@
 <div class="container flex-grow-1">
   <header class="row justify-content-center align-items-center" id="head">
-    <img alt="Logo" class="col-2 col-md-3" data-id="headerLogo" id="logo" ngSrc="assets/logo.svg" height="height"
-         width="width">
+    <a class="col-2 col-md-3 w-auto" routerLink="/">
+      <span class="sr-only">{{ 'header.home' | translate }}</span>
+      <img alt="Logo" data-id="headerLogo" id="logo" ngSrc="assets/logo.svg" height="height" width="width">
+    </a>
     <h1 class="col header-title" data-id="headerTitle">
       {{ headlineHome }}
     </h1>
-    <nav class="col-2 col-md-3 d-flex justify-content-end" [attr.aria-label]="'header.navLabel' | translate">
-      <div class="d-inline-block" ngbDropdown placement="bottom-right">
-        <label class="sr-only" id="language">{{ 'lang.language' | translate }}</label>
-        <button
-          class="btn btn-outline-primary"
-          data-id="languageDropdown"
-          ngbDropdownToggle
-          title="{{ 'lang.language' | translate }}"
-        >
-          @if (localeService.getLocale().languageCode === 'de-DE') {
-            DE
-          } @else if (localeService.getLocale().languageCode === 'en-EN') {
-            EN
-          }
-        </button>
-        <div aria-labelledby="language" ngbDropdownMenu>
-          <button ngbDropdownItem (click)="changeLanguage('de-DE')" class="dropdown-item" data-id="langGerman">
-            Deutsch
+    <nav class="col-2 col-md-3" [attr.aria-label]="'header.navLabel' | translate">
+      <ul class="d-flex flex-row flex-wrap list-unstyled justify-content-end align-items-baseline gap-1 mb-0">
+        <li>
+          <a
+            class="rounded-circle p-1"
+            routerLink="/plain-language"
+            data-id="plainLanguageNav"
+            title="{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}"
+          >
+            <span class="sr-only">{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}</span>
+            <img alt="hands"
+                 aria-hidden="true"
+                 ngSrc="assets/book.svg"
+                 width="width"
+                 height="height">
+          </a>
+        </li>
+        <li class="d-inline-block" ngbDropdown placement="bottom-right">
+          <label class="sr-only" id="language">{{ 'lang.language' | translate }}</label>
+          <button
+            class="btn"
+            data-id="languageDropdown"
+            ngbDropdownToggle
+            title="{{ 'lang.language' | translate }}"
+          >
+            @if (localeService.getLocale().languageCode === 'de-DE') {
+              DE
+            } @else if (localeService.getLocale().languageCode === 'en-EN') {
+              EN
+            }
           </button>
-          <button ngbDropdownItem (click)="changeLanguage('en-EN')" class="dropdown-item" data-id="langEnglish">
-            English
-          </button>
-        </div>
-      </div>
+          <div aria-labelledby="language" ngbDropdownMenu>
+            <button ngbDropdownItem (click)="changeLanguage('de-DE')" class="dropdown-item" data-id="langGerman">
+              Deutsch
+            </button>
+            <button ngbDropdownItem (click)="changeLanguage('en-EN')" class="dropdown-item" data-id="langEnglish">
+              English
+            </button>
+          </div>
+        </li>
+      </ul>
     </nav>
   </header>
   @if (connectionError) {

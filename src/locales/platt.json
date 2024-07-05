@@ -17,7 +17,12 @@
     "testEnvironmentBanner": "Dat is de Testwelt vun {{value}}. Bitte bruukt keen persönlichen Daten."
   },
   "header": {
-    "navLabel": "Spraakmenü"
+    "navLabel": "Hauptmenü",
+    "navItems": {
+      "plainLanguage": {
+        "buttonLabel": "Leichte Sprache"
+      }
+    }
   },
   "poll": {
     "create": "Umfraag maken",
@@ -115,7 +120,12 @@
     "oss": "Open Source Lizenzen"
   },
   "accessibility": {
-    "accessibility": "Barrierefreiheit"
+    "accessibility": "Barrierefreiheit",
+    "plainLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "header": "Leichte Sprache",
+      "content": "Herzlich willkommen.\nDu findest hier Informationen über Dataport in Leichter Sprache.\nAlle Menschen können Texte in Leichter Sprache besser verstehen."
+    }
   },
   "privacy": {
     "privacy": "Datenschutz",

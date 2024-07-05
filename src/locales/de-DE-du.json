@@ -10,7 +10,13 @@
     "step": "Schritt"
   },
   "header": {
-    "navLabel": "Sprachmenü"
+    "home": "Startseite",
+    "navLabel": "Hauptmenü",
+    "navItems": {
+      "plainLanguage": {
+        "buttonLabel": "Leichte Sprache"
+      }
+    }
   },
   "home": {
     "planning": "Planung",
@@ -120,7 +126,12 @@
     "oss": "Open Source Lizenzen"
   },
   "accessibility": {
-    "accessibility": "Barrierefreiheit"
+    "accessibility": "Barrierefreiheit",
+    "plainLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "content": "Herzlich willkommen.\nDu findest hier Informationen über Dataport in Leichter Sprache.\nAlle Menschen können Texte in Leichter Sprache besser verstehen.",
+      "header": "Leichte Sprache"
+    }
   },
   "privacy": {
     "privacy": "Datenschutz",

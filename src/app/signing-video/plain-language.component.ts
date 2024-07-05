@@ -19,6 +19,16 @@ import {Location, NgOptimizedImage} from "@angular/common";
       </a>
       <h2 class="mt-4">{{ 'accessibility.plainLanguage.header' | translate }}</h2>
       <p class="multiline">{{ 'accessibility.plainLanguage.content' | translate }}</p>
+      <h3>{{ 'accessibility.plainLanguage.about.header' | translate }}</h3>
+      <p class="multiline">{{ 'accessibility.plainLanguage.about.content' | translate }}</p>
+      <h3>{{ 'accessibility.plainLanguage.howto.header' | translate }}</h3>
+      @for (step of ['0', '1', '2', '3', '4']; track step) {
+        <h4>{{ 'accessibility.plainLanguage.howto.step' | translate }} {{ step }}
+          : {{ 'accessibility.plainLanguage.howto.steps.' + step + '.header' | translate }}</h4>
+        <p class="multiline">{{ 'accessibility.plainLanguage.howto.steps.' + step + '.content' | translate }}</p>
+      }
+      <h3>{{ 'accessibility.plainLanguage.declarationOnAccessibility.header' | translate }}</h3>
+      <p class="multiline">{{ 'accessibility.plainLanguage.declarationOnAccessibility.content' | translate }}</p>
     </div>
   `,
   styleUrl: './plain-language.component.scss'

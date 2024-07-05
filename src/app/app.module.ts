@@ -70,6 +70,7 @@ import {BomComponent} from './juristic/bom/bom.component';
 import {PrivacyComponent} from './juristic/privacy/privacy.component';
 import {TermsOfServiceComponent} from './juristic/terms-of-service/terms-of-service.component';
 import {CheckboxFieldComponent} from "./shared/components/checkbox-field/checkbox-field.component";
+import {PlainLanguageComponent} from "./signing-video/plain-language.component";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -107,6 +108,7 @@ export const appRoutes: Routes = [
   {path: 'privacy', component: PrivacyComponent},
   {path: 'accessibility', component: AccessibilityComponent},
   {path: 'termsOfService', component: TermsOfServiceComponent},
+  {path: 'plain-language', component: PlainLanguageComponent},
   {path: 'bom', component: BomComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}

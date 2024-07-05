@@ -10,7 +10,13 @@
     "step": "step"
   },
   "header": {
-    "navLabel": "Language menu"
+    "home": "Homepage",
+    "navLabel": "Primary menu",
+    "navItems": {
+      "plainLanguage": {
+        "buttonLabel": "Plain language"
+      }
+    }
   },
   "home": {
     "planning": "Planning",
@@ -121,7 +127,11 @@
   },
   "accessibility": {
     "accessibility": "Accessibility",
-    "logoOf": "Logo of {{name}}"
+    "plainLanguage": {
+      "backToTheFuture": "Return to homepage",
+      "header": "Plain language",
+      "content": "Welcome.\nYou can find information about Dataport in plain language here.\nAll people can understand texts in plain language better."
+    }
   },
   "privacy": {
     "privacy": "Privacy",

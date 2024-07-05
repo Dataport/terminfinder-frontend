@@ -10,7 +10,13 @@
     "step": "Schritt"
   },
   "header": {
-    "navLabel": "Sprachmenü"
+    "home": "Startseite",
+    "navLabel": "Hauptmenü",
+    "navItems": {
+      "plainLanguage": {
+        "buttonLabel": "Leichte Sprache"
+      }
+    }
   },
   "home": {
     "planning": "Planung",
@@ -121,7 +127,11 @@
   },
   "accessibility": {
     "accessibility": "Barrierefreiheit",
-    "logoOf": "Logo von {{name}}"
+    "plainLanguage": {
+      "backToTheFuture": "Zurück zur Startseite",
+      "header": "Leichte Sprache",
+      "content": "Herzlich willkommen.\nSie finden hier Informationen über Dataport in Leichter Sprache.\nAlle Menschen können Texte in Leichter Sprache besser verstehen."
+    }
   },
   "privacy": {
     "privacy": "Datenschutz",

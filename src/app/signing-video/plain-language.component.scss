@@ -1,3 +1,20 @@
+@import "src/default";
+
 .multiline {
   white-space: pre-line;
+}
+
+h3, h4 {
+  margin-top: 2rem;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1.75rem!important;
+}
+
+h4 {
+  color: $primary;
+  font-weight: bolder;
+  font-size: 1.5rem;
 }

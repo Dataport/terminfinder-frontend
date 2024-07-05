@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterLink} from "@angular/router";
-import {NgOptimizedImage} from "@angular/common";
+import {Location, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-plain-language',
@@ -13,7 +13,7 @@ import {NgOptimizedImage} from "@angular/common";
   ],
   template: `
     <div class="d-flex flex-column px-4">
-      <a class="d-flex align-items-center" routerLink="/">
+      <a class="d-flex align-items-center" (click)="location.back()">
         <img ngSrc="../../assets/back-blue.svg" aria-hidden="true" width="width" height="height" alt="chevron-left">
         <span>{{ 'accessibility.plainLanguage.backToTheFuture' | translate }}</span>
       </a>
@@ -24,4 +24,5 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './plain-language.component.scss'
 })
 export class PlainLanguageComponent {
+  protected readonly location = inject(Location);
 }

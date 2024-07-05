@@ -128,7 +128,7 @@
   "accessibility": {
     "accessibility": "Accessibility",
     "plainLanguage": {
-      "backToTheFuture": "Return to homepage",
+      "backToTheFuture": "Return",
       "header": "Plain language",
       "content": "Welcome.\nYou can find information about Dataport in plain language here.\nAll people can understand texts in plain language better."
     }

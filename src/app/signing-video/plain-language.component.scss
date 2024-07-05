@@ -4,6 +4,16 @@
   white-space: pre-line;
 }
 
+img.back-btn {
+  width: 1rem;
+}
+
+a.back-link {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
 h3, h4 {
   margin-top: 2rem;
 }

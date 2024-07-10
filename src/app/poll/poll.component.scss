@@ -57,6 +57,15 @@ img.icon {
   height: 30px;
 }
 
+button.btn-trash {
+  outline: none;
+
+  &:focus {
+    outline: $primary solid 2px;
+    filter: brightness(50%);
+  }
+}
+
 .btn-transparent {
   @include focus-outline;
   outline-offset: 5px;

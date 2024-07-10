@@ -26,4 +26,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: registry.opencode.de/dataport/terminfinder/terminfinder-frontend:${{ github.ref }}
+          tags: registry.opencode.de/dataport/terminfinder/terminfinder-frontend:${{ github.ref_name }}

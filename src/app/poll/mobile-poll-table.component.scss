@@ -18,6 +18,15 @@
   outline-offset: 0;
 }
 
+.btn.btn-trash {
+  outline: none;
+
+  &:focus {
+    outline: $primary solid 2px;
+    filter: brightness(50%);
+  }
+}
+
 .poll-table td.suggested-date {
   width: 120px;
 }

@@ -151,10 +151,10 @@
                           >
                         </div>
                         <!-- button to remove the form elements (so the participant won't be added) -->
-                        <div class="ml-2 col-auto">
+                        <div class="col-2 d-flex align-items-center justify-content-center">
                           <button
                             (click)="formHelper.deleteParticipantForm()"
-                            class="btn btn-round p-0 btn-transparent btn-trash w-100 h-100"
+                            class="btn btn-transparent btn-trash w-100 h-100 ml-auto mr-0"
                             data-id="deleteParticipantButton"
                             id="delete-new-participant"
                             type="button"
@@ -278,7 +278,7 @@
                           <div class="col-2 d-flex align-items-center justify-content-center">
                             <button
                               (click)="formHelper.deleteEditParticipant(participant)"
-                              class="btn btn-transparent btn-trash p-0 ml-auto mr-0"
+                              class="btn btn-transparent btn-trash w-100 h-100 ml-auto mr-0"
                               data-id="deleteEditedParticipantButton"
                               id="delete-edit-participant"
                               type="button"

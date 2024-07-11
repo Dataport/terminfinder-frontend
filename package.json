@@ -62,7 +62,7 @@
     "@angular-eslint/template-parser": "17.3.0",
     "@angular/cli": "17.2.2",
     "@angular/compiler-cli": "17.1.2",
-    "@angular/language-service": "17.1.2",
+    "@angular/language-service": "18.1.0",
     "@cyclonedx/cyclonedx-npm": "1.16.1",
     "@cypress/schematic": "2.5.1",
     "@types/jest": "29.5.12",

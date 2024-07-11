@@ -96,3 +96,11 @@ $container-max-widths: (
   box-shadow: none;
   border: none;
 }
+
+@mixin focus-outline {
+  outline: none;
+
+  &:focus {
+    outline: darken($primary, 50%) solid 3px !important;
+  }
+}

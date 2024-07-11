@@ -74,6 +74,8 @@ form {
 }
 
 .btn-with-image.btn-suggested-date-end-at-different-day {
+  @include focus-outline;
+
   img {
     height: $height-icon;
     width: $width-icon;
@@ -166,12 +168,16 @@ input {
   }
 }
 
-.btn-delete-date img.icon {
-  height: $height-icon * 0.8;
-  width: $width-icon * 0.8;
-  @include media-breakpoint-up(lg) {
-    height: $height-icon;
-    width: $width-icon;
+.btn-delete-date {
+  @include focus-outline;
+
+  img.icon {
+    height: $height-icon * 0.8;
+    width: $width-icon * 0.8;
+    @include media-breakpoint-up(lg) {
+      height: $height-icon;
+      width: $width-icon;
+    }
   }
 }
 

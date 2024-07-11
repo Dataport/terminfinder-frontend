@@ -57,9 +57,14 @@ img.icon {
   height: 30px;
 }
 
-.btn-transparent:hover {
-  background-color: $medium-gray;
-  border-color: $medium-gray;
+.btn-transparent {
+  @include focus-outline;
+  outline-offset: 5px;
+
+  :hover {
+    background-color: $medium-gray;
+    border-color: $medium-gray;
+  }
 }
 
 button.btn-with-image {

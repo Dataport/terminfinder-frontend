@@ -112,6 +112,18 @@ input[type="radio"] {
   opacity: .5;
 }
 
+input,
+textarea,
+select,
+button.date,
+button.text-primary {
+  @include focus-outline;
+
+  &[type="text"] {
+    outline-offset: 5px;
+  }
+}
+
 .section-container {
   background-color: white;
   border-radius: $border-radius;

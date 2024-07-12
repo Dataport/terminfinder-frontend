@@ -352,7 +352,7 @@ button.text-primary {
   background-origin: border-box;
   background-size: $form-status-icon-width-small auto;
   padding-right: $form-status-icon-width-small + 11px !important;
-  padding-left: $form-status-icon-width + 11px !important;
+  padding-left: $form-status-icon-width-small + 11px !important;
 
   &, &:active {
     background-image: url("/assets/next.svg") !important;

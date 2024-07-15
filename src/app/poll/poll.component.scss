@@ -58,17 +58,11 @@ img.icon {
 }
 
 button.btn-trash {
-  outline: none;
-
-  &:focus {
-    outline: $primary solid 2px;
-    filter: brightness(50%);
-  }
+  @include focus-outline;
 }
 
 .btn-transparent {
   @include focus-outline;
-  outline-offset: 5px;
 
   :hover {
     background-color: $medium-gray;

@@ -19,12 +19,7 @@
 }
 
 .btn.btn-trash {
-  outline: none;
-
-  &:focus {
-    outline: $primary solid 2px;
-    filter: brightness(50%);
-  }
+  @include focus-outline;
 }
 
 .poll-table td.suggested-date {

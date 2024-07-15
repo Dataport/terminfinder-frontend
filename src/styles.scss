@@ -145,10 +145,6 @@ select,
 button.date,
 button.text-primary {
   @include focus-outline;
-
-  &[type="text"] {
-    outline-offset: 5px;
-  }
 }
 
 .section-container {

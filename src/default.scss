@@ -101,6 +101,6 @@ $container-max-widths: (
   outline: none;
 
   &:focus {
-    outline: darken($primary, 50%) solid 3px !important;
+    outline: lighten($primary, 10%) solid 2px !important;
   }
 }

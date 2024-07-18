@@ -130,7 +130,41 @@
     "plainLanguage": {
       "backToTheFuture": "Return",
       "header": "Plain language",
-      "content": "Welcome.\nYou can find information about Dataport in plain language here.\nAll people can understand texts in plain language better."
+      "content": "Welcome.\nYou can find information about Termin-Finder / appointment-finder in plain language here.\nAll people can understand texts in plain language better.",
+      "about": {
+        "header": "1. What is it about? ",
+        "content": "This text is about a program on the Internet.\nThe program is called: Termin-Finder / appointment-finder.\n\nDo you want to make an appointment \nwith colleagues or business partners?\nFor example, a company outing or meeting?\nThen you can use the appointment-finder.\nWe explain how you can use the appointment-finder."
+      },
+      "howto": {
+        "header": "2. How to use the appointment finder",
+        "step": "Step",
+        "steps": {
+          "0": {
+            "header": "Start poll",
+            "content": "Go to the start page of the appointment-finder. \nGive your appointment a name. \nFor example: Company outing. \nThen you must agree to the privacy declaration \nand the terms of service.\n\nThe <b>Create poll</b> item is then given a color. \nClick on the <b>Create poll</b> item. \nThen we continue."
+          },
+          "1": {
+            "header": "Here's what happens next",
+            "content": "Enter your first name and last name. \nAnd the title for your appointment. \nYou do not have to fill in the other fields. \nThen click on <b>Next</b> to select an appointment."
+          },
+          "2": {
+            "header": "Appointment selection",
+            "content": "Enter the options for the poll. \nFor example, the times, the days and the date."
+          },
+          "3": {
+            "header": "Set password",
+            "content": "If you want, you can enter a password for your poll. \nAll participants must then enter the password \nbefore they can take part in your poll. \nDo you want to enter a password for your poll? \nThen click on the box on the right-hand side. \n\nDid you enter a password? \nThen click on the item <b>Next</b>. \nDo you not want to enter a password? \nThen simply click on the <b>Next</b> item, \nwithout entering a password."
+          },
+          "4": {
+            "header": "Check inputs and start poll",
+            "content": "Now you can check again \nwhat you have entered. \nDo you want to improve something? \nThen click on the <b>Revise</b> item. \n\nAre you done? \nThen click on <b>Start poll</b>. \nYou will get 2 links. \nWith the first link you can invite participants to your poll. \nWith the other link you can change things in the poll. \n\nImportant: \nSave the links \nbefore you leave the website. \nOtherwise the links will be lost \nand you will have to redo the poll."
+          }
+        }
+      },
+      "declarationOnAccessibility": {
+        "header": "3. Information about the declaration on accessibility",
+        "content": "You will find the declaration on accessibility \nat the bottom of the start page.\nThe declaration on accessibility lists all barriers \nthat exist on the website.\nIt also explains why these barriers exist.\n\nBarriers on the Internet site are the things \nwhy some people find an Internet site \ndifficult to use.\nFor example, if the font is too small.\nOr if texts are not available in plain language.\n\nClick on the item <b>Accessibility</b>.\nThen you can read the declaration on accessibility.\nHave you found barriers \nthat are not in the accessibility statement?\nThen you can report these barriers.\nTo do this, contact the complaints office \n listed in the declaration on accessibility."
+      }
     }
   },
   "privacy": {
@@ -188,7 +222,7 @@
     "accept_0": "Yes, i accept the",
     "accept_1": " and have read the ",
     "accept_2": " .",
-    "accept": "Please accept the privacy declaration and the terms of use."
+    "accept": "Please accept the privacy declaration and the terms of service."
   },
   "footer": {
     "navLabel": {

@@ -25,10 +25,10 @@ import {Location, NgOptimizedImage} from "@angular/common";
       @for (step of ['0', '1', '2', '3', '4']; track step) {
         <h4>{{ 'accessibility.plainLanguage.howto.step' | translate }} {{ step }}
           : {{ 'accessibility.plainLanguage.howto.steps.' + step + '.header' | translate }}</h4>
-        <p class="multiline">{{ 'accessibility.plainLanguage.howto.steps.' + step + '.content' | translate }}</p>
+        <p class="multiline" [innerHTML]="'accessibility.plainLanguage.howto.steps.' + step + '.content' | translate"></p>
       }
       <h3>{{ 'accessibility.plainLanguage.declarationOnAccessibility.header' | translate }}</h3>
-      <p class="multiline">{{ 'accessibility.plainLanguage.declarationOnAccessibility.content' | translate }}</p>
+      <p class="multiline" [innerHTML]="'accessibility.plainLanguage.declarationOnAccessibility.content' | translate"></p>
     </div>
   `,
   styleUrl: './plain-language.component.scss'

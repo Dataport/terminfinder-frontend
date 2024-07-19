@@ -106,6 +106,7 @@
                     class="invalid-message no-padding"
                     data-id="msgRequiredStartDate"
                   >
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.setStart' | translate }}
                   </div>
                 }
@@ -116,6 +117,7 @@
                     class="invalid-message no-padding"
                     data-id="msgInvalidStartDate"
                   >
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.startInvalid' | translate }}
                   </div>
                 }
@@ -126,6 +128,7 @@
                     class="invalid-message no-padding"
                     data-id="msgNotInFutureStartDate"
                   >
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.startFuture' | translate }}
                   </div>
                 }
@@ -184,6 +187,7 @@
                     <div
                       class="invalid-message"
                     >
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                       {{ 'date.endInvalid' | translate }}
                     </div>
                   }
@@ -483,16 +487,19 @@
                  class="col my-1 px-1 px-lg-3 my-1 form-group">
               @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
                 <div class="invalid-message">
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.startAfterEnd' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered) {
                 <div class="invalid-message">
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.noStart' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
                 <div class="invalid-message">
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.inPast' | translate }}
                 </div>
               }
@@ -509,11 +516,13 @@
              class="col my-1 px-1 form-group">
           @if (!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray) {
             <div class="invalid-message">
+              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               {{ 'date.noValue' | translate }}
             </div>
           }
           @if (!!getSuggestedDatesFromForm().errors?.invalidMaxLengthArray) {
             <div class="invalid-message">
+              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               {{ 'date.tooMuchValues' | translate }}
             </div>
           }

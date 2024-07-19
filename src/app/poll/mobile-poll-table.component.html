@@ -55,6 +55,7 @@
             && !!formHelper.getParticipantFormName().errors?.required) {
               <div
                 class="invalid-message">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.name.noName' | translate }}
               </div>
             }
@@ -62,11 +63,13 @@
               <div class="invalid-message"
                    id="invalid-add-name"
               >
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.name.invalid' | translate }}
               </div>
             }
             @if (!!formHelper.getParticipantFormName().errors?.maxlength) {
               <div class="invalid-message">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.name.tooLong' | translate }}
               </div>
             }

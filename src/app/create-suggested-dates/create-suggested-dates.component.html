@@ -51,7 +51,7 @@
             <div class="row">
               <!-- start date -->
               <div [ngClass]="getShowSuggestedDateEndDateOnDifferentDayFormValue(i) ? 'col-6' : 'col'"
-                   class="col px-1 px-lg-3 my-1 form-group">
+                   class="col px-1 px-lg-3 my-1 form-group invalid-message-highlight">
                 <label data-id="startDateLabel"
                        for="suggested-date-start-date-{{i}}">{{ 'date.start' | translate }}</label>
                 @if (!isMobileDevice) {
@@ -138,7 +138,7 @@
                 <div
                   [ngClass]="{'has-error': getEndDateOfSuggestedStartDateByIndex(i).invalid
                   && (getEndDateOfSuggestedStartDateByIndex(i).dirty || getEndDateOfSuggestedStartDateByIndex(i).touched)}"
-                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group">
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group has-error-highlight">
                   <label for="suggested-date-end-date-{{i}}">{{ 'date.end' | translate }}</label>
                   @if (!isMobileDevice) {
                     <div class="input-group date">
@@ -200,7 +200,7 @@
             <!-- button to display start time and end time controls on the top row -->
             @if (!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value) {
               <div
-                class="col suggested-date-timepicker-start">
+                class="col suggested-date-timepicker-start has-error-highlight">
                 <div class="row">
                   <div class="col px-1 px-lg-3 my-1 form-group">
                     <label for="suggested-date-start-time-{{i}}">{{ 'time.time' | translate }}</label>
@@ -230,7 +230,7 @@
               <div
                 [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
                   && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
-                class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start form-group">
+                class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group">
                 <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
                 @if (!isMobileDevice) {
                   <div class="row g-0 input-group date justify-content-center align-items-start"
@@ -280,7 +280,7 @@
               <div
                 [ngClass]="{'has-error': getEndTimeOfSuggestedStartDateByIndex(i).invalid
                  && (getEndTimeOfSuggestedStartDateByIndex(i).dirty || getEndTimeOfSuggestedStartDateByIndex(i).touched)}"
-                class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start form-group">
+                class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group">
                 <label for="suggested-date-end-time-{{i}}">{{ 'time.end' | translate }}</label>
                 @if (!isMobileDevice) {
                   <div class="row g-0 input-group date justify-content-center align-items-start"
@@ -351,7 +351,7 @@
               <!-- button to display start time and end time controls on the bottom row -->
               @if (!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value) {
                 <div
-                  class="col-12 col-lg-6 px-1 px-lg-3 suggested-date-timepicker-start text-center">
+                  class="col-12 col-lg-6 px-1 px-lg-3 suggested-date-timepicker-start has-error-highlight text-center">
                   <div class="justify-content-start">
                     <label class="float-start" for="suggested-date-start-time-{{i}}">
                       {{ 'time.time' | translate }}
@@ -381,7 +381,7 @@
                 <div
                   [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
                     && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
-                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start">
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight">
                   <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
                   @if (!isMobileDevice) {
                     <div class="row g-0 input-group date"
@@ -432,7 +432,7 @@
                 <div
                   [ngClass]="{'has-error': getEndTimeOfSuggestedEndDateByIndex(i).invalid
                    && (getEndTimeOfSuggestedEndDateByIndex(i).dirty || getEndTimeOfSuggestedEndDateByIndex(i).touched)}"
-                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start">
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight">
                   <label for="suggested-date-end-time-different-day-{{i}}">{{ 'time.end' | translate }}</label>
                   @if (!isMobileDevice) {
                     <div class="row g-0 input-group date"

@@ -67,6 +67,13 @@ label {
   font-weight: bold;
 }
 
+.invalid-message-highlight:has(.invalid-message),
+.has-error-highlight:has(.has-error),
+.has-error-highlight.has-error {
+  border-left: .25rem solid $secondary;
+  padding-left: .25rem;
+}
+
 .checkbox-label:after {
   content: '';
   display: table;

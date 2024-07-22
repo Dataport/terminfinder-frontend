@@ -133,7 +133,7 @@
                       [formGroup]="formHelper.getParticipantForm()"
                       class="poll-add-user-row">
                     <td class="p-2 poll-data-cell name">
-                      <div class="row g-0">
+                      <div class="row g-0 invalid-message-highlight">
                         <!-- name -->
                         <div
                           [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
@@ -255,7 +255,7 @@
                     @if (formHelper.isEditInParticipantForm(participant.participantId)) {
                       <td (keydown.enter)="$event.preventDefault()"
                           [formGroup]="formHelper.getParticipantForm()" class="p-2 poll-data-cell name">
-                        <div class="row g-0">
+                        <div class="row g-0 invalid-message-highlight">
                           <!-- name input -->
                           <div
                             [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid  &&

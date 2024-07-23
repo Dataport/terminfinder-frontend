@@ -74,6 +74,7 @@
                       id="suggested-date-start-date-{{i}}"
                       ngbDatepicker
                       placeholder="{{ 'date.placeholder' | translate }}"
+                      aria-describedby="required-start-date invalid-start-date not-in-future-start-date"
                     >
                   </div>
                 } @else {
@@ -96,6 +97,7 @@
                       min="{{now.toDate() | date: 'yyyy-MM-dd'}}"
                       name="startDate"
                       type="date"
+                      aria-describedby="required-start-date invalid-start-date not-in-future-start-date"
                     >
                   </div>
                 }
@@ -105,6 +107,7 @@
                   <div
                     class="invalid-message no-padding"
                     data-id="msgRequiredStartDate"
+                    id="required-start-date"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.setStart' | translate }}
@@ -116,6 +119,7 @@
                   <div
                     class="invalid-message no-padding"
                     data-id="msgInvalidStartDate"
+                    id="invalid-start-date"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.startInvalid' | translate }}
@@ -127,6 +131,7 @@
                   <div
                     class="invalid-message no-padding"
                     data-id="msgNotInFutureStartDate"
+                    id="not-in-future-start-date"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.startFuture' | translate }}
@@ -159,6 +164,7 @@
                         id="suggested-date-end-date-{{i}}"
                         ngbDatepicker
                         placeholder="{{ 'date.placeholder' | translate }}"
+                        aria-describedby="invalid-date start-date-after-end-date"
                       >
                     </div>
                   } @else {
@@ -178,15 +184,15 @@
                         class="form-control date" data-target-input="nearest" id="suggested-date-end-date-{{i}}"
                         min="{{getDateAsIsoString('startDate', i)}}"
                         name="endDate"
-                        type="date">
+                        type="date"
+                        aria-describedby="invalid-date start-date-after-end-date"
+                      >
                     </div>
                   }
                   @if ((getEndDateOfSuggestedStartDateByIndex(i).dirty
                     || getEndDateOfSuggestedStartDateByIndex(i).touched)
                   && !!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate) {
-                    <div
-                      class="invalid-message"
-                    >
+                    <div class="invalid-message" id="invalid-date">
                       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                       {{ 'date.endInvalid' | translate }}
                     </div>
@@ -249,6 +255,7 @@
                           formControlName="startTime"
                           id="suggested-date-start-time-{{i}}"
                           placeholder="{{ 'time.placeholder' | translate }}"
+                          aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                         >
                       </div>
                     </div>
@@ -270,7 +277,9 @@
                       class="form-control time"
                       id="suggested-date-start-time-{{i}}"
                       name="startTime"
-                      type="time">
+                      type="time"
+                      aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
+                    >
                   </div>
                 }
               </div>
@@ -299,6 +308,7 @@
                           formControlName="startDateEndTime"
                           id="suggested-date-end-time-{{i}}"
                           placeholder="{{ 'time.placeholder' | translate }}"
+                          aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                         >
                       </div>
                     </div>
@@ -320,7 +330,9 @@
                       class="form-control time"
                       id="suggested-date-end-time-{{i}}"
                       name="startDateEndTime"
-                      type="time">
+                      type="time"
+                      aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
+                    >
                   </div>
                 }
               </div>
@@ -400,6 +412,7 @@
                             formControlName="startTime"
                             id="suggested-date-start-time-{{i}}"
                             placeholder="{{ 'time.placeholder' | translate }}"
+                            aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                           >
                         </div>
                       </div>
@@ -421,7 +434,9 @@
                         class="form-control time"
                         id="suggested-date-start-time-{{i}}"
                         name="startTime"
-                        type="time">
+                        type="time"
+                        aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
+                      >
                     </div>
                   }
                 </div>
@@ -451,6 +466,7 @@
                             formControlName="endDateEndTime"
                             id="suggested-date-end-time-different-day-{{i}}"
                             placeholder="{{ 'time.placeholder' | translate }}"
+                            aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                           >
                         </div>
                       </div>
@@ -471,7 +487,9 @@
                         class="form-control time"
                         id="suggested-date-end-time-different-day-{{i}}"
                         name="endDateEndTime"
-                        type="time">
+                        type="time"
+                        aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
+                      >
                     </div>
                   }
                 </div>
@@ -486,19 +504,19 @@
                   && (getSuggestedDatesForm(i).dirty || getSuggestedDatesForm(i).touched)}"
                  class="col my-1 px-1 px-lg-3 my-1 form-group">
               @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
-                <div class="invalid-message">
+                <div class="invalid-message" id="start-date-after-end-date">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.startAfterEnd' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered) {
-                <div class="invalid-message">
+                <div class="invalid-message" id="end-time-entered-but-no-start-time-entered">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.noStart' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
-                <div class="invalid-message">
+                <div class="invalid-message" id="start-date-time-in-past">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.inPast' | translate }}
                 </div>

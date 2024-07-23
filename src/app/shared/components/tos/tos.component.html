@@ -1,6 +1,6 @@
 <div class="form-row invalid-message-highlight">
   <div class="col section-container py-2 px-3">
-    <app-checkbox-field [formControl]="isTosRead" [labelTemplate]="tosLabelTemplate"/>
+    <app-checkbox-field [formControl]="isTosRead" [labelTemplate]="tosLabelTemplate" ariaDescribedBy="tos-accept"/>
 
     <ng-template #tosLabelTemplate>
       {{ 'tos.accept_0' | translate }}
@@ -11,7 +11,7 @@
     </ng-template>
 
     @if (isTosRead.dirty && isTosRead.invalid) {
-      <div class="col-12 invalid-message">
+      <div class="col-12 invalid-message" id="tos-accept">
         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
         {{ 'tos.accept' | translate }}
       </div>

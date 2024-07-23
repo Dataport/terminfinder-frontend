@@ -45,12 +45,14 @@
               formControlName="title"
               id="title"
               placeholder="{{ 'poll.title.placeholder' | translate }}"
+              aria-describedby="required-title invalid-title long-title"
               required
               type="text">
             @if ((title.dirty || title.touched) && !!title.errors?.required) {
               <div
                 class="invalid-message"
                 data-id="msgRequiredTitle"
+                id="required-title"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.title.noTitle' | translate }}
@@ -70,6 +72,7 @@
               <div
                 class="invalid-message"
                 data-id="msgLongTitle"
+                id="long-title"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.title.tooLong' | translate }}

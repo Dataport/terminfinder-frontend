@@ -29,7 +29,8 @@
             <div class="col invalid-message-highlight">
               <label data-id="titleLabel" for="title">{{ 'poll.title.placeholder' | translate }}</label>
               <input class="form-control" data-id="titleInput" formControlName="title" id="title"
-                     placeholder="{{ 'poll.title.title' | translate }}" type="text">
+                     placeholder="{{ 'poll.title.title' | translate }}" type="text"
+                     aria-describedby="required-title invalid-title maxLength-title">
               @if ((title.dirty || title.touched) && !!title.errors?.required) {
                 <div
                   class="invalid-message"
@@ -80,11 +81,13 @@
                 placeholder="{{ 'poll.details.name.name' | translate }}"
                 required
                 type="text"
+                aria-describedby="required-name invalid-name long-name"
               >
               @if ((name.dirty || name.touched) && !!name.errors?.required) {
                 <div
                   class="invalid-message"
                   data-id="msgRequiredName"
+                  id="required-name"
                 >
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'poll.details.name.noName' | translate }}
@@ -104,6 +107,7 @@
                 <div
                   class="invalid-message"
                   data-id="msgLongName"
+                  id="long-name"
                 >
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'poll.details.name.tooLong' | translate }}
@@ -127,6 +131,7 @@
                 id="location"
                 placeholder="{{ 'poll.details.place.place' | translate }}"
                 type="text"
+                aria-describedby="invalid-location maxLength-location"
               >
               @if (!!location.errors?.invalidName) {
                 <div
@@ -172,6 +177,7 @@
                 placeholder="{{ 'poll.details.description.description' | translate }}"
                 rows="4"
                 type="text"
+                aria-describedby="maxLength-description"
               ></textarea>
               @if (!!description.errors?.maxlength) {
                 <div

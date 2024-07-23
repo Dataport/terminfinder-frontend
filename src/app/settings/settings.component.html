@@ -49,11 +49,13 @@
               formControlName="password"
               id="password"
               type="password"
+              aria-describedby="set-password set-minimum"
             />
             @if ((getPassword().touched || getPassword().dirty) && !!getPassword().errors?.required) {
               <div
                 class="offset-1 col invalid-message"
                 data-id="errorMsgSetPassword"
+                id="set-password"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'password.set' | translate }}
@@ -63,6 +65,7 @@
               <div
                 class="offset-1 col invalid-message"
                 data-id="errorMsgSetMinimum"
+                id="set-minimum"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'password.setMinimum' | translate }}
@@ -91,6 +94,7 @@
                 data-id="repeatPasswordInput" formControlName="passwordRepeat"
                 id="password-repeat"
                 type="password"
+                aria-describedby="no-match"
               >
               <!-- show message if:
                     - passwordRepeat is 'dirty' and not same
@@ -101,6 +105,7 @@
                 <div
                   class="col invalid-message"
                   data-id="errorMsgNoMatch"
+                  id="no-match"
                 >
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'password.noMatch' | translate }}

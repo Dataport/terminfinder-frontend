@@ -148,6 +148,7 @@
                             id="name-add"
                             placeholder="{{ 'participant.name' | translate }}"
                             type="text"
+                            aria-describedby="no-name-add invalid-add-name too-long-add"
                           >
                         </div>
                         <!-- button to remove the form elements (so the participant won't be added) -->
@@ -170,6 +171,7 @@
                             <div
                               class="invalid-message ml-2"
                               data-id="noNameMsg"
+                              id="no-name-add"
                             >
                               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                               {{ 'poll.details.name.noName' | translate }}
@@ -189,6 +191,7 @@
                             <div
                               class="invalid-message"
                               data-id="tooLongMsg"
+                              id="too-long-add"
                             >
                               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                               {{ 'poll.details.name.tooLong' | translate }}
@@ -275,6 +278,7 @@
                               id="name-edit"
                               placeholder="{{ 'participant.name' | translate }}"
                               type="text"
+                              aria-describedby="no-name-edit invalid-edit-name too-long-edit"
                             >
                           </div>
                           <!-- button to delete the currently edited participant -->
@@ -296,7 +300,7 @@
                             && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
                             && !!formHelper.getParticipantFormName().errors?.required) {
                               <div
-                                class="invalid-message">
+                                class="invalid-message" id="no-name-edit">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                 {{ 'poll.details.name.noName' | translate }}
                               </div>
@@ -311,9 +315,7 @@
                               </div>
                             }
                             @if (formHelper.getParticipantFormName() && !!formHelper.getParticipantFormName().errors?.maxlength) {
-                              <div
-                                class="invalid-message"
-                              >
+                              <div class="invalid-message" id="too-long-edit">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                 {{ 'poll.details.name.tooLong' | translate }}
                               </div>

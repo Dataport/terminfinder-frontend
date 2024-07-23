@@ -70,8 +70,22 @@ label {
 .invalid-message-highlight:has(.invalid-message),
 .has-error-highlight:has(.has-error),
 .has-error-highlight.has-error {
-  border-left: .25rem solid $secondary;
-  padding-left: .25rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: .25rem;
+    border-left: .25rem solid $secondary;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: .25rem;
+  }
+
+  &:not(.form-group)::before {
+    left: -.5rem;
+  }
 }
 
 .checkbox-label:after {

@@ -111,7 +111,7 @@
     "noStart": "Please set a start date. If there is an end date, there has to be a start date.",
     "inPast": "Please enter a valid start date. The start date must be in the future.",
     "noValue": "There must be at least one date.",
-    "tooMuchValues": "More than 100 dates are not possible."
+    "tooManyValues": "More than 100 dates are not possible."
   },
   "time": {
     "time": "Time",

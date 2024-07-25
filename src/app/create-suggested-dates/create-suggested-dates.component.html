@@ -50,8 +50,15 @@
           <div class="col-12 col-lg">
             <div class="row">
               <!-- start date -->
-              <div [ngClass]="getShowSuggestedDateEndDateOnDifferentDayFormValue(i) ? 'col-6' : 'col'"
-                   class="col px-1 px-lg-3 my-1 form-group invalid-message-highlight">
+              <div
+                class="col px-1 px-lg-3 my-1 form-group invalid-message-highlight"
+                [ngClass]="{
+                  'has-error': getStartDateOfSuggestedStartDateByIndex(i).invalid
+                     && (getStartDateOfSuggestedStartDateByIndex(i).dirty || getStartDateOfSuggestedStartDateByIndex(i).touched),
+                  'col-6': getShowSuggestedDateEndDateOnDifferentDayFormValue(i),
+                  'col': !getShowSuggestedDateEndDateOnDifferentDayFormValue(i)
+                }"
+              >
                 <label data-id="startDateLabel"
                        for="suggested-date-start-date-{{i}}">{{ 'date.start' | translate }}</label>
                 @if (!isMobileDevice) {

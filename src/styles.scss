@@ -83,8 +83,14 @@ label {
     left: .25rem;
   }
 
-  &:not(.form-group)::before {
+  &.invalid-message-highlight:not(.form-group)::before {
     left: -.5rem;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, lg)) {
+    &::before {
+      left: -.15rem;
+    }
   }
 }
 

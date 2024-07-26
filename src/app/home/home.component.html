@@ -10,20 +10,7 @@
         {{ notification.message }}
       </div>
     }
-    <div class="row g-0 justify-content-between" data-id="adIcons">
-      <div class="col">
-        <img alt="Planung" src="assets/search.svg">
-        <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.planning' | translate }}</h3>
-      </div>
-      <div class="col">
-        <img alt="Sicherheit" src="assets/lock.svg">
-        <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.security' | translate }}</h3>
-      </div>
-      <div class="col">
-        <img alt="Vernetzung" src="assets/calendar_network.svg">
-        <h3 class="text-center d-none d-lg-block text-bold circle-text">{{ 'home.networking' | translate }}</h3>
-      </div>
-    </div>
+    <app-ad-icons></app-ad-icons>
     <div class="row justify-content-center my-2 my-lg-4" data-id="createPollSlogan">
       <h2 class="text-center">
         {{ 'home.slogan' | translate }}

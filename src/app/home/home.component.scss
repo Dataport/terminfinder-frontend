@@ -1,10 +1,6 @@
 @import "src/default";
 @import 'bootstrap/scss/mixins';
 
-.circle-text {
-  margin-top: -1 * $spacer;
-}
-
 /* custom styles */
 label[for="title"] {
   margin-bottom: 0.25 * $spacer;

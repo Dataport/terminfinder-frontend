@@ -71,6 +71,7 @@ import {PrivacyComponent} from './juristic/privacy/privacy.component';
 import {TermsOfServiceComponent} from './juristic/terms-of-service/terms-of-service.component';
 import {CheckboxFieldComponent} from "./shared/components/checkbox-field/checkbox-field.component";
 import {PlainLanguageComponent} from "./signing-video/plain-language.component";
+import {AdIconsComponent} from "./shared/components/ad-icons/ad-icons.component";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -165,7 +166,8 @@ export function createTranslateLoader(http: HttpClient) {
     AutofocusDirective,
     BomComponent,
     PrivacyComponent,
-    TermsOfServiceComponent
+    TermsOfServiceComponent,
+    AdIconsComponent
   ],
   imports: [
     BrowserModule,

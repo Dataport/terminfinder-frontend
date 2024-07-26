@@ -28,12 +28,7 @@ context('password-view', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
 
-      cy.get('[data-id=planningLogo]');
-      cy.get('[data-id=planningText]');
-      cy.get('[data-id=securityLogo]');
-      cy.get('[data-id=securityText]');
-      cy.get('[data-id=networkingLogo]');
-      cy.get('[data-id=networkingText]');
+      cy.get('[data-id=adIcons]');
       cy.get('[data-id=locked]');
       cy.get('[data-id=enter]');
       cy.get('[data-id=passwordInput]')

@@ -86,32 +86,31 @@
             <div class="col-1 d-flex justify-content-end align-items-center">
               <img alt="key" class="icon m-2" src="assets/password.svg">
             </div>
-            <div class="col-11 px-0">
-              <input
-                [placeholder]="showPlaceholder ? '********' : ''"
-                autocomplete="new-password"
-                class="slim-input w-100 px-0"
-                data-id="repeatPasswordInput" formControlName="passwordRepeat"
-                id="password-repeat"
-                type="password"
-                aria-describedby="no-match"
+            <input
+              [placeholder]="showPlaceholder ? '********' : ''"
+              autocomplete="new-password"
+              class="px-0 slim-input col-11"
+              data-id="repeatPasswordInput"
+              formControlName="passwordRepeat"
+              id="password-repeat"
+              type="password"
+              aria-describedby="no-match"
+            >
+            <!-- show message if:
+                  - passwordRepeat is 'dirty' and not same
+                  - passwordRepeat has been auto-filled and password has been changed -->
+            @if ((getPasswordRepeat().touched && getPasswordRepeat().dirty
+                     || getPassword().dirty && !!getPasswordRepeat().value)
+                     && !!settingsForm.errors?.notSame) {
+              <div
+                class="offset-1 col invalid-message"
+                data-id="errorMsgNoMatch"
+                id="no-match"
               >
-              <!-- show message if:
-                    - passwordRepeat is 'dirty' and not same
-                    - passwordRepeat has been auto-filled and password has been changed -->
-              @if ((getPasswordRepeat().touched && getPasswordRepeat().dirty
-                       || getPassword().dirty && !!getPasswordRepeat().value)
-                       && !!settingsForm.errors?.notSame) {
-                <div
-                  class="col invalid-message"
-                  data-id="errorMsgNoMatch"
-                  id="no-match"
-                >
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                  {{ 'password.noMatch' | translate }}
-                </div>
-              }
-            </div>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {{ 'password.noMatch' | translate }}
+              </div>
+            }
           </div>
         }
       </div>

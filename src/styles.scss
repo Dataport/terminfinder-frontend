@@ -115,13 +115,15 @@ input[type="radio"] {
 input,
 textarea,
 select,
-button.date,
-button.text-primary {
+button,
+a {
   @include focus-outline;
 }
 
 .btn-secondary:focus {
-  box-shadow: 0 0 0 .25rem darken($secondary, 15%);
+  box-shadow: none !important;
+  outline: .25rem solid $primary !important;
+  outline-offset: .25rem;
 }
 
 .section-container {

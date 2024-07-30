@@ -131,6 +131,14 @@ a,
   outline-offset: .25rem;
 }
 
+.btn-secondary {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $secondary !important;
+  }
+}
+
 .section-container {
   background-color: white;
   border-radius: $border-radius;

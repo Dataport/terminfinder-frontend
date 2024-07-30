@@ -96,3 +96,11 @@ $container-max-widths: (
   box-shadow: none;
   border: none;
 }
+
+@mixin focus-outline {
+  outline: none;
+
+  &:focus {
+    outline: lighten($primary, 10%) solid 0.25rem !important;
+  }
+}

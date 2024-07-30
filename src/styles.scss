@@ -116,7 +116,8 @@ input,
 textarea,
 select,
 button,
-a {
+a,
+.focus-outline {
   @include focus-outline;
 }
 

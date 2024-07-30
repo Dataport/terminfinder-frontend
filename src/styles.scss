@@ -126,6 +126,10 @@ a {
   outline-offset: .25rem;
 }
 
+.btn.outline-primary {
+  border-color: $primary;
+}
+
 .section-container {
   background-color: white;
   border-radius: $border-radius;

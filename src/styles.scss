@@ -116,13 +116,8 @@ input,
 textarea,
 select,
 button,
-a,
-.focus-outline {
-  outline: none;
-
-  &:focus {
-    outline: lighten($primary, 10%) solid 0.25rem !important;
-  }
+a {
+  @include focus-outline;
 }
 
 .btn-secondary:focus {

@@ -33,7 +33,7 @@
           <span class="float-end">
             <button
               (click)="deleteSuggestedDateFormByIndex(i)"
-              class="btn btn-transparent p-0 border-0 btn-delete-date focus-outline"
+              class="btn btn-transparent p-0 border-0 btn-delete-date"
               id="removeDate-{{i}}"
               type="button"
             >
@@ -330,7 +330,7 @@
             <button
               (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
               [disabled]="isSuggestedDateFromDatabase(i)"
-              class="btn btn-default btn-transparent focus-outline btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
+              class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
               data-id="endAtOtherDayButton"
               type="button"
             >

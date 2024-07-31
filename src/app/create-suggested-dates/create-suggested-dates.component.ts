@@ -16,7 +16,7 @@ import {SuggestedDatesFormConstants} from './suggested-dates-form-constants';
 import {Appointment, SuggestedDate} from '../shared/models';
 import {ValidatorUtils} from '../shared/validators/validator-utils';
 import * as moment from 'moment';
-import {MomentUtils} from '../shared/utils/moment-utils';
+import {MomentUtils} from '../shared/utils';
 import {ApiConstants} from '../shared/constants/apiConstants';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 

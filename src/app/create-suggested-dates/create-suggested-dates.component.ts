@@ -53,7 +53,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   @Input() isMobileDevice = this.mobiledetect.mobile();
 
   model: SuggestedDate[];
-  suggesteDatesToDelete: SuggestedDate[];
+  suggestedDatesToDelete: SuggestedDate[];
   adminId: string;
   datesForm: UntypedFormGroup = new UntypedFormGroup({
       [CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATES]: new UntypedFormArray([],
@@ -89,7 +89,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.suggesteDatesToDelete = [];
+    this.suggestedDatesToDelete = [];
 
     const appointmentModel: Appointment = this.appStateService.getAppointment();
     this.adminId = appointmentModel.adminId;
@@ -280,7 +280,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     this.logger.debug(`Ermittelten Terminoptionen sind: ${JSON.stringify(suggestedDates)}`, suggestedDates);
     model.suggestedDates = suggestedDates.sort((a, b) =>
       (a.startDate > b.startDate) ? 1 : ((a.startDate === b.startDate) && (a.startTime > b.startTime)) ? 1 : -1);
-    model.suggestedDatesToDelete = this.suggesteDatesToDelete;
+    model.suggestedDatesToDelete = this.suggestedDatesToDelete;
     this.appStateService.updateAppointment(model);
     // noinspection JSIgnoredPromiseFromCall
     if (this.isAdmin) {
@@ -301,7 +301,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     const itemToDelete: SuggestedDate = this.createSuggestedDate(index);
     if (itemToDelete.suggestedDateId !== null && itemToDelete.suggestedDateId !== undefined
       && itemToDelete.suggestedDateId !== '' && itemToDelete.suggestedDateId.length > 0) {
-      this.suggesteDatesToDelete.push(itemToDelete);
+      this.suggestedDatesToDelete.push(itemToDelete);
     }
     this.getSuggestedDatesFromForm().removeAt(index);
   }

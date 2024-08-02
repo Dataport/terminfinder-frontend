@@ -61,7 +61,9 @@ export class MomentUtils {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
-    const result: moment.Moment = moment(value, ValidatorConstants.MOMENT_FORMAT_DATE, localeId, true);
+    const momentVariation: moment.Moment = moment(value, ValidatorConstants.MOMENT_FORMAT_DATE_VARIATIONS, localeId, true);
+    const result = moment(momentVariation, ValidatorConstants.MOMENT_FORMAT_DATE, localeId, true);
+
     if (!result.isValid()) {
       throw new Error(`Submitted value ${value} is not a valid moment date string`);
     }

@@ -15,6 +15,16 @@ export class ValidatorConstants {
   public static readonly MIN_NUMBER_SUGGESTED_DATES = 1;
   public static readonly MAX_NUMBER_SUGGESTED_DATES = 100;
   public static readonly MOMENT_FORMAT_DATE = 'DD.MM.YYYY';
+  public static readonly MOMENT_FORMAT_DATE_VARIATIONS = [
+    'DD.MM.YYYY',
+    'DD.MM.YY',
+    'DD.M.YYYY',
+    'DD.M.YY',
+    'D.MM.YYYY',
+    'D.MM.YY',
+    'D.M.YYYY',
+    'D.M.YY',
+  ];
   public static readonly MOMENT_FORMAT_TIME = 'HH:mm';
 
   /**

@@ -202,7 +202,7 @@
     "changePassword": "Passwort ändern",
     "invalid": "Das eingegebene Passwort ist ungültig.",
     "generate": "Passwortschutz generieren",
-    "securePoll": "Schützen Sie Ihre Umfrage mit einem Passwort!",
+    "securePoll": "Schützen Sie Ihre Umfrage mit einem Passwort! \nNotieren Sie es sich gut, denn es wird benötigt, um die Umfrage zu beantworten oder später zu bearbeiten.",
     "set": "Bitte geben Sie ein Passwort ein.",
     "setMinimum": "Bitte verwenden Sie mindestens acht Zeichen, davon eine Zahl, ein Großbuchstabe und ein Sonderzeichen.",
     "repeat": "Passwort wiederholen",

@@ -202,7 +202,7 @@
     "changePassword": "Change password",
     "invalid": "The entered password is invalid.",
     "generate": "Generate password protection",
-    "securePoll": "Secure your poll with a password!",
+    "securePoll": "Secure your poll with a password! \nMake a good note of it, as it will be needed to answer the survey or to edit it later.",
     "set": "Please enter a password.",
     "setMinimum": "Please enter a password with min. 8 characters, one number, one capital letter and one special character.",
     "repeat": "Repeat password",

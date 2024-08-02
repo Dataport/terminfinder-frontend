@@ -17,7 +17,7 @@ import {NgTemplateOutlet} from "@angular/common";
     <div [class]="reverse ? 'form-check-reverse' : 'form-check'">
       <input [formControl]="ngControl.control" id="checkbox" data-id="checkbox" class="form-check-input" type="checkbox"
              value="" [attr.aria-describedby]="ariaDescribedBy">
-      <label for="checkbox" class="form-check-label w-100" [class.text-start]="reverse">
+      <label for="checkbox" class="form-check-label w-100 multiline" [class.text-start]="reverse">
         @if (labelTemplate) {
           <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
         } @else {

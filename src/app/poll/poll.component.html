@@ -223,24 +223,26 @@
                     [ngClass]="{'poll-edit-user-row': formHelper.isEditInParticipantForm(participant.participantId)}">
                     <!-- if the current row is not being edited just display the name & votes of the participant -->
                     @if (!formHelper.isEditInParticipantForm(participant.participantId)) {
-                      <td class="pl-3 align-middle">
-                        <!-- name -->
-                        <span class="ml-3 mt-1 float-start text-bold">{{ participant.name }}</span>
-                        <!-- button to edit the participant -->
-                        @if (!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused) {
-                          <span
-                            class="float-end"
-                          >
-                            <button
-                              (click)="formHelper.editParticipant(participant)"
-                              class="btn btn-transparent p-0 border-0"
-                              id="editButton-{{index}}"
-                              type="button"
+                      <td class="pl-3">
+                        <div class="h-100 d-flex justify-content-between align-items-center">
+                          <!-- name -->
+                          <span class="text-bold">{{ participant.name }}</span>
+                          <!-- button to edit the participant -->
+                          @if (!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused) {
+                            <span
+                              class="float-end"
                             >
-                              <img alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
-                            </button>
-                          </span>
-                        }
+                              <button
+                                (click)="formHelper.editParticipant(participant)"
+                                class="btn btn-transparent p-0 border-0"
+                                id="editButton-{{index}}"
+                                type="button"
+                              >
+                                <img alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
+                              </button>
+                            </span>
+                          }
+                        </div>
                       </td>
                       @for (date of model.suggestedDates; track date) {
                         <td>

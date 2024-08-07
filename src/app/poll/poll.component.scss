@@ -94,7 +94,7 @@ button.btn-with-image {
 .poll-table {
   display: block;
   overflow-x: auto;
-  white-space: nowrap;
+  white-space: pre-line;
   border: none;
 
   th.suggested-date {
@@ -131,6 +131,7 @@ button.btn-with-image {
 
   td {
     border-color: $poll-row-border-color;
+    height: min-content;
   }
 
   td.suggested-date {

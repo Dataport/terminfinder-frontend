@@ -1,0 +1,47 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://openvex.dev/docs/public/vex-a48fa779d13cac85661da85a70c8a04df1dcd986fc287be644de0e22b4f5f393",
+  "author": "Simone Romano (siromano@unisa.it)",
+  "timestamp": "2024-07-02T17:55:28.854414+02:00",
+  "last_updated": "2024-07-02T18:00:45.584963+02:00",
+  "version": 3,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2024-4068"
+      },
+      "timestamp": "2024-07-02T17:55:28.854415+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/braces@3.0.2"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2022-25883"
+      },
+      "timestamp": "2024-07-02T17:57:11.092189+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/semver@7.3.5",
+          "@id": "pkg:npm/semver@6.3.0"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2023-45133"
+      },
+      "timestamp": "2024-07-02T18:00:45.584963+02:00",
+      "products": [
+        {
+          "@id": "pkg:npm/@babel/traverse@7.17.9"
+        }
+      ],
+      "status": "under_investigation"
+    }
+  ]
+}

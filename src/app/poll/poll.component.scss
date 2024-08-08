@@ -37,34 +37,41 @@ tbody tr:last-child td {
 }
 
 // sticky header and first column
-thead tr {
-  position: sticky;
-  background: white;
-  z-index: 1;
-  top: 0;
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  thead tr {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 0;
+  }
+
+  tbody tr:first-child {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 135.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+  }
+
+  tbody tr > td:first-child:not(.poll-summary-row) {
+    position: sticky;
+    background: white;
+    z-index: 0;
+    left: 0;
+  }
+
+  thead th:first-child {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
 }
 
-tbody tr:first-child {
-  position: sticky;
-  background: white;
-  z-index: 1;
-  top: 135.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
-}
-
-tbody tr > td:first-child:not(.poll-summary-row) {
-  position: sticky;
-  background: white;
-  z-index: 0;
-  left: 0;
-}
-
-thead th:first-child {
-  position: sticky;
-  background: white;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
+/*
+TODO
+table css aufräumen
+ */
 
 .toolbar {
   background-color: $toolbar-background-color;

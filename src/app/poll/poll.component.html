@@ -224,7 +224,7 @@
                     <!-- if the current row is not being edited just display the name & votes of the participant -->
                     @if (!formHelper.isEditInParticipantForm(participant.participantId)) {
                       <td class="pl-3">
-                        <div class="h-100 d-flex justify-content-between align-items-center">
+                        <div class="participant-container">
                           <!-- name -->
                           <span class="text-bold">{{ participant.name }}</span>
                           <!-- button to edit the participant -->
@@ -245,14 +245,16 @@
                         </div>
                       </td>
                       @for (date of model.suggestedDates; track date) {
-                        <td>
-                          <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
-                          <img
-                            alt="voting-status"
-                            aria-hidden="true"
-                            class="mx-auto d-block poll-option-icon" src="assets/status_{{
-                  formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
-                  }}.svg">
+                        <td class="height-1">
+                          <div class="h-100 d-flex align-items-center">
+                            <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
+                            <img
+                              alt="voting-status"
+                              aria-hidden="true"
+                              class="mx-auto d-block poll-option-icon" src="assets/status_{{
+                    formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
+                    }}.svg">
+                          </div>
                         </td>
                       }
                     }

@@ -168,6 +168,10 @@ button.btn-with-image {
     }
   }
 
+  .height-1 {
+    height: 1px; // https://stackoverflow.com/a/3542470/14700336
+  }
+
   td.total-participants {
     vertical-align: middle;
     font-size: 1.8rem;
@@ -175,9 +179,10 @@ button.btn-with-image {
     width: 50px;
   }
 
+  th,
   td {
     border-color: $poll-row-border-color;
-    height: min-content;
+    min-height: $poll-option-height-large;
   }
 
   td.suggested-date {
@@ -188,6 +193,16 @@ button.btn-with-image {
     width: $poll-option-width-large;
     height: $poll-option-width-large;
   }
+}
+
+.participant-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+  min-height: inherit;
+  overflow-wrap: anywhere;
 }
 
 .add-participant-form .form-group {

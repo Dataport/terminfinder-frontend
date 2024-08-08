@@ -173,7 +173,17 @@
       "backToTheFuture": "Zurück",
       "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
       "header": "Gebärdensprache",
-      "subheader": "Erklärung zur Barrierefreiheit"
+      "videos": {
+        "0": {
+          "title": "Erklärung zur Barrierefreiheit"
+        },
+        "1": {
+          "title": "Inhalt der Webseite"
+        },
+        "2": {
+          "title": "Navigation auf der Webseite"
+        }
+      }
     }
   },
   "privacy": {

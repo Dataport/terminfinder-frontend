@@ -171,9 +171,19 @@
     },
     "signLanguage": {
       "backToTheFuture": "Return",
-      "header": "Sign language",
       "content": "This is where we publish information about our website in sign language.",
-      "subheader": "Declaration on accessibility"
+      "header": "Sign language",
+      "videos": {
+        "0": {
+          "title": "Declaration on accessibility"
+        },
+        "1": {
+          "title": "Content of the website"
+        },
+        "2": {
+          "title": "Navigation on the website"
+        }
+      }
     }
   },
   "privacy": {

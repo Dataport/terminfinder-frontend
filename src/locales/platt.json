@@ -131,9 +131,19 @@
     },
     "signLanguage": {
       "backToTheFuture": "Zurück",
-      "header": "Gebärdensprache",
       "content": "An dieser Stelle veröffentlichen wir Informationen zu unserem Webauftritt in Gebärdensprache.",
-      "subheader": "Erklärung zur Barrierefreiheit"
+      "header": "Gebärdensprache",
+      "videos": {
+        "0": {
+          "title": "Erklärung zur Barrierefreiheit"
+        },
+        "1": {
+          "title": "Inhalt der Webseite"
+        },
+        "2": {
+          "title": "Navigation auf der Webseite"
+        }
+      }
     }
   },
   "privacy": {

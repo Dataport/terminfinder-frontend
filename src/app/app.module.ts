@@ -70,9 +70,9 @@ import {BomComponent} from './juristic/bom/bom.component';
 import {PrivacyComponent} from './juristic/privacy/privacy.component';
 import {TermsOfServiceComponent} from './juristic/terms-of-service/terms-of-service.component';
 import {CheckboxFieldComponent} from "./shared/components/checkbox-field/checkbox-field.component";
-import {PlainLanguageComponent} from "./signing-video/plain-language.component";
+import {PlainLanguageComponent} from "./plain-language/plain-language.component";
 import {AdIconsComponent} from "./shared/components/ad-icons/ad-icons.component";
-import {SignLanguageComponent} from "./signing-video/sign-language.component";
+import {SignLanguageComponent} from "./sign-language/sign-language.component";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},

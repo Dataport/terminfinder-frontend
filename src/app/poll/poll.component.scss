@@ -8,12 +8,25 @@ $icon-height: 30px;
   border: 1px solid #dee2e6 !important;
 }
 
-th {
-  border-width: 1px !important;
-}
-
+th,
 td {
   border-width: 1px !important;
+
+  &:first-child {
+    border-left: 0 !important;
+  }
+
+  &:last-child {
+    border-right: 0 !important;
+  }
+}
+
+thead tr:first-child th {
+  border-top: 0 !important;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0 !important;
 }
 
 .form-control {
@@ -21,6 +34,36 @@ td {
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
+}
+
+// sticky header and first column
+thead tr {
+  position: sticky;
+  background: white;
+  z-index: 1;
+  top: 0;
+}
+
+tbody tr:first-child {
+  position: sticky;
+  background: white;
+  z-index: 1;
+  top: 135.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+}
+
+tbody tr > td:first-child:not(.poll-summary-row) {
+  position: sticky;
+  background: white;
+  z-index: 0;
+  left: 0;
+}
+
+thead th:first-child {
+  position: sticky;
+  background: white;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 .toolbar {
@@ -95,7 +138,10 @@ button.btn-with-image {
   display: block;
   overflow-x: auto;
   white-space: pre-line;
-  border: none;
+  max-height: 100vh;
+  border: none !important;
+  border-collapse: separate;
+  border-spacing: 0;
 
   th.suggested-date {
     position: relative;

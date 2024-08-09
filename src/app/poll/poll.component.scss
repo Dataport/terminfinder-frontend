@@ -266,7 +266,7 @@ $poll-data-cell-invalid-message-min-height: 24px;
     width: 350px;
 
     &.name {
-      background: $toolbar-background-color;
+      background: $toolbar-background-color !important;
     }
 
     .invalid-message {

@@ -85,17 +85,19 @@
           <tr class="text-center font-weight-normal">
             <!-- suggested date -->
             <td class="suggested-date pl-3">
-              <app-suggested-date [date]="date"></app-suggested-date>
-              <button
-                (click)="formHelper.downloadCal(date, i)"
-                class="download-cal btn btn-rounded btn-sm btn-light"
-                data-placement="top"
-                data-toggle="tooltip"
-                title="{{ 'poll.downloadIcs' | translate }}"
-                type="button"
-              >
-                <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
-              </button>
+              <div class="d-flex justify-content-around align-items-center">
+                <app-suggested-date [date]="date"></app-suggested-date>
+                <button
+                  (click)="formHelper.downloadCal(date, i)"
+                  class="download-cal btn btn-rounded btn-sm btn-light"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  title="{{ 'poll.downloadIcs' | translate }}"
+                  type="button"
+                >
+                  <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
+                </button>
+              </div>
             </td>
             <td class="total-participants">
               <div class="d-inline-block voting-status-summary-image text-center">

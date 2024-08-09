@@ -8,18 +8,63 @@ $icon-height: 30px;
   border: 1px solid #dee2e6 !important;
 }
 
-th {
-  border-width: 1px !important;
-}
-
+th,
 td {
   border-width: 1px !important;
+
+  &:first-child {
+    border-left: 0 !important;
+  }
+
+  &:last-child {
+    border-right: 0 !important;
+  }
+}
+
+thead tr:first-child th {
+  border-top: 0 !important;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0 !important;
 }
 
 .form-control {
   font-size: $font-size-medium-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
+  }
+}
+
+// sticky header and first column
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  thead tr {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 0;
+  }
+
+  tbody tr:first-child {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 135.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+  }
+
+  tbody tr > td:first-child:not(.poll-summary-row) {
+    position: sticky;
+    background: white;
+    z-index: 0;
+    left: 0;
+  }
+
+  thead th:first-child {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -94,8 +139,11 @@ button.btn-with-image {
 .poll-table {
   display: block;
   overflow-x: auto;
-  white-space: nowrap;
-  border: none;
+  white-space: pre-line;
+  max-height: 100vh;
+  border: none !important;
+  border-collapse: separate;
+  border-spacing: 0;
 
   th.suggested-date {
     position: relative;
@@ -122,6 +170,13 @@ button.btn-with-image {
     }
   }
 
+  .td-full-height {
+    height: 1px; // https://stackoverflow.com/a/3542470/14700336
+    @supports (-moz-appearance:none) {
+      height: fit-content;
+    }
+  }
+
   td.total-participants {
     vertical-align: middle;
     font-size: 1.8rem;
@@ -129,8 +184,10 @@ button.btn-with-image {
     width: 50px;
   }
 
+  th,
   td {
     border-color: $poll-row-border-color;
+    min-height: $poll-option-height-large;
   }
 
   td.suggested-date {
@@ -141,6 +198,16 @@ button.btn-with-image {
     width: $poll-option-width-large;
     height: $poll-option-width-large;
   }
+}
+
+.participant-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+  min-height: inherit;
+  overflow-wrap: anywhere;
 }
 
 .add-participant-form .form-group {
@@ -194,7 +261,7 @@ $poll-data-cell-invalid-message-min-height: 24px;
     width: 350px;
 
     &.name {
-      background: $toolbar-background-color;
+      background: $toolbar-background-color !important;
     }
 
     .invalid-message {

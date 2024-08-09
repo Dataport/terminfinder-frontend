@@ -175,8 +175,11 @@ button.btn-with-image {
     }
   }
 
-  .height-1 {
+  .td-full-height {
     height: 1px; // https://stackoverflow.com/a/3542470/14700336
+    @supports (-moz-appearance:none) {
+      height: fit-content;
+    }
   }
 
   td.total-participants {

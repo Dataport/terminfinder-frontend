@@ -39,7 +39,7 @@ import {DomSanitizer} from "@angular/platform-browser";
     }
   `
 })
-export class VideoPlayerComponent {
+export class DGoLiveVideoPlayerComponent {
   protected readonly domSanitizer = inject(DomSanitizer);
 
   src = input.required<string>();

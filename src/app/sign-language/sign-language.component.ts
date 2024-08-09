@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterLink} from "@angular/router";
 import {Location, NgOptimizedImage} from "@angular/common";
-import {VideoPlayerComponent} from "../shared/components/video-player/video-player.component";
+import {DGoLiveVideoPlayerComponent} from "../shared/components/video-player/d-go-live-video-player.component";
 
 @Component({
   selector: 'app-sign-language',
@@ -11,7 +11,7 @@ import {VideoPlayerComponent} from "../shared/components/video-player/video-play
     TranslateModule,
     RouterLink,
     NgOptimizedImage,
-    VideoPlayerComponent,
+    DGoLiveVideoPlayerComponent,
   ],
   template: `
     <div class="d-flex flex-column px-4">

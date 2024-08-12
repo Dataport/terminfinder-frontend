@@ -76,6 +76,10 @@ form {
 .btn-with-image.btn-suggested-date-end-at-different-day {
   @include focus-outline;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   img {
     height: $height-icon;
     width: $width-icon;

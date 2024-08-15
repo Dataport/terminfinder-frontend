@@ -517,6 +517,41 @@
             }
           </div>
         }
+        <div class="my-2 divider-single"></div>
+        <!-- description (optional) for this date entry -->
+        <div class="row">
+          <div
+            [ngClass]="{'has-error': getDescriptionByIndex(i).invalid
+              && (getDescriptionByIndex(i).dirty || getDescriptionByIndex(i).touched)}"
+            class="col form-group invalid-message-highlight"
+          >
+            <label data-id="descriptionLabel" for="suggested-date-description-{{i}}">
+              {{ 'poll.details.description.descriptionOptional' | translate }}
+            </label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text input-group-divider">
+                  <img ngSrc="assets/description.svg" alt="Sprechblase" height="height" width="width">
+                </div>
+              </div>
+              <input
+                id="suggested-date-description-{{i}}"
+                data-id="descriptionInput"
+                class="form-control"
+                formControlName="description"
+                placeholder="{{ 'poll.details.description.description' | translate }}"
+                type="text"
+                aria-describedby="maxLength-description"
+              >
+            </div>
+            @if (!!getDescriptionByIndex(i).invalid) {
+              <div class="invalid-message" id="description-too-long" data-id="descriptionTooLong">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                {{ 'poll.details.description.tooLong' | translate }}
+              </div>
+            }
+          </div>
+        </div>
         <!-- error messages for this date entry -->
         @if (getSuggestedDatesForm(i).invalid) {
           <div class="row mb-2">

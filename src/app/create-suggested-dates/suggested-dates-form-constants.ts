@@ -11,4 +11,5 @@ export class SuggestedDatesFormConstants {
   public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME = 'showEndDateEndTime';
   public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM =
     'showSuggestedStartDateOnDifferentDayForm';
+  public static readonly FORM_KEY_SUGGESTED_DATE_DESCRIPTION = 'description';
 }

@@ -4,4 +4,5 @@ export class SuggestedDate {
   startTime: string;
   endDate: string;
   endTime: string;
+  description: string;
 }

@@ -28,6 +28,17 @@ div {
   font-size: $font-size-small;
 }
 
+.description {
+  font-size: medium;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  summary {
+    font-size: small;
+  }
+}
+
 .suggested-date-container {
   @include media-breakpoint-up(lg) {
     min-width: $suggested-date-desktop-min-width;

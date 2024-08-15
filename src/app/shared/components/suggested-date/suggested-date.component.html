@@ -56,4 +56,19 @@
       }
     </div>
   }
+  <!-- description for this date -->
+  @if (date.description) {
+    <div class="description text-center">
+      @if (date.description.length > 13) {
+        <details>
+          <summary>
+            {{ 'poll.details.description.description' | translate }}
+          </summary>
+          {{ date.description }}
+        </details>
+      } @else {
+        <p>{{ date.description }}</p>
+      }
+    </div>
+  }
 </div>

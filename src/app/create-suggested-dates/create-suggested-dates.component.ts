@@ -47,6 +47,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME;
   public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM =
     SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM;
+  public static readonly FORM_KEY_SUGGESTED_DATE_DESCRIPTION = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION;
 
   @Input() isAdmin = false;
   mobiledetect = new MobileDetect(window.navigator.userAgent);
@@ -187,6 +188,11 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public getShowSuggestedDateEndDateOnDifferentDayFormValue(index: number): boolean {
     return this.getShowSuggestedDateEndDateOnDifferentDayForm(index).value as boolean;
+  }
+
+  public getDescriptionByIndex(index: number): AbstractControl {
+    return this.getSuggestedDatesForm(index)
+      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_DESCRIPTION) as AbstractControl;
   }
 
   public getShowStartDateStartTimeControl(index: number): AbstractControl {
@@ -337,6 +343,9 @@ export class CreateSuggestedDatesComponent implements OnInit {
         ValidatorUtils.parseMomentFromIsoString(suggestedDate.endTime, this.localeId),
         this.localeId)
       : null;
+    const descriptionValue: string = suggestedDateSubmitted && !NullableUtils.isStringNullOrWhitespace(suggestedDate.description)
+      ? suggestedDate.description.trim()
+      : null;
 
     return new UntypedFormGroup({
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_ID]: new UntypedFormControl(suggestedDateIdValue),
@@ -371,7 +380,9 @@ export class CreateSuggestedDatesComponent implements OnInit {
         },
         [timeValidator(this.localeId)]),
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME]: new UntypedFormControl(false),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]: new UntypedFormControl(endDateValue !== null)
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]: new UntypedFormControl(endDateValue !== null),
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION]: new UntypedFormControl(descriptionValue,
+        [Validators.maxLength(ValidatorConstants.MAX_LENGTH_DATE_DESCRIPTION)]),
     }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator)]);
   }
 
@@ -403,6 +414,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     itemToAdd.endTime = !NullableUtils.isStringNullOrEmpty(endTimeAsString)
       ? this.createSerializedDateTimeFromString(endDate === null ? startDate : endDate, endTimeAsString)
       : null;
+    itemToAdd.description = this.getDescriptionByIndex(index).value;
     return itemToAdd;
   }
 

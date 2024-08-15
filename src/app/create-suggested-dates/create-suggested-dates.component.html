@@ -553,10 +553,9 @@
           </div>
         </div>
         <!-- error messages for this date entry -->
-        @if (getSuggestedDatesForm(i).invalid) {
+        @if (getSuggestedDatesForm(i).dirty && !!getSuggestedDatesForm(i).errors) {
           <div class="row mb-2">
-            <div [ngClass]="{'has-error': getSuggestedDatesForm(i).invalid
-                  && (getSuggestedDatesForm(i).dirty || getSuggestedDatesForm(i).touched)}"
+            <div [ngClass]="{'has-error': getSuggestedDatesForm(i).invalid}"
                  class="col my-1 px-1 px-lg-3 my-1 form-group">
               @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
                 <div class="invalid-message" id="start-date-after-end-date">

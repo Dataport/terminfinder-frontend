@@ -82,7 +82,8 @@ export class ModelTransformerService {
       startDate: startMoment.format(ApiConstants.MOMENT_FORMAT_DATE),
       startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null,
       endDate: setEndDate ? endMoment.format(ApiConstants.MOMENT_FORMAT_DATE) : null,
-      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null
+      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null,
+      description: !NullableUtils.isStringNullOrWhitespace(suggestedDate.description) ? suggestedDate.description : null
     } as ApiSuggestedDate;
   }
 
@@ -252,7 +253,8 @@ export class ModelTransformerService {
       startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.local().format() : null,
       endDate: (!NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) || !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime))
       && startDateDifferentFromEndDate ? endMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE) : null,
-      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.local().format() : null
+      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.local().format() : null,
+      description: !NullableUtils.isStringNullOrWhitespace(suggestedDate.description) ? suggestedDate.description : null
     } as ApiSuggestedDate;
   }
 

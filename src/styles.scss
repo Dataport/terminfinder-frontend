@@ -149,11 +149,13 @@ a,
   @include focus-outline;
 }
 
-.btn-secondary:focus,
-.btn-primary:focus {
-  box-shadow: none !important;
-  outline: .25rem solid $primary !important;
-  outline-offset: .25rem;
+.btn-primary,
+.btn-secondary {
+  &:focus {
+    box-shadow: none !important;
+    outline: .25rem solid $primary !important;
+    outline-offset: .25rem;
+  }
 }
 
 .btn-secondary {

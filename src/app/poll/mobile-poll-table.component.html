@@ -89,8 +89,11 @@
           <tr class="text-center font-weight-normal">
             <!-- suggested date -->
             <td class="suggested-date pl-3">
-              <div class="d-flex justify-content-around align-items-center">
-                <app-suggested-date [date]="date"></app-suggested-date>
+              <div class="row g-0">
+                <div class="col-9">
+                  <app-suggested-date [date]="date"></app-suggested-date>
+                </div>
+                <div class="col-3 d-flex justify-content-center align-items-center">
                 <button
                   (click)="formHelper.downloadCal(date, i)"
                   class="download-cal btn btn-rounded btn-sm btn-light"
@@ -101,6 +104,7 @@
                 >
                   <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
                 </button>
+                </div>
               </div>
             </td>
             <td class="total-participants">

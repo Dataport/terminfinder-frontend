@@ -9,5 +9,5 @@ export interface ConsoleLogOptionsInterface {
    * Specify the threshold for log messages.
    * The order is: TRACE, DEBUG, LOG, INFO, WARN, ERROR.
    */
-  readonly logLevelThreshold?: LogLevel;
+   logLevelThreshold?: LogLevel;
 }

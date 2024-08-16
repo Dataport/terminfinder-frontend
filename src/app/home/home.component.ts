@@ -1,4 +1,4 @@
-import {Component, Inject, LOCALE_ID, OnInit} from '@angular/core';
+import {Component, Inject, isDevMode, LOCALE_ID, OnInit} from '@angular/core';
 import {ApiVersion} from '../shared/models/api-data-v1-dto';
 import {Appointment, Message, MessageType} from '../shared/models';
 import {DataRepositoryService} from '../shared/services/data-service';
@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
   }
 
   public isProduction(): boolean {
-    return environment.production;
+    return isDevMode();
   }
 
   onSubmit() {

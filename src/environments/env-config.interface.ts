@@ -11,8 +11,6 @@ export interface EnvConfig {
   readonly version: string;
   /** Build date as utc time (iso format) */
   readonly buildDateUtc: string;
-  /** Is production build */
-  readonly production: boolean;
   /** Base api url */
   apiBaseUrl: string;
   /** Timeout in ms for an api request */

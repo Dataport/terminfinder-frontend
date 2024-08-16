@@ -1,12 +1,13 @@
 /// <reference types="@angular/localize" />
 
-import {enableProdMode} from '@angular/core';
+import {isDevMode} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
+import { LogLevel } from './app/shared/services/logging/logLevel';
 
-if (environment.production) {
-  enableProdMode();
+if (isDevMode) {
+  environment.consoleLoggingOptions.logLevelThreshold = LogLevel.DEBUG;
 }
 
 if (!environment.apiBaseUrl) {

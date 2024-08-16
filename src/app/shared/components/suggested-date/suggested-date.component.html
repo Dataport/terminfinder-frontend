@@ -6,10 +6,10 @@
     <div class="day">{{ date.startDate | date:'dd': '': getLocale() }}</div>
     <div>{{ date.startDate | date:'E': '': getLocale() | slice: 0:2 }}</div>
     <!-- display start time here if:
-    - on a desktop (lg+) device OR
-    - if there's also an end date  -->
-    <div [ngClass]="{'d-block': date.endDate}"
-         class="d-none d-lg-block">{{ date.startTime | date:'HH:mm': '': getLocale() }}
+      - there's an end date OR
+      - on a desktop (lg+) device -->
+    <div [ngClass]="{'d-none': !date.endDate}"
+         class="d-lg-block">{{ date.startTime | date:'HH:mm': '': getLocale() }}
     </div>
     <!-- display hyphen and endTime if:
     - on a desktop (lg+) device AND

@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 import * as dayjs from 'dayjs';
 import * as utc from 'dayjs/plugin/utc';
+import values from "../fixtures/values.json";
 
 dayjs.extend(utc);
 
@@ -20,6 +21,8 @@ context('create-dates-view', () => {
       cy.get('[data-id=startDateInput]');
       cy.get('[data-id=addTimesButton]');
       cy.get('[data-id=endAtOtherDayButton]');
+      cy.get('[data-id=descriptionLabel]');
+      cy.get('[data-id=descriptionInput]');
       cy.get('[data-id=addSuggestedDateButton]');
       cy.get('[data-id=back]')
         .should('be.enabled');
@@ -318,6 +321,18 @@ context('create-dates-view', () => {
         .clear();
     });
 
+    it('Accepts valid description', () => {
+      cy.get('[data-id=descriptionInput]')
+        .type('Test-Beschreibung', {delay: 0})
+        .should('have.value', 'Test-Beschreibung');
+    });
+
+    it('Does not accept too long description', () => {
+      cy.get('[data-id=descriptionTooLong]').should('not.exist');
+      cy.get('[data-id=descriptionInput]')
+        .type(values.tooLongString, {delay: 0});
+      cy.get('[data-id=descriptionTooLong]');
+    });
   });
 
   describe('Adds new suggested date', () => {

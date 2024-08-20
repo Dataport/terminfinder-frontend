@@ -6,7 +6,7 @@
   "license": "EUPL-1.2",
   "scripts": {
     "backend-mock": "node backend-mock/server.js",
-    "start": "ng serve",
+    "start": "ng serve --configuration production",
     "start-docker": "docker image build --build-arg APP_FILES=dist -t terminfinder-docker:0.0.0 .",
     "test": "ng test",
     "build": "ng build --configuration production",

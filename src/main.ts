@@ -6,7 +6,7 @@ import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
 import { LogLevel } from './app/shared/services/logging/logLevel';
 
-if (isDevMode) {
+if (isDevMode()) {
   environment.consoleLoggingOptions.logLevelThreshold = LogLevel.DEBUG;
 }
 

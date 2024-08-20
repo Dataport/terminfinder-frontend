@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  public isProduction(): boolean {
+  public isDev(): boolean {
     return isDevMode();
   }
 

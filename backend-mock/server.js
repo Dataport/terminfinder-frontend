@@ -50,14 +50,14 @@ function isAuthenticated(isAdmin, requestAuth, appointment) {
   }
 }
 
-app.get('/api/app', (req, res) => {
+app.get('/app', (req, res) => {
   res.contentType(mediaType).status(200).json({
     "versionNumber": '0.5.0',
     "buildDate": '2020-10-01'
   });
 });
 
-app.post('/api/appointment/:customerId', (req, res) => {
+app.post('/appointment/:customerId', (req, res) => {
   const obj = {
     "appointmentId": uuid.v4(),
     "customerId": req.params.customerId,
@@ -90,7 +90,7 @@ app.post('/api/appointment/:customerId', (req, res) => {
   }
 });
 
-app.put('/api/appointment/:customerId', (req, res) => {
+app.put('/appointment/:customerId', (req, res) => {
   const obj = {
     "appointmentId": req.body.appointmentId,
     "customerId": req.params.customerId,
@@ -123,7 +123,7 @@ app.put('/api/appointment/:customerId', (req, res) => {
   }
 });
 
-app.get('/api/appointment/:customerId/:appointmentId/protection', (req, res) => {
+app.get('/appointment/:customerId/:appointmentId/protection', (req, res) => {
   const obj = {
     'appointmentId': req.params.appointmentId,
     'customerId': req.params.customerId
@@ -140,7 +140,7 @@ app.get('/api/appointment/:customerId/:appointmentId/protection', (req, res) => 
   }
 });
 
-app.get('/api/appointment/:customerId/:appointmentId/passwordverification', (req, res) => {
+app.get('/appointment/:customerId/:appointmentId/passwordverification', (req, res) => {
   const obj = {
     'appointmentId': req.params.appointmentId,
     'customerId': req.params.customerId
@@ -177,7 +177,7 @@ function shuffle(array) {
   return array;
 }
 
-app.get('/api/appointment/:customerId/:appointmentId', (req, res) => {
+app.get('/appointment/:customerId/:appointmentId', (req, res) => {
   const obj = {
     'appointmentId': req.params.appointmentId,
     'customerId': req.params.customerId
@@ -199,7 +199,7 @@ app.get('/api/appointment/:customerId/:appointmentId', (req, res) => {
   }
 });
 
-app.get('/api/admin/:customerId/:adminId/protection', (req, res) => {
+app.get('/admin/:customerId/:adminId/protection', (req, res) => {
   const obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
@@ -216,7 +216,7 @@ app.get('/api/admin/:customerId/:adminId/protection', (req, res) => {
   }
 });
 
-app.get('/api/admin/:customerId/:adminId/passwordverification', (req, res) => {
+app.get('/admin/:customerId/:adminId/passwordverification', (req, res) => {
   const obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
@@ -234,7 +234,7 @@ app.get('/api/admin/:customerId/:adminId/passwordverification', (req, res) => {
   }
 });
 
-app.get('/api/admin/:customerId/:adminId', (req, res) => {
+app.get('/admin/:customerId/:adminId', (req, res) => {
   let obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
@@ -249,7 +249,7 @@ app.get('/api/admin/:customerId/:adminId', (req, res) => {
   }
 });
 
-app.put('/api/admin/:customerId/:adminId/paused/status', (req, res) => {
+app.put('/admin/:customerId/:adminId/paused/status', (req, res) => {
   let obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
@@ -266,7 +266,7 @@ app.put('/api/admin/:customerId/:adminId/paused/status', (req, res) => {
   }
 });
 
-app.put('/api/admin/:customerId/:adminId/started/status', (req, res) => {
+app.put('/admin/:customerId/:adminId/started/status', (req, res) => {
   let obj = {
     'adminId': req.params.adminId,
     'customerId': req.params.customerId
@@ -283,7 +283,7 @@ app.put('/api/admin/:customerId/:adminId/started/status', (req, res) => {
   }
 });
 
-app.put('/api/votings/:customerId/:appointmentId', (req, res) => {
+app.put('/votings/:customerId/:appointmentId', (req, res) => {
   let obj = {
     "appointmentId": req.params.appointmentId,
     "customerId": req.params.customerId,

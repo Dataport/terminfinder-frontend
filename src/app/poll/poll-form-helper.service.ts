@@ -181,6 +181,10 @@ export class PollFormHelperService {
 
     let description = this.appointment.description;
 
+    if (date.description) {
+      description += '\n\r\n\r' + date.description;
+    }
+
     const acceptingParticipants = this.getParticipantsWithVotingsOnSuggestedDate(date.suggestedDateId, VotingStatusType.Accepted);
     description += generateDescription(description.length, acceptingParticipants, 'Zugesagt:');
 

@@ -56,3 +56,12 @@ content h3 {
   margin-top: 5pt;
   margin-bottom: 5pt;
 }
+
+:host ::ng-deep table.privacy-table {
+  border-collapse: separate;
+  border-spacing: 1rem;
+
+  td {
+    vertical-align: baseline;
+  }
+}

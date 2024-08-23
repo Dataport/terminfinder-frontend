@@ -36,10 +36,14 @@
           <div class="col d-flex align-items-center">
             <!-- text input for entering/editing the participant name -->
             <label class="sr-only" for="name-add">{{ 'participant.name' | translate }}</label>
-            <input [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
-                  && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
-                   class="form-control name-add" formControlName="name" id="name-add"
-                   type="text">
+            <input
+              required
+              [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
+              && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
+              class="form-control name-add"
+              formControlName="name"
+              id="name-add"
+              type="text">
           </div>
           <div class="col-auto px-1">
             <!-- button to delete the currently edited participant -->

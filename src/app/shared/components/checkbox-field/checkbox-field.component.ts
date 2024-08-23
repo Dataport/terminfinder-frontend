@@ -15,8 +15,16 @@ import {NgTemplateOutlet} from "@angular/common";
   ],
   template: `
     <div [class]="reverse ? 'form-check-reverse' : 'form-check'">
-      <input [formControl]="ngControl.control" id="checkbox" data-id="checkbox" class="form-check-input" type="checkbox"
-             value="" [attr.aria-describedby]="ariaDescribedBy">
+      <input
+        [required]="required"
+        [formControl]="ngControl.control"
+        id="checkbox"
+        data-id="checkbox"
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        [attr.aria-describedby]="ariaDescribedBy"
+      >
       <label for="checkbox" class="form-check-label w-100 multiline" [class.text-start]="reverse">
         @if (labelTemplate) {
           <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
@@ -39,4 +47,6 @@ export class CheckboxFieldComponent {
   reverse = false;
   @Input()
   ariaDescribedBy = '';
+  @Input()
+  required : string = null;
 }

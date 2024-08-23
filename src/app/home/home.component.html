@@ -27,13 +27,13 @@
         <div class="form-row mb-2">
           <div class="col invalid-message-highlight">
             <input
+              required
               class="form-control"
               data-id="createPollInput"
               formControlName="title"
               id="title"
               placeholder="{{ 'poll.title.placeholder' | translate }}"
               aria-describedby="required-title invalid-title long-title"
-              required
               type="text">
             @if ((title.dirty || title.touched) && !!title.errors?.required) {
               <div

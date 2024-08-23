@@ -71,6 +71,7 @@
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                     <input
                       #datepicker_start="ngbDatepicker"
+                      required
                       (dateSelect)="datepicker_start.close()"
                       [minDate]="{ year: now.year(), month: now.month()+1, day: now.date() }"
                       appAutoFocus
@@ -94,6 +95,7 @@
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                     <input
                       #mobileStartDateInput
+                      required
                       (input)="parseAndSetDate('startDate', mobileStartDateInput.value, i)"
                       [disabled]="isSuggestedDateFromDatabase(i)"
                       [value]="getDateAsIsoString('startDate', i)"

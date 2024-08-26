@@ -88,13 +88,6 @@ context('create-dates-view', () => {
         .clear();
 
       cy.get('[data-id=startTimeInput]')
-        .type('-1');
-      cy.get('[data-id=next]')
-        .should('be.disabled');
-      cy.get('[data-id=startTimeInput]')
-        .clear();
-
-      cy.get('[data-id=startTimeInput]')
         .type('25');
       cy.get('[data-id=next]')
         .should('be.disabled');
@@ -124,20 +117,6 @@ context('create-dates-view', () => {
 
       cy.get('[data-id=startTimeInput]')
         .type('010000');
-      cy.get('[data-id=next]')
-        .should('be.disabled');
-      cy.get('[data-id=startTimeInput]')
-        .clear();
-
-      cy.get('[data-id=startTimeInput]')
-        .type('❌');
-      cy.get('[data-id=next]')
-        .should('be.disabled');
-      cy.get('[data-id=startTimeInput]')
-        .clear();
-
-      cy.get('[data-id=startTimeInput]')
-        .type('a');
       cy.get('[data-id=next]')
         .should('be.disabled');
       cy.get('[data-id=startTimeInput]')
@@ -271,13 +250,6 @@ context('create-dates-view', () => {
         .should('be.enabled');
 
       cy.get('[data-id=startTimeInputSecondColumn]')
-        .type('a');
-      cy.get('[data-id=next]')
-        .should('be.disabled');
-      cy.get('[data-id=startTimeInputSecondColumn]')
-        .clear();
-
-      cy.get('[data-id=startTimeInputSecondColumn]')
         .type('10');
       cy.get('[data-id=next]')
         .should('be.enabled');
@@ -316,6 +288,36 @@ context('create-dates-view', () => {
       cy.get('[data-id=startTimeInput]')
         .clear();
     });
+
+    it('Ignores illegal characters for time input', () => {
+      cy.get('[data-id=startDateInput]')
+        .type(dayjs().add(2, 'd').format('DD.MM.YYYY'))
+        .should('have.value', dayjs().add(2, 'd').format('DD.MM.YYYY'));
+
+      cy.get('[data-id=addTimesButton]')
+        .click();
+      cy.get('[data-id=next]')
+        .should('be.enabled');
+
+      cy.get('[data-id=startTimeInput]')
+        .type('-1');
+      cy.get('[data-id=startTimeInput]')
+        .should('contain.value', '1');
+      cy.get('[data-id=next]')
+        .should('be.enabled');
+      cy.get('[data-id=startTimeInput]')
+        .clear();
+
+      cy.get('[data-id=startTimeInput]')
+        .type('❌ a.,');
+      cy.get('[data-id=startTimeInput]')
+        .should('contain.value', '');
+      cy.get('[data-id=next]')
+        .should('be.enabled');
+      cy.get('[data-id=startTimeInput]')
+        .clear();
+    });
+
   });
 
   describe('Adds new suggested date', () => {

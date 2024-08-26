@@ -77,7 +77,9 @@ export class MomentUtils {
    * @return {moment.Moment} the parsed value
    */
   public static parseMomentTimeFromString(value: string, localeId: string): moment.Moment {
-    if (NullableUtils.isStringNullOrEmpty(value)) {
+    value = value.trim().replace(/[^0-9:]*/, "");
+
+    if (NullableUtils.isStringNullOrWhitespace(value)) {
       throw new Error(`value ${value} is null or undefined`);
     }
 

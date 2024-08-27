@@ -47,6 +47,7 @@
             </button>
             <button
               [cbContent]="absoluteAppointmentLink"
+              (click)="showToastPollLinkCopied()"
               class="btn btn-transparent text-primary"
               data-id="inviteLinkCopy"
               ngxClipboard
@@ -105,6 +106,7 @@
             </button>
             <button
               [cbContent]="absoluteAdminLink"
+              (click)="showToastAdminLinkCopied()"
               class="btn btn-transparent text-primary"
               data-id="adminLinkCopy"
               ngxClipboard

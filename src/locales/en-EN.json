@@ -197,6 +197,7 @@
     "invite": "You can invite others to your poll with this link.",
     "loosingLink": "ATTENTION: If this link is not saved, it will be lost.",
     "copy": "Copy link",
+    "copySuccess": "Link copied",
     "open": "open",
     "change": "You can change your poll with this link.",
     "satisfactionSurvey": "How satisfied is our service? Do you have any suggestions for making the service more enjoyable? We would be pleased if you would let us know your opinion with a few clicks. Your feedback will be collected by the development team at Dataport AöR.",

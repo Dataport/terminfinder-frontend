@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {LinkGeneratorService} from '../shared/services/generators';
 import {environment} from '../../environments/environment';
 import {TranslateService} from "@ngx-translate/core";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-links',
@@ -21,7 +22,8 @@ export class LinksComponent implements OnInit {
     private appStateService: AppStateService,
     private linkGeneratorService: LinkGeneratorService,
     private router: Router,
-    private translate: TranslateService
+    protected translate: TranslateService,
+    private toastr: ToastrService
   ) {
   }
 
@@ -79,5 +81,23 @@ export class LinksComponent implements OnInit {
       body += `${this.translate.instant('poll.details.description.description')}: ${this.model.description}%0D%0A`;
     }
     return body;
+  }
+
+  protected showToastPollLinkCopied() {
+    this.showToast(
+      this.translate.instant("links.copySuccess"),
+      this.translate.instant("poll.poll")
+    );
+  }
+
+  protected showToastAdminLinkCopied() {
+    this.showToast(
+      this.translate.instant("links.copySuccess"),
+      this.translate.instant("poll.edit")
+    );
+  }
+
+  private showToast(message: string, title?: string): void {
+    this.toastr.success(message, title);
   }
 }

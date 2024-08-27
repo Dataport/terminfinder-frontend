@@ -74,6 +74,8 @@ import {PlainLanguageComponent} from "./plain-language/plain-language.component"
 import {AdIconsComponent} from "./shared/components/ad-icons/ad-icons.component";
 import {SignLanguageComponent} from "./sign-language/sign-language.component";
 import {TimeInputDirective} from "./shared/directives/time-input.directive";
+import {ToastrModule, provideToastr} from "ngx-toastr";
+import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -175,6 +177,7 @@ export function createTranslateLoader(http: HttpClient) {
     ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -194,6 +197,7 @@ export function createTranslateLoader(http: HttpClient) {
     TosComponent,
     CheckboxFieldComponent,
     NgOptimizedImage,
+    ToastrModule
   ],
   providers: [
     {
@@ -210,7 +214,15 @@ export function createTranslateLoader(http: HttpClient) {
     DataRepositoryService,
     ModelTransformerService,
     Logger,
-    ConsoleProvider
+    ConsoleProvider,
+    provideAnimations(),
+    provideToastr({
+      maxOpened: 3,
+      autoDismiss: true,
+      newestOnTop: true,
+      tapToDismiss: true,
+      positionClass: 'toast-bottom-center',
+    })
   ],
   bootstrap: [AppComponent]
 })

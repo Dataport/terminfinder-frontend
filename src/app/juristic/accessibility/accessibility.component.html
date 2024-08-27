@@ -1,3 +1,4 @@
+<div [innerHTML]="accessibility" class="content" data-cy="content"></div>
 <button
   (click)="back()"
   aria-label="Zurück"
@@ -6,4 +7,3 @@
 >
   {{ 'navigation.back' | translate }}
 </button>
-<div [innerHTML]="accessibility" class="content" data-cy="content"></div>

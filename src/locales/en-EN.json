@@ -7,7 +7,8 @@
     "nextToDateSelection": "Next to date selection",
     "next": "next",
     "revise": "revise",
-    "step": "step"
+    "step": "step",
+    "confirmLeaving": "Return to the home page? Your input may be lost"
   },
   "header": {
     "home": "Homepage",

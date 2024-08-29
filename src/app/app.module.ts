@@ -36,6 +36,7 @@ import {AdminLinksComponent} from './admin-links/admin-links.component';
 import {ClipboardModule} from 'ngx-clipboard';
 import {
   AppointmentIdRequiredGuard,
+  CanDeactivateGuard,
   DatesRequiredGuard,
   NameRequiredGuard,
   PasswordRequiredGuard,
@@ -77,10 +78,10 @@ import {TimeInputDirective} from "./shared/directives/time-input.directive";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'create', component: CreateAppointmentComponent, canActivate: [TitleRequiredGuard]},
-  {path: 'dates', component: CreateSuggestedDatesComponent, canActivate: [NameRequiredGuard]},
-  {path: 'settings', component: SettingsComponent, canActivate: [DatesRequiredGuard]},
-  {path: 'overview', component: OverviewComponent, canActivate: [DatesRequiredGuard]},
+  {path: 'create', component: CreateAppointmentComponent, canActivate: [TitleRequiredGuard], canDeactivate: [CanDeactivateGuard]},
+  {path: 'dates', component: CreateSuggestedDatesComponent, canActivate: [NameRequiredGuard], canDeactivate: [CanDeactivateGuard]},
+  {path: 'settings', component: SettingsComponent, canActivate: [DatesRequiredGuard], canDeactivate: [CanDeactivateGuard]},
+  {path: 'overview', component: OverviewComponent, canActivate: [DatesRequiredGuard], canDeactivate: [CanDeactivateGuard]},
   {
     path: 'links',
     component: LinksComponent,

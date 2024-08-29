@@ -9,6 +9,25 @@ import {Appointment} from '../../models';
 import {AppointmentProtectionResult} from '../../models/api-data-v1-dto';
 import {NullableUtils} from '../../utils';
 import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
+import {TranslateService} from "@ngx-translate/core";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CanDeactivateGuard {
+  constructor(private appStateService: AppStateService, private translate: TranslateService) {
+  }
+
+  canDeactivate(_, __, ___, nextState: RouterStateSnapshot): boolean {
+    const appointment: Appointment = this.appStateService.getAppointment();
+
+    if (nextState.url !== '/home') {
+      return true;
+    }
+
+    return confirm(this.translate.instant("navigation.confirmLeaving"));
+  }
+}
 
 @Injectable({
   providedIn: 'root'

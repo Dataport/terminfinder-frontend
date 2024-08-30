@@ -197,7 +197,7 @@ export function createTranslateLoader(http: HttpClient) {
     TosComponent,
     CheckboxFieldComponent,
     NgOptimizedImage,
-    ToastrModule
+    ToastrModule.forRoot(),
   ],
   providers: [
     {

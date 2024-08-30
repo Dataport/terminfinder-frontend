@@ -220,8 +220,7 @@ export function createTranslateLoader(http: HttpClient) {
       maxOpened: 3,
       autoDismiss: true,
       newestOnTop: true,
-      tapToDismiss: true,
-      positionClass: 'toast-bottom-center',
+      tapToDismiss: true
     })
   ],
   bootstrap: [AppComponent]

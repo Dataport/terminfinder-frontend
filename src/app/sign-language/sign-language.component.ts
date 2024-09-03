@@ -15,12 +15,7 @@ import {DGoLiveVideoPlayerComponent} from "../shared/components/video-player/d-g
   ],
   template: `
     <div class="d-flex flex-column px-4">
-      <a class="back-link" href="#" (click)="location.back()">
-        <img ngSrc="../../assets/back-blue.svg" class="back-btn" aria-hidden="true" width="width" height="height"
-             alt="chevron-left">
-        {{ 'accessibility.signLanguage.backToTheFuture' | translate }}
-      </a>
-      <h2 class="mt-4">{{ 'accessibility.signLanguage.header' | translate }}</h2>
+      <h2>{{ 'accessibility.signLanguage.header' | translate }}</h2>
       <p>{{ 'accessibility.signLanguage.content' | translate }}</p>
 
       @for (video of videos; track video) {
@@ -29,6 +24,13 @@ import {DGoLiveVideoPlayerComponent} from "../shared/components/video-player/d-g
           <app-video-player [src]="video.src" [title]="video.titleTranslateString | translate"></app-video-player>
         </div>
       }
+
+      <a class="back-link btn btn-secondary btn-with-image w-100 d-flex justify-content-between" href="#" (click)="location.back()">
+        <img ngSrc="../../assets/back.svg" class="back-btn" aria-hidden="true" width="width" height="height"
+             alt="chevron-left">
+        {{ 'accessibility.signLanguage.backToTheFuture' | translate }}
+        <div class="hidden"></div>
+      </a>
     </div>
   `,
   styleUrl: './sign-language.component.scss'

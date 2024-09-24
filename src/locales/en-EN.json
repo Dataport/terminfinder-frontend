@@ -192,7 +192,7 @@
     "declaration": "Privacy declaration"
   },
   "links": {
-    "done": "Done!",
+    "done": "Your poll has been created!",
     "share": "Share your poll with the title:",
     "invite": "You can invite others to your poll with this link.",
     "loosingLink": "ATTENTION: If this link is not saved, it will be lost.",

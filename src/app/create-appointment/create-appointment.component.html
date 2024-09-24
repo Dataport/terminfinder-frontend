@@ -3,14 +3,14 @@
 </div>
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin) {
-    <h2 class="text-center mb-2" data-id="addDetailsHeading">
+    <h1 class="text-center mb-2" data-id="addDetailsHeading">
       {{ 'poll.addDetails' | translate }}
-    </h2>
+    </h1>
   }
   @if (isAdmin) {
-    <h2 class="text-center">
+    <h1 class="text-center">
       {{ 'poll.change' | translate }}
-    </h2>
+    </h1>
   }
 </div>
 @if (isAdmin) {

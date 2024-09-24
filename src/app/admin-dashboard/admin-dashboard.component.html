@@ -44,7 +44,8 @@
                 <div class="col col-12">
                   <button
                     (click)="toggleStatus()"
-                    [disabled]="isStatusDisabled"
+                    [attr.aria-disabled]="isStatusDisabled"
+                    [ngClass]="{'disabled': isStatusDisabled}"
                     class="w-100 btn-circle"
                     data-id="statusPollButton"
                     role="link"

@@ -71,7 +71,8 @@
         <div class="form-row mt-2">
           <div class="col pt-3">
             <button
-              [disabled]="titleForm.invalid"
+              [attr.aria-disabled]="titleForm.invalid"
+              [ngClass]="{'disabled': titleForm.invalid}"
               class="btn btn-secondary w-100"
               data-id="createPollButton"
               id="btn-submit"

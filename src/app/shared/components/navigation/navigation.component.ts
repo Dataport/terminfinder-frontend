@@ -10,7 +10,7 @@ export class NavigationComponent {
   @Input() backwardText: string;
   @Input() hasBackwardButton: boolean;
   @Input() hasForwardButton: boolean;
-  @Input() invalid: boolean;
+  @Input() isInvalid: boolean;
   @Output() backward = new EventEmitter();
   @Output() forward = new EventEmitter();
 

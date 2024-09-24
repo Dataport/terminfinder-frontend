@@ -387,7 +387,8 @@
             class="align-items-center">
             <button
               (click)="sendReply()"
-              [disabled]="isFormInvalid()"
+              [attr.aria-disabled]="isFormInvalid()"
+              [ngClass]="{'disabled': isFormInvalid()}"
               class="btn btn-secondary w-100"
               data-id="submitNoParticipationButton"
               id="create-poll-negative"
@@ -410,7 +411,8 @@
             <div class="col-auto">
               <button
                 (click)="sendReply()"
-                [disabled]="isFormInvalid()"
+                [attr.aria-disabled]="isFormInvalid()"
+                [ngClass]="{'disabled': isFormInvalid()}"
                 class="btn btn-secondary btn-with-image btn-next align-self-end"
                 data-id="submitPoll"
                 id="create-poll"

@@ -97,7 +97,8 @@
                       #mobileStartDateInput
                       required
                       (input)="parseAndSetDate('startDate', mobileStartDateInput.value, i)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                       [value]="getDateAsIsoString('startDate', i)"
                       appAutoFocus
                       class="form-control date"
@@ -187,7 +188,8 @@
                       <input
                         #mobileEndDateInput
                         (input)="parseAndSetDate('endDate', mobileEndDateInput.value, i)"
-                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                         [value]="getDateAsIsoString('endDate', i)"
                         appAutoFocus
                         class="form-control date" data-target-input="nearest" id="suggested-date-end-date-{{i}}"
@@ -228,7 +230,8 @@
                       <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                       <button
                         (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
-                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                         class="form-control col date"
                         data-id="addTimesButton"
                         type="button"
@@ -281,7 +284,8 @@
                     <input
                       #mobileStartTimeInput
                       (input)="parseAndSetTime('startTime', mobileStartTimeInput.value, i)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                       [value]="getTimeAsString('startTime', i)"
                       appAutoFocus
                       class="form-control time"
@@ -335,7 +339,8 @@
                     <input
                       #mobileStartDateEndTimeInput
                       (input)="parseAndSetTime('startDateEndTime', mobileStartDateEndTimeInput.value, i)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                       [value]="getTimeAsString('startDateEndTime', i)"
                       appAutoFocus
                       class="form-control time"
@@ -356,7 +361,8 @@
           <div class="p-0 col text-center mt-1 align-items-start">
             <button
               (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
-              [disabled]="isSuggestedDateFromDatabase(i)"
+              [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
               class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
               data-id="endAtOtherDayButton"
               type="button"
@@ -386,7 +392,8 @@
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                     <button
                       (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);  setShowEndDateEndTimeControlValue(i, true)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                       class="form-control col date"
                       data-id="addTimesWithEndOnOtherDay"
                       type="button"
@@ -438,7 +445,8 @@
                     <input
                       #mobileStartTimeInput
                       (input)="parseAndSetTime('startTime', mobileStartTimeInput.value, i)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                       [value]="getTimeAsString('startTime', i)"
                       appAutoFocus
                       class="form-control time"
@@ -492,7 +500,8 @@
                     <input
                       #mobileEndDateEndTimeInput
                       (input)="parseAndSetTime('endDateEndTime', mobileEndDateEndTimeInput.value, i)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                       [value]="getTimeAsString('endDateEndTime', i)"
                       appAutoFocus
                       class="form-control time"
@@ -581,7 +590,7 @@
       (forward)="onSubmit()"
       [hasBackwardButton]="true"
       [hasForwardButton]="true"
-      [invalid]="datesForm.invalid" backwardText="{{ 'navigation.back' | translate }}"
+      [isInvalid]="datesForm.invalid" backwardText="{{ 'navigation.back' | translate }}"
       forwardText="{{ 'navigation.next' | translate }}"
     ></app-navigation>
   </form>

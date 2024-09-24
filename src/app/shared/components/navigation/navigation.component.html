@@ -16,7 +16,8 @@
     <div class="col">
       <button
         (click)="onSubmit()"
-        [disabled]="invalid ? invalid : false"
+        [attr.aria-disabled]="isInvalid"
+        [ngClass]="{'disabled': isInvalid}"
         class="btn btn-secondary btn-with-image btn-next w-100"
         data-id="next"
         id="next"

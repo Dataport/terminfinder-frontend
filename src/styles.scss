@@ -34,18 +34,18 @@ h1 {
 
 h2 {
   color: $primary !important;
-  font-size: $font-size-x-large-mobile !important;
+  font-size: $font-size-large-mobile !important;
   @include media-breakpoint-up(lg) {
-    font-size: $font-size-x-large !important;
+    font-size: $font-size-medium !important;
   }
   font-weight: $font-weight-x-bold !important;
 }
 
 h3 {
   color: $primary !important;
-  font-size: $font-size-medium-mobile !important;
+  font-size: $font-size-small-mobile !important;
   @include media-breakpoint-up(lg) {
-    font-size: $font-size-medium !important;
+    font-size: $font-size-small !important;
   }
 }
 

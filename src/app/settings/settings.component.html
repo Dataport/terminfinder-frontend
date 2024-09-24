@@ -3,13 +3,13 @@
 </div>
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin) {
-    <h2 class="text-center mb-2" data-id="addDetailsHeading">
+    <h1 class="text-center mb-2" data-id="addDetailsHeading">
       {{ 'settings.additional' | translate }}
-    </h2>
+    </h1>
   } @else {
-    <h2 class="text-center">
+    <h1 class="text-center">
       {{ 'settings.change' | translate }}
-    </h2>
+    </h1>
   }
 </div>
 @if (isAdmin) {
@@ -20,7 +20,7 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="settingsForm">
       <div class="section-container p-4 pr-5">
         <div class="row g-0">
-          <h3 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h3>
+          <h2 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h2>
         </div>
         <app-checkbox-field [label]="'password.securePoll' | translate" [reverse]="true" data-id="securePollLabel"
                             formControlName="hasPassword"/>

@@ -3,19 +3,19 @@
 </div>
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin) {
-    <h2
+    <h1
       class="text-center mb-2"
       data-id="addDetailsHeading"
     >
       {{ 'date.choose' | translate }}
-    </h2>
+    </h1>
   }
   @if (isAdmin) {
-    <h2
+    <h1
       class="text-center"
     >
       {{ 'date.change' | translate }}
-    </h2>
+    </h1>
   }
 </div>
 @if (isAdmin) {
@@ -41,8 +41,8 @@
                    width="width"/>
             </button>
           </span>
-          <h3 class="font-medium text-bold correct-delete-button-width"
-                data-id="enterDate">{{ 'date.enter' | translate }}</h3>
+          <h2 class="font-medium text-bold correct-delete-button-width"
+                data-id="enterDate">{{ 'date.enter' | translate }}</h2>
         </div>
         <div class="divider-single mb-2"></div>
         <!-- top row for date / time controls -->

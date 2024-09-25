@@ -24,7 +24,7 @@ context('create-view', () => {
       cy.get('[data-id=back]')
         .should('not.exist');
       cy.get('[data-id=next]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=footer]');
     });
   });
@@ -32,7 +32,7 @@ context('create-view', () => {
   describe('Form control works', () => {
     it('Adds information', () => {
       cy.get('[data-id=next]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=nameInput]')
         .type('Test-Name', {delay: 0})

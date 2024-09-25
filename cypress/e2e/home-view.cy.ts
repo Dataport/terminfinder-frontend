@@ -99,7 +99,7 @@ context('home-view', () => {
 
     it('Fills out form correctly an navigates to next page', () => {
       cy.get('[data-id=createPollButton]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=createPollInput]')
         .type('Test-Titel');
@@ -107,7 +107,7 @@ context('home-view', () => {
         .should('have.value', 'Test-Titel');
 
       cy.get('[data-id=createPollButton]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=checkbox]')
         .click();

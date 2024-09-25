@@ -346,7 +346,7 @@ context('poll-view', () => {
 
     it('Shows inactive button on loading', () => {
       cy.get('[data-id=submitPoll]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=submitNoParticipationButton]')
         .should('not.exist');
     });
@@ -356,7 +356,7 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=submitPoll]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=submitNoParticipationButton]')
         .should('not.exist');
 
@@ -371,7 +371,7 @@ context('poll-view', () => {
         .click();
 
       cy.get('[data-id=submitNoParticipationButton]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=submitPoll]')
         .should('not.exist');
 
@@ -509,7 +509,7 @@ context('poll-view', () => {
       cy.get('[data-id=numberParticipants]')
         .should('contain.html', '2 Teilnehmende');
       cy.get('[data-id=submitPoll]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
     });
   });
 

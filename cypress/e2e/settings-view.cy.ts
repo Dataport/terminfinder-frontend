@@ -28,7 +28,7 @@ context('settings-view', () => {
     it('Checkbox works correctly', () => {
       cy.get('[data-id=next]').should('be.enabled');
       cy.get('[data-id=checkbox]').click();
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=checkbox]').click();
       cy.get('[data-id=next]').should('be.enabled');
     });
@@ -38,19 +38,19 @@ context('settings-view', () => {
 
       cy.get('[data-id=passwordInput]')
         .click();
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=repeatPasswordInput]').click();
       cy.get('[data-id=errorMsgSetPassword]');
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=passwordInput]')
         .type('a');
       cy.get('[data-id=passwordInput]')
         .should('have.value', 'a');
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=repeatPasswordInput]').click();
       cy.get('[data-id=errorMsgSetMinimum]');
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=passwordInput]')
         .clear();
@@ -58,14 +58,14 @@ context('settings-view', () => {
         .type('Hallo2021!');
       cy.get('[data-id=passwordInput]')
         .should('have.value', 'Hallo2021!');
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
       cy.get('[data-id=repeatPasswordInput]').click();
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=repeatPasswordInput]')
         .type('a');
       cy.get('[data-id=errorMsgNoMatch]');
-      cy.get('[data-id=next]').should('be.disabled');
+      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=repeatPasswordInput]')
         .clear();

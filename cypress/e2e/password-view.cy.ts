@@ -35,7 +35,7 @@ context('password-view', () => {
         .should('have.attr', 'type', 'password');
 
       cy.get('[data-id=userButton]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=footer]');
     });
@@ -55,7 +55,7 @@ context('password-view', () => {
       cy.url().should('include', '/#/password');
 
       cy.get('[data-id=adminButton]')
-        .should('be.disabled');
+        .should('have.attr', 'aria-disabled', 'true');
 
       cy.get('[data-id=footer]');
     });

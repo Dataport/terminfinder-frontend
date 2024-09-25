@@ -29,7 +29,7 @@
               <app-appointment-summary [appointment]="model" [showUsername]="false"></app-appointment-summary>
             </div>
             @if (isAppointmentPaused) {
-              <div class="alert alert-secondary">
+              <div class="alert alert-secondary" role="alert">
                 {{ 'poll.paused' | translate }}
               </div>
             }

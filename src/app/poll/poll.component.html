@@ -224,11 +224,9 @@
                           <div class="h-100 d-flex align-items-center">
                             <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
                             <img
-                              alt="voting-status"
-                              aria-hidden="true"
-                              class="mx-auto d-block poll-option-icon" src="assets/status_{{
-                    formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
-                    }}.svg">
+                              alt="{{ 'votingStatus.' + formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId) | translate}}"
+                              class="mx-auto d-block poll-option-icon"
+                              src="assets/status_{{formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)}}.svg">
                           </div>
                         </td>
                       }

@@ -45,37 +45,12 @@
               <!-- first row contains the suggested dates -->
               <thead class="h-100" data-id="tableHead">
               <tr class="h-100">
-                <th>
-                  <button
-                    (click)="formHelper.downloadCsv()"
-                    class="download-csv btn btn-rounded btn-sm btn-light"
-                    data-id="downloadCsvButton"
-                    data-placement="top"
-                    data-toggle="tooltip"
-                    id="download-csv"
-                    title="{{ 'poll.downloadCsv' | translate }}"
-                    type="button"
-                  >
-                    <img alt="{{ 'poll.downloadCsv' | translate }}" aria-hidden="true" src="assets/calendar_grey.svg">
-                  </button>
-                </th>
+                <th></th>
                 @for (date of model.suggestedDates; track date; let i = $index) {
                   <th
                     class="suggested-date text-center font-weight-normal">
                     <div class="table-header-content">
                       <app-suggested-date [date]="date" id="suggested-date-{{i}}"></app-suggested-date>
-                      <div class="spacer"></div>
-                      <button
-                        (click)="formHelper.downloadCal(date, i)"
-                        class="download-cal btn btn-rounded btn-sm btn-light"
-                        data-placement="top"
-                        data-toggle="tooltip"
-                        id="download-cal-{{i}}"
-                        title="{{ 'poll.downloadIcs' | translate }}"
-                        type="button"
-                      >
-                        <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
-                      </button>
                     </div>
                   </th>
                 }
@@ -219,8 +194,7 @@
                 }
               <!-- display the votings of all participants -->
                 @for (participant of model.participants; track participant; let index = $index) {
-                  <tr
-                    [ngClass]="{'poll-edit-user-row': formHelper.isEditInParticipantForm(participant.participantId)}">
+                  <tr [ngClass]="{'poll-edit-user-row': formHelper.isEditInParticipantForm(participant.participantId)}">
                     <!-- if the current row is not being edited just display the name & votes of the participant -->
                     @if (!formHelper.isEditInParticipantForm(participant.participantId)) {
                       <td class="pl-3">
@@ -352,6 +326,39 @@
                   </tr>
                 }
               </tbody>
+              <tfoot>
+              <tr class="h-100">
+                <td>
+                  <button
+                    (click)="formHelper.downloadCsv()"
+                    class="download-csv btn btn-rounded btn-sm btn-light"
+                    data-id="downloadCsvButton"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                    id="download-csv"
+                    title="{{ 'poll.downloadCsv' | translate }}"
+                    type="button"
+                  >
+                    <img alt="{{ 'poll.downloadCsv' | translate }}" aria-hidden="true" src="assets/calendar_grey.svg">
+                  </button>
+                </td>
+                @for (date of model.suggestedDates; track date; let i = $index) {
+                  <td class="suggested-date text-center font-weight-normal">
+                    <button
+                      (click)="formHelper.downloadCal(date, i)"
+                      class="download-cal btn btn-rounded btn-sm btn-light"
+                      data-placement="top"
+                      data-toggle="tooltip"
+                      id="download-cal-{{i}}"
+                      title="{{ 'poll.downloadIcs' | translate }}"
+                      type="button"
+                    >
+                      <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
+                    </button>
+                  </td>
+                }
+              </tr>
+              </tfoot>
             </table>
           </div>
         }

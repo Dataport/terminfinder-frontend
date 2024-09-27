@@ -49,7 +49,7 @@ tbody tr:last-child td {
     position: sticky;
     background: white;
     z-index: 1;
-    top: 135.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+    top: 116.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
   }
 
   tbody tr > td:first-child:not(.poll-summary-row) {

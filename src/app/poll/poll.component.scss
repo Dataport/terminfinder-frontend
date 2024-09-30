@@ -240,13 +240,9 @@ button.btn-with-image {
   margin-bottom: 0;
 }
 
-.voting-status-summary-image {
-  margin-right: 4px;
-
-  img {
-    width: $poll-option-width-small;
-    height: $poll-option-width-small;
-  }
+.voting-status-summary-image img {
+  width: $poll-option-width-small;
+  height: $poll-option-width-small;
 }
 
 .poll-summary-row {

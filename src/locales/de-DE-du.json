@@ -95,6 +95,7 @@
     "accepted": "zugesagt",
     "questionable": "vorbehaltlich",
     "declined": "abgelehnt",
+    "undefined": "unbekannt",
     "unknown": "unbekannt"
   },
   "date": {

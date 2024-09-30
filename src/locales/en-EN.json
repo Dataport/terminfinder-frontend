@@ -95,6 +95,7 @@
     "accepted": "accepted",
     "questionable": "questionable",
     "declined": "declined",
+    "undefined": "undefined",
     "unknown": "unknown"
   },
   "date": {

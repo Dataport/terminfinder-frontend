@@ -88,7 +88,8 @@
                 @for (date of model.suggestedDates; track date; let index = $index) {
                   <td class="text-center poll-summary-data-cell">
                     <div
-                      class="row g-0 justify-content-center voting-status-summary-suggestion-date align-items-center">
+                      class="row g-0 justify-content-center voting-status-summary-suggestion-date align-items-center"
+                    >
                       <div class="d-inline-block voting-status-summary-image">
                         <img alt="checkmark" aria-hidden="true" class="align-text-bottom"
                              src="assets/status_accepted.svg">
@@ -203,9 +204,7 @@
                           <span class="text-bold">{{ participant.name }}</span>
                           <!-- button to edit the participant -->
                           @if (!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused) {
-                            <span
-                              class="float-end"
-                            >
+                            <span class="float-end">
                               <button
                                 (click)="formHelper.editParticipant(participant)"
                                 class="btn btn-transparent p-0 border-0"
@@ -238,9 +237,12 @@
                         <div class="row g-0 invalid-message-highlight" aria-live="assertive">
                           <!-- name input -->
                           <div
-                            [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid  &&
-                    (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
-                            class="col-10 form-group">
+                            [ngClass]="{
+                             'has-error': formHelper.getParticipantFormName().invalid
+                               && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
+                             }"
+                            class="col-10 form-group"
+                          >
                             <label
                               class="sr-only"
                               data-id="nameEditLabel"

@@ -54,6 +54,7 @@
     "send": "Abschicken",
     "downloadIcs": "Laden Sie dieses Datum als .ics-Datei herunter und importieren Sie es in deinen Kalender. Erfahren Sie in der Beschreibung des Termins, wie die Teilnehmer:innen abgestimmt haben.",
     "downloadCsv": "Laden Sie die Tabelle der Teilnehmenden mit ihren Entscheidungen herunter. Sie können sie in Excel importieren, um Ihre Veranstaltung besser zu planen.",
+    "downloadCsvDescription": "Tabelle als csv Datei herunterladen",
     "title": {
       "title": "Titel",
       "set": "Geben Sie Ihrer Umfrage einen Titel!",

@@ -38,6 +38,7 @@ tbody tr:last-child td {
 
 // sticky header and first column
 @media (min-width: map-get($grid-breakpoints, lg)) {
+  // suggested dates
   thead tr {
     position: sticky;
     background: white;
@@ -45,25 +46,50 @@ tbody tr:last-child td {
     top: 0;
   }
 
+  // top left table item
+  thead th:first-child {
+    position: sticky;
+    background: white;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  // poll summary row
   tbody tr:first-child {
     position: sticky;
     background: white;
     z-index: 1;
-    top: 116.4px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+    top: 92.7px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+
+    td:first-child {
+      position: sticky;
+      left: 0;
+    }
   }
 
-  tbody tr > td:first-child:not(.poll-summary-row) {
+  // add/edit participant
+  tr.poll-add-user-row,
+  tr.poll-edit-user-row {
+    td:first-child {
+      position: sticky;
+      left: 0;
+    }
+  }
+
+  // name of participants
+  tbody th {
     position: sticky;
     background: white;
     z-index: 0;
     left: 0;
   }
 
-  thead th:first-child {
+  // download buttons
+  tfoot td:first-child {
     position: sticky;
     background: white;
-    z-index: 1;
-    top: 0;
+    z-index: 0;
     left: 0;
   }
 }

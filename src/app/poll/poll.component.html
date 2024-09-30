@@ -197,7 +197,7 @@
                   <tr [ngClass]="{'poll-edit-user-row': formHelper.isEditInParticipantForm(participant.participantId)}">
                     <!-- if the current row is not being edited just display the name & votes of the participant -->
                     @if (!formHelper.isEditInParticipantForm(participant.participantId)) {
-                      <td class="pl-3">
+                      <th class="pl-3" scope="row">
                         <div class="participant-container">
                           <!-- name -->
                           <span class="text-bold">{{ participant.name }}</span>
@@ -218,7 +218,7 @@
                             </span>
                           }
                         </div>
-                      </td>
+                      </th>
                       @for (date of model.suggestedDates; track date) {
                         <td class="td-full-height">
                           <div class="h-100 d-flex align-items-center">

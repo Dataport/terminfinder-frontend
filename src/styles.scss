@@ -292,13 +292,9 @@ a,
   }
 
   .poll-summary-data-cell {
-    .voting-status-summary-image {
-      margin-right: 4px;
-
-      img {
-        height: $form-status-icon-height-small;
-        width: $form-status-icon-width-small;
-      }
+    .voting-status-summary-image img {
+      height: $form-status-icon-height-small;
+      width: $form-status-icon-width-small;
     }
 
     .voting-status-summary-number {

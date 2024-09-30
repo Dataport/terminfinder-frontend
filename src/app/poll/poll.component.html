@@ -339,6 +339,9 @@
                   >
                     <img alt="{{ 'poll.downloadCsv' | translate }}" aria-hidden="true" src="assets/calendar_grey.svg">
                   </button>
+                  <span class="font-small">
+                    {{ 'poll.downloadCsvDescription' | translate }}
+                  </span>
                 </td>
                 @for (date of model.suggestedDates; track date; let i = $index) {
                   <td class="suggested-date text-center font-weight-normal">

@@ -50,7 +50,8 @@
     "noParticipation": "Ik kann nich deelnehmen",
     "send": "Afschicken",
     "downloadIcs": "Lader vun dissen Dag as ics-Datei dal un importeer dat in dien Kalenner.",
-    "downloadCsv": ".",
+    "downloadCsv": "Lader de Tabelle vun alle Deelnehmer mit deren Entscheedungen rünner. De Datei kanns du inn Excel importeern, um dien Veranstaltung bedder to planen",
+    "downloadCsvDescription": "Tabelle als csv Datei rünnerladen",
     "title": {
       "title": "Titel",
       "set": "Geev Diner Umfraag en Titel!",

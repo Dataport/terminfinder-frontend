@@ -52,25 +52,27 @@
               type="password"
               aria-describedby="set-password set-minimum"
             />
-            @if ((getPassword().touched || getPassword().dirty) && !!getPassword().errors?.required) {
-              <div
-                class="offset-1 col invalid-message"
-                data-id="errorMsgSetPassword"
-                id="set-password"
-              >
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                {{ 'password.set' | translate }}
-              </div>
-            }
-            @if (getPassword().touched && getPassword().dirty && !!getPassword().errors?.invalidPassword) {
-              <div
-                class="offset-1 col invalid-message"
-                data-id="errorMsgSetMinimum"
-                id="set-minimum"
-              >
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                {{ 'password.setMinimum' | translate }}
-              </div>
+            @if (getPassword().touched || getPassword().dirty) {
+              @if (!!getPassword().errors?.required) {
+                <div
+                  class="offset-1 col invalid-message"
+                  data-id="errorMsgSetPassword"
+                  id="set-password"
+                >
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  {{ 'password.set' | translate }}
+                </div>
+              }
+              @if (!!getPassword().errors?.invalidPassword) {
+                <div
+                  class="offset-1 col invalid-message"
+                  data-id="errorMsgSetMinimum"
+                  id="set-minimum"
+                >
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  {{ 'password.setMinimum' | translate }}
+                </div>
+              }
             }
           </div>
           <div class="row g-0 mt-3">
@@ -96,21 +98,44 @@
               formControlName="passwordRepeat"
               id="password-repeat"
               type="password"
-              aria-describedby="no-match"
+              aria-describedby="no-match set-password-repeat set-minimum-repeat"
             >
             <!-- show message if:
                   - passwordRepeat is 'dirty' and not same
                   - passwordRepeat has been auto-filled and password has been changed -->
-            @if ((getPasswordRepeat().touched && getPasswordRepeat().dirty
-                     || getPassword().dirty && !!getPasswordRepeat().value)
-                     && !!settingsForm.errors?.notSame) {
-              <div
-                class="offset-1 col invalid-message"
-                data-id="errorMsgNoMatch"
-                id="no-match"
-              >
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                {{ 'password.noMatch' | translate }}
+            @if (getPasswordRepeat().touched || (getPassword().dirty && !!getPasswordRepeat().value)) {
+              <div class="d-flex flex-column">
+                @if (!!getPasswordRepeat().errors?.required) {
+                  <div
+                    class="offset-1 col invalid-message"
+                    data-id="errorMsgSetPassword"
+                    id="set-password-repeat"
+                  >
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    {{ 'password.set' | translate }}
+                  </div>
+                } @else if (getPasswordRepeat().dirty) {
+                  @if (!!settingsForm.errors?.notSame) {
+                    <div
+                      class="offset-1 col invalid-message"
+                      data-id="errorMsgNoMatch"
+                      id="no-match"
+                    >
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      {{ 'password.noMatch' | translate }}
+                    </div>
+                  }
+                  @if (!!getPasswordRepeat().errors?.invalidPassword) {
+                    <div
+                      class="offset-1 col invalid-message"
+                      data-id="errorMsgSetMinimum"
+                      id="set-minimum-repeat"
+                    >
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      {{ 'password.setMinimum' | translate }}
+                    </div>
+                  }
+                }
               </div>
             }
           </div>

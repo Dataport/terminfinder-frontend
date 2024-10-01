@@ -131,7 +131,7 @@ export class SettingsComponent implements OnInit {
       this.getPassword().updateValueAndValidity();
     }
     if (!this.getPasswordRepeat().validator) {
-      this.getPasswordRepeat().setValidators(Validators.required);
+      this.getPasswordRepeat().setValidators([Validators.required, invalidPasswordValidator()]);
       this.getPasswordRepeat().updateValueAndValidity();
     }
     if (!this.settingsForm.validator) {

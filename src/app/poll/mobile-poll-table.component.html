@@ -1,7 +1,7 @@
 <div class="container px-0">
   @if (formHelper.pollForm && formHelper.appointment) {
     <div [formGroup]="formHelper.pollForm"
-         class="row g-0 toolbar d-lg-none p-1 invalid-message-highlight">
+         class="row g-0 toolbar d-lg-none p-1 invalid-message-highlight" aria-live="assertive">
       <!-- add button ^ dropdown & edit button (only visible when _not_ in add or edit mode) -->
       @if (!formHelper.hasAddOrEditParticipantForm()) {
         <div class="col-auto mx-1">

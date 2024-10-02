@@ -111,7 +111,9 @@
     "noStart": "Bitte giff en gültig Starttiet an. Wenn en Enn angeven warrt, mutt en Starttiet angeven warrn.",
     "inPast": "Bitte giff en gültig Startdatum bzw. Startstiet an. De Startstiet muss in de Tokunft liggen.",
     "noValue": "Dat mutt mindst en Termin angeven warrn.",
-    "tooManyValues": "Dat drööft nich mehr as 100 Terminschonen angeven warrn."
+    "tooManyValues": "Dat drööft nich mehr as 100 Terminschonen angeven warrn.",
+    "from": "vun",
+    "to": "to"
   },
   "time": {
     "time": "Uhrtied",

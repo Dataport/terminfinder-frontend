@@ -1,6 +1,29 @@
-<div class="row g-0 mb-1 justify-content-center text-center suggested-date-container">
+<div class="row g-0 justify-content-center text-center suggested-date-container" aria-labelledby="full-date">
+  <span id="full-date" class="visually-hidden">
+    @if (!date.endDate && !date.endTime) {
+      {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+    } @else if (date.startTime && !date.endDate && date.endTime) {
+      {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+      {{ 'date.from' | translate }}
+      {{ date.startTime | date:'HH:mm': '': getLocale() }}
+      {{ 'date.to' | translate }}
+      {{ date.endTime | date:'HH:mm': '': getLocale() }}
+    } @else if (!date.startTime && date.endDate && !date.endTime) {
+      {{ 'date.from' | translate }}
+      {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+      {{ 'date.to' | translate }}
+      {{ date.endDate | date:'EEEE, dd. MMMM YYYY': '': getLocale() }}
+    } @else {
+      {{ 'date.from' | translate }}
+      {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+      {{ date.startTime | date:'HH:mm': '': getLocale() }}
+      {{ 'date.to' | translate }}
+      {{ date.endDate | date:'EEEE, dd. MMMM YYYY': '': getLocale() }}
+      {{ date.endTime | date:'HH:mm': '': getLocale() }}
+    }
+  </span>
   <!-- column on the left or centered with start date and - for desktop resolutions - start and end time  -->
-  <div class="col-5 column position-relative">
+  <div class="col-5 column" aria-hidden="true">
     <!-- start date -->
     <div>{{ date.startDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
     <div class="day">{{ date.startDate | date:'dd': '': getLocale() }}</div>
@@ -24,10 +47,10 @@
   </div>
   <!-- column on the right for start and end time - only on mobile resolutions -->
   @if (date.startTime && !date.endDate) {
-    <div class="col-auto align-self-center d-lg-none">
+    <div class="col-auto align-self-center d-lg-none" aria-hidden="true">
       <div class="ml-1 mr-2 d-inline-block date-time-divider"></div>
     </div>
-    <div class="col d-flex d-lg-none column position-relative">
+    <div class="col d-flex d-lg-none column" aria-hidden="true">
       <div class="row g-0 align-self-center w-100">
         <div class="col">
           <div>{{ date.startTime | date:'HH:mm': '': getLocale() }}</div>
@@ -45,10 +68,10 @@
   }
   <!-- column on the right for end date and end time -->
   @if (date.endDate) {
-    <div class="col-1 align-self-center hyphen">
+    <div class="col-1 align-self-center hyphen" aria-hidden="true">
       -
     </div>
-    <div class="col-5 column">
+    <div class="col-5 column" aria-hidden="true">
       <div>{{ date.endDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
       <div class="day">{{ date.endDate | date:'dd': '': getLocale() }}</div>
       <div>{{ date.endDate | date:'E': '': getLocale() | slice: 0:2 }}</div>

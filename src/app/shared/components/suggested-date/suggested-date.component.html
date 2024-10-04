@@ -14,8 +14,9 @@
     <!-- display hyphen and endTime if:
     - on a desktop (lg+) device AND
     - if there's no end date  -->
-    <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}" class="position-absolute d-none hyphen"
-         style="left: 26px; bottom: 6px;">-
+    <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}"
+         class="position-absolute d-none hyphen start-0 end-0">
+      -
     </div>
     <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}"
          class="d-none">{{ date.endTime | date:'HH:mm': '': getLocale() }}
@@ -31,15 +32,15 @@
         <div class="col">
           <div>{{ date.startTime | date:'HH:mm': '': getLocale() }}</div>
         </div>
-        <div class="col">
-          <div>{{ date.endTime | date:'HH:mm': '': getLocale() }}</div>
-        </div>
+        @if (date.endTime) {
+          <div class="col">
+            <div>{{ date.endTime | date:'HH:mm': '': getLocale() }}</div>
+          </div>
+          <div class="position-absolute d-lg-none hyphen start-0 end-0">
+            -
+          </div>
+        }
       </div>
-      @if (date.endTime) {
-        <div class="position-absolute d-lg-none hyphen" style="left: 29px; top: 15px;">
-          -
-        </div>
-      }
     </div>
   }
   <!-- column on the right for end date and end time -->

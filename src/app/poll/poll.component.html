@@ -44,11 +44,11 @@
             <table class="table table-striped table-hover mb-0 bordered poll-table d-none d-lg-block">
               <!-- first row contains the suggested dates -->
               <thead class="h-100" data-id="tableHead">
+              <caption class="visually-hidden">{{ 'poll.caption' | translate }}</caption>
               <tr class="h-100">
                 <th></th>
                 @for (date of model.suggestedDates; track date; let i = $index) {
-                  <th
-                    class="suggested-date text-center font-weight-normal">
+                  <th class="suggested-date text-center font-weight-normal">
                     <div class="table-header-content">
                       <app-suggested-date [date]="date" id="suggested-date-{{i}}"></app-suggested-date>
                     </div>

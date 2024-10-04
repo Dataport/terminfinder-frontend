@@ -30,6 +30,7 @@
     "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwenden Sie keine personenbezogenen Daten."
   },
   "poll": {
+    "actions": "Aktionen",
     "poll": "Umfrage",
     "create": "Umfrage erstellen",
     "createNew": "Neue Umfrage erstellen",
@@ -49,6 +50,7 @@
     "editSaveLastStep": "In Schritt \"4\" können Sie alle Änderungen speichern.",
     "answer": "Beantworten Sie die Umfrage von",
     "addParticipant": "Teilnehmer:in hinzufügen",
+    "deleteParticipant": "Teilnehmende entfernen",
     "editParticipant": "Teilnehmer:in bearbeiten",
     "noParticipation": "Ich kann nicht teilnehmen",
     "send": "Abschicken",

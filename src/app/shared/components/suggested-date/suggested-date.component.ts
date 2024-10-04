@@ -16,5 +16,4 @@ export class SuggestedDateComponent {
   getLocale(): string {
     return this.localeService.getLocale().languageCode;
   }
-
 }

@@ -46,9 +46,10 @@
               <thead class="h-100" data-id="tableHead">
               <caption class="visually-hidden">{{ 'poll.caption' | translate }}</caption>
               <tr class="h-100">
-                <th></th>
+                <th scope="col"></th>
+                <th scope="col"><span class="sr-only">{{ 'poll.actions' | translate }}</span></th>
                 @for (date of model.suggestedDates; track date; let i = $index) {
-                  <th class="suggested-date text-center font-weight-normal">
+                  <th scope="col" class="suggested-date text-center font-weight-normal">
                     <div class="table-header-content">
                       <app-suggested-date [date]="date" id="suggested-date-{{i}}"></app-suggested-date>
                     </div>
@@ -65,6 +66,9 @@
                     <div class="col-7 ml-3 font-small text-bold participant-summary" data-id="participantSummary">
                       {{ formHelper.getNumberOfParticipants() }} {{ 'participant.participants' | translate }}
                     </div>
+                  </div>
+                </td>
+                <td>
                     <!-- button to add a participant -->
                     @if (!formHelper.hasAddOrEditParticipantForm() && !isAppointmentPaused) {
                       <div class="col-4">
@@ -82,7 +86,6 @@
                         </button>
                       </div>
                     }
-                  </div>
                 </td>
                 <!-- amount of confirmations per date -->
                 @for (date of model.suggestedDates; track date; let index = $index) {
@@ -91,7 +94,7 @@
                       class="row g-0 justify-content-center voting-status-summary-suggestion-date align-items-center"
                     >
                       <div class="d-inline-block voting-status-summary-image">
-                        <img alt="checkmark" aria-hidden="true" class="align-text-bottom"
+                        <img alt="" aria-hidden="true" class="align-text-bottom"
                              src="assets/status_accepted.svg">
                       </div>
                       <div class="font-weight-bold d-inline-block voting-status-summary-number"
@@ -107,7 +110,7 @@
                   <tr (keydown.enter)="$event.preventDefault()"
                       [formGroup]="formHelper.getParticipantForm()"
                       class="poll-add-user-row">
-                    <td class="p-2 poll-data-cell name">
+                    <th scope="row" class="p-2 poll-data-cell name">
                       <div class="row g-0 invalid-message-highlight" aria-live="assertive">
                         <!-- name -->
                         <div
@@ -126,18 +129,6 @@
                             type="text"
                             aria-describedby="no-name-add invalid-add-name too-long-add"
                           >
-                        </div>
-                        <!-- button to remove the form elements (so the participant won't be added) -->
-                        <div class="col-2 d-flex align-items-center justify-content-center">
-                          <button
-                            (click)="formHelper.deleteParticipantForm()"
-                            class="btn btn-transparent btn-trash w-100 h-100 ml-auto mr-0"
-                            data-id="deleteParticipantButton"
-                            id="delete-new-participant"
-                            type="button"
-                          >
-                            <img alt="trashcan" class="icon" src="assets/trash.svg"/>
-                          </button>
                         </div>
                         <div class="w-100"></div>
                         <!-- validation messages -->
@@ -175,6 +166,22 @@
                           }
                         </div>
                       </div>
+                    </th>
+                    <td class="h-100">
+                        <!-- button to remove the form elements (so the participant won't be added) -->
+                        <div class="d-flex h-100 align-items-center justify-content-center">
+                          <button
+                            (click)="formHelper.deleteParticipantForm()"
+                            class="btn btn-transparent btn-trash"
+                            data-id="deleteParticipantButton"
+                            id="delete-new-participant"
+                            title="{{ 'poll.deleteParticipant' | translate }}"
+                            type="button"
+                            aria-describedby="name-add"
+                          >
+                            <img alt="" aria-hidden="true" class="icon" src="assets/trash.svg"/>
+                          </button>
+                        </div>
                     </td>
                     <!-- the new participant's poll options -->
                     @if (formHelper.getParticipantFormVotings()) {
@@ -202,9 +209,12 @@
                         <div class="participant-container">
                           <!-- name -->
                           <span class="text-bold">{{ participant.name }}</span>
+                        </div>
+                      </th>
+                      <td class="h-100">
                           <!-- button to edit the participant -->
                           @if (!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused) {
-                            <span class="float-end">
+                            <div class="d-flex h-100 align-items-center justify-content-center">
                               <button
                                 (click)="formHelper.editParticipant(participant)"
                                 class="btn btn-transparent p-0 border-0"
@@ -212,12 +222,11 @@
                                 type="button"
                                 title="{{ 'poll.editParticipant' | translate}}"
                               >
-                                <img aria-hidden="true" alt="pencil" class="icon icon-edit" src="assets/edit.svg"/>
+                                <img aria-hidden="true" alt="" class="icon icon-edit" src="assets/edit.svg"/>
                               </button>
-                            </span>
+                            </div>
                           }
-                        </div>
-                      </th>
+                      </td>
                       @for (date of model.suggestedDates; track date) {
                         <td class="td-full-height">
                           <div class="h-100 d-flex align-items-center">
@@ -261,18 +270,6 @@
                               aria-describedby="no-name-edit invalid-edit-name too-long-edit"
                             >
                           </div>
-                          <!-- button to delete the currently edited participant -->
-                          <div class="col-2 d-flex align-items-center justify-content-center">
-                            <button
-                              (click)="formHelper.deleteEditParticipant(participant)"
-                              class="btn btn-transparent btn-trash w-100 h-100 ml-auto mr-0"
-                              data-id="deleteEditedParticipantButton"
-                              id="delete-edit-participant"
-                              type="button"
-                            >
-                              <img alt="trashcan" class="icon" src="assets/trash.svg"/>
-                            </button>
-                          </div>
                           <div class="w-100"></div>
                           <!-- validation messages -->
                           <div class="col-auto">
@@ -302,6 +299,22 @@
                             }
                           </div>
                         </div>
+                      </td>
+                      <td class="h-100">
+                          <!-- button to delete the currently edited participant -->
+                          <div class="d-flex h-100 align-items-center justify-content-center">
+                            <button
+                              (click)="formHelper.deleteEditParticipant(participant)"
+                              class="btn btn-transparent btn-trash"
+                              data-id="deleteEditedParticipantButton"
+                              id="delete-edit-participant"
+                              type="button"
+                              aria-describedby="name-edit"
+                              title="{{ 'poll.deleteParticipant' | translate }}"
+                            >
+                              <img alt="" aria-hidden="true" class="icon" src="assets/trash.svg"/>
+                            </button>
+                          </div>
                       </td>
                       <!-- poll options per date -->
                       @for (date of model.suggestedDates; track date) {
@@ -339,7 +352,7 @@
                     title="{{ 'poll.downloadCsv' | translate }}"
                     type="button"
                   >
-                    <img alt="{{ 'poll.downloadCsv' | translate }}" aria-hidden="true" src="assets/calendar_grey.svg">
+                    <img alt="" aria-hidden="true" src="assets/calendar_grey.svg">
                   </button>
                   <span class="font-small">
                     {{ 'poll.downloadCsvDescription' | translate }}
@@ -356,7 +369,7 @@
                       title="{{ 'poll.downloadIcs' | translate }}"
                       type="button"
                     >
-                      <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
+                      <img alt="" aria-hidden="true" src="assets/download.svg">
                     </button>
                   </td>
                 }

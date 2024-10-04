@@ -30,6 +30,7 @@
     "testEnvironmentBanner": "This is a test environment of {{value}}. Please do not fill in personal data."
   },
   "poll": {
+    "actions": "Actions",
     "poll": "Poll",
     "create": "Create poll",
     "createNew": "Create new poll",
@@ -49,6 +50,7 @@
     "editSaveLastStep": "In step \"4\" you can save your changes.",
     "answer": "Participate at poll of",
     "addParticipant": "Add participant",
+    "deleteParticipant": "Remove participant",
     "editParticipant": "Edit participant",
     "noParticipation": "I can't participate",
     "send": "Send",

@@ -5,6 +5,7 @@
   <span id="full-date-{{ index }}" class="visually-hidden">
     @if (!date.endDate && !date.endTime) {
       {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+      {{ date.startTime | date:'HH:mm': '': getLocale() }}
     } @else if (date.startTime && !date.endDate && date.endTime) {
       {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
       {{ 'date.from' | translate }}

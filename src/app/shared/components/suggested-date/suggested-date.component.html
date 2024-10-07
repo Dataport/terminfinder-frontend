@@ -1,8 +1,8 @@
 <div
   class="row g-0 justify-content-center text-center suggested-date-container"
-  [attr.aria-labelledby]="'full-date-' + date.suggestedDateId"
+  [attr.aria-labelledby]="'full-date-' + index"
 >
-  <span id="full-date-{{ date.suggestedDateId }}" class="visually-hidden">
+  <span id="full-date-{{ index }}" class="visually-hidden">
     @if (!date.endDate && !date.endTime) {
       {{ date.startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
     } @else if (date.startTime && !date.endDate && date.endTime) {

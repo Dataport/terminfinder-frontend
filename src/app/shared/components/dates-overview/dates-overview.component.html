@@ -2,10 +2,10 @@
   <div class="date-time-overview">
     <table class="table mobile d-table d-lg-none w-100" data-id="overviewDatesMobile">
       <tbody>
-        @for (date of appointment.suggestedDates; track date) {
+        @for (date of appointment.suggestedDates; track date; let i = $index) {
           <tr>
             <td>
-              <app-suggested-date [date]="date"></app-suggested-date>
+              <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
             </td>
           </tr>
         }
@@ -15,9 +15,9 @@
       <table class="table table-borderless desktop d-inline-block mt-3 mb-1" data-id="overviewDatesDesktop">
         <tbody>
         <tr>
-          @for (date of appointment.suggestedDates; track date) {
+          @for (date of appointment.suggestedDates; track date; let i = $index) {
             <td>
-              <app-suggested-date [date]="date"></app-suggested-date>
+              <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
             </td>
           }
         </tr>

@@ -51,7 +51,7 @@
                 @for (date of model.suggestedDates; track date; let i = $index) {
                   <th scope="col" class="suggested-date text-center font-weight-normal">
                     <div class="table-header-content">
-                      <app-suggested-date [date]="date" id="suggested-date-{{i}}"></app-suggested-date>
+                      <app-suggested-date [date]="date" id="suggested-date-{{i}}" [index]="i"></app-suggested-date>
                     </div>
                   </th>
                 }

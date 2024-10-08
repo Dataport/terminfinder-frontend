@@ -30,7 +30,7 @@
       <div class="d-flex justify-content-center">
         <input
           class=""
-          id="{{getPrefix()}}-label-status-declined-{{selectorId}}"
+          id="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
           formControlName="status"
           type="radio"
           value="declined"
@@ -43,7 +43,7 @@
         <input
           class=""
           type="radio"
-          id="{{getPrefix()}}-label-status-questionable-{{selectorId}}"
+          id="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
           formControlName="status"
           value="questionable"
           [attr.aria-label]="'votingStatus.questionable' | translate"
@@ -56,7 +56,7 @@
         <input
           class=""
           type="radio"
-          id="{{getPrefix()}}-label-status-accepted-{{selectorId}}"
+          id="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
           formControlName="status"
           value="accepted"
           [attr.aria-label]="'votingStatus.accepted' | translate"

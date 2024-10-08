@@ -4,10 +4,14 @@
   appearance: auto
 }
 
-.poll-table.mobile td {
-  vertical-align: middle;
-  padding: 0;
-  border-width: 1px 0 0 !important;
+.poll-table.mobile {
+  overflow-x: hidden;
+
+  td {
+    vertical-align: middle;
+    padding: 0;
+    border-width: 1px 0 0 !important;
+  }
 }
 
 .btn.btn-transparent {

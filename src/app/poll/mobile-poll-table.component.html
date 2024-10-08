@@ -145,6 +145,29 @@
           </tr>
         }
       </tbody>
+      <tfoot class="d-table w-100">
+      <tr>
+        <td class="p-2">
+          <div class="d-flex justify-content-center align-items-center">
+            <button
+              (click)="formHelper.downloadCsv()"
+              class="download-csv btn btn-rounded btn-sm btn-light"
+              data-id="downloadCsvButton"
+              data-placement="top"
+              data-toggle="tooltip"
+              id="download-csv"
+              title="{{ 'poll.downloadCsv' | translate }}"
+              type="button"
+            >
+              <img alt="" aria-hidden="true" src="assets/calendar_grey.svg">
+            </button>
+            <span class="font-small ms-2">
+              {{ 'poll.downloadCsvDescription' | translate }}
+            </span>
+          </div>
+        </td>
+      </tr>
+      </tfoot>
     </table>
   }
 </div>

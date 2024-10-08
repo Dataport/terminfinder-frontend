@@ -123,8 +123,11 @@
                 <img
                   alt="voting-status" aria-hidden="true"
                   class="my-auto mr-3 ml-auto d-block poll-option-icon"
-                  src="assets/status_{{ formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
-          date.suggestedDateId, getSelectedParticipant().participantId)}}.svg">
+                  src="assets/status_{{
+                    formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
+                      date.suggestedDateId,
+                      getSelectedParticipant().participantId)
+                    }}.svg">
               }
               @if (formHelper.hasAddOrEditParticipantForm()) {
                 @for (voting of formHelper.getParticipantFormVotings().controls; track voting; let j = $index) {

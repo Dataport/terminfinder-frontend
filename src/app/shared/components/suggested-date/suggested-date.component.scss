@@ -21,17 +21,10 @@ div {
 }
 
 .hyphen {
-  font-size: 25px;
-
-  // desktop
-  &.position-absolute.d-lg-block {
-    bottom: 0.375rem;
-  }
-
-  // mobile
-  &.position-absolute.d-lg-none {
-    bottom: 1rem;
-  }
+  width: 7px;
+  height: 1.3px;
+  margin: auto;
+  background: black;
 }
 
 .suggested-date-container .column {

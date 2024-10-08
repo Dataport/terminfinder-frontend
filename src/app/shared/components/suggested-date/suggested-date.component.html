@@ -27,7 +27,7 @@
     }
   </span>
   <!-- column on the left or centered with start date and - for desktop resolutions - start and end time  -->
-  <div class="col-5 column position-relative" aria-hidden="true">
+  <div class="col-5 column" aria-hidden="true">
     <!-- start date -->
     <div>{{ date.startDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
     <div class="day">{{ date.startDate | date:'dd': '': getLocale() }}</div>
@@ -39,10 +39,7 @@
     <!-- display hyphen and endTime if:
     - on a desktop (lg+) device AND
     - if there's no end date  -->
-    <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}"
-         class="position-absolute d-none hyphen start-0 end-0">
-      -
-    </div>
+    <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}" class="d-none hyphen"></div>
     <div [ngClass]="{'d-lg-block': date.endTime && !date.endDate}"
          class="d-none">{{ date.endTime | date:'HH:mm': '': getLocale() }}
     </div>
@@ -52,25 +49,23 @@
     <div class="col-auto align-self-center d-lg-none" aria-hidden="true">
       <div class="ms-1 me-2 date-time-divider"></div>
     </div>
-    <div class="col d-flex d-lg-none column position-relative" aria-hidden="true">
-      <div class="row g-0 align-self-center w-100">
+    <div class="col d-flex d-lg-none column align-items-center" aria-hidden="true">
+      <div class="row g-0 w-100 d-block">
         <div class="col">
           <div>{{ date.startTime | date:'HH:mm': '': getLocale() }}</div>
         </div>
         @if (date.endTime) {
-          <div class="col">
-            <div>{{ date.endTime | date:'HH:mm': '': getLocale() }}</div>
-          </div>
-          <div class="position-absolute d-lg-none hyphen start-0 end-0">
-            -
-          </div>
+          <div class="d-lg-none hyphen"></div>
         }
+        <div class="col">
+          <div>{{ date.endTime | date:'HH:mm': '': getLocale() }}</div>
+        </div>
       </div>
     </div>
   }
   <!-- column on the right for end date and end time -->
   @if (date.endDate) {
-    <div class="col-1 align-self-center hyphen" aria-hidden="true">
+    <div class="col-1 align-self-center font-medium" aria-hidden="true">
       -
     </div>
     <div class="col-5 column" aria-hidden="true">

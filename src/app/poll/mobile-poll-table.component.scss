@@ -23,7 +23,12 @@
 }
 
 .poll-table td.suggested-date {
-  width: 150px;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    width: 150px;
+  }
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    width: 180px;
+  }
 }
 
 .toolbar {

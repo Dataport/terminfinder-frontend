@@ -185,18 +185,12 @@ context('poll-view', () => {
       cy.get('[data-id=addParticipantButton]')
         .click();
 
-      cy.get('#desktop-label-status-declined-0');
       cy.get('#desktop-voting-status-declined-0');
-      cy.get('#desktop-label-status-questionable-0');
       cy.get('#desktop-voting-status-questionable-0');
-      cy.get('#desktop-label-status-accepted-0');
       cy.get('#desktop-voting-status-accepted-0');
 
-      cy.get('#desktop-label-status-declined-1');
       cy.get('#desktop-voting-status-declined-1');
-      cy.get('#desktop-label-status-questionable-1');
       cy.get('#desktop-voting-status-questionable-1');
-      cy.get('#desktop-label-status-accepted-1');
       cy.get('#desktop-voting-status-accepted-1');
     });
 

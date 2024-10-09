@@ -6,7 +6,117 @@ const app = express();
 
 const PORT = 4201;
 const mediaType = process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json';
-let appointments = [];
+let appointments = generateAppointments();
+
+function generateAppointments(participantCount = 3) {
+  let startDate = new Date();
+  startDate.setMonth(startDate.getMonth() + 1);
+
+  let endDate = new Date();
+  endDate.setDate(startDate.getDate() + 1);
+
+  startDate = startDate.toISOString().split('T')[0];
+  endDate = endDate.toISOString().split('T')[0];
+  const startTime = '10:00:00.000+00:00';
+  const endTime = '12:34:00.000+00:00';
+
+  // every date & time variant
+  const suggestedDates = [
+    {
+      suggestedDateId: uuid.v4(),
+      startDate: startDate,
+      startTime: null,
+      endDate: null,
+      endTime: null,
+      description: null
+    },
+    {
+      suggestedDateId: uuid.v4(),
+      startDate: startDate,
+      startTime: startTime,
+      endDate: null,
+      endTime: null,
+      description: null
+    },
+    {
+      suggestedDateId: uuid.v4(),
+      startDate: startDate,
+      startTime: startTime,
+      endDate: endDate,
+      endTime: endTime,
+      description: null
+    },
+    {
+      suggestedDateId: uuid.v4(),
+      startDate: startDate,
+      startTime: null,
+      endDate: endDate,
+      endTime: null,
+      description: null
+    },
+    {
+      suggestedDateId: uuid.v4(),
+      startDate: startDate,
+      startTime: startTime,
+      endDate: endDate,
+      endTime: null,
+      description: null
+    },
+    {
+      suggestedDateId: uuid.v4(),
+      startDate: startDate,
+      startTime: startTime,
+      endDate: endDate,
+      endTime: endTime,
+      description: null
+    }
+  ];
+
+  const suggestedDateIds = suggestedDates.reduce((acc, curr) => [...acc, curr.suggestedDateId], []);
+
+  const votingStatus = {
+    0: 'declined',
+    1: 'questionable',
+    2: 'accepted'
+  };
+
+  let participants = [];
+  for (let idx = 0; idx < participantCount; idx++) {
+    const participantId = uuid.v4();
+    let votings = [];
+
+    suggestedDateIds.forEach(suggestedDateId => {
+      votings.push({
+        suggestedDateId: suggestedDateId,
+        votingId: uuid.v4(),
+        participantId: participantId,
+        status: votingStatus[Math.floor(Math.random() * 3)]
+      });
+    });
+
+    participants.push({
+      name: (idx + 1).toString(),
+      participantId: participantId,
+      votings: votings
+    });
+  }
+
+  return [
+    {
+      appointmentId: 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
+      customerId: '11111111-1111-1111-1111-111111111111',
+      adminId: 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+      creatorName: 'Deep Thought',
+      subject: 'Variationen Datum Uhrzeit',
+      description: '',
+      place: '',
+      status: 'started',
+      password: null,
+      suggestedDates: suggestedDates,
+      participants: participants
+    }
+  ];
+}
 
 app.use(cors());
 app.use(express.json({type: mediaType}));

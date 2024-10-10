@@ -172,6 +172,11 @@ input {
   }
 }
 
+.section-title span {
+  top: 14px;
+  right: 14px;
+}
+
 .btn-delete-date {
   @include focus-outline;
 
@@ -183,10 +188,6 @@ input {
       width: $width-icon;
     }
   }
-}
-
-.correct-delete-button-width {
-  margin-left: $width-icon;
 }
 
 //noinspection CssUnusedSymbol

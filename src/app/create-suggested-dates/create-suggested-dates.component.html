@@ -29,20 +29,24 @@
         [attr.aria-readonly]="isSuggestedDateFromDatabase(i)" [formGroup]="castToFormGroup(suggestedDateForm)"
         class="section-container pb-2">
         <!-- title of the container -->
-        <div class="section-title text-center p-3">
-          <span class="float-end">
+        <div class="section-title text-center p-3 position-relative">
+          <h2 class="font-medium text-bold d-inline" data-id="enterDate">
+            {{ 'date.enter' | translate }} {{ i + 1 }}
+          </h2>
+          <span class="position-absolute">
             <button
               (click)="deleteSuggestedDateFormByIndex(i)"
               class="btn btn-transparent p-0 border-0 btn-delete-date"
               id="removeDate-{{i}}"
               type="button"
             >
-              <img alt="{{ 'date.delete' | translate }}" class="icon" ngSrc="assets/delete-date.svg" height="height"
-                   width="width"/>
+              <img
+                alt="{{ 'date.delete' | translate }} {{ i + 1 }}"
+                class="icon" ngSrc="assets/delete-date.svg"
+                height="height"
+                width="width"/>
             </button>
           </span>
-          <h2 class="font-medium text-bold correct-delete-button-width"
-                data-id="enterDate">{{ 'date.enter' | translate }}</h2>
         </div>
         <div class="divider-single mb-2"></div>
         <!-- top row for date / time controls -->

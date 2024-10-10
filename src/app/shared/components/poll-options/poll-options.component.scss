@@ -1,18 +1,6 @@
 @import "src/default";
 
-.form-check-label {
-  margin: 0;
-
-  img {
-    width: $poll-option-width-small;
-    height: $poll-option-width-small;
-  }
-}
-
-.max-content {
-  min-width: max-content;
-}
-
-.min-content {
-  max-width: min-content;
+img.poll-option-icon {
+  width: $poll-option-width-small;
+  height: $poll-option-width-small;
 }

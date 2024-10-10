@@ -4,10 +4,14 @@
   appearance: auto
 }
 
-.poll-table.mobile td {
-  vertical-align: middle;
-  padding: 0;
-  border: unset;
+.poll-table.mobile {
+  overflow-x: hidden;
+
+  td {
+    vertical-align: middle;
+    padding: 0;
+    border-width: 1px 0 0 !important;
+  }
 }
 
 .btn.btn-transparent {
@@ -23,7 +27,12 @@
 }
 
 .poll-table td.suggested-date {
-  width: 150px;
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    width: 150px;
+  }
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    width: 180px;
+  }
 }
 
 .toolbar {
@@ -33,10 +42,13 @@
 
 .poll-table td.total-participants {
   padding: 0;
-  width: 60px;
 }
 
 .poll-table.mobile td.poll-options > img {
   margin-left: auto;
   margin-right: 1rem;
+}
+
+.voting-status-summary-image img {
+  display: block;
 }

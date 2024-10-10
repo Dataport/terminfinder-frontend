@@ -46,10 +46,13 @@
     "editSaveLastStep": "In Schritt \"4\" kannst Du all Ännern lagern.",
     "answer": "Beantwoort de Umfraag vun",
     "addParticipant": "Deelnehmer:in tügen",
+    "editParticipant": "Deelnehmer:in ännern",
     "noParticipation": "Ik kann nich deelnehmen",
     "send": "Afschicken",
     "downloadIcs": "Lader vun dissen Dag as ics-Datei dal un importeer dat in dien Kalenner.",
-    "downloadCsv": ".",
+    "downloadCsv": "Lader de Tabelle vun alle Deelnehmer mit deren Entscheedungen rünner. De Datei kanns du inn Excel importeern, um dien Veranstaltung bedder to planen",
+    "downloadCsvDescription": "Tabelle als csv Datei rünnerladen",
+    "caption": "Terminöversicht",
     "title": {
       "title": "Titel",
       "set": "Geev Diner Umfraag en Titel!",
@@ -83,6 +86,7 @@
     "accepted": ".",
     "questionable": ".",
     "declined": ".",
+    "undefined": ".",
     "unknown": "."
   },
   "date": {
@@ -108,7 +112,9 @@
     "noStart": "Bitte giff en gültig Starttiet an. Wenn en Enn angeven warrt, mutt en Starttiet angeven warrn.",
     "inPast": "Bitte giff en gültig Startdatum bzw. Startstiet an. De Startstiet muss in de Tokunft liggen.",
     "noValue": "Dat mutt mindst en Termin angeven warrn.",
-    "tooManyValues": "Dat drööft nich mehr as 100 Terminschonen angeven warrn."
+    "tooManyValues": "Dat drööft nich mehr as 100 Terminschonen angeven warrn.",
+    "from": "vun",
+    "to": "to"
   },
   "time": {
     "time": "Uhrtied",

@@ -9,6 +9,7 @@ import {LocaleService} from '../../services/locale/locale.service';
 })
 export class SuggestedDateComponent {
   @Input() date: SuggestedDate;
+  @Input() index: number;
 
   constructor(private localeService: LocaleService) {
   }
@@ -16,5 +17,4 @@ export class SuggestedDateComponent {
   getLocale(): string {
     return this.localeService.getLocale().languageCode;
   }
-
 }

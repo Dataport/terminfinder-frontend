@@ -30,6 +30,7 @@
     "testEnvironmentBanner": "This is a test environment of {{value}}. Please do not fill in personal data."
   },
   "poll": {
+    "actions": "Actions",
     "poll": "Poll",
     "create": "Create poll",
     "createNew": "Create new poll",
@@ -49,10 +50,14 @@
     "editSaveLastStep": "In step \"4\" you can save your changes.",
     "answer": "Participate at poll of",
     "addParticipant": "Add participant",
+    "deleteParticipant": "Remove participant",
+    "editParticipant": "Edit participant",
     "noParticipation": "I can't participate",
     "send": "Send",
     "downloadIcs": "Download this date as .ics-File to import it to your calendar. Check the voting of your participants in the description.",
     "downloadCsv": "Download the table of participants and their voting. You can import it into Excel and plan your event.",
+    "downloadCsvDescription": "Download table as csv file",
+    "caption": "Appointments overview",
     "title": {
       "title": "Title",
       "set": "Set a title!",
@@ -93,6 +98,7 @@
     "accepted": "accepted",
     "questionable": "questionable",
     "declined": "declined",
+    "undefined": "undefined",
     "unknown": "unknown"
   },
   "date": {
@@ -115,7 +121,9 @@
     "noStart": "Please set a start date. If there is an end date, there has to be a start date.",
     "inPast": "Please enter a valid start date. The start date must be in the future.",
     "noValue": "There must be at least one date.",
-    "tooManyValues": "More than 100 dates are not possible."
+    "tooManyValues": "More than 100 dates are not possible.",
+    "from": "from",
+    "to": "to"
   },
   "time": {
     "time": "Time",

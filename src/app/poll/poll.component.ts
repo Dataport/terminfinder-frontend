@@ -29,10 +29,8 @@ export class PollComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private logger: Logger,
     private dataRepoService: DataRepositoryService,
-    private modelTransformer: ModelTransformerService,
     private appStateService: AppStateService,
     public formHelper: PollFormHelperService
   ) {

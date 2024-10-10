@@ -30,6 +30,7 @@
     "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwenden Sie keine personenbezogenen Daten."
   },
   "poll": {
+    "actions": "Aktionen",
     "poll": "Umfrage",
     "create": "Umfrage erstellen",
     "createNew": "Neue Umfrage erstellen",
@@ -49,10 +50,14 @@
     "editSaveLastStep": "In Schritt \"4\" können Sie alle Änderungen speichern.",
     "answer": "Beantworten Sie die Umfrage von",
     "addParticipant": "Teilnehmer:in hinzufügen",
+    "deleteParticipant": "Teilnehmende entfernen",
+    "editParticipant": "Teilnehmer:in bearbeiten",
     "noParticipation": "Ich kann nicht teilnehmen",
     "send": "Abschicken",
     "downloadIcs": "Laden Sie dieses Datum als .ics-Datei herunter und importieren Sie es in deinen Kalender. Erfahren Sie in der Beschreibung des Termins, wie die Teilnehmer:innen abgestimmt haben.",
     "downloadCsv": "Laden Sie die Tabelle der Teilnehmenden mit ihren Entscheidungen herunter. Sie können sie in Excel importieren, um Ihre Veranstaltung besser zu planen.",
+    "downloadCsvDescription": "Tabelle als csv Datei herunterladen",
+    "caption": "Terminübersicht",
     "title": {
       "title": "Titel",
       "set": "Geben Sie Ihrer Umfrage einen Titel!",
@@ -93,6 +98,7 @@
     "accepted": "zugesagt",
     "questionable": "vorbehaltlich",
     "declined": "abgelehnt",
+    "undefined": "unbekannt",
     "unknown": "unbekannt"
   },
   "date": {
@@ -115,7 +121,9 @@
     "noStart": "Bitte geben Sie eine gültige Startzeit an. Wenn eine Endezeit angegeben wird, muss eine Startzeit angegeben werden.",
     "inPast": "Bitte geben Sie ein gültiges Startdatum bzw. Startzeitpunkt an. Der Startzeitpunkt muss in der Zukunft liegen.",
     "noValue": "Es muss mindestens eine Terminoption angegeben werden.",
-    "tooManyValues": "Es dürfen nicht mehr als 100 Terminoptionen angegeben werden."
+    "tooManyValues": "Es dürfen nicht mehr als 100 Terminoptionen angegeben werden.",
+    "from": "von",
+    "to": "bis"
   },
   "time": {
     "time": "Uhrzeit",

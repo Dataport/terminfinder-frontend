@@ -90,10 +90,10 @@
             <!-- suggested date -->
             <td class="suggested-date pl-3">
               <div class="row g-0">
-                <div class="col-9">
-                  <app-suggested-date [date]="date"></app-suggested-date>
+                <div class="col-8">
+                  <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
                 </div>
-                <div class="col-3 d-flex justify-content-center align-items-center">
+                <div class="col-4 d-flex justify-content-center align-items-center">
                 <button
                   (click)="formHelper.downloadCal(date, i)"
                   class="download-cal btn btn-rounded btn-sm btn-light"
@@ -108,11 +108,13 @@
               </div>
             </td>
             <td class="total-participants">
-              <div class="d-inline-block voting-status-summary-image text-center">
-                <img alt="checkmark" aria-hidden="true" src="assets/status_accepted.svg">
-              </div>
-              <div class="font-weight-bold d-inline-block voting-status-summary-number">
-                {{ formHelper.getNumberOfAcceptedVotingsBySuggestedDate(date.suggestedDateId) }}
+              <div class="mx-4 d-flex justify-content-between align-items-center">
+                <div class="voting-status-summary-image">
+                  <img alt="checkmark" aria-hidden="true" src="assets/status_accepted.svg">
+                </div>
+                <div class="font-weight-bold voting-status-summary-number mx-1">
+                  {{ formHelper.getNumberOfAcceptedVotingsBySuggestedDate(date.suggestedDateId) }}
+                </div>
               </div>
             </td>
             <td class="poll-options pr-2">
@@ -121,8 +123,11 @@
                 <img
                   alt="voting-status" aria-hidden="true"
                   class="my-auto mr-3 ml-auto d-block poll-option-icon"
-                  src="assets/status_{{ formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
-          date.suggestedDateId, getSelectedParticipant().participantId)}}.svg">
+                  src="assets/status_{{
+                    formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
+                      date.suggestedDateId,
+                      getSelectedParticipant().participantId)
+                    }}.svg">
               }
               @if (formHelper.hasAddOrEditParticipantForm()) {
                 @for (voting of formHelper.getParticipantFormVotings().controls; track voting; let j = $index) {
@@ -143,6 +148,29 @@
           </tr>
         }
       </tbody>
+      <tfoot class="d-table w-100">
+      <tr>
+        <td class="p-2">
+          <div class="d-flex justify-content-center align-items-center">
+            <button
+              (click)="formHelper.downloadCsv()"
+              class="download-csv btn btn-rounded btn-sm btn-light"
+              data-id="downloadCsvButtonMobile"
+              data-placement="top"
+              data-toggle="tooltip"
+              id="download-csv"
+              title="{{ 'poll.downloadCsv' | translate }}"
+              type="button"
+            >
+              <img alt="" aria-hidden="true" src="assets/calendar_grey.svg">
+            </button>
+            <span class="font-small ms-2">
+              {{ 'poll.downloadCsvDescription' | translate }}
+            </span>
+          </div>
+        </td>
+      </tr>
+      </tfoot>
     </table>
   }
 </div>

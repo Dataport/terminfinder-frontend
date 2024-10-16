@@ -112,7 +112,7 @@ export class PollFormHelperService {
       case VotingStatusType.Declined:
         return this.translate.instant("votingStatus.declined");
       default:
-        return this.translate.instant("votingStatus.unknown");
+        return this.translate.instant("votingStatus.undefined");
     }
   }
 

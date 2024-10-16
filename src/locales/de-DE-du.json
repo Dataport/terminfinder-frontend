@@ -98,8 +98,7 @@
     "accepted": "zugesagt",
     "questionable": "vorbehaltlich",
     "declined": "abgelehnt",
-    "undefined": "unbekannt",
-    "unknown": "unbekannt"
+    "undefined": "unbekannt"
   },
   "date": {
     "date": "Termin",

@@ -32,6 +32,7 @@
           class=""
           id="{{getPrefix()}}-voting-status-declined-{{selectorId}}"
           formControlName="status"
+          [attr.name]="getPrefix() + '-voting-status-' + selectorId"
           type="radio"
           value="declined"
           [attr.aria-label]="'votingStatus.declined' | translate"
@@ -45,6 +46,7 @@
           type="radio"
           id="{{getPrefix()}}-voting-status-questionable-{{selectorId}}"
           formControlName="status"
+          [attr.name]="getPrefix() + '-voting-status-' + selectorId"
           value="questionable"
           [attr.aria-label]="'votingStatus.questionable' | translate"
           checked
@@ -58,6 +60,7 @@
           type="radio"
           id="{{getPrefix()}}-voting-status-accepted-{{selectorId}}"
           formControlName="status"
+          [attr.name]="getPrefix() + '-voting-status-' + selectorId"
           value="accepted"
           [attr.aria-label]="'votingStatus.accepted' | translate"
         >

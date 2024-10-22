@@ -1,6 +1,7 @@
 {
   "lang": {
-    "language": "Spraak"
+    "language": "Spraak",
+    "languageSelect": "Spraakutwahl"
   },
   "navigation": {
     "back": "Trügg",

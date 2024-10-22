@@ -1,6 +1,7 @@
 {
   "lang": {
-    "language": "language"
+    "language": "language",
+    "languageSelect": "select language"
   },
   "navigation": {
     "back": "back",

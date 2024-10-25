@@ -156,16 +156,31 @@
     "declaration": "Datenschutzerklärung"
   },
   "links": {
+    "admin": {
+      "copy": "Admin-Lenk koperen",
+      "copySuccess": "Admin-Lenk kopeert",
+      "description": "Mit dat folgen Lenk kannst du dien Umfraag bearbeiten.",
+      "open": "Admin-Dashboard openmaken"
+    },
+    "invite": {
+      "copy": "Inladungslink kopieren",
+      "copySuccess": "Inladungslink kopiert",
+      "description": "Mit dat folgen Lenk kannst du nochmals Brukers inladen.",
+      "open": "Umfraag openmaken"
+    },
     "done": "Wi hebben düchtig wat an de Kant sett!",
     "share": "Delen dien Umfraag",
-    "invite": "Mit dat folgen Lenk kannst du nochmals Brukers inladen.",
     "loosingLink": "Wahrschau! Wenn de Lenk nich lagert warrt, geiht he verloren!",
-    "copy": "Lenk koperen",
-    "copySuccess": "Lenk kopeert",
-    "open": "openmaken",
-    "change": "Mit dat folgen Lenk kannst du dien Umfraag bearbeiten.",
     "satisfactionSurvey": "",
-    "satisfactionSurveyButton": "Hier gehts zur Umfrage"
+    "satisfactionSurveyButton": "Hier gehts zur Umfrage",
+    "email": {
+      "send": "E-Mail versenden",
+      "addressing": "Liebe Empfänger:in",
+      "creation": "zur gemeinsamen Terminfindung habe ich eine Termin-Umfrage erstellt",
+      "participate": "Wähle passende Terminoptionen unter",
+      "greetings": "Freundliche Grüße",
+      "admin": "Dies ist die Admin-URL zur Bearbeitung folgender Umfrage"
+    }
   },
   "password": {
     "password": "Kennwoord",

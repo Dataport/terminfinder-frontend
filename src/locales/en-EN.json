@@ -199,14 +199,21 @@
     "declaration": "Privacy declaration"
   },
   "links": {
+    "admin": {
+      "copy": "Copy admin link",
+      "copySuccess": "Admin link copied",
+      "description": "You can change your poll with this link.",
+      "open": "Open admin dashboard"
+    },
+    "invite": {
+      "copy": "Copy invite link",
+      "copySuccess": "Invite link copied",
+      "description": "You can invite others to your poll with this link.",
+      "open": "Open appointment"
+    },
     "done": "Your poll has been created!",
     "share": "Share your poll with the title:",
-    "invite": "You can invite others to your poll with this link.",
     "loosingLink": "ATTENTION: If this link is not saved, it will be lost.",
-    "copy": "Copy link",
-    "copySuccess": "Link copied",
-    "open": "open",
-    "change": "You can change your poll with this link.",
     "satisfactionSurvey": "How satisfied is our service? Do you have any suggestions for making the service more enjoyable? We would be pleased if you would let us know your opinion with a few clicks. Your feedback will be collected by the development team at Dataport AöR.",
     "satisfactionSurveyButton": "Go to survey",
     "email": {

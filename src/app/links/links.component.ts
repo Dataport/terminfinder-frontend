@@ -27,8 +27,16 @@ export class LinksComponent implements OnInit {
   ) {
   }
 
+  get adminLink(): string {
+    return this.linkGeneratorService.generateAdminLink();
+  }
+
   get absoluteAdminLink(): string {
     return this.linkGeneratorService.generateAbsoluteAdminLink();
+  }
+
+  get appointmentLink(): string {
+    return this.linkGeneratorService.generateAppointmentLink();
   }
 
   get absoluteAppointmentLink(): string {
@@ -37,14 +45,6 @@ export class LinksComponent implements OnInit {
 
   ngOnInit(): void {
     this.model = this.appStateService.getAppointment();
-  }
-
-  navigate(link: string): void {
-    const anchor = document.createElement('a');
-    anchor.href = link;
-    anchor.rel = 'noopener noreferrer';
-    anchor.target = '_blank';
-    anchor.click();
   }
 
   createNewAppointment(): void {
@@ -85,14 +85,14 @@ export class LinksComponent implements OnInit {
 
   protected showToastPollLinkCopied() {
     this.showToast(
-      this.translate.instant("links.copySuccess"),
+      this.translate.instant("links.invite.copySuccess"),
       this.translate.instant("poll.poll")
     );
   }
 
   protected showToastAdminLinkCopied() {
     this.showToast(
-      this.translate.instant("links.copySuccess"),
+      this.translate.instant("links.admin.copySuccess"),
       this.translate.instant("poll.edit")
     );
   }

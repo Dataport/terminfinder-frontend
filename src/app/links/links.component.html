@@ -15,7 +15,7 @@
           class="link-description"
           data-id="inviteLinkDescription"
         >
-          {{ 'links.invite' | translate }}
+          {{ 'links.invite.description' | translate }}
         </div>
         <div class="row g-0 pb-1">
           <div
@@ -40,7 +40,6 @@
               (click)="createPollMail()"
               class="btn btn-transparent text-primary"
               data-id="inviteLinkEmail"
-              ngxClipboard
               type="button"
             >
               {{ 'links.email.send' | translate }}
@@ -53,17 +52,18 @@
               ngxClipboard
               type="button"
             >
-              {{ 'links.copy' | translate }}
+              {{ 'links.invite.copy' | translate }}
             </button>
-            <button
-              (click)="navigate(absoluteAppointmentLink)"
-              class="btn btn-transparent text-primary btn-with-image"
+            <a
+              [routerLink]="appointmentLink"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="btn btn-transparent text-primary link-with-image"
               data-id="inviteLinkNavigate"
-              type="button"
             >
-              {{ 'links.open' | translate }}
-              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
-            </button>
+              {{ 'links.invite.open' | translate }}
+              <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
+            </a>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
           class="link-description"
           data-id="adminLinkDescription"
         >
-          {{ 'links.change' | translate }}
+          {{ 'links.admin.description' | translate }}
         </div>
         <div class="row g-0 pb-1">
           <div
@@ -99,7 +99,6 @@
               (click)="createAdminMail()"
               class="btn btn-transparent text-primary"
               data-id="linkAdmin"
-              ngxClipboard
               type="button"
             >
               {{ 'links.email.send' | translate }}
@@ -112,17 +111,18 @@
               ngxClipboard
               type="button"
             >
-              {{ 'links.copy' | translate }}
+              {{ 'links.admin.copy' | translate }}
             </button>
-            <button
-              (click)="navigate(absoluteAdminLink)"
-              class="btn btn-transparent text-primary btn-with-image"
+            <a
+              [routerLink]="adminLink"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="btn btn-transparent text-primary link-with-image"
               data-id="adminLinkNavigate"
-              type="button"
             >
-              {{ 'links.open' | translate }}
-              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
-            </button>
+              {{ 'links.admin.open' | translate }}
+              <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
+            </a>
           </div>
         </div>
       </div>
@@ -133,15 +133,16 @@
         <div class="col section-container pt-3 pb-4">
           {{ 'links.satisfactionSurvey' | translate }}
           <div class="d-flex justify-content-end button-row">
-            <button
-              (click)="navigate(surveyLinkAdmin)"
-              class="btn btn-transparent text-primary btn-with-image"
+            <a
+              [href]="surveyLinkAdmin"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="btn btn-transparent text-primary link-with-image"
               data-id="surveyLinkNavigate"
-              type="button"
             >
               {{ 'links.satisfactionSurveyButton' | translate }}
-              <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
-            </button>
+              <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
+            </a>
           </div>
         </div>
       </div>

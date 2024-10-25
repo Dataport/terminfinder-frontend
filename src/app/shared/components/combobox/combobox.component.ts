@@ -135,6 +135,8 @@ export class ComboboxComponent implements AfterViewInit {
   };
 
   private setActiveIndex(index: number): void {
+    if (typeof index === 'undefined') return;
+
     this.activeIndex = index;
     this.updateOptionVisibility();
   }
@@ -209,11 +211,9 @@ export class ComboboxComponent implements AfterViewInit {
       case SelectActions.Next:
         return Math.min(this.activeIndex + 1, maxIndex);
       case SelectActions.PageUp:
-        this.activeIndex = Math.max(this.activeIndex - PAGE_SIZE, 0);
-        break;
+        return Math.max(this.activeIndex - PAGE_SIZE, 0);
       case SelectActions.PageDown:
-        this.activeIndex = Math.min(this.activeIndex + PAGE_SIZE, maxIndex);
-        break;
+        return Math.min(this.activeIndex + PAGE_SIZE, maxIndex);
       default:
         return this.activeIndex;
     }

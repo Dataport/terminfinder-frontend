@@ -56,23 +56,21 @@ export class ComboboxComponent implements AfterViewInit {
     this.selectOption(this.defaultOptionIndex);
   }
 
-  // TODO
-  // this.comboboxElem.addEventListener('blur', this.onComboBlur.bind(this));
-  // this.listboxElem.addEventListener('focusout', this.onComboBlur.bind(this));
-
   /*
    * Events
    */
 
-  onOptionMouseDown(event: FocusEvent) {
-    // Clicking an option will cause a blur event,
-    // but we don't want to perform the default keyboard blur action
+  onBlur(event: FocusEvent) {
+    // do nothing if relatedTarget is contained within listboxEl
+    if (this.listboxElem.nativeElement.contains(event.relatedTarget as Node)) {
+      return;
+    }
 
-    // TODO maybe
-    // https://stackoverflow.com/questions/12092261/prevent-firing-the-blur-event-if-any-one-of-its-children-receives-focus
-
-    // re-focus on the clicked element
-    (event.target as HTMLDivElement).focus();
+    // select current option and close
+    if (this.isOpen) {
+      this.selectOption(this.activeIndex);
+      this.setMenuState(false, false);
+    }
   };
 
   onKeyDown(event: KeyboardEvent): void {
@@ -120,8 +118,8 @@ export class ComboboxComponent implements AfterViewInit {
    * Helper functions
    */
 
-  toggleMenuState() {
-    this.setMenuState(!this.isOpen);
+  toggleMenuState(callFocus = true) {
+    this.setMenuState(!this.isOpen, callFocus);
   }
 
   setMenuState(open: boolean, callFocus = true) {
@@ -131,8 +129,9 @@ export class ComboboxComponent implements AfterViewInit {
     this.updateOptionVisibility();
 
     // move focus back to the combobox, if needed
-    // TODO
-    callFocus && this.comboboxElem.nativeElement.focus();
+    if (callFocus) {
+      this.comboboxElem.nativeElement.focus();
+    }
   };
 
   private setActiveIndex(index: number): void {
@@ -142,7 +141,7 @@ export class ComboboxComponent implements AfterViewInit {
 
   selectOption(index: number): void {
     this.setActiveIndex(index);
-    this.setMenuState(false);
+    this.setMenuState(false, false);
 
     const selectedOption = this.options[this.activeIndex];
     if (this.callback) {

@@ -70,7 +70,7 @@ export class ComboboxComponent implements AfterViewInit {
     // select current option and close
     if (this.isOpen) {
       this.selectOption(this.activeIndex);
-      this.setMenuState(false, false);
+      this.setMenuState(false);
     }
   };
 
@@ -95,7 +95,7 @@ export class ComboboxComponent implements AfterViewInit {
         break;
       case SelectActions.CloseSelect:
         this.selectOption(this.activeIndex);
-      // intentional fallthrough
+        break;
       case SelectActions.Open:
       case SelectActions.Close:
         this.toggleMenuState();

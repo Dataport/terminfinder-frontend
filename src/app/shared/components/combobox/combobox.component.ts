@@ -76,6 +76,10 @@ export class ComboboxComponent implements AfterViewInit {
 
   onKeyDown(event: KeyboardEvent): void {
     const action = this.getActionFromKey(event);
+
+    // if the event isn't detected as our `action`, then the default browser action needs to happen
+    // e.g. a user has the focus on the box and wants to move focus back- or forwards by using the tab-key
+    if (typeof action === 'undefined') return;
     if (action !== SelectActions.Type) event.preventDefault();
 
     switch (action) {

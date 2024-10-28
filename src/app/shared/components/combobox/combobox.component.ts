@@ -61,7 +61,7 @@ export class ComboboxComponent implements AfterViewInit {
    * Events
    */
 
-  onBlur(event: FocusEvent) {
+  protected onBlur(event: FocusEvent) {
     // do nothing if relatedTarget is contained within listboxEl
     if (this.listboxElem.nativeElement.contains(event.relatedTarget as Node)) {
       return;
@@ -74,7 +74,7 @@ export class ComboboxComponent implements AfterViewInit {
     }
   };
 
-  onKeyDown(event: KeyboardEvent): void {
+  protected onKeyDown(event: KeyboardEvent): void {
     const action = this.getActionFromKey(event);
 
     // if the event isn't detected as our `action`, then the default browser action needs to happen
@@ -123,11 +123,11 @@ export class ComboboxComponent implements AfterViewInit {
    * Helper functions
    */
 
-  toggleMenuState(callFocus = true) {
+  protected toggleMenuState(callFocus = true) {
     this.setMenuState(!this.isOpen, callFocus);
   }
 
-  setMenuState(open: boolean, callFocus = true) {
+  private setMenuState(open: boolean, callFocus = true) {
     if (this.isOpen === open) return;
 
     this.isOpen = open;
@@ -146,7 +146,7 @@ export class ComboboxComponent implements AfterViewInit {
     this.updateOptionVisibility();
   }
 
-  selectOption(index: number): void {
+  protected selectOption(index: number): void {
     this.setActiveIndex(index);
     this.setMenuState(false, false);
 
@@ -241,7 +241,7 @@ export class ComboboxComponent implements AfterViewInit {
   }
 
   // check if element is visible in browser view port
-  isElementInView(element: HTMLDivElement) {
+  private isElementInView(element: HTMLDivElement) {
     const bounding = element.getBoundingClientRect();
 
     return (
@@ -255,13 +255,13 @@ export class ComboboxComponent implements AfterViewInit {
   }
 
   // check if an element is currently scrollable
-  isScrollable(element: ElementRef<HTMLDivElement>) {
+  private isScrollable(element: ElementRef<HTMLDivElement>) {
     return element && element.nativeElement.clientHeight < element.nativeElement.scrollHeight;
   }
 
   // ensure a given child element is within the parent's visible scroll area
   // if the child is not visible, scroll the parent
-  maintainScrollVisibility(activeElement: ElementRef<HTMLDivElement>, scrollParent: ElementRef<HTMLDivElement>) {
+  private maintainScrollVisibility(activeElement: ElementRef<HTMLDivElement>, scrollParent: ElementRef<HTMLDivElement>) {
     const {offsetHeight, offsetTop} = activeElement.nativeElement;
     const {offsetHeight: parentOffsetHeight, scrollTop} = scrollParent.nativeElement;
 

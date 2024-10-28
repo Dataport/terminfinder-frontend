@@ -37,7 +37,7 @@
         (click)="selectOption(i)"
         [attr.aria-selected]="i === activeIndex"
       >
-        {{ option.value }}
+        {{ option.label ? option.label : option.value }}
       </div>
     }
   </div>

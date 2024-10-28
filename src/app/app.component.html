@@ -44,8 +44,8 @@
             [label]="'lang.languageSelect' | translate"
             [callback]="changeLanguage.bind(this)"
             [options]="[
-              {value: 'DE', callbackArgs: 'de-DE'},
-              {value: 'EN', callbackArgs: 'en-EN'},
+              {value: 'DE', label: 'Deutsch', callbackArgs: 'de-DE'},
+              {value: 'EN', label: 'English', callbackArgs: 'en-EN'}
             ]"
             [defaultOptionIndex]="localeService.getLocale().languageCode === 'de-DE' ? 0 : 1"
           />

@@ -122,6 +122,8 @@
                     class="invalid-message no-padding"
                     data-id="msgRequiredStartDate"
                     id="required-start-date"
+                    role="alert"
+                    aria-atomic="false"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.setStart' | translate }}
@@ -134,6 +136,8 @@
                     class="invalid-message no-padding"
                     data-id="msgInvalidStartDate"
                     id="invalid-start-date"
+                    role="alert"
+                    aria-atomic="false"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.startInvalid' | translate }}
@@ -146,6 +150,8 @@
                     class="invalid-message no-padding"
                     data-id="msgNotInFutureStartDate"
                     id="not-in-future-start-date"
+                    role="alert"
+                    aria-atomic="false"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'date.startFuture' | translate }}
@@ -207,7 +213,7 @@
                   @if ((getEndDateOfSuggestedStartDateByIndex(i).dirty
                     || getEndDateOfSuggestedStartDateByIndex(i).touched)
                   && !!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate) {
-                    <div class="invalid-message" id="invalid-date">
+                    <div class="invalid-message" id="invalid-date" role="alert" aria-atomic="false">
                       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                       {{ 'date.endInvalid' | translate }}
                     </div>
@@ -550,7 +556,13 @@
               >
             </div>
             @if (!!getDescriptionByIndex(i).invalid) {
-              <div class="invalid-message" id="description-too-long" data-id="descriptionTooLong">
+              <div
+                class="invalid-message"
+                id="description-too-long"
+                data-id="descriptionTooLong"
+                role="alert"
+                aria-atomic="false"
+              >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.description.tooLong' | translate }}
               </div>
@@ -564,19 +576,24 @@
             <div [ngClass]="{'has-error': getSuggestedDatesForm(i).invalid}"
                  class="col my-1 px-1 px-lg-3 my-1 form-group">
               @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
-                <div class="invalid-message" id="start-date-after-end-date">
+                <div class="invalid-message" id="start-date-after-end-date" role="alert" aria-atomic="false">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.startAfterEnd' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered) {
-                <div class="invalid-message" id="end-time-entered-but-no-start-time-entered">
+                <div
+                  class="invalid-message"
+                  id="end-time-entered-but-no-start-time-entered"
+                  role="alert"
+                  aria-atomic="false"
+                >
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.noStart' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
-                <div class="invalid-message" id="start-date-time-in-past">
+                <div class="invalid-message" id="start-date-time-in-past" role="alert" aria-atomic="false">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.inPast' | translate }}
                 </div>
@@ -593,13 +610,13 @@
                   && (getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched)}"
              class="col my-1 px-1 form-group">
           @if (!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray) {
-            <div class="invalid-message">
+            <div class="invalid-message" role="alert" aria-atomic="false">
               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               {{ 'date.noValue' | translate }}
             </div>
           }
           @if (!!getSuggestedDatesFromForm().errors?.invalidMaxLengthArray) {
-            <div class="invalid-message">
+            <div class="invalid-message" role="alert" aria-atomic="false">
               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
               {{ 'date.tooManyValues' | translate }}
             </div>

@@ -137,6 +137,8 @@
                               class="invalid-message ml-2"
                               data-id="noNameMsg"
                               id="no-name-add"
+                              role="alert"
+                              aria-atomic="false"
                             >
                               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                               {{ 'poll.details.name.noName' | translate }}
@@ -147,6 +149,8 @@
                               class="invalid-message"
                               data-id="nameInvalidMsg"
                               id="invalid-add-name"
+                              role="alert"
+                              aria-atomic="false"
                             >
                               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                               {{ 'poll.details.name.invalid' | translate }}
@@ -157,6 +161,8 @@
                               class="invalid-message"
                               data-id="tooLongMsg"
                               id="too-long-add"
+                              role="alert"
+                              aria-atomic="false"
                             >
                               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                               {{ 'poll.details.name.tooLong' | translate }}
@@ -274,23 +280,19 @@
                             @if (formHelper.getParticipantFormName()
                             && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
                             && !!formHelper.getParticipantFormName().errors?.required) {
-                              <div
-                                class="invalid-message" id="no-name-edit">
+                              <div class="invalid-message" id="no-name-edit" role="alert" aria-atomic="false">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                 {{ 'poll.details.name.noName' | translate }}
                               </div>
                             }
                             @if (formHelper.getParticipantFormName() && !!formHelper.getParticipantFormName().errors?.invalidName) {
-                              <div
-                                class="invalid-message"
-                                id="invalid-edit-name"
-                              >
+                              <div class="invalid-message" id="invalid-edit-name" role="alert" aria-atomic="false">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                 {{ 'poll.details.name.invalid' | translate }}
                               </div>
                             }
                             @if (formHelper.getParticipantFormName() && !!formHelper.getParticipantFormName().errors?.maxlength) {
-                              <div class="invalid-message" id="too-long-edit">
+                              <div class="invalid-message" id="too-long-edit" role="alert" aria-atomic="false">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                 {{ 'poll.details.name.tooLong' | translate }}
                               </div>

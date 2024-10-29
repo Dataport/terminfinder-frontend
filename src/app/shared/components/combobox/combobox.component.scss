@@ -44,7 +44,7 @@
 
   background-color: white;
   border: 1px solid $dark-gray;
-  border-radius: 5px;
+  border-radius: .5rem;
 }
 
 .combo-option {
@@ -55,8 +55,9 @@
   }
 
   &.option-current {
-    outline: lighten($primary, 10%) solid 0.125rem !important;
-    outline-offset: -0.125rem;
+    outline: lighten($primary, 10%) solid 0.15rem !important;
+    outline-offset: -.15rem;
+    border-radius: .5rem;
   }
 
   &[aria-selected="true"] {

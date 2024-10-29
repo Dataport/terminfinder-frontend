@@ -44,10 +44,11 @@
             [label]="'lang.languageSelect' | translate"
             [callback]="changeLanguage.bind(this)"
             [options]="[
-              {value: 'DE', label: 'Deutsch', callbackArgs: 'de-DE'},
-              {value: 'EN', label: 'English', callbackArgs: 'en-EN'}
+              {value: 'DE', label: 'Deutsch', callbackArgs: 'de-DE', dataId: 'langGerman'},
+              {value: 'EN', label: 'English', callbackArgs: 'en-EN', dataId: 'langEnglish'}
             ]"
             [defaultOptionIndex]="localeService.getLocale().languageCode === 'de-DE' ? 0 : 1"
+            [dataId]="'languageDropdown'"
           />
         </li>
       </ul>

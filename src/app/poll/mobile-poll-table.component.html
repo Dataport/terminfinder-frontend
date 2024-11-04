@@ -87,25 +87,27 @@
             <!-- suggested date -->
             <td class="suggested-date pl-3">
               <div class="row g-0">
-                <div class="col-8">
+                <div [ngClass]="formHelper.hasAddOrEditParticipantForm() ? 'col-12' : 'col-8'">
                   <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
                 </div>
-                <div class="col-4 d-flex justify-content-center align-items-center">
-                <button
-                  (click)="formHelper.downloadCal(date, i)"
-                  class="download-cal btn btn-rounded btn-sm btn-light"
-                  data-placement="top"
-                  data-toggle="tooltip"
-                  title="{{ 'poll.downloadIcs' | translate }}"
-                  type="button"
-                >
-                  <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
-                </button>
-                </div>
+                @if (!formHelper.hasAddOrEditParticipantForm()) {
+                  <div class="col-4 d-flex justify-content-center align-items-center">
+                    <button
+                      (click)="formHelper.downloadCal(date, i)"
+                      class="download-cal btn btn-rounded btn-sm btn-light"
+                      data-placement="top"
+                      data-toggle="tooltip"
+                      title="{{ 'poll.downloadIcs' | translate }}"
+                      type="button"
+                    >
+                      <img alt="{{ 'poll.downloadIcs' | translate }}" aria-hidden="true" src="assets/download.svg">
+                    </button>
+                  </div>
+                }
               </div>
             </td>
             <td class="total-participants">
-              <div class="mx-4 d-flex justify-content-between align-items-center">
+              <div class="px-1 d-flex justify-content-start align-items-center">
                 <div class="voting-status-summary-image">
                   <img alt="checkmark" aria-hidden="true" src="assets/status_accepted.svg">
                 </div>
@@ -114,7 +116,7 @@
                 </div>
               </div>
             </td>
-            <td class="poll-options pr-2">
+            <td class="poll-options">
               <!--suppress HtmlUnknownTarget the image path is generated dynamically -->
               @if (!formHelper.hasAddOrEditParticipantForm() && getSelectedParticipant()) {
                 <img

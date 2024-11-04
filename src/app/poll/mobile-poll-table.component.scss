@@ -44,9 +44,13 @@
   padding: 0;
 }
 
-.poll-table.mobile td.poll-options > img {
-  margin-left: auto;
-  margin-right: 1rem;
+.poll-table.mobile td.poll-options {
+  min-width: max-content;
+
+  > img {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
 }
 
 .voting-status-summary-image img {

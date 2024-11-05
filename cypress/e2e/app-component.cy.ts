@@ -8,7 +8,7 @@ context('app-component', () => {
   describe('Language dropdown works', () => {
     it('Has main components', () => {
       cy.get('[data-id=languageDropdown]')
-        .contains('DE')
+        .contains('Deutsch')
         .click();
 
       cy.get('[data-id=langGerman]');
@@ -18,19 +18,19 @@ context('app-component', () => {
 
     it('Changes button text', () => {
       cy.get('[data-id=languageDropdown]')
-        .contains('DE')
+        .contains('Deutsch')
         .click();
 
       cy.get('[data-id=langGerman]')
         .click();
       cy.get('[data-id=languageDropdown]')
-        .contains('DE')
+        .contains('Deutsch')
         .click();
 
       cy.get('[data-id=langEnglish]')
         .click();
       cy.get('[data-id=languageDropdown]')
-        .contains('EN')
+        .contains('English')
         .click();
     });
 
@@ -48,7 +48,7 @@ context('app-component', () => {
       cy.get('[data-id=langEnglish]')
         .click();
       cy.get('[data-id=languageDropdown]')
-        .contains('EN')
+        .contains('English')
         .click();
       cy.get('[data-id=createPollSlogan]')
         .contains('Create appointments');

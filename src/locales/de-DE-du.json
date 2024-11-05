@@ -1,6 +1,6 @@
 {
   "lang": {
-    "language": "Sprache"
+    "languageSelect": "Sprachauswahl"
   },
   "navigation": {
     "back": "Zurück",
@@ -105,7 +105,7 @@
     "dateTo": "bis {{date}}",
     "choose": "Wähle deine Termine aus!",
     "change": "Ändere deine Termine!",
-    "delete": "Lösche das Datum",
+    "delete": "Lösche die Termineingabe",
     "enter": "Termineingabe",
     "start": "Startdatum",
     "add": "Weiteres Datum hinzufügen",

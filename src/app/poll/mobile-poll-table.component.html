@@ -1,7 +1,7 @@
 <div class="container px-0">
   @if (formHelper.pollForm && formHelper.appointment) {
     <div [formGroup]="formHelper.pollForm"
-         class="row g-0 toolbar d-lg-none p-1 invalid-message-highlight" aria-live="assertive">
+         class="row g-0 toolbar d-lg-none p-1 invalid-message-highlight">
       <!-- add button ^ dropdown & edit button (only visible when _not_ in add or edit mode) -->
       @if (!formHelper.hasAddOrEditParticipantForm()) {
         <div class="col-auto mx-1">
@@ -57,22 +57,19 @@
           <div class="col">
             @if ((formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
             && !!formHelper.getParticipantFormName().errors?.required) {
-              <div
-                class="invalid-message">
+              <div class="invalid-message" role="alert" aria-atomic="false">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.name.noName' | translate }}
               </div>
             }
             @if (!!formHelper.getParticipantFormName().errors?.invalidName) {
-              <div class="invalid-message"
-                   id="invalid-add-name"
-              >
+              <div class="invalid-message" id="invalid-add-name" role="alert" aria-atomic="false">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.name.invalid' | translate }}
               </div>
             }
             @if (!!formHelper.getParticipantFormName().errors?.maxlength) {
-              <div class="invalid-message">
+              <div class="invalid-message" role="alert" aria-atomic="false">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.details.name.tooLong' | translate }}
               </div>

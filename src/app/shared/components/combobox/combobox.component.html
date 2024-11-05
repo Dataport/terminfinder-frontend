@@ -1,0 +1,48 @@
+<div #combo class="combo" [ngClass]="{'open': isOpen}">
+  <div id="combo-label" class="combo-label visually-hidden">
+    {{ label }}
+  </div>
+  <div
+    #combobox
+    class="combobox btn px-2 d-inline-flex justify-content-between align-items-center"
+    [ngClass]="{'open': isOpen}"
+    role="combobox"
+    (click)="toggleMenuState(false)"
+    (blur)="onBlur($event)"
+    (keydown)="onKeyDown($event)"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-activedescendant]="'combo-option-' + activeIndex"
+    aria-controls="listbox"
+    aria-haspopup="listbox"
+    aria-labelledby="combo-label"
+    [attr.data-id]="dataId"
+    tabindex="0"
+  >
+    {{ this.options[activeIndex].value }}
+  </div>
+  <div
+    #listbox
+    class="listbox font-small"
+    role="listbox"
+    id="listbox"
+    tabindex="-1"
+    aria-labelledby="combo-label"
+    (focusout)="onBlur($event)"
+  >
+    @for (option of options; track option; let i = $index) {
+      <div
+        #option
+        [attr.id]="'combo-option-' + i"
+        role="option"
+        class="combo-option"
+        [ngClass]="{'option-current': i === activeIndex}"
+        (click)="selectOption(i)"
+        [attr.aria-selected]="i === activeIndex"
+        [attr.data-id]="option.dataId"
+      >
+        {{ option.label ? option.label : option.value }}
+      </div>
+    }
+  </div>
+</div>
+

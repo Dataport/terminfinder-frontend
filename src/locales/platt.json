@@ -1,6 +1,6 @@
 {
   "lang": {
-    "language": "Spraak"
+    "languageSelect": "Spraakutwahl"
   },
   "navigation": {
     "back": "Trügg",
@@ -93,7 +93,7 @@
     "dateTo": "{{date}}",
     "choose": "Wähl dien Termin ut!",
     "change": "Ännern dien Termin!",
-    "delete": "Lösch dat Datum",
+    "delete": "Lösch dien Termineingaav",
     "enter": "Termineingaav",
     "start": "Startdaag",
     "add": "Annere Datum toföög",

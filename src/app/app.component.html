@@ -39,28 +39,17 @@
                  height="height">
           </a>
         </li>
-        <li class="d-inline-block" ngbDropdown placement="bottom-right">
-          <label class="sr-only" id="language">{{ 'lang.language' | translate }}</label>
-          <button
-            class="btn"
-            data-id="languageDropdown"
-            ngbDropdownToggle
-            title="{{ 'lang.language' | translate }}"
-          >
-            @if (localeService.getLocale().languageCode === 'de-DE') {
-              DE
-            } @else if (localeService.getLocale().languageCode === 'en-EN') {
-              EN
-            }
-          </button>
-          <div aria-labelledby="language" ngbDropdownMenu>
-            <button ngbDropdownItem (click)="changeLanguage('de-DE')" class="dropdown-item" data-id="langGerman">
-              Deutsch
-            </button>
-            <button ngbDropdownItem (click)="changeLanguage('en-EN')" class="dropdown-item" data-id="langEnglish">
-              English
-            </button>
-          </div>
+        <li>
+          <app-combobox
+            [label]="'lang.languageSelect' | translate"
+            [callback]="changeLanguage.bind(this)"
+            [options]="[
+              {value: 'Deutsch', callbackArgs: 'de-DE', dataId: 'langGerman'},
+              {value: 'English', callbackArgs: 'en-EN', dataId: 'langEnglish'}
+            ]"
+            [defaultOptionIndex]="localeService.getLocale().languageCode === 'de-DE' ? 0 : 1"
+            [dataId]="'languageDropdown'"
+          />
         </li>
       </ul>
     </nav>

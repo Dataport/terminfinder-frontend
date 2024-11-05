@@ -37,7 +37,7 @@
               </label>
             </div>
           </div>
-          <div class="row g-0 invalid-message-highlight" aria-live="assertive">
+          <div class="row g-0 invalid-message-highlight">
             <div class="col-1 d-flex justify-content-end align-items-center">
               <img alt="key" class="icon m-2" src="assets/password.svg">
             </div>
@@ -58,6 +58,8 @@
                   class="offset-1 col invalid-message"
                   data-id="errorMsgSetPassword"
                   id="set-password"
+                  role="alert"
+                  aria-atomic="false"
                 >
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'password.set' | translate }}
@@ -68,6 +70,8 @@
                   class="offset-1 col invalid-message"
                   data-id="errorMsgSetMinimum"
                   id="set-minimum"
+                  role="alert"
+                  aria-atomic="false"
                 >
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'password.setMinimum' | translate }}
@@ -85,7 +89,7 @@
               </label>
             </div>
           </div>
-          <div class="row g-0 invalid-message-highlight" aria-live="assertive">
+          <div class="row g-0 invalid-message-highlight">
             <div class="col-1 d-flex justify-content-end align-items-center">
               <img alt="key" class="icon m-2" src="assets/password.svg">
             </div>
@@ -110,6 +114,8 @@
                     class="offset-1 col invalid-message"
                     data-id="errorMsgSetPassword"
                     id="set-password-repeat"
+                    role="alert"
+                    aria-atomic="false"
                   >
                     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                     {{ 'password.set' | translate }}
@@ -120,6 +126,8 @@
                       class="offset-1 col invalid-message"
                       data-id="errorMsgNoMatch"
                       id="no-match"
+                      role="alert"
+                      aria-atomic="false"
                     >
                       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                       {{ 'password.noMatch' | translate }}
@@ -130,6 +138,8 @@
                       class="offset-1 col invalid-message"
                       data-id="errorMsgSetMinimum"
                       id="set-minimum-repeat"
+                      role="alert"
+                      aria-atomic="false"
                     >
                       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                       {{ 'password.setMinimum' | translate }}

@@ -25,7 +25,7 @@
           <label class="col" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>
         </div>
         <div class="form-row mb-2">
-          <div class="col invalid-message-highlight" aria-live="assertive">
+          <div class="col invalid-message-highlight">
             <input
               required
               class="form-control"
@@ -40,6 +40,8 @@
                 class="invalid-message"
                 data-id="msgRequiredTitle"
                 id="required-title"
+                role="alert"
+                aria-atomic="false"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.title.noTitle' | translate }}
@@ -50,6 +52,8 @@
                 class="invalid-message"
                 data-id="msgInvalidTitle"
                 id="invalid-title"
+                role="alert"
+                aria-atomic="false"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.title.invalid' | translate }}
@@ -60,6 +64,8 @@
                 class="invalid-message"
                 data-id="msgLongTitle"
                 id="long-title"
+                role="alert"
+                aria-atomic="false"
               >
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                 {{ 'poll.title.tooLong' | translate }}

@@ -201,12 +201,14 @@
   "links": {
     "admin": {
       "copy": "Adminlink kopieren",
+      "copyFailed": "Adminlink konnte nicht kopiert werden",
       "copySuccess": "Adminlink kopiert",
       "description": "Mit dem folgenden Link kannst Du Deine Umfrage bearbeiten.",
       "open": "Admin-Dashboard öffnen"
     },
     "invite": {
       "copy": "Einladungslink kopieren",
+      "copyFailed": "Einladungslink konnte nicht kopiert werden",
       "copySuccess": "Einladungslink kopiert",
       "description": "Mit dem folgenden Link kannst Du weitere Nutzende einladen.",
       "open": "Umfrage öffnen"

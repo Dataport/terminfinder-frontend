@@ -158,12 +158,14 @@
   "links": {
     "admin": {
       "copy": "Admin-Lenk koperen",
+      "copyFailed": "Kunn de Admin-Lenk nich koperen",
       "copySuccess": "Admin-Lenk kopeert",
       "description": "Mit dat folgen Lenk kannst du dien Umfraag bearbeiten.",
       "open": "Admin-Dashboard openmaken"
     },
     "invite": {
       "copy": "Inladungslink kopieren",
+      "copyFailed": "Kunn de Inladungslink nich koperen",
       "copySuccess": "Inladungslink kopiert",
       "description": "Mit dat folgen Lenk kannst du nochmals Brukers inladen.",
       "open": "Umfraag openmaken"

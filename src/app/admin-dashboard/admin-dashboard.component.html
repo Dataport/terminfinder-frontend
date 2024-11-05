@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-2">
-    <img alt="Zahnrad" class="w-100" src="assets/dashboard.svg">
+    <img aria-hidden="true" alt="" class="w-100" src="assets/dashboard.svg">
   </div>
 </div>
 <div class="row justify-content-center">
@@ -51,30 +51,23 @@
                     role="link"
                   >
                     <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
-                    <img alt="pause/play symbol" class="icon" id="img_pause"
-                         src="assets/dashboard_{{isStarted ? 'pause' : 'continue'}}.svg">
+                    <img
+                      aria-hidden="true"
+                      alt=""
+                      class="icon" id="img_pause"
+                      src="assets/dashboard_{{isStarted ? 'pause' : 'continue'}}.svg">
                     @if (isStarted) {
-                      <span
-                        class="d-block font-medium text-bold"
-                        data-id="pauseText"
-                      >
-                          {{ 'poll.pause' | translate }}
-                        </span>
-                    }
-                    @if (!isStarted) {
-                      <span
-                        class="d-block font-medium text-bold"
-                        data-id="continueText"
-                      >
-                          {{ 'poll.continue' | translate }}
-                        </span>
+                      <span class="d-block font-medium text-bold" data-id="pauseText">
+                        {{ 'poll.pause' | translate }}
+                      </span>
+                    } @else {
+                      <span class="d-block font-medium text-bold" data-id="continueText">
+                        {{ 'poll.continue' | translate }}
+                      </span>
                     }
                   </button>
                 </div>
-                <div
-                  class="col-12 text-left mt-2 font-small text-dark-gray"
-                  data-id="continueEverytime"
-                >
+                <div class="col-12 text-left mt-2 font-small text-dark-gray" data-id="continueEverytime">
                   {{ 'poll.continueEverytime' | translate }}
                 </div>
               </div>
@@ -83,13 +76,10 @@
               <div class="row">
                 <div class="col col-12">
                   <a class="w-100 d-inline-block" data-id="changePollLink" routerLink="/poll-admin">
-                    <img alt="Stift" class="icon" id="img_edit" src="assets/dashboard_edit.svg">
-                    <span
-                      class="d-block font-medium text-bold"
-                      data-id="changePollText"
-                    >
-                        {{ 'poll.change' | translate }}
-                      </span>
+                    <img aria-hidden="true" alt="" class="icon" id="img_edit" src="assets/dashboard_edit.svg">
+                    <span class="d-block font-medium text-bold" data-id="changePollText">
+                      {{ 'poll.change' | translate }}
+                    </span>
                   </a>
                 </div>
                 <div class="col-12 text-left mt-2 font-small text-dark-gray" data-id="changeDetails">

@@ -58,6 +58,7 @@
     "downloadCsv": "Lade die Tabelle der Teilnehmenden mit ihren Entscheidungen herunter. Du kannst sie in Excel importieren, um deine Veranstaltung besser zu planen.",
     "downloadCsvDescription": "Tabelle als csv Datei herunterladen",
     "caption": "Terminübersicht",
+    "acceptedNum": "Zusagen an diesem Termin",
     "title": {
       "title": "Titel",
       "set": "Gib Deiner Umfrage einen Titel!",

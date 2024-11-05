@@ -2,8 +2,8 @@
 
   @if (email) {
     <section id="contact" [attr.aria-label]="'footer.navLabel.contact' | translate">
-      <a aria-hidden="true" href="mailto:{{email}}">
-        <img alt="hidden" ngSrc="assets/contact.svg" height="height" width="width">
+      <a href="mailto:{{email}}">
+        <img aria-hidden="true" alt="" ngSrc="assets/contact.svg" height="height" width="width">
       </a>
       <div>e-mail: <a href="mailto:{{email}}" id="email">{{ email }}</a></div>
     </section>
@@ -25,7 +25,7 @@
       <span class="sr-only">Github</span>
       <img
         aria-hidden="true"
-        alt="hidden"
+        alt=""
         ngSrc="assets/github-mark.svg"
         height="height"
         width="width">
@@ -37,7 +37,7 @@
       <span class="sr-only">OpenCoDE</span>
       <img
         aria-hidden="true"
-        alt="hidden"
+        alt=""
         ngSrc="assets/opencode_signet.svg"
         height="height"
         width="width">

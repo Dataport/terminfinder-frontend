@@ -204,14 +204,14 @@
       "copyFailed": "Admin link could not be copied",
       "copySuccess": "Admin link copied",
       "description": "You can change your poll with this link.",
-      "open": "Open admin dashboard"
+      "open": "Edit poll"
     },
     "invite": {
       "copy": "Copy invite link",
       "copyFailed": "Invite link could not be copied",
       "copySuccess": "Invite link copied",
       "description": "You can invite others to your poll with this link.",
-      "open": "Open appointment"
+      "open": "Open poll"
     },
     "done": "Your poll has been created!",
     "share": "Share your poll with the title:",
@@ -219,7 +219,7 @@
     "satisfactionSurvey": "How satisfied is our service? Do you have any suggestions for making the service more enjoyable? We would be pleased if you would let us know your opinion with a few clicks. Your feedback will be collected by the development team at Dataport AöR.",
     "satisfactionSurveyButton": "Go to survey",
     "email": {
-      "send": "Send mail",
+      "send": "Send by e-mail",
       "addressing": "Dear recipients",
       "creation": "I have created an appointment survey to find a common date",
       "participate": "Select suitable date options at",

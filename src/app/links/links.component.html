@@ -25,7 +25,7 @@
             {{ 'links.loosingLink' | translate }}
           </div>
         </div>
-        <div class="row g-0 link-container justify-content-end align-items-center px-2 py-1">
+        <div class="row g-0 link-container justify-content-end align-items-center px-2 py-2">
           <div class="col-12 text-primary">
             <div
               class="link"
@@ -35,38 +35,39 @@
               {{ absoluteAppointmentLink }}
             </div>
           </div>
-          <div class="col-12 d-flex justify-content-end align-items-center">
-            <button
-              (click)="createPollMail()"
-              class="btn btn-transparent text-primary"
-              data-id="inviteLinkEmail"
-              type="button"
-            >
-              {{ 'links.email.send' | translate }}
-            </button>
-            <button
-              [cbContent]="absoluteAppointmentLink"
-              (click)="showToastPollLinkCopied()"
-              class="btn btn-transparent text-primary"
-              data-id="inviteLinkCopy"
-              ngxClipboard
-              type="button"
-            >
-              {{ 'links.invite.copy' | translate }}
-            </button>
-            <a
-              [routerLink]="appointmentLink"
-              rel="noopener noreferrer"
-              target="_blank"
-              class="btn btn-transparent text-primary link-with-image"
-              data-id="inviteLinkNavigate"
-            >
-              {{ 'links.invite.open' | translate }}
-              <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
-            </a>
+          <div class="col-12 col-lg-9">
+            <div class="row g-1 flex-wrap flex-md-nowrap justify-content-end">
+              <button
+                (click)="createPollMail()"
+                class="col-12 col-md-auto btn btn-transparent text-primary"
+                data-id="inviteLinkEmail"
+                type="button"
+              >
+                {{ 'links.email.send' | translate }}
+              </button>
+              <button
                 #btnCopyAppointmentLink
+                [cbContent]="absoluteAppointmentLink"
                 (cbOnSuccess)="btnCopyAppointmentLink.focus(); showToastPollLinkCopied()"
                 (cbOnError)="btnCopyAppointmentLink.focus(); showToastPollLinkCopyFailed()"
+                class="col-12 col-md-auto btn btn-transparent text-primary"
+                data-id="inviteLinkCopy"
+                ngxClipboard
+                type="button"
+              >
+                {{ 'links.invite.copy' | translate }}
+              </button>
+              <a
+                [routerLink]="appointmentLink"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="col-12 col-md-auto btn btn-transparent text-primary link-with-image text-center align-items-center justify-content-center"
+                data-id="inviteLinkNavigate"
+              >
+                {{ 'links.invite.open' | translate }}
+                <img alt="" width="30" height="30" ngSrc="assets/icn_umfrage_erstellen_primary.svg">
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +88,7 @@
             {{ 'links.loosingLink' | translate }}
           </div>
         </div>
-        <div class="row g-0 link-container justify-content align-items-center px-2 py-1">
+        <div class="row g-0 link-container justify-content-end align-items-center px-2 py-2">
           <div class="col-12 text-primary">
             <div
               class="link"
@@ -97,38 +98,39 @@
               {{ absoluteAdminLink }}
             </div>
           </div>
-          <div class="col-12 d-flex justify-content-end align-items-center">
-            <button
-              (click)="createAdminMail()"
-              class="btn btn-transparent text-primary"
-              data-id="linkAdmin"
-              type="button"
-            >
-              {{ 'links.email.send' | translate }}
-            </button>
-            <button
-              [cbContent]="absoluteAdminLink"
-              (click)="showToastAdminLinkCopied()"
-              class="btn btn-transparent text-primary"
-              data-id="adminLinkCopy"
-              ngxClipboard
-              type="button"
-            >
-              {{ 'links.admin.copy' | translate }}
-            </button>
-            <a
-              [routerLink]="adminLink"
-              rel="noopener noreferrer"
-              target="_blank"
-              class="btn btn-transparent text-primary link-with-image"
-              data-id="adminLinkNavigate"
-            >
-              {{ 'links.admin.open' | translate }}
-              <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
-            </a>
+          <div class="col-12 col-lg-9">
+            <div class="row g-1 justify-content-end">
+              <button
+                (click)="createAdminMail()"
+                class="col-12 col-md-auto btn btn-transparent text-primary"
+                data-id="linkAdmin"
+                type="button"
+              >
+                {{ 'links.email.send' | translate }}
+              </button>
+              <button
                 #btnCopyAdminLink
+                [cbContent]="absoluteAdminLink"
                 (cbOnSuccess)="btnCopyAdminLink.focus(); showToastAdminLinkCopied()"
                 (cbOnError)="btnCopyAdminLink.focus(); showToastAdminLinkCopyFailed()"
+                class="col-12 col-md-auto btn btn-transparent text-primary"
+                data-id="adminLinkCopy"
+                ngxClipboard
+                type="button"
+              >
+                {{ 'links.admin.copy' | translate }}
+              </button>
+              <a
+                [routerLink]="adminLink"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="col-12 col-md-auto btn btn-transparent text-primary link-with-image text-center align-items-center justify-content-center"
+                data-id="adminLinkNavigate"
+              >
+                {{ 'links.admin.open' | translate }}
+                <img alt="" width="30" height="30" ngSrc="assets/icn_umfrage_erstellen_primary.svg">
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -161,7 +161,7 @@
       "copyFailed": "Kunn de Admin-Lenk nich koperen",
       "copySuccess": "Admin-Lenk kopeert",
       "description": "Mit dat folgen Lenk kannst du dien Umfraag bearbeiten.",
-      "open": "Admin-Dashboard openmaken"
+      "open": "Umfraag ännern"
     },
     "invite": {
       "copy": "Inladungslink kopieren",
@@ -176,7 +176,7 @@
     "satisfactionSurvey": "",
     "satisfactionSurveyButton": "Hier geit dat to de Umfraag",
     "email": {
-      "send": "E-Mail verschicken",
+      "send": "per E-Mail sennen",
       "addressing": "Leebe Empfänger:in",
       "creation": "to een gemeensame Terminfindung heff ick een Termin Umfraag erstellt",
       "participate": "Wähl dien passende Terminoption unner",

@@ -204,7 +204,7 @@
       "copyFailed": "Adminlink konnte nicht kopiert werden",
       "copySuccess": "Adminlink kopiert",
       "description": "Mit dem folgenden Link kannst Du Deine Umfrage bearbeiten.",
-      "open": "Admin-Dashboard öffnen"
+      "open": "Umfrage bearbeiten"
     },
     "invite": {
       "copy": "Einladungslink kopieren",
@@ -219,7 +219,7 @@
     "satisfactionSurvey": "Schenkst Du uns noch einen Augenblick? Mit Deinem Feedback können wir den Terminfinder noch besser machen. Dein Feedback wird vom Entwicklungsteam bei Dataport AöR erhoben.",
     "satisfactionSurveyButton": "Zum Feedback geben",
     "email": {
-      "send": "E-Mail versenden",
+      "send": "per E-Mail versenden",
       "addressing": "Liebe Empfänger:in",
       "creation": "zur gemeinsamen Terminfindung habe ich eine Termin-Umfrage erstellt",
       "participate": "Wähle passende Terminoptionen unter",

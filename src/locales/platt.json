@@ -172,14 +172,14 @@
     "share": "Delen dien Umfraag",
     "loosingLink": "Wahrschau! Wenn de Lenk nich lagert warrt, geiht he verloren!",
     "satisfactionSurvey": "",
-    "satisfactionSurveyButton": "Hier gehts zur Umfrage",
+    "satisfactionSurveyButton": "Hier geit dat to de Umfraag",
     "email": {
-      "send": "E-Mail versenden",
-      "addressing": "Liebe Empfänger:in",
-      "creation": "zur gemeinsamen Terminfindung habe ich eine Termin-Umfrage erstellt",
-      "participate": "Wähle passende Terminoptionen unter",
-      "greetings": "Freundliche Grüße",
-      "admin": "Dies ist die Admin-URL zur Bearbeitung folgender Umfrage"
+      "send": "E-Mail verschicken",
+      "addressing": "Leebe Empfänger:in",
+      "creation": "to een gemeensame Terminfindung heff ick een Termin Umfraag erstellt",
+      "participate": "Wähl dien passende Terminoption unner",
+      "greetings": "Fründliche Gröde",
+      "admin": "Dit is de Admin-URL to Bearbeitung folgender Umfraag"
     }
   },
   "password": {

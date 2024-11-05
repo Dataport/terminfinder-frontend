@@ -39,12 +39,15 @@
               class="btn btn-transparent p-0 border-0 btn-delete-date"
               id="removeDate-{{i}}"
               type="button"
+              title="{{ 'date.delete' | translate }} {{ i + 1 }}"
             >
               <img
-                alt="{{ 'date.delete' | translate }} {{ i + 1 }}"
-                class="icon" ngSrc="assets/delete-date.svg"
+                aria-hidden="true"
+                alt=""
+                class="icon"
+                ngSrc="assets/delete-date.svg"
                 height="height"
-                width="width"/>
+                width="width">
             </button>
           </span>
         </div>
@@ -63,13 +66,14 @@
                   'col': !getShowSuggestedDateEndDateOnDifferentDayFormValue(i)
                 }"
               >
-                <label data-id="startDateLabel"
-                       for="suggested-date-start-date-{{i}}">{{ 'date.start' | translate }}</label>
+                <label data-id="startDateLabel" for="suggested-date-start-date-{{i}}">
+                  {{ 'date.start' | translate }}
+                </label>
                 @if (!isMobileDevice) {
                   <div class="input-group date" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div (click)="datepicker_start.toggle()" class="input-group-text input-group-divider">
-                        <img alt="calendar" ngSrc="assets/calendar.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/calendar.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -93,7 +97,7 @@
                   <div class="input-group date" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img alt="Kalender" ngSrc="assets/calendar.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/calendar.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -169,7 +173,7 @@
                     <div class="input-group date">
                       <div class="input-group-prepend">
                         <div (click)="datepicker_end.toggle()" class="input-group-text input-group-divider">
-                          <img alt="Uhr" ngSrc="assets/calendar.svg" height="height" width="width">
+                          <img aria-hidden="true" alt="" ngSrc="assets/calendar.svg" height="height" width="width">
                         </div>
                       </div>
                       <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -191,7 +195,7 @@
                     <div class="input-group date" data-target-input="nearest">
                       <div class="input-group-prepend">
                         <div class="input-group-text input-group-divider">
-                          <img alt="Kalender" ngSrc="assets/calendar.svg" height="height" width="width">
+                          <img aria-hidden="true" alt="" ngSrc="assets/calendar.svg" height="height" width="width">
                         </div>
                       </div>
                       <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -199,7 +203,7 @@
                         #mobileEndDateInput
                         (input)="parseAndSetDate('endDate', mobileEndDateInput.value, i)"
                         [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
+                        [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                         [value]="getDateAsIsoString('endDate', i)"
                         appAutoFocus
                         class="form-control date" data-target-input="nearest" id="suggested-date-end-date-{{i}}"
@@ -234,14 +238,14 @@
                     <div class="input-group date">
                       <div class="input-group-prepend">
                         <div class="input-group-text input-group-divider">
-                          <img alt="Add time" ngSrc="assets/add-time.svg" height="height" width="width">
+                          <img aria-hidden="true" alt="" ngSrc="assets/add-time.svg" height="height" width="width">
                         </div>
                       </div>
                       <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
                       <button
                         (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
                         [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
+                        [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
                         class="form-control col date"
                         data-id="addTimesButton"
                         type="button"
@@ -267,7 +271,7 @@
                       <div class="input-group date">
                         <div class="input-group-prepend">
                           <div class="input-group-text input-group-divider">
-                            <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                            <img aria-hidden="true" alt="" ngSrc="assets/starttime.svg" height="height" width="width">
                           </div>
                         </div>
                         <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -287,7 +291,7 @@
                   <div class="input-group" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/starttime.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -322,7 +326,7 @@
                       <div class="input-group date">
                         <div class="input-group-prepend">
                           <div class="input-group-text input-group-divider">
-                            <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                            <img aria-hidden="true" alt="" ngSrc="assets/endtime.svg" height="height" width="width">
                           </div>
                         </div>
                         <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -342,7 +346,7 @@
                   <div class="input-group" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img alt=" clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/starttime.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -372,13 +376,13 @@
             <button
               (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
               [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
+              [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
               class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
               data-id="endAtOtherDayButton"
               type="button"
             >
               {{ 'date.endAtOtherDay' | translate }}
-              <img alt="add" ngSrc="assets/add.svg" height="height" width="width">
+              <img aria-hidden="true" alt="" ngSrc="assets/add.svg" height="height" width="width">
             </button>
           </div>
         }
@@ -396,7 +400,7 @@
                   <div class="input-group date">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img alt="Add time" ngSrc="assets/add-time.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/add-time.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -428,7 +432,7 @@
                       <div class="input-group date">
                         <div class="input-group-prepend">
                           <div class="input-group-text input-group-divider">
-                            <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                            <img aria-hidden="true" alt="" ngSrc="assets/starttime.svg" height="height" width="width">
                           </div>
                         </div>
                         <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -448,7 +452,7 @@
                   <div class="input-group" data-target-input="nearest">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img alt="clock" ngSrc="assets/starttime.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/starttime.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -484,7 +488,7 @@
                       <div class="input-group date">
                         <div class="input-group-prepend">
                           <div class="input-group-text input-group-divider">
-                            <img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                            <img aria-hidden="true" alt="" ngSrc="assets/endtime.svg" height="height" width="width">
                           </div>
                         </div>
                         <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -503,7 +507,8 @@
                 } @else {
                   <div class="input-group" data-target-input="nearest">
                     <div class="input-group-prepend">
-                      <div class="input-group-text input-group-divider"><img alt="clock" ngSrc="assets/endtime.svg" height="height" width="width">
+                      <div class="input-group-text input-group-divider">
+                        <img aria-hidden="true" alt="" ngSrc="assets/endtime.svg" height="height" width="width">
                       </div>
                     </div>
                     <!--suppress XmlDuplicatedId these duplicate ids  will never appear on the page at the same time-->
@@ -542,7 +547,7 @@
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text input-group-divider">
-                  <img ngSrc="assets/description.svg" alt="Sprechblase" height="height" width="width">
+                  <img aria-hidden="true" alt="" ngSrc="assets/description.svg" height="height" width="width">
                 </div>
               </div>
               <input
@@ -632,13 +637,14 @@
           data-id="addSuggestedDateButton"
           type="button"
         >
-          <img alt="pause/play symbol"
-               class="icon"
-               id="img_pause"
-               ngSrc="assets/add-suggested-date.svg"
-               height="height"
-               width="width"
-          >
+          <img
+            aria-hidden="true"
+            alt=""
+            class="icon"
+            id="img_pause"
+            ngSrc="assets/add-suggested-date.svg"
+            height="height"
+            width="width">
           <span class="d-block font-weight-bold text-primary">{{ 'date.add' | translate }}</span>
         </button>
       </div>

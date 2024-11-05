@@ -27,7 +27,7 @@ import {Location, NgOptimizedImage} from "@angular/common";
       <h2>{{ 'accessibility.plainLanguage.declarationOnAccessibility.header' | translate }}</h2>
       <p class="multiline mb-4" [innerHTML]="'accessibility.plainLanguage.declarationOnAccessibility.content' | translate"></p>
       <a class="back-link btn btn-secondary btn-with-image w-100 d-flex justify-content-between" href="#" (click)="location.back()">
-        <img ngSrc="../../assets/back.svg" class="back-btn" aria-hidden="true" width="width" height="2.75rem" alt="chevron-left">
+        <img aria-hidden="true" alt="" ngSrc="../../assets/back.svg" class="back-btn" width="width" height="2.75rem">
         {{ 'accessibility.plainLanguage.backToTheFuture' | translate }}
         <div class="hidden"></div>
       </a>

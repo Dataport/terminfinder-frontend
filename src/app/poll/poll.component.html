@@ -81,7 +81,7 @@
                       title="{{ 'poll.addParticipant' | translate }}"
                       type="button"
                     >
-                      <img alt="" aria-hidden="true" class="add-participant-icon" src="assets/add-user.svg">
+                      <img aria-hidden="true" alt="" class="add-participant-icon" src="assets/add-user.svg">
                     </button>
                   }
                 </td>
@@ -92,11 +92,17 @@
                       class="row g-0 justify-content-center voting-status-summary-suggestion-date align-items-center"
                     >
                       <div class="d-inline-block voting-status-summary-image">
-                        <img alt="" aria-hidden="true" class="align-text-bottom"
-                             src="assets/status_accepted.svg">
+                        <img
+                          aria-hidden="true"
+                          alt=""
+                          class="align-text-bottom"
+                          src="assets/status_accepted.svg">
                       </div>
-                      <div class="font-weight-bold d-inline-block voting-status-summary-number"
-                           id="summary-column-{{index}}">
+                      <div
+                        class="font-weight-bold d-inline-block voting-status-summary-number"
+                        id="summary-column-{{index}}"
+                        [attr.aria-description]="'poll.acceptedNum' | translate"
+                      >
                         {{ formHelper.getNumberOfAcceptedVotingsBySuggestedDate(date.suggestedDateId) }}
                       </div>
                     </div>
@@ -183,7 +189,7 @@
                             type="button"
                             aria-describedby="name-add"
                           >
-                            <img alt="" aria-hidden="true" class="icon" src="assets/trash.svg"/>
+                            <img aria-hidden="true" alt="" class="icon" src="assets/trash.svg">
                           </button>
                         </div>
                     </td>
@@ -216,20 +222,20 @@
                         </div>
                       </th>
                       <td class="td-full-height">
-                          <!-- button to edit the participant -->
-                          @if (!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused) {
-                            <div class="d-flex h-100 align-items-center justify-content-center">
-                              <button
-                                (click)="formHelper.editParticipant(participant)"
-                                class="btn btn-transparent p-0 border-0"
-                                id="editButton-{{index}}"
-                                type="button"
-                                title="{{ 'poll.editParticipant' | translate}}"
-                              >
-                                <img aria-hidden="true" alt="" class="icon icon-edit" src="assets/edit.svg"/>
-                              </button>
-                            </div>
-                          }
+                        <!-- button to edit the participant -->
+                        @if (!formHelper.hasAddParticipantForm() && !formHelper.hasEditParticipantForm() && !isAppointmentPaused) {
+                          <div class="d-flex h-100 align-items-center justify-content-center">
+                            <button
+                              (click)="formHelper.editParticipant(participant)"
+                              class="btn btn-transparent p-0 border-0"
+                              id="editButton-{{index}}"
+                              type="button"
+                              title="{{ 'poll.editParticipant' | translate}}"
+                            >
+                              <img aria-hidden="true" alt="" class="icon icon-edit" src="assets/edit.svg">
+                            </button>
+                          </div>
+                        }
                       </td>
                       @for (date of model.suggestedDates; track date) {
                         <td class="td-full-height">
@@ -312,7 +318,7 @@
                               aria-describedby="name-edit"
                               title="{{ 'poll.deleteParticipant' | translate }}"
                             >
-                              <img alt="" aria-hidden="true" class="icon" src="assets/trash.svg"/>
+                              <img aria-hidden="true" alt="" class="icon" src="assets/trash.svg">
                             </button>
                           </div>
                       </td>
@@ -352,7 +358,7 @@
                     title="{{ 'poll.downloadCsv' | translate }}"
                     type="button"
                   >
-                    <img alt="" aria-hidden="true" src="assets/calendar_grey.svg">
+                    <img aria-hidden="true" alt="" src="assets/calendar_grey.svg">
                   </button>
                   <span class="font-small">
                     {{ 'poll.downloadCsvDescription' | translate }}
@@ -370,7 +376,7 @@
                       title="{{ 'poll.downloadIcs' | translate }}"
                       type="button"
                     >
-                      <img alt="" aria-hidden="true" src="assets/download.svg">
+                      <img aria-hidden="true" alt="" src="assets/download.svg">
                     </button>
                   </td>
                 }
@@ -395,7 +401,7 @@
                   type="button"
                 >
                   {{ 'links.satisfactionSurveyButton' | translate }}
-                  <img alt="create" src="assets/icn_umfrage_erstellen_primary.svg">
+                  <img aria-hidden="true" alt="" src="assets/icn_umfrage_erstellen_primary.svg">
                 </button>
               </div>
             </div>
@@ -426,7 +432,7 @@
             @if (formHelper.hasParticipantVotings()) {
               <div
                 class="col-3 d-inline-flex align-items-center justify-content-end text-right mr-4">
-                <img alt="" aria-hidden="true" class="circle-tag" src="assets/status_accepted.svg">
+                <img aria-hidden="true" alt="" class="circle-tag" src="assets/status_accepted.svg">
                 <div class="font-weight-bold voting-status-summary-added-participants pe-3" data-id="addedParticipation">
                   {{ formHelper.getNumberOfVotingsWithVotingStatusAcceptedOfAddedParticipant() | leadingZero: 2 }}
                 </div>

@@ -2,7 +2,14 @@
   <header class="row justify-content-center align-items-center" id="head">
     <a class="col-2 col-md-3 w-auto" routerLink="/">
       <span class="sr-only">{{ 'header.home' | translate }}</span>
-      <img alt="Logo" data-id="headerLogo" id="logo" ngSrc="assets/logo.svg" height="height" width="width">
+      <img
+        aria-hidden="true"
+        alt=""
+        data-id="headerLogo"
+        id="logo"
+        ngSrc="assets/logo.svg"
+        height="height"
+        width="width">
     </a>
     <div class="col header-title h1" data-id="headerTitle">
       {{ headlineHome }}
@@ -17,11 +24,12 @@
             title="{{ 'header.navItems.signLanguage.buttonLabel' | translate }}"
           >
             <span class="sr-only">{{ 'header.navItems.signLanguage.buttonLabel' | translate }}</span>
-            <img alt="hands"
-                 aria-hidden="true"
-                 ngSrc="assets/sign-language.svg"
-                 width="width"
-                 height="height">
+            <img
+              aria-hidden="true"
+              alt=""
+              ngSrc="assets/sign-language.svg"
+              width="width"
+              height="height">
           </a>
         </li>
         <li>
@@ -32,11 +40,12 @@
             title="{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}"
           >
             <span class="sr-only">{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}</span>
-            <img alt="hands"
-                 aria-hidden="true"
-                 ngSrc="assets/book.svg"
-                 width="width"
-                 height="height">
+            <img
+              aria-hidden="true"
+              alt=""
+              ngSrc="assets/book.svg"
+              width="width"
+              height="height">
           </a>
         </li>
         <li>

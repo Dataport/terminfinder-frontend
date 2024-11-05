@@ -58,6 +58,7 @@
     "downloadCsv": "Download the table of participants and their voting. You can import it into Excel and plan your event.",
     "downloadCsvDescription": "Download table as csv file",
     "caption": "Appointments overview",
+    "acceptedNum": "Confirmations on this date",
     "title": {
       "title": "Title",
       "set": "Set a title!",

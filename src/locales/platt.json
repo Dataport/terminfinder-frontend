@@ -53,6 +53,7 @@
     "downloadCsv": "Lader de Tabelle vun alle Deelnehmer mit deren Entscheedungen rünner. De Datei kanns du inn Excel importeern, um dien Veranstaltung bedder to planen",
     "downloadCsvDescription": "Tabelle als csv Datei rünnerladen",
     "caption": "Terminöversicht",
+    "acceptedNum": "Tosaagen an disse Termin",
     "title": {
       "title": "Titel",
       "set": "Geev Diner Umfraag en Titel!",

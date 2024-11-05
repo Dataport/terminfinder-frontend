@@ -26,8 +26,7 @@ import {DGoLiveVideoPlayerComponent} from "../shared/components/video-player/d-g
       }
 
       <a class="back-link btn btn-secondary btn-with-image w-100 d-flex justify-content-between" href="#" (click)="location.back()">
-        <img ngSrc="../../assets/back.svg" class="back-btn" aria-hidden="true" width="width" height="height"
-             alt="chevron-left">
+        <img aria-hidden="true" alt="" ngSrc="../../assets/back.svg" class="back-btn" width="width" height="height">
         {{ 'accessibility.signLanguage.backToTheFuture' | translate }}
         <div class="hidden"></div>
       </a>

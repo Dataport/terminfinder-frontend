@@ -64,6 +64,9 @@
               {{ 'links.invite.open' | translate }}
               <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
             </a>
+                #btnCopyAppointmentLink
+                (cbOnSuccess)="btnCopyAppointmentLink.focus(); showToastPollLinkCopied()"
+                (cbOnError)="btnCopyAppointmentLink.focus(); showToastPollLinkCopyFailed()"
           </div>
         </div>
       </div>
@@ -123,6 +126,9 @@
               {{ 'links.admin.open' | translate }}
               <img alt="" src="assets/icn_umfrage_erstellen_primary.svg">
             </a>
+                #btnCopyAdminLink
+                (cbOnSuccess)="btnCopyAdminLink.focus(); showToastAdminLinkCopied()"
+                (cbOnError)="btnCopyAdminLink.focus(); showToastAdminLinkCopyFailed()"
           </div>
         </div>
       </div>

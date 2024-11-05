@@ -22,7 +22,7 @@ export class LinksComponent implements OnInit {
     private appStateService: AppStateService,
     private linkGeneratorService: LinkGeneratorService,
     private router: Router,
-    protected translate: TranslateService,
+    private translate: TranslateService,
     private toastr: ToastrService
   ) {
   }
@@ -96,8 +96,26 @@ export class LinksComponent implements OnInit {
       this.translate.instant("poll.edit")
     );
   }
+  protected showToastAdminLinkCopyFailed() {
+    this.showToast(
+      this.translate.instant("links.admin.copyFailed"),
+      this.translate.instant("poll.edit"),
+      false
+    );
+  }
 
-  private showToast(message: string, title?: string): void {
-    this.toastr.success(message, title);
+  protected showToastPollLinkCopyFailed() {
+    this.showToast(
+      this.translate.instant("links.invite.copyFailed"),
+      this.translate.instant("poll.poll"),
+      false
+    );
+  }
+
+  private showToast(message: string, title?: string, success: boolean = true): void {
+    if (success)
+      this.toastr.success(message, title);
+    else
+      this.toastr.error(message, title);
   }
 }

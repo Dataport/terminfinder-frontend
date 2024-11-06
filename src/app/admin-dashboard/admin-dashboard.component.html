@@ -48,7 +48,8 @@
                     [ngClass]="{'disabled': isStatusDisabled}"
                     class="w-100 btn-circle"
                     data-id="statusPollButton"
-                    role="link"
+                    role="switch"
+                    [attr.aria-checked]="isStarted"
                   >
                     <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->
                     <img alt="pause/play symbol" class="icon" id="img_pause"

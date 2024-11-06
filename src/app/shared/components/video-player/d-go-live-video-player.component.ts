@@ -8,23 +8,24 @@ import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
     SanitizeUrlPipe
   ],
   template: `
-      <div id="iframe-box">
-        @if (src()) {
-          <iframe id="kaltura_player"
-                  [src]="src() | sanitizeUrl"
-                  width="608"
-                  height="402"
-                  allowfullscreen
-                  webkitallowfullscreen
-                  mozAllowFullScreen
-                  allow="autoplay *; fullscreen *; encrypted-media *"
-                  sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation"
-                  [title]="title()">
-          </iframe>
-        } @else {
-          <p>no video source provided</p>
-        }
-      </div>
+    <div id="iframe-box">
+      @if (src()) {
+        <iframe
+          id="kaltura_player"
+          [src]="src() | sanitizeUrl"
+          width="608"
+          height="402"
+          allowfullscreen
+          webkitallowfullscreen
+          mozAllowFullScreen
+          allow="autoplay *; fullscreen *; encrypted-media *"
+          sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation"
+          [title]="title()">
+        </iframe>
+      } @else {
+        <p>no video source provided</p>
+      }
+    </div>
   `,
   styles: `
     #kaltura_player {

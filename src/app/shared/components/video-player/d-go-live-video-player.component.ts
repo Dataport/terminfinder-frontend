@@ -1,15 +1,17 @@
-import {Component, inject, input} from '@angular/core';
-import {DomSanitizer} from "@angular/platform-browser";
+import {Component, input} from '@angular/core';
+import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
 
 @Component({
   selector: 'app-video-player',
   standalone: true,
-  imports: [],
+  imports: [
+    SanitizeUrlPipe
+  ],
   template: `
       <div id="iframe-box">
         @if (src()) {
           <iframe id="kaltura_player"
-                  [src]="domSanitizer.bypassSecurityTrustResourceUrl(src())"
+                  [src]="src() | sanitizeUrl"
                   width="608"
                   height="402"
                   allowfullscreen
@@ -40,8 +42,6 @@ import {DomSanitizer} from "@angular/platform-browser";
   `
 })
 export class DGoLiveVideoPlayerComponent {
-  protected readonly domSanitizer = inject(DomSanitizer);
-
   src = input.required<string>();
   title = input<string>('');
 }

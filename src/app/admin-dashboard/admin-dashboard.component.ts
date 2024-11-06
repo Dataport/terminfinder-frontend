@@ -36,20 +36,25 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   public toggleStatus(): void {
-    this.isStatusDisabled = true;
-    this.dataRepoService.updateAppointmentStatus(
-      this.model.adminId, this.isStarted ? AppointmentStatusType.Paused : AppointmentStatusType.Started)
+    const statusType = this.isStarted
+      ? AppointmentStatusType.Paused
+      : AppointmentStatusType.Started;
+
+    this.dataRepoService
+      .updateAppointmentStatus(this.model.adminId, statusType)
       .then((result: ApiAppointment) => {
         this.logger.debug(`Status der Umfrage erfolgreich gesetzt; neuer Status: ${JSON.stringify(result.status)}`, result);
         this.model = ModelTransformerService.transformApiAppointmentToAppointment(result);
         this.appStateService.updateAppointment(this.model);
         this.isStarted = this.model.status === AppointmentStatusType.Started;
         this.isStatusDisabled = false;
-      }).catch((err: string) => {
-      this.apiError = {
-        message: `Fehler beim Abschicken der Daten zum Server: ${err}`,
-        messageType: MessageType.ERROR
-      };
-    });
+      })
+      .catch((err: string) => {
+        this.isStatusDisabled = true;
+        this.apiError = {
+          message: `Fehler beim Abschicken der Daten zum Server: ${err}`,
+          messageType: MessageType.ERROR
+        };
+      });
   }
 }

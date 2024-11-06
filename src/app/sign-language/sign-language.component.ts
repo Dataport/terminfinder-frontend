@@ -15,12 +15,12 @@ import {DGoLiveVideoPlayerComponent} from "../shared/components/video-player/d-g
   ],
   template: `
     <div class="d-flex flex-column px-4">
-      <h2>{{ 'accessibility.signLanguage.header' | translate }}</h2>
+      <h1>{{ 'accessibility.signLanguage.header' | translate }}</h1>
       <p>{{ 'accessibility.signLanguage.content' | translate }}</p>
 
       @for (video of videos; track video) {
         <div class="w-100 mb-3">
-          <h3 class="my-4">{{ video.titleTranslateString | translate }}</h3>
+          <h2 class="my-4">{{ video.titleTranslateString | translate }}</h2>
           <app-video-player [src]="video.src" [title]="video.titleTranslateString | translate"></app-video-player>
         </div>
       }

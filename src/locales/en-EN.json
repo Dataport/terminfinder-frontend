@@ -266,6 +266,7 @@
     "navLabel": {
       "contact": "Contact",
       "imprint": "Imprint",
+      "accessibility": "Declaration on accessibility",
       "ossCode": "Links to the source code",
       "reference": "Reference"
     },

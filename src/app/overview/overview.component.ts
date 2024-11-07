@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {Appointment as ApiAppointment, SuggestedDate as ApiSuggestedDate} from '../shared/models/api-data-v1-dto';
 import {DataRepositoryService} from '../shared/services/data-service';
 import {ModelTransformerService} from '../shared/services/transformer';
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-overview',
@@ -24,11 +25,14 @@ export class OverviewComponent implements OnInit {
     private modelTransformer: ModelTransformerService,
     @Inject(LOCALE_ID) private localeId: string,
     private router: Router,
-    private logger: Logger) {
+    private logger: Logger,
+    private routeTitle: RouteTitleService
+  ) {
   }
 
   ngOnInit() {
     this.model = this.appStateService.getAppointment();
+    this.routeTitle.setTitle('poll.checkData');
   }
 
   sendCreateAppointment(): void {

@@ -7,6 +7,7 @@ import {AppointmentStatusType} from '../shared/models/appointmentStatusType';
 import {DataRepositoryService} from '../shared/services/data-service';
 import {Logger} from '../shared/services/logging';
 import {ModelTransformerService} from '../shared/services/transformer';
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -23,7 +24,8 @@ export class AdminDashboardComponent implements OnInit {
     private appStateService: AppStateService,
     private dataRepoService: DataRepositoryService,
     private logger: Logger,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private routeTitle: RouteTitleService
   ) {
   }
 
@@ -33,6 +35,7 @@ export class AdminDashboardComponent implements OnInit {
       this.isStarted = this.model.status === AppointmentStatusType.Started;
       this.appStateService.updateAppointment(data.appointment);
     });
+    this.routeTitle.setTitle('poll.configure');
   }
 
   public toggleStatus(): void {

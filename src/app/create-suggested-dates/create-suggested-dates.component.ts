@@ -22,6 +22,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 import * as MobileDetect from 'mobile-detect';
 import {NullableUtils} from "../shared/utils";
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-create-suggested-dates',
@@ -66,12 +67,15 @@ export class CreateSuggestedDatesComponent implements OnInit {
   );
   now: moment.Moment = new DateTimeGeneratorService().now();
 
-  constructor(private dataRepoService: DataRepositoryService,
-              private appStateService: AppStateService,
-              @Inject(LOCALE_ID) private localeId: string,
-              private router: Router,
-              private logger: Logger,
-              private dateTimeGenerator: DateTimeGeneratorService) {
+  constructor(
+    private dataRepoService: DataRepositoryService,
+    private appStateService: AppStateService,
+    @Inject(LOCALE_ID) private localeId: string,
+    private router: Router,
+    private logger: Logger,
+    private dateTimeGenerator: DateTimeGeneratorService,
+    private routeTitle: RouteTitleService
+  ) {
     moment.locale(this.localeId);
   }
 
@@ -102,6 +106,12 @@ export class CreateSuggestedDatesComponent implements OnInit {
       for (let i = 0, len = this.model.length; i < len; ++i) {
         this.addExistingSuggestedDate(this.model[i]);
       }
+    }
+
+    if (this.isAdmin) {
+      this.routeTitle.setTitle('date.change');
+    } else {
+      this.routeTitle.setTitle('date.choose');
     }
   }
 

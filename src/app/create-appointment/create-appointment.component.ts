@@ -7,6 +7,7 @@ import {Logger} from '../shared/services/logging';
 import {ValidatorConstants} from '../shared/constants/validatorConstants';
 import {Router} from '@angular/router';
 import {invalidLocationValidator} from '../shared/validators/invalid-location.directive';
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-create-appointment',
@@ -21,8 +22,10 @@ export class CreateAppointmentComponent implements OnInit {
 
   constructor(
     private appStateService: AppStateService,
-    private logger: Logger, @Inject(LOCALE_ID) private localeId: string,
-    private router: Router
+    private logger: Logger,
+    @Inject(LOCALE_ID) private localeId: string,
+    private router: Router,
+    private routeTitle: RouteTitleService
   ) {
   }
 
@@ -45,6 +48,12 @@ export class CreateAppointmentComponent implements OnInit {
   ngOnInit(): void {
     this.model = this.appStateService.getAppointment();
     this.fillForm();
+
+    if (this.isAdmin) {
+      this.routeTitle.setTitle('poll.change');
+    } else {
+      this.routeTitle.setTitle('poll.addDetails');
+    }
   }
 
   public onSubmit(): void {

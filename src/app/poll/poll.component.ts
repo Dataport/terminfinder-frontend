@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {DataRepositoryService} from '../shared/services/data-service';
 import {Appointment as ApiAppointment, Participant as ApiParticipant} from '../shared/models/api-data-v1-dto';

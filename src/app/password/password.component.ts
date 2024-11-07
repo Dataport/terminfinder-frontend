@@ -3,6 +3,7 @@ import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-password',
@@ -20,7 +21,8 @@ export class PasswordComponent implements OnInit {
   constructor(
     private appStateService: AppStateService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private routeTitle: RouteTitleService
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
@@ -37,6 +39,7 @@ export class PasswordComponent implements OnInit {
         Validators.required
       ])
     });
+    this.routeTitle.setTitle('settings.additional');
   }
 
   onSubmit() {

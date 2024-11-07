@@ -12,6 +12,7 @@ import {PollFormHelperService} from './poll-form-helper.service';
 import {UserNotification, userNotifications} from '../../userNotifications';
 import {environment} from '../../environments/environment';
 import * as moment from 'moment';
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-poll',
@@ -32,7 +33,8 @@ export class PollComponent implements OnInit {
     private logger: Logger,
     private dataRepoService: DataRepositoryService,
     private appStateService: AppStateService,
-    public formHelper: PollFormHelperService
+    public formHelper: PollFormHelperService,
+    private routeTitle: RouteTitleService
   ) {
   }
 
@@ -160,12 +162,14 @@ export class PollComponent implements OnInit {
       this.isAppointmentPaused = this.model.status === AppointmentStatusType.Paused;
       this.isAppointmentPaused ? this.formHelper.getTosFormControl().disable() : this.formHelper.getTosFormControl().enable();
       this.appStateService.updateAppointment(this.model);
+      this.routeTitle.setTitle('poll.answer', this.model.name);
     })
       .catch((err: any) => {
         this.apiError = {
           message: `Fehler beim Ermitteln der Daten von der API: ${err}`,
           messageType: MessageType.ERROR
         };
+        this.routeTitle.setTitle('poll.answer');
       });
   }
 }

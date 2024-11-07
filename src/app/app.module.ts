@@ -76,15 +76,35 @@ import {PlainLanguageComponent} from "./plain-language/plain-language.component"
 import {AdIconsComponent} from "./shared/components/ad-icons/ad-icons.component";
 import {SignLanguageComponent} from "./sign-language/sign-language.component";
 import {TimeInputDirective} from "./shared/directives/time-input.directive";
-import {ToastrModule, provideToastr} from "ngx-toastr";
+import {provideToastr, ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
 
 export const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'create', component: CreateAppointmentComponent, canActivate: [TitleRequiredGuard], canDeactivate: [CanDeactivateGuard]},
-  {path: 'dates', component: CreateSuggestedDatesComponent, canActivate: [NameRequiredGuard], canDeactivate: [CanDeactivateGuard]},
-  {path: 'settings', component: SettingsComponent, canActivate: [DatesRequiredGuard], canDeactivate: [CanDeactivateGuard]},
-  {path: 'overview', component: OverviewComponent, canActivate: [DatesRequiredGuard], canDeactivate: [CanDeactivateGuard]},
+  {path: 'home', component: HomeComponent, title: environment.title},
+  {
+    path: 'create',
+    component: CreateAppointmentComponent,
+    canActivate: [TitleRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'dates',
+    component: CreateSuggestedDatesComponent,
+    canActivate: [NameRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    canActivate: [DatesRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'overview',
+    component: OverviewComponent,
+    canActivate: [DatesRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
   {
     path: 'links',
     component: LinksComponent,

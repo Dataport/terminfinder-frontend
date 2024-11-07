@@ -6,6 +6,7 @@ import {LinkGeneratorService} from '../shared/services/generators';
 import {environment} from '../../environments/environment';
 import {TranslateService} from "@ngx-translate/core";
 import {ToastrService} from "ngx-toastr";
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-links',
@@ -23,7 +24,8 @@ export class LinksComponent implements OnInit {
     private linkGeneratorService: LinkGeneratorService,
     private router: Router,
     private translate: TranslateService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private routeTitle: RouteTitleService
   ) {
   }
 
@@ -45,6 +47,7 @@ export class LinksComponent implements OnInit {
 
   ngOnInit(): void {
     this.model = this.appStateService.getAppointment();
+    this.routeTitle.setTitle('links.done');
   }
 
   createNewAppointment(): void {

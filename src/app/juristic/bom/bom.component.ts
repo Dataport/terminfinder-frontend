@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {BomFile, LicenseSummary} from '../../shared/models';
+import {RouteTitleService} from "../../shared/services/route-title.service";
 
 type AmountOfLicencesElement = { license: string, amount: number }
 
@@ -10,12 +11,16 @@ type AmountOfLicencesElement = { license: string, amount: number }
   templateUrl: './bom.component.html',
   styleUrls: ['./bom.component.scss']
 })
-export class BomComponent {
+export class BomComponent implements OnInit {
 
   amountOfLicences: AmountOfLicencesElement[] = [{license: 'Keine Lizenz gefunden', amount: 0}];
   summary: LicenseSummary[] = [];
 
-  constructor(private location: Location, private http: HttpClient) {
+  constructor(
+    private location: Location,
+    private http: HttpClient,
+    private routeTitle: RouteTitleService
+  ) {
     this.http.get<BomFile>('./sbom.json').subscribe((licenses) => {
       licenses.components.sort((a, b) => (a.group + a.name).localeCompare(b.group + b.name));
       licenses.components.forEach(component => {
@@ -54,6 +59,10 @@ export class BomComponent {
       });
       console.log('amount: ', this.amountOfLicences);
     });
+  }
+
+  ngOnInit(): void {
+    this.routeTitle.setTitle('imprint.oss');
   }
 
   back(): void {

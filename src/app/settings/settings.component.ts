@@ -5,6 +5,7 @@ import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {Router} from '@angular/router';
 import {invalidPasswordValidator} from '../shared/validators/invalid-password.directive';
 import {NullableUtils} from '../shared/utils';
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-settings',
@@ -23,7 +24,8 @@ export class SettingsComponent implements OnInit {
   constructor(
     private appStateService: AppStateService,
     private router: Router,
-    private fb: UntypedFormBuilder
+    private fb: UntypedFormBuilder,
+    private routeTitle: RouteTitleService
   ) {
   }
 
@@ -80,6 +82,12 @@ export class SettingsComponent implements OnInit {
         this.removeValidators();
       }
     });
+
+    if (this.isAdmin) {
+      this.routeTitle.setTitle('settings.change');
+    } else {
+      this.routeTitle.setTitle('settings.additional');
+    }
   }
 
   public hasPassword(): AbstractControl {

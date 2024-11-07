@@ -1,7 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterLink} from "@angular/router";
 import {Location, NgOptimizedImage} from "@angular/common";
+import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-plain-language',
@@ -35,6 +36,13 @@ import {Location, NgOptimizedImage} from "@angular/common";
   `,
   styleUrl: './plain-language.component.scss'
 })
-export class PlainLanguageComponent {
+export class PlainLanguageComponent implements OnInit {
   protected readonly location = inject(Location);
+
+  constructor(private routeTitle: RouteTitleService) {
+  }
+
+  ngOnInit(): void {
+    this.routeTitle.setTitle('accessibility.plainLanguage.header');
+  }
 }

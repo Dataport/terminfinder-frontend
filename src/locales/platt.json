@@ -141,13 +141,13 @@
       "header": "Gebärdensprache",
       "videos": {
         "0": {
-          "title": "Erklärung zur Barrierefreiheit"
+          "title": "Erklärung to Barrierefrieheet"
         },
         "1": {
-          "title": "Inhalt der Webseite"
+          "title": "Inhalt vun de Websied"
         },
         "2": {
-          "title": "Navigation auf der Webseite"
+          "title": "Navigation ob de Websied"
         }
       }
     }
@@ -223,6 +223,7 @@
     "navLabel": {
       "contact": "Kontakt",
       "imprint": "Impressum",
+      "accessibility": "Erklärung to Barrierefrieheet",
       "ossCode": "Lenks zum Quellcode",
       "reference": "Referenz"
     },

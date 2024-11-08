@@ -20,7 +20,7 @@
   </div>
 }
 @if (formHelper) {
-  <form [formGroup]="formHelper.pollForm">
+  <form [formGroup]="formHelper.pollForm" [attr.aria-label]="'poll.participate' | translate">
     <div class="row mx-md-3 mx-sm-1">
       <div class="col p-sm-2">
         @if (model) {

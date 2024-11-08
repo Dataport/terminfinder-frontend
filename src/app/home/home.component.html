@@ -17,12 +17,14 @@
       </h1>
     </div>
     <div class="row g-0 justify-content-center">
-      <form (ngSubmit)="onSubmit()"
-            [formGroup]="titleForm"
-            class="col"
-            [attr.aria-label]="'home.formLabel' | translate">
+      <form
+        (ngSubmit)="onSubmit()"
+        [formGroup]="titleForm"
+        class="col"
+        aria-labelledby="create-poll-label"
+      >
         <div class="form-row justify-content-center">
-          <label class="col" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>
+          <label class="col" id="create-poll-label" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>
         </div>
         <div class="form-row mb-2">
           <div class="col invalid-message-highlight">

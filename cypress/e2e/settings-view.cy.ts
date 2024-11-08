@@ -10,7 +10,7 @@ context('settings-view', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=stepperComponent]');
-      cy.get('[data-id=addDetailsHeading]');
+      cy.get('[data-id=settingsAdditionalHeading]');
 
       cy.get('[data-id=generatePassword]');
       cy.get('[data-id=securePollLabel]');

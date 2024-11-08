@@ -15,7 +15,7 @@ context('create-dates-view', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
       cy.get('[data-id=stepperComponent]');
-      cy.get('[data-id=addDetailsHeading]');
+      cy.get('[data-id=dateChooseHeading]');
       cy.get('[data-id=enterDate]');
       cy.get('[data-id=startDateLabel]');
       cy.get('[data-id=startDateInput]');
@@ -38,7 +38,7 @@ context('create-dates-view', () => {
       cy.get('[data-id=next]')
         .should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=addDetailsHeading]')
+      cy.get('[data-id=dateChooseHeading]')
         .click();
       cy.get('[data-id=msgRequiredStartDate]');
 

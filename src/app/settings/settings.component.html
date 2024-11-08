@@ -1,23 +1,27 @@
-<div class="row justify-content-center">
-  <app-stepper [currentStep]="2" data-id="stepperComponent"></app-stepper>
-</div>
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin) {
-    <h1 class="text-center mb-2" data-id="addDetailsHeading">
+    <h1 class="text-center mb-2" data-id="settingsAdditionalHeading" id="settings-additional-heading">
       {{ 'settings.additional' | translate }}
     </h1>
   } @else {
-    <h1 class="text-center">
+    <h1 class="text-center" id="settings-change-heading">
       {{ 'settings.change' | translate }}
     </h1>
   }
+</div>
+<div class="row justify-content-center">
+  <app-stepper [currentStep]="2" data-id="stepperComponent"></app-stepper>
 </div>
 @if (isAdmin) {
   <app-admin-info></app-admin-info>
 }
 <div class="row justify-content-center">
   <div class="col col-lg-9">
-    <form (ngSubmit)="onSubmit()" [formGroup]="settingsForm">
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="settingsForm"
+      [attr.aria-labelledby]="isAdmin ? 'settings-change-heading' : 'settings-additional-heading'"
+    >
       <div class="section-container p-4 pr-5">
         <div class="row g-0">
           <h2 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h2>

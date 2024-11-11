@@ -24,6 +24,10 @@ export class RouteTitleService {
       routeTitle += ` ${appendix}`;
     }
 
-    this.titleService.setTitle(`${routeTitle} - ${environment.title}`);
+    if (!NullableUtils.isStringNullOrWhitespace(environment.title)){
+      this.titleService.setTitle(`${routeTitle} - ${environment.title}`);
+    } else {
+      this.titleService.setTitle(routeTitle);
+    }
   }
 }

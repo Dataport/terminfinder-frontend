@@ -38,6 +38,7 @@ import {
   AppointmentIdRequiredGuard,
   CanDeactivateGuard,
   DatesRequiredGuard,
+  DefaultLanguageGuard,
   NameRequiredGuard,
   PasswordRequiredGuard,
   TitleRequiredGuard
@@ -131,9 +132,24 @@ export const appRoutes: Routes = [
   {path: 'admin/overview', component: AdminOverviewComponent, canActivate: [DatesRequiredGuard]},
   {path: 'admin/links', component: AdminLinksComponent, canActivate: [AppointmentIdRequiredGuard]},
   {path: 'admin/settings', component: AdminSettingsComponent, canActivate: [DatesRequiredGuard]},
-  {path: 'imprint', component: ImprintComponent},
-  {path: 'privacy', component: PrivacyComponent},
-  {path: 'accessibility', component: AccessibilityComponent},
+  {
+    path: 'imprint',
+    component: ImprintComponent,
+    canActivate: [DefaultLanguageGuard],
+    canDeactivate: [DefaultLanguageGuard]
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent,
+    canActivate: [DefaultLanguageGuard],
+    canDeactivate: [DefaultLanguageGuard]
+  },
+  {
+    path: 'accessibility',
+    component: AccessibilityComponent,
+    canActivate: [DefaultLanguageGuard],
+    canDeactivate: [DefaultLanguageGuard]
+  },
   {path: 'termsOfService', component: TermsOfServiceComponent},
   {path: 'plain-language', component: PlainLanguageComponent},
   {path: 'sign-language', component: SignLanguageComponent},

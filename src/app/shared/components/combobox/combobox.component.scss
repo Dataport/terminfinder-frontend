@@ -23,6 +23,10 @@
   &.open::after {
     transform: rotate(180deg);
   }
+
+  &.disabled {
+    border-color: transparent;
+  }
 }
 
 .open .listbox {

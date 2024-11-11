@@ -10,6 +10,7 @@ import {AppointmentProtectionResult} from '../../models/api-data-v1-dto';
 import {NullableUtils} from '../../utils';
 import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
 import {TranslateService} from "@ngx-translate/core";
+import {LocaleService} from "../locale/locale.service";
 
 @Injectable({
   providedIn: 'root'
@@ -165,5 +166,23 @@ export class PasswordRequiredGuard {
       this.appStateService.isAdmin = false;
     }
     this.appStateService.updateAppointment(appointment);
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DefaultLanguageGuard {
+  constructor(private localeService: LocaleService) {
+  }
+
+  canActivate(): boolean {
+    this.localeService.useDefaultLanguage();
+    return true;
+  }
+
+  canDeactivate(): boolean {
+    this.localeService.useStoredLanguage();
+    return true;
   }
 }

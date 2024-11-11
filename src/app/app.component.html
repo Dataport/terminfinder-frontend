@@ -51,13 +51,14 @@
         <li>
           <app-combobox
             [label]="'lang.languageSelect' | translate"
-            [callback]="changeLanguage.bind(this)"
+            [callback]="this.localeService.changeLanguage.bind(this.localeService)"
             [options]="[
               {value: 'Deutsch', callbackArgs: 'de-DE', dataId: 'langGerman'},
               {value: 'English', callbackArgs: 'en-EN', dataId: 'langEnglish'}
             ]"
             [defaultOptionIndex]="localeService.getLocale().languageCode === 'de-DE' ? 0 : 1"
             [dataId]="'languageDropdown'"
+            id="language-dropdown"
           />
         </li>
       </ul>

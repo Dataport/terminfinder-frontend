@@ -59,6 +59,13 @@ label {
   font-weight: $font-weight-bold !important;
 }
 
+// ensures correct scaling when users set custom font-sizes
+button.btn:has(img),
+.voting-status-summary-image {
+  line-height: 1 !important;
+  font-size: 1rem !important;
+}
+
 .invalid-message {
   font-size: $font-size-small-mobile;
   @include media-breakpoint-up(lg) {

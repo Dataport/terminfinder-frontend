@@ -84,25 +84,23 @@ export class LocaleService {
 
   initLanguage(lang: string) {
     if (!NullableUtils.isStringNullOrWhitespace(lang)) {
-      this.changeLanguage(lang);
+      return this.changeLanguage(lang);
     } else {
-      this.changeLanguage(navigator.language);
+      return this.changeLanguage(navigator.language);
     }
   }
 
-  changeLanguage(locale: string, setLocalStorage = true): void {
+  changeLanguage(locale: string, setLocalStorage = true) {
     this.setLocale(locale);
-
-    this.translateService
-      .use(this.getLanguageCodeWithAddressing())
-      .subscribe(_ => {});
-
-    moment.locale(this._locale.languageCode);
-    document.querySelector('html')?.setAttribute('lang', this.getIsoLanguageCode());
 
     if (setLocalStorage) {
       this.localStorageService.set('language', this._locale.languageCode);
     }
+
+    moment.locale(this._locale.languageCode);
+    document.querySelector('html')?.setAttribute('lang', this.getIsoLanguageCode());
+
+    return this.translateService.use(this.getLanguageCodeWithAddressing());
   }
 
   getLanguageCodeWithAddressing() {

@@ -3,7 +3,6 @@ import './operators';
 import {environment} from '../environments/environment';
 import {Logger} from './shared/services/logging';
 import {Title} from '@angular/platform-browser';
-import {TranslateService} from '@ngx-translate/core';
 import {LocalStorageService} from './shared/services/data-service/local-storage.service';
 import {LocaleService} from './shared/services/locale/locale.service';
 
@@ -21,7 +20,6 @@ export class AppComponent implements OnInit {
     public localeService: LocaleService,
     private logger: Logger,
     private titleService: Title,
-    private translateService: TranslateService,
     private localStorageService: LocalStorageService,
   ) {
   }
@@ -32,13 +30,13 @@ export class AppComponent implements OnInit {
 
     const lang = this.localStorageService.get('language');
     this.logger.debug('LANG: ', lang);
-    this.localeService.initLanguage(lang);
 
-    this.translateService.onLangChange
-      .subscribe(
-        _ => {},
-        _ => {
-        this.connectionError = true;
+    this.localeService
+      .initLanguage(lang)
+      .subscribe({
+        error: _ => {
+          this.connectionError = true;
+        }
       });
   }
 }

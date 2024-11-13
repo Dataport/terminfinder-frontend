@@ -60,7 +60,7 @@ context('admin-view', () => {
       cy.get('[data-cy=overviewDeleteLabel]');
       cy.get('[data-cy=overviewDeleteValue]');
 
-      cy.get('[data-id=overviewDatesDesktop]');
+      cy.get('[data-id=overviewDates]');
       cy.get('[data-id=statusPollButton]');
       cy.get('[data-id=pauseText]');
       cy.get('[data-id=continueEverytime]');

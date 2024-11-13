@@ -1,28 +1,25 @@
 @if (appointment) {
-  <div class="date-time-overview">
-    <table class="table mobile d-table d-lg-none w-100" data-id="overviewDatesMobile">
-      <tbody>
+  <div class="date-time-overview mt-2 table-responsive">
+    <table class="table table-borderless d-inline-block mt-1" data-id="overviewDates">
+      <thead>
+      <caption class="visually-hidden">{{ 'poll.caption' | translate }}</caption>
+      <tr>
         @for (date of appointment.suggestedDates; track date; let i = $index) {
-          <tr>
-            <td>
-              <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
-            </td>
-          </tr>
+          <th scope="row">
+            {{ 'date.date' | translate }} {{ i + 1 }}
+          </th>
         }
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        @for (date of appointment.suggestedDates; track date; let i = $index) {
+          <td>
+            <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
+          </td>
+        }
+      </tr>
       </tbody>
     </table>
-    <div class="table-responsive d-none d-lg-block">
-      <table class="table table-borderless desktop d-inline-block mt-3 mb-1" data-id="overviewDatesDesktop">
-        <tbody>
-        <tr>
-          @for (date of appointment.suggestedDates; track date; let i = $index) {
-            <td>
-              <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
-            </td>
-          }
-        </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 }

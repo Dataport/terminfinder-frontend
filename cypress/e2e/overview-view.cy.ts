@@ -31,7 +31,7 @@ context('overview-view', () => {
       cy.get('[data-cy=overviewDeleteLabel]');
       cy.get('[data-cy=overviewDeleteValue]');
 
-      cy.get('[data-id=overviewDatesDesktop]');
+      cy.get('[data-id=overviewDates]');
       cy.get('[data-id=back]')
         .should('be.enabled');
       cy.get('[data-id=next]')

@@ -1,32 +1,31 @@
 @import "src/default.scss";
 
-.date-time-overview table.mobile {
-  tr td {
-    border-top: 1px solid $dark-gray;
-  }
+.date-time-overview table {
+  color: $primary;
 
-  tr:first-child td {
-    border-top: none;
-  }
-}
-
-.date-time-overview table.desktop {
-  td {
-    padding: 0;
+  th {
     min-width: $suggested-date-desktop-min-width;
     max-width: $suggested-date-desktop-max-width;
-    border-right: 1px solid $dark-gray;
+
+    font-size: medium;
+    text-align: center;
+    vertical-align: middle;
   }
 
-  td:last-child {
-    border-right: none;
+  td,
+  th {
+    padding: 0;
+    border-right: 1px solid $divider-border-color;
+  }
+
+  td,
+  th {
+    &:last-child {
+      border-right: none;
+    }
   }
 }
 
 .btn .btn-next {
   min-width: 172px !important;
-}
-
-.table {
-  color: $primary;
 }

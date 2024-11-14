@@ -1,6 +1,6 @@
 <div class="container flex-grow-1">
   <header class="row justify-content-center align-items-center" id="head">
-    <a class="col-2 col-md-3 w-auto" routerLink="/">
+    <a class="col-xs-12 col-sm-6 col-lg" routerLink="/">
       <span class="sr-only">{{ 'header.home' | translate }}</span>
       <img
         aria-hidden="true"
@@ -11,10 +11,10 @@
         height="height"
         width="width">
     </a>
-    <div class="col header-title h1" data-id="headerTitle">
+    <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-id="headerTitle">
       {{ headlineHome }}
     </div>
-    <nav class="col-2 col-md-3" [attr.aria-label]="'header.navLabel' | translate">
+    <nav class="col-12 col-lg" [attr.aria-label]="'header.navLabel' | translate">
       <ul class="d-flex flex-row flex-wrap list-unstyled justify-content-end align-items-baseline gap-1 mb-0">
         <li>
           <a

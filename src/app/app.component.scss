@@ -9,10 +9,14 @@
 
 #logo {
   margin-left: 0;
-  padding-left: 0.5rem;
-  width: $head-logo-width;
-  height: $head-logo-height;
+  width: 100%;
   object-fit: contain;
+  max-height: $head-logo-height;
+
+  @include media-breakpoint-up(md) {
+    width: $head-logo-width;
+    height: $head-logo-height;
+  }
 }
 
 .header-title {

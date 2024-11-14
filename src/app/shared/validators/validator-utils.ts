@@ -106,8 +106,8 @@ export class ValidatorUtils {
 
   /***
    * parses the value of a control, without knowing if value is NgbDateStruct or string
-   * @param control: AbstractControl, the control to parse for its value
-   * @param localeId: string, the localeId that should be used while parsing
+   * @param control AbstractControl, the control to parse for its value
+   * @param localeId string, the localeId that should be used while parsing
    */
   public static parseDateValue(control: AbstractControl, localeId: string): moment.Moment {
     if (NullableUtils.isObjectNullOrUndefined(control)) {

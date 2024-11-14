@@ -5,6 +5,7 @@ import {Logger} from './shared/services/logging';
 import {Title} from '@angular/platform-browser';
 import {LocalStorageService} from './shared/services/data-service/local-storage.service';
 import {LocaleService} from './shared/services/locale/locale.service';
+import {NullableUtils} from "./shared/utils";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import {LocaleService} from './shared/services/locale/locale.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  protected readonly NullableUtils = NullableUtils;
 
   connectionError = false;
   headlineHome = environment.title;

@@ -11,9 +11,11 @@
         height="height"
         width="width">
     </a>
-    <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-id="headerTitle">
-      {{ headlineHome }}
-    </div>
+    @if (!NullableUtils.isStringNullOrWhitespace(headlineHome)) {
+      <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-id="headerTitle">
+        {{ headlineHome }}
+      </div>
+    }
     <nav class="col-12 col-lg" [attr.aria-label]="'header.navLabel' | translate">
       <ul class="d-flex flex-row flex-wrap list-unstyled justify-content-end align-items-baseline gap-1 mb-0">
         <li>

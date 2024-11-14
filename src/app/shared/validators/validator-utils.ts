@@ -93,7 +93,7 @@ export class ValidatorUtils {
     return {year: value.year(), month: value.month() + 1, day: value.date()};
   }
 
-  public static pad(value: number, length): string {
+  public static pad(value: number, length: number): string {
     if (NullableUtils.isObjectNullOrUndefined(value)) {
       throw new Error(`Submitted value for value is null or undefined`);
     }
@@ -101,11 +101,7 @@ export class ValidatorUtils {
       throw new Error(`Submitted value for length is null or undefined`);
     }
 
-    let val_string = String(value);
-    while (val_string.length < length) {
-      val_string = '0' + value;
-    }
-    return val_string;
+    return String(value).padStart(length, '0');
   }
 
   /***

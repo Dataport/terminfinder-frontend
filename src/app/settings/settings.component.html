@@ -26,8 +26,7 @@
         <div class="row g-0">
           <h2 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h2>
         </div>
-        <app-checkbox-field [label]="'password.securePoll' | translate" [reverse]="true" data-id="securePollLabel"
-                            formControlName="hasPassword"/>
+        <app-checkbox-field [label]="'password.securePoll' | translate" data-id="securePollLabel" formControlName="hasPassword"/>
         @if (hasPassword().value) {
           <div class="row g-0 pt-3">
             <div class="col-11 offset-1">

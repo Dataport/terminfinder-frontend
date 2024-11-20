@@ -60,7 +60,7 @@ label {
 }
 
 // ensures correct scaling when users set custom font-sizes
-button.btn:has(img),
+button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="submit"]),
 .voting-status-summary-image {
   line-height: 1 !important;
   font-size: 1rem !important;

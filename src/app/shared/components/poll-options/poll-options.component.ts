@@ -10,6 +10,7 @@ export class PollOptionsComponent {
   @Input() formGroup: UntypedFormGroup;
   @Input() selectorId: string;
   @Input() isMobile: boolean;
+  votingStatus = ['declined', 'questionable', 'accepted'];
 
   constructor() {
   }
@@ -21,5 +22,4 @@ export class PollOptionsComponent {
       return 'desktop';
     }
   }
-
 }

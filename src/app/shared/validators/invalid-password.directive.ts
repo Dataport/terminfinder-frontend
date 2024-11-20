@@ -7,7 +7,7 @@ const passwordNumberRegex = `^(?=(.*[0-9]){${ValidatorConstants.MIN_NUMBER_PASSW
 const passwordCapitalRegex = `^(?=(.*[A-Z]){${ValidatorConstants.MIN_CAPITAL_CHARS_PASSWORD},}).*$`;
 const passwordSpecialRegex =
   `^(?=(.*[${ValidatorConstants.PASSWORD_SPECIAL_CHARS}]){${ValidatorConstants.MIN_SPECIAL_CHARS_PASSWORD},}).*$`;
-const passwordLengthRegex = `^.{${ValidatorConstants.MIN_LENGHT_PASSWORD},${ValidatorConstants.MAX_LENGHT_PASSWORD}}$`;
+const passwordLengthRegex = `^.{${ValidatorConstants.MIN_LENGTH_PASSWORD},${ValidatorConstants.MAX_LENGTH_PASSWORD}}$`;
 
 export function invalidPasswordValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {

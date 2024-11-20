@@ -37,8 +37,8 @@ export class ValidatorConstants {
   /**
    * requirements for valid password
    */
-  public static readonly MIN_LENGHT_PASSWORD = 8;
-  public static readonly MAX_LENGHT_PASSWORD = 30;
+  public static readonly MIN_LENGTH_PASSWORD = 8;
+  public static readonly MAX_LENGTH_PASSWORD = 30;
   public static readonly MIN_CAPITAL_CHARS_PASSWORD = 1;
   public static readonly MIN_SPECIAL_CHARS_PASSWORD = 1;
   public static readonly MIN_NUMBER_PASSWORD = 1;

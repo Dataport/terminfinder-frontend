@@ -365,8 +365,8 @@ export class CreateSuggestedDatesComponent implements OnInit {
         },
         [
           Validators.required,
-          dateValidator(this.localeId),
-          dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator)]),
+          dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator)
+        ]),
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME]: new UntypedFormControl({
           value: startTimeValue,
           disabled: suggestedDateIdValue !== null

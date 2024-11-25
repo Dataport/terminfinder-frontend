@@ -9,7 +9,7 @@ import {
 } from '../../models/api-data-v1-dto';
 import {Appointment, Participant, SuggestedDate, Voting, VotingStatusType} from '../../models';
 import {NullableUtils} from '../../utils';
-import * as moment from 'moment';
+import moment from 'moment';
 import {ApiConstants} from '../../constants/apiConstants';
 import {AppointmentStatusType} from '../../models/appointmentStatusType';
 

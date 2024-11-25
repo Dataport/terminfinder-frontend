@@ -1,7 +1,6 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
 import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
-import {NullableUtils} from '../utils';
-import {MomentUtils} from '../utils/moment-utils';
+import {MomentUtils, NullableUtils} from '../utils';
 
 export function timeValidator(localeId: string): ValidatorFn {
   return (control: UntypedFormControl) => {

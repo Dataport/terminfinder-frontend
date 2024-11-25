@@ -1,7 +1,7 @@
 import {Inject, Injectable, LOCALE_ID} from '@angular/core';
 import {NgbDateParserFormatter, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {ValidatorUtils} from '../validators/validator-utils';
-import {MomentUtils} from '../utils/moment-utils';
+import {MomentUtils} from '../utils';
 
 @Injectable()
 export class NgbDateCustomParserFormatter extends NgbDateParserFormatter {

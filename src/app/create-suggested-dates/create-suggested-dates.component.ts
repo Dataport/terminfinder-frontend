@@ -14,12 +14,10 @@ import {suggestedDateValidator} from '../shared/validators/suggested-date-valida
 import {SuggestedDatesFormConstants} from './suggested-dates-form-constants';
 import {Appointment, SuggestedDate} from '../shared/models';
 import {ValidatorUtils} from '../shared/validators/validator-utils';
-import * as moment from 'moment';
-import {MomentUtils} from '../shared/utils';
+import moment from 'moment';
+import {MomentUtils, NullableUtils} from '../shared/utils';
 import {ApiConstants} from '../shared/constants/apiConstants';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-
-import {NullableUtils} from "../shared/utils";
 import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({

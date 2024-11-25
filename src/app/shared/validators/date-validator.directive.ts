@@ -1,6 +1,6 @@
 import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
 import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
-import * as moment from 'moment';
+import moment from 'moment';
 import {NullableUtils} from '../utils';
 import {ValidatorConstants} from '../constants/validatorConstants';
 

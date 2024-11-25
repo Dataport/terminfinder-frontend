@@ -11,7 +11,7 @@ import {AppointmentStatusType} from '../shared/models/appointmentStatusType';
 import {PollFormHelperService} from './poll-form-helper.service';
 import {UserNotification, userNotifications} from '../../userNotifications';
 import {environment} from '../../environments/environment';
-import * as moment from 'moment';
+import moment from 'moment';
 import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({

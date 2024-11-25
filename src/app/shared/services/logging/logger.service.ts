@@ -5,7 +5,7 @@ import {DateTimeGeneratorService} from '../generators';
 import {LogLevel} from './logLevel';
 import {LogInterface} from './log.interface';
 import {ConsoleProvider} from './console-provider.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import {NullableUtils} from "../../utils";
 
 @Injectable()

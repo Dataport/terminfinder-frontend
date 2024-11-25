@@ -1,9 +1,8 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import {ValidatorConstants} from '../constants/validatorConstants';
-import {NullableUtils} from '../utils';
+import {MomentUtils, NullableUtils} from '../utils';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {AbstractControl} from '@angular/forms';
-import {MomentUtils} from '../utils/moment-utils';
 
 export class ValidatorUtils {
   /**

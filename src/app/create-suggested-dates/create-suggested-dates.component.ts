@@ -1,5 +1,4 @@
 import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
-import {DataRepositoryService} from '../shared/services/data-service';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Logger} from '../shared/services/logging';
@@ -66,7 +65,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
   maxDate: string;
 
   constructor(
-    private dataRepoService: DataRepositoryService,
     private appStateService: AppStateService,
     @Inject(LOCALE_ID) private localeId: string,
     private router: Router,

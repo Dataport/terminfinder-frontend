@@ -54,11 +54,11 @@ export class MomentUtils {
    * @return {moment.Moment} the parsed value
    */
   public static parseMomentDateFromString(value: string, localeId: string): moment.Moment {
-    if (NullableUtils.isObjectNullOrUndefined(value)) {
-      throw new Error(`Submitted value is null or undefined`);
+    if (NullableUtils.isStringNullOrWhitespace(value)) {
+      throw new Error(`Submitted value is null or whitespace`);
     }
-    if (NullableUtils.isObjectNullOrUndefined(localeId)) {
-      throw new Error(`Submitted value for localeId is null or undefined`);
+    if (NullableUtils.isStringNullOrWhitespace(localeId)) {
+      throw new Error(`Submitted value for localeId is null or whitespace`);
     }
 
     const momentVariation: moment.Moment = moment(value, ValidatorConstants.MOMENT_FORMAT_DATE_VARIATIONS, localeId, true);

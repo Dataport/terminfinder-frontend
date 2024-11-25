@@ -20,7 +20,6 @@ import {MomentUtils} from '../shared/utils';
 import {ApiConstants} from '../shared/constants/apiConstants';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
-import * as MobileDetect from 'mobile-detect';
 import {NullableUtils} from "../shared/utils";
 import {RouteTitleService} from "../shared/services/route-title.service";
 
@@ -51,8 +50,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
   public static readonly FORM_KEY_SUGGESTED_DATE_DESCRIPTION = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION;
 
   @Input() isAdmin = false;
-  mobiledetect = new MobileDetect(window.navigator.userAgent);
-  @Input() isMobileDevice = this.mobiledetect.mobile();
 
   model: SuggestedDate[];
   suggestedDatesToDelete: SuggestedDate[];
@@ -65,7 +62,8 @@ export class CreateSuggestedDatesComponent implements OnInit {
         ])
     }
   );
-  now: moment.Moment = new DateTimeGeneratorService().now();
+  minDate: string;
+  maxDate: string;
 
   constructor(
     private dataRepoService: DataRepositoryService,
@@ -107,6 +105,10 @@ export class CreateSuggestedDatesComponent implements OnInit {
         this.addExistingSuggestedDate(this.model[i]);
       }
     }
+
+    const now: moment.Moment = new DateTimeGeneratorService().now();
+    this.minDate = now.format(ValidatorConstants.MOMENT_FORMAT_DATE);
+    this.maxDate = now.add(5, 'years').format(ValidatorConstants.MOMENT_FORMAT_DATE);
 
     if (this.isAdmin) {
       this.routeTitle.setTitle('date.change');

@@ -105,15 +105,10 @@ $input-background-color: $light-gray;
 
 input {
   background-color: $input-background-color !important;
-
-  border-top-color: $border-color-input !important;
-  border-right-color: $border-color-input !important;
-  border-bottom-color: $border-color-input !important;
+  border-color: $border-color-input !important;
 
   &:focus {
-    border-top-color: $input-focus-border-color !important;
-    border-right-color: $input-focus-border-color !important;
-    border-bottom-color: $input-focus-border-color !important;
+    border-color: $input-focus-border-color !important;
   }
 }
 

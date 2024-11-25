@@ -17,7 +17,6 @@ export function suggestedDateValidator(localeId: string, dateTimeGenerator: Date
       : control.get(SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME);
     const endDateControl = control.get(SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE);
 
-    control.get('startDateEndTime');
     if (startDateControl.invalid || startTimeControl.invalid || endTimeControl.invalid) {
       return null;
     }
@@ -73,10 +72,6 @@ export function suggestedDateValidator(localeId: string, dateTimeGenerator: Date
       return {startDateAfterEndDate: {valid: false}};
     }
 
-
-    /*if (endTime === null && endDate === null) {
-      return null;
-    }*/
     return null;
   };
 }

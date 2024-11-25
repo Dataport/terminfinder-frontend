@@ -77,11 +77,11 @@ export class MomentUtils {
    * @return {moment.Moment} the parsed value
    */
   public static parseMomentTimeFromString(value: string, localeId: string): moment.Moment {
-    value = value.trim().replace(/[^0-9:]*/, "");
-
     if (NullableUtils.isStringNullOrWhitespace(value)) {
       throw new Error(`value ${value} is null or undefined`);
     }
+
+    value = value.trim().replace(/[^0-9:]*/, "");
 
     if (value.indexOf(':') !== -1) {
       let hours: string = value.substring(0, value.indexOf(':'));

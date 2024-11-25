@@ -12,7 +12,7 @@ export function dateValidator(localeId: string): ValidatorFn {
       isValid = true;
     } else {
       isValid = !NullableUtils.isStringNullOrEmpty(control.value)
-        ? moment(control.value, ValidatorConstants.MOMENT_FORMAT_DATE, localeId, true).isValid()
+        ? moment(control.value, ValidatorConstants.MOMENT_FORMAT_DATE_VARIATIONS, localeId, true).isValid()
         : true;
     }
     return isValid ? null : {

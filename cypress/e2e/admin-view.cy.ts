@@ -160,9 +160,9 @@ context('admin-view', () => {
       cy.get('[data-id=addSuggestedDateButton]')
         .click();
       cy.get('[data-id=startDateInput]')
-        .type(dayjs().add(1, 'd').format('DD.MM.YYYY'));
+        .type(dayjs().add(1, 'd').format('YYYY-MM-DD'));
       cy.get('[data-id=startDateInput]')
-        .should('have.value', dayjs().add(1, 'd').format('DD.MM.YYYY'));
+        .should('have.value', dayjs().add(1, 'd').format('YYYY-MM-DD'));
       cy.get('[data-id=next]')
         .click();
 

@@ -134,6 +134,7 @@
                     appAutoFocus
                     type="date"
                     id="suggested-date-end-date-{{i}}"
+                    data-id="endDateInput"
                     class="form-control date"
                     formControlName="endDate"
                     min="{{ minDate }}"
@@ -194,6 +195,7 @@
                 <input
                   appAutoFocus
                   type="time"
+                  data-id="startTimeInput"
                   id="suggested-date-start-time-{{i}}"
                   class="form-control time"
                   formControlName="startTime"
@@ -214,6 +216,7 @@
                   appAutoFocus
                   type="time"
                   id="suggested-date-end-time-{{i}}"
+                  data-id="endTimeInput"
                   class="form-control time"
                   formControlName="startDateEndTime"
                   [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
@@ -283,6 +286,7 @@
                   appAutoFocus
                   type="time"
                   id="suggested-date-start-time-{{i}}"
+                  data-id="startTimeInputSecondColumn"
                   class="form-control time"
                   formControlName="startTime"
                   [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
@@ -303,6 +307,7 @@
                   appAutoFocus
                   type="time"
                   id="suggested-date-end-time-different-day-{{i}}"
+                  data-id="endTimeInputSecondColumn"
                   class="form-control time"
                   formControlName="endDateEndTime"
                   [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"

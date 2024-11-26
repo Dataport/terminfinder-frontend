@@ -17,7 +17,6 @@ import {ValidatorUtils} from '../shared/validators/validator-utils';
 import moment from 'moment';
 import {MomentUtils, NullableUtils} from '../shared/utils';
 import {ApiConstants} from '../shared/constants/apiConstants';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
@@ -122,31 +121,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
     } else {
       this.router.navigate(['/poll-admin']).then();
     }
-  }
-
-  public parseAndSetDate(key: string, value: string, index: number): void {
-    if (key && value && index >= 0 && index < this.getSuggestedDatesFromForm().length) {
-      this.getSuggestedDatesForm(index).get(key).patchValue(
-        ValidatorUtils.parseNgbDateStructFromMoment(ValidatorUtils.parseMomentFromIsoString(value, this.localeId), this.localeId));
-    }
-  }
-
-  public getDateAsIsoString(key: string, index: number): string | null {
-    const date: NgbDateStruct = this.getSuggestedDatesForm(index).get(key).value;
-    if (date) {
-      return `${ValidatorUtils.pad(date.year, 4)}-${ValidatorUtils.pad(date.month, 2)}-${ValidatorUtils.pad(date.day, 2)}`;
-    }
-    return null;
-  }
-
-  public parseAndSetTime(key: string, value: string, index: number): void {
-    if (key && value && index >= 0 && index < this.getSuggestedDatesFromForm().length) {
-      this.getSuggestedDatesForm(index).get(key).patchValue(value);
-    }
-  }
-
-  public getTimeAsString(key: string, index: number): string | null {
-    return this.getSuggestedDatesForm(index).get(key).value;
   }
 
   public getSuggestedDatesFromForm(): UntypedFormArray {
@@ -265,7 +239,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public getSuggestedDateStartDateControlValue(index: number): string {
     try {
-      return ValidatorUtils.serializeDateFromNgbDateStruct(this.getStartDateOfSuggestedStartDateByIndex(index).value, this.localeId);
+      return ValidatorUtils.reformatDateString(this.getStartDateOfSuggestedStartDateByIndex(index).value, this.localeId);
     } catch (e) {
       return '';
     }
@@ -277,7 +251,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public getSuggestedDateEndDateControlValue(index: number): string {
     try {
-      return ValidatorUtils.serializeDateFromNgbDateStruct(this.getEndDateOfSuggestedStartDateByIndex(index).value, this.localeId);
+      return ValidatorUtils.reformatDateString(this.getEndDateOfSuggestedStartDateByIndex(index).value, this.localeId);
     } catch (e) {
       return '';
     }
@@ -333,15 +307,11 @@ export class CreateSuggestedDatesComponent implements OnInit {
   private createSuggestedDateForm(suggestedDate: SuggestedDate = null): UntypedFormGroup {
     const suggestedDateSubmitted = !NullableUtils.isObjectNullOrUndefined(suggestedDate);
     const suggestedDateIdValue: string = suggestedDateSubmitted ? suggestedDate.suggestedDateId : null;
-    const startDateValue: NgbDateStruct = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
-      ? ValidatorUtils.parseNgbDateStructFromMoment(
-        ValidatorUtils.parseMomentFromIsoString(suggestedDate.startDate, this.localeId),
-        this.localeId)
+    const startDateValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
+      ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.startDate, this.localeId).format(ValidatorConstants.MOMENT_FORMAT_DATE)
       : null;
-    const endDateValue: NgbDateStruct = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
-      ? ValidatorUtils.parseNgbDateStructFromMoment(
-        ValidatorUtils.parseMomentFromIsoString(suggestedDate.endDate, this.localeId),
-        this.localeId)
+    const endDateValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
+      ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.endDate, this.localeId).format(ValidatorConstants.MOMENT_FORMAT_DATE)
       : null;
     const startTimeValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime)
       ? ValidatorUtils.serializeTimeFromMoment(

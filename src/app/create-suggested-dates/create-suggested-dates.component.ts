@@ -26,6 +26,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
   styleUrls: ['./create-suggested-dates.component.scss']
 })
 export class CreateSuggestedDatesComponent implements OnInit {
+  protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
+
   public static readonly MIN_NUMBER_SUGGESTED_DATES = ValidatorConstants.MIN_NUMBER_SUGGESTED_DATES;
   public static readonly MAX_NUMBER_SUGGESTED_DATES = ValidatorConstants.MAX_NUMBER_SUGGESTED_DATES;
 

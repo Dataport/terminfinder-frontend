@@ -1,8 +1,8 @@
 import moment from 'moment';
 import {ValidatorConstants} from '../constants/validatorConstants';
 import {MomentUtils, NullableUtils} from '../utils';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {AbstractControl} from '@angular/forms';
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 export class ValidatorUtils {
   /**
@@ -92,15 +92,19 @@ export class ValidatorUtils {
     return {year: value.year(), month: value.month() + 1, day: value.date()};
   }
 
-  public static pad(value: number, length: number): string {
-    if (NullableUtils.isObjectNullOrUndefined(value)) {
-      throw new Error(`Submitted value for value is null or undefined`);
+  public static reformatDateString(date: string, localeId: string): string {
+    if (NullableUtils.isStringNullOrWhitespace(date)) {
+      throw new Error(`Submitted value for date is null or undefined`);
     }
-    if (NullableUtils.isObjectNullOrUndefined(length)) {
-      throw new Error(`Submitted value for length is null or undefined`);
+    if (NullableUtils.isStringNullOrWhitespace(localeId)) {
+      throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
-    return String(value).padStart(length, '0');
+    try {
+      return MomentUtils.parseMomentDateFromString(date, localeId).format(ValidatorConstants.MOMENT_FORMAT_DATE);
+    } catch (e) {
+      return '';
+    }
   }
 
   /***
@@ -116,8 +120,6 @@ export class ValidatorUtils {
     const type: string = typeof (control.value);
     if (type === 'string') {
       return MomentUtils.parseMomentDateFromString(control.value, localeId);
-    } else if (type === 'object') {
-      return ValidatorUtils.parseMomentFromNgbDateStruct(control.value, localeId);
     } else {
       throw new Error('unknown input type');
     }

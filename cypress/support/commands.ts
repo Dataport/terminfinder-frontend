@@ -52,26 +52,26 @@ function moveToSettingsView() {
   moveToSelectDatesView();
 
   cy.get('[data-id=startDateInput]')
-    .type(dayjs().add(1, 'd').format('DD.MM.YYYY'));
+    .type(dayjs().add(1, 'd').format('YYYY-MM-DD'));
   cy.get('[data-id=startDateInput]')
-    .should('have.value', dayjs().add(1, 'd').format('DD.MM.YYYY'));
+    .should('have.value', dayjs().add(1, 'd').format('YYYY-MM-DD'));
 
   cy.get('[data-id=addTimesButton]')
     .click();
 
   cy.get('[data-id=startTimeInput]')
-    .type('10');
+    .type('10:00');
 
   cy.get('[data-id=endAtOtherDayButton]')
     .click();
 
   cy.get('[data-id=endDateInput]')
-    .type(dayjs().add(2, 'd').format('DD.MM.YYYY'));
+    .type(dayjs().add(2, 'd').format('YYYY-MM-DD'));
   cy.get('[data-id=endDateInput]')
-    .should('have.value', dayjs().add(2, 'd').format('DD.MM.YYYY'));
+    .should('have.value', dayjs().add(2, 'd').format('YYYY-MM-DD'));
 
   cy.get('[data-id=endTimeInputSecondColumn]')
-    .type('12');
+    .type('12:00');
 
   cy.get('[data-id=next]')
     .click();

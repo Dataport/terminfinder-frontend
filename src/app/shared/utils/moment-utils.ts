@@ -81,31 +81,6 @@ export class MomentUtils {
       throw new Error(`value ${value} is null or undefined`);
     }
 
-    value = value.trim().replace(/[^0-9:]*/, "");
-
-    if (value.indexOf(':') !== -1) {
-      let hours: string = value.substring(0, value.indexOf(':'));
-      let minutes: string = value.substring(value.indexOf(':') + 1);
-      if (hours.length === 1) {
-        hours = '0' + hours;
-      }
-      if (minutes.length === 1) {
-        minutes = '0' + minutes;
-      }
-
-      return moment(`${hours}:${minutes}`, 'HH:mm', localeId, true);
-    } else if (value.length === 1) {
-      return moment(`${value}00`, 'hmm', localeId, true).utc(true);
-    } else if (value.length === 2) {
-      return moment(`${value}00`, 'HHmm', localeId, true).utc(true);
-    } else if (value.length === 3) {
-      return moment(value, 'hmm', localeId, true).utc(true);
-    } else {
-      const mom = moment(value, 'HHmm', localeId, true).utc(true);
-      if (!mom.isValid()) {
-        throw new Error(`given value ${value} is not a valid time string`);
-      }
-      return mom;
-    }
+    return moment(value, 'HH:mm', localeId, true);
   }
 }

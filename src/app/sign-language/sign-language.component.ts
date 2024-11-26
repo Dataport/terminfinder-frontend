@@ -40,13 +40,13 @@ export class SignLanguageComponent implements OnInit {
 
   protected readonly videos = [{
     titleTranslateString: 'accessibility.signLanguage.videos.0.title',
-    src: 'https://api.dgolive.de/p/105/sp/10500/embedIframeJs/uiconf_id/23448380/partner_id/105?iframeembed=true&playerId=kaltura_player&entry_id=0_tig10w13&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=de&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_yv17cw2w'
+    src: 'https://dataport.mediaspace.dgolive.de/embed/secure/iframe/entryId/0_tig10w13/uiConfId/23448421/pbc/117/st/0'
   }, {
     titleTranslateString: 'accessibility.signLanguage.videos.1.title',
-    src: 'https://api.dgolive.de/p/105/sp/10500/embedIframeJs/uiconf_id/23448380/partner_id/105?iframeembed=true&playerId=kaltura_player&entry_id=0_ovo5c099&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=de&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_1wh4zre6'
+    src: 'https://dataport.mediaspace.dgolive.de/embed/secure/iframe/entryId/0_ovo5c099/uiConfId/23448421/pbc/117/st/0'
   }, {
     titleTranslateString: 'accessibility.signLanguage.videos.2.title',
-    src: 'https://api.dgolive.de/p/105/sp/10500/embedIframeJs/uiconf_id/23448380/partner_id/105?iframeembed=true&playerId=kaltura_player&entry_id=0_yaxniffj&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=de&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_3by1ymtn'
+    src: 'https://dataport.mediaspace.dgolive.de/embed/secure/iframe/entryId/0_yaxniffj/uiConfId/23448421/pbc/117/st/0'
   }];
 
   constructor(private routeTitle: RouteTitleService) {

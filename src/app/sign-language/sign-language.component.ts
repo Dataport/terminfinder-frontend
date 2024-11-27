@@ -40,13 +40,13 @@ export class SignLanguageComponent implements OnInit {
 
   protected readonly videos = [{
     titleTranslateString: 'accessibility.signLanguage.videos.0.title',
-    src: 'https://dataport.mediaspace.dgolive.de/embed/secure/iframe/entryId/0_tig10w13/uiConfId/23448421/pbc/117/st/0'
+    src: 'https://api.dgolive.de/p/105/embedPlaykitJs/uiconf_id/23448421?iframeembed=true&entry_id=0_tig10w13'
   }, {
     titleTranslateString: 'accessibility.signLanguage.videos.1.title',
-    src: 'https://dataport.mediaspace.dgolive.de/embed/secure/iframe/entryId/0_ovo5c099/uiConfId/23448421/pbc/117/st/0'
+    src: 'https://api.dgolive.de/p/105/embedPlaykitJs/uiconf_id/23448421?iframeembed=true&entry_id=0_ovo5c099'
   }, {
     titleTranslateString: 'accessibility.signLanguage.videos.2.title',
-    src: 'https://dataport.mediaspace.dgolive.de/embed/secure/iframe/entryId/0_yaxniffj/uiConfId/23448421/pbc/117/st/0'
+    src: 'https://api.dgolive.de/p/105/embedPlaykitJs/uiconf_id/23448421?iframeembed=true&entry_id=0_yaxniffj'
   }];
 
   constructor(private routeTitle: RouteTitleService) {

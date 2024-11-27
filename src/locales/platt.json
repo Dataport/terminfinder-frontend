@@ -14,7 +14,8 @@
     "security": "Sekerheit",
     "networking": "Wessel",
     "slogan": "Stell Umfragen un kaam mit dien Lüüd op en Nömer!",
-    "testEnvironmentBanner": "Dat is de Testwelt vun {{value}}. Bitte bruukt keen persönlichen Daten."
+    "testEnvironmentBanner": "Dat is de Testwelt vun {{value}}. Bitte bruukt keen persönlichen Daten.",
+    "placeholder": "..."
   },
   "header": {
     "navLabel": "Hauptmenü",
@@ -193,9 +194,6 @@
     "minimum": "(8 Teken, en Tall, en Grootbookstack, en Sünnerteken)",
     "locked": "Disse Umfraag is passlich schuulsch.",
     "enter": "Bitte geef dat Dir inbrocht Passwoort in, üm de Umfraag antern köönt.",
-    "placeholder": "Kennwoord ingeven",
-    "placeholderEnter": "ingeven",
-    "placeholderChange": "ännern",
     "enterPassword": "Kennwoord ingeven",
     "changePassword": "Kennwoord ännern",
     "invalid": "Dat inföhrt Kennwoord is ungültig.",

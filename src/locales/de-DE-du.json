@@ -27,7 +27,8 @@
     "security": "Sicherheit",
     "networking": "Vernetzung",
     "slogan": "Erstelle Umfragen und komme mit deinen Leuten auf einen Nenner!",
-    "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwende keine personenbezogenen Daten."
+    "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwende keine personenbezogenen Daten.",
+    "placeholder": "..."
   },
   "poll": {
     "actions": "Aktionen",
@@ -233,9 +234,6 @@
     "minimum": "(mind. 8 Zeichen, eine Zahl, ein Großbuchstabe, ein Sonderzeichen)",
     "locked": "Diese Umfrage ist passwortgeschützt",
     "enter": "Bitte gib das Dir übermittelte Passwort ein, um die Umfrage beantworten zu können.",
-    "placeholder": "Passwort eingeben",
-    "placeholderEnter": "eingeben",
-    "placeholderChange": "ändern",
     "enterPassword": "Passwort eingeben",
     "changePassword": "Passwort ändern",
     "invalid": "Das eingegebene Passwort ist ungültig.",

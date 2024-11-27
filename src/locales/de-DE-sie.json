@@ -27,7 +27,8 @@
     "security": "Sicherheit",
     "networking": "Vernetzung",
     "slogan": "Sie suchen einen gemeinsamen Termin mit mehreren Personen? Erstellen Sie eine Termin-Umfrage.",
-    "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwenden Sie keine personenbezogenen Daten."
+    "testEnvironmentBanner": "Dies ist die Testumgebung von {{value}}. Bitte verwenden Sie keine personenbezogenen Daten.",
+    "placeholder": "..."
   },
   "poll": {
     "actions": "Aktionen",
@@ -233,9 +234,6 @@
     "minimum": "(mind. 8 Zeichen, eine Zahl, ein Großbuchstabe, ein Sonderzeichen)",
     "locked": "Diese Umfrage ist passwortgeschützt",
     "enter": "Bitte geben Sie das Ihnen übermittelte Passwort ein, um die Umfrage beantworten zu können.",
-    "placeholder": "Passwort eingeben",
-    "placeholderEnter": "eingeben",
-    "placeholderChange": "ändern",
     "enterPassword": "Passwort eingeben",
     "changePassword": "Passwort ändern",
     "invalid": "Das eingegebene Passwort ist ungültig.",

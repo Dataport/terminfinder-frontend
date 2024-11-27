@@ -44,9 +44,9 @@ h2 {
 
 h3 {
   color: $primary !important;
-  font-size: $font-size-small-mobile !important;
+  font-size: $font-size-medium-mobile !important;
   @include media-breakpoint-up(lg) {
-    font-size: $font-size-small !important;
+    font-size: $font-size-medium !important;
   }
 }
 

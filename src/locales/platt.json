@@ -54,6 +54,7 @@
     "downloadCsvDescription": "Tabelle als csv Datei rünnerladen",
     "caption": "Terminöversicht",
     "acceptedNum": "Tosaagen an disse Termin",
+    "acceptedTotal": "Tosaagen insgesamt",
     "title": {
       "title": "Titel",
       "set": "Geev Diner Umfraag en Titel!",

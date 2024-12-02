@@ -59,6 +59,7 @@
     "downloadCsvDescription": "Download table as csv file",
     "caption": "Appointments overview",
     "acceptedNum": "Confirmations on this date",
+    "acceptedTotal": "Total confirmations",
     "title": {
       "title": "Title",
       "set": "Set a title!",

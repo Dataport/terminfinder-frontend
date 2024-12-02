@@ -39,6 +39,7 @@
                 class="col-12 col-md-auto btn btn-transparent text-primary"
                 data-id="inviteLinkEmail"
                 type="button"
+                [attr.aria-description]="'links.invite.base' | translate"
               >
                 {{ 'links.email.send' | translate }}
               </button>
@@ -99,6 +100,7 @@
                 class="col-12 col-md-auto btn btn-transparent text-primary"
                 data-id="linkAdmin"
                 type="button"
+                [attr.aria-description]="'links.admin.base' | translate"
               >
                 {{ 'links.email.send' | translate }}
               </button>

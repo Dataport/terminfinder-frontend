@@ -201,6 +201,7 @@
   },
   "links": {
     "admin": {
+      "base": "Adminlink",
       "copy": "Adminlink kopieren",
       "copyFailed": "Adminlink konnte nicht kopiert werden",
       "copySuccess": "Adminlink kopiert",
@@ -208,6 +209,7 @@
       "open": "Umfrage bearbeiten"
     },
     "invite": {
+      "base": "Einladungslink",
       "copy": "Einladungslink kopieren",
       "copyFailed": "Einladungslink konnte nicht kopiert werden",
       "copySuccess": "Einladungslink kopiert",

@@ -396,10 +396,7 @@ export class PollFormHelperService {
   /**
    * Returns the total number of accepted votings of the currently edited participant.
    */
-  public getNumberOfVotingsWithVotingStatusAcceptedOfAddedParticipant(): number {
-    if (this.formMode !== FormMode.ADD) {
-      return 0;
-    }
+  public getNumberOfVotingsWithVotingStatusAcceptedOfParticipant(): number {
     return this.getNumberOfVotings(this.getParticipantFormVotings(), VotingStatusType.Accepted);
   }
 

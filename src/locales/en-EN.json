@@ -201,6 +201,7 @@
   },
   "links": {
     "admin": {
+      "base": "admin link",
       "copy": "Copy admin link",
       "copyFailed": "Admin link could not be copied",
       "copySuccess": "Admin link copied",
@@ -208,6 +209,7 @@
       "open": "Edit poll"
     },
     "invite": {
+      "base": "invite link",
       "copy": "Copy invite link",
       "copyFailed": "Invite link could not be copied",
       "copySuccess": "Invite link copied",

@@ -430,10 +430,10 @@
         } @else {
           <div class="row g-0 justify-content-end align-items-center">
             @if (formHelper.hasParticipantVotings()) {
-              <div
-                class="col-3 d-inline-flex align-items-center justify-content-end text-right mr-4">
+              <div class="col-3 d-inline-flex align-items-center justify-content-end text-right mr-4">
                 <img aria-hidden="true" alt="" class="circle-tag" src="assets/status_accepted.svg">
-                <div class="font-weight-bold voting-status-summary-added-participants pe-3" data-id="addedParticipation">
+                <div id="added-participation" class="font-weight-bold pe-3" data-id="addedParticipation">
+                  <label class="visually-hidden" id="added-participation-label">{{ 'poll.acceptedTotal' | translate }}</label>
                   {{ formHelper.getNumberOfVotingsWithVotingStatusAcceptedOfAddedParticipant() | leadingZero: 2 }}
                 </div>
               </div>
@@ -442,6 +442,7 @@
               <button
                 (click)="sendReply()"
                 [attr.aria-disabled]="isFormInvalid()"
+                aria-describedby="added-participation"
                 [ngClass]="{'disabled': isFormInvalid()}"
                 class="btn btn-secondary btn-with-image btn-next align-self-end"
                 data-id="submitPoll"

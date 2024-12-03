@@ -252,6 +252,7 @@ export class PollFormHelperService {
   public deleteParticipantForm(): void {
     this.formMode = FormMode.VIEW;
     this.participantForm = null;
+    this.getTosFormControl().reset();
   }
 
   public deleteEditParticipant(participant: Participant): void {

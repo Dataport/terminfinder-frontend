@@ -67,7 +67,7 @@
                 }"
               >
                 <label data-id="startDateLabel" for="suggested-date-start-date-{{i}}">
-                  {{ 'date.start' | translate }}
+                  {{ 'date.start' | translate }} ({{ 'date.placeholder' | translate }})
                 </label>
                 <input
                   required
@@ -129,7 +129,9 @@
                   [ngClass]="{'has-error': getEndDateOfSuggestedStartDateByIndex(i).invalid
                   && (getEndDateOfSuggestedStartDateByIndex(i).dirty || getEndDateOfSuggestedStartDateByIndex(i).touched)}"
                   class="col-6 col-lg px-1 px-lg-3 my-1 form-group has-error-highlight">
-                  <label for="suggested-date-end-date-{{i}}">{{ 'date.end' | translate }}</label>
+                  <label for="suggested-date-end-date-{{i}}">
+                    {{ 'date.end' | translate }} ({{ 'date.placeholder' | translate }})
+                  </label>
                   <input
                     appAutoFocus
                     type="date"
@@ -191,7 +193,9 @@
                 [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
                   && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
                 class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group">
-                <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
+                <label for="suggested-date-start-time-{{i}}">
+                  {{ 'time.start' | translate }} ({{ 'time.placeholder' | translate }})
+                </label>
                 <input
                   appAutoFocus
                   type="time"
@@ -211,7 +215,9 @@
                 [ngClass]="{'has-error': getEndTimeOfSuggestedStartDateByIndex(i).invalid
                  && (getEndTimeOfSuggestedStartDateByIndex(i).dirty || getEndTimeOfSuggestedStartDateByIndex(i).touched)}"
                 class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group">
-                <label for="suggested-date-end-time-{{i}}">{{ 'time.end' | translate }}</label>
+                <label for="suggested-date-end-time-{{i}}">
+                  {{ 'time.end' | translate }} ({{ 'time.placeholder' | translate }})
+                </label>
                 <input
                   appAutoFocus
                   type="time"
@@ -281,7 +287,9 @@
                 [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
                   && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
                 class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight">
-                <label for="suggested-date-start-time-{{i}}">{{ 'time.start' | translate }}</label>
+                <label for="suggested-date-start-time-{{i}}">
+                  {{ 'time.start' | translate }} ({{ 'time.placeholder' | translate }})
+                </label>
                 <input
                   appAutoFocus
                   type="time"
@@ -302,7 +310,9 @@
                 [ngClass]="{'has-error': getEndTimeOfSuggestedEndDateByIndex(i).invalid
                  && (getEndTimeOfSuggestedEndDateByIndex(i).dirty || getEndTimeOfSuggestedEndDateByIndex(i).touched)}"
                 class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight">
-                <label for="suggested-date-end-time-different-day-{{i}}">{{ 'time.end' | translate }}</label>
+                <label for="suggested-date-end-time-different-day-{{i}}">
+                  {{ 'time.end' | translate }} ({{ 'time.placeholder' | translate }})
+                </label>
                 <input
                   appAutoFocus
                   type="time"

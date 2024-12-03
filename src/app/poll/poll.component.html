@@ -434,7 +434,7 @@
                 <img aria-hidden="true" alt="" class="circle-tag" src="assets/status_accepted.svg">
                 <div id="added-participation" class="font-weight-bold pe-3" data-id="addedParticipation">
                   <label class="visually-hidden" id="added-participation-label">{{ 'poll.acceptedTotal' | translate }}</label>
-                  {{ formHelper.getNumberOfVotingsWithVotingStatusAcceptedOfParticipant() | leadingZero: 2 }}
+                  {{ formHelper.getNumberOfVotingsWithVotingStatusAcceptedOfParticipant() }}
                 </div>
               </div>
             }

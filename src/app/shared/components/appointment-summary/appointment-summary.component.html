@@ -4,9 +4,9 @@
       <img aria-hidden="true" alt="" class="icon" src="assets/calendar_grey.svg"/>
     </div>
     <div class="col align-self-top">
-      <div class="header" data-cy="overviewUrlLabel">{{ 'poll.details.url.url' | translate }}</div>
+      <div id="overview-url-label" class="header" data-cy="overviewUrlLabel">{{ 'links.invite.base' | translate }}</div>
       <div class="value" data-cy="overviewUrlValue" id="url">
-        <a [href]="absoluteAppointmentUrl" target="_blank">{{ absoluteAppointmentUrl }}</a>
+        <a [href]="absoluteAppointmentUrl" target="_blank" aria-labelledby="overview-url-label">{{ absoluteAppointmentUrl }}</a>
         <button
           [cbContent]="absoluteAppointmentUrl"
           class="btn btn-transparent m-0 p-0"

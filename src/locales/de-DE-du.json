@@ -87,9 +87,6 @@
         "descriptionOptional": "Beschreibung (optional)",
         "tooLong": "Die Beschreibung ist zu lang."
       },
-      "url": {
-        "url": "Umfrage-URL"
-      },
       "delete": {
         "deleteDate": "Löschfrist",
         "willBeDeleted": "Die Terminabfrage wird eine Woche nach dem letzten Termindatum gelöscht."

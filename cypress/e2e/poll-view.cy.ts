@@ -288,13 +288,13 @@ context('poll-view', () => {
       cy.get('#desktop-voting-status-accepted-0')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
-        .should('contain.html', '01');
+        .should('contain.html', '1');
       cy.get('#desktop-voting-status-questionable-0')
         .click();
       cy.get('#desktop-voting-status-questionable-0')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
-        .should('contain.html', '00');
+        .should('contain.html', '0');
 
       cy.get('#desktop-voting-status-accepted-0')
         .click();
@@ -305,7 +305,7 @@ context('poll-view', () => {
       cy.get('#desktop-voting-status-accepted-1')
         .should('be.checked');
       cy.get('[data-id=addedParticipation]')
-        .should('contain.html', '02');
+        .should('contain.html', '2');
 
       cy.get('#desktop-voting-status-declined-0')
         .click();

@@ -13,7 +13,8 @@ function generateAppointments(participantCount = 3) {
   startDate.setMonth(startDate.getMonth() + 1);
 
   let endDate = new Date();
-  endDate.setDate(startDate.getDate() + 1);
+  endDate.setMonth(endDate.getMonth() + 1);
+  endDate.setDate(endDate.getDate() + 1);
 
   startDate = startDate.toISOString().split('T')[0];
   endDate = endDate.toISOString().split('T')[0];

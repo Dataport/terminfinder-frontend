@@ -43,7 +43,7 @@ function generateAppointments(participantCount = 3) {
       suggestedDateId: uuid.v4(),
       startDate: startDate,
       startTime: startTime,
-      endDate: endDate,
+      endDate: null,
       endTime: endTime,
       description: null
     },

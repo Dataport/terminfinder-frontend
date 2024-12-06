@@ -131,6 +131,10 @@ input[type="radio"] {
   height: 20px;
 }
 
+input[type="date"] {
+  text-transform: uppercase;
+}
+
 .checkbox input[type="checkbox"] {
   display: none;
 }

@@ -120,8 +120,8 @@
                         <div
                           [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
                   && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
-                          class="col-10 form-group">
-                          <label class="sr-only" for="name-add">{{ 'poll.details.name.name' | translate }}</label>
+                          class="form-group">
+                          <label for="name-add">{{ 'poll.details.name.name' | translate }}</label>
                           <input
                             required
                             appAutoFocus
@@ -129,7 +129,7 @@
                             data-id="nameInput"
                             formControlName="name"
                             id="name-add"
-                            placeholder="{{ 'participant.name' | translate }}"
+                            placeholder="{{ 'home.placeholder' | translate }}"
                             type="text"
                             aria-describedby="no-name-add invalid-add-name too-long-add"
                           >
@@ -260,13 +260,9 @@
                              'has-error': formHelper.getParticipantFormName().invalid
                                && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
                              }"
-                            class="col-10 form-group"
+                            class="form-group"
                           >
-                            <label
-                              class="sr-only"
-                              data-id="nameEditLabel"
-                              for="name-edit"
-                            >
+                            <label data-id="nameEditLabel" for="name-edit">
                               {{ 'poll.details.name.name' | translate }}
                             </label>
                             <input
@@ -275,7 +271,7 @@
                               data-id="nameEditInput"
                               formControlName="name"
                               id="name-edit"
-                              placeholder="{{ 'participant.name' | translate }}"
+                              placeholder="{{ 'home.placeholder' | translate }}"
                               type="text"
                               aria-describedby="no-name-edit invalid-edit-name too-long-edit"
                             >

@@ -39,7 +39,6 @@
                 data-id="titleInput"
                 formControlName="title"
                 id="title"
-                placeholder="{{ 'poll.title.title' | translate }}"
                 type="text"
                 aria-describedby="required-title invalid-title maxLength-title">
               @if ((title.dirty || title.touched) && !!title.errors?.required) {
@@ -96,7 +95,6 @@
                 data-id="nameInput"
                 formControlName="name"
                 id="name"
-                placeholder="{{ 'poll.details.name.name' | translate }}"
                 type="text"
                 aria-describedby="required-name invalid-name long-name"
               >
@@ -152,7 +150,6 @@
                 data-id="locationInput"
                 formControlName="location"
                 id="location"
-                placeholder="{{ 'poll.details.place.place' | translate }}"
                 type="text"
                 aria-describedby="invalid-location maxLength-location"
               >
@@ -201,7 +198,6 @@
                 data-id="descriptionInput"
                 formControlName="description"
                 id="description"
-                placeholder="{{ 'poll.details.description.description' | translate }}"
                 rows="4"
                 type="text"
                 aria-describedby="maxLength-description"

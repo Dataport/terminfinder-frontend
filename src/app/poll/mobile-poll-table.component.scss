@@ -14,11 +14,14 @@
   }
 }
 
+select {
+  height: 40px !important;
+}
+
 .btn.btn-transparent {
   display: inline-block;
   width: 45px;
-  height: 100%;
-  vertical-align: middle;
+  height: 47px;
   outline-offset: 0;
 }
 

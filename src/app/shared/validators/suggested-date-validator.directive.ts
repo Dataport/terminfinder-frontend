@@ -6,7 +6,7 @@ import moment from 'moment';
 import {MomentUtils} from '../utils';
 import {SuggestedDatesFormConstants} from '../../create-suggested-dates/suggested-dates-form-constants';
 
-export function suggestedDateValidator(localeId: string, dateTimeGenerator: DateTimeGeneratorService): ValidatorFn {
+export function suggestedDateValidator(localeId: string, dateTimeGenerator: DateTimeGeneratorService, isAdmin: boolean = false): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     const startDateControl = control.get(SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE);
     const startTimeControl = control.get(SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME);
@@ -62,7 +62,7 @@ export function suggestedDateValidator(localeId: string, dateTimeGenerator: Date
     const isStartDateTimeSameDayOrSameOrAfterCurrentDateTime = startTime !== null
       ? startDateTime.isSameOrAfter(now)
       : startDate?.isSame(now, 'day') || startDate?.isSameOrAfter(now);
-    if (!isStartDateTimeSameDayOrSameOrAfterCurrentDateTime) {
+    if (!isAdmin && !isStartDateTimeSameDayOrSameOrAfterCurrentDateTime) {
       return {startDateTimeInPast: {valid: false}};
     }
     const isStartDateAfterEndDate = endTime !== null || (hasEndDateOnDifferentDay && endDate !== null)

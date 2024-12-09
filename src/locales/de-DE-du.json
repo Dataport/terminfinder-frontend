@@ -118,6 +118,7 @@
     "startAfterEnd": "Bitte gib ein gültigen Start-/Endezeitpunkt an. Der Startzeitpunkt muss vor dem Endezeitpunkt sein.",
     "noStart": "Bitte gib eine gültige Startzeit an. Wenn eine Endezeit angegeben wird, muss eine Startzeit angegeben werden.",
     "inPast": "Bitte gib ein gültiges Startdatum bzw. Startzeitpunkt an. Der Startzeitpunkt muss in der Zukunft liegen.",
+    "inPastAdmin": "Dieser Termin liegt in der Vergangenheit.",
     "noValue": "Es muss mindestens eine Terminoption angegeben werden.",
     "tooManyValues": "Es dürfen nicht mehr als 100 Terminoptionen angegeben werden.",
     "from": "von",

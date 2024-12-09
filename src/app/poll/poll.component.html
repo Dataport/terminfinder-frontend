@@ -45,7 +45,7 @@
               <!-- first row contains the suggested dates -->
               <thead class="h-100" data-id="tableHead">
               <caption class="visually-hidden">{{ 'poll.caption' | translate }}</caption>
-              <tr class="h-100">
+              <tr #suggestedDatesRow class="h-100">
                 <th scope="col"></th>
                 <th scope="col"><span class="sr-only">{{ 'poll.actions' | translate }}</span></th>
                 @for (date of model.suggestedDates; track date; let i = $index) {
@@ -59,7 +59,7 @@
               </thead>
               <tbody data-id="tableBody">
               <!-- summary row -->
-              <tr class="poll-summary-row">
+              <tr #pollSummaryRow class="poll-summary-row">
                 <td class="total-participants">
                   <div class="row g-0 align-items-center justify-content-between mx-2">
                     <!-- total participants -->

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {DataRepositoryService} from '../shared/services/data-service';
@@ -28,13 +28,17 @@ export class PollComponent implements OnInit {
   localUserNotifications: Array<UserNotification> = [];
   surveyLinkUser? = environment.surveyLinkUser;
 
+  @ViewChild('suggestedDatesRow') suggestedDatesRow: ElementRef;
+  @ViewChild('pollSummaryRow') pollSummaryRow: ElementRef;
+
   constructor(
     private route: ActivatedRoute,
     private logger: Logger,
     private dataRepoService: DataRepositoryService,
     private appStateService: AppStateService,
     public formHelper: PollFormHelperService,
-    private routeTitle: RouteTitleService
+    private routeTitle: RouteTitleService,
+    private changeDetector: ChangeDetectorRef
   ) {
   }
 
@@ -163,6 +167,8 @@ export class PollComponent implements OnInit {
       this.isAppointmentPaused ? this.formHelper.getTosFormControl().disable() : this.formHelper.getTosFormControl().enable();
       this.appStateService.updateAppointment(this.model);
       this.routeTitle.setTitle('poll.answer', this.model.name);
+
+      this.setStickyHeaderTop();
     })
       .catch((err: any) => {
         this.apiError = {
@@ -171,5 +177,20 @@ export class PollComponent implements OnInit {
         };
         this.routeTitle.setTitle('poll.answer');
       });
+  }
+
+  @HostListener('window:resize')
+  protected onResize(): void {
+    this.setStickyHeaderTop();
+  }
+
+  private setStickyHeaderTop(): void {
+    this.changeDetector.detectChanges();
+    if (!this.suggestedDatesRow || !this.pollSummaryRow) return;
+
+    const headerHeight = this.suggestedDatesRow.nativeElement.offsetHeight ?? 0;
+    if (headerHeight === 0) return;
+
+    this.pollSummaryRow.nativeElement.style.top = headerHeight + 'px';
   }
 }

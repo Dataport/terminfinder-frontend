@@ -60,7 +60,7 @@ tfoot tr:last-child td {
     position: sticky;
     background: white;
     z-index: 1;
-    top: 92.7px; // smallest height of thead | dynamic value | different across browser-engines (+- .3px)
+    top: 100px; // fallback value, is getting set dynamically
 
     td:first-child {
       position: sticky;

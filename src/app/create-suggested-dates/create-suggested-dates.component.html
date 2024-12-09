@@ -175,8 +175,7 @@
                       </div>
                       <button
                         (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
-                        [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-                        [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
+                        [disabled]="isSuggestedDateFromDatabase(i)"
                         class="form-control col date"
                         data-id="addTimesButton"
                         type="button"
@@ -240,8 +239,7 @@
           <div class="p-0 col text-center mt-1 align-items-start">
             <button
               (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
-              [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-              [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
+              [disabled]="isSuggestedDateFromDatabase(i)"
               class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
               data-id="endAtOtherDayButton"
               type="button"
@@ -270,8 +268,7 @@
                     </div>
                     <button
                       (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);  setShowEndDateEndTimeControlValue(i, true)"
-                      [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-                      [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
+                      [disabled]="isSuggestedDateFromDatabase(i)"
                       class="form-control col date"
                       data-id="addTimesWithEndOnOtherDay"
                       type="button"

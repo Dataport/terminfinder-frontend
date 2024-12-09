@@ -40,6 +40,7 @@
               id="removeDate-{{i}}"
               type="button"
               title="{{ 'date.delete' | translate }} {{ i + 1 }}"
+              [attr.aria-describedby]="'admin-error-' + i"
             >
               <img
                 aria-hidden="true"
@@ -398,6 +399,18 @@
                 <div class="invalid-message" id="start-date-time-in-past" role="alert" aria-atomic="false">
                   <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                   {{ 'date.inPast' | translate }}
+                </div>
+              }
+            </div>
+          </div>
+        }
+        @if (isAdmin && getSuggestedDatesForm(i).pristine && !!getSuggestedDatesForm(i).errors) {
+          <div class="row mb-2">
+            <div class="col my-1 px-1 px-lg-3 my-1 form-group" [attr.id]="'admin-error-' + i">
+              @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
+                <div id="start-date-time-in-past-admin" class="invalid-message" aria-live="polite">
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  {{ 'date.inPastAdmin' | translate }}
                 </div>
               }
             </div>

@@ -363,7 +363,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]: new UntypedFormControl(endDateValue !== null),
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION]: new UntypedFormControl(descriptionValue,
         [Validators.maxLength(ValidatorConstants.MAX_LENGTH_DATE_DESCRIPTION)]),
-    }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator)]);
+    }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin)]);
   }
 
   private createSuggestedDatesFromForm(): SuggestedDate[] {

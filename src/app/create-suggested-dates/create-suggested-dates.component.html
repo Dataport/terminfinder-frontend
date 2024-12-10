@@ -408,9 +408,10 @@
     <!-- error messages for the entire form -->
     @if (getSuggestedDatesFromForm().invalid) {
       <div class="row g-0">
-        <div [ngClass]="{'has-error': getSuggestedDatesFromForm().invalid
-                  && (getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched)}"
-             class="col my-1 px-1 form-group">
+        <div
+          [ngClass]="{'has-error': getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched}"
+          class="col my-1 px-1 form-group"
+        >
           @if (!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray) {
             <div class="invalid-message" role="alert" aria-atomic="false">
               <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>

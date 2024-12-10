@@ -155,7 +155,8 @@ context('admin-view', () => {
       cy.get('[data-id=adminSuggestedDates]');
       cy.location('href')
         .should('include', '/#/admin/dates');
-
+      cy.get('#removeDate-0')
+        .click();
       cy.get('[data-id=addSuggestedDateButton]')
         .click();
       cy.get('#suggested-date-start-date-1')

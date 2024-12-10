@@ -68,11 +68,18 @@
     "password": null,
     "suggestedDates": [
       {
-        "suggestedDateId": "suggestedDateId",
+        "suggestedDateId": "suggestedDateId-0",
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
         "endTime": "10:00:00.000+00:00"
+      },
+      {
+        "suggestedDateId": "suggestedDateId-1",
+        "startDate": "2021-04-25",
+        "startTime": "08:00:00.000+00:00",
+        "endDate": "2021-04-25",
+        "endTime": "12:00:00.000+00:00"
       }
     ],
     "participants": []
@@ -150,7 +157,7 @@
     "participants": []
   },
   "deleteParticipantUrl": "/api/participant/customerId/appointmentId/participant-0",
-  "deleteSuggestedDateUrl": "/api/suggestedDate/customerId/appointmentId/suggestedDateId",
+  "deleteSuggestedDateUrl": "/api/suggestedDate/customerId/appointmentId/suggestedDateId-0",
   "putParticipantUrl": "/api/votings/customerId/appointmentId",
   "putParticipant": {
     "name": "Test",

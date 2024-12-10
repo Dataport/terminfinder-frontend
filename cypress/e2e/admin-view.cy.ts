@@ -155,13 +155,12 @@ context('admin-view', () => {
       cy.get('[data-id=adminSuggestedDates]');
       cy.location('href')
         .should('include', '/#/admin/dates');
-      cy.get('#removeDate-0')
-        .click();
+
       cy.get('[data-id=addSuggestedDateButton]')
         .click();
-      cy.get('[data-id=startDateInput]')
+      cy.get('#suggested-date-start-date-1')
         .type(dayjs().add(1, 'd').format('YYYY-MM-DD'));
-      cy.get('[data-id=startDateInput]')
+      cy.get('#suggested-date-start-date-1')
         .should('have.value', dayjs().add(1, 'd').format('YYYY-MM-DD'));
       cy.get('[data-id=next]')
         .click();

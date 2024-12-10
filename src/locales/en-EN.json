@@ -119,7 +119,6 @@
     "startAfterEnd": "Please set a valid start and end date combination. The end date must be after the start date.",
     "noStart": "Please set a start date. If there is an end date, there has to be a start date.",
     "inPast": "Please enter a valid start date. The start date must be in the future.",
-    "inPastAdmin": "This date is in the past.",
     "noValue": "There must be at least one date.",
     "tooManyValues": "More than 100 dates are not possible.",
     "from": "from",

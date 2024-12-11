@@ -236,6 +236,8 @@
     "enter": "Enter the password to participate in this poll.",
     "enterPassword": "Enter password",
     "changePassword": "Change password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
     "invalid": "The entered password is invalid.",
     "generate": "Generate password protection",
     "securePoll": "Secure your poll with a password! \nMake a good note of it, as it will be needed to answer the survey or to edit it later.",

@@ -15,13 +15,11 @@ img.icon {
   height: 30px;
 }
 
-.invalid-message-highlight:has(.invalid-message) {
-  &::before {
-    @media (min-width: map-get($grid-breakpoints, xs)) {
-      left: -.5rem !important;
-    }
-    @media (min-width: map-get($grid-breakpoints, md)) {
-      left: -.25rem !important;
-    }
-  }
+.invalid-message-highlight:has(.invalid-message)::before {
+  left: -.75rem !important;
+}
+
+div.input-group > * {
+  border-radius: 0;
+  padding-bottom: 0;
 }

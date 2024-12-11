@@ -21,9 +21,8 @@ context('create-dates-view', () => {
       cy.get('[data-id=startDateInput]');
       cy.get('[data-id=addTimesButton]');
       cy.get('[data-id=endAtOtherDayButton]');
-      // TODO disabled until backend supports feature
-      // cy.get('[data-id=descriptionLabel]');
-      // cy.get('[data-id=descriptionInput]');
+      cy.get('[data-id=descriptionLabel]');
+      cy.get('[data-id=descriptionInput]');
       cy.get('[data-id=addSuggestedDateButton]');
       cy.get('[data-id=back]')
         .should('be.enabled');

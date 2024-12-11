@@ -28,11 +28,11 @@
         </div>
         <app-checkbox-field [label]="'password.securePoll' | translate" data-id="securePollLabel" formControlName="hasPassword"/>
         @if (hasPassword().value) {
-          <div class="row g-0 pt-3">
-            <div class="col-1 d-flex justify-content-end align-items-center">
-              <img aria-hidden="true" alt="" class="icon m-2" src="assets/password.svg">
+          <div class="row pt-3">
+            <div class="col-1 d-flex justify-content-start align-items-center">
+              <img aria-hidden="true" alt="" class="icon" src="assets/password.svg">
             </div>
-            <div class="col-11">
+            <div class="col-11 ps-3 ps-md-0">
               <label
                 class="font-small text-bold text-primary"
                 for="password"
@@ -94,11 +94,11 @@
               </div>
             }
           </div>
-          <div class="row g-0 mt-3">
-            <div class="col-1 d-flex justify-content-end align-items-center">
-              <img aria-hidden="true" alt="" class="icon m-2" src="assets/password.svg">
+          <div class="row mt-4">
+            <div class="col-1 d-flex justify-content-start align-items-center">
+              <img aria-hidden="true" alt="" class="icon" src="assets/password.svg">
             </div>
-            <div class="col-11">
+            <div class="col-11 ps-3 ps-md-0">
               <label
                 class="font-small text-bold text-primary"
                 for="password-repeat"

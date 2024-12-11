@@ -17,6 +17,7 @@ export class PasswordComponent implements OnInit {
   isAdmin: boolean;
   isInvalid: boolean;
   showIsInvalid = true;
+  passwordHidden = true;
 
   constructor(
     private appStateService: AppStateService,
@@ -58,4 +59,7 @@ export class PasswordComponent implements OnInit {
     this.isInvalid = this.route.snapshot.paramMap.get('invalid') != null;
   }
 
+  protected togglePasswordVisibility() {
+    this.passwordHidden = !this.passwordHidden;
+  }
 }

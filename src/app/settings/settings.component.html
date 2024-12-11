@@ -60,7 +60,7 @@
                 class="btn btn-transparent"
                 type="button"
                 (click)="togglePasswordVisibility()"
-                [attr.aria-description]="'password.' + passwordHidden ? 'showPassword' : 'hidePassword' | translate"
+                [attr.aria-description]="'password.' + (passwordHidden ? 'showPassword' : 'hidePassword') | translate"
               >
                 <i class="fa" aria-hidden="true" [ngClass]="passwordHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
               </button>
@@ -124,7 +124,7 @@
                 class="btn btn-transparent"
                 type="button"
                 (click)="togglePasswordRepeatVisibility()"
-                [attr.aria-description]="'password.' + passwordRepeatHidden ? 'showPassword' : 'hidePassword' | translate"
+                [attr.aria-description]="'password.' + (passwordRepeatHidden ? 'showPassword' : 'hidePassword') | translate"
               >
                 <i class="fa" aria-hidden="true" [ngClass]="passwordRepeatHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
               </button>

@@ -18,16 +18,10 @@ img.icon {
 .invalid-message-highlight:has(.invalid-message) {
   &::before {
     @media (min-width: map-get($grid-breakpoints, xs)) {
-      left: -1.35rem !important;
-    }
-    @media (min-width: map-get($grid-breakpoints, sm)) {
-      left: -.75rem !important;
+      left: -.5rem !important;
     }
     @media (min-width: map-get($grid-breakpoints, md)) {
-      left: .25rem !important;
-    }
-    @media (min-width: map-get($grid-breakpoints, lg)) {
-      left: .5rem !important;
+      left: -.25rem !important;
     }
   }
 }

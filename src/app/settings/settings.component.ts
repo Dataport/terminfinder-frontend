@@ -18,6 +18,8 @@ export class SettingsComponent implements OnInit {
   model: Appointment;
   adminId: string;
   showPlaceholder = false;
+  passwordHidden = true;
+  passwordRepeatHidden = true;
 
   @Input() isAdmin = false;
 
@@ -96,6 +98,14 @@ export class SettingsComponent implements OnInit {
 
   getPassword(): AbstractControl {
     return this.settingsForm.get('password');
+  }
+
+  protected togglePasswordVisibility() {
+    this.passwordHidden = !this.passwordHidden;
+  }
+
+  protected togglePasswordRepeatVisibility() {
+    this.passwordRepeatHidden = !this.passwordRepeatHidden;
   }
 
   getPasswordRepeat(): AbstractControl {

@@ -236,6 +236,8 @@
     "enter": "Bitte gib das Dir übermittelte Passwort ein, um die Umfrage beantworten zu können.",
     "enterPassword": "Passwort eingeben",
     "changePassword": "Passwort ändern",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verstecken",
     "invalid": "Das eingegebene Passwort ist ungültig.",
     "generate": "Passwortschutz generieren",
     "securePoll": "Schütze deine Umfrage mit einem Passwort! \nNotiere es dir gut, denn es wird benötigt, um die Umfrage zu beantworten oder später zu bearbeiten.",

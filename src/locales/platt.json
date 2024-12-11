@@ -196,6 +196,8 @@
     "enter": "Bitte geef dat Dir inbrocht Passwoort in, üm de Umfraag antern köönt.",
     "enterPassword": "Kennwoord ingeven",
     "changePassword": "Kennwoord ännern",
+    "showPassword": "Kennwoord anzeigen",
+    "hidePassword": "Kennwoord versteggen",
     "invalid": "Dat inföhrt Kennwoord is ungültig.",
     "generate": "Giff en Kennwoord.",
     "securePoll": "Schütt dien Umfraag mit en Kennwoord!",

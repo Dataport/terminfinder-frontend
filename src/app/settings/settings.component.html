@@ -29,7 +29,10 @@
         <app-checkbox-field [label]="'password.securePoll' | translate" data-id="securePollLabel" formControlName="hasPassword"/>
         @if (hasPassword().value) {
           <div class="row g-0 pt-3">
-            <div class="col-11 offset-1">
+            <div class="col-1 d-flex justify-content-end align-items-center">
+              <img aria-hidden="true" alt="" class="icon m-2" src="assets/password.svg">
+            </div>
+            <div class="col-11">
               <label
                 class="font-small text-bold text-primary"
                 for="password"
@@ -40,50 +43,62 @@
               </label>
             </div>
           </div>
-          <div class="row g-0 invalid-message-highlight">
-            <div class="col-1 d-flex justify-content-end align-items-center">
-              <img aria-hidden="true" alt="" class="icon m-2" src="assets/password.svg">
+          <div class="row g-0 invalid-message-highlight input-group">
+            <div class="input-group">
+              <input
+                required
+                [placeholder]="showPlaceholder ? '********' : ''"
+                autocomplete="new-password"
+                class="slim-input form-control"
+                data-id="passwordInput"
+                formControlName="password"
+                id="password"
+                [type]="passwordHidden ? 'password' : 'text'"
+                aria-describedby="set-password set-minimum"
+              />
+              <button
+                class="btn btn-transparent"
+                type="button"
+                (click)="togglePasswordVisibility()"
+                [attr.aria-description]="'password.' + passwordHidden ? 'showPassword' : 'hidePassword' | translate"
+              >
+                <i class="fa" aria-hidden="true" [ngClass]="passwordHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
+              </button>
             </div>
-            <input
-              required
-              [placeholder]="showPlaceholder ? '********' : ''"
-              autocomplete="new-password"
-              class="px-0 slim-input col-11"
-              data-id="passwordInput"
-              formControlName="password"
-              id="password"
-              type="password"
-              aria-describedby="set-password set-minimum"
-            />
             @if (getPassword().touched || getPassword().dirty) {
-              @if (!!getPassword().errors?.required) {
-                <div
-                  class="offset-1 col invalid-message"
-                  data-id="errorMsgSetPassword"
-                  id="set-password"
-                  role="alert"
-                  aria-atomic="false"
-                >
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                  {{ 'password.set' | translate }}
-                </div>
-              }
-              @if (!!getPassword().errors?.invalidPassword) {
-                <div
-                  class="offset-1 col invalid-message"
-                  data-id="errorMsgSetMinimum"
-                  id="set-minimum"
-                  role="alert"
-                  aria-atomic="false"
-                >
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                  {{ 'password.setMinimum' | translate }}
-                </div>
-              }
+              <div class="d-flex flex-column">
+                @if (!!getPassword().errors?.required) {
+                  <div
+                    class="col invalid-message"
+                    data-id="errorMsgSetPassword"
+                    id="set-password"
+                    role="alert"
+                    aria-atomic="false"
+                  >
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    {{ 'password.set' | translate }}
+                  </div>
+                }
+                @if (!!getPassword().errors?.invalidPassword) {
+                  <div
+                    class="col invalid-message"
+                    data-id="errorMsgSetMinimum"
+                    id="set-minimum"
+                    role="alert"
+                    aria-atomic="false"
+                  >
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    {{ 'password.setMinimum' | translate }}
+                  </div>
+                }
+              </div>
             }
           </div>
           <div class="row g-0 mt-3">
-            <div class="col-11 offset-1">
+            <div class="col-1 d-flex justify-content-end align-items-center">
+              <img aria-hidden="true" alt="" class="icon m-2" src="assets/password.svg">
+            </div>
+            <div class="col-11">
               <label
                 class="font-small text-bold text-primary"
                 for="password-repeat"
@@ -93,20 +108,27 @@
             </div>
           </div>
           <div class="row g-0 invalid-message-highlight">
-            <div class="col-1 d-flex justify-content-end align-items-center">
-              <img aria-hidden="true" alt="" class="icon m-2" src="assets/password.svg">
+            <div class="input-group">
+              <input
+                required
+                [placeholder]="showPlaceholder ? '********' : ''"
+                autocomplete="new-password"
+                class="slim-input form-control"
+                data-id="repeatPasswordInput"
+                formControlName="passwordRepeat"
+                id="password-repeat"
+                [type]="passwordRepeatHidden ? 'password' : 'text'"
+                aria-describedby="no-match set-password-repeat set-minimum-repeat"
+              >
+              <button
+                class="btn btn-transparent"
+                type="button"
+                (click)="togglePasswordRepeatVisibility()"
+                [attr.aria-description]="'password.' + passwordRepeatHidden ? 'showPassword' : 'hidePassword' | translate"
+              >
+                <i class="fa" aria-hidden="true" [ngClass]="passwordRepeatHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
+              </button>
             </div>
-            <input
-              required
-              [placeholder]="showPlaceholder ? '********' : ''"
-              autocomplete="new-password"
-              class="px-0 slim-input col-11"
-              data-id="repeatPasswordInput"
-              formControlName="passwordRepeat"
-              id="password-repeat"
-              type="password"
-              aria-describedby="no-match set-password-repeat set-minimum-repeat"
-            >
             <!-- show message if:
                   - passwordRepeat is 'dirty' and not same
                   - passwordRepeat has been auto-filled and password has been changed -->
@@ -114,7 +136,7 @@
               <div class="d-flex flex-column">
                 @if (!!getPasswordRepeat().errors?.required) {
                   <div
-                    class="offset-1 col invalid-message"
+                    class="col invalid-message"
                     data-id="errorMsgSetPassword"
                     id="set-password-repeat"
                     role="alert"
@@ -126,7 +148,7 @@
                 } @else if (getPasswordRepeat().dirty) {
                   @if (!!settingsForm.errors?.notSame) {
                     <div
-                      class="offset-1 col invalid-message"
+                      class="col invalid-message"
                       data-id="errorMsgNoMatch"
                       id="no-match"
                       role="alert"
@@ -138,7 +160,7 @@
                   }
                   @if (!!getPasswordRepeat().errors?.invalidPassword) {
                     <div
-                      class="offset-1 col invalid-message"
+                      class="col invalid-message"
                       data-id="errorMsgSetMinimum"
                       id="set-minimum-repeat"
                       role="alert"

@@ -1,13 +1,13 @@
 {
   "lang": {
-    "languageSelect": "select language"
+    "languageSelect": "Select language"
   },
   "navigation": {
-    "back": "back",
+    "back": "Back",
     "nextToDateSelection": "Next to date selection",
-    "next": "next",
-    "revise": "revise",
-    "step": "step",
+    "next": "Next",
+    "revise": "Revise",
+    "step": "Step",
     "confirmLeaving": "Return to the home page? Your input may be lost"
   },
   "header": {
@@ -208,7 +208,7 @@
       "open": "Edit poll"
     },
     "invite": {
-      "base": "invite link",
+      "base": "Invite link",
       "copy": "Copy invite link",
       "copyFailed": "Invite link could not be copied",
       "copySuccess": "Invite link copied",

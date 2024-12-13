@@ -26,7 +26,8 @@ export class CanDeactivateGuard {
       return true;
     }
 
-    return confirm(this.translate.instant("navigation.confirmLeaving"));
+    return window.location.hostname === 'localhost'
+      || confirm(this.translate.instant("navigation.confirmLeaving"));
   }
 }
 

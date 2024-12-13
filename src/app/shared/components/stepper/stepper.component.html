@@ -1,23 +1,17 @@
 <aside aria-labelledby="stepper">
-  <div class="row justify-content-center">
-    <p class="stepper-text mb-1 small text-bold" id="stepper">
-      {{ 'navigation.step' | translate }} {{ currentStep + 1 }}/{{ steps.length }}
-    </p>
-  </div>
-  <div class="row justify-content-center g-0 mb-4">
-    @for (step of steps; track step; let i = $index) {
-      <div class="col-auto">
-        <div class="row g-0 align-items-center">
-          <div class="col-auto p-0">
-            <div [ngClass]="{'circle-active': step===currentStep}" class="circle"></div>
-          </div>
-          <div class="col-auto p-0">
-            @if (i !== steps.length - 1) {
-              <div class="line"></div>
-            }
-          </div>
-        </div>
-      </div>
-    }
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <p class="mb-1 small text-bold">
+        {{ 'navigation.step' | translate }} {{ currentStep + 1 }}/{{ steps.length }}
+      </p>
+    </div>
+    <div class="d-flex mb-4 align-items-center">
+      @for (step of steps; track step; let i = $index) {
+        <div class="circle" [ngClass]="{'circle-active': step===currentStep}"></div>
+        @if (i !== steps.length - 1) {
+          <div class="line"></div>
+        }
+      }
+    </div>
   </div>
 </aside>

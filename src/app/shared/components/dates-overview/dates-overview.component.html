@@ -2,10 +2,9 @@
   <div class="date-time-overview mt-2 table-responsive">
     <table class="table table-borderless d-inline-block mt-1" data-id="overviewDates">
       <thead>
-      <caption class="visually-hidden">{{ 'poll.caption' | translate }}</caption>
       <tr>
         @for (date of appointment.suggestedDates; track date; let i = $index) {
-          <th scope="row">
+          <th>
             {{ 'date.date' | translate }} {{ i + 1 }}
           </th>
         }

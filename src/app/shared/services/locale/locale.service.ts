@@ -116,6 +116,7 @@ export class LocaleService {
 
     const languageDropdown = document.querySelector('#language-dropdown .combobox');
     languageDropdown.setAttribute('aria-disabled', 'true');
+    languageDropdown.setAttribute('tabindex', '-1');
     languageDropdown.classList.add('disabled');
   }
 
@@ -125,6 +126,7 @@ export class LocaleService {
 
     const languageDropdown = document.querySelector('#language-dropdown .combobox');
     languageDropdown.setAttribute('aria-disabled', 'false');
+    languageDropdown.setAttribute('tabindex', '0');
     languageDropdown.classList.remove('disabled');
   }
 }

@@ -8,6 +8,10 @@ The "Terminfinder" offers a fast and easy way to create digital polls.
 
 Mit dem Terminfinder können Sie schnell und einfach digitale Abstimmungen für Gruppen realisieren.
 
+Licensed under the EUPL 1.2
+
+Copyright © 2022-2023 Dataport AöR
+
 [SECURITY.md](./docs/SECURITY.md)
 
 ![An ongoing poll for a hackathon.](./docs/screenshot.jpeg "Screenshot of Terminfinder")

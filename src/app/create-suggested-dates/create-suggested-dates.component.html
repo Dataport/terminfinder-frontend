@@ -348,7 +348,7 @@
                 data-id="descriptionInput"
                 class="form-control"
                 [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION"
-                placeholder="{{ 'poll.details.description.description' | translate }}"
+                placeholder="{{isSuggestedDateFromDatabase(i) ? null : 'home.placeholder' | translate }}"
                 aria-describedby="description-too-long"
               >
             </div>

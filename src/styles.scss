@@ -135,6 +135,11 @@ input[type="date"] {
   text-transform: uppercase;
 }
 
+*[aria-disabled="true"] {
+  opacity: .5;
+  pointer-events: none;
+}
+
 .checkbox input[type="checkbox"] {
   display: none;
 }

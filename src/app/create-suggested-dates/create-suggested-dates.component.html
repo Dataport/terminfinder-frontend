@@ -347,6 +347,8 @@
                 id="suggested-date-description-{{i}}"
                 data-id="descriptionInput"
                 class="form-control"
+                [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                [tabindex]="isSuggestedDateFromDatabase(i) ? -1 : 0"
                 [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION"
                 placeholder="{{isSuggestedDateFromDatabase(i) ? null : 'home.placeholder' | translate }}"
                 aria-describedby="description-too-long"

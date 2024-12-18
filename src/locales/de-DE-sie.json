@@ -152,11 +152,11 @@
         "steps": {
           "0": {
             "header": "Umfrage starten",
-            "content": "Gehen Sie auf die Start-Seite vom Termin-Finder. \nGeben Sie Ihrem Termin einen Namen. \nZum Beispiel: Betriebs-Ausflug. \nDann müssen Sie der Daten-Schutz-Erklärung \nund den Nutzungs-Bedingungen zustimmen. \n\nDer Punkt <b>Umfrage erstellen</b> bekommt dann eine Farbe. \nKlicken Sie auf den Punkt <b>Umfrage erstellen</b>. \nDann geht es weiter."
+            "content": "Gehen Sie auf die Start-Seite vom Termin-Finder. \nGeben Sie Ihrem Termin einen Namen. \nZum Beispiel: Betriebs-Ausflug. \nDann müssen Sie der Daten-Schutz-Erklärung \nund den Nutzungs-Bedingungen zustimmen. \n\nDer Punkt <strong>Umfrage erstellen</strong> bekommt dann eine Farbe. \nKlicken Sie auf den Punkt <strong>Umfrage erstellen</strong>. \nDann geht es weiter."
           },
           "1": {
             "header": "So geht es weiter",
-            "content": "Geben Sie Ihren Vornamen und Ihren Nachnamen ein. \nUnd den Titel für Ihren Termin. \nDie anderen Felder müssen Sie nicht ausfüllen. \nKlicken Sie dann auf den Punkt <b>Weiter</b> zur Termin-Auswahl."
+            "content": "Geben Sie Ihren Vornamen und Ihren Nachnamen ein. \nUnd den Titel für Ihren Termin. \nDie anderen Felder müssen Sie nicht ausfüllen. \nKlicken Sie dann auf den Punkt <strong>Weiter</strong> zur Termin-Auswahl."
           },
           "2": {
             "header": "Termin-Auswahl",
@@ -164,17 +164,17 @@
           },
           "3": {
             "header": "Passwort eingeben",
-            "content": "Wenn Sie wollen, können Sie ein Passwort für Ihre Umfrage eingeben. \nAlle Teilnehmerinnen und Teilnehmer \nmüssen dann erst das Passwort eingeben, \nbevor sie an Ihrer Umfrage teilnehmen können. \nWollen Sie ein Passwort für Ihre Umfrage eingeben? \nDann müssen Sie das Kästchen auf der rechten Seite anklicken. \n\nHaben Sie ein Passwort eingegeben? \nDann klicken Sie auf den Punkt <b>Weiter</b>. \nWollen Sie kein Passwort eingeben? \nDann klicken Sie einfach auf den Punkt <b>Weiter</b>, \nohne ein Passwort einzugeben."
+            "content": "Wenn Sie wollen, können Sie ein Passwort für Ihre Umfrage eingeben. \nAlle Teilnehmerinnen und Teilnehmer \nmüssen dann erst das Passwort eingeben, \nbevor sie an Ihrer Umfrage teilnehmen können. \nWollen Sie ein Passwort für Ihre Umfrage eingeben? \nDann müssen Sie das Kästchen auf der rechten Seite anklicken. \n\nHaben Sie ein Passwort eingegeben? \nDann klicken Sie auf den Punkt <strong>Weiter</strong>. \nWollen Sie kein Passwort eingeben? \nDann klicken Sie einfach auf den Punkt <strong>Weiter</strong>, \nohne ein Passwort einzugeben."
           },
           "4": {
             "header": "Eingaben überprüfen und Umfrage starten",
-            "content": "Jetzt können Sie noch einmal überprüfen, \nwas Sie eingegeben haben. \nWollen Sie etwas verbessern? \nDann klicken Sie auf den Punkt <b>Überarbeiten</b>. \n\nSind Sie fertig? \nDann klicken Sie auf den Punkt <b>Umfrage starten</b>. \nSie bekommen 2 Links. \nMit dem einen Link können Sie Teilnehmerinnen und Teilnehmer \nzu Ihrer Umfrage einladen. \nMit dem anderen Link können Sie Dinge an der Umfrage ändern. \n\nWichtig: \nSpeichern Sie die Links ab, \nbevor Sie die Internet-Seite verlassen. \nSonst gehen die Links verloren \nund Sie müssen die Umfrage neu machen."
+            "content": "Jetzt können Sie noch einmal überprüfen, \nwas Sie eingegeben haben. \nWollen Sie etwas verbessern? \nDann klicken Sie auf den Punkt <strong>Überarbeiten</strong>. \n\nSind Sie fertig? \nDann klicken Sie auf den Punkt <strong>Umfrage starten</strong>. \nSie bekommen 2 Links. \nMit dem einen Link können Sie Teilnehmerinnen und Teilnehmer \nzu Ihrer Umfrage einladen. \nMit dem anderen Link können Sie Dinge an der Umfrage ändern. \n\nWichtig: \nSpeichern Sie die Links ab, \nbevor Sie die Internet-Seite verlassen. \nSonst gehen die Links verloren \nund Sie müssen die Umfrage neu machen."
           }
         }
       },
       "declarationOnAccessibility": {
         "header": "3. Informationen über die Erklärung zur Barriere-Freiheit",
-        "content": "Sie finden die Erklärung zur Barriere-Freiheit \nunten am Seiten-Rand auf der Start-Seite. \nIn der Erklärung zur Barriere-Freiheit stehen alle Barrieren, \ndie es auf der Internet-Seite gibt. \nDort steht auch, warum es diese Barrieren gibt. \n\nBarrieren auf der Internet-Seite sind die Dinge, \nwarum für manche Menschen eine Internet-Seite \nschwer zu bedienen ist. \nZum Beispiel, wenn die Schrift zu klein ist. \nOder wenn es Texte nicht in Leichter Sprache gibt. \n\nKlicken Sie auf den Punkt <b>Barriere-Freiheit</b>. \nDann können Sie die Erklärung zur Barriere-Freiheit lesen. \nHaben Sie Barrieren gefunden, \ndie nicht in der Erklärung zur Barriere-Freiheit stehen? \nDann können Sie diese Barrieren melden. \nNehmen Sie dafür Kontakt zu der Beschwerde-Stelle auf, \ndie in der Erklärung zur Barriere-Freiheit steht."
+        "content": "Sie finden die Erklärung zur Barriere-Freiheit \nunten am Seiten-Rand auf der Start-Seite. \nIn der Erklärung zur Barriere-Freiheit stehen alle Barrieren, \ndie es auf der Internet-Seite gibt. \nDort steht auch, warum es diese Barrieren gibt. \n\nBarrieren auf der Internet-Seite sind die Dinge, \nwarum für manche Menschen eine Internet-Seite \nschwer zu bedienen ist. \nZum Beispiel, wenn die Schrift zu klein ist. \nOder wenn es Texte nicht in Leichter Sprache gibt. \n\nKlicken Sie auf den Punkt <strong>Barriere-Freiheit</strong>. \nDann können Sie die Erklärung zur Barriere-Freiheit lesen. \nHaben Sie Barrieren gefunden, \ndie nicht in der Erklärung zur Barriere-Freiheit stehen? \nDann können Sie diese Barrieren melden. \nNehmen Sie dafür Kontakt zu der Beschwerde-Stelle auf, \ndie in der Erklärung zur Barriere-Freiheit steht."
       }
     },
     "signLanguage": {

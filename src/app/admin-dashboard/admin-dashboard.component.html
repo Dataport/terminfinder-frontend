@@ -43,12 +43,12 @@
               <div class="row">
                 <div class="col col-12">
                   <button
-                    (click)="toggleStatus()"
-                    [attr.aria-disabled]="isStatusDisabled"
-                    [ngClass]="{'disabled': isStatusDisabled}"
-                    class="w-100 btn-circle"
-                    data-id="statusPollButton"
                     role="switch"
+                    type="button"
+                    (click)="toggleStatus()"
+                    data-id="statusPollButton"
+                    class="w-100 btn-circle"
+                    [attr.aria-disabled]="isStatusDisabled"
                     [attr.aria-checked]="isStarted"
                   >
                     <!--suppress HtmlUnknownTarget no inspection for this dynamic src path -->

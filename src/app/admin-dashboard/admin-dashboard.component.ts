@@ -39,6 +39,8 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   public toggleStatus(): void {
+    if (this.isStatusDisabled) return;
+
     const statusType = this.isStarted
       ? AppointmentStatusType.Paused
       : AppointmentStatusType.Started;

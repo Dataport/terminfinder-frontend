@@ -14,17 +14,10 @@ a.back-link {
   align-items: center;
 }
 
-h3, h4 {
+h1, h2 {
   margin-top: 2rem;
 }
 
-h3 {
-  font-weight: bold;
-  font-size: 1.75rem!important;
-}
-
-h4 {
-  color: $primary;
-  font-weight: bolder;
-  font-size: 1.5rem;
+h3, h4 {
+  margin-top: 1rem;
 }

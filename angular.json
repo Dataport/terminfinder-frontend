@@ -63,6 +63,14 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": true,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
@@ -75,6 +83,9 @@
           "configurations": {
             "production": {
               "buildTarget": "terminfinder:build:production"
+            },
+            "development": {
+              "buildTarget": "terminfinder:build:development"
             }
           }
         },

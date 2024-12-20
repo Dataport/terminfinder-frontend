@@ -7,6 +7,7 @@ import {Appointment as ApiAppointment, SuggestedDate as ApiSuggestedDate} from '
 import {DataRepositoryService} from '../shared/services/data-service';
 import {ModelTransformerService} from '../shared/services/transformer';
 import {RouteTitleService} from "../shared/services/route-title.service";
+import {NullableUtils} from "../shared/utils";
 
 @Component({
   selector: 'app-overview',
@@ -22,7 +23,6 @@ export class OverviewComponent implements OnInit {
   constructor(
     private dataRepoService: DataRepositoryService,
     private appStateService: AppStateService,
-    private modelTransformer: ModelTransformerService,
     @Inject(LOCALE_ID) private localeId: string,
     private router: Router,
     private logger: Logger,
@@ -33,6 +33,12 @@ export class OverviewComponent implements OnInit {
   ngOnInit() {
     this.model = this.appStateService.getAppointment();
     this.routeTitle.setTitle('poll.checkData');
+  }
+
+  // Happens when a user navigates back after creating the appointment
+  isAppointmentSent() {
+    const apiAppointment: ApiAppointment = ModelTransformerService.transformAppointmentToApiAppointment(this.model);
+    return (!NullableUtils.isStringNullOrWhitespace(apiAppointment.appointmentId) && !NullableUtils.isStringNullOrWhitespace(apiAppointment.adminId));
   }
 
   sendCreateAppointment(): void {

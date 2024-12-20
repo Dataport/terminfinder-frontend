@@ -39,18 +39,32 @@
         class="btn-next-large"
         forwardText="{{ 'poll.change' | translate }}"
       ></app-navigation>
-    }
-    @if (!isAdmin) {
-      <app-navigation
-        (backward)="goBack()"
-        (forward)="sendCreateAppointment()"
-        [hasBackwardButton]="true"
-        [hasForwardButton]="true"
-        [isInvalid]="false"
-        backwardText="{{ 'navigation.revise' | translate }}"
-        class="btn-next-large"
-        forwardText="{{ 'poll.start' | translate }}"
-      ></app-navigation>
+    } @else {
+      @if (!isAppointmentSent()) {
+        <app-navigation
+          (backward)="goBack()"
+          (forward)="sendCreateAppointment()"
+          [hasBackwardButton]="true"
+          [hasForwardButton]="true"
+          [isInvalid]="false"
+          backwardText="{{ 'navigation.revise' | translate }}"
+          class="btn-next-large"
+          forwardText="{{ 'poll.start' | translate }}"
+        ></app-navigation>
+      } @else {
+        <div class="row mt-2 px-3">
+          <div class="alert alert-warning">
+            {{ 'poll.warningAlreadyCreated' |  translate }}
+          </div>
+        </div>
+        <app-navigation
+          (forward)="sendCreateAppointment()"
+          [hasForwardButton]="true"
+          [isInvalid]="false"
+          class="btn-next-large"
+          forwardText="{{ 'poll.showLinks' | translate }}"
+        ></app-navigation>
+      }
     }
   </div>
 </div>

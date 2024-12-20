@@ -36,6 +36,8 @@
     "create": "Create poll",
     "createNew": "Create new poll",
     "configure": "Configure your poll",
+    "warningAlreadyCreated": "The survey has already been created! To edit it, you must use the admin link.",
+    "showLinks": "Show links",
     "start": "Start poll",
     "pause": "Pause poll",
     "paused": "You can't edit this poll, because it's paused.",

@@ -32,6 +32,8 @@
     "create": "Umfraag maken",
     "createNew": "Nee Umfraag maken ",
     "configure": "Konfigureer dien Umfraag",
+    "warningAlreadyCreated": "De Umfraag wur beriets erstellt! To bearbeiten muss du de Adminlenk benutzen.",
+    "showLinks": "To de Lenks",
     "start": "Umfraag starten",
     "pause": "Umfraag pauseren",
     "paused": "De Umfraag kann opstunns nich bearbeit warrn, wiel se pauseert is.",

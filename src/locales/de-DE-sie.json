@@ -36,6 +36,8 @@
     "create": "Umfrage erstellen",
     "createNew": "Neue Umfrage erstellen",
     "configure": "Konfigurieren Sie Ihre Umfrage",
+    "warningAlreadyCreated": "Die Umfrage wurde bereits erstellt! Um sie zu bearbeiten, müssen Sie den Adminlink verwenden.",
+    "showLinks": "Links anzeigen",
     "start": "Umfrage starten",
     "pause": "Umfrage pausieren",
     "paused": "Die Umfrage kann derzeit nicht bearbeitet werden, da sie pausiert ist.",

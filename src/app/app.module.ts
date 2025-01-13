@@ -79,6 +79,7 @@ import {SignLanguageComponent} from "./sign-language/sign-language.component";
 import {TimeInputDirective} from "./shared/directives/time-input.directive";
 import {provideToastr, ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule, provideAnimations} from "@angular/platform-browser/animations";
+import 'mediaelement';
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent, title: environment.title},

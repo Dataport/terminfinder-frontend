@@ -10,44 +10,32 @@ declare var MediaElementPlayer: any;
     SanitizeUrlPipe
   ],
   template: `
-    <div id="player">
+    <div class="video-player">
       @if (src) {
         <video
-          #player
-          width="608"
-          height="402"
+          #mediaElem
           [title]="title()"
           [src]="src() | sanitizeUrl"
+          preload="auto"
         ></video>
       }
     </div>
   `,
-  styles: `
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    #player {
-      position: relative;
-      padding-bottom: 66.118421052632%;
-    }`
+  styleUrl: 'mediaelement-player.component.scss'
 })
 
 export class MediaelementPlayerComponent implements AfterViewInit, OnDestroy {
   src = input.required<string>();
   title = input<string>('');
-  @ViewChild('player') mediaElement: ElementRef;
+  @ViewChild('mediaElem') mediaElement: ElementRef;
   player: any;
 
   ngAfterViewInit() {
     this.player = new MediaElementPlayer(this.mediaElement.nativeElement, {
-      iconSprite: 'assets/ext/mejs-controls.svg',
       // order is important - items will display in the control bar
-      features: ['playpause', 'current', 'progress', 'duration', 'volume', 'fullscreen']
+      features: ['playpause', 'current', 'progress', 'duration', 'volume', 'fullscreen'],
+      iconSprite: 'assets/ext/mejs-controls.svg',
+      stretching: 'responsive',
     });
   }
 

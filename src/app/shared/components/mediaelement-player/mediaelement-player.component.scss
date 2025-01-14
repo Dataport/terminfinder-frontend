@@ -1,0 +1,9 @@
+@import "src/default";
+
+:host ::ng-deep {
+  .mejs__container,
+  .mejs__time-total,
+  .mejs__time-slider {
+    @include focus-outline;
+  }
+}

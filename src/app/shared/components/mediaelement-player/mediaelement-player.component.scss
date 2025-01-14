@@ -6,4 +6,51 @@
   .mejs__time-slider {
     @include focus-outline;
   }
+
+  // increase size
+  .mejs__controls {
+    height: 3.5rem;
+
+    & > div {
+      height: 3.5rem;
+      width: 3rem;
+    }
+
+    button {
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .mejs__time {
+      height: 1.875rem;
+      font-size: 1rem;
+      padding: 1.5rem .375rem 0;
+    }
+
+    .mejs__time-rail {
+      padding-top: 1rem;
+
+      .mejs__time-total {
+        &, span {
+          height: 1rem;
+        }
+      }
+    }
+
+    .mejs__time-rail:hover .mejs__time-handle-content {
+      transform: scale(1.25);
+      width: 1rem;
+      background-color: white;
+    }
+  }
+
+  // better contrast
+  .mejs__controls:not([style*="display: none"]) {
+    background: $primary;
+  }
 }

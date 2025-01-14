@@ -33,7 +33,7 @@ export class MediaelementPlayerComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.player = new MediaElementPlayer(this.mediaElement.nativeElement, {
       // order is important - items will display in the control bar
-      features: ['playpause', 'current', 'progress', 'duration', 'volume', 'fullscreen'],
+      features: ['playpause', 'current', 'progress', 'duration', 'fullscreen'],
       iconSprite: 'assets/ext/mejs-controls.svg',
       stretching: 'responsive',
     });

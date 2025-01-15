@@ -5,6 +5,13 @@
   .mejs__time-total,
   .mejs__time-slider {
     @include focus-outline;
+
+    .mejs__controls {
+      button,
+      .mejs__time-slider {
+        outline-offset: .25rem;
+      }
+    }
   }
 
   // increase size

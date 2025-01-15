@@ -49,6 +49,22 @@
     }
   }
 
+  // move controls under video
+  .mejs__container:not(.mejs__container-fullscreen ) {
+    margin-bottom: 3.5rem;
+
+    .mejs__controls {
+      bottom: -3.5rem;
+      opacity: 1 !important;
+
+      // don't hide while playing
+      &.mejs__offscreen {
+        clip: auto !important;
+        clip-path: none !important;
+      }
+    }
+  }
+
   // better contrast
   .mejs__controls:not([style*="display: none"]) {
     background: $primary;

@@ -39,15 +39,15 @@ export class SignLanguageComponent implements OnInit {
   protected readonly videos = [
     {
       titleTranslateString: 'accessibility.signLanguage.videos.0.title',
-      src: 'https://api.dgolive.de/p/105/sp/0/playManifest/entryId/0_tig10w13/format/url/flavorParamId/301971/video.mp4'
+      src: 'https://api.dgolive.de/p/105/sp/0/playManifest/entryId/0_tig10w13/format/url/flavorParamId/0/video.mp4'
     },
     {
       titleTranslateString: 'accessibility.signLanguage.videos.1.title',
-      src: 'https://api.dgolive.de/p/105/sp/0/playManifest/entryId/0_ovo5c099/format/url/flavorParamId/301971/video.mp4'
+      src: 'https://api.dgolive.de/p/105/sp/0/playManifest/entryId/0_ovo5c099/format/url/flavorParamId/0/video.mp4'
     },
     {
       titleTranslateString: 'accessibility.signLanguage.videos.2.title',
-      src: 'https://api.dgolive.de/p/105/sp/0/playManifest/entryId/0_yaxniffj/format/url/flavorParamId/301971/video.mp4'
+      src: 'https://api.dgolive.de/p/105/sp/0/playManifest/entryId/0_yaxniffj/format/url/flavorParamId/0/video.mp4'
     }
   ];
 

@@ -72,6 +72,8 @@ export class LocaleService {
       }
     }
 
+    this.setMejsLanguage(this._locale.languageCode);
+
     switch (addressing) {
       case 'du':
         this._locale.addressing = 'du';
@@ -128,5 +130,12 @@ export class LocaleService {
     languageDropdown.setAttribute('aria-disabled', 'false');
     languageDropdown.setAttribute('tabindex', '0');
     languageDropdown.classList.remove('disabled');
+  }
+
+  setMejsLanguage(languageCode: LanguageCode) {
+    const langShort = languageCode.split('-')[0];
+    if ((langShort === 'de' || langShort === 'en') && mejs && mejs.i18n) {
+      mejs.i18n.lang = langShort;
+    }
   }
 }

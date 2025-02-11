@@ -74,6 +74,18 @@
 
   // better contrast
   .mejs__controls:not([style*="display: none"]) {
-    background: $dark-gray;
+    background: $light-gray;
+  }
+
+  svg {
+    fill: black;
+  }
+
+  .mejs__controls span {
+    color: black;
+  }
+
+  .mejs__controls .mejs__time-slider {
+    background-color: black;
   }
 }

@@ -218,7 +218,6 @@
                   {{ 'time.end' | translate }} ({{ 'time.placeholder' | translate }})
                 </label>
                 <input
-                  appAutoFocus
                   type="time"
                   id="suggested-date-end-time-{{i}}"
                   data-id="endTimeInput"
@@ -289,6 +288,7 @@
                 </label>
                 <input
                   appAutoFocus
+                  [autoFocus]="!getShowEndDateEndTimeControl(i) || getEndDateOfSuggestedStartDateByIndex(i).touched"
                   type="time"
                   id="suggested-date-start-time-{{i}}"
                   data-id="startTimeInputSecondColumn"
@@ -311,7 +311,6 @@
                   {{ 'time.end' | translate }} ({{ 'time.placeholder' | translate }})
                 </label>
                 <input
-                  appAutoFocus
                   type="time"
                   id="suggested-date-end-time-different-day-{{i}}"
                   data-id="endTimeInputSecondColumn"

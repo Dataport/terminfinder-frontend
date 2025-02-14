@@ -84,7 +84,7 @@ button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="sub
     content: '';
     height: 100%;
     width: .25rem;
-    border-left: .25rem solid $secondary;
+    border-left: .25rem solid $input-invalid-color;
     position: absolute;
     top: 0;
     z-index: 1;

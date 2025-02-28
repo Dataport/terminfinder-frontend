@@ -6,6 +6,11 @@ a {
   color: $primary;
 }
 
+h2,
+p {
+  font-size: $font-size-small !important;
+}
+
 .section-container {
   margin-bottom: 10px;
   @include media-breakpoint-up(lg) {

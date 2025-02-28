@@ -1,14 +1,19 @@
 <div class="form-row invalid-message-highlight">
   <div class="col section-container py-2 px-3">
-    <app-checkbox-field [formControl]="isTosRead" [labelTemplate]="tosLabelTemplate" ariaDescribedBy="tos-accept" [required]="'required'"/>
-
-    <ng-template #tosLabelTemplate>
+    <h2>{{ 'tos.header' | translate }}</h2>
+    <p>
       {{ 'tos.accept_0' | translate }}
       <a data-cy="tosPrivacyLink" routerLink="/privacy">{{ 'privacy.declaration' | translate }}</a>
       {{ 'tos.accept_1' | translate }}
       <a data-cy="tosLink" routerLink="/termsOfService">{{ 'tos.tos' | translate }}</a>
       {{ 'tos.accept_2' | translate }}
-    </ng-template>
+    </p>
+    <app-checkbox-field
+      [formControl]="isTosRead"
+      [label]="'tos.label' | translate"
+      ariaDescribedBy="tos-accept"
+      [required]="'required'"
+    />
 
     @if (isTosRead.dirty && isTosRead.invalid) {
       <div class="col-12 invalid-message" id="tos-accept" role="alert" aria-atomic="false">

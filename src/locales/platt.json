@@ -222,7 +222,9 @@
     "accept_0": "Ja, ick stimm to, datt de in de ",
     "accept_1": " benennte verantwörtliche Stee mien Daten to Affstimmung von Umfraagen verarbeiten dörf, und weet, datt ick de Inwilligung jedertiet per E-Mail an de in de Datenschutzerklärung benennte Adress von de verantwörtliche Stee mit Wirkung utschließlich för de Tukunft wedderroben kann. Doröber hinutt stimm ick de ",
     "accept_2": " to.",
-    "accept": "Bitte stimm de Datenschutzerklärung un de Bruukbedingen to."
+    "accept": "Bitte stimm de Datenschutzerklärung un de Bruukbedingen to.",
+    "header": "Datenschutz un Bruukbedingen",
+    "label": "Ick stimm de Datenschutzerklärung un de Bruukbedingen to."
   },
   "footer": {
     "navLabel": {

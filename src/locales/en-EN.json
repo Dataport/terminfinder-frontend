@@ -262,7 +262,9 @@
     "accept_0": "I consent to the controller named in the ",
     "accept_1": " processing my data for the purpose of coordinating appointments and I know that I can revoke this consent at any time by sending an email to the address of the controller named in the privacy declaration with effect for the future only. Furthermore, I agree to the ",
     "accept_2": ".",
-    "accept": "Please agree to the terms of use and consent to the above data processing."
+    "accept": "Please agree to the terms of use and consent to the above data processing.",
+    "header": "Data processing and terms of use",
+    "label": "I agree to the terms of use and consent to the above data processing."
   },
   "footer": {
     "navLabel": {

@@ -58,7 +58,7 @@
   }
 
   &.option-current {
-    outline: lighten($primary, 10%) solid 0.15rem !important;
+    outline: var(--primary-lighter-10) solid 0.15rem !important;
     outline-offset: -.15rem;
     border-radius: .5rem;
   }

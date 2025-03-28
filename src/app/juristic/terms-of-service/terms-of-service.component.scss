@@ -24,7 +24,7 @@ content h1 {
 }
 
 content h1 > a {
-  color: $primary;
+  color: var(--primary);
   display: inline;
   text-align: center;
 }

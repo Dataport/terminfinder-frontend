@@ -57,7 +57,7 @@ form {
 }
 
 .btn-with-image.btn-add-suggested-date, .btn-with-image.btn-suggested-date-end-at-different-day {
-  color: $primary;
+  color: var(--primary);
   background-size: $height-icon * 0.8 $width-icon * 0.8;
   @include media-breakpoint-up(lg) {
     background-size: $height-icon $width-icon;
@@ -190,7 +190,7 @@ input {
   //noinspection CssUnusedSymbol
 .suggested-date-timepicker-start button.btn-timepicker:active {
   background-origin: border-box;
-  color: $primary;
+  color: var(--primary);
   font-weight: bold;
   border-radius: $border-radius;
   border: 1px solid $border-color-input;

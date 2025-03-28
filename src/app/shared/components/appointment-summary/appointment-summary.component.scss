@@ -1,20 +1,11 @@
 @import "src/default";
 @import 'bootstrap/scss/mixins';
 
-#url {
-  color: $primary;
-}
-
-#name {
-  color: $primary;
-}
-
-#title {
-  color: $primary;
-}
-
+#url,
+#name,
+#title,
 #location {
-  color: $primary;
+  color: var(--primary);
 }
 
 img.icon {
@@ -23,7 +14,7 @@ img.icon {
 }
 
 .header {
-  color: $primary;
+  color: var(--primary);
   font-size: $font-size-small-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
@@ -50,7 +41,7 @@ img.icon {
 }
 
 #description {
-  color: $primary;
+  color: var(--primary);
   position: relative;
   text-align: justify;
   padding-right: 1em;

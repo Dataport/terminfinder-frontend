@@ -1,7 +1,7 @@
 @import "src/default.scss";
 
 .date-time-overview table {
-  color: $primary;
+  color: var(--primary);
 
   th {
     min-width: $suggested-date-desktop-min-width;

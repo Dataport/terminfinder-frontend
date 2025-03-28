@@ -89,6 +89,11 @@ $container-max-widths: (
   xl: 1140px
 ) !default;
 
+:root {
+  --primary: #{$primary};
+  --primary-lighter-10: #004691;
+}
+
 @mixin btn-disabled {
   opacity: 1;
   background-color: #a4adb6 !important;
@@ -101,6 +106,6 @@ $container-max-widths: (
   outline: none;
 
   &:focus {
-    outline: lighten($primary, 10%) solid 0.25rem !important;
+    outline: var(--primary-lighter-10) solid 0.25rem !important;
   }
 }

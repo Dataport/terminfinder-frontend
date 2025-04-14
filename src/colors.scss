@@ -1,0 +1,13 @@
+@import "default";
+
+$colors: (
+  primary: $primary,
+  primary-lighter-10: #004691,
+  secondary: $secondary
+);
+
+:root {
+  @each $key, $value in $colors {
+    --#{$key}: #{$value};
+  }
+}

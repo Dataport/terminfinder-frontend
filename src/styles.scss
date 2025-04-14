@@ -178,7 +178,7 @@ a,
   &:hover,
   &:active,
   &:focus {
-    background-color: $secondary !important;
+    background-color: var(--secondary, #{$secondary}) !important;
   }
 }
 
@@ -351,11 +351,11 @@ a,
   }
 
   table td.active, table td.active:hover, table td span.active {
-    background-color: $secondary;
+    background-color: var(--secondary, #{$secondary});
   }
 
   table td.today:before {
-    border-bottom-color: $secondary;
+    border-bottom-color: var(--secondary, #{$secondary});
   }
 }
 

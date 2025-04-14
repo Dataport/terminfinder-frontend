@@ -2,7 +2,7 @@
 @import 'bootstrap/scss/mixins';
 
 #email {
-  color: $secondary;
+  color: var(--secondary, #{$secondary});
 }
 
 #contact {
@@ -26,11 +26,11 @@
 }
 
 #contact > a {
-  color: $secondary;
+  color: var(--secondary, #{$secondary});
 }
 
 #contact > a:hover {
-  color: $secondary;
+  color: var(--secondary, #{$secondary});
   text-decoration: underline;
 }
 

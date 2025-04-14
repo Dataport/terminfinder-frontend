@@ -1,7 +1,7 @@
 @import "src/default";
 
 span {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   text-decoration: underline;
   cursor: pointer;
 }

@@ -48,7 +48,7 @@ $icon-height: 30px;
 
 a.link-with-image {
   display: flex;
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   padding-left: 6px;
   border: 0;
 

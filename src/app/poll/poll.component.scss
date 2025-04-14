@@ -311,7 +311,7 @@ $poll-data-cell-invalid-message-min-height: 24px;
     }
 
     .form-control {
-      color: var(--primary);
+      color: var(--primary, #{$primary});
       border-color: $medium-gray;
       background-color: $light-gray;
     }

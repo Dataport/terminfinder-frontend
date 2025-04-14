@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-  color: var(--primary) !important;
+  color: var(--primary, #{$primary}) !important;
   font-weight: $font-weight-bold !important;
   font-size: $font-size-large-mobile !important;
   @include media-breakpoint-up(sm) {
@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-  color: var(--primary) !important;
+  color: var(--primary, #{$primary}) !important;
   font-size: $font-size-large-mobile !important;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
@@ -43,7 +43,7 @@ h2 {
 }
 
 h3 {
-  color: var(--primary) !important;
+  color: var(--primary, #{$primary}) !important;
   font-size: $font-size-medium-mobile !important;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
@@ -51,7 +51,7 @@ h3 {
 }
 
 label {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   font-size: $font-size-small-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
@@ -169,7 +169,7 @@ a,
 .btn-secondary {
   &:focus {
     box-shadow: none !important;
-    outline: .25rem solid var(--primary) !important;
+    outline: .25rem solid var(--primary, #{$primary}) !important;
     outline-offset: .25rem;
   }
 }
@@ -341,7 +341,7 @@ a,
 }
 
 .dropdown-menu {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
 }
 
 .bootstrap-datetimepicker-widget {
@@ -367,7 +367,7 @@ a,
     text-decoration: underline;
 
     span {
-      text-decoration: var(--primary);
+      text-decoration: var(--primary, #{$primary});
     }
   }
 
@@ -487,7 +487,7 @@ a,
 }
 
 .font-medium {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   font-size: $font-size-medium-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
@@ -502,7 +502,7 @@ a,
 }
 
 .text-bold {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   font-weight: $font-weight-bold !important;
 }
 

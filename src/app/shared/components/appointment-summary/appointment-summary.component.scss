@@ -5,7 +5,7 @@
 #name,
 #title,
 #location {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
 }
 
 img.icon {
@@ -14,7 +14,7 @@ img.icon {
 }
 
 .header {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   font-size: $font-size-small-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
@@ -41,7 +41,7 @@ img.icon {
 }
 
 #description {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   position: relative;
   text-align: justify;
   padding-right: 1em;

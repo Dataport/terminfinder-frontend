@@ -42,7 +42,7 @@
 }
 
 .content h1 > a {
-  color: var(--primary);
+  color: var(--primary, #{$primary});
   display: inline;
   text-align: center;
 }

@@ -95,7 +95,7 @@ tfoot tr:last-child td {
 }
 
 .toolbar {
-  background-color: $toolbar-background-color;
+  background-color: var(--toolbar-background-color, #{$toolbar-background-color});
 }
 
 .divider {
@@ -276,13 +276,13 @@ button.btn-with-image {
 
 $poll-data-cell-invalid-message-min-height: 24px;
 .poll-add-user-row, .poll-edit-user-row, .table-hover tbody tr.poll-add-user-row:hover {
-  background-color: $toolbar-background-color !important;
+  background-color: var(--toolbar-background-color, #{$toolbar-background-color}) !important;
 
   .poll-data-cell {
     width: 350px;
 
     &.name {
-      background: $toolbar-background-color !important;
+      background: var(--toolbar-background-color, #{$toolbar-background-color}) !important;
     }
 
     .invalid-message {

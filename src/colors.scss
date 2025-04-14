@@ -15,8 +15,20 @@ $colors: (
   bootstrap-form-control-color: $bootstrap-form-control-color
 );
 
+$inheritingColors: (
+  footer-text-color: $secondary,
+  border-color-input: $medium-gray,
+  border-color-divider-icon-input: $medium-gray,
+  toolbar-background-color: $s-h-blue-15,
+  primary-background-color: $s-h-light-blue,
+);
+
 :root {
   @each $key, $value in $colors {
+    --#{$key}: #{$value};
+  }
+
+  @each $key, $value in $inheritingColors {
     --#{$key}: #{$value};
   }
 }

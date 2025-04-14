@@ -202,7 +202,7 @@ a,
   }
 
   .form-control:focus {
-    border-bottom-color: $s-h-blue !important;
+    border-bottom-color: var(--s-h-blue, #{$s-h-blue}) !important;
     border-width: 1px !important;
   }
 

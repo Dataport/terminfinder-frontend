@@ -342,8 +342,8 @@ $poll-data-cell-invalid-message-min-height: 24px;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
-  color: $danger;
-  border: 2px solid $danger;
+  color: var(--danger, #{$danger});
+  border: 2px solid var(--danger, #{$danger});
   background-color: transparent;
   border-radius: 0;
 }

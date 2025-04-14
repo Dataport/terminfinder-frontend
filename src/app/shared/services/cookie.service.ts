@@ -10,6 +10,21 @@ export class CookieService {
     'primary',
     'primary-lighter-10',
     'secondary',
+    'light-gray',
+    'medium-gray',
+    'dark-gray',
+    's-h-blue',
+    's-h-blue-50',
+    's-h-blue-15',
+    's-h-light-blue',
+    'danger',
+    'bootstrap-form-control-color',
+    // Inherited Colors - see colors.scss
+    'footer-text-color',
+    'border-color-input',
+    'border-color-divider-icon-input',
+    'toolbar-background-color',
+    'primary-background-color',
   ];
 
   constructor(private logger: Logger) {

@@ -42,8 +42,8 @@ $icon-height: 30px;
 }
 
 .btn-transparent:hover {
-  background-color: $medium-gray;
-  border-color: $medium-gray;
+  background-color: var(--medium-gray, #{$medium-gray});
+  border-color: var(--medium-gray, #{$medium-gray});
 }
 
 a.link-with-image {

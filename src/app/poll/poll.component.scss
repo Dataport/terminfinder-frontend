@@ -136,8 +136,8 @@ button.btn-trash {
   @include focus-outline;
 
   :hover {
-    background-color: $medium-gray;
-    border-color: $medium-gray;
+    background-color: var(--medium-gray, #{$medium-gray});
+    border-color: var(--medium-gray, #{$medium-gray});
   }
 }
 
@@ -312,7 +312,7 @@ $poll-data-cell-invalid-message-min-height: 24px;
 
     .form-control {
       color: var(--primary, #{$primary});
-      border-color: $medium-gray;
+      border-color: var(--medium-gray, #{$medium-gray});
       background-color: var(--light-gray, #{$light-gray});
     }
 

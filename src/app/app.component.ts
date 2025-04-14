@@ -6,6 +6,7 @@ import {Title} from '@angular/platform-browser';
 import {LocalStorageService} from './shared/services/data-service/local-storage.service';
 import {LocaleService} from './shared/services/locale/locale.service';
 import {NullableUtils} from "./shared/utils";
+import {CookieService} from "./shared/services/cookie.service";
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
     private logger: Logger,
     private titleService: Title,
     private localStorageService: LocalStorageService,
+    private cookieService: CookieService,
   ) {
   }
 
@@ -40,5 +42,7 @@ export class AppComponent implements OnInit {
           this.connectionError = true;
         }
       });
+
+    this.cookieService.replaceCSSColorsFromCookies();
   }
 }

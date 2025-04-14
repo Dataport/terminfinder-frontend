@@ -196,7 +196,7 @@ a,
   .form-control {
     border: none !important;
     border-radius: unset !important;
-    border-bottom: 1px solid $medium-gray !important;
+    border-bottom: 1px solid var(--medium-gray, #{$medium-gray}) !important;
     margin-bottom: 0.5rem;
     padding: 0 !important;
   }

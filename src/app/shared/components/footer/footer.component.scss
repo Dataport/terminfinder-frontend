@@ -9,7 +9,7 @@
   display: block;
   text-align: center;
   width: 100%;
-  color: $footer-text-color;
+  color: var(--footer-text-color, #{$footer-text-color});
   margin-bottom: 8px;
 }
 
@@ -39,12 +39,12 @@
   text-align: center;
   width: 100%;
   padding: 0 4px 0 4px;
-  color: $footer-text-color;
+  color: var(--footer-text-color, #{$footer-text-color});
   margin-bottom: 8px;
   font-size: $font-size-small-mobile;
 
   a {
-    color: $footer-text-color;
+    color: var(--footer-text-color, #{$footer-text-color});
   }
 
   @include media-breakpoint-up(lg) {

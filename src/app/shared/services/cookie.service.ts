@@ -32,16 +32,13 @@ export class CookieService {
 
   replaceCSSColorsFromCookies(): void {
     this.logger.info('replaceCSSColorsFromCookies()');
-    console.info('replaceCSSColorsFromCookies()');
 
     this.colors.forEach((color) => {
       this.logger.debug('Looking for: ', color);
-      console.debug('Looking for: ', color);
 
       const colorValue = this.getCookie(color);
       if (colorValue) {
         this.logger.debug('Cookie found, value is: ', colorValue);
-        console.debug('Cookie found, value is: ', colorValue);
         document.documentElement.style.setProperty(`--${color}`, colorValue);
       }
     });

@@ -3,7 +3,16 @@
 $colors: (
   primary: $primary,
   primary-lighter-10: #004691,
-  secondary: $secondary
+  secondary: $secondary,
+  light-gray: $light-gray,
+  medium-gray: $medium-gray,
+  dark-gray: $dark-gray,
+  s-h-blue: $primary,
+  s-h-blue-50: $s-h-blue-50,
+  s-h-blue-15: $s-h-blue-15,
+  s-h-light-blue: $s-h-light-blue,
+  danger: $danger,
+  bootstrap-form-control-color: $bootstrap-form-control-color
 );
 
 :root {

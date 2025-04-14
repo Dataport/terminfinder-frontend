@@ -26,7 +26,7 @@ $icon-height: 30px;
 .link-container {
   border: 1px solid $circle-tag-border-color;
   border-radius: 0.5rem;
-  background-color: $light-gray;
+  background-color: var(--light-gray, #{$light-gray});
 }
 
 .btn {

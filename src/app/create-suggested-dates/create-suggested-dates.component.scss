@@ -92,7 +92,7 @@ form {
   }
 }
 
-$input-background-color: $light-gray;
+$input-background-color: var(--light-gray, #{$light-gray});
 
 .input-group-prepend {
   background-color: $input-background-color !important;

@@ -82,7 +82,7 @@
     @include media-breakpoint-up(lg) {
       font-size: $font-size-small;
     }
-    color: $dark-gray;
+    color: var(--dark-gray, #{$dark-gray});
     margin: 0 4px 0 4px;
   }
 }

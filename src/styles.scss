@@ -507,5 +507,5 @@ a,
 }
 
 .text-dark-gray {
-  color: $dark-gray
+  color: var(--dark-gray, #{$dark-gray})
 }

@@ -46,7 +46,7 @@
   overflow-y: auto;
 
   background-color: white;
-  border: 1px solid $dark-gray;
+  border: 1px solid var(--dark-gray, #{$dark-gray});
   border-radius: .5rem;
 }
 

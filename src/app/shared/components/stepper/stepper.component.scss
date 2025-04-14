@@ -15,7 +15,7 @@
 
   .circle-active {
     border-color: $dark-gray;
-    background-color: $secondary;
+    background-color: var(--secondary, #{$secondary});
   }
 
   .line {

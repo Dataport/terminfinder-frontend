@@ -14,7 +14,7 @@ label[for="title"] {
 #btn-submit {
   display: flex;
   color: $btn-text;
-  background: $secondary;
+  background: var(--secondary, #{$secondary});
   background-origin: content-box;
   background-size: $form-icon-width * 0.6 $form-icon-height * 0.6;
   align-items: center;

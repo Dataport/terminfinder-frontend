@@ -16,11 +16,11 @@ $colors: (
 );
 
 $inheritingColors: (
-  footer-text-color: $secondary,
-  border-color-input: $medium-gray,
-  border-color-divider-icon-input: $medium-gray,
-  toolbar-background-color: $s-h-blue-15,
-  primary-background-color: $s-h-light-blue,
+  footer-text-color: var(--secondary, #{$secondary}),
+  border-color-input: var(--medium-gray, #{$medium-gray}),
+  border-color-divider-icon-input: var(--medium-gray, #{$medium-gray}),
+  toolbar-background-color: var(--s-h-blue-15, #{$s-h-blue-15}),
+  primary-background-color: var(--s-h-light-blue, #{$s-h-light-blue})
 );
 
 :root {

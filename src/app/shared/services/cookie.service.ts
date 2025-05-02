@@ -15,15 +15,13 @@ export class CookieService {
     'dark-gray',
     'focus-border',
     'toolbar-background-color',
-    's-h-light-blue',
+    'primary-background-color',
     'danger',
     'bootstrap-form-control-color',
     // Inherited Colors - see colors.scss
     'footer-text-color',
     'border-color-input',
     'border-color-divider-icon-input',
-    'toolbar-background-color',
-    'primary-background-color',
   ];
 
   constructor(private logger: Logger) {

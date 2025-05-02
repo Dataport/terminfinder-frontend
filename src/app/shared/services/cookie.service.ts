@@ -14,7 +14,6 @@ export class CookieService {
     'medium-gray',
     'dark-gray',
     'focus-border',
-    's-h-blue-50',
     'toolbar-background-color',
     's-h-light-blue',
     'danger',

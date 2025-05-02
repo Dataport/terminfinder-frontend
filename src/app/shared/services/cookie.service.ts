@@ -13,7 +13,7 @@ export class CookieService {
     'light-gray',
     'medium-gray',
     'dark-gray',
-    's-h-blue',
+    'focus-border',
     's-h-blue-50',
     's-h-blue-15',
     's-h-light-blue',

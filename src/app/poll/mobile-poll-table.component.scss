@@ -38,7 +38,7 @@ select {
 }
 
 .toolbar {
-  background-color: var(--s-h-blue-15, #{$s-h-blue-15}) ;
+  background-color: var(--toolbar-background-color, #{$toolbar-background-color}) ;
   min-height: 50px;
 }
 

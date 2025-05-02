@@ -9,7 +9,7 @@ $colors: (
   dark-gray: $dark-gray,
   focus-border: $primary,
   toolbar-background-color: $toolbar-background-color,
-  s-h-light-blue: $s-h-light-blue,
+  primary-background-color: $primary-background-color,
   danger: $danger,
   bootstrap-form-control-color: $bootstrap-form-control-color
 );
@@ -17,8 +17,7 @@ $colors: (
 $inheritingColors: (
   footer-text-color: var(--secondary, #{$secondary}),
   border-color-input: var(--medium-gray, #{$medium-gray}),
-  border-color-divider-icon-input: var(--medium-gray, #{$medium-gray}),
-  primary-background-color: var(--s-h-light-blue, #{$s-h-light-blue})
+  border-color-divider-icon-input: var(--medium-gray, #{$medium-gray})
 );
 
 :root {

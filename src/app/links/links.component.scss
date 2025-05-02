@@ -26,7 +26,7 @@ $icon-height: 30px;
 .link-container {
   border: 1px solid $circle-tag-border-color;
   border-radius: 0.5rem;
-  background-color: $light-gray;
+  background-color: var(--light-gray, #{$light-gray});
 }
 
 .btn {
@@ -42,13 +42,13 @@ $icon-height: 30px;
 }
 
 .btn-transparent:hover {
-  background-color: $medium-gray;
-  border-color: $medium-gray;
+  background-color: var(--medium-gray, #{$medium-gray});
+  border-color: var(--medium-gray, #{$medium-gray});
 }
 
 a.link-with-image {
   display: flex;
-  color: $primary;
+  color: var(--primary, #{$primary});
   padding-left: 6px;
   border: 0;
 

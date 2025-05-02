@@ -74,7 +74,7 @@
 
   // better contrast
   .mejs__controls:not([style*="display: none"]) {
-    background: $light-gray;
+    background: var(--light-gray, #{$light-gray});
   }
 
   svg {

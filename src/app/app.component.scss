@@ -28,7 +28,7 @@
 }
 
 #main {
-  background-color: $primary-background-color;
+  background-color: var(--primary-background-color, #{$primary-background-color});
 }
 
 #bottom-edge {
@@ -36,7 +36,7 @@
   min-height: $spacer*7;
   max-height: $spacer*7;
   margin-bottom: $spacer;
-  background: linear-gradient(175deg, $primary-background-color 49.5%, transparent 50.5%) no-repeat bottom;
+  background: linear-gradient(175deg, var(--primary-background-color, #{$primary-background-color}) 49.5%, transparent 50.5%) no-repeat bottom;
 }
 
 @include media-breakpoint-up(lg) {

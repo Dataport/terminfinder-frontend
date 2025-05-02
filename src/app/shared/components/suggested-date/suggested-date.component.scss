@@ -17,7 +17,7 @@ div {
 
 .date-time-divider {
   height: 30px;
-  border-right: 1px solid $dark-gray;
+  border-right: 1px solid var(--dark-gray, #{$dark-gray});
 }
 
 .hyphen {

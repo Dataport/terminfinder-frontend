@@ -4,13 +4,9 @@ $secondary: #b3003e;
 $light-gray: #F5F6F7;
 $medium-gray: #909498;
 $dark-gray: #595959;
-$s-h-blue: $primary;
-$s-h-blue-50: #8497af;
-$s-h-blue-15: #d9dfe7;
-$s-h-light-blue: #c9daef;
+$focus-border: $primary;
 $input-focus-border-color: $primary;
 $danger: $secondary;
-$stepperLine: $medium-gray;
 $btn-text: #ffffff;
 $border-radius: 0.5rem;
 $border-radius-lg: 1rem;
@@ -23,12 +19,11 @@ $input-invalid-color: #88031a;
 $divider-background-color: #f5f6f7;
 $divider-border-color: #8c8c8c;
 $poll-data-cell-border-left-right-color: #d9d9d9;
-$poll-data-cell-background-color: $s-h-blue-15;
 $poll-row-border-color: #d9d9d9;
 $circle-tag-border-color: $poll-row-border-color;
 $theme-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 2px 5px 0 rgba(0, 0, 0, 0.18);
-$primary-background-color: $s-h-light-blue;
-$toolbar-background-color: $s-h-blue-15;
+$primary-background-color: #c9daef;
+$toolbar-background-color: #d9dfe7;
 $form-icon-width: 1.8rem;
 $form-icon-height: 1.8rem;
 $form-status-icon-width: 30px;
@@ -62,17 +57,9 @@ $font-weight-x-bold: 900;
 $headings-font-weight: $font-weight-normal;
 $btn-font-weight: $font-weight-normal;
 $btn-box-shadow: $theme-shadow;
-$link-color: $primary;
 $label-margin-bottom: 0;
 $footer-text-color: $secondary;
 $spacer: 1rem;
-
-/** Bootstrap Checkbox **/
-$form-check-input-border:                 1px solid $medium-gray;
-$form-check-input-checked-bg-color:       #ffffff;
-$form-check-input-checked-border-color:   $medium-gray;
-$form-check-input-checked-color:          $primary;
-$form-check-label-color:                  $primary;
 
 $grid-breakpoints: (
   xs: 0,
@@ -101,6 +88,6 @@ $container-max-widths: (
   outline: none;
 
   &:focus {
-    outline: lighten($primary, 10%) solid 0.25rem !important;
+    outline: var(--primary-lighter-10) solid 0.25rem !important;
   }
 }

@@ -95,7 +95,7 @@ tfoot tr:last-child td {
 }
 
 .toolbar {
-  background-color: $toolbar-background-color;
+  background-color: var(--toolbar-background-color, #{$toolbar-background-color});
 }
 
 .divider {
@@ -136,8 +136,8 @@ button.btn-trash {
   @include focus-outline;
 
   :hover {
-    background-color: $medium-gray;
-    border-color: $medium-gray;
+    background-color: var(--medium-gray, #{$medium-gray});
+    border-color: var(--medium-gray, #{$medium-gray});
   }
 }
 
@@ -276,13 +276,13 @@ button.btn-with-image {
 
 $poll-data-cell-invalid-message-min-height: 24px;
 .poll-add-user-row, .poll-edit-user-row, .table-hover tbody tr.poll-add-user-row:hover {
-  background-color: $toolbar-background-color !important;
+  background-color: var(--toolbar-background-color, #{$toolbar-background-color}) !important;
 
   .poll-data-cell {
     width: 350px;
 
     &.name {
-      background: $toolbar-background-color !important;
+      background: var(--toolbar-background-color, #{$toolbar-background-color}) !important;
     }
 
     .invalid-message {
@@ -311,9 +311,9 @@ $poll-data-cell-invalid-message-min-height: 24px;
     }
 
     .form-control {
-      color: $primary;
-      border-color: $medium-gray;
-      background-color: $light-gray;
+      color: var(--primary, #{$primary});
+      border-color: var(--medium-gray, #{$medium-gray});
+      background-color: var(--light-gray, #{$light-gray});
     }
 
   }
@@ -342,8 +342,8 @@ $poll-data-cell-invalid-message-min-height: 24px;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
-  color: $danger;
-  border: 2px solid $danger;
+  color: var(--danger, #{$danger});
+  border: 2px solid var(--danger, #{$danger});
   background-color: transparent;
   border-radius: 0;
 }

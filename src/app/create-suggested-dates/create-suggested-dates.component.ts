@@ -307,6 +307,10 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   public isSuggestedDateEditableByObj(suggestedDate: SuggestedDate): boolean {
+    if (NullableUtils.isObjectNullOrUndefined(suggestedDate)) {
+      return true;
+    }
+
     return !suggestedDate.hasVotings || suggestedDate.suggestedDateId === null;
   }
 
@@ -317,7 +321,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   private createSuggestedDateForm(suggestedDate: SuggestedDate = null): UntypedFormGroup {
     const suggestedDateSubmitted = !NullableUtils.isObjectNullOrUndefined(suggestedDate);
     const suggestedDateIdValue: string = suggestedDateSubmitted ? suggestedDate.suggestedDateId : null;
-    const hasVotingsValue: boolean = suggestedDate.hasVotings;
+    const hasVotingsValue: boolean = suggestedDateSubmitted ? suggestedDate.hasVotings : false;
     const startDateValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
       ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.startDate, this.localeId).format(ValidatorConstants.MOMENT_FORMAT_DATE)
       : null;

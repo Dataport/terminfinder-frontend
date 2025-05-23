@@ -38,7 +38,8 @@ describe("PollFormHelperService", () => {
         startTime: "2024-01-10T12:00:00.000Z",
         endDate: "2024-01-11T00:00:00.000Z",
         endTime: "2024-01-11T06:00:00.000Z",
-        description: "description"
+        description: "description",
+        hasVotings: true
       },
       {
         suggestedDateId: "2",
@@ -46,7 +47,8 @@ describe("PollFormHelperService", () => {
         startTime: "2024-01-20T13:00:00.000Z",
         endDate: "",
         endTime: "2024-01-21T18:00:00.000Z",
-        description: "a different description"
+        description: "a different description",
+        hasVotings: true
       },
     ];
 

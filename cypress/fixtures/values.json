@@ -21,7 +21,8 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": false
       }
     ],
     "participants": []
@@ -72,14 +73,16 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": false
       },
       {
         "suggestedDateId": "suggestedDateId-1",
         "startDate": "2021-04-25",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-25",
-        "endTime": "12:00:00.000+00:00"
+        "endTime": "12:00:00.000+00:00",
+        "hasVotings": false
       }
     ],
     "participants": []
@@ -101,7 +104,8 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": false
       }
     ],
     "participants": []
@@ -123,7 +127,8 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": false
       }
     ],
     "participants": []
@@ -144,14 +149,16 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": false
       },
       {
         "suggestedDateId": "suggestedDateId-1",
         "startDate": "2021-04-25",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-25",
-        "endTime": "12:00:00.000+00:00"
+        "endTime": "12:00:00.000+00:00",
+        "hasVotings": false
       }
     ],
     "participants": []
@@ -210,14 +217,16 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": true
       },
       {
         "suggestedDateId": "suggestedDateId-1",
         "startDate": "2021-04-25",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-25",
-        "endTime": "12:00:00.000+00:00"
+        "endTime": "12:00:00.000+00:00",
+        "hasVotings": true
       }
     ],
     "participants": [
@@ -256,14 +265,16 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": true
       },
       {
         "suggestedDateId": "suggestedDateId-1",
         "startDate": "2021-04-25",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-25",
-        "endTime": "12:00:00.000+00:00"
+        "endTime": "12:00:00.000+00:00",
+        "hasVotings": true
       }
     ],
     "participants": [
@@ -308,14 +319,16 @@
         "startDate": "2021-04-23",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
-        "endTime": "10:00:00.000+00:00"
+        "endTime": "10:00:00.000+00:00",
+        "hasVotings": true
       },
       {
         "suggestedDateId": "suggestedDateId-1",
         "startDate": "2021-04-25",
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-25",
-        "endTime": "12:00:00.000+00:00"
+        "endTime": "12:00:00.000+00:00",
+        "hasVotings": true
       }
     ],
     "participants": [

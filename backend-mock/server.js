@@ -29,7 +29,8 @@ function generateAppointments(participantCount = 3) {
       startTime: null,
       endDate: null,
       endTime: null,
-      description: null
+      description: null,
+      hasVotings: true
     },
     {
       suggestedDateId: uuid.v4(),
@@ -37,7 +38,8 @@ function generateAppointments(participantCount = 3) {
       startTime: startTime,
       endDate: null,
       endTime: null,
-      description: null
+      description: null,
+      hasVotings: true
     },
     {
       suggestedDateId: uuid.v4(),
@@ -45,7 +47,8 @@ function generateAppointments(participantCount = 3) {
       startTime: startTime,
       endDate: null,
       endTime: endTime,
-      description: null
+      description: null,
+      hasVotings: true
     },
     {
       suggestedDateId: uuid.v4(),
@@ -53,7 +56,8 @@ function generateAppointments(participantCount = 3) {
       startTime: null,
       endDate: endDate,
       endTime: null,
-      description: null
+      description: null,
+      hasVotings: true
     },
     {
       suggestedDateId: uuid.v4(),
@@ -61,7 +65,8 @@ function generateAppointments(participantCount = 3) {
       startTime: startTime,
       endDate: endDate,
       endTime: null,
-      description: null
+      description: null,
+      hasVotings: true
     },
     {
       suggestedDateId: uuid.v4(),
@@ -69,7 +74,8 @@ function generateAppointments(participantCount = 3) {
       startTime: startTime,
       endDate: endDate,
       endTime: endTime,
-      description: null
+      description: null,
+      hasVotings: true
     }
   ];
 

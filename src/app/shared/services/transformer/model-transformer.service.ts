@@ -248,6 +248,7 @@ export class ModelTransformerService {
     const startDateDifferentFromEndDate = !endMoment.local().isSame(startMoment.local(), 'day');
     return {
       suggestedDateId: suggestedDate.suggestedDateId,
+      hasVotings: suggestedDate.hasVotings,
       startDate: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
         ? startMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE) : null,
       startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.local().format() : null,

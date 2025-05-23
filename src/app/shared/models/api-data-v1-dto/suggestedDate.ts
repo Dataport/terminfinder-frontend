@@ -5,4 +5,5 @@ export class SuggestedDate {
   endDate: string;
   endTime: string;
   description: string;
+  hasVotings: boolean;
 }

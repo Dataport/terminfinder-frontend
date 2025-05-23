@@ -26,7 +26,7 @@
     <!-- section container for each date entry -->
     @for (suggestedDateForm of getSuggestedDatesFromForm().controls; track suggestedDateForm; let i = $index) {
       <div
-        [attr.aria-readonly]="isSuggestedDateFromDatabase(i)" [formGroup]="castToFormGroup(suggestedDateForm)"
+        [attr.aria-readonly]="!isSuggestedDateEditableByIndex(i)" [formGroup]="castToFormGroup(suggestedDateForm)"
         class="section-container pb-2">
         <!-- title of the container -->
         <div class="section-title text-center p-3 position-relative">
@@ -79,8 +79,8 @@
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE"
                   min="{{ minDate }}"
                   max="{{ maxDate }}"
-                  [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
-                  [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="required-start-date invalid-start-date not-in-future-start-date"
                 >
                 @if (getStartDateOfSuggestedStartDateByIndex(i).dirty
@@ -141,8 +141,8 @@
                     [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE"
                     min="{{ minDate }}"
                     max="{{ maxDate }}"
-                    [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
-                    [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                    [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                    [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                     aria-describedby="invalid-date start-date-after-end-date"
                   >
                   @if (!!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate
@@ -174,7 +174,7 @@
                       </div>
                       <button
                         (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
-                        [disabled]="isSuggestedDateFromDatabase(i)"
+                        [disabled]="!isSuggestedDateEditableByIndex(i)"
                         class="form-control col date"
                         data-id="addTimesButton"
                         type="button"
@@ -202,8 +202,8 @@
                   id="suggested-date-start-time-{{i}}"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME"
-                  [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
-                  [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                 >
               </div>
@@ -223,8 +223,8 @@
                   data-id="endTimeInput"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME"
-                  [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
-                  [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                 >
               </div>
@@ -237,7 +237,7 @@
           <div class="p-0 col text-center mt-1 align-items-start">
             <button
               (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
-              [disabled]="isSuggestedDateFromDatabase(i)"
+              [disabled]="!isSuggestedDateEditableByIndex(i)"
               class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
               data-id="endAtOtherDayButton"
               type="button"
@@ -266,7 +266,7 @@
                     </div>
                     <button
                       (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);  setShowEndDateEndTimeControlValue(i, true)"
-                      [disabled]="isSuggestedDateFromDatabase(i)"
+                      [disabled]="!isSuggestedDateEditableByIndex(i)"
                       class="form-control col date"
                       data-id="addTimesWithEndOnOtherDay"
                       type="button"
@@ -294,8 +294,8 @@
                   data-id="startTimeInputSecondColumn"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME"
-                  [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
-                  [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                 >
               </div>
@@ -316,8 +316,8 @@
                   data-id="endTimeInputSecondColumn"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME"
-                  [ngClass]="{'disabled': isSuggestedDateFromDatabase(i)}"
-                  [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
+                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
                 >
               </div>
@@ -346,10 +346,10 @@
                 id="suggested-date-description-{{i}}"
                 data-id="descriptionInput"
                 class="form-control"
-                [attr.aria-disabled]="isSuggestedDateFromDatabase(i)"
-                [tabindex]="isSuggestedDateFromDatabase(i) ? -1 : 0"
+                [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
+                [tabindex]="!isSuggestedDateEditableByIndex(i) ? -1 : 0"
                 [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION"
-                placeholder="{{isSuggestedDateFromDatabase(i) ? null : 'home.placeholder' | translate }}"
+                placeholder="{{!isSuggestedDateEditableByIndex(i) ? null : 'home.placeholder' | translate }}"
                 aria-describedby="description-too-long"
               >
             </div>

@@ -74,7 +74,7 @@
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-24",
         "endTime": "10:00:00.000+00:00",
-        "hasVotings": false
+        "hasVotings": true
       },
       {
         "suggestedDateId": "suggestedDateId-1",
@@ -82,10 +82,30 @@
         "startTime": "08:00:00.000+00:00",
         "endDate": "2021-04-25",
         "endTime": "12:00:00.000+00:00",
-        "hasVotings": false
+        "hasVotings": true
       }
     ],
-    "participants": []
+    "participants": [
+      {
+        "participantId": "participant-0",
+        "name": "Test",
+        "votings": [
+          {
+            "suggestedDateId": "suggestedDateId-0",
+            "status": "questionable",
+            "votingId": "voting-0",
+            "participantId": "participant-0"
+          },
+          {
+            "suggestedDateId": "suggestedDateId-1",
+            "status": "questionable",
+            "votingId": "voting-1",
+            "participantId": "participant-0"
+          }
+        ]
+      }
+
+    ]
   },
   "putAdminStatusPausedUrl": "/api/admin/customerId/adminId/paused/status",
   "putAdminStatusPaused": {

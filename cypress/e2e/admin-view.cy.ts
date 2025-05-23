@@ -157,6 +157,8 @@ context('admin-view', () => {
         .should('include', '/#/admin/dates');
       cy.get('#removeDate-0')
         .click();
+      cy.get('#suggested-date-start-date-0')
+        .type(dayjs().add(2, 'd').format('YYYY-MM-DD'));
       cy.get('[data-id=addSuggestedDateButton]')
         .click();
       cy.get('#suggested-date-start-date-1')

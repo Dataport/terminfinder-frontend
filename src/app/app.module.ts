@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {LOCALE_ID, NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
@@ -215,12 +215,11 @@ export function createTranslateLoader(http: HttpClient) {
     AdIconsComponent,
     TimeInputDirective
   ],
-  imports: [
-    BrowserModule,
+  bootstrap: [AppComponent],
+  imports: [BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     RouterModule.forRoot(appRoutes, {useHash: true}),
     NgbDatepickerModule,
     NgbTimepickerModule,
@@ -238,7 +237,7 @@ export function createTranslateLoader(http: HttpClient) {
     CheckboxFieldComponent,
     NgOptimizedImage,
     ToastrModule.forRoot(),
-    ComboboxComponent,
+    ComboboxComponent
   ],
   providers: [
     {
@@ -262,9 +261,9 @@ export function createTranslateLoader(http: HttpClient) {
       autoDismiss: true,
       newestOnTop: true,
       tapToDismiss: true
-    })
-  ],
-  bootstrap: [AppComponent]
+    }),
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule {
 }

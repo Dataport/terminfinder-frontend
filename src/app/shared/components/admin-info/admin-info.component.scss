@@ -1,6 +1,6 @@
 @import "src/default";
 
 * {
-  color: $danger;
+  color: var(--danger, #{$danger});
   font-weight: $font-weight-normal;
 }

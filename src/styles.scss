@@ -1,4 +1,5 @@
 @import "default";
+@import "colors";
 @import "bootstrap/scss/functions";
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap/scss/mixins';
@@ -20,7 +21,7 @@ body {
 }
 
 h1 {
-  color: $primary !important;
+  color: var(--primary, #{$primary}) !important;
   font-weight: $font-weight-bold !important;
   font-size: $font-size-large-mobile !important;
   @include media-breakpoint-up(sm) {
@@ -34,7 +35,7 @@ h1 {
 }
 
 h2 {
-  color: $primary !important;
+  color: var(--primary, #{$primary}) !important;
   font-size: $font-size-large-mobile !important;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
@@ -43,7 +44,7 @@ h2 {
 }
 
 h3 {
-  color: $primary !important;
+  color: var(--primary, #{$primary}) !important;
   font-size: $font-size-medium-mobile !important;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
@@ -51,7 +52,7 @@ h3 {
 }
 
 label {
-  color: $primary;
+  color: var(--primary, #{$primary});
   font-size: $font-size-small-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
@@ -169,7 +170,7 @@ a,
 .btn-secondary {
   &:focus {
     box-shadow: none !important;
-    outline: .25rem solid $primary !important;
+    outline: .25rem solid var(--primary, #{$primary}) !important;
     outline-offset: .25rem;
   }
 }
@@ -178,7 +179,7 @@ a,
   &:hover,
   &:active,
   &:focus {
-    background-color: $secondary !important;
+    background-color: var(--secondary, #{$secondary}) !important;
   }
 }
 
@@ -196,13 +197,13 @@ a,
   .form-control {
     border: none !important;
     border-radius: unset !important;
-    border-bottom: 1px solid $medium-gray !important;
+    border-bottom: 1px solid var(--medium-gray, #{$medium-gray}) !important;
     margin-bottom: 0.5rem;
     padding: 0 !important;
   }
 
   .form-control:focus {
-    border-bottom-color: $s-h-blue !important;
+    border-bottom-color: var(--focus-border, #{$focus-border}) !important;
     border-width: 1px !important;
   }
 
@@ -341,7 +342,7 @@ a,
 }
 
 .dropdown-menu {
-  color: $primary;
+  color: var(--primary, #{$primary});
 }
 
 .bootstrap-datetimepicker-widget {
@@ -351,11 +352,11 @@ a,
   }
 
   table td.active, table td.active:hover, table td span.active {
-    background-color: $secondary;
+    background-color: var(--secondary, #{$secondary});
   }
 
   table td.today:before {
-    border-bottom-color: $secondary;
+    border-bottom-color: var(--secondary, #{$secondary});
   }
 }
 
@@ -367,7 +368,7 @@ a,
     text-decoration: underline;
 
     span {
-      text-decoration: $primary;
+      text-decoration: var(--primary, #{$primary});
     }
   }
 
@@ -487,7 +488,7 @@ a,
 }
 
 .font-medium {
-  color: $primary;
+  color: var(--primary, #{$primary});
   font-size: $font-size-medium-mobile;
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
@@ -502,10 +503,10 @@ a,
 }
 
 .text-bold {
-  color: $primary;
+  color: var(--primary, #{$primary});
   font-weight: $font-weight-bold !important;
 }
 
 .text-dark-gray {
-  color: $dark-gray
+  color: var(--dark-gray, #{$dark-gray})
 }

@@ -25,7 +25,6 @@ export class ApiDataService {
   private readonly apiBaseUrl: string;
   private readonly requestTimeoutInMs: number;
   private readonly requestTimeoutInSeconds: number;
-  private readonly costumerId: string;
   private readonly uriEncodedCostumerId: string;
 
   /**
@@ -43,7 +42,6 @@ export class ApiDataService {
     this.apiBaseUrl = envConfig.apiBaseUrl;
     this.requestTimeoutInMs = envConfig.apiRequestTimeoutInMs;
     this.requestTimeoutInSeconds = this.requestTimeoutInMs / 1000;
-    this.costumerId = envConfig.customerId;
     this.uriEncodedCostumerId = encodeURIComponent(envConfig.customerId);
     this.apiMediaType = envConfig.apiMediaType;
   }

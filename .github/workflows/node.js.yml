@@ -38,6 +38,12 @@ jobs:
         with:
           start: npm run http-server
           command: npm run ci-cypress
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
 
   create-release:
     runs-on: ubuntu-latest

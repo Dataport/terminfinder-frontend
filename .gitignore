@@ -12,6 +12,7 @@ src/index.html
 
 #download from cypress
 cypress/downloads
+cypress/screenshots
 
 # dependencies
 /node_modules

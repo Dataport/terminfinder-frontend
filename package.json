@@ -93,7 +93,6 @@
     "ngx-translate-testing": "7.0.0",
     "nodemon": "3.1.0",
     "ts-node": "10.9.1",
-    "typemoq": "2.1.0",
     "typescript": "5.5.4",
     "uuid": "8.3.2"
   }

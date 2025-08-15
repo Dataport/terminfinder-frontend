@@ -29,7 +29,7 @@
   },
   "private": true,
   "engines": {
-    "node": ">=20.16.0"
+    "node": "22.18.0"
   },
   "dependencies": {
     "@angular-devkit/architect": "0.1802.20",

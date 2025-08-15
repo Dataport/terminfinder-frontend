@@ -1,6 +1,6 @@
 ARG BASE_REPO_URI=docker.io
 
-FROM ${BASE_REPO_URI}/node:20.18.0-alpine AS build
+FROM ${BASE_REPO_URI}/node:22.18.0-alpine AS build
 WORKDIR /app
 
 # Install dependencies

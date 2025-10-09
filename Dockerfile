@@ -22,7 +22,7 @@ WORKDIR /usr/share/nginx/html
 # Prepare files
 USER 0
 COPY docker-replace-parameters.sh /docker-entrypoint.d/60-docker-replace-parameters.sh
-COPY --from=build /app/dist /usr/share/nginx/html/.
+COPY --from=build /app/dist/browser /usr/share/nginx/html/.
 RUN chown -R 101:0 /usr/share/nginx/html && chmod -R g+w /usr/share/nginx/html
 
 # Reset to unprivileged

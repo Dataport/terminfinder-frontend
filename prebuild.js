@@ -74,7 +74,8 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@LOCALE@', reformat('@LOCALE@'))
       .replace('@ADDRESSING@', reformat('@ADDRESSING@'))
       .replace('@API_URL@', reformat('@API_URL@'))
-      .replace('@CUSTOMER_ID@', reformat('@CUSTOMER_ID@'));
+      .replace('@CUSTOMER_ID@', reformat('@CUSTOMER_ID@'))
+      .replace('@COLORS@', reformat('@COLORS@'));
   } else {
     console.log('Build with classic mode');
     data = data
@@ -82,7 +83,8 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@LOCALE@', reformat(process.env.LOCALE ? process.env.LOCALE : 'de-DE'))
       .replace('@ADDRESSING@', reformat(process.env.ADDRESSING ? process.env.ADDRESSING : 'du'))
       .replace('@API_URL@', reformat(process.env.API_URL))
-      .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '11111111-1111-1111-1111-111111111111'));
+      .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '11111111-1111-1111-1111-111111111111'))
+      .replace('@COLORS@', reformat(process.env.COLORS ? process.env.COLORS : null));
   }
 
   data = data

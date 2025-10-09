@@ -7,7 +7,7 @@
       ],
       "parserOptions": {
         "project": [
-          "tsconfig.json"
+          "tsconfig.lint.json"
         ],
         "createDefaultProgram": false
       },

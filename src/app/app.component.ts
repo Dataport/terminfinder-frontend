@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import './operators';
-import {environment} from '../environments/environment';
-import {Logger} from './shared/services/logging';
-import {Title} from '@angular/platform-browser';
-import {LocalStorageService} from './shared/services/data-service/local-storage.service';
-import {LocaleService} from './shared/services/locale/locale.service';
-import {NullableUtils} from "./shared/utils";
-import {CookieService} from "./shared/services/cookie.service";
+import { environment } from '../environments/environment';
+import { Logger } from './shared/services/logging';
+import { Title } from '@angular/platform-browser';
+import { LocalStorageService } from './shared/services/data-service/local-storage.service';
+import { LocaleService } from './shared/services/locale/locale.service';
+import { NullableUtils } from './shared/utils';
+import { ColorsService } from './shared/services/colors.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   protected readonly NullableUtils = NullableUtils;
@@ -24,9 +24,8 @@ export class AppComponent implements OnInit {
     private logger: Logger,
     private titleService: Title,
     private localStorageService: LocalStorageService,
-    private cookieService: CookieService,
-  ) {
-  }
+    private colorsService: ColorsService
+  ) {}
 
   ngOnInit(): void {
     this.logger.debug('ENV: ', environment);
@@ -43,6 +42,7 @@ export class AppComponent implements OnInit {
         }
       });
 
-    this.cookieService.replaceCSSColorsFromCookies();
+    this.colorsService.replaceCSSColorFromEnv(environment.colors);
+    this.colorsService.replaceCSSColorsFromCookies();
   }
 }

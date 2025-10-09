@@ -51,6 +51,7 @@ Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL=
 | LOCALE                           | ja      | `'de-DE'` or `'en-EN'`   | `'de-DE'`                              | Initiale Sprache, bis User die Sprache ändert                         |
 | ADDRESSING (used on german only) | ja      | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
 | API_URL                          | ja      | `string` (url)           | ''                                     | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
+| COLORS                           | ja      | `string` (json object)   | null                                   | Anpassung der Farben. Siehe Kapitel [Farben](#farben)                 |
 | PRODUCTION                       | -       | `boolean`                | `true`                                 | Flag für Angular, Log-Level, Timeout-Zeit für XHR                     |
 | VERSION                          | -       | `string`                 | package.json - version                 | Versionsnummer, die im Impressum angezeigt wird                       |
 | DOCKER                           | -       | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |
@@ -65,6 +66,44 @@ Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL=
 
 *: Ist die Umgebungsvariable `DOCKER==='true'`, werden mit "ja" gekennzeichnete Parameter im kompiliertem Code mit
 z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (docker-replace-parameters.sh)
+
+## Farben
+
+Farben können entweder über die Umgebungsvariable `COLORS` oder über einen Cookie gesetzt werden. Cookies verden hierbei zuletzt angewand und überschreiben Werte aus der Umgebungsvariable.
+
+Beispiel Umgebungsvariable:
+
+```bash
+export COLORS='{"primary":"#ff0000","secondary":"#00ff00"}'
+```
+
+Beispiel Cookie:
+
+```js
+document.cookie = 'primary=#ff0000';
+document.cookie = 'secondary=#00ff00';
+```
+
+**Hinweis**: Refresh ist Nötig, damit die Cookies wirken.
+
+### Liste aller Farben und ihre Defaultwerte
+
+| Color Name                        | Default Value  |
+|-----------------------------------|----------------|
+| `primary`                         | `#003064`      |
+| `primary-lighter-10`              | `#004691`      |
+| `secondary`                       | `#b3003e`      |
+| `light-gray`                      | `#F5F6F7`      |
+| `medium-gray`                     | `#909498`      |
+| `dark-gray`                       | `#595959`      |
+| `focus-border`                    | `#003064`      |
+| `toolbar-background-color`        | `#d9dfe7`      |
+| `primary-background-color`        | `#c9daef`      |
+| `danger`                          | `#b3003e`      |
+| `bootstrap-form-control-color`    | `#495057`      |
+| `footer-text-color`               | `#b3003e`      |
+| `border-color-input`              | `#909498`      |
+| `border-color-divider-icon-input` | `#909498`      |
 
 ## Development
 

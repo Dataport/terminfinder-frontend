@@ -1,4 +1,4 @@
-import {ConsoleLogOptionsInterface} from '../app/shared/services/logging/';
+import { ConsoleLogOptionsInterface } from '../app/shared/services/logging/';
 
 export interface EnvConfig {
   /** The displayed title of the app **/
@@ -37,4 +37,6 @@ export interface EnvConfig {
   readonly surveyLinkUser?: string;
   /** Media type of api **/
   readonly apiMediaType: string;
+  /** Override colors in application **/
+  readonly colors: string | null;
 }

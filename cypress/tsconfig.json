@@ -10,5 +10,6 @@
       "node"
     ],
     "resolveJsonModule": true
-  }
+  },
+  "exclude": []
 }

@@ -69,7 +69,7 @@ z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (do
 
 ## Farben
 
-Farben können entweder über die Umgebungsvariable `COLORS` oder über einen Cookie gesetzt werden. Cookies verden hierbei zuletzt angewand und überschreiben Werte aus der Umgebungsvariable.
+Farben können entweder über die Umgebungsvariable `COLORS` oder über einen Cookie gesetzt werden. Cookies verden hierbei zuletzt angewandt und überschreiben Werte aus der Umgebungsvariable.
 
 Beispiel Umgebungsvariable:
 
@@ -100,7 +100,7 @@ document.cookie = 'secondary=#00ff00';
 | `toolbar-background-color`        | `#d9dfe7`      |
 | `primary-background-color`        | `#c9daef`      |
 | `danger`                          | `#b3003e`      |
-| `bootstrap-form-control-color`    | `#495057`      |
+| `bootstrap-form-control-color`    | `#000000`      |
 | `footer-text-color`               | `#b3003e`      |
 | `border-color-input`              | `#909498`      |
 | `border-color-divider-icon-input` | `#909498`      |

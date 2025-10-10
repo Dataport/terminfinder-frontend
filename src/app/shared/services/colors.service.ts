@@ -43,7 +43,7 @@ export class ColorsService {
   /**
    * Replaces CSS custom properties with values from a JSON string.
    * 
-   * @param colors A JSON string representing an object of type {@link ColorsInterface}.
+   * @param colors A string representing a JSON object of type {@link ColorsInterface}.
    * @logs A warning if parsing fails or the content is not a valid JSON object. 
    */
   replaceCSSColorFromEnv(colors: string | null): void {

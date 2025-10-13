@@ -84,7 +84,7 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@ADDRESSING@', reformat(process.env.ADDRESSING ? process.env.ADDRESSING : 'du'))
       .replace('@API_URL@', reformat(process.env.API_URL))
       .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '11111111-1111-1111-1111-111111111111'))
-      .replace('@COLORS@', (process.env.COLORS ? reformat(process.env.COLORS) : null));
+      .replace('@COLORS@', process.env.COLORS ? reformat(process.env.COLORS) : null);
   }
 
   data = data

@@ -9,7 +9,7 @@ services:
       DOCKER: true
       TITLE: "Terminfinder Docker Test"
       API_URL: "http://localhost:4201" # Run `npm run backend-mock` in another terminal
-      COLORS: '{"primary":"#ff0000","secondary":"#00ff00"}'
+      #COLORS: '{"primary":"#ff0000","secondary":"#00ff00"}'
     container_name: terminfinder
     hostname: terminfinder
     ports:

@@ -1,9 +1,26 @@
 <footer class="row justify-content-center" data-id="footer">
 
   @if (email) {
-    <section id="contact" [attr.aria-label]="'footer.navLabel.contact' | translate">
-      <a href="mailto:{{email}}">
-        <img aria-hidden="true" alt="" ngSrc="assets/contact.svg" height="height" width="width">
+    <section id="contact">
+      <a href="mailto:{{email}}" [attr.aria-label]="'footer.navLabel.contact' | translate">
+        <svg id="contact-icon" aria-hidden="true" alt="" width="60" height="60" viewBox="0 0 90 90">
+          <defs>
+            <style>.cls {
+              fill: none;
+              stroke: currentColor;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+              stroke-width: 2px;
+            }
+            </style>
+          </defs>
+          <g>
+            <g>
+              <ellipse class="cls" cx="45" cy="45" rx="38.86" ry="39.58"/>
+              <path class="cls" d="M24.26,34.38,45.4,48.32,66.54,34.24m0,26.78H24.22V33.63H66.53Z"/>
+            </g>
+          </g>
+        </svg>
       </a>
       <div>e-mail: <a href="mailto:{{email}}" id="email">{{ email }}</a></div>
     </section>

@@ -6,10 +6,13 @@ services:
   terminfinder:
     build: .
     environment:
-      DOCKER: true
       TITLE: "Terminfinder Docker Test"
       API_URL: "http://localhost:4201" # Run `npm run backend-mock` in another terminal
       #COLORS: '{"primary":"#ff0000","secondary":"#00ff00"}'
+      #IMPRINT: "<h2>Imprint</h2><p>This is the imprint. Hello from Docker.</p>"
+      #PRIVACY: "<h2>Privacy Policy</h2><p>This is the privacy policy. Hello from Docker.</p>"
+      #TOS: "<h2>Terms of Service</h2><p>These are the terms of service. Hello from Docker.</p>"
+      #ACCESSIBILITY: "<h2>Accessibility Statement</h2><p>This is the accessibility statement. Hello from Docker.</p>"
     container_name: terminfinder
     hostname: terminfinder
     ports:

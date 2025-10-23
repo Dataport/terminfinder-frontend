@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {environment} from "../../../environments/environment";
-import {Location} from "@angular/common";
-import {RouteTitleService} from "../../shared/services/route-title.service";
+import { Component, OnInit } from '@angular/core';
+import { environment } from "../../../environments/environment";
+import { Location } from "@angular/common";
+import { RouteTitleService } from "../../shared/services/route-title.service";
+import { SafeHtml } from '@angular/platform-browser';
+import { StringTransformService } from 'src/app/shared/services/string-transform.service';
 
 @Component({
   selector: 'app-privacy',
@@ -10,9 +12,9 @@ import {RouteTitleService} from "../../shared/services/route-title.service";
 })
 export class PrivacyComponent implements OnInit {
 
-  privacy = environment.privacy;
+  readonly privacy: SafeHtml = this.stringTransformService.decodeAndSanitize(environment.privacy);
 
-  constructor(private location: Location, private routeTitle: RouteTitleService) {
+  constructor(private location: Location, private routeTitle: RouteTitleService, private stringTransformService: StringTransformService) {
   }
 
   ngOnInit(): void {

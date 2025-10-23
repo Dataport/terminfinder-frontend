@@ -7,6 +7,7 @@ import { LocalStorageService } from './shared/services/data-service/local-storag
 import { LocaleService } from './shared/services/locale/locale.service';
 import { NullableUtils } from './shared/utils';
 import { ColorsService } from './shared/services/colors.service';
+import { StringTransformService } from './shared/services/string-transform.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ export class AppComponent implements OnInit {
     private logger: Logger,
     private titleService: Title,
     private localStorageService: LocalStorageService,
-    private colorsService: ColorsService
+    private colorsService: ColorsService,
+    private stringTransformService: StringTransformService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit {
         }
       });
 
-    this.colorsService.replaceCSSColorFromEnv(environment.colors);
+    this.colorsService.replaceCSSColorFromEnv(this.stringTransformService.decode(environment.colors));
     this.colorsService.replaceCSSColorsFromCookies();
   }
 }

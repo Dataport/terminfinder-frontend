@@ -168,5 +168,19 @@ describe('ColorsService', () => {
       expect(loggerSpy.debug).toHaveBeenCalledWith('Invalid colors string: ', '[1,2,3]');
       expect(documentSpy).not.toHaveBeenCalled();
     });
+
+    it('should not set CSS property and should log a warning when color value contains potential XSS payload', () => {
+
+      const colorsJson = JSON.stringify({
+        primary: '#ff0000',
+        secondary: "<img src=\"x\" onerror=\"alert(1)\">"
+      } satisfies ColorsInterface);
+
+      service.replaceCSSColorFromEnv(colorsJson);
+
+      expect(loggerSpy.warn).toHaveBeenCalled();
+      expect(loggerSpy.debug).toHaveBeenCalledWith('Invalid colors string: ', colorsJson);
+      expect(documentSpy).not.toHaveBeenCalled();
+    });
   });
 });

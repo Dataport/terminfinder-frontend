@@ -73,6 +73,62 @@ describe('StringTransformService', () => {
       expect(result).not.toContain('alert');
     });
 
+    it('should remove XSS from email', () => {
+      const input = "\"<script>alert(1)</script>\"@example.com`,";
+      const result = service.sanitize(input);
+
+      expect(result).not.toContain('script');
+      expect(result).not.toContain('alert');
+    });
+
+    it('should keep complex Email addresses intact', () => {
+
+      const input = [
+        `user+tag@example.com`,
+        `user-name@example.com`,
+        `user_name@example.com`,
+        `user.name@example.com`,
+        `123user@example.com`,
+        `user123@example.com`,
+        `a@example.com`,
+        `test!mail@example.com`,
+        `test#mail@example.com`,
+        `test$mail@example.com`,
+        `test%mail@example.com`,
+        `test&mail@example.com`,
+        `test'mail@example.com`,
+        `test*mail@example.com`,
+        `test+mail@example.com`,
+        `test/mail@example.com`,
+        `test=mail@example.com`,
+        `test?mail@example.com`,
+        `test^mail@example.com`,
+        `test_mail@example.com`,
+        `test\`mail@example.com`,
+        `test{mail@example.com`,
+        `test|mail@example.com`,
+        `test}mail@example.com`,
+        `test~mail@example.com`,
+        `test-mail@example.com`,
+        `"test mail"@example.com`,
+        `"test@mail"@example.com`,
+        `"test.mail"@example.com`,
+        `"user name"@example.com`,
+        `"special()chars"@example.com`,
+        `"contains spaces"@example.com`,
+        `"test\"quoted"@example.com`,
+        `user+filter+tag@example.com`,
+        `very.common@example.com`,
+        `long.email-address-with-hyphens@example.com`,
+        `user.name+tag+sorting@example.com`,
+      ];
+
+      for (const email of input) {
+        const result = service.sanitize(email);
+        expect(result).toBe(email);
+      }
+    });
+
     // This is no longer a valid attack vector, as it has been addressed by browser vendors. See https://security.stackexchange.com/a/124843
     // This test is retained for developer awareness.
     xit('should sanitize style attributes with dangerous CSS', () => {

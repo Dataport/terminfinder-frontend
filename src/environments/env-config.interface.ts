@@ -19,7 +19,7 @@ export interface EnvConfig {
   readonly customerId: string;
   /** Options for Logging to Console */
   readonly consoleLoggingOptions: ConsoleLogOptionsInterface;
-  /** E-Mail to contact owner of website */
+  /** E-Mail to contact owner of website. This is a base64 encoded string. */
   readonly email?: string;
   /** Show Reference of Dataport and Schleswig-Holstein */
   readonly showReference?: boolean;

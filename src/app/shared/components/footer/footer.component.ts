@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
-import {environment} from '../../../../environments/environment';
+import { Component } from '@angular/core';
+import { environment } from '../../../../environments/environment';
+import { StringTransformService } from '../../services/string-transform.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,10 +9,10 @@ import {environment} from '../../../../environments/environment';
 })
 export class FooterComponent {
 
-  email = environment.email;
+  readonly email = this.stringTransformService.decodeAndSanitize(environment.email);
   showReference = environment.showReference;
 
-  constructor() {
+  constructor(private stringTransformService: StringTransformService) {
   }
 
 }

@@ -75,7 +75,11 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@ADDRESSING@', reformat('@ADDRESSING@'))
       .replace('@API_URL@', reformat('@API_URL@'))
       .replace('@CUSTOMER_ID@', reformat('@CUSTOMER_ID@'))
-      .replace('@COLORS@', reformat('@COLORS@'));
+      .replace('@COLORS@', reformat('@COLORS@'))
+      .replace('@IMPRINT@', reformat('@IMPRINT@'))
+      .replace('@PRIVACY@', reformat('@PRIVACY@'))
+      .replace('@TOS@', reformat('@TOS@'))
+      .replace('@ACCESSIBILITY@', reformat('@ACCESSIBILITY@'));
   } else {
     console.log('Build with classic mode');
     data = data
@@ -84,7 +88,11 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@ADDRESSING@', reformat(process.env.ADDRESSING ? process.env.ADDRESSING : 'du'))
       .replace('@API_URL@', reformat(process.env.API_URL))
       .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '11111111-1111-1111-1111-111111111111'))
-      .replace('@COLORS@', process.env.COLORS ? reformat(process.env.COLORS) : null);
+      .replace('@COLORS@', reformat(btoa(process.env.COLORS ? process.env.COLORS : '{}')))
+      .replace('@IMPRINT@', reformat(btoa(process.env.IMPRINT ? process.env.IMPRINT : `${imprint}`)))
+      .replace('@PRIVACY@', reformat(btoa(process.env.PRIVACY ? process.env.PRIVACY : `${privacy}`)))
+      .replace('@TOS@', reformat(btoa(process.env.TOS ? process.env.TOS : `${tos}`)))
+      .replace('@ACCESSIBILITY@', reformat(btoa(process.env.ACCESSIBILITY ? process.env.ACCESSIBILITY : `${accessibility}`)));
   }
 
   data = data
@@ -96,10 +104,6 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
     .replace('@SURVEY_LINK_USER@', reformat(process.env.SURVEY_SURVEY_LINK_USER ? process.env.SURVEY_SURVEY_LINK_USER : undefined))
     .replace('@EMAIL@', reformat(process.env.EMAIL ? process.env.EMAIL : 'demo@example.com'))
     .replace('@SHOW_REFERENCE@', isBoolean(process.env.SHOW_REFERENCE) ? process.env.SHOW_REFERENCE : 'true')
-    .replace('@IMPRINT@', process.env.IMPRINT ? process.env.IMPRINT : `\`${imprint}\``)
-    .replace('@PRIVACY@', process.env.PRIVACY ? process.env.PRIVACY : `\`${privacy}\``)
-    .replace('@TOS@', process.env.TOS ? process.env.TOS : `\`${tos}\``)
-    .replace('@ACCESSIBILITY@', process.env.ACCESSIBILITY ? process.env.ACCESSIBILITY : `\`${accessibility}\``)
     .replace('@API_REQUEST_TIMEOUT_IN_MS@', '20000')
     .replace('@API_MEDIA_TYPE@', reformat(process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json'));
 

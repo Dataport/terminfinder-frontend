@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Logger } from './logging';
 import { ColorsInterface } from '../utils/colors.interface';
+import { StringTransformService } from './string-transform.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class ColorsService {
     'border-color-divider-icon-input',
   ];
 
-  constructor(private logger: Logger) {}
+  constructor(private logger: Logger, private stringTransformService: StringTransformService) {}
 
   replaceCSSColorsFromCookies(): void {
     this.logger.debug('replaceCSSColorsFromCookies()');
@@ -42,13 +43,13 @@ export class ColorsService {
 
   /**
    * Replaces CSS custom properties with values from a JSON string.
-   * 
+   *
    * @param colors A string representing a JSON object of type {@link ColorsInterface}.
-   * @logs A warning if parsing fails or the content is not a valid JSON object. 
+   * @logs A warning if parsing fails or the content is not a valid JSON object.
    */
-  replaceCSSColorFromEnv(colors: string | null): void {
+  replaceCSSColorFromEnv(colors: string): void {
     this.logger.debug('replaceCSSColorFromEnv()');
-    
+
     if (!colors) {
       this.logger.debug('No colors string provided');
       return;
@@ -56,8 +57,8 @@ export class ColorsService {
 
     try {
       // Parse the string colors to a JSON object of type ColorsInterface
-      const colorObject: ColorsInterface = JSON.parse(colors);
-      
+      const colorObject: ColorsInterface = JSON.parse(this.stringTransformService.sanitize(colors));
+
       // Validate that the parsed result is a valid object
       if (!colorObject || typeof colorObject !== 'object' || Array.isArray(colorObject)) {
         throw new Error('Parsed colors is not a valid object');

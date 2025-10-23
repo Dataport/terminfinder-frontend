@@ -23,13 +23,13 @@ export interface EnvConfig {
   readonly email?: string;
   /** Show Reference of Dataport and Schleswig-Holstein */
   readonly showReference?: boolean;
-  /** HTMLElement of imprint */
+  /** HTMLElement of imprint. This is a base64 encoded string. */
   readonly imprint: string;
-  /** HTMLElement of privacy declaration */
+  /** HTMLElement of privacy declaration. This is a base64 encoded string. */
   readonly privacy: string;
-  /** HTMLElement of tos declaration */
+  /** HTMLElement of tos declaration. This is a base64 encoded string. */
   readonly termsOfService: string;
-  /** HTMLElement of accessibility declaration */
+  /** HTMLElement of accessibility declaration. This is a base64 encoded string. */
   readonly accessibility: string;
   /** Link to survey as admin */
   readonly surveyLinkAdmin?: string;
@@ -37,6 +37,6 @@ export interface EnvConfig {
   readonly surveyLinkUser?: string;
   /** Media type of api **/
   readonly apiMediaType: string;
-  /** Override colors in application **/
-  readonly colors: string | null;
+  /** Override colors in application. This is a base64 encoded string representing an object of type ColorsInterface **/
+  readonly colors: string;
 }

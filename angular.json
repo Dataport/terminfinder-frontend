@@ -20,6 +20,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "buffer",
+              "mediaelement",
+              "moment"
+            ],
             "outputPath": {
               "base": "dist"
             },

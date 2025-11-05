@@ -1,5 +1,6 @@
 const fs = require('fs');
 const packageJson = require('./package.json');
+const {Buffer} = require("node:buffer");
 
 const imprint = `
   <h2>Herausgeber</h2>
@@ -51,6 +52,10 @@ const privacy = `<h2>privacy</h2>`;
 const tos = `<h2>tos</h2>`;
 const accessibility = `<h2>accessibility</h2>`;
 
+function toBase64(input) {
+  return Buffer.from(input, 'utf-8').toString('base64');
+}
+
 function reformat(value) {
   if (value === undefined) {
     return value;
@@ -89,12 +94,12 @@ fs.readFile('./src/environments/environment.ts.tmpl', 'utf8', function (err, dat
       .replace('@ADDRESSING@', reformat(process.env.ADDRESSING ? process.env.ADDRESSING : 'du'))
       .replace('@API_URL@', reformat(process.env.API_URL))
       .replace('@CUSTOMER_ID@', reformat(process.env.CUSTOMER_ID ? process.env.CUSTOMER_ID : '11111111-1111-1111-1111-111111111111'))
-      .replace('@EMAIL@', reformat(process.env.EMAIL ? process.env.EMAIL : 'demo@example.com'))
-      .replace('@COLORS@', reformat(btoa(process.env.COLORS ? process.env.COLORS : '{}')))
-      .replace('@IMPRINT@', reformat(btoa(process.env.IMPRINT ? process.env.IMPRINT : `${imprint}`)))
-      .replace('@PRIVACY@', reformat(btoa(process.env.PRIVACY ? process.env.PRIVACY : `${privacy}`)))
-      .replace('@TOS@', reformat(btoa(process.env.TOS ? process.env.TOS : `${tos}`)))
-      .replace('@ACCESSIBILITY@', reformat(btoa(process.env.ACCESSIBILITY ? process.env.ACCESSIBILITY : `${accessibility}`)));
+      .replace('@EMAIL@', reformat(toBase64(process.env.EMAIL ? process.env.EMAIL : 'demo@example.com')))
+      .replace('@COLORS@', reformat(toBase64(process.env.COLORS ? process.env.COLORS : '{}')))
+      .replace('@IMPRINT@', reformat(toBase64(process.env.IMPRINT ? process.env.IMPRINT : `${imprint}`)))
+      .replace('@PRIVACY@', reformat(toBase64(process.env.PRIVACY ? process.env.PRIVACY : `${privacy}`)))
+      .replace('@TOS@', reformat(toBase64(process.env.TOS ? process.env.TOS : `${tos}`)))
+      .replace('@ACCESSIBILITY@', reformat(toBase64(process.env.ACCESSIBILITY ? process.env.ACCESSIBILITY : `${accessibility}`)));
   }
 
   data = data

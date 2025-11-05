@@ -8,10 +8,9 @@ import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
     SanitizeUrlPipe
   ],
   template: `
-    <div id="iframe-box">
+    <div>
       @if (src()) {
         <iframe
-          id="kaltura_player"
           [src]="src() | sanitizeUrl"
           width="608"
           height="402"
@@ -29,7 +28,7 @@ import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
     </div>
   `,
   styles: `
-    #kaltura_player {
+    iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -37,13 +36,13 @@ import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
       height: 100%;
     }
 
-    #iframe-box {
+    div:has(iframe) {
       position: relative;
       padding-bottom: 66.118421052632%;
     }
   `
 })
-export class DGoLiveVideoPlayerComponent {
+export class VideoPlayerComponent {
   src = input.required<string>();
   title = input<string>('');
 }

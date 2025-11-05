@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 import {Location, NgOptimizedImage} from "@angular/common";
 import {RouteTitleService} from "../shared/services/route-title.service";
-import {MediaelementPlayerComponent} from "../shared/components/mediaelement-player/mediaelement-player.component";
+import {VideoPlayerComponent} from "../shared/components/video-player/video-player.component";
 
 @Component({
   selector: 'app-sign-language',
@@ -10,7 +10,7 @@ import {MediaelementPlayerComponent} from "../shared/components/mediaelement-pla
   imports: [
     TranslateModule,
     NgOptimizedImage,
-    MediaelementPlayerComponent,
+    VideoPlayerComponent
   ],
   template: `
     <div class="d-flex flex-column px-4">
@@ -20,7 +20,7 @@ import {MediaelementPlayerComponent} from "../shared/components/mediaelement-pla
       @for (video of videos; track video) {
         <div class="w-100 mb-3">
           <h2 class="my-4">{{ video.titleTranslateString | translate }}</h2>
-          <app-mediaelement-player [src]="video.src" [title]="video.titleTranslateString | translate"></app-mediaelement-player>
+          <app-video-player [src]="video.src" [title]="video.titleTranslateString | translate"></app-video-player>
         </div>
       }
 
@@ -51,7 +51,7 @@ export class SignLanguageComponent implements OnInit {
     }
   ];
 
-  constructor(private routeTitle: RouteTitleService) {
+  constructor(private readonly routeTitle: RouteTitleService) {
   }
 
   ngOnInit(): void {

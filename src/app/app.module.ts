@@ -112,49 +112,82 @@ export const appRoutes: Routes = [
     path: 'links',
     component: LinksComponent,
     canActivate: [AppointmentIdRequiredGuard],
+    canDeactivate: [CanDeactivateGuard],
     data: {fallbackRoute: '/overview'}
   },
   {
     path: 'password',
     component: PasswordComponent,
     canActivate: [AppointmentIdRequiredGuard],
+    canDeactivate: [CanDeactivateGuard],
     data: {fallbackRoute: '/home'}
   },
-  {path: 'poll/:id', component: PollComponent, canActivate: [PasswordRequiredGuard]},
-  {path: 'poll-admin', component: AdminAppointmentComponent, canActivate: [AppointmentIdRequiredGuard]},
-  {path: 'admin/dates', component: AdminSuggestedDatesComponent, canActivate: [TitleRequiredGuard]},
+  {
+    path: 'poll/:id',
+    component: PollComponent,
+    canActivate: [PasswordRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'poll-admin',
+    component: AdminAppointmentComponent,
+    canActivate: [AppointmentIdRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'admin/dates',
+    component: AdminSuggestedDatesComponent,
+    canActivate: [TitleRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
   {
     path: 'admin/dashboard/:adminId',
     component: AdminDashboardComponent,
     canActivate: [PasswordRequiredGuard],
+    canDeactivate: [CanDeactivateGuard],
     resolve: {
       appointment: AppointmentResolverService
     }
   },
-  {path: 'admin/overview', component: AdminOverviewComponent, canActivate: [DatesRequiredGuard]},
-  {path: 'admin/links', component: AdminLinksComponent, canActivate: [AppointmentIdRequiredGuard]},
-  {path: 'admin/settings', component: AdminSettingsComponent, canActivate: [DatesRequiredGuard]},
+  {
+    path: 'admin/overview',
+    component: AdminOverviewComponent,
+    canActivate: [DatesRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'admin/links',
+    component: AdminLinksComponent,
+    canActivate: [AppointmentIdRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
+  {
+    path: 'admin/settings',
+    component: AdminSettingsComponent,
+    canActivate: [DatesRequiredGuard],
+    canDeactivate: [CanDeactivateGuard]
+  },
   {
     path: 'imprint',
     component: ImprintComponent,
     canActivate: [DefaultLanguageGuard],
-    canDeactivate: [DefaultLanguageGuard]
+    canDeactivate: [DefaultLanguageGuard, CanDeactivateGuard]
   },
   {
     path: 'privacy',
     component: PrivacyComponent,
     canActivate: [DefaultLanguageGuard],
-    canDeactivate: [DefaultLanguageGuard]
+    canDeactivate: [DefaultLanguageGuard, CanDeactivateGuard]
   },
   {
     path: 'accessibility',
     component: AccessibilityComponent,
     canActivate: [DefaultLanguageGuard],
-    canDeactivate: [DefaultLanguageGuard]
+    canDeactivate: [DefaultLanguageGuard, CanDeactivateGuard]
   },
-  {path: 'termsOfService', component: TermsOfServiceComponent},
-  {path: 'plain-language', component: PlainLanguageComponent},
-  {path: 'sign-language', component: SignLanguageComponent},
+  {path: 'termsOfService', component: TermsOfServiceComponent, canDeactivate: [CanDeactivateGuard]},
+  {path: 'plain-language', component: PlainLanguageComponent, canDeactivate: [CanDeactivateGuard]},
+  {path: 'sign-language', component: SignLanguageComponent, canDeactivate: [CanDeactivateGuard]},
   {path: 'bom', component: BomComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/home'}

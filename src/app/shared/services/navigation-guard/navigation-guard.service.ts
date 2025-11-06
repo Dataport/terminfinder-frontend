@@ -20,14 +20,18 @@ export class CanDeactivateGuard {
   }
 
   canDeactivate(_, __, ___, nextState: RouterStateSnapshot): boolean {
-    const appointment: Appointment = this.appStateService.getAppointment();
-
     if (nextState.url !== '/home') {
       return true;
     }
 
-    return window.location.hostname === 'localhost'
+    let navigateToHome = window.location.hostname === 'localhost'
       || confirm(this.translate.instant("navigation.confirmLeaving"));
+
+    if (navigateToHome) {
+      this.appStateService.createNewAppointment();
+    }
+
+    return navigateToHome;
   }
 }
 

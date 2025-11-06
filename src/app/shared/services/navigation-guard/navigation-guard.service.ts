@@ -16,16 +16,28 @@ import {LocaleService} from "../locale/locale.service";
   providedIn: 'root'
 })
 export class CanDeactivateGuard {
+  private readonly confirmRoutes: string[] = [
+    '/create',
+    '/dates',
+    '/settings',
+    '/overview',
+    '/poll-admin',
+    '/admin/dates',
+    '/admin/settings',
+    '/admin/overview'
+  ];
+
   constructor(private appStateService: AppStateService, private translate: TranslateService) {
   }
 
-  canDeactivate(_, __, ___, nextState: RouterStateSnapshot): boolean {
+  canDeactivate(_, __, currentState: RouterStateSnapshot, nextState: RouterStateSnapshot): boolean {
     if (nextState.url !== '/home') {
       return true;
     }
 
-    let navigateToHome = window.location.hostname === 'localhost'
-      || confirm(this.translate.instant("navigation.confirmLeaving"));
+    let navigateToHome = this.confirmRoutes.includes(currentState.url)
+      ? window.location.hostname === 'localhost' || confirm(this.translate.instant("navigation.confirmLeaving"))
+      : true;
 
     if (navigateToHome) {
       this.appStateService.createNewAppointment();

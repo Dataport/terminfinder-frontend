@@ -51,6 +51,8 @@ jobs:
     needs: [ lint-audit, e2e ]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: cperezabo/setup-git-mkver@v1.2.0
       - run: gh api --method POST /repos/dataport/terminfinder-frontend/releases -f "tag_name=v$(git mkver next --format '{Docker}')" -F "generate_release_notes=true"
         env:

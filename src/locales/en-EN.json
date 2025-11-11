@@ -183,6 +183,7 @@
       "backToTheFuture": "Return",
       "content": "This is where we publish information about our website in sign language.",
       "header": "Sign language",
+      "startVideo": "Start video",
       "videos": {
         "0": {
           "title": "Declaration on accessibility"

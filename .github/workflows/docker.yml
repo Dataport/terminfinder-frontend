@@ -1,12 +1,15 @@
 name: docker
 
 on:
-  release:
-    types: [ created ]
+  workflow_run:
+    workflows: [node-js]
+    types: [completed]
+    branches: [main]
 
 jobs:
   build-push-opencode:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: opencode.de
       url: https://gitlab.opencode.de/groups/dataport/terminfinder/-/container_registries

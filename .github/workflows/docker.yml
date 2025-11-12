@@ -2,9 +2,9 @@ name: docker
 
 on:
   workflow_run:
-    workflows: [node-js]
-    types: [completed]
-    branches: [main]
+    workflows: [ node-js ]
+    types: [ completed ]
+    branches: [ main ]
 
 jobs:
   build-push-opencode:
@@ -20,6 +20,18 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch all tags
+        run: git fetch --tags
+      - name: Get latest tag from HEAD
+        id: get-tag
+        run: |
+          TAG=$(git tag --points-at HEAD | sed 's/^v//')
+          if [ -z "$TAG" ]; then
+            TAG="latest"
+          fi
+          echo "LATEST_TAG=$TAG" >> "$GITHUB_ENV"
       - uses: docker/login-action@v3
         with:
           registry: registry.opencode.de
@@ -29,4 +41,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: registry.opencode.de/dataport/terminfinder/terminfinder-frontend:${{ github.ref_name }}
+          tags: registry.opencode.de/dataport/terminfinder/terminfinder-frontend:${{ env.LATEST_TAG }}

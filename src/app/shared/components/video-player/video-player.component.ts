@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, signal} from '@angular/core';
 import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
 import {NgOptimizedImage} from "@angular/common";
 import {TranslatePipe} from "@ngx-translate/core";
@@ -13,7 +13,7 @@ import {TranslatePipe} from "@ngx-translate/core";
   ],
   template: `
     <div>
-      @if (!isLoaded) {
+      @if (!isLoaded()) {
         <button
           class="btn"
           (click)="loadIframe()"
@@ -73,9 +73,9 @@ export class VideoPlayerComponent {
   readonly videoSrc = input.required<string>();
   readonly placeholderSrc = input.required<string>();
   title = input<string>('');
-  isLoaded = false;
+  isLoaded = signal(false);
 
   loadIframe() {
-    this.isLoaded = true;
+    this.isLoaded.set(true);
   }
 }

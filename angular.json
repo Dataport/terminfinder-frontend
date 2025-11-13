@@ -22,7 +22,6 @@
           "options": {
             "allowedCommonJsDependencies": [
               "buffer",
-              "mediaelement",
               "moment"
             ],
             "outputPath": {
@@ -44,7 +43,6 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/scss/font-awesome.scss",
-              "node_modules/mediaelement/build/mediaelementplayer.css",
               "src/styles.scss"
             ],
             "scripts": [],

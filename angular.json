@@ -47,11 +47,7 @@
               "node_modules/mediaelement/build/mediaelementplayer.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/moment/min/moment-with-locales.js",
-              "node_modules/mediaelement/build/mediaelement-and-player.js"
-            ],
+            "scripts": [],
             "extractLicenses": false,
             "optimization": false,
             "namedChunks": true,

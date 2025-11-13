@@ -93,7 +93,7 @@
                       role="alert"
                       aria-atomic="false"
                     >
-                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                       {{ 'date.setStart' | translate }}
                     </div>
                   }
@@ -105,7 +105,7 @@
                       role="alert"
                       aria-atomic="false"
                     >
-                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                       {{ 'date.startInvalid' | translate }}
                     </div>
                   }
@@ -117,7 +117,7 @@
                       role="alert"
                       aria-atomic="false"
                     >
-                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                       {{ 'date.startFuture' | translate }}
                     </div>
                   }
@@ -149,7 +149,7 @@
                        && (getEndDateOfSuggestedStartDateByIndex(i).dirty
                         || getEndDateOfSuggestedStartDateByIndex(i).touched)) {
                     <div class="invalid-message" id="invalid-date" role="alert" aria-atomic="false">
-                      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                       {{ 'date.endInvalid' | translate }}
                     </div>
                   }
@@ -361,7 +361,7 @@
                 role="alert"
                 aria-atomic="false"
               >
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                 {{ 'poll.details.description.tooLong' | translate }}
               </div>
             }
@@ -374,7 +374,7 @@
                  class="col my-1 px-1 px-lg-3 my-1 form-group">
               @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
                 <div class="invalid-message" id="start-date-after-end-date" role="alert" aria-atomic="false">
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                   {{ 'date.startAfterEnd' | translate }}
                 </div>
               }
@@ -385,13 +385,13 @@
                   role="alert"
                   aria-atomic="false"
                 >
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                   {{ 'date.noStart' | translate }}
                 </div>
               }
               @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
                 <div class="invalid-message" id="start-date-time-in-past" role="alert" aria-atomic="false">
-                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                  <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                   {{ 'date.inPast' | translate }}
                 </div>
               }
@@ -409,13 +409,13 @@
         >
           @if (!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray) {
             <div class="invalid-message" role="alert" aria-atomic="false">
-              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
               {{ 'date.noValue' | translate }}
             </div>
           }
           @if (!!getSuggestedDatesFromForm().errors?.invalidMaxLengthArray) {
             <div class="invalid-message" role="alert" aria-atomic="false">
-              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
               {{ 'date.tooManyValues' | translate }}
             </div>
           }

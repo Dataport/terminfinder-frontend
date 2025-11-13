@@ -68,19 +68,19 @@
             @if ((formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
             && !!formHelper.getParticipantFormName().errors?.required) {
               <div class="invalid-message" role="alert" aria-atomic="false">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                 {{ 'poll.details.name.noName' | translate }}
               </div>
             }
             @if (!!formHelper.getParticipantFormName().errors?.invalidName) {
               <div class="invalid-message" id="invalid-add-name" role="alert" aria-atomic="false">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                 {{ 'poll.details.name.invalid' | translate }}
               </div>
             }
             @if (!!formHelper.getParticipantFormName().errors?.maxlength) {
               <div class="invalid-message" role="alert" aria-atomic="false">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
                 {{ 'poll.details.name.tooLong' | translate }}
               </div>
             }

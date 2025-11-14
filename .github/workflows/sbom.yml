@@ -1,0 +1,44 @@
+name: sbom
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  generate-and-compare-sbom:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22.18.x
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate sbom
+        run: npm run generate-sbom
+      - name: Compare sbom
+        id: compare_sbom
+        run: |
+          set -euo pipefail
+
+          # ignore serialNumber & timestamp
+          git config diff.sbom.textconv "jq 'del(.serialNumber, .metadata.timestamp)'"
+
+          changed=$(git diff --quiet HEAD -- src/sbom.json && echo false || echo true)
+          echo "changed=$changed" >>"$GITHUB_OUTPUT"
+      - name: Commit updated sbom
+        if: steps.compare_sbom.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
+          git add src/sbom.json
+          git commit -m "chore: update sbom"
+          git push

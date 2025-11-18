@@ -1,0 +1,37 @@
+name: release
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Is latest Commit tagged?
+        id: commit_tagged
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$TAG" ]]; then
+            create_release=true
+          else
+            create_release=false
+          fi
+
+          echo "create_release=$create_release" >>"$GITHUB_OUTPUT"
+
+      - uses: cperezabo/setup-git-mkver@v1.2.0
+      - name: Create Release
+        if: steps.commit_tagged.outputs.create_release == 'true'
+        run: |
+          gh api --method POST /repos/dataport/terminfinder-frontend/releases -f "tag_name=v$(git mkver next --format '{Docker}')" -F "generate_release_notes=true"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

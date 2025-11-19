@@ -20,6 +20,8 @@ jobs:
         run: |
           set -euo pipefail
 
+          TAG=$(git tag --points-at HEAD)
+
           if [[ -z "$TAG" ]]; then
             create_release=true
           else

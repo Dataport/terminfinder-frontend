@@ -32,7 +32,7 @@
     "node": "22.18.0"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.1802.20",
+    "@angular-devkit/architect": "0.2003.10",
     "@angular/animations": "18.2.13",
     "@angular/common": "18.2.13",
     "@angular/compiler": "18.2.13",

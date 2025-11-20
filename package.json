@@ -8,7 +8,7 @@
     "backend-mock": "node backend-mock/server.js",
     "start": "ng serve --configuration production",
     "start-docker": "docker image build --build-arg APP_FILES=dist -t terminfinder-docker:0.0.0 .",
-    "test": "ng test",
+    "test": "npm run prebuild && ng test",
     "build": "ng build --configuration production",
     "build-docker": "ng build --configuration production",
     "compare-locales": "node compare-locales.js",

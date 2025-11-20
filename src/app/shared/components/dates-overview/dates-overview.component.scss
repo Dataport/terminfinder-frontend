@@ -1,4 +1,4 @@
-@import "src/default.scss";
+@use 'src/default' as *;
 
 .date-time-overview table {
   color: var(--primary, #{$primary});

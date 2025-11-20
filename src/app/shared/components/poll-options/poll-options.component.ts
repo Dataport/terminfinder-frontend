@@ -4,7 +4,8 @@ import {UntypedFormGroup} from '@angular/forms';
 @Component({
   selector: 'app-poll-options',
   templateUrl: './poll-options.component.html',
-  styleUrls: ['./poll-options.component.scss']
+  styleUrls: ['./poll-options.component.scss'],
+  standalone: false
 })
 export class PollOptionsComponent {
   @Input() formGroup: UntypedFormGroup;

@@ -25,9 +25,12 @@ export function dateValidator(localeId: string): ValidatorFn {
 
 @Directive({
   selector: '[appValidateDate][ngModel],[appValidateDate][formControl]',
-  providers: [
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => DateValidatorDirective), multi: true}
-  ]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => DateValidatorDirective),
+    multi: true
+  }],
+  standalone: false
 })
 export class DateValidatorDirective implements Validator {
   validator: Function;

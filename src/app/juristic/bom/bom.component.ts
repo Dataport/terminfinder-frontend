@@ -9,7 +9,8 @@ type AmountOfLicencesElement = { license: string, amount: number }
 @Component({
   selector: 'app-bom',
   templateUrl: './bom.component.html',
-  styleUrls: ['./bom.component.scss']
+  styleUrls: ['./bom.component.scss'],
+  standalone: false
 })
 export class BomComponent implements OnInit {
 

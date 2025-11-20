@@ -5,7 +5,8 @@ const STEPS: number[] = [0, 1, 2, 3];
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.scss']
+  styleUrls: ['./stepper.component.scss'],
+  standalone: false
 })
 export class StepperComponent {
   @Input() currentStep: number;

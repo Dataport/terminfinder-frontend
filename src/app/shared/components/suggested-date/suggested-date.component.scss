@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 div {
@@ -46,10 +46,12 @@ div {
   @include media-breakpoint-up(md) {
     min-width: $suggested-date-desktop-min-width;
     max-width: $suggested-date-desktop-max-width;
+
     .column {
       width: $suggested-date-desktop-min-width * 0.4;
     }
   }
+
   @include media-breakpoint-down(md) {
     min-width: $suggested-date-mobile-min-width;
     max-width: $suggested-date-mobile-max-width;

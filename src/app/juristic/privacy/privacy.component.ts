@@ -8,7 +8,8 @@ import { StringTransformService } from 'src/app/shared/services/string-transform
 @Component({
   selector: 'app-privacy',
   templateUrl: './privacy.component.html',
-  styleUrls: ['./privacy.component.scss']
+  styleUrls: ['./privacy.component.scss'],
+  standalone: false
 })
 export class PrivacyComponent implements OnInit {
 

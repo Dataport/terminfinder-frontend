@@ -12,7 +12,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.scss']
+  styleUrls: ['./admin-dashboard.component.scss'],
+  standalone: false
 })
 export class AdminDashboardComponent implements OnInit {
   model: Appointment;

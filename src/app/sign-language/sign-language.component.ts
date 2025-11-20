@@ -6,7 +6,6 @@ import {VideoPlayerComponent} from "../shared/components/video-player/video-play
 
 @Component({
   selector: 'app-sign-language',
-  standalone: true,
   imports: [
     TranslateModule,
     NgOptimizedImage,

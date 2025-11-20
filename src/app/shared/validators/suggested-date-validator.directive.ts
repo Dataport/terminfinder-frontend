@@ -78,9 +78,12 @@ export function suggestedDateValidator(localeId: string, dateTimeGenerator: Date
 
 @Directive({
   selector: '[appValidateSuggestedDate][ngModel],[appValidateSuggestedDate][formControl]',
-  providers: [
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => SuggestedDateValidatorDirective), multi: true}
-  ]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => SuggestedDateValidatorDirective),
+    multi: true
+  }],
+  standalone: false
 })
 export class SuggestedDateValidatorDirective implements Validator {
   constructor(@Inject(LOCALE_ID) private localeId: string, private dateTimeGenerator: DateTimeGeneratorService) {

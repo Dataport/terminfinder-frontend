@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 
 .circle-text {
   margin-top: -1 * $spacer;

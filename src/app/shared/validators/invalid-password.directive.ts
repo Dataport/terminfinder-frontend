@@ -25,7 +25,12 @@ export function invalidPasswordValidator(): ValidatorFn {
 
 @Directive({
   selector: '[appInvalidPassword]',
-  providers: [{provide: NG_VALIDATORS, useExisting: InvalidPasswordDirective, multi: true}]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: InvalidPasswordDirective,
+    multi: true
+  }],
+  standalone: false
 })
 export class InvalidPasswordDirective implements Validator {
   constructor() {

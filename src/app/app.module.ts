@@ -247,7 +247,8 @@ export function createTranslateLoader(http: HttpClient) {
     TimeInputDirective
   ],
   bootstrap: [AppComponent],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

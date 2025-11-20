@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 #url,
@@ -16,18 +16,20 @@ img.icon {
 .header {
   color: var(--primary, #{$primary});
   font-size: $font-size-small-mobile;
+  font-weight: $font-weight-bold !important;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
   }
-  font-weight: $font-weight-bold !important;
 }
 
 .value {
   font-size: $font-size-medium-mobile;
+  word-wrap: break-word;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
-  word-wrap: break-word;
 }
 
 #descriptionContainer div.collapse:not(.show) {

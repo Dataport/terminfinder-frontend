@@ -11,7 +11,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
 @Component({
   selector: 'app-links',
   templateUrl: './links.component.html',
-  styleUrls: ['./links.component.scss']
+  styleUrls: ['./links.component.scss'],
+  standalone: false
 })
 export class LinksComponent implements OnInit {
   model: Appointment;

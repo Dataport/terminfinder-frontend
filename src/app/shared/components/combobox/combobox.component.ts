@@ -28,10 +28,7 @@ const PAGE_SIZE = 10;
   selector: 'app-combobox',
   templateUrl: './combobox.component.html',
   styleUrl: './combobox.component.scss',
-  imports: [
-    NgClass
-  ],
-  standalone: true
+  imports: [NgClass]
 })
 export class ComboboxComponent implements AfterViewInit {
   @Input() label: string = '';

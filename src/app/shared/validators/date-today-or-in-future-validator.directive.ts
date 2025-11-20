@@ -38,9 +38,12 @@ export function dateInFutureOrTodayValidator(localeId: string, dateTimeGenerator
 
 @Directive({
   selector: '[appValidateDateInFuture][ngModel],[appValidateDateInFuture][formControl]',
-  providers: [
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => DateTodayOrInFutureValidatorDirective), multi: true}
-  ]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => DateTodayOrInFutureValidatorDirective),
+    multi: true
+  }],
+  standalone: false
 })
 export class DateTodayOrInFutureValidatorDirective implements Validator {
 

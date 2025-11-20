@@ -6,7 +6,6 @@ import {NgTemplateOutlet} from "@angular/common";
 
 @Component({
   selector: 'app-checkbox-field',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [NoopValueAccessorDirective],
   imports: [
@@ -34,7 +33,7 @@ import {NgTemplateOutlet} from "@angular/common";
       </label>
     </div>
   `,
-  styleUrl: 'checkbox-field.component.scss',
+  styleUrl: 'checkbox-field.component.scss'
 })
 export class CheckboxFieldComponent {
   protected ngControl = injectNgControl();

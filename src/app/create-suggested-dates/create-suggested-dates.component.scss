@@ -1,4 +1,5 @@
-@import "src/default";
+@use 'sass:map';
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 $border-color-input: $medium-gray;
@@ -27,10 +28,11 @@ form {
 
 .ngb-tp-input-container .form-control {
   font-size: $font-size-large-mobile;
+  font-weight: $font-weight-normal;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-large;
   }
-  font-weight: $font-weight-normal;
 }
 
 // overwrite some global styles
@@ -59,10 +61,11 @@ form {
 .btn-with-image.btn-add-suggested-date, .btn-with-image.btn-suggested-date-end-at-different-day {
   color: var(--primary, #{$primary});;
   background-size: $height-icon * 0.8 $width-icon * 0.8;
+  min-width: 100%;
+
   @include media-breakpoint-up(lg) {
     background-size: $height-icon $width-icon;
   }
-  min-width: 100%;
 }
 
 .btn-with-image.btn-add-suggested-date {
@@ -86,7 +89,7 @@ form {
   }
 }
 
-@media (min-width: map-get($grid-breakpoints, lg)) {
+@media (min-width: map.get($grid-breakpoints, lg)) {
   .btn-with-image.btn-add-suggested-date, .btn-with-image.btn-suggested-date-end-at-different-day {
     min-width: 22rem;
   }
@@ -129,11 +132,12 @@ input {
   img {
     height: $height-icon * 0.8;
     width: $width-icon * 0.8;
+    vertical-align: sub;
+
     @include media-breakpoint-up(lg) {
       height: $height-icon;
       width: $width-icon;
     }
-    vertical-align: sub;
   }
 }
 
@@ -178,6 +182,7 @@ input {
   img.icon {
     height: $height-icon * 0.8;
     width: $width-icon * 0.8;
+
     @include media-breakpoint-up(lg) {
       height: $height-icon;
       width: $width-icon;

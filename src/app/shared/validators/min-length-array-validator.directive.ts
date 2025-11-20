@@ -17,9 +17,12 @@ export function minLengthArrayValidator(min: number): ValidatorFn {
 
 @Directive({
   selector: '[appValidateMinLengthArray][ngModel],[appValidateMinLengthArray][formControl]',
-  providers: [
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => MinLengthArrayValidatorDirective), multi: true}
-  ]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => MinLengthArrayValidatorDirective),
+    multi: true
+  }],
+  standalone: false
 })
 export class MinLengthArrayValidatorDirective implements Validator {
   validator: Function;

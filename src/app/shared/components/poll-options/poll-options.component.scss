@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 
 img.poll-option-icon {
   width: $poll-option-width-small;

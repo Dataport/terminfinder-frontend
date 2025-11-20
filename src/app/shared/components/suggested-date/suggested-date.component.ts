@@ -5,7 +5,8 @@ import {LocaleService} from '../../services/locale/locale.service';
 @Component({
   selector: 'app-suggested-date',
   templateUrl: './suggested-date.component.html',
-  styleUrls: ['./suggested-date.component.scss']
+  styleUrls: ['./suggested-date.component.scss'],
+  standalone: false
 })
 export class SuggestedDateComponent {
   @Input() date: SuggestedDate;

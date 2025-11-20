@@ -8,7 +8,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
-  styleUrls: ['./password.component.scss']
+  styleUrls: ['./password.component.scss'],
+  standalone: false
 })
 export class PasswordComponent implements OnInit {
 

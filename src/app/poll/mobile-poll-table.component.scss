@@ -1,4 +1,5 @@
-@import './poll.component';
+@use 'src/default' as *;
+@use './poll.component' as *;
 
 .form-control {
   appearance: auto

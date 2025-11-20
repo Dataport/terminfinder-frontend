@@ -1,5 +1,4 @@
-@import "src/default";
-@import 'bootstrap/scss/mixins';
+@use 'src/default' as *;
 
 .container {
   max-width: 300px;

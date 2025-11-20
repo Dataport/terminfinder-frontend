@@ -22,7 +22,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
 @Component({
   selector: 'app-create-suggested-dates',
   templateUrl: './create-suggested-dates.component.html',
-  styleUrls: ['./create-suggested-dates.component.scss']
+  styleUrls: ['./create-suggested-dates.component.scss'],
+  standalone: false
 })
 export class CreateSuggestedDatesComponent implements OnInit {
   protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;

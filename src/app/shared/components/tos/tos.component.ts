@@ -8,7 +8,6 @@ import {CheckboxFieldComponent} from "../checkbox-field/checkbox-field.component
   selector: 'app-tos',
   templateUrl: './tos.component.html',
   styleUrls: ['./tos.component.scss'],
-  standalone: true,
   imports: [
     CheckboxFieldComponent,
     ReactiveFormsModule,

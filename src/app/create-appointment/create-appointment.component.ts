@@ -12,7 +12,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
 @Component({
   selector: 'app-create-appointment',
   templateUrl: './create-appointment.component.html',
-  styleUrls: ['./create-appointment.component.scss']
+  styleUrls: ['./create-appointment.component.scss'],
+  standalone: false
 })
 export class CreateAppointmentComponent implements OnInit {
   detailsForm: UntypedFormGroup;

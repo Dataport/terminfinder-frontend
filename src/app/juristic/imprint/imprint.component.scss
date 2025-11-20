@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 .headline {
@@ -21,24 +21,26 @@
 
 .content {
   font-size: $font-size-small-mobile;
-  @include media-breakpoint-up(lg) {
-    font-size: $font-size-small;
-  }
   text-align: left;
   padding-left: 5pt;
   padding-right: 5pt;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small;
+  }
 }
 
 .content h1 {
   display: block;
   font-size: $font-size-medium-mobile !important;
-  @include media-breakpoint-up(lg) {
-    font-size: $font-size-medium !important;
-  }
   text-transform: none;
   margin-top: 14pt;
   margin-bottom: 14pt;
   text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
 }
 
 .content h1 > a {
@@ -55,24 +57,26 @@
   display: block;
   text-align: left;
   font-size: $font-size-medium-mobile !important;
-  @include media-breakpoint-up(lg) {
-    font-size: $font-size-medium !important;
-  }
   text-transform: none;
   margin-top: 14pt;
   margin-bottom: 14pt;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium !important;
+  }
 }
 
 .content h3 {
   display: block;
   text-align: left;
   font-size: $font-size-small-mobile !important;
-  @include media-breakpoint-up(lg) {
-    font-size: $font-size-small !important;
-  }
   text-transform: none;
   margin-top: 5pt;
   margin-bottom: 5pt;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-small !important;
+  }
 }
 
 .btn {

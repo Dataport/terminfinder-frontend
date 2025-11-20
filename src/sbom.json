@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
   "version": 1,
-  "serialNumber": "urn:uuid:ef1ee795-55d2-4977-a481-1e0996262ec6",
+  "serialNumber": "urn:uuid:ed83308a-35fa-464f-8560-dff48c1d74e9",
   "metadata": {
-    "timestamp": "2025-11-20T00:10:54.199Z",
+    "timestamp": "2025-11-20T14:53:09.744Z",
     "tools": [
       {
         "name": "npm",
@@ -88,8 +88,8 @@
       "type": "library",
       "name": "architect",
       "group": "@angular-devkit",
-      "version": "0.1802.20",
-      "bom-ref": "@angular-devkit/architect@0.1802.20",
+      "version": "0.1902.19",
+      "bom-ref": "@angular-devkit/architect@0.1902.19",
       "author": "Angular Authors",
       "description": "Angular Build Facade",
       "licenses": [
@@ -99,7 +99,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/architect@0.1802.20",
+      "purl": "pkg:npm/%40angular-devkit/architect@0.1902.19",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -117,12 +117,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1802.20.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.1902.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "9cd52fdb9e35fd7e15d2fb53d85eb0093fbf18063cbfe27c311321f2418155dc95f4476d4935b11c0bc4d56857e6e13b55408d7a00df125c6f011f55abca928a"
+              "content": "89ec580c862918078053b4fad1b19c7eb1b0b6ad5bc69662c58c56b87622683d5be5b69080d49f7758ac1843a1dfb1a00cdb1fe089fd8b62ce2cf9b4c0176d81"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -133,64 +133,64 @@
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/architect"
         }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "core",
-      "group": "@angular-devkit",
-      "version": "18.2.20",
-      "bom-ref": "@angular-devkit/core@18.2.20",
-      "author": "Angular Authors",
-      "description": "Angular DevKit - Core Utility Library",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40angular-devkit/core@18.2.20",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/angular/angular-cli.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-18.2.20.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "54dc48d9ef4465036a298b54278bb8dd0449f6439b7b21bd7faf5c6b19e3dbc720e2a8a6dc7d6f5ffb20967a1d3fc12c4c845bcf004a73cf3879b1d615d40991"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@angular-devkit/core"
-        }
       ],
       "components": [
         {
           "type": "library",
+          "name": "core",
+          "group": "@angular-devkit",
+          "version": "19.2.19",
+          "bom-ref": "@angular-devkit/architect@0.1902.19|@angular-devkit/core@19.2.19",
+          "author": "Angular Authors",
+          "description": "Angular DevKit - Core Utility Library",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT"
+              }
+            }
+          ],
+          "purl": "pkg:npm/%40angular-devkit/core@19.2.19",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/angular/angular-cli.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-19.2.19.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "25b2cbfb820c2cc0608cb6659cf1b89580dfcf8cc6ac9fece80a289f7db53492aec3529bd64e4aa45bbd75463406a2c87bcc4f43650906923ec5774ae4c5cc1d"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/@angular-devkit/core"
+            }
+          ]
+        },
+        {
+          "type": "library",
           "name": "ajv-formats",
           "version": "3.0.1",
-          "bom-ref": "@angular-devkit/core@18.2.20|ajv-formats@3.0.1",
+          "bom-ref": "@angular-devkit/architect@0.1902.19|ajv-formats@3.0.1",
           "author": "Evgeny Poberezkin",
           "description": "Format validation for Ajv v7+",
           "licenses": [
@@ -232,7 +232,7 @@
           "properties": [
             {
               "name": "cdx:npm:package:path",
-              "value": "node_modules/@angular-devkit/core/node_modules/ajv-formats"
+              "value": "node_modules/@angular-devkit/architect/node_modules/ajv-formats"
             }
           ]
         },
@@ -240,7 +240,7 @@
           "type": "library",
           "name": "ajv",
           "version": "8.17.1",
-          "bom-ref": "@angular-devkit/core@18.2.20|ajv@8.17.1",
+          "bom-ref": "@angular-devkit/architect@0.1902.19|ajv@8.17.1",
           "author": "Evgeny Poberezkin",
           "description": "Another JSON Schema Validator",
           "licenses": [
@@ -282,7 +282,7 @@
           "properties": [
             {
               "name": "cdx:npm:package:path",
-              "value": "node_modules/@angular-devkit/core/node_modules/ajv"
+              "value": "node_modules/@angular-devkit/architect/node_modules/ajv"
             }
           ]
         },
@@ -290,7 +290,7 @@
           "type": "library",
           "name": "picomatch",
           "version": "4.0.2",
-          "bom-ref": "@angular-devkit/core@18.2.20|picomatch@4.0.2",
+          "bom-ref": "@angular-devkit/architect@0.1902.19|picomatch@4.0.2",
           "author": "Jon Schlinkert",
           "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
           "licenses": [
@@ -332,7 +332,7 @@
           "properties": [
             {
               "name": "cdx:npm:package:path",
-              "value": "node_modules/@angular-devkit/core/node_modules/picomatch"
+              "value": "node_modules/@angular-devkit/architect/node_modules/picomatch"
             }
           ]
         }
@@ -692,8 +692,8 @@
       "type": "library",
       "name": "animations",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/animations@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/animations@19.2.15",
       "author": "angular",
       "description": "Angular - animations integration with web-animations",
       "licenses": [
@@ -703,7 +703,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/animations@18.2.13#packages/animations",
+      "purl": "pkg:npm/%40angular/animations@19.2.15#packages/animations",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/animations",
@@ -721,12 +721,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/animations/-/animations-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/animations/-/animations-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "ac6e49e449391e0f93cf636390d39a1ba3eea6234afe53dfa29857a6c475b7f9d6ba3aa73165f692b6a10ff8ba9200fe8cd58d282242612395bc2c7f0473ad28"
+              "content": "7aaf6fa242d4f1b8ecee0fd99f3f332544043a14f430027f85e0421db077e52f82b595c9988b6bb04aa4235b6c462479f0d29707a71b8418542d5a3aa896e15d"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -741,10 +741,61 @@
     },
     {
       "type": "library",
+      "name": "common",
+      "group": "@angular",
+      "version": "19.2.15",
+      "bom-ref": "@angular/common@19.2.15",
+      "author": "angular",
+      "description": "Angular - commonly needed directives and services",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40angular/common@19.2.15#packages/common",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/angular/angular.git#packages/common",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/angular/angular#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/angular/angular/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@angular/common/-/common-19.2.15.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "6956bf72d0581ffe2a800eebe2c4bb4d5fbf0f345899c4bedddea5f3da4d2945e423c8299ac77eaf716371c69e997e16aabbb540eaccbc2fa2f9eec804856fd2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@angular/common"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "core",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/core@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/core@19.2.15",
       "author": "angular",
       "description": "Angular - the core framework",
       "licenses": [
@@ -754,7 +805,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/core@18.2.13#packages/core",
+      "purl": "pkg:npm/%40angular/core@19.2.15#packages/core",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/core",
@@ -772,12 +823,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/core/-/core-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/core/-/core-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f266d61cc80ef793ae155d448f2e282a66def4d389dd66b341ffdfef092cf01724ee972285dd082a194f04d8c59656c5e68fb4e04612c05844b6f1208cc0c294"
+              "content": "3f18730b0c26db737832aea857b50fa18889178afa1731a1452c4e041944a77db693bcc441b23177f5cee85ddea06ef7a82d54b0e5cc618bfa1a7429c78db2dc"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -842,61 +893,10 @@
     },
     {
       "type": "library",
-      "name": "common",
-      "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/common@18.2.13",
-      "author": "angular",
-      "description": "Angular - commonly needed directives and services",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40angular/common@18.2.13#packages/common",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/angular/angular.git#packages/common",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
-        },
-        {
-          "url": "https://github.com/angular/angular#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/angular/angular/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/@angular/common/-/common-18.2.13.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "e19aab369d4fa19a3b54dbd6fac6d2736081d9ac4fd6c087db05e5f01d30763b23f09635845d4e86eba0c21a401ed1b1a9ec1e7769025dac84f9926a4935788f"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@angular/common"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "compiler",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/compiler@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/compiler@19.2.15",
       "author": "angular",
       "description": "Angular - the compiler library",
       "licenses": [
@@ -906,7 +906,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/compiler@18.2.13#packages/compiler",
+      "purl": "pkg:npm/%40angular/compiler@19.2.15#packages/compiler",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/compiler",
@@ -924,12 +924,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/compiler/-/compiler-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/compiler/-/compiler-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "4f359cae4a29ca3145f96783af67117bc09c1e353bd8a7d85774a6d9390191c5eb9185f9b038c65ab046ac6de1441e1ee2892a721ace0af9b53224ddcb6bca30"
+              "content": "84c1d953aff4df11b4b5b3c3226d616d549314b9d190661f87ec5d07050c9c81586134b4409da174f7c464a0892179be7f3f48008e4c3dd0d37deca9d2c81a1d"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -945,8 +945,8 @@
     {
       "type": "library",
       "name": "zone.js",
-      "version": "0.14.10",
-      "bom-ref": "zone.js@0.14.10",
+      "version": "0.15.1",
+      "bom-ref": "zone.js@0.15.1",
       "author": "Brian Ford",
       "description": "Zones for JavaScript",
       "licenses": [
@@ -956,7 +956,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/zone.js@0.14.10#packages/zone.js",
+      "purl": "pkg:npm/zone.js@0.15.1#packages/zone.js",
       "externalReferences": [
         {
           "url": "git://github.com/angular/angular.git#packages/zone.js",
@@ -974,12 +974,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/zone.js/-/zone.js-0.14.10.tgz",
+          "url": "https://registry.npmjs.org/zone.js/-/zone.js-0.15.1.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "60602168eec9e72c0e5d6e889d73652e67d4d7de05f25560bbb6d19ed505dd3886f18de704ad31d54249b8750ffdef08ca28648c262a84249ca52c2795a49191"
+              "content": "5c4f7a9f9e8842924cecd0285ecc18dd744b716156f37c5ed0188039e303ecae64e7179c39eba5dd0729c7a1aa11e7873645b90d62f9ccec936c47c1e1eb62f3"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -996,8 +996,8 @@
       "type": "library",
       "name": "forms",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/forms@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/forms@19.2.15",
       "author": "angular",
       "description": "Angular - directives and services for creating forms",
       "licenses": [
@@ -1007,7 +1007,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@18.2.13#packages/forms",
+      "purl": "pkg:npm/%40angular/forms@19.2.15#packages/forms",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/forms",
@@ -1025,12 +1025,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/forms/-/forms-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/forms/-/forms-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "03aec3f3aedfbb70d206174b596665fc5e69afbbf6f9d44cdaedd4ed92747b08786beb2ffb4caa59d256f9af31228887c52f9bb461092f6a80289887f8c0857e"
+              "content": "a590c495c60f98dccfc6f589a59402222cec340a4321f93dc4b244e08f21ccb2127d619b42f7e3bae6ab0c0b906445ee75e2d7a033acb435e40e36b8d26b8b1a"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1047,8 +1047,8 @@
       "type": "library",
       "name": "platform-browser",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/platform-browser@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/platform-browser@19.2.15",
       "author": "angular",
       "description": "Angular - library for using Angular in a web browser",
       "licenses": [
@@ -1058,7 +1058,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@18.2.13#packages/platform-browser",
+      "purl": "pkg:npm/%40angular/platform-browser@19.2.15#packages/platform-browser",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/platform-browser",
@@ -1076,12 +1076,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "b6eed9cd8eaa0f701375617371372c00a7bb33a7097966d3ff8fdb17dba7c863b75c13dc3580caa22cf5d3eedaa763d47747e63f0beebd3bd23498851019c1f1"
+              "content": "39e950eb07828e89fc9190fc91ca8dcf0ba0bd926eae34b7b8c242c2c036bd798fff7cc9df5496b4da84db32d3d51d9cb15bb09e9d21fa744c82afa920d53b46"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1098,8 +1098,8 @@
       "type": "library",
       "name": "localize",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/localize@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/localize@19.2.15",
       "author": "angular",
       "description": "Angular - library for localizing messages",
       "licenses": [
@@ -1109,7 +1109,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/localize@18.2.13",
+      "purl": "pkg:npm/%40angular/localize@19.2.15",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git",
@@ -1127,12 +1127,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/localize/-/localize-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/localize/-/localize-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a9068861d0d2fe5d70eadaffc293a88a68e99a8254d16981f0019b35e28ba0cdfa2be8b1ea192f9faefe52092966d6831d9ca59bc1ac196d4d8f3a4cdadaf7a4"
+              "content": "dee74894c833847450ce93637795f546adc7f0f5f60189170eead23269680765ca20fcd4a71f17b354862d28572021884c6d30ef70593cbe7994d203a5321be0"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1149,8 +1149,8 @@
       "type": "library",
       "name": "compiler-cli",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/compiler-cli@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/compiler-cli@19.2.15",
       "description": "Angular - the compiler CLI for Node.js",
       "licenses": [
         {
@@ -1159,7 +1159,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/compiler-cli@18.2.13#packages/compiler-cli",
+      "purl": "pkg:npm/%40angular/compiler-cli@19.2.15#packages/compiler-cli",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/compiler-cli",
@@ -1177,12 +1177,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "0c14a1e004309222434a256f2404d19a3c5feb0c94b3da7040b81a15d4a57ee4d13beb1d6f4276cf5af70589bcb7422a768c97cdd66ad98087e37126caf0fbd6"
+              "content": "e2be6dbc60363a4de8f3044e641905f6a34a4bb2f4004a5d0489005496cbc36ac16364a5cb2705211632576f83d652758eafdff54eee37aa289f43234ef35890"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1199,7 +1199,7 @@
           "type": "library",
           "name": "chokidar",
           "version": "4.0.3",
-          "bom-ref": "@angular/compiler-cli@18.2.13|chokidar@4.0.3",
+          "bom-ref": "@angular/compiler-cli@19.2.15|chokidar@4.0.3",
           "author": "Paul Miller",
           "description": "Minimal and efficient cross-platform file watching library",
           "licenses": [
@@ -1249,7 +1249,7 @@
           "type": "library",
           "name": "readdirp",
           "version": "4.1.2",
-          "bom-ref": "@angular/compiler-cli@18.2.13|readdirp@4.1.2",
+          "bom-ref": "@angular/compiler-cli@19.2.15|readdirp@4.1.2",
           "author": "Thorsten Lorenz",
           "description": "Recursive version of fs.readdir with small RAM & CPU footprint.",
           "licenses": [
@@ -1301,8 +1301,8 @@
       "type": "library",
       "name": "core",
       "group": "@babel",
-      "version": "7.25.2",
-      "bom-ref": "@babel/core@7.25.2",
+      "version": "7.26.9",
+      "bom-ref": "@babel/core@7.26.9",
       "author": "The Babel Team",
       "description": "Babel compiler core.",
       "licenses": [
@@ -1312,7 +1312,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/core@7.25.2#packages/babel-core",
+      "purl": "pkg:npm/%40babel/core@7.26.9#packages/babel-core",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-core",
@@ -1330,12 +1330,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@babel/core/-/core-7.25.2.tgz",
+          "url": "https://registry.npmjs.org/@babel/core/-/core-7.26.9.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "041b77a298823b152bf5eb99e7fae8fd7bfcfd5ef22796e360ca86fc2d58028f0c20a027ba665a94237e9ac6dc8b73e2832e252107cf5297cc336ec730669810"
+              "content": "95605822b17ba8ae7e1a3639532fbf844829f0e256383feba72ef81a995846111abaf6c70de141f2de613ce671099d0ec5fe02737ead2b9d7f977ca6272b2b2b"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1352,7 +1352,7 @@
           "type": "library",
           "name": "convert-source-map",
           "version": "2.0.0",
-          "bom-ref": "@babel/core@7.25.2|convert-source-map@2.0.0",
+          "bom-ref": "@babel/core@7.26.9|convert-source-map@2.0.0",
           "author": "Thorsten Lorenz",
           "description": "Converts a source-map from/to  different formats and allows adding/changing properties.",
           "licenses": [
@@ -1402,7 +1402,7 @@
           "type": "library",
           "name": "semver",
           "version": "6.3.1",
-          "bom-ref": "@babel/core@7.25.2|semver@6.3.1",
+          "bom-ref": "@babel/core@7.26.9|semver@6.3.1",
           "author": "GitHub Inc.",
           "description": "The semantic version parser used by npm.",
           "licenses": [
@@ -1656,8 +1656,8 @@
     {
       "type": "library",
       "name": "semver",
-      "version": "7.6.3",
-      "bom-ref": "semver@7.6.3",
+      "version": "7.7.2",
+      "bom-ref": "semver@7.7.2",
       "author": "GitHub Inc.",
       "description": "The semantic version parser used by npm.",
       "licenses": [
@@ -1667,7 +1667,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/semver@7.6.3",
+      "purl": "pkg:npm/semver@7.7.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/npm/node-semver.git",
@@ -1685,12 +1685,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/semver/-/semver-7.6.3.tgz",
+          "url": "https://registry.npmjs.org/semver/-/semver-7.7.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a157a43f570ab48f824c3bc759815470cb6c2bfd34c260047f2a8a7cd740466f2ed7035585281a5fb03c77852e225508e5ef38884c0e86ced93d8466cd4f54e8"
+              "content": "445d05c3eacee4031ff4c0326915c8e005745258f994c1ea571c5d4a08956e2c52097a049a65ff8e4d02b89c38fb74aaae860ef55a1487e1dcb898afbed25e98"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1706,8 +1706,8 @@
     {
       "type": "library",
       "name": "typescript",
-      "version": "5.5.4",
-      "bom-ref": "typescript@5.5.4",
+      "version": "5.8.3",
+      "bom-ref": "typescript@5.8.3",
       "author": "Microsoft Corp.",
       "description": "TypeScript is a language for application scale JavaScript development",
       "licenses": [
@@ -1717,10 +1717,10 @@
           }
         }
       ],
-      "purl": "pkg:npm/typescript@5.5.4",
+      "purl": "pkg:npm/typescript@5.8.3",
       "externalReferences": [
         {
-          "url": "git+https://github.com/Microsoft/TypeScript.git",
+          "url": "git+https://github.com/microsoft/TypeScript.git",
           "type": "vcs",
           "comment": "as detected from PackageJson property \"repository.url\""
         },
@@ -1730,17 +1730,17 @@
           "comment": "as detected from PackageJson property \"homepage\""
         },
         {
-          "url": "https://github.com/Microsoft/TypeScript/issues",
+          "url": "https://github.com/microsoft/TypeScript/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/typescript/-/typescript-5.5.4.tgz",
+          "url": "https://registry.npmjs.org/typescript/-/typescript-5.8.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "32dab6f6c28300460feda963460b4f3a94ef39f6f0456952e9d3d1cf08dd13e0b44786eb5ff194ca11d279c6c73052cd04b70920fb7d9e5f721b94d9d70787f9"
+              "content": "a757625ba4ea2fd2f4ee7371bd130cee130cc387395cea3fd626cbe1a0081a6480b7db254c4d57830e4a5aea1fdae4cebc283d058ed9462f86685fbbb1f80f79"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -3537,8 +3537,8 @@
     {
       "type": "library",
       "name": "debug",
-      "version": "4.4.1",
-      "bom-ref": "debug@4.4.1",
+      "version": "4.4.3",
+      "bom-ref": "debug@4.4.3",
       "author": "Josh Junon",
       "description": "Lightweight debugging utility for Node.js and the browser",
       "licenses": [
@@ -3548,7 +3548,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/debug@4.4.1",
+      "purl": "pkg:npm/debug@4.4.3",
       "externalReferences": [
         {
           "url": "git://github.com/debug-js/debug.git",
@@ -3566,12 +3566,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/debug/-/debug-4.4.1.tgz",
+          "url": "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "29c282aa27ed049719afefbbca4a03204c126b75d6a304df34fa3dd816318d78b260456b51087668bca1c410b0c30fa17a8aed505c44258711ce8b2cb5310161"
+              "content": "446c305a7c10be455f6af295b76d8518bc3ec5849dcc04709b4aeee83853540dee994e6165cdbc57790ee2cb6062bcab4e52e9baf808f468a28e5b408cd6dca8"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -4037,8 +4037,8 @@
     {
       "type": "library",
       "name": "fast-glob",
-      "version": "3.3.2",
-      "bom-ref": "fast-glob@3.3.2",
+      "version": "3.3.3",
+      "bom-ref": "fast-glob@3.3.3",
       "author": "Denis Malinochkin",
       "description": "It's a very fast and efficient glob library for Node.js",
       "licenses": [
@@ -4048,7 +4048,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-glob@3.3.2",
+      "purl": "pkg:npm/fast-glob@3.3.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/mrmlnc/fast-glob.git",
@@ -4066,12 +4066,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.2.tgz",
+          "url": "https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a17dabb80150c1ffceae3f26ef7ed8e5a7710d03b42c007bfd2e4c9f109d4cd0dde29e81b32215b2ff4942c0136d34aaf0a1d1a4bc081db56550d6adc5dfb53b"
+              "content": "ecca6d2fc53472a705773233c0e4c7a22957f71e41acdab27bb67f2ee0bb9023118a8d44312caa44adc1100503eec5d1ab8893e00cd356e65d8604364c2bd82e"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -4536,6 +4536,56 @@
     },
     {
       "type": "library",
+      "name": "is-extglob",
+      "version": "2.1.1",
+      "bom-ref": "is-extglob@2.1.1",
+      "author": "Jon Schlinkert",
+      "description": "Returns true if a string has an extglob.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/is-extglob@2.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jonschlinkert/is-extglob.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/is-extglob",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/is-extglob/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-1",
+              "content": "a88c02535791f02ed37c76a1b9ea9773c833f8c2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/is-extglob"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "merge2",
       "version": "1.4.1",
       "bom-ref": "merge2@1.4.1",
@@ -4680,6 +4730,156 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/braces"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fill-range",
+      "version": "7.1.1",
+      "bom-ref": "fill-range@7.1.1",
+      "author": "Jon Schlinkert",
+      "description": "Fill in a range of numbers or letters, optionally passing an increment or `step` to use, or create a regex-compatible range with `options.toRegex`",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fill-range@7.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jonschlinkert/fill-range.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/fill-range",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/fill-range/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "62c1a97b75872caf19622e2d583836272dde6d1cf6ad7a300f19e57786e4401d3471cff5670f405a70b48bdced0c98ad8afb50bda23d29a2f22ab73e8415b4ca"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/fill-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "to-regex-range",
+      "version": "5.0.1",
+      "bom-ref": "to-regex-range@5.0.1",
+      "author": "Jon Schlinkert",
+      "description": "Pass two numbers, get a regex-compatible source string for matching ranges. Validated against more than 2.78 million test assertions.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/to-regex-range@5.0.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/micromatch/to-regex-range.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/micromatch/to-regex-range",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/micromatch/to-regex-range/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "eb93fb8b3e97e7212bd5cc1c82f4316db230ed493780ecb974876d678ac3bde2ea86b7493fe2e2fc7c7ab722b43446fed860b29de08c2621aaac00c248d93cb1"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/to-regex-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "is-number",
+      "version": "7.0.0",
+      "bom-ref": "is-number@7.0.0",
+      "author": "Jon Schlinkert",
+      "description": "Returns true if a number or string value is a finite number. Useful for regex matches, parsing, user input, etc.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:npm/is-number@7.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jonschlinkert/is-number.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/is-number",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/is-number/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e350a27e483a7bc4f2952a5db53a5e2d532abd20445734edb47bc4443ef8d7ea6767c00dbf4d34e0c44be3740a3c394af5c1af369e8d6566540656c65d8c719e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/is-number"
         }
       ]
     },
@@ -5436,8 +5636,8 @@
       "type": "library",
       "name": "platform-browser-dynamic",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/platform-browser-dynamic@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/platform-browser-dynamic@19.2.15",
       "author": "angular",
       "description": "Angular - library for using Angular in a web browser with JIT compilation",
       "licenses": [
@@ -5447,7 +5647,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser-dynamic@18.2.13#packages/platform-browser-dynamic",
+      "purl": "pkg:npm/%40angular/platform-browser-dynamic@19.2.15#packages/platform-browser-dynamic",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/platform-browser-dynamic",
@@ -5465,12 +5665,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "91b4027fdfbc129b890bb6ee0718528b006d5ef8c0c002a1e8cce70facddda9c8262a7d8ea07d1099411b4ae7d21f815b4a98438d588f60ac4c8d211a139aa26"
+              "content": "74acb4492dfde450a1f1c5bd010f277f85a7dd794e35a1fbcf9d13d5b1b19b778ea11aa3c4963221e22511b0dd25a90ccf840f477746afcd4795e65df1326e99"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5487,8 +5687,8 @@
       "type": "library",
       "name": "router",
       "group": "@angular",
-      "version": "18.2.13",
-      "bom-ref": "@angular/router@18.2.13",
+      "version": "19.2.15",
+      "bom-ref": "@angular/router@19.2.15",
       "author": "angular",
       "description": "Angular - the routing library",
       "licenses": [
@@ -5498,7 +5698,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/router@18.2.13#packages/router",
+      "purl": "pkg:npm/%40angular/router@19.2.15#packages/router",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/router",
@@ -5516,12 +5716,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/router/-/router-18.2.13.tgz",
+          "url": "https://registry.npmjs.org/@angular/router/-/router-19.2.15.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "54a99f822febfc293206af670a143fa6d99fbb4253ffc38d9cb549e47f929052d16097084721cb2a346284c0b2566eb1339ca4b4e742696ef735342b173efe6e"
+              "content": "d133350fc4bb450d3476b2b2ee103f64b058d7875406a141826d3a76370d70e8cdcd502d824795d22fb44a6abdb420bb52c18a76966ee1181f6231c04c13654d"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5538,8 +5738,8 @@
       "type": "library",
       "name": "ng-bootstrap",
       "group": "@ng-bootstrap",
-      "version": "17.0.1",
-      "bom-ref": "@ng-bootstrap/ng-bootstrap@17.0.1",
+      "version": "18.0.0",
+      "bom-ref": "@ng-bootstrap/ng-bootstrap@18.0.0",
       "author": "https://github.com/ng-bootstrap/ng-bootstrap/graphs/contributors",
       "description": "Angular powered Bootstrap",
       "licenses": [
@@ -5549,7 +5749,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40ng-bootstrap/ng-bootstrap@17.0.1",
+      "purl": "pkg:npm/%40ng-bootstrap/ng-bootstrap@18.0.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/ng-bootstrap/ng-bootstrap.git",
@@ -5567,12 +5767,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-17.0.1.tgz",
+          "url": "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-18.0.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "bad6e6f0e5c8a2a555606573424392efbdf299b8dcf943245eff25ca2ee14ea2e1090b34ad9d3203be297aa55946e3865cb1e07124c0edf9c9840f3489039b97"
+              "content": "19e480cf8ca21aae3da6c76d7bc91c7fe639eb6c01de32bfa8a440921ea2037da57179b2dac7d05d50269477636770323fe13c95fdf2330b8f7522a261c0e04a"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6408,17 +6608,17 @@
     {
       "ref": "terminfinder@0.0.0",
       "dependsOn": [
-        "@angular-devkit/architect@0.1802.20",
-        "@angular/animations@18.2.13",
-        "@angular/common@18.2.13",
-        "@angular/compiler@18.2.13",
-        "@angular/core@18.2.13",
-        "@angular/forms@18.2.13",
-        "@angular/localize@18.2.13",
-        "@angular/platform-browser-dynamic@18.2.13",
-        "@angular/platform-browser@18.2.13",
-        "@angular/router@18.2.13",
-        "@ng-bootstrap/ng-bootstrap@17.0.1",
+        "@angular-devkit/architect@0.1902.19",
+        "@angular/animations@19.2.15",
+        "@angular/common@19.2.15",
+        "@angular/compiler@19.2.15",
+        "@angular/core@19.2.15",
+        "@angular/forms@19.2.15",
+        "@angular/localize@19.2.15",
+        "@angular/platform-browser-dynamic@19.2.15",
+        "@angular/platform-browser@19.2.15",
+        "@angular/router@19.2.15",
+        "@ng-bootstrap/ng-bootstrap@18.0.0",
         "@ngx-translate/core@16.0.4",
         "@ngx-translate/http-loader@8.0.0",
         "@popperjs/core@2.11.8",
@@ -6431,35 +6631,35 @@
         "ngx-toastr@19.1.0",
         "rxjs@7.8.1",
         "tslib@2.5.2",
-        "zone.js@0.14.10"
+        "zone.js@0.15.1"
       ]
     },
     {
-      "ref": "@angular-devkit/architect@0.1802.20",
+      "ref": "@angular-devkit/architect@0.1902.19",
       "dependsOn": [
-        "@angular-devkit/core@18.2.20",
+        "@angular-devkit/architect@0.1902.19|@angular-devkit/core@19.2.19",
         "rxjs@7.8.1"
       ]
     },
     {
-      "ref": "@angular-devkit/core@18.2.20",
+      "ref": "@angular-devkit/architect@0.1902.19|@angular-devkit/core@19.2.19",
       "dependsOn": [
-        "@angular-devkit/core@18.2.20|ajv-formats@3.0.1",
-        "@angular-devkit/core@18.2.20|ajv@8.17.1",
+        "@angular-devkit/architect@0.1902.19|ajv-formats@3.0.1",
+        "@angular-devkit/architect@0.1902.19|ajv@8.17.1",
         "jsonc-parser@3.3.1",
-        "@angular-devkit/core@18.2.20|picomatch@4.0.2",
+        "@angular-devkit/architect@0.1902.19|picomatch@4.0.2",
         "rxjs@7.8.1",
         "source-map@0.7.4"
       ]
     },
     {
-      "ref": "@angular-devkit/core@18.2.20|ajv-formats@3.0.1",
+      "ref": "@angular-devkit/architect@0.1902.19|ajv-formats@3.0.1",
       "dependsOn": [
-        "@angular-devkit/core@18.2.20|ajv@8.17.1"
+        "@angular-devkit/architect@0.1902.19|ajv@8.17.1"
       ]
     },
     {
-      "ref": "@angular-devkit/core@18.2.20|ajv@8.17.1",
+      "ref": "@angular-devkit/architect@0.1902.19|ajv@8.17.1",
       "dependsOn": [
         "fast-deep-equal@3.1.3",
         "fast-uri@3.0.6",
@@ -6468,7 +6668,7 @@
       ]
     },
     {
-      "ref": "@angular-devkit/core@18.2.20|picomatch@4.0.2"
+      "ref": "@angular-devkit/architect@0.1902.19|picomatch@4.0.2"
     },
     {
       "ref": "fast-deep-equal@3.1.3"
@@ -6495,97 +6695,97 @@
       "ref": "source-map@0.7.4"
     },
     {
-      "ref": "@angular/animations@18.2.13",
+      "ref": "@angular/animations@19.2.15",
       "dependsOn": [
-        "@angular/core@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
         "tslib@2.5.2"
       ]
     },
     {
-      "ref": "@angular/core@18.2.13",
+      "ref": "@angular/common@19.2.15",
+      "dependsOn": [
+        "@angular/core@19.2.15",
+        "rxjs@7.8.1",
+        "tslib@2.5.2"
+      ]
+    },
+    {
+      "ref": "@angular/core@19.2.15",
       "dependsOn": [
         "rxjs@7.8.1",
         "tslib@2.5.2",
-        "zone.js@0.14.10"
+        "zone.js@0.15.1"
       ]
     },
     {
       "ref": "tslib@2.5.2"
     },
     {
-      "ref": "@angular/common@18.2.13",
+      "ref": "@angular/compiler@19.2.15",
       "dependsOn": [
-        "@angular/core@18.2.13",
+        "tslib@2.5.2"
+      ]
+    },
+    {
+      "ref": "zone.js@0.15.1"
+    },
+    {
+      "ref": "@angular/forms@19.2.15",
+      "dependsOn": [
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
+        "@angular/platform-browser@19.2.15",
         "rxjs@7.8.1",
         "tslib@2.5.2"
       ]
     },
     {
-      "ref": "@angular/compiler@18.2.13",
+      "ref": "@angular/platform-browser@19.2.15",
       "dependsOn": [
-        "@angular/core@18.2.13",
+        "@angular/animations@19.2.15",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
         "tslib@2.5.2"
       ]
     },
     {
-      "ref": "zone.js@0.14.10"
-    },
-    {
-      "ref": "@angular/forms@18.2.13",
+      "ref": "@angular/localize@19.2.15",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
-        "@angular/platform-browser@18.2.13",
-        "rxjs@7.8.1",
-        "tslib@2.5.2"
-      ]
-    },
-    {
-      "ref": "@angular/platform-browser@18.2.13",
-      "dependsOn": [
-        "@angular/animations@18.2.13",
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
-        "tslib@2.5.2"
-      ]
-    },
-    {
-      "ref": "@angular/localize@18.2.13",
-      "dependsOn": [
-        "@angular/compiler-cli@18.2.13",
-        "@angular/compiler@18.2.13",
-        "@babel/core@7.25.2",
+        "@angular/compiler-cli@19.2.15",
+        "@angular/compiler@19.2.15",
+        "@babel/core@7.26.9",
         "@types/babel__core@7.20.5",
-        "fast-glob@3.3.2",
+        "fast-glob@3.3.3",
         "yargs@17.7.2"
       ]
     },
     {
-      "ref": "@angular/compiler-cli@18.2.13",
+      "ref": "@angular/compiler-cli@19.2.15",
       "dependsOn": [
-        "@angular/compiler@18.2.13",
-        "@babel/core@7.25.2",
+        "@angular/compiler@19.2.15",
+        "@babel/core@7.26.9",
         "@jridgewell/sourcemap-codec@1.5.0",
-        "@angular/compiler-cli@18.2.13|chokidar@4.0.3",
+        "@angular/compiler-cli@19.2.15|chokidar@4.0.3",
         "convert-source-map@1.8.0",
         "reflect-metadata@0.2.2",
-        "semver@7.6.3",
+        "semver@7.7.2",
         "tslib@2.5.2",
-        "typescript@5.5.4",
+        "typescript@5.8.3",
         "yargs@17.7.2"
       ]
     },
     {
-      "ref": "@angular/compiler-cli@18.2.13|chokidar@4.0.3",
+      "ref": "@angular/compiler-cli@19.2.15|chokidar@4.0.3",
       "dependsOn": [
-        "@angular/compiler-cli@18.2.13|readdirp@4.1.2"
+        "@angular/compiler-cli@19.2.15|readdirp@4.1.2"
       ]
     },
     {
-      "ref": "@angular/compiler-cli@18.2.13|readdirp@4.1.2"
+      "ref": "@angular/compiler-cli@19.2.15|readdirp@4.1.2"
     },
     {
-      "ref": "@babel/core@7.25.2",
+      "ref": "@babel/core@7.26.9",
       "dependsOn": [
         "@ampproject/remapping@2.3.0",
         "@babel/code-frame@7.27.1",
@@ -6597,18 +6797,18 @@
         "@babel/template@7.27.2",
         "@babel/traverse@7.27.7",
         "@babel/types@7.27.7",
-        "@babel/core@7.25.2|convert-source-map@2.0.0",
-        "debug@4.4.1",
+        "@babel/core@7.26.9|convert-source-map@2.0.0",
+        "debug@4.4.3",
         "gensync@1.0.0-beta.2",
         "json5@2.2.3",
-        "@babel/core@7.25.2|semver@6.3.1"
+        "@babel/core@7.26.9|semver@6.3.1"
       ]
     },
     {
-      "ref": "@babel/core@7.25.2|convert-source-map@2.0.0"
+      "ref": "@babel/core@7.26.9|convert-source-map@2.0.0"
     },
     {
-      "ref": "@babel/core@7.25.2|semver@6.3.1"
+      "ref": "@babel/core@7.26.9|semver@6.3.1"
     },
     {
       "ref": "@jridgewell/sourcemap-codec@1.5.0"
@@ -6626,10 +6826,10 @@
       "ref": "reflect-metadata@0.2.2"
     },
     {
-      "ref": "semver@7.6.3"
+      "ref": "semver@7.7.2"
     },
     {
-      "ref": "typescript@5.5.4"
+      "ref": "typescript@5.8.3"
     },
     {
       "ref": "yargs@17.7.2",
@@ -6788,7 +6988,7 @@
     {
       "ref": "@babel/helper-module-transforms@7.27.3",
       "dependsOn": [
-        "@babel/core@7.25.2",
+        "@babel/core@7.26.9",
         "@babel/helper-module-imports@7.27.1",
         "@babel/helper-validator-identifier@7.27.1",
         "@babel/traverse@7.27.7"
@@ -6809,7 +7009,7 @@
         "@babel/parser@7.27.7",
         "@babel/template@7.27.2",
         "@babel/types@7.27.7",
-        "debug@4.4.1",
+        "debug@4.4.3",
         "globals@11.12.0"
       ]
     },
@@ -6846,7 +7046,7 @@
       ]
     },
     {
-      "ref": "debug@4.4.1",
+      "ref": "debug@4.4.3",
       "dependsOn": [
         "ms@2.1.3"
       ]
@@ -6896,7 +7096,7 @@
       ]
     },
     {
-      "ref": "fast-glob@3.3.2",
+      "ref": "fast-glob@3.3.3",
       "dependsOn": [
         "@nodelib/fs.stat@2.0.5",
         "@nodelib/fs.walk@1.2.8",
@@ -6947,7 +7147,13 @@
       ]
     },
     {
-      "ref": "is-glob@4.0.3"
+      "ref": "is-glob@4.0.3",
+      "dependsOn": [
+        "is-extglob@2.1.1"
+      ]
+    },
+    {
+      "ref": "is-extglob@2.1.1"
     },
     {
       "ref": "merge2@1.4.1"
@@ -6960,7 +7166,25 @@
       ]
     },
     {
-      "ref": "braces@3.0.3"
+      "ref": "braces@3.0.3",
+      "dependsOn": [
+        "fill-range@7.1.1"
+      ]
+    },
+    {
+      "ref": "fill-range@7.1.1",
+      "dependsOn": [
+        "to-regex-range@5.0.1"
+      ]
+    },
+    {
+      "ref": "to-regex-range@5.0.1",
+      "dependsOn": [
+        "is-number@7.0.0"
+      ]
+    },
+    {
+      "ref": "is-number@7.0.0"
     },
     {
       "ref": "picomatch@2.3.1"
@@ -7032,32 +7256,32 @@
       "ref": "yargs-parser@21.1.1"
     },
     {
-      "ref": "@angular/platform-browser-dynamic@18.2.13",
+      "ref": "@angular/platform-browser-dynamic@19.2.15",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/compiler@18.2.13",
-        "@angular/core@18.2.13",
-        "@angular/platform-browser@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/compiler@19.2.15",
+        "@angular/core@19.2.15",
+        "@angular/platform-browser@19.2.15",
         "tslib@2.5.2"
       ]
     },
     {
-      "ref": "@angular/router@18.2.13",
+      "ref": "@angular/router@19.2.15",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
-        "@angular/platform-browser@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
+        "@angular/platform-browser@19.2.15",
         "rxjs@7.8.1",
         "tslib@2.5.2"
       ]
     },
     {
-      "ref": "@ng-bootstrap/ng-bootstrap@17.0.1",
+      "ref": "@ng-bootstrap/ng-bootstrap@18.0.0",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
-        "@angular/forms@18.2.13",
-        "@angular/localize@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
+        "@angular/forms@19.2.15",
+        "@angular/localize@19.2.15",
         "@popperjs/core@2.11.8",
         "rxjs@7.8.1",
         "tslib@2.5.2"
@@ -7069,16 +7293,16 @@
     {
       "ref": "@ngx-translate/core@16.0.4",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
         "tslib@2.5.2"
       ]
     },
     {
       "ref": "@ngx-translate/http-loader@8.0.0",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
         "@ngx-translate/core@16.0.4",
         "rxjs@7.8.1"
       ]
@@ -7132,8 +7356,8 @@
     {
       "ref": "ngx-clipboard@16.0.0",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
         "ngx-window-token@7.0.0",
         "tslib@2.5.2"
       ]
@@ -7141,17 +7365,17 @@
     {
       "ref": "ngx-window-token@7.0.0",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
         "tslib@2.5.2"
       ]
     },
     {
       "ref": "ngx-toastr@19.1.0",
       "dependsOn": [
-        "@angular/common@18.2.13",
-        "@angular/core@18.2.13",
-        "@angular/platform-browser@18.2.13",
+        "@angular/common@19.2.15",
+        "@angular/core@19.2.15",
+        "@angular/platform-browser@19.2.15",
         "tslib@2.5.2"
       ]
     }

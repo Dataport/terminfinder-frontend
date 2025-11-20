@@ -1,4 +1,5 @@
-@import "src/default";
+@use 'sass:map';
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 $icon-width: 30px;
@@ -31,13 +32,14 @@ tfoot tr:last-child td {
 
 .form-control {
   font-size: $font-size-medium-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
 }
 
 // sticky header and first column
-@media (min-width: map-get($grid-breakpoints, lg)) {
+@media (min-width: map.get($grid-breakpoints, lg)) {
   // suggested dates
   thead tr {
     position: sticky;
@@ -145,14 +147,13 @@ button.btn-with-image {
   display: flex;
   padding-left: 6px;
   border: 0;
+  text-align: left;
 
   img {
     margin-left: 4px;
     height: $icon-height * 0.66;
     width: $icon-width * 0.66;
   }
-
-  text-align: left;
 
   @include media-breakpoint-up(lg) {
     img {
@@ -339,11 +340,13 @@ $poll-data-cell-invalid-message-min-height: 24px;
 .alert.alert-secondary {
   font-weight: $font-weight-bold !important;
   font-size: $font-size-medium-mobile;
-  @include media-breakpoint-up(lg) {
-    font-size: $font-size-medium;
-  }
+
   color: var(--danger, #{$danger});
   border: 2px solid var(--danger, #{$danger});
   background-color: transparent;
   border-radius: 0;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-medium;
+  }
 }

@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 a {
@@ -13,6 +13,7 @@ p {
 
 .section-container {
   margin-bottom: 10px;
+
   @include media-breakpoint-up(lg) {
     margin-bottom: 40px;
   }

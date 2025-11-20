@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 @import 'bootstrap/scss/mixins';
 
 /* custom styles */
@@ -6,6 +6,7 @@ label[for="title"] {
   margin-bottom: 0.25 * $spacer;
   font-weight: $font-weight-bold !important;
   font-size: $font-size-medium-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
@@ -19,6 +20,7 @@ label[for="title"] {
   background-size: $form-icon-width * 0.6 $form-icon-height * 0.6;
   align-items: center;
   justify-content: space-between;
+
   @include media-breakpoint-up(lg) {
     background-size: $form-icon-width $form-icon-height;
   }

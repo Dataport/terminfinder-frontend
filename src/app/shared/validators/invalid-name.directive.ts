@@ -14,7 +14,12 @@ export function invalidNameValidator(): ValidatorFn {
 
 @Directive({
   selector: '[appInvalidName]',
-  providers: [{provide: NG_VALIDATORS, useExisting: InvalidNameDirective, multi: true}]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: InvalidNameDirective,
+    multi: true
+  }],
+  standalone: false
 })
 export class InvalidNameDirective implements Validator {
   constructor() {

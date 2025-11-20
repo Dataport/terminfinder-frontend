@@ -18,7 +18,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
   selector: 'app-poll',
   providers: [PollFormHelperService],
   templateUrl: './poll.component.html',
-  styleUrls: ['./poll.component.scss']
+  styleUrls: ['./poll.component.scss'],
+  standalone: false
 })
 export class PollComponent implements OnInit {
   model: Appointment;

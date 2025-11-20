@@ -1,15 +1,12 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
-import {RouterLink} from "@angular/router";
 import {Location, NgOptimizedImage} from "@angular/common";
 import {RouteTitleService} from "../shared/services/route-title.service";
 
 @Component({
   selector: 'app-plain-language',
-  standalone: true,
   imports: [
     TranslateModule,
-    RouterLink,
     NgOptimizedImage
   ],
   template: `

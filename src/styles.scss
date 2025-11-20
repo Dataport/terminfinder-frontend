@@ -1,10 +1,12 @@
+@use 'sass:map';
+@use 'default' as *;
+@use 'colors' as *;
 @use '@fortawesome/fontawesome-free/scss/fontawesome';
-@import "default";
-@import "colors";
-@import "bootstrap/scss/functions";
+@use 'ngx-toastr/toastr' as *;
+
+@import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap/scss/mixins';
-@import 'ngx-toastr/toastr';
 
 @font-face {
   font-family: Roboto;
@@ -16,6 +18,7 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: $font-size-medium-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
@@ -25,28 +28,31 @@ h1 {
   color: var(--primary, #{$primary}) !important;
   font-weight: $font-weight-bold !important;
   font-size: $font-size-large-mobile !important;
-  @include media-breakpoint-up(sm) {
-    font-size: $font-size-large !important;
-  }
   margin-top: 0;
   padding: 0 !important;
   display: inline;
   text-align: center;
   line-height: 1.47;
+
+  @include media-breakpoint-up(sm) {
+    font-size: $font-size-large !important;
+  }
 }
 
 h2 {
   color: var(--primary, #{$primary}) !important;
   font-size: $font-size-large-mobile !important;
+  font-weight: $font-weight-x-bold !important;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
   }
-  font-weight: $font-weight-x-bold !important;
 }
 
 h3 {
   color: var(--primary, #{$primary}) !important;
   font-size: $font-size-medium-mobile !important;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
   }
@@ -55,10 +61,11 @@ h3 {
 label {
   color: var(--primary, #{$primary});
   font-size: $font-size-small-mobile;
+  font-weight: $font-weight-bold !important;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
   }
-  font-weight: $font-weight-bold !important;
 }
 
 // ensures correct scaling when users set custom font-sizes
@@ -70,11 +77,12 @@ button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="sub
 
 .invalid-message {
   font-size: $font-size-small-mobile;
+  color: $input-invalid-color;
+  font-weight: bold;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
   }
-  color: $input-invalid-color;
-  font-weight: bold;
 }
 
 .invalid-message-highlight:has(.invalid-message),
@@ -97,7 +105,7 @@ button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="sub
     left: -.5rem;
   }
 
-  @media (max-width: map-get($grid-breakpoints, lg)) {
+  @media (max-width: map.get($grid-breakpoints, lg)) {
     &::before {
       left: -.15rem;
     }
@@ -223,6 +231,7 @@ a,
 
 .btn {
   font-size: $font-size-medium-mobile !important;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
   }
@@ -231,6 +240,7 @@ a,
 .form-control {
   font-size: $font-size-medium-mobile !important;
   height: auto !important;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium !important;
   }
@@ -245,6 +255,7 @@ a,
 
 .ngb-tp-input-container .form-control {
   font-size: $font-size-large-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-large;
   }
@@ -252,6 +263,7 @@ a,
 
 .ngb-tp-input-container .btn {
   font-size: $font-size-small-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
   }
@@ -456,7 +468,7 @@ a,
   background-image: inherit !important;
 }
 
-@media (min-width: map-get($grid-breakpoints, lg)) {
+@media (min-width: map.get($grid-breakpoints, lg)) {
   .btn-with-image.btn-back, .btn-with-image.btn-next {
     min-width: 12.5rem;
   }
@@ -483,6 +495,7 @@ a,
 
 .font-large {
   font-size: $font-size-large-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-large;
   }
@@ -491,6 +504,7 @@ a,
 .font-medium {
   color: var(--primary, #{$primary});
   font-size: $font-size-medium-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-medium;
   }
@@ -498,6 +512,7 @@ a,
 
 .font-small {
   font-size: $font-size-small-mobile;
+
   @include media-breakpoint-up(lg) {
     font-size: $font-size-small;
   }

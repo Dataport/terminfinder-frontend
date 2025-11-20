@@ -5,7 +5,6 @@ import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-video-player',
-  standalone: true,
   imports: [
     SanitizeUrlPipe,
     NgOptimizedImage,

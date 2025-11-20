@@ -17,9 +17,12 @@ export function maxLengthArrayValidator(max: number): ValidatorFn {
 
 @Directive({
   selector: '[appValidateMaxLengthArray][ngModel],[appValidateMaxLengthArray][formControl]',
-  providers: [
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => MaxLengthArrayValidatorDirective), multi: true}
-  ]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => MaxLengthArrayValidatorDirective),
+    multi: true
+  }],
+  standalone: false
 })
 export class MaxLengthArrayValidatorDirective implements Validator {
   validator: Function;

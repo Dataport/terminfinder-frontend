@@ -8,7 +8,12 @@ export function invalidLocationValidator(): ValidatorFn {
 
 @Directive({
   selector: '[appInvalidLocation]',
-  providers: [{provide: NG_VALIDATORS, useExisting: InvalidLocationDirective, multi: true}]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: InvalidLocationDirective,
+    multi: true
+  }],
+  standalone: false
 })
 export class InvalidLocationDirective implements Validator {
   constructor() {

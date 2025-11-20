@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 
 .combo {
   display: inline-block;

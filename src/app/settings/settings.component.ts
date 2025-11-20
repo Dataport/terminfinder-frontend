@@ -11,7 +11,8 @@ import {RouteTitleService} from "../shared/services/route-title.service";
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SettingsComponent implements OnInit {
   settingsForm: UntypedFormGroup;

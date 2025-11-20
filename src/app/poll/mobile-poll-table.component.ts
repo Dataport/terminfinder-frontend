@@ -5,7 +5,8 @@ import {PollFormHelperService} from './poll-form-helper.service';
 @Component({
   selector: 'app-mobile-poll-table',
   templateUrl: './mobile-poll-table.component.html',
-  styleUrls: ['./mobile-poll-table.component.scss']
+  styleUrls: ['./mobile-poll-table.component.scss'],
+  standalone: false
 })
 export class MobilePollTableComponent {
   constructor(

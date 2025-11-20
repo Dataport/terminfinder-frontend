@@ -27,9 +27,12 @@ export function timeValidator(localeId: string): ValidatorFn {
 
 @Directive({
   selector: '[appValidateTime][ngModel],[appValidateTime][formControl]',
-  providers: [
-    {provide: NG_VALIDATORS, useExisting: forwardRef(() => TimeValidatorDirective), multi: true}
-  ]
+  providers: [{
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(() => TimeValidatorDirective),
+    multi: true
+  }],
+  standalone: false
 })
 export class TimeValidatorDirective implements Validator {
 

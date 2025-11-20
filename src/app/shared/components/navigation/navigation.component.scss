@@ -1,4 +1,4 @@
-@import "src/default";
+@use 'src/default' as *;
 
 .btn {
   color: $btn-text;

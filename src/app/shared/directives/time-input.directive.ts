@@ -1,7 +1,8 @@
 import {Directive, HostListener} from "@angular/core";
 
 @Directive({
-  selector: 'input[appTimeInput]'
+  selector: 'input[appTimeInput]',
+  standalone: false
 })
 export class TimeInputDirective {
   regexInvalidChars = /[^0-9:]/;

@@ -8,7 +8,8 @@ import { StringTransformService } from 'src/app/shared/services/string-transform
 @Component({
   selector: 'app-accessibility',
   templateUrl: './accessibility.component.html',
-  styleUrls: ['./accessibility.component.scss']
+  styleUrls: ['./accessibility.component.scss'],
+  standalone: false
 })
 export class AccessibilityComponent implements OnInit {
   readonly title = environment.title;

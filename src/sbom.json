@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
   "version": 1,
-  "serialNumber": "urn:uuid:5ab01275-baa9-4b8d-ad41-ad5546c6a3ef",
+  "serialNumber": "urn:uuid:795fb0df-c08b-4d1f-bbca-881b9387dab4",
   "metadata": {
-    "timestamp": "2025-11-19T13:10:24.322Z",
+    "timestamp": "2025-11-20T00:10:15.311Z",
     "tools": [
       {
         "name": "npm",
@@ -5676,24 +5676,26 @@
       "type": "library",
       "name": "http-loader",
       "group": "@ngx-translate",
-      "version": "8.0.0",
-      "bom-ref": "@ngx-translate/http-loader@8.0.0",
+      "version": "17.0.0",
+      "bom-ref": "@ngx-translate/http-loader@17.0.0",
+      "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe",
+      "description": "http loader for dynamically loading translation files for @ngx-translate/core",
       "licenses": [
         {
           "license": {
-            "name": "SEE LICENSE IN LICENSE"
+            "id": "MIT"
           }
         }
       ],
-      "purl": "pkg:npm/%40ngx-translate/http-loader@8.0.0",
+      "purl": "pkg:npm/%40ngx-translate/http-loader@17.0.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-8.0.0.tgz",
+          "url": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-17.0.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "48532c7547261c5e4e75990bd421c4a120306cfe446c038f4cb2dba0e0914683a0db53f8189c7ee758f119d25e1af7ba2d228b7f83dacbb0644f0984eafc5896"
+              "content": "8604bcb1ad004631fd965dcf8642d3b9f7955cd2360cd476b8528384182ad77b22517cf356bfdadf533ace079caedc1b037e22681574d61b1331b312f15ee223"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6420,7 +6422,7 @@
         "@angular/router@18.2.13",
         "@ng-bootstrap/ng-bootstrap@17.0.1",
         "@ngx-translate/core@16.0.4",
-        "@ngx-translate/http-loader@8.0.0",
+        "@ngx-translate/http-loader@17.0.0",
         "@popperjs/core@2.11.8",
         "bootstrap@5.3.3",
         "calendar-link@2.6.0",
@@ -7075,12 +7077,11 @@
       ]
     },
     {
-      "ref": "@ngx-translate/http-loader@8.0.0",
+      "ref": "@ngx-translate/http-loader@17.0.0",
       "dependsOn": [
         "@angular/common@18.2.13",
         "@angular/core@18.2.13",
-        "@ngx-translate/core@16.0.4",
-        "rxjs@7.8.1"
+        "tslib@2.5.2"
       ]
     },
     {

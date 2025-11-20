@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
   "version": 1,
-  "serialNumber": "urn:uuid:5ab01275-baa9-4b8d-ad41-ad5546c6a3ef",
+  "serialNumber": "urn:uuid:ef1ee795-55d2-4977-a481-1e0996262ec6",
   "metadata": {
-    "timestamp": "2025-11-19T13:10:24.322Z",
+    "timestamp": "2025-11-20T00:10:54.199Z",
     "tools": [
       {
         "name": "npm",
@@ -5809,8 +5809,8 @@
     {
       "type": "library",
       "name": "dayjs",
-      "version": "1.11.10",
-      "bom-ref": "dayjs@1.11.10",
+      "version": "1.11.19",
+      "bom-ref": "dayjs@1.11.19",
       "author": "iamkun",
       "description": "2KB immutable date time library alternative to Moment.js with the same modern API ",
       "licenses": [
@@ -5820,7 +5820,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/dayjs@1.11.10",
+      "purl": "pkg:npm/dayjs@1.11.19",
       "externalReferences": [
         {
           "url": "git+https://github.com/iamkun/dayjs.git",
@@ -5838,12 +5838,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/dayjs/-/dayjs-1.11.10.tgz",
+          "url": "https://registry.npmjs.org/dayjs/-/dayjs-1.11.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "be301ccde9ec4e045ca831112b4491d97330b05fed4af9ef96fe95705d8622183a4b1e32388b7f8abb2bd510c9b0a888c81cc90e90a85e2596ab6f0ca87d9c9d"
+              "content": "b7911c2d54ba40f04da8cdb3f1f6a493f34a7a5f97cec860b7c1452809feab0943d69cd95b18749d50abbc52bb6436fa5ee719785f73f02ec20564d121502903"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -7092,12 +7092,12 @@
     {
       "ref": "calendar-link@2.6.0",
       "dependsOn": [
-        "dayjs@1.11.10",
+        "dayjs@1.11.19",
         "query-string@6.14.1"
       ]
     },
     {
-      "ref": "dayjs@1.11.10"
+      "ref": "dayjs@1.11.19"
     },
     {
       "ref": "query-string@6.14.1",

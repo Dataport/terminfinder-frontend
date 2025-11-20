@@ -62,7 +62,7 @@
                 (click)="togglePasswordVisibility()"
                 [attr.aria-description]="'password.' + (passwordHidden ? 'showPassword' : 'hidePassword') | translate"
               >
-                <i class="fa-solid" aria-hidden="true" [ngClass]="passwordHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
+                <i class="fa-solid" [ngClass]="passwordHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
               </button>
             </div>
             @if (getPassword().touched || getPassword().dirty) {
@@ -75,7 +75,7 @@
                     role="alert"
                     aria-atomic="false"
                   >
-                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
                     {{ 'password.set' | translate }}
                   </div>
                 }
@@ -87,7 +87,7 @@
                     role="alert"
                     aria-atomic="false"
                   >
-                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
                     {{ 'password.setMinimum' | translate }}
                   </div>
                 }
@@ -126,7 +126,7 @@
                 (click)="togglePasswordRepeatVisibility()"
                 [attr.aria-description]="'password.' + (passwordRepeatHidden ? 'showPassword' : 'hidePassword') | translate"
               >
-                <i class="fa-solid" aria-hidden="true" [ngClass]="passwordRepeatHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
+                <i class="fa-solid" [ngClass]="passwordRepeatHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
               </button>
             </div>
             <!-- show message if:
@@ -142,7 +142,7 @@
                     role="alert"
                     aria-atomic="false"
                   >
-                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <i class="fa-solid fa-triangle-exclamation"></i>
                     {{ 'password.set' | translate }}
                   </div>
                 } @else if (getPasswordRepeat().dirty) {
@@ -154,7 +154,7 @@
                       role="alert"
                       aria-atomic="false"
                     >
-                      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                      <i class="fa-solid fa-triangle-exclamation"></i>
                       {{ 'password.noMatch' | translate }}
                     </div>
                   }
@@ -166,7 +166,7 @@
                       role="alert"
                       aria-atomic="false"
                     >
-                      <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                      <i class="fa-solid fa-triangle-exclamation"></i>
                       {{ 'password.setMinimum' | translate }}
                     </div>
                   }

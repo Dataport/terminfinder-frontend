@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
   "version": 1,
-  "serialNumber": "urn:uuid:ed83308a-35fa-464f-8560-dff48c1d74e9",
+  "serialNumber": "urn:uuid:789fc3f9-1e36-4bb9-aba8-cad73bafa453",
   "metadata": {
-    "timestamp": "2025-11-20T14:53:09.744Z",
+    "timestamp": "2025-11-21T12:11:59.032Z",
     "tools": [
       {
         "name": "npm",
@@ -1454,9 +1454,9 @@
       "type": "library",
       "name": "sourcemap-codec",
       "group": "@jridgewell",
-      "version": "1.5.0",
-      "bom-ref": "@jridgewell/sourcemap-codec@1.5.0",
-      "author": "Rich Harris",
+      "version": "1.5.5",
+      "bom-ref": "@jridgewell/sourcemap-codec@1.5.5",
+      "author": "Justin Ridgewell",
       "description": "Encode/decode sourcemap mappings",
       "licenses": [
         {
@@ -1465,30 +1465,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.0",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5#packages/sourcemap-codec",
       "externalReferences": [
         {
-          "url": "git+https://github.com/jridgewell/sourcemap-codec.git",
+          "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/sourcemap-codec",
           "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
         },
         {
-          "url": "https://github.com/jridgewell/sourcemap-codec#readme",
+          "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec",
           "type": "website",
           "comment": "as detected from PackageJson property \"homepage\""
         },
         {
-          "url": "https://github.com/jridgewell/sourcemap-codec/issues",
+          "url": "https://github.com/jridgewell/sourcemaps/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz",
+          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "82fdd945a2125377e33c080db2b88146a19640beaab85c74e1830f5bfcc3f1730bb14df69a10826df6cee8a6452e3bd8a4267ccf20c482ab207fe3f03da33b19"
+              "content": "71843ddf5d20aeac6e7966e5f96b885086a251a0dc8fb58eab97d58449633558117ce52163d7f2db34ef7e8a96b2779b87c4a5ef45527056c80af2672ca0743a"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6765,7 +6765,7 @@
       "dependsOn": [
         "@angular/compiler@19.2.15",
         "@babel/core@7.26.9",
-        "@jridgewell/sourcemap-codec@1.5.0",
+        "@jridgewell/sourcemap-codec@1.5.5",
         "@angular/compiler-cli@19.2.15|chokidar@4.0.3",
         "convert-source-map@1.8.0",
         "reflect-metadata@0.2.2",
@@ -6811,7 +6811,7 @@
       "ref": "@babel/core@7.26.9|semver@6.3.1"
     },
     {
-      "ref": "@jridgewell/sourcemap-codec@1.5.0"
+      "ref": "@jridgewell/sourcemap-codec@1.5.5"
     },
     {
       "ref": "convert-source-map@1.8.0",
@@ -6854,14 +6854,14 @@
       "ref": "@ampproject/remapping@2.3.0|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "@jridgewell/resolve-uri@3.1.1",
-        "@jridgewell/sourcemap-codec@1.5.0"
+        "@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {
       "ref": "@jridgewell/gen-mapping@0.3.5",
       "dependsOn": [
         "@jridgewell/set-array@1.2.1",
-        "@jridgewell/sourcemap-codec@1.5.0",
+        "@jridgewell/sourcemap-codec@1.5.5",
         "@jridgewell/gen-mapping@0.3.5|@jridgewell/trace-mapping@0.3.25"
       ]
     },
@@ -6869,7 +6869,7 @@
       "ref": "@jridgewell/gen-mapping@0.3.5|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "@jridgewell/resolve-uri@3.1.1",
-        "@jridgewell/sourcemap-codec@1.5.0"
+        "@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {
@@ -6909,7 +6909,7 @@
       "ref": "@babel/generator@7.26.10|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "@jridgewell/resolve-uri@3.1.1",
-        "@jridgewell/sourcemap-codec@1.5.0"
+        "@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {
@@ -7027,7 +7027,7 @@
       "ref": "@babel/traverse@7.27.7|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "@jridgewell/resolve-uri@3.1.1",
-        "@jridgewell/sourcemap-codec@1.5.0"
+        "@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {

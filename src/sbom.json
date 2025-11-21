@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
   "version": 1,
-  "serialNumber": "urn:uuid:ed83308a-35fa-464f-8560-dff48c1d74e9",
+  "serialNumber": "urn:uuid:95f6e882-befd-494e-8dd1-a6fc8bd922e3",
   "metadata": {
-    "timestamp": "2025-11-20T14:53:09.744Z",
+    "timestamp": "2025-11-21T12:11:55.818Z",
     "tools": [
       {
         "name": "npm",
@@ -5959,8 +5959,8 @@
     {
       "type": "library",
       "name": "calendar-link",
-      "version": "2.6.0",
-      "bom-ref": "calendar-link@2.6.0",
+      "version": "2.11.0",
+      "bom-ref": "calendar-link@2.11.0",
       "author": "Anand Chowdhary",
       "description": "📅 Calendar link generator for popular services, like Google, Outlook, and Yahoo.",
       "licenses": [
@@ -5970,7 +5970,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/calendar-link@2.6.0",
+      "purl": "pkg:npm/calendar-link@2.11.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/AnandChowdhary/calendar-link.git",
@@ -5988,12 +5988,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/calendar-link/-/calendar-link-2.6.0.tgz",
+          "url": "https://registry.npmjs.org/calendar-link/-/calendar-link-2.11.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "ca9818a05073db0d169095759ba2e83b7d62f05e6d7b7febb13749a7f38d69c566afe0b8372eeb1e1bf0988652df2adb1b669b6dca219f60fc0d96dc159bf07c"
+              "content": "4dc2fec9707cabaad982b605e5d53b530163711f67fe47303043a8848f84e2f5d7c49e6774b09c8f0ddaba352d45fa3f188a4b151a0e42cf1993fa994b036482"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6053,256 +6053,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/dayjs"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "query-string",
-      "version": "6.14.1",
-      "bom-ref": "query-string@6.14.1",
-      "author": "Sindre Sorhus",
-      "description": "Parse and stringify URL query strings",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/query-string@6.14.1",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/sindresorhus/query-string.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/sindresorhus/query-string#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/sindresorhus/query-string/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/query-string/-/query-string-6.14.1.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "5c3c407959a97eed7fe888f24ff8171ce97e4b4bd0f68c20809df486158a74702c34f39c6ac9f9a3d056d1e7a366a2f67b8bcc8e1031a16de3547703ea66dc63"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/query-string"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "decode-uri-component",
-      "version": "0.2.2",
-      "bom-ref": "decode-uri-component@0.2.2",
-      "author": "Sam Verschueren",
-      "description": "A better decodeURIComponent",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/decode-uri-component@0.2.2",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/SamVerschueren/decode-uri-component.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/SamVerschueren/decode-uri-component#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/SamVerschueren/decode-uri-component/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/decode-uri-component/-/decode-uri-component-0.2.2.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "16a51843ef28d79f06c864eb305266b3daa1dc2a932af02a82ab139e42c8f2c2aed34dbca2ba8187134c16415e9f4cc6ca0e9ea40083df6a63564e7c9e0204ad"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/decode-uri-component"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "filter-obj",
-      "version": "1.1.0",
-      "bom-ref": "filter-obj@1.1.0",
-      "author": "Sindre Sorhus",
-      "description": "Filter object keys and values into a new object",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/filter-obj@1.1.0",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/sindresorhus/filter-obj.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/sindresorhus/filter-obj#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/sindresorhus/filter-obj/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/filter-obj/-/filter-obj-1.1.0.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "f2b5e0d599d7ef1cf2d8d183564055680cbe95294f37069dd7706d81294bbb17c8b25cade5583ae14eed15c0ade164b547486fb674326d3fc8c829066770e95d"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/filter-obj"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "split-on-first",
-      "version": "1.1.0",
-      "bom-ref": "split-on-first@1.1.0",
-      "author": "Sindre Sorhus",
-      "description": "Split a string on the first occurance of a given separator",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/split-on-first@1.1.0",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/sindresorhus/split-on-first.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/sindresorhus/split-on-first#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/sindresorhus/split-on-first/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/split-on-first/-/split-on-first-1.1.0.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "e3766cb0025a32eb2e2962fcb0a5014171d63a9abc77a09f37fbb5a78814cdf264334e42f2bc53998ae420f4d76a966939103a2e4933714ba527c16a03b52e77"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/split-on-first"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "strict-uri-encode",
-      "version": "2.0.0",
-      "bom-ref": "strict-uri-encode@2.0.0",
-      "author": "Kevin Mårtensson",
-      "description": "A stricter URI encode adhering to RFC 3986",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ],
-      "purl": "pkg:npm/strict-uri-encode@2.0.0",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/kevva/strict-uri-encode.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/kevva/strict-uri-encode#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/kevva/strict-uri-encode/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "430897660a5170a9214e3d927279fefb83cab56b07d24a7367ad8bd91e9cfcb51562fee156766a720dbeb0cb93e91ec9bacbb5bef88afcc16cbba90d25f5a511"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/strict-uri-encode"
         }
       ]
     },
@@ -6623,7 +6373,7 @@
         "@ngx-translate/http-loader@8.0.0",
         "@popperjs/core@2.11.8",
         "bootstrap@5.3.3",
-        "calendar-link@2.6.0",
+        "calendar-link@2.11.0",
         "core-js@3.45.0",
         "dompurify@3.3.0",
         "moment@2.30.1",
@@ -7314,35 +7064,13 @@
       ]
     },
     {
-      "ref": "calendar-link@2.6.0",
+      "ref": "calendar-link@2.11.0",
       "dependsOn": [
-        "dayjs@1.11.19",
-        "query-string@6.14.1"
+        "dayjs@1.11.19"
       ]
     },
     {
       "ref": "dayjs@1.11.19"
-    },
-    {
-      "ref": "query-string@6.14.1",
-      "dependsOn": [
-        "decode-uri-component@0.2.2",
-        "filter-obj@1.1.0",
-        "split-on-first@1.1.0",
-        "strict-uri-encode@2.0.0"
-      ]
-    },
-    {
-      "ref": "decode-uri-component@0.2.2"
-    },
-    {
-      "ref": "filter-obj@1.1.0"
-    },
-    {
-      "ref": "split-on-first@1.1.0"
-    },
-    {
-      "ref": "strict-uri-encode@2.0.0"
     },
     {
       "ref": "core-js@3.45.0"

@@ -47,7 +47,7 @@
     "@ngx-translate/http-loader": "8.0.0",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
-    "calendar-link": "2.6.0",
+    "calendar-link": "2.11.0",
     "core-js": "3.45.0",
     "dompurify": "3.3.0",
     "moment": "2.30.1",

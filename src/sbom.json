@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:66dd5683-863a-423e-86c1-d6720a063af1",
+  "serialNumber": "urn:uuid:6091057a-705c-4a1f-84ad-0002ff7c162b",
   "metadata": {
-    "timestamp": "2025-11-24T12:05:20.590Z",
+    "timestamp": "2025-11-25T07:17:15.222Z",
     "tools": {
       "components": [
         {
@@ -1118,8 +1118,8 @@
     {
       "type": "library",
       "name": "bootstrap",
-      "version": "5.3.3",
-      "bom-ref": "terminfinder@0.0.0|bootstrap@5.3.3",
+      "version": "5.3.8",
+      "bom-ref": "terminfinder@0.0.0|bootstrap@5.3.8",
       "author": "The Bootstrap Authors",
       "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
       "licenses": [
@@ -1130,7 +1130,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/bootstrap@5.3.3",
+      "purl": "pkg:npm/bootstrap@5.3.8",
       "externalReferences": [
         {
           "url": "git+https://github.com/twbs/bootstrap.git",
@@ -1148,12 +1148,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.3.tgz",
+          "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.8.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f072c2756832a0c82e48ef68f9a1fe8ae67e6a1b7e9b35b4bb71c833356eed2aeba6fec4041c539eb165482b24c1d635f843854129bbb8c2613501e474f7268e"
+              "content": "1cfd52643a9a2c33f0b0d8aa46a8b935c3f44925dc897dacf44f91caa24822a1a8faf25e37900954cf7c097996fd6bb1d274392fb8de59476994211fd047beb6"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6677,7 +6677,7 @@
         "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
         "terminfinder@0.0.0|@ngx-translate/http-loader@8.0.0",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
-        "terminfinder@0.0.0|bootstrap@5.3.3",
+        "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.0",
         "terminfinder@0.0.0|core-js@3.45.0",
         "terminfinder@0.0.0|dompurify@3.3.0",
@@ -6848,7 +6848,7 @@
       "ref": "terminfinder@0.0.0|@popperjs/core@2.11.8"
     },
     {
-      "ref": "terminfinder@0.0.0|bootstrap@5.3.3",
+      "ref": "terminfinder@0.0.0|bootstrap@5.3.8",
       "dependsOn": [
         "terminfinder@0.0.0|@popperjs/core@2.11.8"
       ]

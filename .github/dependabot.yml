@@ -9,3 +9,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    assignees:
+      - "BGruenberg"
+    cooldown:
+      default-days: 7

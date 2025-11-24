@@ -90,7 +90,7 @@
     "jest-environment-jsdom": "29.7.0",
     "ngx-translate-testing": "7.0.0",
     "nodemon": "3.1.0",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "typescript": "5.8.3",
     "uuid": "8.3.2"
   },

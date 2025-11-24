@@ -71,7 +71,7 @@
     "@cypress/schematic": "4.1.4",
     "@fortawesome/fontawesome-free": "7.1.0",
     "@types/jest": "29.5.12",
-    "@types/node": "24.0.4",
+    "@types/node": "24.10.1",
     "@typescript-eslint/eslint-plugin": "8.47.0",
     "@typescript-eslint/parser": "8.47.0",
     "btoa": "1.2.1",

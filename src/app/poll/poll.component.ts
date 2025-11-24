@@ -13,13 +13,23 @@ import {UserNotification, userNotifications} from '../../userNotifications';
 import {environment} from '../../environments/environment';
 import moment from 'moment';
 import {RouteTitleService} from "../shared/services/route-title.service";
+import { MessageBoxComponent } from '../shared/components/message-box/message-box.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppointmentSummaryComponent } from '../shared/components/appointment-summary/appointment-summary.component';
+import { MobilePollTableComponent } from './mobile-poll-table.component';
+import { SuggestedDateComponent } from '../shared/components/suggested-date/suggested-date.component';
+import { NgClass } from '@angular/common';
+import { AutofocusDirective } from '../shared/directives/autofocus.directive';
+import { PollOptionsComponent } from '../shared/components/poll-options/poll-options.component';
+import { TosComponent } from '../shared/components/tos/tos.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-poll',
   providers: [PollFormHelperService],
   templateUrl: './poll.component.html',
   styleUrls: ['./poll.component.scss'],
-  standalone: false
+  imports: [MessageBoxComponent, FormsModule, ReactiveFormsModule, AppointmentSummaryComponent, MobilePollTableComponent, SuggestedDateComponent, NgClass, AutofocusDirective, PollOptionsComponent, TosComponent, TranslatePipe]
 })
 export class PollComponent implements OnInit {
   model: Appointment;

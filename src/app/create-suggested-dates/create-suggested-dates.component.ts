@@ -1,6 +1,6 @@
 import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Logger} from '../shared/services/logging';
 import {Router} from '@angular/router';
 import {dateValidator} from '../shared/validators/date-validator.directive';
@@ -18,12 +18,18 @@ import moment from 'moment';
 import {MomentUtils, NullableUtils} from '../shared/utils';
 import {ApiConstants} from '../shared/constants/apiConstants';
 import {RouteTitleService} from "../shared/services/route-title.service";
+import { StepperComponent } from '../shared/components/stepper/stepper.component';
+import { AdminInfoComponent } from '../shared/components/admin-info/admin-info.component';
+import { NgOptimizedImage, NgClass } from '@angular/common';
+import { AutofocusDirective } from '../shared/directives/autofocus.directive';
+import { NavigationComponent } from '../shared/components/navigation/navigation.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-suggested-dates',
   templateUrl: './create-suggested-dates.component.html',
   styleUrls: ['./create-suggested-dates.component.scss'],
-  standalone: false
+  imports: [StepperComponent, AdminInfoComponent, FormsModule, ReactiveFormsModule, NgOptimizedImage, NgClass, AutofocusDirective, NavigationComponent, TranslatePipe]
 })
 export class CreateSuggestedDatesComponent implements OnInit {
   protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;

@@ -22,7 +22,6 @@ export function minLengthArrayValidator(min: number): ValidatorFn {
     useExisting: forwardRef(() => MinLengthArrayValidatorDirective),
     multi: true
   }],
-  standalone: false
 })
 export class MinLengthArrayValidatorDirective implements Validator {
   validator: Function;

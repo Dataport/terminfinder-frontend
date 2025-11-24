@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
-  standalone: false
+  imports: [NgClass]
 })
 export class NavigationComponent {
   @Input() forwardText: string;

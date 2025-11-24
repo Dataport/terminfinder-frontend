@@ -8,12 +8,18 @@ import {DataRepositoryService} from '../shared/services/data-service';
 import {ModelTransformerService} from '../shared/services/transformer';
 import {RouteTitleService} from "../shared/services/route-title.service";
 import {NullableUtils} from "../shared/utils";
+import { StepperComponent } from '../shared/components/stepper/stepper.component';
+import { AppointmentSummaryComponent } from '../shared/components/appointment-summary/appointment-summary.component';
+import { DatesOverviewComponent } from '../shared/components/dates-overview/dates-overview.component';
+import { MessageBoxComponent } from '../shared/components/message-box/message-box.component';
+import { NavigationComponent } from '../shared/components/navigation/navigation.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
-  standalone: false
+  imports: [StepperComponent, AppointmentSummaryComponent, DatesOverviewComponent, MessageBoxComponent, NavigationComponent, TranslatePipe]
 })
 export class OverviewComponent implements OnInit {
   model: Appointment;

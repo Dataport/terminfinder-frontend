@@ -43,7 +43,6 @@ export function dateInFutureOrTodayValidator(localeId: string, dateTimeGenerator
     useExisting: forwardRef(() => DateTodayOrInFutureValidatorDirective),
     multi: true
   }],
-  standalone: false
 })
 export class DateTodayOrInFutureValidatorDirective implements Validator {
 

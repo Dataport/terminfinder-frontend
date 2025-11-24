@@ -30,7 +30,6 @@ export function invalidPasswordValidator(): ValidatorFn {
     useExisting: InvalidPasswordDirective,
     multi: true
   }],
-  standalone: false
 })
 export class InvalidPasswordDirective implements Validator {
   constructor() {

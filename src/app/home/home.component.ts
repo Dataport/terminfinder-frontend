@@ -2,7 +2,7 @@ import {Component, Inject, isDevMode, LOCALE_ID, OnInit} from '@angular/core';
 import {ApiVersion} from '../shared/models/api-data-v1-dto';
 import {Appointment, Message, MessageType} from '../shared/models';
 import {DataRepositoryService} from '../shared/services/data-service';
-import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Logger} from '../shared/services/logging';
 import {Router} from '@angular/router';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
@@ -11,13 +11,17 @@ import {ValidatorConstants} from '../shared/constants/validatorConstants';
 import {environment} from '../../environments/environment';
 import {UserNotification, userNotifications} from '../../userNotifications';
 import moment from 'moment';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
+import { AdIconsComponent } from '../shared/components/ad-icons/ad-icons.component';
+import { TosComponent } from '../shared/components/tos/tos.component';
+import { NgClass } from '@angular/common';
+import { MessageBoxComponent } from '../shared/components/message-box/message-box.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: false
+  imports: [AdIconsComponent, FormsModule, ReactiveFormsModule, TosComponent, NgClass, MessageBoxComponent, TranslatePipe]
 })
 export class HomeComponent implements OnInit {
   localUserNotifications: Array<UserNotification> = [];

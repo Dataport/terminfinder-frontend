@@ -7,7 +7,6 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
  */
 @Directive({
   selector: '[appNoopValueAccessor]',
-  standalone: true,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

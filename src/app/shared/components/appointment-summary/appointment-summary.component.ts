@@ -1,12 +1,15 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Appointment} from '../../models';
 import {LinkGeneratorService} from "../../services/generators";
+import { ClipboardModule } from 'ngx-clipboard';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-appointment-summary',
   templateUrl: './appointment-summary.component.html',
   styleUrls: ['./appointment-summary.component.scss'],
-  standalone: false
+  imports: [ClipboardModule, NgbTooltip, TranslatePipe]
 })
 
 export class AppointmentSummaryComponent implements OnInit, AfterViewInit {

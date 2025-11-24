@@ -1,18 +1,25 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators} from '@angular/forms';
+import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {Router} from '@angular/router';
 import {invalidPasswordValidator} from '../shared/validators/invalid-password.directive';
 import {NullableUtils} from '../shared/utils';
 import {RouteTitleService} from "../shared/services/route-title.service";
+import { StepperComponent } from '../shared/components/stepper/stepper.component';
+import { AdminInfoComponent } from '../shared/components/admin-info/admin-info.component';
+import { NoopValueAccessorDirective } from '../shared/directives/noop-value-accessor.directive';
+import { CheckboxFieldComponent } from '../shared/components/checkbox-field/checkbox-field.component';
+import { NgClass } from '@angular/common';
+import { NavigationComponent } from '../shared/components/navigation/navigation.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false
+  imports: [StepperComponent, AdminInfoComponent, FormsModule, ReactiveFormsModule, NoopValueAccessorDirective, CheckboxFieldComponent, NgClass, NavigationComponent, TranslatePipe]
 })
 export class SettingsComponent implements OnInit {
   settingsForm: UntypedFormGroup;

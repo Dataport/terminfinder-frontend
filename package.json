@@ -68,7 +68,7 @@
     "@angular/compiler-cli": "19.2.15",
     "@angular/language-service": "20.1.7",
     "@cyclonedx/cyclonedx-npm": "1.16.1",
-    "@cypress/schematic": "2.5.1",
+    "@cypress/schematic": "4.1.4",
     "@fortawesome/fontawesome-free": "7.1.0",
     "@types/jest": "29.5.12",
     "@types/node": "24.0.4",

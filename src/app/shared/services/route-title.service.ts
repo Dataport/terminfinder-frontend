@@ -1,15 +1,17 @@
-import {Injectable} from "@angular/core";
-import {TranslateService} from "@ngx-translate/core";
-import {Title} from "@angular/platform-browser";
-import {environment} from "../../../environments/environment";
-import {NullableUtils} from "../utils";
+import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
+import { environment } from '../../../environments/environment';
+import { NullableUtils } from '../utils';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteTitleService {
-  constructor(private translate: TranslateService, private titleService: Title) {
-  }
+  constructor(
+    private translate: TranslateService,
+    private titleService: Title
+  ) {}
 
   /**
    * Prepends the translated key to the environment title
@@ -24,7 +26,7 @@ export class RouteTitleService {
       routeTitle += ` ${appendix}`;
     }
 
-    if (!NullableUtils.isStringNullOrWhitespace(environment.title)){
+    if (!NullableUtils.isStringNullOrWhitespace(environment.title)) {
       this.titleService.setTitle(`${routeTitle} - ${environment.title}`);
     } else {
       this.titleService.setTitle(routeTitle);

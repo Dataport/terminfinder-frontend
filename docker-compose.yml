@@ -6,8 +6,8 @@ services:
   terminfinder:
     build: .
     environment:
-      TITLE: "Terminfinder Docker Test"
-      API_URL: "http://localhost:4201" # Run `npm run backend-mock` in another terminal
+      TITLE: 'Terminfinder Docker Test'
+      API_URL: 'http://localhost:4201' # Run `npm run backend-mock` in another terminal
       #EMAIL: "john.doe@example.com"
       #COLORS: '{"primary":"#ff0000","secondary":"#00ff00"}'
       #IMPRINT: "<h2>Imprint</h2><p>This is the imprint. Hello from Docker.</p>"
@@ -17,4 +17,4 @@ services:
     container_name: terminfinder
     hostname: terminfinder
     ports:
-      - "8080:8080"
+      - '8080:8080'

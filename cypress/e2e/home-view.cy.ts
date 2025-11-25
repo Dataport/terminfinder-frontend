@@ -33,14 +33,14 @@ context('home-view', () => {
       cy.intercept(
         {
           method: 'GET',
-          url: getApiUrl(values.getAppUrl),
+          url: getApiUrl(values.getAppUrl)
         },
         ''
       );
       cy.intercept(
         {
           method: 'GET',
-          url: 'de-DE-du.json',
+          url: 'de-DE-du.json'
         },
         (req) => {
           req.destroy();
@@ -49,7 +49,7 @@ context('home-view', () => {
       cy.intercept(
         {
           method: 'GET',
-          url: 'de-DE-sie.json',
+          url: 'de-DE-sie.json'
         },
         (req) => {
           req.destroy();
@@ -58,7 +58,7 @@ context('home-view', () => {
       cy.intercept(
         {
           method: 'GET',
-          url: 'en-EN.json',
+          url: 'en-EN.json'
         },
         (req) => {
           req.destroy();
@@ -84,39 +84,29 @@ context('home-view', () => {
       cy.get('[data-id=msgInvalidTitle]').should('not.exist');
       cy.get('[data-id=msgLongTitle]').should('not.exist');
 
-      cy.get('[data-id=createPollInput]')
-        .type('❌');
+      cy.get('[data-id=createPollInput]').type('❌');
       cy.get('[data-id=msgInvalidTitle]');
 
-      cy.get('[data-id=createPollInput]')
-        .clear();
+      cy.get('[data-id=createPollInput]').clear();
       cy.get('[data-id=msgRequiredTitle]');
 
-      cy.get('[data-id=createPollInput]')
-        .type(values.tooLongString);
+      cy.get('[data-id=createPollInput]').type(values.tooLongString);
       cy.get('[data-id=msgLongTitle]');
     });
 
     it('Fills out form correctly an navigates to next page', () => {
-      cy.get('[data-id=createPollButton]')
-        .should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-id=createPollButton]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=createPollInput]')
-        .type('Test-Titel');
-      cy.get('[data-id=createPollInput]')
-        .should('have.value', 'Test-Titel');
+      cy.get('[data-id=createPollInput]').type('Test-Titel');
+      cy.get('[data-id=createPollInput]').should('have.value', 'Test-Titel');
 
-      cy.get('[data-id=createPollButton]')
-        .should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-id=createPollButton]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=checkbox]')
-        .click();
+      cy.get('[data-id=checkbox]').click();
 
-      cy.get('[data-id=createPollButton]')
-        .click();
+      cy.get('[data-id=createPollButton]').click();
 
-      cy.location('href')
-        .should('include', '/#/create');
+      cy.location('href').should('include', '/#/create');
     });
   });
 
@@ -125,7 +115,7 @@ context('home-view', () => {
       cy.intercept(
         {
           method: 'GET',
-          url: getApiUrl(values.getAppUrl),
+          url: getApiUrl(values.getAppUrl)
         },
         {
           body: values.getApp
@@ -143,7 +133,7 @@ context('home-view', () => {
       cy.intercept(
         {
           method: 'GET',
-          url: getApiUrl(values.getAppUrl),
+          url: getApiUrl(values.getAppUrl)
         },
         ''
       ).as('apiAppCheck_error');
@@ -158,5 +148,3 @@ context('home-view', () => {
     });
   });
 });
-
-

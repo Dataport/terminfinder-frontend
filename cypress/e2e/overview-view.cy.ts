@@ -20,22 +20,20 @@ context('overview-view', () => {
       cy.get('[data-cy=overviewNameLabel]');
       cy.get('[data-cy=overviewNameValue]');
       cy.get('[data-cy=overviewTitleLabel]');
-      cy.get('[data-cy=overviewTitleValue]')
-        .should("contain.html", "Test-Titel");
+      cy.get('[data-cy=overviewTitleValue]').should('contain.html', 'Test-Titel');
       cy.get('[data-cy=overviewPlaceLabel]');
-      cy.get('[data-cy=overviewPlaceValue]')
-        .should("contain.html", "Test-Ort");
+      cy.get('[data-cy=overviewPlaceValue]').should('contain.html', 'Test-Ort');
       cy.get('[data-cy=overviewDescriptionLabel]');
-      cy.get('[data-cy=overviewDescriptionValue]')
-        .should("contain.html", "Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2");
+      cy.get('[data-cy=overviewDescriptionValue]').should(
+        'contain.html',
+        'Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2'
+      );
       cy.get('[data-cy=overviewDeleteLabel]');
       cy.get('[data-cy=overviewDeleteValue]');
 
       cy.get('[data-id=overviewDates]');
-      cy.get('[data-id=back]')
-        .should('be.enabled');
-      cy.get('[data-id=next]')
-        .should('be.enabled');
+      cy.get('[data-id=back]').should('be.enabled');
+      cy.get('[data-id=next]').should('be.enabled');
       cy.get('[data-id=footer]');
     });
   });
@@ -45,13 +43,12 @@ context('overview-view', () => {
       cy.intercept(
         {
           method: 'POST',
-          url: getApiUrl(values.postCreateAppointmentUrl),
+          url: getApiUrl(values.postCreateAppointmentUrl)
         },
         ''
       ).as('apiCheck');
 
-      cy.get('[data-id=next]')
-        .click();
+      cy.get('[data-id=next]').click();
       cy.url().should('include', '/#/overview');
       cy.get('[data-id=errorMessageBox]');
     });
@@ -60,7 +57,7 @@ context('overview-view', () => {
       cy.intercept(
         {
           method: 'POST',
-          url: getApiUrl(values.postCreateAppointmentUrl),
+          url: getApiUrl(values.postCreateAppointmentUrl)
         },
         {
           statusCode: 200,
@@ -68,8 +65,7 @@ context('overview-view', () => {
         }
       ).as('apiCheck');
 
-      cy.get('[data-id=next]')
-        .click();
+      cy.get('[data-id=next]').click();
       cy.wait('@apiCheck');
       cy.url().should('include', '/#/overview');
       cy.get('[data-id=errorMessageBox]');
@@ -79,7 +75,7 @@ context('overview-view', () => {
       cy.intercept(
         {
           method: 'POST',
-          url: getApiUrl(values.postCreateAppointmentUrl),
+          url: getApiUrl(values.postCreateAppointmentUrl)
         },
         {
           statusCode: 201,
@@ -87,8 +83,7 @@ context('overview-view', () => {
         }
       ).as('apiCheck');
 
-      cy.get('[data-id=next]')
-        .click();
+      cy.get('[data-id=next]').click();
       cy.wait('@apiCheck');
       cy.url().should('include', '/#/links');
     });

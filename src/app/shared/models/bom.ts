@@ -42,9 +42,9 @@ export class BomFile {
   metadata: {
     timestamp: string;
     tools: {
-      vendor: string,
-      name: string,
-      version: string,
+      vendor: string;
+      name: string;
+      version: string;
     }[];
     component: BomComponent;
   };

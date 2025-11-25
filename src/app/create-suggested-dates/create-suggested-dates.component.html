@@ -26,18 +26,18 @@
     <!-- section container for each date entry -->
     @for (suggestedDateForm of getSuggestedDatesFromForm().controls; track suggestedDateForm; let i = $index) {
       <div
-        [attr.aria-readonly]="!isSuggestedDateEditableByIndex(i)" [formGroup]="castToFormGroup(suggestedDateForm)"
-        class="section-container pb-2">
+        [attr.aria-readonly]="!isSuggestedDateEditableByIndex(i)"
+        [formGroup]="castToFormGroup(suggestedDateForm)"
+        class="section-container pb-2"
+      >
         <!-- title of the container -->
         <div class="section-title text-center p-3 position-relative">
-          <h2 class="font-medium text-bold d-inline" data-id="enterDate">
-            {{ 'date.enter' | translate }} {{ i + 1 }}
-          </h2>
+          <h2 class="font-medium text-bold d-inline" data-id="enterDate">{{ 'date.enter' | translate }} {{ i + 1 }}</h2>
           <span class="position-absolute">
             <button
               (click)="deleteSuggestedDateFormByIndex(i)"
               class="btn btn-transparent p-0 border-0 btn-delete-date"
-              id="removeDate-{{i}}"
+              id="removeDate-{{ i }}"
               type="button"
               title="{{ 'date.delete' | translate }} {{ i + 1 }}"
             >
@@ -47,7 +47,8 @@
                 class="icon"
                 ngSrc="assets/delete-date.svg"
                 height="height"
-                width="width">
+                width="width"
+              />
             </button>
           </span>
         </div>
@@ -60,31 +61,34 @@
               <div
                 class="col px-1 px-lg-3 my-1 form-group invalid-message-highlight"
                 [ngClass]="{
-                  'has-error': getStartDateOfSuggestedStartDateByIndex(i).invalid
-                     && (getStartDateOfSuggestedStartDateByIndex(i).dirty || getStartDateOfSuggestedStartDateByIndex(i).touched),
+                  'has-error':
+                    getStartDateOfSuggestedStartDateByIndex(i).invalid &&
+                    (getStartDateOfSuggestedStartDateByIndex(i).dirty ||
+                      getStartDateOfSuggestedStartDateByIndex(i).touched),
                   'col-6': getShowSuggestedDateEndDateOnDifferentDayFormValue(i),
-                  'col': !getShowSuggestedDateEndDateOnDifferentDayFormValue(i)
+                  col: !getShowSuggestedDateEndDateOnDifferentDayFormValue(i)
                 }"
               >
-                <label data-id="startDateLabel" for="suggested-date-start-date-{{i}}">
+                <label data-id="startDateLabel" for="suggested-date-start-date-{{ i }}">
                   {{ 'date.start' | translate }} ({{ 'date.placeholder' | translate }})
                 </label>
                 <input
                   required
                   appAutoFocus
                   type="date"
-                  id="suggested-date-start-date-{{i}}"
+                  id="suggested-date-start-date-{{ i }}"
                   data-id="startDateInput"
                   class="form-control date"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE"
                   min="{{ minDate }}"
                   max="{{ maxDate }}"
-                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
                   [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="required-start-date invalid-start-date not-in-future-start-date"
-                >
-                @if (getStartDateOfSuggestedStartDateByIndex(i).dirty
-                  || getStartDateOfSuggestedStartDateByIndex(i).touched) {
+                />
+                @if (
+                  getStartDateOfSuggestedStartDateByIndex(i).dirty || getStartDateOfSuggestedStartDateByIndex(i).touched
+                ) {
                   @if (!!getStartDateOfSuggestedStartDateByIndex(i).errors?.required) {
                     <div
                       class="invalid-message no-padding"
@@ -126,28 +130,34 @@
               <!-- end date on the top row -->
               @if (getShowSuggestedDateEndDateOnDifferentDayFormValue(i)) {
                 <div
-                  [ngClass]="{'has-error': getEndDateOfSuggestedStartDateByIndex(i).invalid
-                  && (getEndDateOfSuggestedStartDateByIndex(i).dirty || getEndDateOfSuggestedStartDateByIndex(i).touched)}"
-                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group has-error-highlight">
-                  <label for="suggested-date-end-date-{{i}}">
+                  [ngClass]="{
+                    'has-error':
+                      getEndDateOfSuggestedStartDateByIndex(i).invalid &&
+                      (getEndDateOfSuggestedStartDateByIndex(i).dirty ||
+                        getEndDateOfSuggestedStartDateByIndex(i).touched)
+                  }"
+                  class="col-6 col-lg px-1 px-lg-3 my-1 form-group has-error-highlight"
+                >
+                  <label for="suggested-date-end-date-{{ i }}">
                     {{ 'date.end' | translate }} ({{ 'date.placeholder' | translate }})
                   </label>
                   <input
                     appAutoFocus
                     type="date"
-                    id="suggested-date-end-date-{{i}}"
+                    id="suggested-date-end-date-{{ i }}"
                     data-id="endDateInput"
                     class="form-control date"
                     [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE"
                     min="{{ minDate }}"
                     max="{{ maxDate }}"
-                    [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                    [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
                     [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                     aria-describedby="invalid-date start-date-after-end-date"
-                  >
-                  @if (!!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate
-                       && (getEndDateOfSuggestedStartDateByIndex(i).dirty
-                        || getEndDateOfSuggestedStartDateByIndex(i).touched)) {
+                  />
+                  @if (
+                    !!getEndDateOfSuggestedStartDateByIndex(i).errors?.invalidDate &&
+                    (getEndDateOfSuggestedStartDateByIndex(i).dirty || getEndDateOfSuggestedStartDateByIndex(i).touched)
+                  ) {
                     <div class="invalid-message" id="invalid-date" role="alert" aria-atomic="false">
                       <i class="fa-solid fa-triangle-exclamation"></i>
                       {{ 'date.endInvalid' | translate }}
@@ -161,19 +171,18 @@
           @if (!getShowSuggestedDateEndDateOnDifferentDayFormValue(i)) {
             <!-- button to display start time and end time controls on the top row -->
             @if (!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value) {
-              <div
-                class="col suggested-date-timepicker-start has-error-highlight">
+              <div class="col suggested-date-timepicker-start has-error-highlight">
                 <div class="row">
                   <div class="col px-1 px-lg-3 my-1 form-group">
-                    <label for="suggested-date-start-time-{{i}}">{{ 'time.time' | translate }}</label>
+                    <label for="suggested-date-start-time-{{ i }}">{{ 'time.time' | translate }}</label>
                     <div class="input-group date">
                       <div class="input-group-prepend">
                         <div class="input-group-text input-group-divider">
-                          <img aria-hidden="true" alt="" ngSrc="assets/add-time.svg" height="height" width="width">
+                          <img aria-hidden="true" alt="" ngSrc="assets/add-time.svg" height="height" width="width" />
                         </div>
                       </div>
                       <button
-                        (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);"
+                        (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true)"
                         [disabled]="!isSuggestedDateEditableByIndex(i)"
                         class="form-control col date"
                         data-id="addTimesButton"
@@ -189,44 +198,53 @@
             <!-- controls to enter start time - displayed if the button has been clicked or if values have been entered before -->
             @if (getShowStartDateStartTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value) {
               <div
-                [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
-                  && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
-                class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group">
-                <label for="suggested-date-start-time-{{i}}">
+                [ngClass]="{
+                  'has-error':
+                    getStartTimeOfSuggestedStartDateByIndex(i).invalid &&
+                    (getStartTimeOfSuggestedStartDateByIndex(i).dirty ||
+                      getStartTimeOfSuggestedStartDateByIndex(i).touched)
+                }"
+                class="col col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group"
+              >
+                <label for="suggested-date-start-time-{{ i }}">
                   {{ 'time.start' | translate }} ({{ 'time.placeholder' | translate }})
                 </label>
                 <input
                   appAutoFocus
                   type="time"
                   data-id="startTimeInput"
-                  id="suggested-date-start-time-{{i}}"
+                  id="suggested-date-start-time-{{ i }}"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME"
-                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
                   [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
-                >
+                />
               </div>
             }
             <!-- controls to enter the end time - displayed if the button has been clicked or if values have been entered before -->
             @if (getShowStartDateEndTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value) {
               <div
-                [ngClass]="{'has-error': getEndTimeOfSuggestedStartDateByIndex(i).invalid
-                 && (getEndTimeOfSuggestedStartDateByIndex(i).dirty || getEndTimeOfSuggestedStartDateByIndex(i).touched)}"
-                class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group">
-                <label for="suggested-date-end-time-{{i}}">
+                [ngClass]="{
+                  'has-error':
+                    getEndTimeOfSuggestedStartDateByIndex(i).invalid &&
+                    (getEndTimeOfSuggestedStartDateByIndex(i).dirty || getEndTimeOfSuggestedStartDateByIndex(i).touched)
+                }"
+                class="col-6 col-lg-3 px-1 px-lg-3 my-1 suggested-date-timepicker-start has-error-highlight form-group"
+              >
+                <label for="suggested-date-end-time-{{ i }}">
                   {{ 'time.end' | translate }} ({{ 'time.placeholder' | translate }})
                 </label>
                 <input
                   type="time"
-                  id="suggested-date-end-time-{{i}}"
+                  id="suggested-date-end-time-{{ i }}"
                   data-id="endTimeInput"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME"
-                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
                   [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
-                >
+                />
               </div>
             }
           }
@@ -243,7 +261,7 @@
               type="button"
             >
               {{ 'date.endAtOtherDay' | translate }}
-              <img aria-hidden="true" alt="" ngSrc="assets/add.svg" height="height" width="width">
+              <img aria-hidden="true" alt="" ngSrc="assets/add.svg" height="height" width="width" />
             </button>
           </div>
         }
@@ -252,20 +270,23 @@
           <div class="row g-0 justify-content-start align-items-start">
             <!-- button to display start time and end time controls on the bottom row -->
             @if (!getShowStartDateStartTimeControlValue(i) && !getStartTimeOfSuggestedStartDateByIndex(i).value) {
-              <div
-                class="col-12 col-lg-6 px-1 px-lg-3 suggested-date-timepicker-start has-error-highlight text-center">
+              <div class="col-12 col-lg-6 px-1 px-lg-3 suggested-date-timepicker-start has-error-highlight text-center">
                 <div class="justify-content-start">
-                  <label class="float-start" for="suggested-date-start-time-{{i}}">
+                  <label class="float-start" for="suggested-date-start-time-{{ i }}">
                     {{ 'time.time' | translate }}
                   </label>
                   <div class="input-group date">
                     <div class="input-group-prepend">
                       <div class="input-group-text input-group-divider">
-                        <img aria-hidden="true" alt="" ngSrc="assets/add-time.svg" height="height" width="width">
+                        <img aria-hidden="true" alt="" ngSrc="assets/add-time.svg" height="height" width="width" />
                       </div>
                     </div>
                     <button
-                      (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true);  setShowEndDateEndTimeControlValue(i, true)"
+                      (click)="
+                        closeAllControlsExcept(i);
+                        setShowStartTimesControlValue(i, true);
+                        setShowEndDateEndTimeControlValue(i, true)
+                      "
                       [disabled]="!isSuggestedDateEditableByIndex(i)"
                       class="form-control col date"
                       data-id="addTimesWithEndOnOtherDay"
@@ -280,46 +301,57 @@
             <!-- controls to enter start time - displayed if the button has been clicked or if values have been entered before -->
             @if (getShowStartDateStartTimeControlValue(i) || getStartTimeOfSuggestedStartDateByIndex(i).value) {
               <div
-                [ngClass]="{'has-error': getStartTimeOfSuggestedStartDateByIndex(i).invalid
-                  && (getStartTimeOfSuggestedStartDateByIndex(i).dirty || getStartTimeOfSuggestedStartDateByIndex(i).touched)}"
-                class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight">
-                <label for="suggested-date-start-time-{{i}}">
+                [ngClass]="{
+                  'has-error':
+                    getStartTimeOfSuggestedStartDateByIndex(i).invalid &&
+                    (getStartTimeOfSuggestedStartDateByIndex(i).dirty ||
+                      getStartTimeOfSuggestedStartDateByIndex(i).touched)
+                }"
+                class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight"
+              >
+                <label for="suggested-date-start-time-{{ i }}">
                   {{ 'time.start' | translate }} ({{ 'time.placeholder' | translate }})
                 </label>
                 <input
                   appAutoFocus
                   [autoFocus]="!getShowEndDateEndTimeControl(i) || getEndDateOfSuggestedStartDateByIndex(i).touched"
                   type="time"
-                  id="suggested-date-start-time-{{i}}"
+                  id="suggested-date-start-time-{{ i }}"
                   data-id="startTimeInputSecondColumn"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME"
-                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
                   [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
-                >
+                />
               </div>
             }
             <!-- controls to enter the end time - displayed if the button has been clicked or if values have been entered before -->
-            @if (getShowStartDateStartTimeControlValue(i) && getShowEndDateEndTimeControlValue(i)
-            || getStartTimeOfSuggestedStartDateByIndex(i).value) {
+            @if (
+              (getShowStartDateStartTimeControlValue(i) && getShowEndDateEndTimeControlValue(i)) ||
+              getStartTimeOfSuggestedStartDateByIndex(i).value
+            ) {
               <div
-                [ngClass]="{'has-error': getEndTimeOfSuggestedEndDateByIndex(i).invalid
-                 && (getEndTimeOfSuggestedEndDateByIndex(i).dirty || getEndTimeOfSuggestedEndDateByIndex(i).touched)}"
-                class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight">
-                <label for="suggested-date-end-time-different-day-{{i}}">
+                [ngClass]="{
+                  'has-error':
+                    getEndTimeOfSuggestedEndDateByIndex(i).invalid &&
+                    (getEndTimeOfSuggestedEndDateByIndex(i).dirty || getEndTimeOfSuggestedEndDateByIndex(i).touched)
+                }"
+                class="col-6 col-lg px-1 px-lg-3 my-1 form-group suggested-date-timepicker-start has-error-highlight"
+              >
+                <label for="suggested-date-end-time-different-day-{{ i }}">
                   {{ 'time.end' | translate }} ({{ 'time.placeholder' | translate }})
                 </label>
                 <input
                   type="time"
-                  id="suggested-date-end-time-different-day-{{i}}"
+                  id="suggested-date-end-time-different-day-{{ i }}"
                   data-id="endTimeInputSecondColumn"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME"
-                  [ngClass]="{'disabled': !isSuggestedDateEditableByIndex(i)}"
+                  [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
                   [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                   aria-describedby="start-date-after-end-date end-time-entered-but-no-start-time-entered start-date-time-in-past"
-                >
+                />
               </div>
             }
           </div>
@@ -328,30 +360,32 @@
         <!-- description (optional) for this date entry -->
         <div class="row">
           <div
-            [ngClass]="{'has-error': getDescriptionByIndex(i).invalid
-              && (getDescriptionByIndex(i).dirty || getDescriptionByIndex(i).touched)}"
+            [ngClass]="{
+              'has-error':
+                getDescriptionByIndex(i).invalid && (getDescriptionByIndex(i).dirty || getDescriptionByIndex(i).touched)
+            }"
             class="col form-group invalid-message-highlight"
           >
-            <label data-id="descriptionLabel" for="suggested-date-description-{{i}}">
+            <label data-id="descriptionLabel" for="suggested-date-description-{{ i }}">
               {{ 'poll.details.description.descriptionOptional' | translate }}
             </label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <div class="input-group-text input-group-divider">
-                  <img aria-hidden="true" alt="" ngSrc="assets/description.svg" height="height" width="width">
+                  <img aria-hidden="true" alt="" ngSrc="assets/description.svg" height="height" width="width" />
                 </div>
               </div>
               <input
                 type="text"
-                id="suggested-date-description-{{i}}"
+                id="suggested-date-description-{{ i }}"
                 data-id="descriptionInput"
                 class="form-control"
                 [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                 [tabindex]="!isSuggestedDateEditableByIndex(i) ? -1 : 0"
                 [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION"
-                placeholder="{{!isSuggestedDateEditableByIndex(i) ? null : 'home.placeholder' | translate }}"
+                placeholder="{{ !isSuggestedDateEditableByIndex(i) ? null : ('home.placeholder' | translate) }}"
                 aria-describedby="description-too-long"
-              >
+              />
             </div>
             @if (!!getDescriptionByIndex(i).invalid) {
               <div
@@ -370,8 +404,10 @@
         <!-- error messages for this date entry -->
         @if (getSuggestedDatesForm(i).dirty && !!getSuggestedDatesForm(i).errors) {
           <div class="row mb-2">
-            <div [ngClass]="{'has-error': getSuggestedDatesForm(i).invalid}"
-                 class="col my-1 px-1 px-lg-3 my-1 form-group">
+            <div
+              [ngClass]="{ 'has-error': getSuggestedDatesForm(i).invalid }"
+              class="col my-1 px-1 px-lg-3 my-1 form-group"
+            >
               @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
                 <div class="invalid-message" id="start-date-after-end-date" role="alert" aria-atomic="false">
                   <i class="fa-solid fa-triangle-exclamation"></i>
@@ -404,7 +440,7 @@
     @if (getSuggestedDatesFromForm().invalid) {
       <div class="row g-0">
         <div
-          [ngClass]="{'has-error': getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched}"
+          [ngClass]="{ 'has-error': getSuggestedDatesFromForm().dirty || getSuggestedDatesFromForm().touched }"
           class="col my-1 px-1 form-group"
         >
           @if (!!getSuggestedDatesFromForm().errors?.invalidMinLengthArray) {
@@ -424,12 +460,7 @@
     }
     <div class="row mt-2 justify-content-center">
       <div class="col-auto text-center">
-        <button
-          (click)="addSuggestedDate()"
-          class="w-100 btn-circle"
-          data-id="addSuggestedDateButton"
-          type="button"
-        >
+        <button (click)="addSuggestedDate()" class="w-100 btn-circle" data-id="addSuggestedDateButton" type="button">
           <img
             aria-hidden="true"
             alt=""
@@ -437,7 +468,8 @@
             id="img_pause"
             ngSrc="assets/add-suggested-date.svg"
             height="height"
-            width="width">
+            width="width"
+          />
           <span class="d-block font-weight-bold text-primary">{{ 'date.add' | translate }}</span>
         </button>
       </div>

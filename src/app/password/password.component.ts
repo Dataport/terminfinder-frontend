@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Appointment} from '../shared/models';
-import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {RouteTitleService} from "../shared/services/route-title.service";
+import { Appointment } from '../shared/models';
+import { AppStateService } from '../shared/services/app-state/app-state.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouteTitleService } from '../shared/services/route-title.service';
 import { AdIconsComponent } from '../shared/components/ad-icons/ad-icons.component';
 import { AutofocusDirective } from '../shared/directives/autofocus.directive';
 import { NgClass } from '@angular/common';
@@ -13,10 +13,16 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
-  imports: [AdIconsComponent, FormsModule, ReactiveFormsModule, AutofocusDirective, NgClass, TranslatePipe]
+  imports: [
+    AdIconsComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    AutofocusDirective,
+    NgClass,
+    TranslatePipe
+  ]
 })
 export class PasswordComponent implements OnInit {
-
   passwordForm: UntypedFormGroup;
   model: Appointment;
   isAdmin: boolean;
@@ -41,9 +47,7 @@ export class PasswordComponent implements OnInit {
     this.model = this.appStateService.getAppointment();
     this.isAdmin = this.appStateService.isAdmin;
     this.passwordForm = new UntypedFormGroup({
-      'password': new UntypedFormControl('', [
-        Validators.required
-      ])
+      password: new UntypedFormControl('', [Validators.required])
     });
     this.routeTitle.setTitle('settings.additional');
   }
@@ -53,9 +57,19 @@ export class PasswordComponent implements OnInit {
       const appointmentFromForm = this.passwordForm.value as Appointment;
       this.appStateService.updateCredentials(appointmentFromForm.password);
       if (this.appStateService.isAdmin) {
-        this.router.navigate(['/admin/dashboard', this.model.adminId]).then();
+        this.router
+          .navigate([
+            '/admin/dashboard',
+            this.model.adminId
+          ])
+          .then();
       } else {
-        this.router.navigate(['/poll/', this.model.appointmentId]).then();
+        this.router
+          .navigate([
+            '/poll/',
+            this.model.appointmentId
+          ])
+          .then();
       }
     }
   }

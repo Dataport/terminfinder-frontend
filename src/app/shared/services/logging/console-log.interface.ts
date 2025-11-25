@@ -1,4 +1,4 @@
-import {LogLevel} from './logLevel';
+import { LogLevel } from './logLevel';
 
 export interface ConsoleLogOptionsInterface {
   /**
@@ -9,5 +9,5 @@ export interface ConsoleLogOptionsInterface {
    * Specify the threshold for log messages.
    * The order is: TRACE, DEBUG, LOG, INFO, WARN, ERROR.
    */
-   logLevelThreshold?: LogLevel;
+  logLevelThreshold?: LogLevel;
 }

@@ -1,4 +1,4 @@
-@use 'src/default' as *;
+@use "src/default" as *;
 
 .container {
   max-width: 300px;
@@ -9,7 +9,9 @@
     border-radius: 20px;
     border: 3px solid var(--dark-gray, #{$dark-gray});
     background-color: var(--medium-gray, #{$medium-gray});
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 2px 5px 0 rgba(0, 0, 0, 0.18);
+    box-shadow:
+      0 2px 4px 0 rgba(0, 0, 0, 0.25),
+      0 2px 5px 0 rgba(0, 0, 0, 0.18);
   }
 
   .circle-active {

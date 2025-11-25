@@ -24,7 +24,10 @@ describe('ColorsService', () => {
     TestBed.configureTestingModule({
       providers: [
         ColorsService,
-        { provide: Logger, useValue: loggerSpyObj }
+        {
+          provide: Logger,
+          useValue: loggerSpyObj
+        }
       ]
     });
 
@@ -37,8 +40,8 @@ describe('ColorsService', () => {
 
   afterEach(() => {
     // Clear all cookies - reliable approach
-    document.cookie.split(";").forEach(cookie => {
-      const name = cookie.split("=")[0].trim();
+    document.cookie.split(';').forEach((cookie) => {
+      const name = cookie.split('=')[0].trim();
       document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
     });
 
@@ -51,7 +54,6 @@ describe('ColorsService', () => {
   });
 
   describe('replaceCSSColorsFromCookies', () => {
-
     it('should set CSS property when cookie exists', () => {
       // Set a test cookie
       document.cookie = 'primary=#ff0000';
@@ -89,7 +91,6 @@ describe('ColorsService', () => {
   });
 
   describe('replaceCSSColorFromEnv', () => {
-
     it('should handle null colors parameter', () => {
       service.replaceCSSColorFromEnv(null);
 
@@ -134,7 +135,7 @@ describe('ColorsService', () => {
 
     it('should skip invalid colors names gracefully', () => {
       const colorsJson = JSON.stringify({
-         tertiary: '#ff0000', // tertiary does not exist on ColorsInterface
+        tertiary: '#ff0000' // tertiary does not exist on ColorsInterface
       });
 
       service.replaceCSSColorFromEnv(colorsJson);
@@ -170,10 +171,9 @@ describe('ColorsService', () => {
     });
 
     it('should not set CSS property and should log a warning when color value contains potential XSS payload', () => {
-
       const colorsJson = JSON.stringify({
         primary: '#ff0000',
-        secondary: "<img src=\"x\" onerror=\"alert(1)\">"
+        secondary: '<img src="x" onerror="alert(1)">'
       } satisfies ColorsInterface);
 
       service.replaceCSSColorFromEnv(colorsJson);

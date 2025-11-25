@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Appointment, Participant, SuggestedDate, Voting, VotingStatusType} from '../shared/models';
+import { Injectable } from '@angular/core';
+import { Appointment, Participant, SuggestedDate, Voting, VotingStatusType } from '../shared/models';
 import {
   AbstractControl,
   UntypedFormArray,
@@ -8,16 +8,20 @@ import {
   UntypedFormGroup,
   Validators
 } from '@angular/forms';
-import {NullableUtils} from '../shared/utils';
-import {invalidNameValidator} from '../shared/validators/invalid-name.directive';
-import {ValidatorConstants} from '../shared/constants/validatorConstants';
-import {ApiConstants} from '../shared/constants/apiConstants';
-import {ics} from 'calendar-link';
+import { NullableUtils } from '../shared/utils';
+import { invalidNameValidator } from '../shared/validators/invalid-name.directive';
+import { ValidatorConstants } from '../shared/constants/validatorConstants';
+import { ApiConstants } from '../shared/constants/apiConstants';
+import { ics } from 'calendar-link';
 import moment from 'moment';
-import {TranslateService} from '@ngx-translate/core';
-import {escapeCSVCell, generateCSVFileName} from './csv-utils';
+import { TranslateService } from '@ngx-translate/core';
+import { escapeCSVCell, generateCSVFileName } from './csv-utils';
 
-enum FormMode { VIEW, ADD, EDIT}
+enum FormMode {
+  VIEW,
+  ADD,
+  EDIT
+}
 
 /**
  * A class to handle the form logic for the poll component.
@@ -36,11 +40,17 @@ export class PollFormHelperService {
   public lastEditedParticipant: Participant;
   public participantsToDelete: Participant[] = [];
 
-  constructor(private fb: UntypedFormBuilder, private translate: TranslateService) {
+  constructor(
+    private fb: UntypedFormBuilder,
+    private translate: TranslateService
+  ) {
     this.formMode = FormMode.VIEW;
 
     this.pollForm = this.fb.group({
-      isTosRead: [false, Validators.requiredTrue],
+      isTosRead: [
+        false,
+        Validators.requiredTrue
+      ],
       selectedParticipant: '',
       participantForm: this.participantForm
     });
@@ -63,11 +73,11 @@ export class PollFormHelperService {
   }
 
   public getParticipantFormName(): UntypedFormControl | null {
-    return this.getParticipantForm() ? this.getParticipantForm().get('name') as UntypedFormControl : null;
+    return this.getParticipantForm() ? (this.getParticipantForm().get('name') as UntypedFormControl) : null;
   }
 
   public getParticipantFormVotings(): UntypedFormArray | null {
-    return this.getParticipantForm() != null ? this.getParticipantForm().get('votings') as UntypedFormArray : null;
+    return this.getParticipantForm() != null ? (this.getParticipantForm().get('votings') as UntypedFormArray) : null;
   }
 
   public getTosFormControl(): UntypedFormControl {
@@ -83,93 +93,83 @@ export class PollFormHelperService {
   }
 
   private formatSuggestedDateAsRange(dates: SuggestedDate) {
-    const parts = [moment(dates.startDate).format("L")];
+    const parts = [moment(dates.startDate).format('L')];
 
     if (dates.startTime) {
-      const time = moment(dates.startTime).format("LT");
-      parts.push(this.translate.instant("time.timeAt", { time }));
+      const time = moment(dates.startTime).format('LT');
+      parts.push(this.translate.instant('time.timeAt', { time }));
     }
     if (dates.endDate || dates.endTime) {
-      const date = dates.endDate ? moment(dates.endDate).format("L") : "";
-      parts.push(
-        this.translate.instant("date.dateTo", { date }).trim(),
-      );
+      const date = dates.endDate ? moment(dates.endDate).format('L') : '';
+      parts.push(this.translate.instant('date.dateTo', { date }).trim());
     }
 
     if (dates.endTime) {
-      const time = moment(dates.endTime).format("LT");
-      parts.push(this.translate.instant("time.timeAt", { time }));
+      const time = moment(dates.endTime).format('LT');
+      parts.push(this.translate.instant('time.timeAt', { time }));
     }
-    return parts.join(" ");
+    return parts.join(' ');
   }
 
   private getVotingStatusText(votingStatus: VotingStatusType) {
     switch (votingStatus) {
       case VotingStatusType.Accepted:
-        return this.translate.instant("votingStatus.accepted");
+        return this.translate.instant('votingStatus.accepted');
       case VotingStatusType.Questionable:
-        return this.translate.instant("votingStatus.questionable");
+        return this.translate.instant('votingStatus.questionable');
       case VotingStatusType.Declined:
-        return this.translate.instant("votingStatus.declined");
+        return this.translate.instant('votingStatus.declined');
       default:
-        return this.translate.instant("votingStatus.undefined");
+        return this.translate.instant('votingStatus.undefined');
     }
   }
 
   public downloadCsv(): void {
-    const lineBreak = "\n";
-    const separator = ",";
+    const lineBreak = '\n';
+    const separator = ',';
     const metaInfoSeparator = `sep=${separator}`;
 
     const csv: string[][] = [
       [
-        this.translate.instant("participant.participants"),
-        ...this.appointment.suggestedDates.map((date) =>
-          this.formatSuggestedDateAsRange(date),
-        ),
-      ],
+        this.translate.instant('participant.participants'),
+        ...this.appointment.suggestedDates.map((date) => this.formatSuggestedDateAsRange(date))
+      ]
     ];
 
     for (const { name, participantId } of this.appointment.participants) {
       csv.push([
         name,
         ...this.appointment.suggestedDates.map(({ suggestedDateId }) => {
-          const votingStatus = this.getVotingBySuggestedDateIdAndParticipantId(
-            suggestedDateId,
-            participantId,
-          )?.status;
+          const votingStatus = this.getVotingBySuggestedDateIdAndParticipantId(suggestedDateId, participantId)?.status;
           return this.getVotingStatusText(votingStatus);
-        }),
+        })
       ]);
     }
 
-    const csvContent = csv
-      .map((cells) => cells.map((cell) => escapeCSVCell(cell)).join(separator))
-      .join(lineBreak);
+    const csvContent = csv.map((cells) => cells.map((cell) => escapeCSVCell(cell)).join(separator)).join(lineBreak);
 
-    const escapedCsvContent = window.btoa(
-      unescape(encodeURIComponent(metaInfoSeparator + lineBreak + csvContent)),
-    );
+    const escapedCsvContent = window.btoa(unescape(encodeURIComponent(metaInfoSeparator + lineBreak + csvContent)));
 
-    const anchor = document.createElement("a");
-    anchor.download = generateCSVFileName(
-      this.translate.instant("poll.poll"),
-      this.appointment.title,
-    );
+    const anchor = document.createElement('a');
+    anchor.download = generateCSVFileName(this.translate.instant('poll.poll'), this.appointment.title);
     anchor.href = `data:text/csv;charset=utf8;base64,${escapedCsvContent}`;
-    anchor.rel = "noopener noreferrer";
+    anchor.rel = 'noopener noreferrer';
     anchor.click();
   }
 
   public downloadCal(date: SuggestedDate, index: number): void {
-    function generateDescription(lengthOfCurrentDescription: number, participants: Participant[], votingText: string): string {
+    function generateDescription(
+      lengthOfCurrentDescription: number,
+      participants: Participant[],
+      votingText: string
+    ): string {
       let descriptionFragment = '';
       if (participants) {
         if (lengthOfCurrentDescription) {
           descriptionFragment += '\n\r\n\r';
         }
         descriptionFragment += votingText + '\n\r';
-        participants.forEach(participant => {
+        participants.forEach((participant) => {
           descriptionFragment += participant.name + ', ';
         });
         if (participants.length) {
@@ -185,35 +185,42 @@ export class PollFormHelperService {
       description += '\n\r\n\r' + date.description;
     }
 
-    const acceptingParticipants = this.getParticipantsWithVotingsOnSuggestedDate(date.suggestedDateId, VotingStatusType.Accepted);
+    const acceptingParticipants = this.getParticipantsWithVotingsOnSuggestedDate(
+      date.suggestedDateId,
+      VotingStatusType.Accepted
+    );
     description += generateDescription(description.length, acceptingParticipants, 'Zugesagt:');
 
-    const questioningParticipants = this.getParticipantsWithVotingsOnSuggestedDate(date.suggestedDateId, VotingStatusType.Questionable);
+    const questioningParticipants = this.getParticipantsWithVotingsOnSuggestedDate(
+      date.suggestedDateId,
+      VotingStatusType.Questionable
+    );
     description += generateDescription(description.length, questioningParticipants, 'Mit Vorbehalt:');
 
-    const decliningParticipants = this.getParticipantsWithVotingsOnSuggestedDate(date.suggestedDateId, VotingStatusType.Declined);
+    const decliningParticipants = this.getParticipantsWithVotingsOnSuggestedDate(
+      date.suggestedDateId,
+      VotingStatusType.Declined
+    );
     description += generateDescription(description.length, decliningParticipants, 'Abgelehnt:');
 
     let url;
     if (date.endTime || date.endDate) {
       url = ics({
-          title: this.appointment.title + ' von ' + this.appointment.name,
-          location: this.appointment.location,
-          description: description,
-          start: date.startTime ? moment(date.startTime) : moment.utc(date.startDate),
-          end: date.endTime ? moment(date.endTime) : moment.utc(date.endDate).add(1, 'd'),
-          allDay: !date.startTime
-        }
-      );
+        title: this.appointment.title + ' von ' + this.appointment.name,
+        location: this.appointment.location,
+        description: description,
+        start: date.startTime ? moment(date.startTime) : moment.utc(date.startDate),
+        end: date.endTime ? moment(date.endTime) : moment.utc(date.endDate).add(1, 'd'),
+        allDay: !date.startTime
+      });
     } else {
       url = ics({
-          title: this.appointment.title + ' von ' + this.appointment.name,
-          location: this.appointment.location,
-          description: description,
-          start: date.startTime ? moment(date.startTime) : moment.utc(date.startDate),
-          allDay: !date.startTime
-        }
-      );
+        title: this.appointment.title + ' von ' + this.appointment.name,
+        location: this.appointment.location,
+        description: description,
+        start: date.startTime ? moment(date.startTime) : moment.utc(date.startDate),
+        allDay: !date.startTime
+      });
     }
     const anchor = document.createElement('a');
     anchor.download = 'Umfrage-' + this.appointment.title + '-' + (index + 1) + '.ics';
@@ -226,7 +233,10 @@ export class PollFormHelperService {
    * Switches the form to "add" mode and creates a form to add the new participant's values.
    */
   public addParticipant(): void {
-    if (this.formMode === FormMode.VIEW && this.getNumberOfParticipants() < PollFormHelperService.MAX_NUMBER_OF_PARTICIPANTS) {
+    if (
+      this.formMode === FormMode.VIEW &&
+      this.getNumberOfParticipants() < PollFormHelperService.MAX_NUMBER_OF_PARTICIPANTS
+    ) {
       this.formMode = FormMode.ADD;
       this.lastEditedParticipant = null;
       this.getSelectedParticipantControl().setValue(this.lastEditedParticipant);
@@ -257,8 +267,13 @@ export class PollFormHelperService {
 
   public deleteEditParticipant(participant: Participant): void {
     const itemToDelete: Participant = participant;
-    if (participant != null && itemToDelete.participantId !== null && itemToDelete.participantId !== undefined
-      && itemToDelete.participantId !== '' && itemToDelete.participantId.length > 0) {
+    if (
+      participant != null &&
+      itemToDelete.participantId !== null &&
+      itemToDelete.participantId !== undefined &&
+      itemToDelete.participantId !== '' &&
+      itemToDelete.participantId.length > 0
+    ) {
       this.participantsToDelete.push(itemToDelete);
       this.deleteParticipantFromModel(participant);
       this.lastEditedParticipant = null;
@@ -283,7 +298,9 @@ export class PollFormHelperService {
     if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
-    this.pollForm.patchValue({selectedParticipant: this.appointment.participants.find(value => value.participantId === participantId)});
+    this.pollForm.patchValue({
+      selectedParticipant: this.appointment.participants.find((value) => value.participantId === participantId)
+    });
   }
 
   /**
@@ -348,13 +365,16 @@ export class PollFormHelperService {
    * @param votingStatus VotingStatusType to search for
    * @return acceptingParticipants Array of Names of participants which accepts the suggested date
    */
-  public getParticipantsWithVotingsOnSuggestedDate(suggestedDateId: string, votingStatus: VotingStatusType): Participant[] {
+  public getParticipantsWithVotingsOnSuggestedDate(
+    suggestedDateId: string,
+    votingStatus: VotingStatusType
+  ): Participant[] {
     if (NullableUtils.isObjectNullOrUndefined(this.appointment.participants)) {
       throw new Error(`this.appointment.participants must not be null`);
     }
     const acceptingParticipants = [];
-    this.appointment.participants.forEach(participant => {
-      participant.votings.forEach(voting => {
+    this.appointment.participants.forEach((participant) => {
+      participant.votings.forEach((voting) => {
         if (voting.suggestedDateId === suggestedDateId && voting.status === votingStatus) {
           acceptingParticipants.push(participant);
         }
@@ -420,8 +440,7 @@ export class PollFormHelperService {
    */
   public hasParticipantVotings(): boolean {
     const votingsFormArray: UntypedFormArray = this.getParticipantFormVotings();
-    const votings: Voting[] = votingsFormArray != null
-      ? votingsFormArray.value as Voting[] : [];
+    const votings: Voting[] = votingsFormArray != null ? (votingsFormArray.value as Voting[]) : [];
     return votings.length > 0;
   }
 
@@ -430,7 +449,7 @@ export class PollFormHelperService {
    */
   public hasParticipantAcceptedOrQuestionableVotings(): boolean {
     const participantFormVotings: UntypedFormArray = this.getParticipantFormVotings();
-    const votings: Voting[] = participantFormVotings != null ? participantFormVotings.value as Voting[] : [];
+    const votings: Voting[] = participantFormVotings != null ? (participantFormVotings.value as Voting[]) : [];
     for (let j = 0, lenVotings = votings.length; j < lenVotings; ++j) {
       if (votings[j].status !== VotingStatusType.Declined) {
         return true;
@@ -446,29 +465,37 @@ export class PollFormHelperService {
     if (NullableUtils.isObjectNullOrUndefined(this.appointment.suggestedDates)) {
       throw new Error(`this.appointment.suggestedDates must not be null`);
     }
-    const votings: Voting[] = this.appointment.suggestedDates.map((date) => (
-      {
-        suggestedDateId: date.suggestedDateId,
-        status: participant ? this.getVotingStatusBySuggestedDateIdAndParticipantId(
-          date.suggestedDateId, participant.participantId) : VotingStatusType.Declined,
-        votingId: participant && this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
-          ? this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId).votingId
-          : null
-      } as Voting
-    ));
-    const votingsFormGroup: UntypedFormGroup[] = (votings.map((voting) => (
-      new UntypedFormGroup({
-        'status': new UntypedFormControl(voting.status),
-        'suggestedDateId': new UntypedFormControl(voting.suggestedDateId),
-        'votingId': new UntypedFormControl(voting.votingId ? voting.votingId : null)
-      })
-    )));
+    const votings: Voting[] = this.appointment.suggestedDates.map(
+      (date) =>
+        ({
+          suggestedDateId: date.suggestedDateId,
+          status: participant
+            ? this.getVotingStatusBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
+            : VotingStatusType.Declined,
+          votingId:
+            participant &&
+            this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
+              ? this.getVotingBySuggestedDateIdAndParticipantId(date.suggestedDateId, participant.participantId)
+                  .votingId
+              : null
+        }) as Voting
+    );
+    const votingsFormGroup: UntypedFormGroup[] = votings.map(
+      (voting) =>
+        new UntypedFormGroup({
+          status: new UntypedFormControl(voting.status),
+          suggestedDateId: new UntypedFormControl(voting.suggestedDateId),
+          votingId: new UntypedFormControl(voting.votingId ? voting.votingId : null)
+        })
+    );
     return new UntypedFormGroup({
-      'participantId': new UntypedFormControl(participant ? participant.participantId : null),
-      'name': new UntypedFormControl(participant ? participant.name : '', [
-        Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)]
-      ),
-      'votings': new UntypedFormArray(votingsFormGroup)
+      participantId: new UntypedFormControl(participant ? participant.participantId : null),
+      name: new UntypedFormControl(participant ? participant.name : '', [
+        Validators.required,
+        invalidNameValidator(),
+        Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)
+      ]),
+      votings: new UntypedFormArray(votingsFormGroup)
     });
   }
 
@@ -476,8 +503,8 @@ export class PollFormHelperService {
     if (NullableUtils.isObjectNullOrUndefined(this.participantForm)) {
       throw new Error(`this.participantForm must not be null`);
     }
-    this.participantForm.valueChanges.subscribe(value => {
-      this.participantForm.setValue(value, {onlySelf: true, emitEvent: false});
+    this.participantForm.valueChanges.subscribe((value) => {
+      this.participantForm.setValue(value, { onlySelf: true, emitEvent: false });
     });
   }
 
@@ -517,7 +544,7 @@ export class PollFormHelperService {
    * **/
   private getNumberOfVotings(formArray: UntypedFormArray, votingStatus: VotingStatusType): number {
     let result = 0;
-    const votings: Voting[] = formArray != null ? formArray.value as Voting[] : [];
+    const votings: Voting[] = formArray != null ? (formArray.value as Voting[]) : [];
     for (let j = 0, lenVotings = votings.length; j < lenVotings; ++j) {
       if (votings[j].status === votingStatus) {
         result++;

@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import { Component, input } from '@angular/core';
 import { UntypedFormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -6,16 +6,23 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-poll-options',
   templateUrl: './poll-options.component.html',
   styleUrls: ['./poll-options.component.scss'],
-  imports: [FormsModule, ReactiveFormsModule, TranslatePipe]
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    TranslatePipe
+  ]
 })
 export class PollOptionsComponent {
   readonly formGroup = input<UntypedFormGroup>(undefined);
   readonly selectorId = input<string>(undefined);
   readonly isMobile = input<boolean>(undefined);
-  votingStatus = ['declined', 'questionable', 'accepted'];
+  votingStatus = [
+    'declined',
+    'questionable',
+    'accepted'
+  ];
 
-  constructor() {
-  }
+  constructor() {}
 
   getPrefix(): string {
     if (this.isMobile()) {

@@ -1,5 +1,5 @@
 export enum LogLevel {
-//  UNDEFINED = 0,
+  //  UNDEFINED = 0,
   TRACE = 1,
   DEBUG = 2,
   LOG = 3,

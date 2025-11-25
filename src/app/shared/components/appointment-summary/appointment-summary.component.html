@@ -1,12 +1,14 @@
 @if (showAppointmentUrl() && absoluteAppointmentUrl) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
-      <img aria-hidden="true" alt="" class="icon" src="assets/calendar_grey.svg"/>
+      <img aria-hidden="true" alt="" class="icon" src="assets/calendar_grey.svg" />
     </div>
     <div class="col align-self-top">
       <div id="overview-url-label" class="header" data-cy="overviewUrlLabel">{{ 'links.invite.base' | translate }}</div>
       <div class="value" data-cy="overviewUrlValue" id="url">
-        <a [href]="absoluteAppointmentUrl" target="_blank" aria-labelledby="overview-url-label">{{ absoluteAppointmentUrl }}</a>
+        <a [href]="absoluteAppointmentUrl" target="_blank" aria-labelledby="overview-url-label">
+          {{ absoluteAppointmentUrl }}
+        </a>
         <button
           [cbContent]="absoluteAppointmentUrl"
           class="btn btn-transparent m-0 p-0"
@@ -15,7 +17,7 @@
           ngxClipboard
           type="button"
         >
-          <img alt="{{ 'links.invite.copy' | translate }}" class="icon" src="assets/copy.svg">
+          <img alt="{{ 'links.invite.copy' | translate }}" class="icon" src="assets/copy.svg" />
         </button>
       </div>
     </div>
@@ -24,7 +26,7 @@
 @if (showUsername() && appointment().name) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
-      <img aria-hidden="true" alt="" class="icon" src="assets/user.svg"/>
+      <img aria-hidden="true" alt="" class="icon" src="assets/user.svg" />
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewNameLabel">{{ 'poll.details.name.name' | translate }}</div>
@@ -35,7 +37,7 @@
 @if (appointment().title) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
-      <img aria-hidden="true" alt="" class="icon" src="assets/title.svg"/>
+      <img aria-hidden="true" alt="" class="icon" src="assets/title.svg" />
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewTitleLabel">{{ 'poll.title.title' | translate }}</div>
@@ -46,7 +48,7 @@
 @if (appointment().location) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
-      <img aria-hidden="true" alt="" class="icon" src="assets/location.svg"/>
+      <img aria-hidden="true" alt="" class="icon" src="assets/location.svg" />
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewPlaceLabel">{{ 'poll.details.place.place' | translate }}</div>
@@ -57,7 +59,7 @@
 @if (appointment().description) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
-      <img aria-hidden="true" alt="" class="icon" src="assets/description.svg"/>
+      <img aria-hidden="true" alt="" class="icon" src="assets/description.svg" />
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewDescriptionLabel">
@@ -72,7 +74,7 @@
 @if (showDeleteWarning()) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
-      <img aria-hidden="true" alt="" class="icon" src="assets/delete_gray.svg"/>
+      <img aria-hidden="true" alt="" class="icon" src="assets/delete_gray.svg" />
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewDeleteLabel">{{ 'poll.details.delete.deleteDate' | translate }}</div>

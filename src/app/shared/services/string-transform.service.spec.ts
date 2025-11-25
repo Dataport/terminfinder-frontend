@@ -74,7 +74,7 @@ describe('StringTransformService', () => {
     });
 
     it('should remove XSS from email', () => {
-      const input = "\"<script>alert(1)</script>\"@example.com`,";
+      const input = '"<script>alert(1)</script>"@example.com`,';
       const result = service.sanitize(input);
 
       expect(result).not.toContain('script');
@@ -82,7 +82,6 @@ describe('StringTransformService', () => {
     });
 
     it('should keep complex Email addresses intact', () => {
-
       const input = [
         `user+tag@example.com`,
         `user-name@example.com`,
@@ -120,7 +119,7 @@ describe('StringTransformService', () => {
         `user+filter+tag@example.com`,
         `very.common@example.com`,
         `long.email-address-with-hyphens@example.com`,
-        `user.name+tag+sorting@example.com`,
+        `user.name+tag+sorting@example.com`
       ];
 
       for (const email of input) {

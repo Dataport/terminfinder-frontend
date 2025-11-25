@@ -14,6 +14,9 @@
     "compare-locales": "node compare-locales.js",
     "lint": "npm run prebuild && ng lint",
     "lint-fix": "npm run prebuild && ng lint --fix",
+    "format": "prettier . --check",
+    "format-fix": "prettier . --write",
+    "format-lint-fix": "npm run format-fix && npm run lint-fix",
     "prestart": "node --env-file=.env/.start.env prebuild.js",
     "prebuild": "node --env-file=.env/.build.env prebuild.js",
     "prebuild-docker": "node --env-file=.env/.docker.env prebuild.js",
@@ -29,7 +32,7 @@
   },
   "private": true,
   "engines": {
-    "node": "22.18.0"
+    "node": "22"
   },
   "dependencies": {
     "@angular-devkit/architect": "0.1902.19",
@@ -70,6 +73,7 @@
     "@cyclonedx/cyclonedx-npm": "4.1.1",
     "@cypress/schematic": "4.1.4",
     "@fortawesome/fontawesome-free": "7.1.0",
+    "@stylistic/eslint-plugin": "5.6.1",
     "@types/jest": "29.5.12",
     "@types/node": "24.10.1",
     "@typescript-eslint/eslint-plugin": "8.47.0",
@@ -81,17 +85,23 @@
     "cypress": "15.0.0",
     "dayjs": "1.11.19",
     "eslint": "9.39.1",
+    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsdoc": "61.3.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
+    "eslint-plugin-prettier": "5.5.4",
     "express": "5.1.0",
     "http-server": "14.1.1",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "ngx-translate-testing": "7.0.0",
     "nodemon": "3.1.11",
+    "prettier": "3.6.2",
+    "prettier-eslint": "16.4.2",
+    "prettier-plugin-multiline-arrays": "4.0.3",
     "ts-node": "10.9.2",
     "typescript": "5.8.3",
+    "typescript-eslint": "8.48.0",
     "uuid": "13.0.0"
   },
   "overrides": {

@@ -1,12 +1,12 @@
-import {Component, OnInit, input} from '@angular/core';
-import {Appointment} from '../shared/models';
-import {AppStateService} from '../shared/services/app-state/app-state.service';
+import { Component, OnInit, input } from '@angular/core';
+import { Appointment } from '../shared/models';
+import { AppStateService } from '../shared/services/app-state/app-state.service';
 import { Router, RouterLink } from '@angular/router';
-import {LinkGeneratorService} from '../shared/services/generators';
-import {environment} from '../../environments/environment';
-import { TranslateService, TranslatePipe } from "@ngx-translate/core";
-import {ToastrService} from "ngx-toastr";
-import {RouteTitleService} from "../shared/services/route-title.service";
+import { LinkGeneratorService } from '../shared/services/generators';
+import { environment } from '../../environments/environment';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { RouteTitleService } from '../shared/services/route-title.service';
 import { ClipboardModule } from 'ngx-clipboard';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -14,7 +14,12 @@ import { NgOptimizedImage } from '@angular/common';
   selector: 'app-links',
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss'],
-  imports: [ClipboardModule, RouterLink, NgOptimizedImage, TranslatePipe]
+  imports: [
+    ClipboardModule,
+    RouterLink,
+    NgOptimizedImage,
+    TranslatePipe
+  ]
 })
 export class LinksComponent implements OnInit {
   model: Appointment;
@@ -29,8 +34,7 @@ export class LinksComponent implements OnInit {
     private translate: TranslateService,
     private toastr: ToastrService,
     private routeTitle: RouteTitleService
-  ) {
-  }
+  ) {}
 
   get adminLink(): string {
     return this.linkGeneratorService.generateAdminLink();
@@ -90,38 +94,22 @@ export class LinksComponent implements OnInit {
   }
 
   protected showToastPollLinkCopied() {
-    this.showToast(
-      this.translate.instant("links.invite.copySuccess"),
-      this.translate.instant("poll.poll")
-    );
+    this.showToast(this.translate.instant('links.invite.copySuccess'), this.translate.instant('poll.poll'));
   }
 
   protected showToastAdminLinkCopied() {
-    this.showToast(
-      this.translate.instant("links.admin.copySuccess"),
-      this.translate.instant("poll.edit")
-    );
+    this.showToast(this.translate.instant('links.admin.copySuccess'), this.translate.instant('poll.edit'));
   }
   protected showToastAdminLinkCopyFailed() {
-    this.showToast(
-      this.translate.instant("links.admin.copyFailed"),
-      this.translate.instant("poll.edit"),
-      false
-    );
+    this.showToast(this.translate.instant('links.admin.copyFailed'), this.translate.instant('poll.edit'), false);
   }
 
   protected showToastPollLinkCopyFailed() {
-    this.showToast(
-      this.translate.instant("links.invite.copyFailed"),
-      this.translate.instant("poll.poll"),
-      false
-    );
+    this.showToast(this.translate.instant('links.invite.copyFailed'), this.translate.instant('poll.poll'), false);
   }
 
   private showToast(message: string, title?: string, success: boolean = true): void {
-    if (success)
-      this.toastr.success(message, title);
-    else
-      this.toastr.error(message, title);
+    if (success) this.toastr.success(message, title);
+    else this.toastr.error(message, title);
   }
 }

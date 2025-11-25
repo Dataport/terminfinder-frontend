@@ -1,16 +1,13 @@
-import {Injectable} from '@angular/core';
-import {LogInterface} from './log.interface';
+import { Injectable } from '@angular/core';
+import { LogInterface } from './log.interface';
 
 @Injectable()
 export class ConsoleProvider implements LogInterface {
-
   public trace(message: any, ...optionalParams: any[]): void {
-    // eslint-disable-next-line no-restricted-syntax
     console.trace(message, ...optionalParams);
   }
 
   public debug(message: any, ...optionalParams: any[]): void {
-    // eslint-disable-next-line no-restricted-syntax
     console.debug(message, ...optionalParams);
   }
 
@@ -19,7 +16,6 @@ export class ConsoleProvider implements LogInterface {
   }
 
   public info(message: any, ...optionalParams: any[]): void {
-    // eslint-disable-next-line no-restricted-syntax
     console.info(message, ...optionalParams);
   }
 
@@ -28,7 +24,6 @@ export class ConsoleProvider implements LogInterface {
   }
 
   public error(message: any, ...optionalParams: any[]): void {
-    // eslint-disable-next-line no-console
     console.error(message, ...optionalParams);
   }
 }

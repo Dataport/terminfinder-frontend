@@ -7,11 +7,6 @@
   <a routerLink="/bom">{{ 'imprint.oss' | translate }}</a>
 </div>
 <div class="version" data-id="version">Terminfinder-Version: {{ version }}-</div>
-<button
-  (click)="back()"
-  aria-label="Zurück"
-  class="btn btn-secondary w-100"
-  data-cy="backBtn"
->
+<button (click)="back()" aria-label="Zurück" class="btn btn-secondary w-100" data-cy="backBtn">
   {{ 'navigation.back' | translate }}
 </button>

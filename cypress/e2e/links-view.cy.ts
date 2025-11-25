@@ -27,26 +27,22 @@ context('links-view', () => {
       cy.get('[data-id=adminLinkCopy]');
       cy.get('[data-id=adminLinkNavigate]');
 
-      cy.get('[data-id=newAppointmentButton]')
-        .should('be.enabled');
+      cy.get('[data-id=newAppointmentButton]').should('be.enabled');
       cy.get('[data-id=footer]');
     });
   });
 
   describe('Links are correct', () => {
     it('Shows correct links', () => {
-      cy.get('[data-id=inviteLink]')
-        .should('contain', values.inviteLink);
+      cy.get('[data-id=inviteLink]').should('contain', values.inviteLink);
 
-      cy.get('[data-id=adminLink]')
-        .should('contain', values.adminLink);
+      cy.get('[data-id=adminLink]').should('contain', values.adminLink);
     });
   });
 
   describe('Navigation to new appointment works', () => {
     it('Navigates on click of new appointment button', () => {
-      cy.get('[data-id=newAppointmentButton]')
-        .click();
+      cy.get('[data-id=newAppointmentButton]').click();
       cy.url().should('include', '/#/home');
     });
   });

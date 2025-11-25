@@ -1,8 +1,8 @@
-@use 'src/default' as *;
-@use './poll.component' as *;
+@use "src/default" as *;
+@use "./poll.component" as *;
 
 .form-control {
-  appearance: auto
+  appearance: auto;
 }
 
 .poll-table.mobile {
@@ -39,7 +39,7 @@ select {
 }
 
 .toolbar {
-  background-color: var(--toolbar-background-color, #{$toolbar-background-color}) ;
+  background-color: var(--toolbar-background-color, #{$toolbar-background-color});
   min-height: 50px;
 }
 

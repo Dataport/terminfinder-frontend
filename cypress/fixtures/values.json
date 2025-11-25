@@ -98,7 +98,6 @@
           }
         ]
       }
-
     ]
   },
   "putAdminStatusPausedUrl": "/api/admin/customerId/adminId/paused/status",

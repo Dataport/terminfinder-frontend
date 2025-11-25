@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
@@ -8,8 +8,5 @@ import { SettingsComponent } from '../settings/settings.component';
   imports: [SettingsComponent]
 })
 export class AdminSettingsComponent {
-
-  constructor() {
-  }
-
+  constructor() {}
 }

@@ -1,4 +1,4 @@
-@use 'src/default' as *;
+@use "src/default" as *;
 
 .combo {
   display: inline-block;
@@ -13,11 +13,11 @@
   text-align: left;
 
   &::after {
-    content: '';
-    border-top: .3em solid;
-    border-right: .3em solid transparent;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
     border-bottom: 0;
-    border-left: .3em solid transparent;
+    border-left: 0.3em solid transparent;
   }
 
   &.open::after {
@@ -47,7 +47,7 @@
 
   background-color: white;
   border: 1px solid var(--dark-gray, #{$dark-gray});
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .combo-option {
@@ -59,8 +59,8 @@
 
   &.option-current {
     outline: var(--primary-lighter-10) solid 0.15rem !important;
-    outline-offset: -.15rem;
-    border-radius: .5rem;
+    outline-offset: -0.15rem;
+    border-radius: 0.5rem;
   }
 
   &[aria-selected="true"] {
@@ -72,7 +72,7 @@
     &::after {
       border-bottom: 2px solid #000;
       border-right: 2px solid #000;
-      content: '';
+      content: "";
       height: 16px;
       position: absolute;
       right: 15px;

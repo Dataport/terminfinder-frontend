@@ -33,11 +33,11 @@ import { environment } from '../environments/environment';
 import { BomComponent } from './juristic/bom/bom.component';
 import { PrivacyComponent } from './juristic/privacy/privacy.component';
 import { TermsOfServiceComponent } from './juristic/terms-of-service/terms-of-service.component';
-import { PlainLanguageComponent } from "./plain-language/plain-language.component";
-import { SignLanguageComponent } from "./sign-language/sign-language.component";
+import { PlainLanguageComponent } from './plain-language/plain-language.component';
+import { SignLanguageComponent } from './sign-language/sign-language.component';
 
 export const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent, title: environment.title},
+  { path: 'home', component: HomeComponent, title: environment.title },
   {
     path: 'create',
     component: CreateAppointmentComponent,
@@ -67,14 +67,14 @@ export const appRoutes: Routes = [
     component: LinksComponent,
     canActivate: [AppointmentIdRequiredGuard],
     canDeactivate: [CanDeactivateGuard],
-    data: {fallbackRoute: '/overview'}
+    data: { fallbackRoute: '/overview' }
   },
   {
     path: 'password',
     component: PasswordComponent,
     canActivate: [AppointmentIdRequiredGuard],
     canDeactivate: [CanDeactivateGuard],
-    data: {fallbackRoute: '/home'}
+    data: { fallbackRoute: '/home' }
   },
   {
     path: 'poll/:id',
@@ -125,26 +125,35 @@ export const appRoutes: Routes = [
     path: 'imprint',
     component: ImprintComponent,
     canActivate: [DefaultLanguageGuard],
-    canDeactivate: [DefaultLanguageGuard, CanDeactivateGuard]
+    canDeactivate: [
+      DefaultLanguageGuard,
+      CanDeactivateGuard
+    ]
   },
   {
     path: 'privacy',
     component: PrivacyComponent,
     canActivate: [DefaultLanguageGuard],
-    canDeactivate: [DefaultLanguageGuard, CanDeactivateGuard]
+    canDeactivate: [
+      DefaultLanguageGuard,
+      CanDeactivateGuard
+    ]
   },
   {
     path: 'accessibility',
     component: AccessibilityComponent,
     canActivate: [DefaultLanguageGuard],
-    canDeactivate: [DefaultLanguageGuard, CanDeactivateGuard]
+    canDeactivate: [
+      DefaultLanguageGuard,
+      CanDeactivateGuard
+    ]
   },
-  {path: 'termsOfService', component: TermsOfServiceComponent, canDeactivate: [CanDeactivateGuard]},
-  {path: 'plain-language', component: PlainLanguageComponent, canDeactivate: [CanDeactivateGuard]},
-  {path: 'sign-language', component: SignLanguageComponent, canDeactivate: [CanDeactivateGuard]},
-  {path: 'bom', component: BomComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', redirectTo: '/home'}
+  { path: 'termsOfService', component: TermsOfServiceComponent, canDeactivate: [CanDeactivateGuard] },
+  { path: 'plain-language', component: PlainLanguageComponent, canDeactivate: [CanDeactivateGuard] },
+  { path: 'sign-language', component: SignLanguageComponent, canDeactivate: [CanDeactivateGuard] },
+  { path: 'bom', component: BomComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' }
 ];
 
 registerLocaleData(localeDe, environment.locale);
@@ -152,5 +161,3 @@ registerLocaleData(localeDe, environment.locale);
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './locales/', '.json');
 }
-
-

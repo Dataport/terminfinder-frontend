@@ -1,8 +1,8 @@
-publiccodeYmlVersion: "0.2"
+publiccodeYmlVersion: '0.2'
 
 name: Terminfinder
-url: "https://github.com/Dataport/terminfinder-frontend"
-releaseDate: "2022-12-12"
+url: 'https://github.com/Dataport/terminfinder-frontend'
+releaseDate: '2022-12-12'
 platforms:
   - web
 
@@ -15,7 +15,7 @@ categories:
 
 developmentStatus: development
 
-softwareType: "standalone/web"
+softwareType: 'standalone/web'
 
 description:
   en:
@@ -65,7 +65,7 @@ legal:
   license: EUPL-1.2
 
 maintenance:
-  type: "internal"
+  type: 'internal'
 
   contacts:
     - name: Dataport AöR

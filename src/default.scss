@@ -1,8 +1,8 @@
-$derivate: 'default';
+$derivate: "default";
 $primary: #003064;
 $primary-lighter-10: #004691;
 $secondary: #b3003e;
-$light-gray: #F5F6F7;
+$light-gray: #f5f6f7;
 $medium-gray: #909498;
 $dark-gray: #595959;
 $focus-border: $primary;
@@ -22,7 +22,9 @@ $divider-border-color: #8c8c8c;
 $poll-data-cell-border-left-right-color: #d9d9d9;
 $poll-row-border-color: #d9d9d9;
 $circle-tag-border-color: $poll-row-border-color;
-$theme-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 2px 5px 0 rgba(0, 0, 0, 0.18);
+$theme-shadow:
+  0 2px 4px 0 rgba(0, 0, 0, 0.25),
+  0 2px 5px 0 rgba(0, 0, 0, 0.18);
 $primary-background-color: #c9daef;
 $toolbar-background-color: #d9dfe7;
 $form-icon-width: 1.8rem;

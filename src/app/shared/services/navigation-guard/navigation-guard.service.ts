@@ -1,16 +1,16 @@
 // noinspection JSUnusedLocalSymbols
 
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 
-import {AppStateService} from '../app-state/app-state.service';
-import {DataRepositoryService} from '../data-service';
-import {Appointment} from '../../models';
-import {AppointmentProtectionResult} from '../../models/api-data-v1-dto';
-import {NullableUtils} from '../../utils';
-import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
-import {TranslateService} from "@ngx-translate/core";
-import {LocaleService} from "../locale/locale.service";
+import { AppStateService } from '../app-state/app-state.service';
+import { DataRepositoryService } from '../data-service';
+import { Appointment } from '../../models';
+import { AppointmentProtectionResult } from '../../models/api-data-v1-dto';
+import { NullableUtils } from '../../utils';
+import { AppointmentPasswordValidationResult } from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
+import { TranslateService } from '@ngx-translate/core';
+import { LocaleService } from '../locale/locale.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,10 @@ export class CanDeactivateGuard {
     '/admin/overview'
   ];
 
-  constructor(private appStateService: AppStateService, private translate: TranslateService) {
-  }
+  constructor(
+    private appStateService: AppStateService,
+    private translate: TranslateService
+  ) {}
 
   canDeactivate(_, __, currentState: RouterStateSnapshot, nextState: RouterStateSnapshot): boolean {
     if (nextState.url !== '/home') {
@@ -36,7 +38,7 @@ export class CanDeactivateGuard {
     }
 
     let navigateToHome = this.confirmRoutes.includes(currentState.url)
-      ? window.location.hostname === 'localhost' || confirm(this.translate.instant("navigation.confirmLeaving"))
+      ? window.location.hostname === 'localhost' || confirm(this.translate.instant('navigation.confirmLeaving'))
       : true;
 
     if (navigateToHome) {
@@ -51,9 +53,10 @@ export class CanDeactivateGuard {
   providedIn: 'root'
 })
 export class NameRequiredGuard {
-
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
+  constructor(
+    private appStateService: AppStateService,
+    private router: Router
+  ) {}
 
   canActivate(): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -69,9 +72,10 @@ export class NameRequiredGuard {
   providedIn: 'root'
 })
 export class TitleRequiredGuard {
-
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
+  constructor(
+    private appStateService: AppStateService,
+    private router: Router
+  ) {}
 
   canActivate(): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -87,9 +91,10 @@ export class TitleRequiredGuard {
   providedIn: 'root'
 })
 export class DatesRequiredGuard {
-
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
+  constructor(
+    private appStateService: AppStateService,
+    private router: Router
+  ) {}
 
   canActivate(): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -105,17 +110,19 @@ export class DatesRequiredGuard {
   providedIn: 'root'
 })
 export class AppointmentIdRequiredGuard {
+  constructor(
+    private appStateService: AppStateService,
+    private router: Router
+  ) {}
 
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
     if (!appointment) {
       return false;
     }
-    const valid = this.appStateService.isAdmin && !NullableUtils.isStringNullOrEmpty(appointment.adminId)
-      || !this.appStateService.isAdmin && !NullableUtils.isStringNullOrEmpty(appointment.appointmentId);
+    const valid =
+      (this.appStateService.isAdmin && !NullableUtils.isStringNullOrEmpty(appointment.adminId)) ||
+      (!this.appStateService.isAdmin && !NullableUtils.isStringNullOrEmpty(appointment.appointmentId));
     if (valid) {
       return true;
     }
@@ -128,13 +135,13 @@ export class AppointmentIdRequiredGuard {
   providedIn: 'root'
 })
 export class PasswordRequiredGuard {
+  constructor(
+    private appStateService: AppStateService,
+    private dataRepositoryService: DataRepositoryService,
+    private router: Router
+  ) {}
 
-  constructor(private appStateService: AppStateService,
-              private dataRepositoryService: DataRepositoryService,
-              private router: Router) {
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+  canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
     this.initAppointment(route);
     const appointment: Appointment = this.appStateService.getAppointment();
     const protectionFunction: Promise<AppointmentProtectionResult> = this.appStateService.isAdmin
@@ -157,7 +164,14 @@ export class PasswordRequiredGuard {
           if (!correctResult.passwordvalidation) {
             // necessary to detect changes when repeatedly navigating to the same page
             this.router.onSameUrlNavigation = 'reload';
-            this.router.navigate(['/password', {invalid: true}]).then();
+            this.router
+              // prettier-ignore
+              .navigate([
+                '/password',
+                { invalid: true }
+                // prettier-ignore
+              ])
+              .then();
             return false;
           } else {
             return true;
@@ -190,8 +204,7 @@ export class PasswordRequiredGuard {
   providedIn: 'root'
 })
 export class DefaultLanguageGuard {
-  constructor(private localeService: LocaleService) {
-  }
+  constructor(private localeService: LocaleService) {}
 
   canActivate(): boolean {
     this.localeService.useDefaultLanguage();

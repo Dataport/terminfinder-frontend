@@ -1,6 +1,6 @@
-import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
-import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
-import {MomentUtils, NullableUtils} from '../utils';
+import { Directive, forwardRef, Inject, LOCALE_ID } from '@angular/core';
+import { NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn } from '@angular/forms';
+import { MomentUtils, NullableUtils } from '../utils';
 
 export function timeValidator(localeId: string): ValidatorFn {
   return (control: UntypedFormControl) => {
@@ -17,24 +17,27 @@ export function timeValidator(localeId: string): ValidatorFn {
       isValid = true;
     }
 
-    return isValid ? null : {
-      invalidTime: {
-        valid: false
-      }
-    };
+    return isValid
+      ? null
+      : {
+          invalidTime: {
+            valid: false
+          }
+        };
   };
 }
 
 @Directive({
   selector: '[appValidateTime][ngModel],[appValidateTime][formControl]',
-  providers: [{
-    provide: NG_VALIDATORS,
-    useExisting: forwardRef(() => TimeValidatorDirective),
-    multi: true
-  }],
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => TimeValidatorDirective),
+      multi: true
+    }
+  ]
 })
 export class TimeValidatorDirective implements Validator {
-
   validator: Function;
 
   constructor(@Inject(LOCALE_ID) private localeId: string) {

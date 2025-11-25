@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   Appointment as ApiAppointment,
   AppointmentStatusType as ApiAppointmentStatusType,
@@ -7,19 +7,17 @@ import {
   Voting as ApiVoting,
   VotingStatusType as ApiVotingStatusType
 } from '../../models/api-data-v1-dto';
-import {Appointment, Participant, SuggestedDate, Voting, VotingStatusType} from '../../models';
-import {NullableUtils} from '../../utils';
+import { Appointment, Participant, SuggestedDate, Voting, VotingStatusType } from '../../models';
+import { NullableUtils } from '../../utils';
 import moment from 'moment';
-import {ApiConstants} from '../../constants/apiConstants';
-import {AppointmentStatusType} from '../../models/appointmentStatusType';
+import { ApiConstants } from '../../constants/apiConstants';
+import { AppointmentStatusType } from '../../models/appointmentStatusType';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModelTransformerService {
-
-  constructor() {
-  }
+  constructor() {}
 
   /**
    * Transform appointment instance to api appointment instance
@@ -38,9 +36,15 @@ export class ModelTransformerService {
     apiAppointment.place = appointment.location;
     apiAppointment.description = appointment.description;
     apiAppointment.password = appointment.password;
-    apiAppointment.suggestedDates = ModelTransformerService.transformSuggestedDatesToApiSuggestedDates(appointment.suggestedDates);
-    apiAppointment.participants = ModelTransformerService.transformParticipantsToApiParticipants(appointment.participants);
-    apiAppointment.status = ModelTransformerService.transformAppointmentStatusTypeToApiAppointmentStatusType(appointment.status);
+    apiAppointment.suggestedDates = ModelTransformerService.transformSuggestedDatesToApiSuggestedDates(
+      appointment.suggestedDates
+    );
+    apiAppointment.participants = ModelTransformerService.transformParticipantsToApiParticipants(
+      appointment.participants
+    );
+    apiAppointment.status = ModelTransformerService.transformAppointmentStatusTypeToApiAppointmentStatusType(
+      appointment.status
+    );
 
     return apiAppointment;
   }
@@ -72,17 +76,26 @@ export class ModelTransformerService {
       return null;
     }
     // convert date/time strings to moment values
-    const startMoment = ModelTransformerService.createMomentFromDateAndTime(suggestedDate.startDate, suggestedDate.startTime);
+    const startMoment = ModelTransformerService.createMomentFromDateAndTime(
+      suggestedDate.startDate,
+      suggestedDate.startTime
+    );
     const endMoment = NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
       ? ModelTransformerService.createMomentFromDateAndTime(suggestedDate.startDate, suggestedDate.endTime)
       : ModelTransformerService.createMomentFromDateAndTime(suggestedDate.endDate, suggestedDate.endTime);
-    const setEndDate = !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) || !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime);
+    const setEndDate =
+      !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) ||
+      !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime);
     return {
       suggestedDateId: suggestedDate.suggestedDateId,
       startDate: startMoment.format(ApiConstants.MOMENT_FORMAT_DATE),
-      startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null,
+      startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime)
+        ? startMoment.format(ApiConstants.MOMENT_FORMAT_TIME)
+        : null,
       endDate: setEndDate ? endMoment.format(ApiConstants.MOMENT_FORMAT_DATE) : null,
-      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.format(ApiConstants.MOMENT_FORMAT_TIME) : null,
+      endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime)
+        ? endMoment.format(ApiConstants.MOMENT_FORMAT_TIME)
+        : null,
       description: !NullableUtils.isStringNullOrWhitespace(suggestedDate.description) ? suggestedDate.description : null
     } as ApiSuggestedDate;
   }
@@ -177,7 +190,9 @@ export class ModelTransformerService {
    * Transform an appointment status instance to an api appointment status instance
    * @return the transformed instance
    * */
-  static transformAppointmentStatusTypeToApiAppointmentStatusType(statusType: AppointmentStatusType): ApiAppointmentStatusType {
+  static transformAppointmentStatusTypeToApiAppointmentStatusType(
+    statusType: AppointmentStatusType
+  ): ApiAppointmentStatusType {
     if (statusType === AppointmentStatusType.Started) {
       return ApiAppointmentStatusType.Started;
     }
@@ -205,12 +220,18 @@ export class ModelTransformerService {
     result.description = appointment.description;
     result.password = appointment.password;
     // suggested dates sorted by start date and start time
-    result.suggestedDates = ModelTransformerService.transformApiSuggestedDatesToSuggestedDates(appointment.suggestedDates).sort((a, b) =>
-      (a.startDate > b.startDate) ? 1 : ((a.startDate === b.startDate) && (a.startTime > b.startTime)) ? 1 : -1);
+    result.suggestedDates = ModelTransformerService.transformApiSuggestedDatesToSuggestedDates(
+      appointment.suggestedDates
+    ).sort((a, b) =>
+      a.startDate > b.startDate ? 1 : a.startDate === b.startDate && a.startTime > b.startTime ? 1 : -1
+    );
     // participants sorted by name
-    result.participants = ModelTransformerService.transformApiParticipantsToParticipants(appointment.participants).sort((a, b) =>
-      a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1);
-    result.status = ModelTransformerService.transformApiAppointmentStatusTypeToAppointmentStatusType(appointment.status);
+    result.participants = ModelTransformerService.transformApiParticipantsToParticipants(appointment.participants).sort(
+      (a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)
+    );
+    result.status = ModelTransformerService.transformApiAppointmentStatusTypeToAppointmentStatusType(
+      appointment.status
+    );
 
     return result;
   }
@@ -241,7 +262,10 @@ export class ModelTransformerService {
     if (NullableUtils.isObjectNullOrUndefined(suggestedDate)) {
       return null;
     }
-    const startMoment = ModelTransformerService.createMomentFromApiDateAndTime(suggestedDate.startDate, suggestedDate.startTime);
+    const startMoment = ModelTransformerService.createMomentFromApiDateAndTime(
+      suggestedDate.startDate,
+      suggestedDate.startTime
+    );
     const endMoment = !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
       ? ModelTransformerService.createMomentFromApiDateAndTime(suggestedDate.endDate, suggestedDate.endTime)
       : ModelTransformerService.createMomentFromApiDateAndTime(suggestedDate.startDate, suggestedDate.endTime);
@@ -250,10 +274,15 @@ export class ModelTransformerService {
       suggestedDateId: suggestedDate.suggestedDateId,
       hasVotings: suggestedDate.hasVotings,
       startDate: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
-        ? startMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE) : null,
+        ? startMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE)
+        : null,
       startTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime) ? startMoment.local().format() : null,
-      endDate: (!NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) || !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime))
-      && startDateDifferentFromEndDate ? endMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE) : null,
+      endDate:
+        (!NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate) ||
+          !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime)) &&
+        startDateDifferentFromEndDate
+          ? endMoment.local().format(ApiConstants.MOMENT_FORMAT_DATE)
+          : null,
       endTime: !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime) ? endMoment.local().format() : null,
       description: !NullableUtils.isStringNullOrWhitespace(suggestedDate.description) ? suggestedDate.description : null
     } as ApiSuggestedDate;
@@ -328,7 +357,9 @@ export class ModelTransformerService {
    * Transform an api voting instance to a voting instance
    * @return the transformed instance
    * */
-  public static transformApiVotingStatusTypeToVotingStatusType(votingStatusType: ApiVotingStatusType): VotingStatusType {
+  public static transformApiVotingStatusTypeToVotingStatusType(
+    votingStatusType: ApiVotingStatusType
+  ): VotingStatusType {
     if (votingStatusType === ApiVotingStatusType.Declined) {
       return VotingStatusType.Declined;
     }
@@ -348,7 +379,9 @@ export class ModelTransformerService {
    * Transform an api appointment status instance to an appointment status instance
    * @return the transformed instance
    * */
-  static transformApiAppointmentStatusTypeToAppointmentStatusType(statusType: ApiAppointmentStatusType): AppointmentStatusType {
+  static transformApiAppointmentStatusTypeToAppointmentStatusType(
+    statusType: ApiAppointmentStatusType
+  ): AppointmentStatusType {
     if (statusType === ApiAppointmentStatusType.Started) {
       return AppointmentStatusType.Started;
     }
@@ -387,7 +420,9 @@ export class ModelTransformerService {
     }
     // FIXME workaround for dates without times. If we took 00:00 here different user timezones would result in different dates.
     // Example: 01/01/2020 00:00+01 would lead to 12/31/2019 in UTC which is not desired when the user only submits a date.
-    const timeMoment = NullableUtils.isObjectNullOrUndefined(time) ? moment('12:00', 'HH:MM') : moment(time, ApiConstants.MOMENT_FORMAT_DATE_TIME);
+    const timeMoment = NullableUtils.isObjectNullOrUndefined(time)
+      ? moment('12:00', 'HH:MM')
+      : moment(time, ApiConstants.MOMENT_FORMAT_DATE_TIME);
     const dateMoment = moment(date, ApiConstants.MOMENT_FORMAT_DATE);
     const dateTime = `${dateMoment.format(ApiConstants.MOMENT_FORMAT_DATE)}T${timeMoment.format(ApiConstants.MOMENT_FORMAT_TIME)}`;
     return moment.utc(dateTime, ApiConstants.MOMENT_FORMAT_DATE_TIME);

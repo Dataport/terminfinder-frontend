@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
-import {HttpClient} from '@angular/common/http';
-import {BomFile, LicenseSummary} from '../../shared/models';
-import {RouteTitleService} from "../../shared/services/route-title.service";
-import {TranslatePipe} from '@ngx-translate/core';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { BomFile, LicenseSummary } from '../../shared/models';
+import { RouteTitleService } from '../../shared/services/route-title.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
-type AmountOfLicencesElement = { license: string, amount: number }
+type AmountOfLicencesElement = { license: string; amount: number };
 
 @Component({
   selector: 'app-bom',
@@ -14,8 +14,7 @@ type AmountOfLicencesElement = { license: string, amount: number }
   imports: [TranslatePipe]
 })
 export class BomComponent implements OnInit {
-
-  amountOfLicences: AmountOfLicencesElement[] = [{license: 'Keine Lizenz gefunden', amount: 0}];
+  amountOfLicences: AmountOfLicencesElement[] = [{ license: 'Keine Lizenz gefunden', amount: 0 }];
   summary: LicenseSummary[] = [];
 
   constructor(
@@ -25,7 +24,7 @@ export class BomComponent implements OnInit {
   ) {
     this.http.get<BomFile>('./sbom.json').subscribe((licenses) => {
       licenses.components.sort((a, b) => (a.group + a.name).localeCompare(b.group + b.name));
-      licenses.components.forEach(component => {
+      licenses.components.forEach((component) => {
         let name = '';
         if (component.group) {
           name += component.group + '/';
@@ -51,10 +50,10 @@ export class BomComponent implements OnInit {
           if (currentLicence === undefined) {
             console.log(component);
           }
-          if (this.amountOfLicences.some(e => e.license === currentLicence)) {
-            this.amountOfLicences.filter(e => e.license === currentLicence)[0].amount += 1;
+          if (this.amountOfLicences.some((e) => e.license === currentLicence)) {
+            this.amountOfLicences.filter((e) => e.license === currentLicence)[0].amount += 1;
           } else {
-            this.amountOfLicences.push({license: currentLicence, amount: 1});
+            this.amountOfLicences.push({ license: currentLicence, amount: 1 });
           }
         });
         this.summary.push(element);

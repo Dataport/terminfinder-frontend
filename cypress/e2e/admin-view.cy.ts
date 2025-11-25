@@ -17,7 +17,7 @@ context('admin-view', () => {
     cy.intercept(
       {
         method: 'GET',
-        url: getApiUrl(values.adminProtectionUrl),
+        url: getApiUrl(values.adminProtectionUrl)
       },
       {
         body: values.adminProtectionFalse
@@ -88,13 +88,10 @@ context('admin-view', () => {
         }
       ).as('apiPutPause');
 
-      cy.get('[data-id=statusPollButton]')
-        .click();
+      cy.get('[data-id=statusPollButton]').click();
       cy.wait('@apiPutPause');
-      cy.get('[data-id=pauseText]')
-        .should('not.exist');
+      cy.get('[data-id=pauseText]').should('not.exist');
       cy.get('[data-id=continueText]');
-
 
       cy.intercept(
         {
@@ -108,11 +105,9 @@ context('admin-view', () => {
           body: values.putAdminStatusStarted
         }
       ).as('apiPutStarted');
-      cy.get('[data-id=statusPollButton]')
-        .click();
+      cy.get('[data-id=statusPollButton]').click();
       cy.wait('@apiPutStarted');
-      cy.get('[data-id=continueText]')
-        .should('not.exist');
+      cy.get('[data-id=continueText]').should('not.exist');
       cy.get('[data-id=pauseText]');
     });
   });
@@ -135,7 +130,7 @@ context('admin-view', () => {
       cy.intercept(
         {
           method: 'PUT',
-          url: getApiUrl(values.postCreateAppointmentUrl),
+          url: getApiUrl(values.postCreateAppointmentUrl)
         },
         {
           statusCode: 200,
@@ -143,58 +138,39 @@ context('admin-view', () => {
         }
       ).as('apiPutCreateAppointment');
 
-      cy.get('[data-id=changePollLink]')
-        .click();
+      cy.get('[data-id=changePollLink]').click();
 
       cy.get('[data-id=adminCreateAppoint]');
-      cy.location('href')
-        .should('include', '/#/poll-admin');
-      cy.get('[data-id=next]')
-        .click();
+      cy.location('href').should('include', '/#/poll-admin');
+      cy.get('[data-id=next]').click();
 
       cy.get('[data-id=adminSuggestedDates]');
-      cy.location('href')
-        .should('include', '/#/admin/dates');
-      cy.get('#removeDate-0')
-        .click();
-      cy.get('#suggested-date-start-date-0')
-        .type(dayjs().add(2, 'd').format('YYYY-MM-DD'));
-      cy.get('[data-id=addSuggestedDateButton]')
-        .click();
-      cy.get('#suggested-date-start-date-1')
-        .type(dayjs().add(1, 'd').format('YYYY-MM-DD'));
-      cy.get('#suggested-date-start-date-1')
-        .should('have.value', dayjs().add(1, 'd').format('YYYY-MM-DD'));
-      cy.get('[data-id=next]')
-        .click();
+      cy.location('href').should('include', '/#/admin/dates');
+      cy.get('#removeDate-0').click();
+      cy.get('#suggested-date-start-date-0').type(dayjs().add(2, 'd').format('YYYY-MM-DD'));
+      cy.get('[data-id=addSuggestedDateButton]').click();
+      cy.get('#suggested-date-start-date-1').type(dayjs().add(1, 'd').format('YYYY-MM-DD'));
+      cy.get('#suggested-date-start-date-1').should('have.value', dayjs().add(1, 'd').format('YYYY-MM-DD'));
+      cy.get('[data-id=next]').click();
 
       cy.get('[data-id=adminSettings]');
-      cy.location('href')
-        .should('include', '/#/admin/settings');
-      cy.get('[data-id=checkbox]')
-        .click();
-      cy.get('[data-id=passwordInput]')
-        .type('Hallo2021!');
-      cy.get('[data-id=passwordInput]')
-        .should('have.value', 'Hallo2021!');
-      cy.get('[data-id=repeatPasswordInput]')
-        .type('Hallo2021!');
-      cy.get('[data-id=next]')
-        .click();
+      cy.location('href').should('include', '/#/admin/settings');
+      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-id=passwordInput]').type('Hallo2021!');
+      cy.get('[data-id=passwordInput]').should('have.value', 'Hallo2021!');
+      cy.get('[data-id=repeatPasswordInput]').type('Hallo2021!');
+      cy.get('[data-id=next]').click();
 
       cy.get('[data-id=adminOverview]');
-      cy.location('href')
-        .should('include', '/#/admin/overview');
+      cy.location('href').should('include', '/#/admin/overview');
       cy.get('[data-id=headerTitle]');
 
-      cy.get('[data-id=next]')
-        .click();
+      cy.get('[data-id=next]').click();
       cy.wait('@apiDeleteSuggestedDate');
       cy.wait('@apiPutCreateAppointment');
 
       cy.get('[data-id=adminLinks]');
-      cy.location('href')
-        .should('include', '/#/admin/links');
+      cy.location('href').should('include', '/#/admin/links');
     });
   });
 });

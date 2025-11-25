@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { CreateAppointmentComponent } from '../create-appointment/create-appointment.component';
 
 @Component({
@@ -7,5 +7,4 @@ import { CreateAppointmentComponent } from '../create-appointment/create-appoint
   styleUrls: ['./admin-appointment.component.scss'],
   imports: [CreateAppointmentComponent]
 })
-export class AdminAppointmentComponent {
-}
+export class AdminAppointmentComponent {}

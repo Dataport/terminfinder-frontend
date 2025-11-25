@@ -4,7 +4,7 @@ import { ColorsInterface } from '../utils/colors.interface';
 import { StringTransformService } from './string-transform.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ColorsService {
   colors: string[] = [
@@ -22,10 +22,13 @@ export class ColorsService {
     // Inherited Colors - see colors.scss
     'footer-text-color',
     'border-color-input',
-    'border-color-divider-icon-input',
+    'border-color-divider-icon-input'
   ];
 
-  constructor(private logger: Logger, private stringTransformService: StringTransformService) {}
+  constructor(
+    private logger: Logger,
+    private stringTransformService: StringTransformService
+  ) {}
 
   replaceCSSColorsFromCookies(): void {
     this.logger.debug('replaceCSSColorsFromCookies()');
@@ -75,7 +78,9 @@ export class ColorsService {
         }
       });
     } catch (error) {
-      this.logger.warn('Could not parse Colors from Environment. The Content is most likely not a valid JSON Object. Default colors are applied.');
+      this.logger.warn(
+        'Could not parse Colors from Environment. The Content is most likely not a valid JSON Object. Default colors are applied.'
+      );
       this.logger.debug('Invalid colors string: ', colors);
     }
   }
@@ -85,9 +90,7 @@ export class ColorsService {
     // 2. value für regex escapen
     // 3. value auslesen
     const matches = document.cookie.match(
-      new RegExp(
-        '(?:^|; )' + name.replace(/([$?*|{}\[\]\\\/+^])/g, '\\$1') + '=([^;]*)'
-      )
+      new RegExp('(?:^|; )' + name.replace(/([$?*|{}\[\]\\\/+^])/g, '\\$1') + '=([^;]*)')
     );
     return matches ? decodeURIComponent(matches[1]) : null;
   }

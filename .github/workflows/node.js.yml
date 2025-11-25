@@ -2,9 +2,9 @@ name: node-js
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   lint-audit:
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 22.18.x
+          node-version: 22
           cache: 'npm'
       - run: npm ci
       - run: npm run lint
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 22.18.x
+          node-version: 22
           cache: 'npm'
       - run: npm ci
       - run: npm run build
@@ -49,3 +49,17 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+
+  prettier:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: |
+          npm ci
+          npm run format

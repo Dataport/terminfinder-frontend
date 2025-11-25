@@ -4,44 +4,46 @@
 >
   <span id="full-date-{{ index() }}" class="visually-hidden">
     @if (!date().endDate && !date().endTime) {
-      {{ date().startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
-      {{ date().startTime | date:'HH:mm': '': getLocale() }}
+      {{ date().startDate | date: 'EEEE dd. MMMM YYYY' : '' : getLocale() }}
+      {{ date().startTime | date: 'HH:mm' : '' : getLocale() }}
     } @else if (date().startTime && !date().endDate && date().endTime) {
-      {{ date().startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+      {{ date().startDate | date: 'EEEE dd. MMMM YYYY' : '' : getLocale() }}
       {{ 'date.from' | translate }}
-      {{ date().startTime | date:'HH:mm': '': getLocale() }}
+      {{ date().startTime | date: 'HH:mm' : '' : getLocale() }}
       {{ 'date.to' | translate }}
-      {{ date().endTime | date:'HH:mm': '': getLocale() }}
+      {{ date().endTime | date: 'HH:mm' : '' : getLocale() }}
     } @else if (!date().startTime && date().endDate && !date().endTime) {
       {{ 'date.from' | translate }}
-      {{ date().startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
+      {{ date().startDate | date: 'EEEE dd. MMMM YYYY' : '' : getLocale() }}
       {{ 'date.to' | translate }}
-      {{ date().endDate | date:'EEEE, dd. MMMM YYYY': '': getLocale() }}
+      {{ date().endDate | date: 'EEEE, dd. MMMM YYYY' : '' : getLocale() }}
     } @else {
       {{ 'date.from' | translate }}
-      {{ date().startDate | date:'EEEE dd. MMMM YYYY': '': getLocale() }}
-      {{ date().startTime | date:'HH:mm': '': getLocale() }}
+      {{ date().startDate | date: 'EEEE dd. MMMM YYYY' : '' : getLocale() }}
+      {{ date().startTime | date: 'HH:mm' : '' : getLocale() }}
       {{ 'date.to' | translate }}
-      {{ date().endDate | date:'EEEE, dd. MMMM YYYY': '': getLocale() }}
-      {{ date().endTime | date:'HH:mm': '': getLocale() }}
+      {{ date().endDate | date: 'EEEE, dd. MMMM YYYY' : '' : getLocale() }}
+      {{ date().endTime | date: 'HH:mm' : '' : getLocale() }}
     }
   </span>
   <!-- column on the left or centered with start date and - for desktop resolutions - start and end time  -->
   <div class="col-5 column" aria-hidden="true">
     <!-- start date -->
-    <div>{{ date().startDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
-    <div class="day">{{ date().startDate | date:'dd': '': getLocale() }}</div>
-    <div>{{ date().startDate | date:'E': '': getLocale() | slice: 0:2 }}</div>
+    <div>{{ date().startDate | date: 'MMM' : '' : getLocale() | slice: 0 : 3 }}</div>
+    <div class="day">{{ date().startDate | date: 'dd' : '' : getLocale() }}</div>
+    <div>{{ date().startDate | date: 'E' : '' : getLocale() | slice: 0 : 2 }}</div>
     <!-- display start time here if:
     - on a desktop (lg+) device OR
     - if there's no end date  -->
-    <div [ngClass]="{'d-none d-lg-block': !date().endDate}">{{ date().startTime | date:'HH:mm': '': getLocale() }}</div>
+    <div [ngClass]="{ 'd-none d-lg-block': !date().endDate }">
+      {{ date().startTime | date: 'HH:mm' : '' : getLocale() }}
+    </div>
     <!-- display hyphen and endTime if:
     - on a desktop (lg+) device AND
     - if there's no end date  -->
-    <div [ngClass]="{'d-lg-block': date().endTime && !date().endDate}" class="d-none hyphen"></div>
-    <div [ngClass]="{'d-lg-block': date().endTime && !date().endDate}"
-         class="d-none">{{ date().endTime | date:'HH:mm': '': getLocale() }}
+    <div [ngClass]="{ 'd-lg-block': date().endTime && !date().endDate }" class="d-none hyphen"></div>
+    <div [ngClass]="{ 'd-lg-block': date().endTime && !date().endDate }" class="d-none">
+      {{ date().endTime | date: 'HH:mm' : '' : getLocale() }}
     </div>
   </div>
   <!-- column on the right for start and end time - only on mobile resolutions -->
@@ -52,28 +54,26 @@
     <div class="col d-flex d-lg-none column align-items-center" aria-hidden="true">
       <div class="row g-0 w-100 d-block">
         <div class="col">
-          <div>{{ date().startTime | date:'HH:mm': '': getLocale() }}</div>
+          <div>{{ date().startTime | date: 'HH:mm' : '' : getLocale() }}</div>
         </div>
         @if (date().endTime) {
           <div class="d-lg-none hyphen"></div>
         }
         <div class="col">
-          <div>{{ date().endTime | date:'HH:mm': '': getLocale() }}</div>
+          <div>{{ date().endTime | date: 'HH:mm' : '' : getLocale() }}</div>
         </div>
       </div>
     </div>
   }
   <!-- column on the right for end date and end time -->
   @if (date().endDate) {
-    <div class="col-1 align-self-center font-medium" aria-hidden="true">
-      -
-    </div>
+    <div class="col-1 align-self-center font-medium" aria-hidden="true">-</div>
     <div class="col-5 column" aria-hidden="true">
-      <div>{{ date().endDate | date:'MMM': '': getLocale() | slice: 0:3 }}</div>
-      <div class="day">{{ date().endDate | date:'dd': '': getLocale() }}</div>
-      <div>{{ date().endDate | date:'E': '': getLocale() | slice: 0:2 }}</div>
+      <div>{{ date().endDate | date: 'MMM' : '' : getLocale() | slice: 0 : 3 }}</div>
+      <div class="day">{{ date().endDate | date: 'dd' : '' : getLocale() }}</div>
+      <div>{{ date().endDate | date: 'E' : '' : getLocale() | slice: 0 : 2 }}</div>
       @if (date().endDate) {
-        <div>{{ date().endTime | date:'HH:mm': '': getLocale() }}</div>
+        <div>{{ date().endTime | date: 'HH:mm' : '' : getLocale() }}</div>
       }
     </div>
   }

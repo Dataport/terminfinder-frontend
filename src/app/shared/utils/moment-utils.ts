@@ -1,7 +1,7 @@
 import moment from 'moment';
-import {NullableUtils} from './nullable-utils';
-import {ApiConstants} from '../constants/apiConstants';
-import {ValidatorConstants} from '../constants/validatorConstants';
+import { NullableUtils } from './nullable-utils';
+import { ApiConstants } from '../constants/apiConstants';
+import { ValidatorConstants } from '../constants/validatorConstants';
 
 export class MomentUtils {
   /**
@@ -61,7 +61,12 @@ export class MomentUtils {
       throw new Error(`Submitted value for localeId is null or whitespace`);
     }
 
-    const momentVariation: moment.Moment = moment(value, ValidatorConstants.MOMENT_FORMAT_DATE_VARIATIONS, localeId, true);
+    const momentVariation: moment.Moment = moment(
+      value,
+      ValidatorConstants.MOMENT_FORMAT_DATE_VARIATIONS,
+      localeId,
+      true
+    );
     const result = moment(momentVariation, ValidatorConstants.MOMENT_FORMAT_DATE, localeId, true);
 
     if (!result.isValid()) {

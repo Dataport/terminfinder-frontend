@@ -1,14 +1,14 @@
 export interface ColorsInterface {
-  'primary'?: string;
+  primary?: string;
   'primary-lighter-10'?: string;
-  'secondary'?: string;
+  secondary?: string;
   'light-gray'?: string;
   'medium-gray'?: string;
   'dark-gray'?: string;
   'focus-border'?: string;
   'toolbar-background-color'?: string;
   'primary-background-color'?: string;
-  'danger'?: string;
+  danger?: string;
   'bootstrap-form-control-color'?: string;
   'footer-text-color'?: string;
   'border-color-input'?: string;

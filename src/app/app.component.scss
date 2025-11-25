@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@use 'src/default' as *;
-@import 'bootstrap/scss/mixins';
+@use "src/default" as *;
+@import "bootstrap/scss/mixins";
 
 #head {
   padding-top: 0.5rem;
@@ -32,11 +32,16 @@
 }
 
 #bottom-edge {
-  height: $spacer*7;
-  min-height: $spacer*7;
-  max-height: $spacer*7;
+  height: $spacer * 7;
+  min-height: $spacer * 7;
+  max-height: $spacer * 7;
   margin-bottom: $spacer;
-  background: linear-gradient(175deg, var(--primary-background-color, #{$primary-background-color}) 49.5%, transparent 50.5%) no-repeat bottom;
+  background: linear-gradient(
+      175deg,
+      var(--primary-background-color, #{$primary-background-color}) 49.5%,
+      transparent 50.5%
+    )
+    no-repeat bottom;
 }
 
 @include media-breakpoint-up(lg) {

@@ -1,15 +1,15 @@
-import {Component, Inject, isDevMode, LOCALE_ID, OnInit} from '@angular/core';
-import {ApiVersion} from '../shared/models/api-data-v1-dto';
-import {Appointment, Message, MessageType} from '../shared/models';
-import {DataRepositoryService} from '../shared/services/data-service';
+import { Component, Inject, isDevMode, LOCALE_ID, OnInit } from '@angular/core';
+import { ApiVersion } from '../shared/models/api-data-v1-dto';
+import { Appointment, Message, MessageType } from '../shared/models';
+import { DataRepositoryService } from '../shared/services/data-service';
 import { UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Logger} from '../shared/services/logging';
-import {Router} from '@angular/router';
-import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {invalidNameValidator} from '../shared/validators/invalid-name.directive';
-import {ValidatorConstants} from '../shared/constants/validatorConstants';
-import {environment} from '../../environments/environment';
-import {UserNotification, userNotifications} from '../../userNotifications';
+import { Logger } from '../shared/services/logging';
+import { Router } from '@angular/router';
+import { AppStateService } from '../shared/services/app-state/app-state.service';
+import { invalidNameValidator } from '../shared/validators/invalid-name.directive';
+import { ValidatorConstants } from '../shared/constants/validatorConstants';
+import { environment } from '../../environments/environment';
+import { UserNotification, userNotifications } from '../../userNotifications';
 import moment from 'moment';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { AdIconsComponent } from '../shared/components/ad-icons/ad-icons.component';
@@ -21,7 +21,15 @@ import { MessageBoxComponent } from '../shared/components/message-box/message-bo
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [AdIconsComponent, FormsModule, ReactiveFormsModule, TosComponent, NgClass, MessageBoxComponent, TranslatePipe]
+  imports: [
+    AdIconsComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    TosComponent,
+    NgClass,
+    MessageBoxComponent,
+    TranslatePipe
+  ]
 })
 export class HomeComponent implements OnInit {
   localUserNotifications: Array<UserNotification> = [];
@@ -30,16 +38,16 @@ export class HomeComponent implements OnInit {
   apiError: Message;
   titleForm: UntypedFormGroup;
   model: Appointment;
-  derivateTitle = {value: environment.title ? environment.title : 'Terminfinder'};
+  derivateTitle = { value: environment.title ? environment.title : 'Terminfinder' };
 
   constructor(
     private dataRepoService: DataRepositoryService,
     private appStateService: AppStateService,
-    private logger: Logger, @Inject(LOCALE_ID) private localeId: string,
+    private logger: Logger,
+    @Inject(LOCALE_ID) private localeId: string,
     private router: Router,
     public translate: TranslateService
-  ) {
-  }
+  ) {}
 
   get isTosRead() {
     return this.titleForm.get('isTosRead') as UntypedFormControl;
@@ -50,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    userNotifications.forEach(notification => {
+    userNotifications.forEach((notification) => {
       if (notification.derivateTitle === 'global' || notification.derivateTitle === environment.title) {
         if (moment(notification.startTime).isBefore(moment()) && moment(notification.endTime).isAfter(moment())) {
           this.localUserNotifications.push(notification);
@@ -60,12 +68,15 @@ export class HomeComponent implements OnInit {
     this.model = this.appStateService.getAppointment();
     this.titleForm = new UntypedFormGroup({
       title: new UntypedFormControl(this.model.title, [
-        Validators.required, invalidNameValidator(), Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)
+        Validators.required,
+        invalidNameValidator(),
+        Validators.maxLength(ValidatorConstants.MAX_LENGTH_NAME)
       ]),
       isTosRead: new UntypedFormControl(false, [Validators.requiredTrue])
     });
 
-    this.dataRepoService.getApiVersion()
+    this.dataRepoService
+      .getApiVersion()
       .then((data: ApiVersion) => {
         this.apiVersion = data.version;
         this.buildDate = data.builddate;

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, input} from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -16,8 +16,7 @@ export class NavigationComponent {
   @Output() backward = new EventEmitter();
   @Output() forward = new EventEmitter();
 
-  constructor() {
-  }
+  constructor() {}
 
   onBack() {
     this.backward.emit();

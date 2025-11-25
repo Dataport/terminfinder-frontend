@@ -1,22 +1,22 @@
-import {Injectable} from '@angular/core';
-import {registerLocaleData} from '@angular/common';
+import { Injectable } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import localeGerman from '@angular/common/locales/de';
 import localeEnglish from '@angular/common/locales/en';
-import {environment} from "../../../../environments/environment";
-import moment from "moment/moment";
-import {TranslateService} from "@ngx-translate/core";
-import {LocalStorageService} from "../data-service/local-storage.service";
-import {NullableUtils} from "../../utils";
+import { environment } from '../../../../environments/environment';
+import moment from 'moment/moment';
+import { TranslateService } from '@ngx-translate/core';
+import { LocalStorageService } from '../data-service/local-storage.service';
+import { NullableUtils } from '../../utils';
 
 export type LanguageCode = 'de-DE' | 'en-EN';
 export type Addressing = 'du' | 'sie';
 
 export interface Locale {
-  languageCode: LanguageCode,
-  addressing: Addressing
+  languageCode: LanguageCode;
+  addressing: Addressing;
 }
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class LocaleService {
   private readonly DEFAULT_LOCALE: string = 'de-DE';
 
@@ -27,7 +27,7 @@ export class LocaleService {
 
   constructor(
     private translateService: TranslateService,
-    private localStorageService: LocalStorageService,
+    private localStorageService: LocalStorageService
   ) {
     if (environment.locale === 'en-EN') {
       this._locale.languageCode = 'en-EN';

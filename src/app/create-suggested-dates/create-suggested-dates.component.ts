@@ -1,23 +1,31 @@
-import {Component, Inject, LOCALE_ID, OnInit, input} from '@angular/core';
-import {AppStateService} from '../shared/services/app-state/app-state.service';
-import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Logger} from '../shared/services/logging';
-import {Router} from '@angular/router';
-import {dateValidator} from '../shared/validators/date-validator.directive';
-import {timeValidator} from '../shared/validators/time-validator.directive';
-import {dateInFutureOrTodayValidator} from '../shared/validators/date-today-or-in-future-validator.directive';
-import {minLengthArrayValidator} from '../shared/validators/min-length-array-validator.directive';
-import {maxLengthArrayValidator} from '../shared/validators/max-length-array-validator.directive';
-import {DateTimeGeneratorService} from '../shared/services/generators';
-import {ValidatorConstants} from '../shared/constants/validatorConstants';
-import {suggestedDateValidator} from '../shared/validators/suggested-date-validator.directive';
-import {SuggestedDatesFormConstants} from './suggested-dates-form-constants';
-import {Appointment, SuggestedDate} from '../shared/models';
-import {ValidatorUtils} from '../shared/validators/validator-utils';
+import { Component, Inject, LOCALE_ID, OnInit, input } from '@angular/core';
+import { AppStateService } from '../shared/services/app-state/app-state.service';
+import {
+  AbstractControl,
+  UntypedFormArray,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
+import { Logger } from '../shared/services/logging';
+import { Router } from '@angular/router';
+import { dateValidator } from '../shared/validators/date-validator.directive';
+import { timeValidator } from '../shared/validators/time-validator.directive';
+import { dateInFutureOrTodayValidator } from '../shared/validators/date-today-or-in-future-validator.directive';
+import { minLengthArrayValidator } from '../shared/validators/min-length-array-validator.directive';
+import { maxLengthArrayValidator } from '../shared/validators/max-length-array-validator.directive';
+import { DateTimeGeneratorService } from '../shared/services/generators';
+import { ValidatorConstants } from '../shared/constants/validatorConstants';
+import { suggestedDateValidator } from '../shared/validators/suggested-date-validator.directive';
+import { SuggestedDatesFormConstants } from './suggested-dates-form-constants';
+import { Appointment, SuggestedDate } from '../shared/models';
+import { ValidatorUtils } from '../shared/validators/validator-utils';
 import moment from 'moment';
-import {MomentUtils, NullableUtils} from '../shared/utils';
-import {ApiConstants} from '../shared/constants/apiConstants';
-import {RouteTitleService} from "../shared/services/route-title.service";
+import { MomentUtils, NullableUtils } from '../shared/utils';
+import { ApiConstants } from '../shared/constants/apiConstants';
+import { RouteTitleService } from '../shared/services/route-title.service';
 import { StepperComponent } from '../shared/components/stepper/stepper.component';
 import { AdminInfoComponent } from '../shared/components/admin-info/admin-info.component';
 import { NgOptimizedImage, NgClass } from '@angular/common';
@@ -29,7 +37,17 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-create-suggested-dates',
   templateUrl: './create-suggested-dates.component.html',
   styleUrls: ['./create-suggested-dates.component.scss'],
-  imports: [StepperComponent, AdminInfoComponent, FormsModule, ReactiveFormsModule, NgOptimizedImage, NgClass, AutofocusDirective, NavigationComponent, TranslatePipe]
+  imports: [
+    StepperComponent,
+    AdminInfoComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    NgClass,
+    AutofocusDirective,
+    NavigationComponent,
+    TranslatePipe
+  ]
 })
 export class CreateSuggestedDatesComponent implements OnInit {
   protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
@@ -39,21 +57,28 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public static readonly FORM_KEY_SUGGESTED_DATE_ID = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_ID;
   public static readonly FORM_KEY_SUGGESTED_DATES = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATES;
-  public static readonly FORM_KEY_SUGGESTED_DATE_START_DATE = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE;
-  public static readonly FORM_KEY_SUGGESTED_DATE_START_TIME = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME;
-  public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME;
-  public static readonly FORM_KEY_SUGGESTED_DATE_END_DATE = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE;
+  public static readonly FORM_KEY_SUGGESTED_DATE_START_DATE =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE;
+  public static readonly FORM_KEY_SUGGESTED_DATE_START_TIME =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME;
+  public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME;
+  public static readonly FORM_KEY_SUGGESTED_DATE_END_DATE =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE;
   public static readonly FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME =
     SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME;
   public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME =
     SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME;
-  public static readonly FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME;
+  public static readonly FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME;
   public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME =
     SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME;
   public static readonly FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM =
     SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM;
-  public static readonly FORM_KEY_SUGGESTED_DATE_DESCRIPTION = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION;
-  public static readonly FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS;
+  public static readonly FORM_KEY_SUGGESTED_DATE_DESCRIPTION =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION;
+  public static readonly FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS =
+    SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS;
 
   readonly isAdmin = input(false);
 
@@ -61,13 +86,14 @@ export class CreateSuggestedDatesComponent implements OnInit {
   suggestedDatesToDelete: SuggestedDate[];
   adminId: string;
   datesForm: UntypedFormGroup = new UntypedFormGroup({
-      [CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATES]: new UntypedFormArray([],
-        [
-          minLengthArrayValidator(CreateSuggestedDatesComponent.MIN_NUMBER_SUGGESTED_DATES),
-          maxLengthArrayValidator(CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES)
-        ])
-    }
-  );
+    [CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATES]: new UntypedFormArray(
+      [],
+      [
+        minLengthArrayValidator(CreateSuggestedDatesComponent.MIN_NUMBER_SUGGESTED_DATES),
+        maxLengthArrayValidator(CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES)
+      ]
+    )
+  });
   minDate: string;
   maxDate: string;
 
@@ -101,8 +127,11 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
     const appointmentModel: Appointment = this.appStateService.getAppointment();
     this.adminId = appointmentModel.adminId;
-    this.model = NullableUtils.isObjectNullOrUndefined(appointmentModel) || NullableUtils.isArrayNullOrEmpty(appointmentModel.suggestedDates)
-      ? [] : appointmentModel.suggestedDates;
+    this.model =
+      NullableUtils.isObjectNullOrUndefined(appointmentModel) ||
+      NullableUtils.isArrayNullOrEmpty(appointmentModel.suggestedDates)
+        ? []
+        : appointmentModel.suggestedDates;
     if (NullableUtils.isArrayNullOrEmpty(this.model)) {
       this.addSuggestedDate();
     } else {
@@ -144,38 +173,45 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   public getSuggestedDateIdOfSuggestedDateByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_ID) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_ID
+    ) as AbstractControl;
   }
 
   public getStartDateOfSuggestedStartDateByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_START_DATE) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_START_DATE
+    ) as AbstractControl;
   }
 
   public getEndDateOfSuggestedStartDateByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_END_DATE) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_END_DATE
+    ) as AbstractControl;
   }
 
   public getStartTimeOfSuggestedStartDateByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_START_TIME) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_START_TIME
+    ) as AbstractControl;
   }
 
   public getEndTimeOfSuggestedStartDateByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME
+    ) as AbstractControl;
   }
 
   public getEndTimeOfSuggestedEndDateByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME
+    ) as AbstractControl;
   }
 
   public getShowSuggestedDateEndDateOnDifferentDayForm(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM
+    ) as AbstractControl;
   }
 
   public getShowSuggestedDateEndDateOnDifferentDayFormValue(index: number): boolean {
@@ -183,18 +219,21 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   public getDescriptionByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_DESCRIPTION) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_DESCRIPTION
+    ) as AbstractControl;
   }
 
   public getHasVotingsByIndex(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS
+    ) as AbstractControl;
   }
 
   public getShowStartDateStartTimeControl(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME
+    ) as AbstractControl;
   }
 
   public getShowStartDateStartTimeControlValue(index: number): boolean {
@@ -211,8 +250,9 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   public getShowStartDateEndTimeControl(index: number): AbstractControl {
-    return this.getSuggestedDatesForm(index)
-      .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME) as AbstractControl;
+    return this.getSuggestedDatesForm(index).get(
+      CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME
+    ) as AbstractControl;
   }
 
   public getShowStartDateEndTimeControlValue(index: number): boolean {
@@ -224,7 +264,8 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   public getShowEndDateEndTimeControl(index: number): AbstractControl {
-    return this.getSuggestedDatesFromForm().at(index)
+    return this.getSuggestedDatesFromForm()
+      .at(index)
       .get(CreateSuggestedDatesComponent.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME) as AbstractControl;
   }
 
@@ -252,7 +293,10 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public getSuggestedDateStartDateControlValue(index: number): string {
     try {
-      return ValidatorUtils.reformatDateString(this.getStartDateOfSuggestedStartDateByIndex(index).value, this.localeId);
+      return ValidatorUtils.reformatDateString(
+        this.getStartDateOfSuggestedStartDateByIndex(index).value,
+        this.localeId
+      );
     } catch (e) {
       return '';
     }
@@ -278,11 +322,13 @@ export class CreateSuggestedDatesComponent implements OnInit {
     const model: Appointment = this.appStateService.getAppointment();
     this.logger.debug(
       `Formular hat die folgenden Werte : ${JSON.stringify(this.getSuggestedDatesFromForm().value)}`,
-      this.getSuggestedDatesFromForm().value);
+      this.getSuggestedDatesFromForm().value
+    );
     const suggestedDates = this.createSuggestedDatesFromForm();
     this.logger.debug(`Ermittelten Terminoptionen sind: ${JSON.stringify(suggestedDates)}`, suggestedDates);
     model.suggestedDates = suggestedDates.sort((a, b) =>
-      (a.startDate > b.startDate) ? 1 : ((a.startDate === b.startDate) && (a.startTime > b.startTime)) ? 1 : -1);
+      a.startDate > b.startDate ? 1 : a.startDate === b.startDate && a.startTime > b.startTime ? 1 : -1
+    );
     model.suggestedDatesToDelete = this.suggestedDatesToDelete;
     this.appStateService.updateAppointment(model);
     // noinspection JSIgnoredPromiseFromCall
@@ -302,8 +348,12 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public deleteSuggestedDateFormByIndex(index: number): void {
     const itemToDelete: SuggestedDate = this.createSuggestedDate(index);
-    if (itemToDelete.suggestedDateId !== null && itemToDelete.suggestedDateId !== undefined
-      && itemToDelete.suggestedDateId !== '' && itemToDelete.suggestedDateId.length > 0) {
+    if (
+      itemToDelete.suggestedDateId !== null &&
+      itemToDelete.suggestedDateId !== undefined &&
+      itemToDelete.suggestedDateId !== '' &&
+      itemToDelete.suggestedDateId.length > 0
+    ) {
       this.suggestedDatesToDelete.push(itemToDelete);
     }
     this.getSuggestedDatesFromForm().removeAt(index);
@@ -329,64 +379,92 @@ export class CreateSuggestedDatesComponent implements OnInit {
     const suggestedDateSubmitted = !NullableUtils.isObjectNullOrUndefined(suggestedDate);
     const suggestedDateIdValue: string = suggestedDateSubmitted ? suggestedDate.suggestedDateId : null;
     const hasVotingsValue: boolean = suggestedDateSubmitted ? suggestedDate.hasVotings : false;
-    const startDateValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
-      ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.startDate, this.localeId).format(ValidatorConstants.MOMENT_FORMAT_DATE)
-      : null;
-    const endDateValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
-      ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.endDate, this.localeId).format(ValidatorConstants.MOMENT_FORMAT_DATE)
-      : null;
-    const startTimeValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime)
-      ? ValidatorUtils.serializeTimeFromMoment(
-        ValidatorUtils.parseMomentFromIsoString(suggestedDate.startTime, this.localeId),
-        this.localeId)
-      : null;
-    const endTimeValue: string = suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime)
-      ? ValidatorUtils.serializeTimeFromMoment(
-        ValidatorUtils.parseMomentFromIsoString(suggestedDate.endTime, this.localeId),
-        this.localeId)
-      : null;
-    const descriptionValue: string = suggestedDateSubmitted && !NullableUtils.isStringNullOrWhitespace(suggestedDate.description)
-      ? suggestedDate.description.trim()
-      : null;
+    const startDateValue: string =
+      suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startDate)
+        ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.startDate, this.localeId).format(
+            ValidatorConstants.MOMENT_FORMAT_DATE
+          )
+        : null;
+    const endDateValue: string =
+      suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endDate)
+        ? ValidatorUtils.parseMomentFromIsoString(suggestedDate.endDate, this.localeId).format(
+            ValidatorConstants.MOMENT_FORMAT_DATE
+          )
+        : null;
+    const startTimeValue: string =
+      suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.startTime)
+        ? ValidatorUtils.serializeTimeFromMoment(
+            ValidatorUtils.parseMomentFromIsoString(suggestedDate.startTime, this.localeId),
+            this.localeId
+          )
+        : null;
+    const endTimeValue: string =
+      suggestedDateSubmitted && !NullableUtils.isObjectNullOrUndefined(suggestedDate.endTime)
+        ? ValidatorUtils.serializeTimeFromMoment(
+            ValidatorUtils.parseMomentFromIsoString(suggestedDate.endTime, this.localeId),
+            this.localeId
+          )
+        : null;
+    const descriptionValue: string =
+      suggestedDateSubmitted && !NullableUtils.isStringNullOrWhitespace(suggestedDate.description)
+        ? suggestedDate.description.trim()
+        : null;
 
-    return new UntypedFormGroup({
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_ID]: new UntypedFormControl(suggestedDateIdValue),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS]: new UntypedFormControl(hasVotingsValue),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE]: new UntypedFormControl({
-          value: startDateValue,
-          disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
-        },
-        [
-          Validators.required,
-          dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator)
-        ]),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME]: new UntypedFormControl({
-          value: startTimeValue,
-          disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
-        },
-        [timeValidator(this.localeId)]),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME]: new UntypedFormControl(false),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE]: new UntypedFormControl({
-          value: endDateValue,
-          disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
-        },
-        [dateValidator(this.localeId)]),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME]: new UntypedFormControl({
-          value: endDateValue === null ? endTimeValue : null,
-          disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
-        },
-        [timeValidator(this.localeId)]),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME]: new UntypedFormControl(false),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME]: new UntypedFormControl({
-          value: endDateValue !== null ? endTimeValue : null,
-          disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
-        },
-        [timeValidator(this.localeId)]),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME]: new UntypedFormControl(false),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]: new UntypedFormControl(endDateValue !== null),
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION]: new UntypedFormControl(descriptionValue,
-        [Validators.maxLength(ValidatorConstants.MAX_LENGTH_DATE_DESCRIPTION)]),
-    }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin())]);
+    return new UntypedFormGroup(
+      {
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_ID]: new UntypedFormControl(suggestedDateIdValue),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS]: new UntypedFormControl(hasVotingsValue),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE]: new UntypedFormControl(
+          {
+            value: startDateValue,
+            disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
+          },
+          [
+            Validators.required,
+            dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator)
+          ]
+        ),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME]: new UntypedFormControl(
+          {
+            value: startTimeValue,
+            disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
+          },
+          [timeValidator(this.localeId)]
+        ),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_TIME]: new UntypedFormControl(false),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE]: new UntypedFormControl(
+          {
+            value: endDateValue,
+            disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
+          },
+          [dateValidator(this.localeId)]
+        ),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME]: new UntypedFormControl(
+          {
+            value: endDateValue === null ? endTimeValue : null,
+            disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
+          },
+          [timeValidator(this.localeId)]
+        ),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_START_DATE_END_TIME]: new UntypedFormControl(false),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME]: new UntypedFormControl(
+          {
+            value: endDateValue !== null ? endTimeValue : null,
+            disabled: !this.isSuggestedDateEditableByObj(suggestedDate)
+          },
+          [timeValidator(this.localeId)]
+        ),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_END_DATE_END_TIME]: new UntypedFormControl(false),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]:
+          new UntypedFormControl(endDateValue !== null),
+        [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION]: new UntypedFormControl(
+          descriptionValue,
+          // prettier-ignore
+          [Validators.maxLength(ValidatorConstants.MAX_LENGTH_DATE_DESCRIPTION)]
+        )
+      },
+      [suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin())]
+    );
   }
 
   private createSuggestedDatesFromForm(): SuggestedDate[] {
@@ -405,7 +483,8 @@ export class CreateSuggestedDatesComponent implements OnInit {
     const startDate: moment.Moment = this.parseDateFromString(this.getSuggestedDateStartDateControlValue(index));
     itemToAdd.startDate = this.createSerializedDateFromString(this.getSuggestedDateStartDateControlValue(index));
     itemToAdd.startTime = !NullableUtils.isStringNullOrEmpty(this.getSuggestedStartTimeControlValue(index))
-      ? this.createSerializedDateTimeFromString(startDate, this.getSuggestedStartTimeControlValue(index)) : null;
+      ? this.createSerializedDateTimeFromString(startDate, this.getSuggestedStartTimeControlValue(index))
+      : null;
     const endDateAsString: string = this.getShowSuggestedDateEndDateOnDifferentDayFormValue(index)
       ? this.getSuggestedDateEndDateControlValue(index)
       : null;

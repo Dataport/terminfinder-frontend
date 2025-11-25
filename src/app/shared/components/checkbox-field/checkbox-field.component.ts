@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, TemplateRef, input} from '@angular/core';
-import {NoopValueAccessorDirective} from "../../directives/noop-value-accessor.directive";
-import {ReactiveFormsModule} from "@angular/forms";
-import {injectNgControl} from "../../utils/inject-ng-control";
-import {NgTemplateOutlet} from "@angular/common";
+import { ChangeDetectionStrategy, Component, TemplateRef, input } from '@angular/core';
+import { NoopValueAccessorDirective } from '../../directives/noop-value-accessor.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { injectNgControl } from '../../utils/inject-ng-control';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-checkbox-field',
@@ -23,7 +23,7 @@ import {NgTemplateOutlet} from "@angular/common";
         type="checkbox"
         value=""
         [attr.aria-describedby]="ariaDescribedBy()"
-      >
+      />
       <label for="checkbox" class="form-check-label w-100 multiline">
         @if (labelTemplate()) {
           <ng-container *ngTemplateOutlet="labelTemplate()"></ng-container>

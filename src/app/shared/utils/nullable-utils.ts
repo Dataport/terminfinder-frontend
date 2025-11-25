@@ -32,6 +32,6 @@ export class NullableUtils {
    * @return {boolean} true if instance is null or undefined or contains only white spaces. otherwise false.
    */
   public static isStringNullOrWhitespace(value: string): boolean {
-    return this.isObjectNullOrUndefined(value) || !(/\S/.test(value));
+    return this.isObjectNullOrUndefined(value) || !/\S/.test(value);
   }
 }

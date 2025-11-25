@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from "../../../environments/environment";
-import { Location } from "@angular/common";
-import { RouteTitleService } from "../../shared/services/route-title.service";
+import { environment } from '../../../environments/environment';
+import { Location } from '@angular/common';
+import { RouteTitleService } from '../../shared/services/route-title.service';
 import { StringTransformService } from 'src/app/shared/services/string-transform.service';
 import { SafeHtml } from '@angular/platform-browser';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -13,11 +13,13 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [TranslatePipe]
 })
 export class TermsOfServiceComponent implements OnInit {
-
   readonly termsOfService: SafeHtml = this.stringTransformService.decodeAndSanitize(environment.termsOfService);
 
-  constructor(private location: Location, private routeTitle: RouteTitleService, private stringTransformService: StringTransformService) {
-  }
+  constructor(
+    private location: Location,
+    private routeTitle: RouteTitleService,
+    private stringTransformService: StringTransformService
+  ) {}
 
   ngOnInit(): void {
     this.routeTitle.setTitle('tos.tos');

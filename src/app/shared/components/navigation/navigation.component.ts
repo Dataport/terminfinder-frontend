@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Output, input} from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -8,11 +8,11 @@ import { NgClass } from '@angular/common';
   imports: [NgClass]
 })
 export class NavigationComponent {
-  @Input() forwardText: string;
-  @Input() backwardText: string;
-  @Input() hasBackwardButton: boolean;
-  @Input() hasForwardButton: boolean;
-  @Input() isInvalid: boolean;
+  readonly forwardText = input<string>(undefined);
+  readonly backwardText = input<string>(undefined);
+  readonly hasBackwardButton = input<boolean>(undefined);
+  readonly hasForwardButton = input<boolean>(undefined);
+  readonly isInvalid = input<boolean>(undefined);
   @Output() backward = new EventEmitter();
   @Output() forward = new EventEmitter();
 

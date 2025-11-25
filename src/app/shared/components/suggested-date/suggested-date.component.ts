@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {SuggestedDate} from '../../models';
 import {LocaleService} from '../../services/locale/locale.service';
 import { NgClass, SlicePipe, DatePipe } from '@angular/common';
@@ -11,8 +11,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [NgClass, SlicePipe, DatePipe, TranslatePipe]
 })
 export class SuggestedDateComponent {
-  @Input() date: SuggestedDate;
-  @Input() index: number;
+  readonly date = input<SuggestedDate>(undefined);
+  readonly index = input<number>(undefined);
 
   constructor(private localeService: LocaleService) {
   }

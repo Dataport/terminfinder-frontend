@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {ReactiveFormsModule, UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterLink} from "@angular/router";
@@ -16,13 +16,13 @@ import {CheckboxFieldComponent} from "../checkbox-field/checkbox-field.component
   ]
 })
 export class TosComponent {
-  @Input() tosFormGroup: UntypedFormGroup;
+  readonly tosFormGroup = input<UntypedFormGroup>(undefined);
 
   constructor() {
   }
 
   get isTosRead() {
-    return this.tosFormGroup.controls.isTosRead as UntypedFormControl;
+    return this.tosFormGroup().controls.isTosRead as UntypedFormControl;
   }
 
 }

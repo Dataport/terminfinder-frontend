@@ -1,5 +1,5 @@
 <div class="row justify-content-center mt-4 mb-0">
-  @if (!isAdmin) {
+  @if (!isAdmin()) {
     <h1 class="text-center mb-2" data-id="settingsAdditionalHeading" id="settings-additional-heading">
       {{ 'settings.additional' | translate }}
     </h1>
@@ -12,7 +12,7 @@
 <div class="row justify-content-center">
   <app-stepper [currentStep]="2" data-id="stepperComponent"></app-stepper>
 </div>
-@if (isAdmin) {
+@if (isAdmin()) {
   <app-admin-info></app-admin-info>
 }
 <div class="row justify-content-center">
@@ -20,7 +20,7 @@
     <form
       (ngSubmit)="onSubmit()"
       [formGroup]="settingsForm"
-      [attr.aria-labelledby]="isAdmin ? 'settings-change-heading' : 'settings-additional-heading'"
+      [attr.aria-labelledby]="isAdmin() ? 'settings-change-heading' : 'settings-additional-heading'"
     >
       <div class="section-container p-4 pr-5">
         <div class="row g-0">

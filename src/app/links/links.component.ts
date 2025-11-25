@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit, input} from '@angular/core';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import { Router, RouterLink } from '@angular/router';
@@ -20,7 +20,7 @@ export class LinksComponent implements OnInit {
   model: Appointment;
   surveyLinkAdmin? = environment.surveyLinkAdmin;
 
-  @Input() isAdmin = false;
+  readonly isAdmin = input(false);
 
   constructor(
     private appStateService: AppStateService,

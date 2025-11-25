@@ -1,4 +1,4 @@
-import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnInit, input} from '@angular/core';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import { AbstractControl, UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Logger} from '../shared/services/logging';
@@ -55,7 +55,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   public static readonly FORM_KEY_SUGGESTED_DATE_DESCRIPTION = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION;
   public static readonly FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS = SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_HAS_VOTINGS;
 
-  @Input() isAdmin = false;
+  readonly isAdmin = input(false);
 
   model: SuggestedDate[];
   suggestedDatesToDelete: SuggestedDate[];
@@ -115,7 +115,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     this.minDate = now.format(ValidatorConstants.MOMENT_FORMAT_DATE);
     this.maxDate = now.add(5, 'years').format(ValidatorConstants.MOMENT_FORMAT_DATE);
 
-    if (this.isAdmin) {
+    if (this.isAdmin()) {
       this.routeTitle.setTitle('date.change');
     } else {
       this.routeTitle.setTitle('date.choose');
@@ -124,7 +124,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public goBack(): void {
     // noinspection JSIgnoredPromiseFromCall
-    if (!this.isAdmin) {
+    if (!this.isAdmin()) {
       this.router.navigate(['/create']).then();
     } else {
       this.router.navigate(['/poll-admin']).then();
@@ -286,7 +286,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
     model.suggestedDatesToDelete = this.suggestedDatesToDelete;
     this.appStateService.updateAppointment(model);
     // noinspection JSIgnoredPromiseFromCall
-    if (this.isAdmin) {
+    if (this.isAdmin()) {
       this.router.navigate(['/admin/settings']).then();
     } else {
       this.router.navigate(['/settings']).then();
@@ -386,7 +386,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]: new UntypedFormControl(endDateValue !== null),
       [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_DESCRIPTION]: new UntypedFormControl(descriptionValue,
         [Validators.maxLength(ValidatorConstants.MAX_LENGTH_DATE_DESCRIPTION)]),
-    }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin)]);
+    }, [suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin())]);
   }
 
   private createSuggestedDatesFromForm(): SuggestedDate[] {

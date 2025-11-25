@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {Appointment} from '../../models';
 import { SuggestedDateComponent } from '../suggested-date/suggested-date.component';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -10,7 +10,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [SuggestedDateComponent, TranslatePipe]
 })
 export class DatesOverviewComponent {
-  @Input() appointment: Appointment;
+  readonly appointment = input<Appointment>(undefined);
 
   constructor() {
   }

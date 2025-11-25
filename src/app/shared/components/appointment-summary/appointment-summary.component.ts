@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, input} from '@angular/core';
 import {Appointment} from '../../models';
 import {LinkGeneratorService} from "../../services/generators";
 import { ClipboardModule } from 'ngx-clipboard';
@@ -16,10 +16,10 @@ export class AppointmentSummaryComponent implements OnInit, AfterViewInit {
   moreButtonRequired = true;
   absoluteAppointmentUrl: string = '';
 
-  @Input() appointment: Appointment;
-  @Input() showUsername = true;
-  @Input() showAppointmentUrl = false;
-  @Input() showDeleteWarning = false;
+  readonly appointment = input<Appointment>(undefined);
+  readonly showUsername = input(true);
+  readonly showAppointmentUrl = input(false);
+  readonly showDeleteWarning = input(false);
   @ViewChild('description', {static: false}) descriptionElement: ElementRef;
 
   constructor(
@@ -43,6 +43,6 @@ export class AppointmentSummaryComponent implements OnInit, AfterViewInit {
   }
 
   getDescription(): string {
-    return this.appointment.description.replace(/\n\r?/g, '<br/>');
+    return this.appointment().description.replace(/\n\r?/g, '<br/>');
   }
 }

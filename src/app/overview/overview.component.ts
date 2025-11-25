@@ -1,4 +1,4 @@
-import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnInit, input} from '@angular/core';
 import {Appointment, Message, MessageType} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {Logger} from '../shared/services/logging';
@@ -25,7 +25,7 @@ export class OverviewComponent implements OnInit {
   model: Appointment;
   apiError: Message;
 
-  @Input() isAdmin = false;
+  readonly isAdmin = input(false);
 
   constructor(
     private dataRepoService: DataRepositoryService,
@@ -91,7 +91,7 @@ export class OverviewComponent implements OnInit {
 
   public goBack(): void {
     // noinspection JSIgnoredPromiseFromCall
-    if (!this.isAdmin) {
+    if (!this.isAdmin()) {
       this.router.navigate(['/create']).then();
     } else {
       this.router.navigate(['/poll-admin']).then();

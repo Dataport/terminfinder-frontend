@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {Location} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {BomFile, LicenseSummary} from '../../shared/models';
@@ -14,15 +14,14 @@ type AmountOfLicencesElement = { license: string, amount: number }
   imports: [TranslatePipe]
 })
 export class BomComponent implements OnInit {
+  private location = inject(Location);
+  private http = inject(HttpClient);
+  private routeTitle = inject(RouteTitleService);
 
   amountOfLicences: AmountOfLicencesElement[] = [{license: 'Keine Lizenz gefunden', amount: 0}];
   summary: LicenseSummary[] = [];
 
-  constructor(
-    private location: Location,
-    private http: HttpClient,
-    private routeTitle: RouteTitleService
-  ) {
+  constructor() {
     this.http.get<BomFile>('./sbom.json').subscribe((licenses) => {
       licenses.components.sort((a, b) => (a.group + a.name).localeCompare(b.group + b.name));
       licenses.components.forEach(component => {

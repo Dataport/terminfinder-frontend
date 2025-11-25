@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {AppStateService} from './shared/services/app-state/app-state.service';
 import {NullableUtils} from './shared/utils';
@@ -6,9 +6,7 @@ import {HttpConstants} from './shared/services/data-service';
 
 @Injectable()
 export class BasicAuthInterceptor implements HttpInterceptor {
-
-  constructor(private appStateService: AppStateService) {
-  }
+  private appStateService = inject(AppStateService);
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const appointment = this.appStateService.getAppointment();

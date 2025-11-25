@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {Participant} from '../shared/models';
 import {PollFormHelperService} from './poll-form-helper.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,10 +14,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [FormsModule, ReactiveFormsModule, NgClass, SuggestedDateComponent, PollOptionsComponent, TranslatePipe]
 })
 export class MobilePollTableComponent {
-  constructor(
-    public formHelper: PollFormHelperService
-  ) {
-  }
+  formHelper = inject(PollFormHelperService);
 
   public getSelectedParticipant(): Participant {
     return this.formHelper.getSelectedParticipantControl().value as Participant;

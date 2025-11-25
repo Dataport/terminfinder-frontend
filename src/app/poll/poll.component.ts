@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, ViewChild, inject } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {DataRepositoryService} from '../shared/services/data-service';
@@ -32,6 +32,14 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [MessageBoxComponent, FormsModule, ReactiveFormsModule, AppointmentSummaryComponent, MobilePollTableComponent, SuggestedDateComponent, NgClass, AutofocusDirective, PollOptionsComponent, TosComponent, TranslatePipe]
 })
 export class PollComponent implements OnInit {
+  private route = inject(ActivatedRoute);
+  private logger = inject(Logger);
+  private dataRepoService = inject(DataRepositoryService);
+  private appStateService = inject(AppStateService);
+  formHelper = inject(PollFormHelperService);
+  private routeTitle = inject(RouteTitleService);
+  private changeDetector = inject(ChangeDetectorRef);
+
   model: Appointment;
   apiError: Message;
   isAppointmentPaused: boolean;
@@ -41,17 +49,6 @@ export class PollComponent implements OnInit {
 
   @ViewChild('suggestedDatesRow') suggestedDatesRow: ElementRef;
   @ViewChild('pollSummaryRow') pollSummaryRow: ElementRef;
-
-  constructor(
-    private route: ActivatedRoute,
-    private logger: Logger,
-    private dataRepoService: DataRepositoryService,
-    private appStateService: AppStateService,
-    public formHelper: PollFormHelperService,
-    private routeTitle: RouteTitleService,
-    private changeDetector: ChangeDetectorRef
-  ) {
-  }
 
   ngOnInit() {
     userNotifications.forEach(notification => {

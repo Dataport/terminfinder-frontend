@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, input} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, input, inject } from '@angular/core';
 import {Appointment} from '../../models';
 import {LinkGeneratorService} from "../../services/generators";
 import { ClipboardModule } from 'ngx-clipboard';
@@ -13,6 +13,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 
 export class AppointmentSummaryComponent implements OnInit, AfterViewInit {
+  private linkGeneratorService = inject(LinkGeneratorService);
+
   moreButtonRequired = true;
   absoluteAppointmentUrl: string = '';
 
@@ -21,11 +23,6 @@ export class AppointmentSummaryComponent implements OnInit, AfterViewInit {
   readonly showAppointmentUrl = input(false);
   readonly showDeleteWarning = input(false);
   @ViewChild('description', {static: false}) descriptionElement: ElementRef;
-
-  constructor(
-    private linkGeneratorService: LinkGeneratorService
-  ) {
-  }
 
   ngOnInit(): void {
     this.absoluteAppointmentUrl = this.linkGeneratorService.generateAbsoluteAppointmentLink();

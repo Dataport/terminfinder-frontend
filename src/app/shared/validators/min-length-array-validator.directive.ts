@@ -1,4 +1,4 @@
-import {Attribute, Directive, forwardRef} from '@angular/core';
+import { Directive, forwardRef, HostAttributeToken, inject } from '@angular/core';
 import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
 
 const MIN_VALUE = 0;
@@ -24,10 +24,14 @@ export function minLengthArrayValidator(min: number): ValidatorFn {
   }],
 })
 export class MinLengthArrayValidatorDirective implements Validator {
+  private min = inject(new HostAttributeToken('minLength'));
+
   validator: Function;
 
-  constructor(@Attribute('minLength') private min: number) {
-    this.validator = minLengthArrayValidator(min);
+  constructor() {
+    const min = this.min;
+
+    this.validator = minLengthArrayValidator(Number(min));
   }
 
   validate(c: AbstractControl) {

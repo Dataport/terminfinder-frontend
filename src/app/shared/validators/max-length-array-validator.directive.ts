@@ -1,4 +1,4 @@
-import {Attribute, Directive, forwardRef} from '@angular/core';
+import { Directive, forwardRef, HostAttributeToken, inject } from '@angular/core';
 import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
 
 const MIN_VALUE = 0;
@@ -26,8 +26,10 @@ export function maxLengthArrayValidator(max: number): ValidatorFn {
 export class MaxLengthArrayValidatorDirective implements Validator {
   validator: Function;
 
-  constructor(@Attribute('maxLength') max: number) {
-    this.validator = maxLengthArrayValidator(max);
+  constructor() {
+    const max = inject(new HostAttributeToken('maxLength'));
+
+    this.validator = maxLengthArrayValidator(Number(max));
   }
 
   validate(c: AbstractControl) {

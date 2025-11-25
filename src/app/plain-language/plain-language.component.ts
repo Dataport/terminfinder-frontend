@@ -34,10 +34,9 @@ import {RouteTitleService} from "../shared/services/route-title.service";
   styleUrl: './plain-language.component.scss'
 })
 export class PlainLanguageComponent implements OnInit {
-  protected readonly location = inject(Location);
+  private routeTitle = inject(RouteTitleService);
 
-  constructor(private routeTitle: RouteTitleService) {
-  }
+  protected readonly location = inject(Location);
 
   ngOnInit(): void {
     this.routeTitle.setTitle('accessibility.plainLanguage.header');

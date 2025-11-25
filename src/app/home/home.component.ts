@@ -1,4 +1,4 @@
-import {Component, Inject, isDevMode, LOCALE_ID, OnInit} from '@angular/core';
+import { Component, isDevMode, LOCALE_ID, OnInit, inject } from '@angular/core';
 import {ApiVersion} from '../shared/models/api-data-v1-dto';
 import {Appointment, Message, MessageType} from '../shared/models';
 import {DataRepositoryService} from '../shared/services/data-service';
@@ -24,6 +24,13 @@ import { MessageBoxComponent } from '../shared/components/message-box/message-bo
   imports: [AdIconsComponent, FormsModule, ReactiveFormsModule, TosComponent, NgClass, MessageBoxComponent, TranslatePipe]
 })
 export class HomeComponent implements OnInit {
+  private dataRepoService = inject(DataRepositoryService);
+  private appStateService = inject(AppStateService);
+  private logger = inject(Logger);
+  private localeId = inject(LOCALE_ID);
+  private router = inject(Router);
+  translate = inject(TranslateService);
+
   localUserNotifications: Array<UserNotification> = [];
   apiVersion = '';
   buildDate = '';
@@ -31,15 +38,6 @@ export class HomeComponent implements OnInit {
   titleForm: UntypedFormGroup;
   model: Appointment;
   derivateTitle = {value: environment.title ? environment.title : 'Terminfinder'};
-
-  constructor(
-    private dataRepoService: DataRepositoryService,
-    private appStateService: AppStateService,
-    private logger: Logger, @Inject(LOCALE_ID) private localeId: string,
-    private router: Router,
-    public translate: TranslateService
-  ) {
-  }
 
   get isTosRead() {
     return this.titleForm.get('isTosRead') as UntypedFormControl;

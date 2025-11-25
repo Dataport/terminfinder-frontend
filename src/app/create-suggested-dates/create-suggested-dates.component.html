@@ -1,10 +1,10 @@
 <div class="row justify-content-center mt-4 mb-0">
-  @if (!isAdmin) {
+  @if (!isAdmin()) {
     <h1 class="text-center mb-2" data-id="dateChooseHeading" id="date-choose-heading">
       {{ 'date.choose' | translate }}
     </h1>
   }
-  @if (isAdmin) {
+  @if (isAdmin()) {
     <h1 class="text-center" id="date-change-heading">
       {{ 'date.change' | translate }}
     </h1>
@@ -13,7 +13,7 @@
 <div class="row justify-content-center">
   <app-stepper [currentStep]="1" data-id="stepperComponent"></app-stepper>
 </div>
-@if (isAdmin) {
+@if (isAdmin()) {
   <app-admin-info></app-admin-info>
 }
 <div class="row justify-content-center">
@@ -21,7 +21,7 @@
     (ngSubmit)="onSubmit()"
     [formGroup]="datesForm"
     class="col col-lg-9"
-    [attr.aria-labelledby]="isAdmin ? 'date-change-heading' : 'date-choose-heading'"
+    [attr.aria-labelledby]="isAdmin() ? 'date-change-heading' : 'date-choose-heading'"
   >
     <!-- section container for each date entry -->
     @for (suggestedDateForm of getSuggestedDatesFromForm().controls; track suggestedDateForm; let i = $index) {

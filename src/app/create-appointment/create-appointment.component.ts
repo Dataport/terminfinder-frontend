@@ -1,4 +1,4 @@
-import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnInit, input} from '@angular/core';
 import { AbstractControl, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
@@ -25,7 +25,7 @@ export class CreateAppointmentComponent implements OnInit {
   detailsForm: UntypedFormGroup;
   model: Appointment;
 
-  @Input() isAdmin = false;
+  readonly isAdmin = input(false);
 
   constructor(
     private appStateService: AppStateService,
@@ -56,7 +56,7 @@ export class CreateAppointmentComponent implements OnInit {
     this.model = this.appStateService.getAppointment();
     this.fillForm();
 
-    if (this.isAdmin) {
+    if (this.isAdmin()) {
       this.routeTitle.setTitle('poll.change');
     } else {
       this.routeTitle.setTitle('poll.addDetails');
@@ -71,7 +71,7 @@ export class CreateAppointmentComponent implements OnInit {
     this.model.location = appointmentFromForm.location;
     this.model.description = appointmentFromForm.description;
     this.appStateService.updateAppointment(this.model);
-    if (!this.isAdmin) {
+    if (!this.isAdmin()) {
       this.router.navigate(['/dates']).then();
     } else {
       this.router.navigate(['/admin/dates']).then();

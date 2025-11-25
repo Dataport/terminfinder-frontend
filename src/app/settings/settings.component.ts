@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, input} from '@angular/core';
 import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
@@ -29,7 +29,7 @@ export class SettingsComponent implements OnInit {
   passwordHidden = true;
   passwordRepeatHidden = true;
 
-  @Input() isAdmin = false;
+  readonly isAdmin = input(false);
 
   constructor(
     private appStateService: AppStateService,
@@ -49,7 +49,7 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this.model = this.appStateService.getAppointment();
     const isPasswordEntered = !!this.model.password || this.appStateService.isAppointmentProtected;
-    this.showPlaceholder = this.appStateService.isAppointmentProtected && this.isAdmin;
+    this.showPlaceholder = this.appStateService.isAppointmentProtected && this.isAdmin();
     this.settingsForm = this.fb.group({
       hasPassword: [isPasswordEntered || this.appStateService.isAppointmentProtected],
       password: [
@@ -93,7 +93,7 @@ export class SettingsComponent implements OnInit {
       }
     });
 
-    if (this.isAdmin) {
+    if (this.isAdmin()) {
       this.routeTitle.setTitle('settings.change');
     } else {
       this.routeTitle.setTitle('settings.additional');
@@ -121,7 +121,7 @@ export class SettingsComponent implements OnInit {
   }
 
   public goBack(): void {
-    if (!this.isAdmin) {
+    if (!this.isAdmin()) {
       this.router.navigate(['/dates']).then();
     } else {
       this.router.navigate(['admin/dates']).then();
@@ -144,7 +144,7 @@ export class SettingsComponent implements OnInit {
     }
 
     this.appStateService.updateAppointment(this.model);
-    if (!this.isAdmin) {
+    if (!this.isAdmin()) {
       this.router.navigate(['/overview']).then();
     } else {
       this.router.navigate(['/admin/overview']).then();

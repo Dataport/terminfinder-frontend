@@ -1,4 +1,4 @@
-@if (showAppointmentUrl && absoluteAppointmentUrl) {
+@if (showAppointmentUrl() && absoluteAppointmentUrl) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
       <img aria-hidden="true" alt="" class="icon" src="assets/calendar_grey.svg"/>
@@ -21,40 +21,40 @@
     </div>
   </div>
 }
-@if (showUsername && appointment.name) {
+@if (showUsername() && appointment().name) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
       <img aria-hidden="true" alt="" class="icon" src="assets/user.svg"/>
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewNameLabel">{{ 'poll.details.name.name' | translate }}</div>
-      <div class="value" data-cy="overviewNameValue" id="name">{{ appointment.name }}</div>
+      <div class="value" data-cy="overviewNameValue" id="name">{{ appointment().name }}</div>
     </div>
   </div>
 }
-@if (appointment.title) {
+@if (appointment().title) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
       <img aria-hidden="true" alt="" class="icon" src="assets/title.svg"/>
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewTitleLabel">{{ 'poll.title.title' | translate }}</div>
-      <div class="value" data-cy="overviewTitleValue" id="title">{{ appointment.title }}</div>
+      <div class="value" data-cy="overviewTitleValue" id="title">{{ appointment().title }}</div>
     </div>
   </div>
 }
-@if (appointment.location) {
+@if (appointment().location) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
       <img aria-hidden="true" alt="" class="icon" src="assets/location.svg"/>
     </div>
     <div class="col align-self-top">
       <div class="header" data-cy="overviewPlaceLabel">{{ 'poll.details.place.place' | translate }}</div>
-      <div class="value" data-cy="overviewPlaceValue" id="location">{{ appointment.location }}</div>
+      <div class="value" data-cy="overviewPlaceValue" id="location">{{ appointment().location }}</div>
     </div>
   </div>
 }
-@if (appointment.description) {
+@if (appointment().description) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
       <img aria-hidden="true" alt="" class="icon" src="assets/description.svg"/>
@@ -69,7 +69,7 @@
     </div>
   </div>
 }
-@if (showDeleteWarning) {
+@if (showDeleteWarning()) {
   <div class="row g-0 mb-3">
     <div class="col-auto align-self-center mr-2">
       <img aria-hidden="true" alt="" class="icon" src="assets/delete_gray.svg"/>

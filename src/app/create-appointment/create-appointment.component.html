@@ -1,10 +1,10 @@
 <div class="row justify-content-center mt-4 mb-0">
-  @if (!isAdmin) {
+  @if (!isAdmin()) {
     <h1 class="text-center mb-2" data-id="addDetailsHeading" id="add-details-heading">
       {{ 'poll.addDetails' | translate }}
     </h1>
   }
-  @if (isAdmin) {
+  @if (isAdmin()) {
     <h1 class="text-center" id="change-details-heading">
       {{ 'poll.change' | translate }}
     </h1>
@@ -13,14 +13,14 @@
 <div class="row justify-content-center">
   <app-stepper [currentStep]="0" data-id="stepperComponent"></app-stepper>
 </div>
-@if (isAdmin) {
+@if (isAdmin()) {
   <app-admin-info></app-admin-info>
 }
 <form
   (ngSubmit)="onSubmit()"
   [formGroup]="detailsForm"
   class="row justify-content-center wizard"
-  [attr.aria-labelledby]="isAdmin ? 'change-details-heading' : 'add-details-heading'"
+  [attr.aria-labelledby]="isAdmin() ? 'change-details-heading' : 'add-details-heading'"
 >
   <div class="col-11 col-lg-8">
     <div class="row justify-content-center px-3">

@@ -28,7 +28,7 @@
         <app-message-box [message]="apiError" data-id="errorMessageBox"></app-message-box>
       </div>
     }
-    @if (isAdmin) {
+    @if (isAdmin()) {
       <app-navigation
         (backward)="goBack()"
         (forward)="sendUpdateAppointment()"

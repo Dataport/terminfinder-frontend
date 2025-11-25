@@ -1,5 +1,5 @@
 <div class="row justify-content-around mt-3">
-  @if (hasBackwardButton) {
+  @if (hasBackwardButton()) {
     <div class="col">
       <button
         (click)="onBack()"
@@ -8,22 +8,22 @@
         id="back"
         type="button"
       >
-        {{ backwardText }}
+        {{ backwardText() }}
       </button>
     </div>
   }
-  @if (hasForwardButton) {
+  @if (hasForwardButton()) {
     <div class="col">
       <button
         (click)="onSubmit()"
-        [attr.aria-disabled]="isInvalid"
-        [ngClass]="{'disabled': isInvalid}"
+        [attr.aria-disabled]="isInvalid()"
+        [ngClass]="{'disabled': isInvalid()}"
         class="btn btn-secondary btn-with-image btn-next w-100"
         data-id="next"
         id="next"
         type="button"
       >
-        {{ forwardText }}
+        {{ forwardText() }}
       </button>
     </div>
   }

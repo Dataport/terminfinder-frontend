@@ -1,6 +1,6 @@
 <div #combo class="combo" [ngClass]="{'open': isOpen}">
   <div id="combo-label" class="combo-label visually-hidden">
-    {{ label }}
+    {{ label() }}
   </div>
   <!--suppress XmlInvalidId | validation just checks for simple strings, at runtime this is fine -->
   <div
@@ -16,10 +16,10 @@
     aria-controls="listbox"
     aria-haspopup="listbox"
     aria-labelledby="combo-label"
-    [attr.data-id]="dataId"
+    [attr.data-id]="dataId()"
     tabindex="0"
   >
-    {{ options[activeIndex].value }}
+    {{ options()[activeIndex].value }}
   </div>
   <div
     #listbox
@@ -30,7 +30,7 @@
     aria-labelledby="combo-label"
     (focusout)="onBlur($event)"
   >
-    @for (option of options; track option; let i = $index) {
+    @for (option of options(); track option; let i = $index) {
       <div
         #option
         [attr.id]="'combo-option-' + i"

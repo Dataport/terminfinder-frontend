@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, input} from '@angular/core';
 import {NgClass} from "@angular/common";
 
 enum SelectActions {
@@ -31,11 +31,11 @@ const PAGE_SIZE = 10;
   imports: [NgClass]
 })
 export class ComboboxComponent implements AfterViewInit {
-  @Input() label: string = '';
-  @Input() options: ComboboxOption[];
-  @Input() defaultOptionIndex = 0;
-  @Input() callback: (args: any) => void;
-  @Input() dataId: string = '';
+  readonly label = input<string>('');
+  readonly options = input<ComboboxOption[]>(undefined);
+  readonly defaultOptionIndex = input(0);
+  readonly callback = input<(args: any) => void>(undefined);
+  readonly dataId = input<string>('');
 
   // refs
   @ViewChild('combo') comboElem!: ElementRef<HTMLDivElement>;
@@ -53,7 +53,7 @@ export class ComboboxComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.selectOption(this.defaultOptionIndex);
+    this.selectOption(this.defaultOptionIndex());
   }
 
   /*
@@ -149,9 +149,10 @@ export class ComboboxComponent implements AfterViewInit {
     this.setActiveIndex(index);
     this.setMenuState(false, false);
 
-    const selectedOption = this.options[this.activeIndex];
-    if (this.callback) {
-      this.callback(selectedOption.callbackArgs);
+    const selectedOption = this.options()[this.activeIndex];
+    const callback = this.callback();
+    if (callback) {
+      callback(selectedOption.callbackArgs);
     }
   }
 
@@ -195,14 +196,14 @@ export class ComboboxComponent implements AfterViewInit {
   }
 
   private getIndexByString(filter: string): number {
-    return this.options.findIndex(option =>
+    return this.options().findIndex(option =>
       option.value.toLowerCase()
         .startsWith(filter.toLowerCase()));
   }
 
   private getUpdatedIndex(action: SelectActions): number {
-    const maxIndex = this.options.length > 0
-      ? this.options.length - 1
+    const maxIndex = this.options().length > 0
+      ? this.options().length - 1
       : 0;
 
     switch (action) {

@@ -1,4 +1,4 @@
-import {VotingStatusType} from './votingStatusType';
+import { VotingStatusType } from './votingStatusType';
 
 export class Voting {
   votingId: string;

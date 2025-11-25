@@ -2,7 +2,7 @@
   <div class="col-11 col-lg-8">
     @if (isDev()) {
       <div class="row alert alert-warning" data-id="testBanner">
-        {{ 'home.testEnvironmentBanner' | translate:derivateTitle }}
+        {{ 'home.testEnvironmentBanner' | translate: derivateTitle }}
       </div>
     }
     @for (notification of localUserNotifications; track notification) {
@@ -17,14 +17,11 @@
       </h1>
     </div>
     <div class="row g-0 justify-content-center">
-      <form
-        (ngSubmit)="onSubmit()"
-        [formGroup]="titleForm"
-        class="col"
-        aria-labelledby="create-poll-label"
-      >
+      <form (ngSubmit)="onSubmit()" [formGroup]="titleForm" class="col" aria-labelledby="create-poll-label">
         <div class="form-row justify-content-center">
-          <label class="col" id="create-poll-label" data-id="createPollLabel" for="title">{{ 'poll.title.set' | translate }}</label>
+          <label class="col" id="create-poll-label" data-id="createPollLabel" for="title">
+            {{ 'poll.title.set' | translate }}
+          </label>
         </div>
         <div class="form-row mb-2">
           <div class="col invalid-message-highlight">
@@ -36,7 +33,8 @@
               id="title"
               placeholder="{{ 'home.placeholder' | translate }}"
               aria-describedby="required-title invalid-title long-title"
-              type="text">
+              type="text"
+            />
             @if ((title.dirty || title.touched) && !!title.errors?.required) {
               <div
                 class="invalid-message"
@@ -62,13 +60,7 @@
               </div>
             }
             @if (!!title.errors?.maxlength) {
-              <div
-                class="invalid-message"
-                data-id="msgLongTitle"
-                id="long-title"
-                role="alert"
-                aria-atomic="false"
-              >
+              <div class="invalid-message" data-id="msgLongTitle" id="long-title" role="alert" aria-atomic="false">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 {{ 'poll.title.tooLong' | translate }}
               </div>
@@ -80,7 +72,7 @@
           <div class="col pt-3">
             <button
               [attr.aria-disabled]="titleForm.invalid"
-              [ngClass]="{'disabled': titleForm.invalid}"
+              [ngClass]="{ disabled: titleForm.invalid }"
               class="btn btn-secondary w-100"
               data-id="createPollButton"
               id="btn-submit"
@@ -88,7 +80,7 @@
             >
               <span class="icon-create-poll"></span>
               {{ 'poll.create' | translate }}
-              <img aria-hidden="true" alt="" class="icon-create-poll" src="assets/icn_umfrage_erstellen.svg">
+              <img aria-hidden="true" alt="" class="icon-create-poll" src="assets/icn_umfrage_erstellen.svg" />
             </button>
           </div>
         </div>

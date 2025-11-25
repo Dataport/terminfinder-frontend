@@ -12,11 +12,11 @@ function compareJsonContents(baseFile, testFile, path) {
 
   for (const key of baseKeys) {
     if (!testKeys.includes(key)) {
-      differences.push({[path + '/' + key]: 'no key in test file'});
+      differences.push({ [path + '/' + key]: 'no key in test file' });
       continue;
     }
     if (typeof baseFile[key] !== typeof testFile[key]) {
-      differences.push({[path + '/' + key]: 'different types: ' + typeof baseFile[key] + ' vs. ' + testFile[key]});
+      differences.push({ [path + '/' + key]: 'different types: ' + typeof baseFile[key] + ' vs. ' + testFile[key] });
       continue;
     }
     if (typeof baseFile[key] !== 'string') {
@@ -31,7 +31,7 @@ function checkForEmptyValues(file, path) {
   for (const key in file) {
     if (typeof file[key] === 'string') {
       if (file[key] === '') {
-        emptyValues.push({[path + '/' + key]: 'emptyValue'});
+        emptyValues.push({ [path + '/' + key]: 'emptyValue' });
       }
     } else {
       emptyValues = emptyValues.concat(checkForEmptyValues(file[key], [path + '/' + key]));
@@ -41,11 +41,11 @@ function checkForEmptyValues(file, path) {
 }
 
 function showResult(base, test, baseName, testName) {
-  let results =
-    [].concat(checkForEmptyValues(base, baseName))
-      .concat(checkForEmptyValues(test, testName))
-      .concat(compareJsonContents(base, test, testName))
-      .concat(compareJsonContents(test, base, baseName));
+  let results = []
+    .concat(checkForEmptyValues(base, baseName))
+    .concat(checkForEmptyValues(test, testName))
+    .concat(compareJsonContents(base, test, testName))
+    .concat(compareJsonContents(test, base, baseName));
 
   if (results.length !== 0) {
     console.error('ERROR');
@@ -58,5 +58,5 @@ showResult(du, sie, 'de-DE-du.json', 'de-DE-sie.json');
 showResult(du, en, 'de-DE-du.json', 'en-EN.json');
 
 if (error) {
-  throw('There are i18n locale errors!');
+  throw 'There are i18n locale errors!';
 }

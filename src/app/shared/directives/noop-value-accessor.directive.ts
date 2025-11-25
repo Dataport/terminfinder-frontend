@@ -1,5 +1,5 @@
-import {Directive} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Directive } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
  * use as host directive to forward outside formControl like this:
@@ -11,17 +11,14 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NoopValueAccessorDirective,
-    },
-  ],
+      useExisting: NoopValueAccessorDirective
+    }
+  ]
 })
 export class NoopValueAccessorDirective implements ControlValueAccessor {
-  writeValue(): void {
-  }
+  writeValue(): void {}
 
-  registerOnChange(): void {
-  }
+  registerOnChange(): void {}
 
-  registerOnTouched(): void {
-  }
+  registerOnTouched(): void {}
 }

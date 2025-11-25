@@ -19,7 +19,15 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterLink, NgOptimizedImage, ComboboxComponent, NgbToast, RouterOutlet, FooterComponent, TranslatePipe]
+  imports: [
+    RouterLink,
+    NgOptimizedImage,
+    ComboboxComponent,
+    NgbToast,
+    RouterOutlet,
+    FooterComponent,
+    TranslatePipe
+  ]
 })
 export class AppComponent implements OnInit {
   protected readonly NullableUtils = NullableUtils;
@@ -43,13 +51,11 @@ export class AppComponent implements OnInit {
     const lang = this.localStorageService.get('language');
     this.logger.debug('LANG: ', lang);
 
-    this.localeService
-      .initLanguage(lang)
-      .subscribe({
-        error: _ => {
-          this.connectionError = true;
-        }
-      });
+    this.localeService.initLanguage(lang).subscribe({
+      error: () => {
+        this.connectionError = true;
+      }
+    });
 
     this.colorsService.replaceCSSColorFromEnv(this.stringTransformService.decode(environment.colors));
     this.colorsService.replaceCSSColorsFromCookies();

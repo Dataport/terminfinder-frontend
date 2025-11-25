@@ -1,8 +1,8 @@
 import moment from 'moment';
-import {ValidatorConstants} from '../constants/validatorConstants';
-import {MomentUtils, NullableUtils} from '../utils';
-import {AbstractControl} from '@angular/forms';
-import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
+import { ValidatorConstants } from '../constants/validatorConstants';
+import { MomentUtils, NullableUtils } from '../utils';
+import { AbstractControl } from '@angular/forms';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 export class ValidatorUtils {
   /**
@@ -72,7 +72,9 @@ export class ValidatorUtils {
       throw new Error(`Submitted value for localeId is null or undefined`);
     }
 
-    const result = moment({year: date.year, month: date.month - 1, day: date.day}).locale(localeId).utc(true);
+    const result = moment({ year: date.year, month: date.month - 1, day: date.day })
+      .locale(localeId)
+      .utc(true);
     if (!result.isValid()) {
       throw new Error(`Submitted date is not a valid moment date string`);
     }
@@ -89,7 +91,7 @@ export class ValidatorUtils {
     }
 
     value.locale(localeId);
-    return {year: value.year(), month: value.month() + 1, day: value.date()};
+    return { year: value.year(), month: value.month() + 1, day: value.date() };
   }
 
   public static reformatDateString(date: string, localeId: string): string {
@@ -117,7 +119,7 @@ export class ValidatorUtils {
       throw new Error('control is null or undefined');
     }
 
-    const type: string = typeof (control.value);
+    const type: string = typeof control.value;
     if (type === 'string') {
       return MomentUtils.parseMomentDateFromString(control.value, localeId);
     } else {

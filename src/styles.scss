@@ -1,18 +1,19 @@
-@use 'sass:map';
-@use 'default' as *;
-@use 'colors' as *;
-@use '@fortawesome/fontawesome-free/scss/fontawesome';
-@use 'ngx-toastr/toastr' as *;
+@use "sass:map";
+@use "default" as *;
+@use "colors" as *;
+@use "@fortawesome/fontawesome-free/scss/fontawesome";
+@use "ngx-toastr/toastr" as *;
 
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap/scss/mixins';
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/mixins";
 
 @font-face {
   font-family: Roboto;
-  src: url(/assets/fonts/Roboto-Regular.ttf);  /* EOT for IE */
-  src: local("Roboto"),
-  url(/assets/fonts/Roboto-Regular.ttf) format("truetype"); /* non-IE */
+  src: url(/assets/fonts/Roboto-Regular.ttf); /* EOT for IE */
+  src:
+    local("Roboto"),
+    url(/assets/fonts/Roboto-Regular.ttf) format("truetype"); /* non-IE */
 }
 
 body {
@@ -91,29 +92,29 @@ button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="sub
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     height: 100%;
-    width: .25rem;
-    border-left: .25rem solid $input-invalid-color;
+    width: 0.25rem;
+    border-left: 0.25rem solid $input-invalid-color;
     position: absolute;
     top: 0;
     z-index: 1;
-    left: .25rem;
+    left: 0.25rem;
   }
 
   &.invalid-message-highlight:not(.form-group)::before {
-    left: -.5rem;
+    left: -0.5rem;
   }
 
   @media (max-width: map.get($grid-breakpoints, lg)) {
     &::before {
-      left: -.15rem;
+      left: -0.15rem;
     }
   }
 }
 
 .checkbox-label:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -122,7 +123,7 @@ button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="sub
   position: relative;
   display: inline-block;
   border: 1px solid #a9a9a9;
-  border-radius: .25em;
+  border-radius: 0.25em;
   width: 1.3em;
   height: 1.3em;
   float: left;
@@ -130,7 +131,7 @@ button.btn:has(img):not(.btn-suggested-date-end-at-different-day):not([type="sub
 
 .checkbox .checkbox-box .checkbox-icon {
   position: absolute;
-  font-size: .8em;
+  font-size: 0.8em;
   line-height: 0;
   top: 50%;
   left: 15%;
@@ -146,7 +147,7 @@ input[type="date"] {
 }
 
 *[aria-disabled="true"] {
-  opacity: .5;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -163,7 +164,7 @@ input[type="date"] {
 }
 
 .checkbox input[type="checkbox"]:disabled + .checkbox-box {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 input,
@@ -179,8 +180,8 @@ a,
 .btn-secondary {
   &:focus {
     box-shadow: none !important;
-    outline: .25rem solid var(--primary, #{$primary}) !important;
-    outline-offset: .25rem;
+    outline: 0.25rem solid var(--primary, #{$primary}) !important;
+    outline-offset: 0.25rem;
   }
 }
 
@@ -291,15 +292,16 @@ a,
 .divider {
   border: 1px solid $divider-border-color;
   background-color: $divider-background-color;
-  min-height: $spacer*1;
-  margin: $spacer*0.25 0;
+  min-height: $spacer * 1;
+  margin: $spacer * 0.25 0;
 }
 
 .divider-single {
   border-top: 1px solid #b2b2b2;
 }
 
-.divider, .divider-single {
+.divider,
+.divider-single {
   border-right-width: 0;
   border-left-width: 0;
 }
@@ -338,7 +340,10 @@ a,
   }
 }
 
-.scrollable-date-pane .data-cell, .poll-summary-row .data-cell, .poll-add-user-row .data-cell, .votings .data-cell {
+.scrollable-date-pane .data-cell,
+.poll-summary-row .data-cell,
+.poll-add-user-row .data-cell,
+.votings .data-cell {
   vertical-align: top;
   border-right: 1px solid $poll-data-cell-border-left-right-color;
   width: 120px;
@@ -346,7 +351,7 @@ a,
 
 .date-time-overview > .row .d-sm-inline-block .date-time-entry {
   @include media-breakpoint-down(md) {
-    padding: $spacer*1 0;
+    padding: $spacer * 1 0;
   }
 }
 
@@ -364,7 +369,9 @@ a,
     box-shadow: none;
   }
 
-  table td.active, table td.active:hover, table td span.active {
+  table td.active,
+  table td.active:hover,
+  table td span.active {
     background-color: var(--secondary, #{$secondary});
   }
 
@@ -399,12 +406,15 @@ a,
   background-color: transparent;
   box-shadow: none;
 
-  &:focus, &:hover, &active {
+  &:focus,
+  &:hover,
+  &active {
     box-shadow: none !important;
   }
 }
 
-.btn-add-participant, .btn-edit-participant {
+.btn-add-participant,
+.btn-edit-participant {
   padding: 0 !important;
 }
 
@@ -422,11 +432,13 @@ a,
   padding-right: $form-status-icon-width-small + 11px !important;
   padding-left: $form-status-icon-width-small + 11px !important;
 
-  &, &:active {
+  &,
+  &:active {
     background-image: url("/assets/next.svg") !important;
   }
 
-  .disabled, &:disabled {
+  .disabled,
+  &:disabled {
     @include btn-disabled;
   }
 
@@ -437,8 +449,12 @@ a,
   }
 }
 
-.btn-next.disabled, .btn-next:disabled, .btn-secondary.disabled, .btn-secondary:disabled,
-.btn.btn-secondary.disabled, .btn.btn-secondary:disabled {
+.btn-next.disabled,
+.btn-next:disabled,
+.btn-secondary.disabled,
+.btn-secondary:disabled,
+.btn.btn-secondary.disabled,
+.btn.btn-secondary:disabled {
   @include btn-disabled;
 }
 
@@ -449,7 +465,8 @@ a,
   padding-left: $form-status-icon-width-small + 11px !important;
   padding-right: $form-status-icon-width + 11px !important;
 
-  &, &:active {
+  &,
+  &:active {
     background-image: url("/assets/back.svg") !important;
   }
 
@@ -469,7 +486,8 @@ a,
 }
 
 @media (min-width: map.get($grid-breakpoints, lg)) {
-  .btn-with-image.btn-back, .btn-with-image.btn-next {
+  .btn-with-image.btn-back,
+  .btn-with-image.btn-next {
     min-width: 12.5rem;
   }
 }
@@ -524,7 +542,7 @@ a,
 }
 
 .text-dark-gray {
-  color: var(--dark-gray, #{$dark-gray})
+  color: var(--dark-gray, #{$dark-gray});
 }
 
 .sr-only {

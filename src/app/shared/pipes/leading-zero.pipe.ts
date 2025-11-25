@@ -1,5 +1,5 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {NullableUtils} from '../utils';
+import { Pipe, PipeTransform } from '@angular/core';
+import { NullableUtils } from '../utils';
 
 @Pipe({ name: 'leadingZero' })
 export class LeadingZeroPipe implements PipeTransform {

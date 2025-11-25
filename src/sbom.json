@@ -3,15 +3,15 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:bf514646-74c1-487f-af16-209a97a53f66",
+  "serialNumber": "urn:uuid:9b9b1fff-2e00-4e5b-a41e-a195a0961402",
   "metadata": {
-    "timestamp": "2025-12-02T10:23:13.443Z",
+    "timestamp": "2025-12-02T12:34:54.757Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "name": "npm",
-          "version": "10.9.3"
+          "version": "10.9.4"
         },
         {
           "type": "application",
@@ -2345,9 +2345,9 @@
       "type": "library",
       "name": "sourcemap-codec",
       "group": "@jridgewell",
-      "version": "1.5.0",
-      "bom-ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0",
-      "author": "Rich Harris",
+      "version": "1.5.5",
+      "bom-ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
+      "author": "Justin Ridgewell",
       "description": "Encode/decode sourcemap mappings",
       "licenses": [
         {
@@ -2357,30 +2357,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.0",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5#packages/sourcemap-codec",
       "externalReferences": [
         {
-          "url": "git+https://github.com/jridgewell/sourcemap-codec.git",
+          "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/sourcemap-codec",
           "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
         },
         {
-          "url": "https://github.com/jridgewell/sourcemap-codec#readme",
+          "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec",
           "type": "website",
           "comment": "as detected from PackageJson property \"homepage\""
         },
         {
-          "url": "https://github.com/jridgewell/sourcemap-codec/issues",
+          "url": "https://github.com/jridgewell/sourcemaps/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.0.tgz",
+          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "82fdd945a2125377e33c080db2b88146a19640beaab85c74e1830f5bfcc3f1730bb14df69a10826df6cee8a6452e3bd8a4267ccf20c482ab207fe3f03da33b19"
+              "content": "71843ddf5d20aeac6e7966e5f96b885086a251a0dc8fb58eab97d58449633558117ce52163d7f2db34ef7e8a96b2779b87c4a5ef45527056c80af2672ca0743a"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6906,7 +6906,7 @@
       "dependsOn": [
         "terminfinder@0.0.0|@angular/compiler@19.2.17",
         "terminfinder@0.0.0|@babel/core@7.26.9",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0",
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
         "terminfinder@0.0.0|@angular/compiler-cli@19.2.17|chokidar@4.0.3",
         "terminfinder@0.0.0|convert-source-map@1.8.0",
         "terminfinder@0.0.0|reflect-metadata@0.2.2",
@@ -7004,7 +7004,7 @@
       "ref": "terminfinder@0.0.0|source-map@0.7.4"
     },
     {
-      "ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0"
+      "ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
     },
     {
       "ref": "terminfinder@0.0.0|convert-source-map@1.8.0",
@@ -7035,7 +7035,7 @@
       "ref": "terminfinder@0.0.0|@ampproject/remapping@2.3.0|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.1",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0"
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {
@@ -7060,7 +7060,7 @@
       "ref": "terminfinder@0.0.0|@babel/generator@7.26.10|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.1",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0"
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {
@@ -7141,7 +7141,7 @@
       "ref": "terminfinder@0.0.0|@babel/traverse@7.27.7|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.1",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0"
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {
@@ -7255,7 +7255,7 @@
       "ref": "terminfinder@0.0.0|@jridgewell/gen-mapping@0.3.5",
       "dependsOn": [
         "terminfinder@0.0.0|@jridgewell/set-array@1.2.1",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0",
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
         "terminfinder@0.0.0|@jridgewell/gen-mapping@0.3.5|@jridgewell/trace-mapping@0.3.25"
       ]
     },
@@ -7263,7 +7263,7 @@
       "ref": "terminfinder@0.0.0|@jridgewell/gen-mapping@0.3.5|@jridgewell/trace-mapping@0.3.25",
       "dependsOn": [
         "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.1",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.0"
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
       ]
     },
     {

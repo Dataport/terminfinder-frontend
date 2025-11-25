@@ -1,5 +1,5 @@
-@use 'src/default' as *;
-@import 'bootstrap/scss/mixins';
+@use "src/default" as *;
+@import "bootstrap/scss/mixins";
 
 /* custom styles */
 label[for="title"] {
@@ -31,6 +31,7 @@ label[for="title"] {
   width: $form-icon-height;
 }
 
-#btn-submit.disabled, #btn-submit:disabled {
+#btn-submit.disabled,
+#btn-submit:disabled {
   @include btn-disabled;
 }

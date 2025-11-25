@@ -1,13 +1,11 @@
 <aside aria-labelledby="stepper">
   <div class="container">
     <div class="d-flex justify-content-center">
-      <p class="mb-1 small text-bold">
-        {{ 'navigation.step' | translate }} {{ currentStep() + 1 }}/{{ steps.length }}
-      </p>
+      <p class="mb-1 small text-bold">{{ 'navigation.step' | translate }} {{ currentStep() + 1 }}/{{ steps.length }}</p>
     </div>
     <div class="d-flex mb-4 align-items-center">
       @for (step of steps; track step; let i = $index) {
-        <div class="circle" [ngClass]="{'circle-active': step===currentStep()}"></div>
+        <div class="circle" [ngClass]="{ 'circle-active': step === currentStep() }"></div>
         @if (i !== steps.length - 1) {
           <div class="line"></div>
         }

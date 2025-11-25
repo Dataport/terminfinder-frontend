@@ -1,5 +1,5 @@
-import {Attribute, Directive, forwardRef} from '@angular/core';
-import {AbstractControl, NG_VALIDATORS, Validator, ValidatorFn} from '@angular/forms';
+import { Attribute, Directive, forwardRef } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular/forms';
 
 const MIN_VALUE = 0;
 
@@ -11,17 +11,19 @@ export function maxLengthArrayValidator(max: number): ValidatorFn {
     if (c.value.length <= max) {
       return null;
     }
-    return {invalidMaxLengthArray: {valid: false}};
+    return { invalidMaxLengthArray: { valid: false } };
   };
 }
 
 @Directive({
   selector: '[appValidateMaxLengthArray][ngModel],[appValidateMaxLengthArray][formControl]',
-  providers: [{
-    provide: NG_VALIDATORS,
-    useExisting: forwardRef(() => MaxLengthArrayValidatorDirective),
-    multi: true
-  }],
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => MaxLengthArrayValidatorDirective),
+      multi: true
+    }
+  ]
 })
 export class MaxLengthArrayValidatorDirective implements Validator {
   validator: Function;

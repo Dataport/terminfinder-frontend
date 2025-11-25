@@ -1,7 +1,7 @@
-import {Component, input, signal} from '@angular/core';
-import {SanitizeUrlPipe} from "../../pipes/sanitize-url.pipe";
-import {NgOptimizedImage} from "@angular/common";
-import {TranslatePipe} from "@ngx-translate/core";
+import { Component, input, signal } from '@angular/core';
+import { SanitizeUrlPipe } from '../../pipes/sanitize-url.pipe';
+import { NgOptimizedImage } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-video-player',
@@ -16,8 +16,9 @@ import {TranslatePipe} from "@ngx-translate/core";
         <button
           class="btn"
           (click)="loadIframe()"
-          [attr.aria-label]="title() + ' - ' + ('accessibility.signLanguage.startVideo' | translate)">
-          <img [ngSrc]="placeholderSrc()" width="width" height="height" alt="" aria-hidden="true">
+          [attr.aria-label]="title() + ' - ' + ('accessibility.signLanguage.startVideo' | translate)"
+        >
+          <img [ngSrc]="placeholderSrc()" width="width" height="height" alt="" aria-hidden="true" />
         </button>
       } @else {
         @if (videoSrc()) {
@@ -31,7 +32,8 @@ import {TranslatePipe} from "@ngx-translate/core";
             mozAllowFullScreen
             allow="autoplay *; fullscreen *; encrypted-media *"
             referrerPolicy="no-referrer-when-downgrade"
-            sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation">
+            sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation"
+          >
           </iframe>
         } @else {
           <p>no video source provided</p>
@@ -51,7 +53,7 @@ import {TranslatePipe} from "@ngx-translate/core";
       /* mimic video player appearance */
       padding: 5% 0;
       background-color: black;
-      border-radius: .5em;
+      border-radius: 0.5em;
     }
 
     iframe {

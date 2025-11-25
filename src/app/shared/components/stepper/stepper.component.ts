@@ -1,20 +1,27 @@
-import {Component, input} from '@angular/core';
+import { Component, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
-const STEPS: number[] = [0, 1, 2, 3];
+const STEPS: number[] = [
+  0,
+  1,
+  2,
+  3
+];
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss'],
-  imports: [NgClass, TranslatePipe]
+  imports: [
+    NgClass,
+    TranslatePipe
+  ]
 })
 export class StepperComponent {
   readonly currentStep = input<number>(undefined);
 
-  constructor() {
-  }
+  constructor() {}
 
   // noinspection JSMethodCanBeStatic
   /**
@@ -24,5 +31,4 @@ export class StepperComponent {
   public get steps(): number[] {
     return STEPS;
   }
-
 }

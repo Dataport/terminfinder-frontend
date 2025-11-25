@@ -1,36 +1,38 @@
-import {Injectable} from '@angular/core';
-import {AppStateService} from '../app-state/app-state.service';
-import {EnvConfig} from '../../../../environments/env-config.interface';
-import {DateTimeGeneratorService} from '../generators';
-import {LogLevel} from './logLevel';
-import {LogInterface} from './log.interface';
-import {ConsoleProvider} from './console-provider.service';
+import { Injectable } from '@angular/core';
+import { AppStateService } from '../app-state/app-state.service';
+import { EnvConfig } from '../../../../environments/env-config.interface';
+import { DateTimeGeneratorService } from '../generators';
+import { LogLevel } from './logLevel';
+import { LogInterface } from './log.interface';
+import { ConsoleProvider } from './console-provider.service';
 import moment from 'moment';
-import {NullableUtils} from "../../utils";
+import { NullableUtils } from '../../utils';
 
 @Injectable()
 export class Logger implements LogInterface {
-
   private static readonly LOGGING_MOMENT_DATETIME_FORMAT_DEFAULT_VALUE = 'YYYY-MM-DDTHH:mm:ss.SSSZ';
   private static readonly LOG_LEVEL_THRESHOLD_DEFAULT_VALUE: LogLevel = LogLevel.TRACE;
 
   public readonly loggingMomentDateTimeFormat: string = Logger.LOGGING_MOMENT_DATETIME_FORMAT_DEFAULT_VALUE;
   public readonly logLevelThreshold: LogLevel = LogLevel.TRACE;
 
-  constructor(private appState: AppStateService, private dateTimeGenerator: DateTimeGeneratorService,
-              private consoleProvider: ConsoleProvider) {
+  constructor(
+    private appState: AppStateService,
+    private dateTimeGenerator: DateTimeGeneratorService,
+    private consoleProvider: ConsoleProvider
+  ) {
     const envConfig: EnvConfig = this.appState.getEnvConfig();
 
     const hasLogOptions = !NullableUtils.isObjectNullOrUndefined(envConfig.consoleLoggingOptions);
-    const hasMomentDateTimeFormatConfigValue = hasLogOptions
-      && !NullableUtils.isObjectNullOrUndefined(envConfig.consoleLoggingOptions.momentDateTimeFormat);
-    const haslogLevelThresholdConfigValue = hasLogOptions
-      && !NullableUtils.isObjectNullOrUndefined(envConfig.consoleLoggingOptions.logLevelThreshold);
+    const hasMomentDateTimeFormatConfigValue =
+      hasLogOptions && !NullableUtils.isObjectNullOrUndefined(envConfig.consoleLoggingOptions.momentDateTimeFormat);
+    const haslogLevelThresholdConfigValue =
+      hasLogOptions && !NullableUtils.isObjectNullOrUndefined(envConfig.consoleLoggingOptions.logLevelThreshold);
 
-    this.loggingMomentDateTimeFormat = (hasMomentDateTimeFormatConfigValue)
+    this.loggingMomentDateTimeFormat = hasMomentDateTimeFormatConfigValue
       ? envConfig.consoleLoggingOptions.momentDateTimeFormat
       : Logger.LOGGING_MOMENT_DATETIME_FORMAT_DEFAULT_VALUE;
-    this.logLevelThreshold = (haslogLevelThresholdConfigValue)
+    this.logLevelThreshold = haslogLevelThresholdConfigValue
       ? envConfig.consoleLoggingOptions.logLevelThreshold
       : Logger.LOG_LEVEL_THRESHOLD_DEFAULT_VALUE;
   }
@@ -73,7 +75,7 @@ export class Logger implements LogInterface {
     let loggingPrefix = `${this.getCurrentFormattedDateTime()}:`;
     const args = [];
 
-    if ((typeof message === 'string')) {
+    if (typeof message === 'string') {
       loggingPrefix = `${loggingPrefix} ${message}`;
       args.push(loggingPrefix);
     } else {

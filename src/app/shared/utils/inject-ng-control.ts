@@ -8,7 +8,11 @@ export function injectNgControl() {
     throw new Error('NgControl is not available. Make sure the component is associated with a form control.');
   }
 
-  if (ngControl instanceof FormControlDirective || ngControl instanceof FormControlName || ngControl instanceof NgModel) {
+  if (
+    ngControl instanceof FormControlDirective ||
+    ngControl instanceof FormControlName ||
+    ngControl instanceof NgModel
+  ) {
     return ngControl;
   }
 

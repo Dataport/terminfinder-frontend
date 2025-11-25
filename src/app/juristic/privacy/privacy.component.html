@@ -1,9 +1,4 @@
 <div [innerHTML]="privacy" class="content" data-cy="content"></div>
-<button
-  (click)="back()"
-  aria-label="Zurück"
-  class="btn btn-secondary w-100"
-  data-cy="backBtn"
->
+<button (click)="back()" aria-label="Zurück" class="btn btn-secondary w-100" data-cy="backBtn">
   {{ 'navigation.back' | translate }}
 </button>

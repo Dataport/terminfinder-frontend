@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {EnvConfig} from '../../../../environments/env-config.interface';
-import {environment} from '../../../../environments/environment';
-import {Appointment} from '../../models';
-import {NullableUtils} from '../../utils';
-import {AppointmentStatusType} from '../../models/appointmentStatusType';
+import { Injectable } from '@angular/core';
+import { EnvConfig } from '../../../../environments/env-config.interface';
+import { environment } from '../../../../environments/environment';
+import { Appointment } from '../../models';
+import { NullableUtils } from '../../utils';
+import { AppointmentStatusType } from '../../models/appointmentStatusType';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,7 @@ export class AppStateService {
   };
   private credentials = '';
 
-  constructor() {
-  }
+  constructor() {}
 
   // noinspection JSMethodCanBeStatic
   public getEnvConfig(): EnvConfig {

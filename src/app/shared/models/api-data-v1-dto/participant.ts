@@ -1,4 +1,4 @@
-import {Voting} from './voting';
+import { Voting } from './voting';
 
 export class Participant {
   participantId: string;

@@ -1,6 +1,6 @@
-@use 'sass:map';
-@use 'src/default' as *;
-@import 'bootstrap/scss/mixins';
+@use "sass:map";
+@use "src/default" as *;
+@import "bootstrap/scss/mixins";
 
 $icon-width: 30px;
 $icon-height: 30px;
@@ -199,7 +199,7 @@ button.btn-with-image {
 
   .td-full-height {
     height: 1px; // https://stackoverflow.com/a/3542470/14700336
-    @supports (-moz-appearance:none) {
+    @supports (-moz-appearance: none) {
       height: fit-content;
     }
   }
@@ -276,7 +276,9 @@ button.btn-with-image {
 }
 
 $poll-data-cell-invalid-message-min-height: 24px;
-.poll-add-user-row, .poll-edit-user-row, .table-hover tbody tr.poll-add-user-row:hover {
+.poll-add-user-row,
+.poll-edit-user-row,
+.table-hover tbody tr.poll-add-user-row:hover {
   background-color: var(--toolbar-background-color, #{$toolbar-background-color}) !important;
 
   .poll-data-cell {
@@ -316,7 +318,6 @@ $poll-data-cell-invalid-message-min-height: 24px;
       border-color: var(--medium-gray, #{$medium-gray});
       background-color: var(--light-gray, #{$light-gray});
     }
-
   }
 
   img.poll-option-icon {

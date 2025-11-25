@@ -1,13 +1,9 @@
 @if (formGroup() !== null) {
   <div class="row g-1">
     @for (status of votingStatus; track status) {
-    <div class="col-4 d-flex justify-content-center">
-      <img
-        aria-hidden="true"
-        alt=""
-        class="poll-option-icon"
-        [src]="'assets/status_' + status + '.svg'">
-    </div>
+      <div class="col-4 d-flex justify-content-center">
+        <img aria-hidden="true" alt="" class="poll-option-icon" [src]="'assets/status_' + status + '.svg'" />
+      </div>
     }
   </div>
   <div [formGroup]="formGroup()" class="row g-1 mt-1">
@@ -17,12 +13,12 @@
           <input
             class=""
             type="radio"
-            id="{{getPrefix()}}-voting-status-{{status}}-{{selectorId()}}"
+            id="{{ getPrefix() }}-voting-status-{{ status }}-{{ selectorId() }}"
             formControlName="status"
             [attr.name]="getPrefix() + '-voting-status-' + selectorId()"
-            value="{{status}}"
+            value="{{ status }}"
             [attr.aria-label]="'votingStatus.' + status | translate"
-          >
+          />
         </div>
       </div>
     }

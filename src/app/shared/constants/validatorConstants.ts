@@ -2,8 +2,8 @@ export class ValidatorConstants {
   /**
    * valid chars for names and locations
    * */
-  public static readonly CHAR_REGEX = '^[0-9a-zA-ZáàâäãåçéèêëíìîïñøØóòôöõúùûüýÿßæåÅÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆ'
-    + '´`\'+\\-_,.;:!?§$€@#\\/()=%&*" ]*$';
+  public static readonly CHAR_REGEX =
+    '^[0-9a-zA-ZáàâäãåçéèêëíìîïñøØóòôöõúùûüýÿßæåÅÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆ' + '´`\'+\\-_,.;:!?§$€@#\\/()=%&*" ]*$';
 
   /**
    * maximum length of all input fields
@@ -25,7 +25,7 @@ export class ValidatorConstants {
     'D.MM.YYYY',
     'D.MM.YY',
     'D.M.YYYY',
-    'D.M.YY',
+    'D.M.YY'
   ];
   public static readonly MOMENT_FORMAT_TIME = 'HH:mm';
 

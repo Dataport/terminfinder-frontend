@@ -7,7 +7,12 @@ import { LogLevel } from './app/shared/services/logging/logLevel';
 import { LocaleService } from './app/shared/services/locale/locale.service';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, HttpClient } from '@angular/common/http';
 import { DisableCacheInterceptor } from './app/disable-cache-interceptor';
-import { NgbDateParserFormatter, NgbDatepickerModule, NgbTimepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDateParserFormatter,
+  NgbDatepickerModule,
+  NgbTimepickerModule,
+  NgbModule
+} from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateCustomParserFormatter } from './app/shared/formatters/NgbDateCustomParserFormatter';
 import { BasicAuthInterceptor } from './app/basic-auth-interceptor';
 import { DateTimeGeneratorService } from './app/shared/services/generators';
@@ -34,40 +39,51 @@ if (!environment.apiBaseUrl) {
 }
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule, NgbDatepickerModule, NgbTimepickerModule, ClipboardModule, NgbModule, TranslateModule.forRoot({
-            defaultLanguage: environment.locale === 'de-DE' ? environment.locale + '-' + environment.addressing : environment.locale,
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (createTranslateLoader),
-                deps: [HttpClient]
-            }
-        }), NgOptimizedImage, ToastrModule.forRoot()),
-        {
-            provide: LOCALE_ID,
-            deps: [LocaleService],
-            useFactory: (localeService: LocaleService) => localeService.getLocale().languageCode
-        },
-        { provide: HTTP_INTERCEPTORS, useClass: DisableCacheInterceptor, multi: true },
-        { provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter },
-        { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
-        DateTimeGeneratorService,
-        AppStateService,
-        ApiDataService,
-        DataRepositoryService,
-        ModelTransformerService,
-        Logger,
-        ConsoleProvider,
-        provideAnimations(),
-        provideToastr({
-            maxOpened: 3,
-            autoDismiss: true,
-            newestOnTop: true,
-            tapToDismiss: true
-        }),
-        provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations(),
-        provideRouter(appRoutes, withHashLocation())
-    ]
-})
-  .catch(err => console.log(err));
+  providers: [
+    importProvidersFrom(
+      BrowserModule,
+      FormsModule,
+      ReactiveFormsModule,
+      NgbDatepickerModule,
+      NgbTimepickerModule,
+      ClipboardModule,
+      NgbModule,
+      TranslateModule.forRoot({
+        defaultLanguage:
+          environment.locale === 'de-DE' ? environment.locale + '-' + environment.addressing : environment.locale,
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+        }
+      }),
+      NgOptimizedImage,
+      ToastrModule.forRoot()
+    ),
+    {
+      provide: LOCALE_ID,
+      deps: [LocaleService],
+      useFactory: (localeService: LocaleService) => localeService.getLocale().languageCode
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: DisableCacheInterceptor, multi: true },
+    { provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter },
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    DateTimeGeneratorService,
+    AppStateService,
+    ApiDataService,
+    DataRepositoryService,
+    ModelTransformerService,
+    Logger,
+    ConsoleProvider,
+    provideAnimations(),
+    provideToastr({
+      maxOpened: 3,
+      autoDismiss: true,
+      newestOnTop: true,
+      tapToDismiss: true
+    }),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAnimations(),
+    provideRouter(appRoutes, withHashLocation())
+  ]
+}).catch((err) => console.log(err));

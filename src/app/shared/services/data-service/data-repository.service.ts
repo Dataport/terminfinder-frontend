@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {ApiDataService} from './api-data-service.service';
+import { Injectable } from '@angular/core';
+import { ApiDataService } from './api-data-service.service';
 import {
   ApiVersion,
   Appointment,
@@ -8,19 +8,17 @@ import {
   Participant,
   SuggestedDate
 } from '../../models/api-data-v1-dto';
-import {Logger} from '../logging';
-import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
+import { Logger } from '../logging';
+import { AppointmentPasswordValidationResult } from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataRepositoryService {
-
   constructor(
     private apiDataService: ApiDataService,
     private logger: Logger
-  ) {
-  }
+  ) {}
 
   /**
    * Get the api version number
@@ -66,11 +64,13 @@ export class DataRepositoryService {
    * delete participants
    * @returns {Promise<void>} the participants and their votings to delete
    */
-  public deleteParticipantsOfAppointmentById
-  (appointmentId: string, participantsToDelete: Participant[]): Promise<void> {
+  public deleteParticipantsOfAppointmentById(
+    appointmentId: string,
+    participantsToDelete: Participant[]
+  ): Promise<void> {
     const promises: Promise<any>[] = [];
 
-    participantsToDelete.forEach(participant => {
+    participantsToDelete.forEach((participant) => {
       promises.push(this.apiDataService.deleteParticipant(appointmentId, participant.participantId));
     });
 
@@ -84,11 +84,14 @@ export class DataRepositoryService {
    * Create or update votings of participants of an appointment and delete participants
    * @returns {Promise<Participant[]>} the participants and their votings
    */
-  public createOrUpdateVotingsAndDeleteParticipantsById
-  (appointmentId: string, participants: Participant[], participantsToDelete: Participant[]): Promise<Participant[]> {
+  public createOrUpdateVotingsAndDeleteParticipantsById(
+    appointmentId: string,
+    participants: Participant[],
+    participantsToDelete: Participant[]
+  ): Promise<Participant[]> {
     const promises: Promise<any>[] = [];
 
-    participantsToDelete.forEach(participant => {
+    participantsToDelete.forEach((participant) => {
       promises.push(this.apiDataService.deleteParticipant(appointmentId, participant.participantId));
     });
 
@@ -102,10 +105,13 @@ export class DataRepositoryService {
    * update appointment and delete suggested dates if nesseary
    * @returns {Promise<Appointment>}
    */
-  public updateAppointmentAndDeleteSuggestedDates(appointment: Appointment, suggestedDates: SuggestedDate[]): Promise<Appointment> {
+  public updateAppointmentAndDeleteSuggestedDates(
+    appointment: Appointment,
+    suggestedDates: SuggestedDate[]
+  ): Promise<Appointment> {
     const promises: Promise<any>[] = [];
 
-    suggestedDates.forEach(suggestedDate => {
+    suggestedDates.forEach((suggestedDate) => {
       promises.push(this.apiDataService.deleteSuggestedDate(appointment.appointmentId, suggestedDate.suggestedDateId));
     });
 
@@ -154,5 +160,4 @@ export class DataRepositoryService {
   public updateAppointmentStatus(adminId: string, status: AppointmentStatusType): Promise<Appointment> {
     return this.apiDataService.updateAppointmentStatus(adminId, status);
   }
-
 }

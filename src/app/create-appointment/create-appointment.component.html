@@ -25,11 +25,13 @@
   <div class="col-11 col-lg-8">
     <div class="row justify-content-center px-3">
       <div class="section-container w-100 p-4">
-        <div [ngClass]="{'has-error': title.invalid  && (title.dirty || title.touched)}"
-             class="form-group-divider form-group">
+        <div
+          [ngClass]="{ 'has-error': title.invalid && (title.dirty || title.touched) }"
+          class="form-group-divider form-group"
+        >
           <div class="row g-0">
             <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
-              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/title.svg">
+              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/title.svg" />
             </div>
             <div class="col invalid-message-highlight">
               <label data-id="titleLabel" for="title">{{ 'poll.title.placeholder' | translate }}</label>
@@ -40,7 +42,8 @@
                 formControlName="title"
                 id="title"
                 type="text"
-                aria-describedby="required-title invalid-title maxLength-title">
+                aria-describedby="required-title invalid-title maxLength-title"
+              />
               @if ((title.dirty || title.touched) && !!title.errors?.required) {
                 <div
                   class="invalid-message"
@@ -80,11 +83,13 @@
             </div>
           </div>
         </div>
-        <div [ngClass]="{'has-error': name.invalid  && (name.dirty || name.touched)}"
-             class="form-group-divider form-group">
+        <div
+          [ngClass]="{ 'has-error': name.invalid && (name.dirty || name.touched) }"
+          class="form-group-divider form-group"
+        >
           <div class="row g-0">
             <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
-              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/user.svg">
+              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/user.svg" />
             </div>
             <div class="col invalid-message-highlight">
               <label data-id="nameLabel" for="name">{{ 'poll.details.name.yourName' | translate }}</label>
@@ -97,7 +102,7 @@
                 id="name"
                 type="text"
                 aria-describedby="required-name invalid-name long-name"
-              >
+              />
               @if ((name.dirty || name.touched) && !!name.errors?.required) {
                 <div
                   class="invalid-message"
@@ -123,13 +128,7 @@
                 </div>
               }
               @if (!!name.errors?.maxlength) {
-                <div
-                  class="invalid-message"
-                  data-id="msgLongName"
-                  id="long-name"
-                  role="alert"
-                  aria-atomic="false"
-                >
+                <div class="invalid-message" data-id="msgLongName" id="long-name" role="alert" aria-atomic="false">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   {{ 'poll.details.name.tooLong' | translate }}
                 </div>
@@ -137,11 +136,13 @@
             </div>
           </div>
         </div>
-        <div [ngClass]="{'has-error': location.invalid  && (location.dirty || location.touched)}"
-             class="form-group-divider form-group">
+        <div
+          [ngClass]="{ 'has-error': location.invalid && (location.dirty || location.touched) }"
+          class="form-group-divider form-group"
+        >
           <div class="row g-0">
             <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
-              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/location.svg">
+              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/location.svg" />
             </div>
             <div class="col invalid-message-highlight">
               <label data-id="locationLabel" for="location">{{ 'poll.details.place.placeOptional' | translate }}</label>
@@ -152,7 +153,7 @@
                 id="location"
                 type="text"
                 aria-describedby="invalid-location maxLength-location"
-              >
+              />
               @if (!!location.errors?.invalidName) {
                 <div
                   class="invalid-message"
@@ -180,17 +181,16 @@
             </div>
           </div>
         </div>
-        <div [ngClass]="{'has-error': description.invalid  && (description.dirty || description.touched)}"
-             class="form-group-divider form-group">
+        <div
+          [ngClass]="{ 'has-error': description.invalid && (description.dirty || description.touched) }"
+          class="form-group-divider form-group"
+        >
           <div class="row g-0">
             <div class="col-auto d-flex justify-content-end align-items-center icon-frame">
-              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/description.svg">
+              <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/description.svg" />
             </div>
             <div class="col invalid-message-highlight">
-              <label
-                data-id="descriptionLabel"
-                for="description"
-              >
+              <label data-id="descriptionLabel" for="description">
                 {{ 'poll.details.description.descriptionOptional' | translate }}
               </label>
               <textarea

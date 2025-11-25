@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { CreateSuggestedDatesComponent } from '../create-suggested-dates/create-suggested-dates.component';
 
 @Component({
@@ -8,8 +8,5 @@ import { CreateSuggestedDatesComponent } from '../create-suggested-dates/create-
   imports: [CreateSuggestedDatesComponent]
 })
 export class AdminSuggestedDatesComponent {
-
-  constructor() {
-  }
-
+  constructor() {}
 }

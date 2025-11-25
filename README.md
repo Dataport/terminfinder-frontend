@@ -14,7 +14,7 @@ Copyright © 2022-2024 Dataport AöR
 
 [SECURITY.md](./docs/SECURITY.md)
 
-![An ongoing poll for a hackathon.](./docs/screenshot.jpeg "Screenshot of Terminfinder")
+![An ongoing poll for a hackathon.](./docs/screenshot.jpeg 'Screenshot of Terminfinder')
 
 ## Beschreibung
 
@@ -43,28 +43,28 @@ expires the data is automatically deleted. Thus, data is kept only as long as ne
 
 Folgende Parameter können gesetzt werden, indem Umgebungsvariablen während des Pre-Build-Prozesses zur Verfügung stehen.
 
-Beispiel: ```export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL='beispiel@beispiel.de' && npm run build-prod```
+Beispiel: `export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL='beispiel@beispiel.de' && npm run build-prod`
 
-| env-variable                     | docker* | type                     | default                                | description                                                           |
-|----------------------------------|---------|--------------------------|----------------------------------------|-----------------------------------------------------------------------|
-| TITLE                            | ja      | `string`                 | ''                                     | Headline                                                              |
-| LOCALE                           | ja      | `'de-DE'` or `'en-EN'`   | `'de-DE'`                              | Initiale Sprache, bis User die Sprache ändert                         |
-| ADDRESSING (used on german only) | ja      | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
-| API_URL                          | ja      | `string` (url)           | ''                                     | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
-| COLORS                           | ja      | `string` (json object)   | null                                   | Anpassung der Farben. Siehe Kapitel [Farben](#farben)                 |
-| PRODUCTION                       | -       | `boolean`                | `true`                                 | Flag für Angular, Log-Level, Timeout-Zeit für XHR                     |
-| VERSION                          | -       | `string`                 | package.json - version                 | Versionsnummer, die im Impressum angezeigt wird                       |
-| DOCKER                           | -       | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |
-| SURVEY_LINK_ADMIN                | -       | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Admins          |
-| SURVEY_LINK_USER                 | -       | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Teilnehmenden   |
-| EMAIL                            | -       | `string` (email address) | 'demo@example.com'                     | E-Mail-Adresse des First-Level-Supports für Nutzende                  |
-| CUSTOMER_ID                      | -       | `string` (uuid)          | '00000000-0000-0000-0000-000000000000' | Anwendung ist Mandantenfähig - Mandanten-ID                           |
-| IMPRINT                          | -       | `string` (html)          | `<h2>Herausgeber</h2>...`              | Impressum - als `innerHTML`, string mit HTML-Tags                     |
-| PRIVACY                          | -       | `string` (html)          | `<h2>privacy</h2>`                     | Datenschutzerklärung - als `innerHTML`, string mit HTML-Tags          |
-| TOS                              | -       | `string` (html)          | `<h2>tos</h2>`                         | Nutzungsbedingungen - als `innerHTML`, string mit HTML-Tags           |
-| ACCESSIBILITY                    | -       | `string` (html)          | `<h2>accessibility</h2>`               | Barrierefreiheitserklärung - als `innerHTML`, string mit HTML-Tags    |
+| env-variable                     | docker\* | type                     | default                                | description                                                           |
+| -------------------------------- | -------- | ------------------------ | -------------------------------------- | --------------------------------------------------------------------- |
+| TITLE                            | ja       | `string`                 | ''                                     | Headline                                                              |
+| LOCALE                           | ja       | `'de-DE'` or `'en-EN'`   | `'de-DE'`                              | Initiale Sprache, bis User die Sprache ändert                         |
+| ADDRESSING (used on german only) | ja       | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
+| API_URL                          | ja       | `string` (url)           | ''                                     | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
+| COLORS                           | ja       | `string` (json object)   | null                                   | Anpassung der Farben. Siehe Kapitel [Farben](#farben)                 |
+| PRODUCTION                       | -        | `boolean`                | `true`                                 | Flag für Angular, Log-Level, Timeout-Zeit für XHR                     |
+| VERSION                          | -        | `string`                 | package.json - version                 | Versionsnummer, die im Impressum angezeigt wird                       |
+| DOCKER                           | -        | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |
+| SURVEY_LINK_ADMIN                | -        | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Admins          |
+| SURVEY_LINK_USER                 | -        | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Teilnehmenden   |
+| EMAIL                            | -        | `string` (email address) | 'demo@example.com'                     | E-Mail-Adresse des First-Level-Supports für Nutzende                  |
+| CUSTOMER_ID                      | -        | `string` (uuid)          | '00000000-0000-0000-0000-000000000000' | Anwendung ist Mandantenfähig - Mandanten-ID                           |
+| IMPRINT                          | -        | `string` (html)          | `<h2>Herausgeber</h2>...`              | Impressum - als `innerHTML`, string mit HTML-Tags                     |
+| PRIVACY                          | -        | `string` (html)          | `<h2>privacy</h2>`                     | Datenschutzerklärung - als `innerHTML`, string mit HTML-Tags          |
+| TOS                              | -        | `string` (html)          | `<h2>tos</h2>`                         | Nutzungsbedingungen - als `innerHTML`, string mit HTML-Tags           |
+| ACCESSIBILITY                    | -        | `string` (html)          | `<h2>accessibility</h2>`               | Barrierefreiheitserklärung - als `innerHTML`, string mit HTML-Tags    |
 
-*: Ist die Umgebungsvariable `DOCKER==='true'`, werden mit "ja" gekennzeichnete Parameter im kompiliertem Code mit
+\*: Ist die Umgebungsvariable `DOCKER==='true'`, werden mit "ja" gekennzeichnete Parameter im kompiliertem Code mit
 z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (docker-replace-parameters.sh)
 
 ## Farben
@@ -88,22 +88,22 @@ document.cookie = 'secondary=#00ff00';
 
 ### Liste aller Farben und ihre Defaultwerte
 
-| Color Name                        | Default Value  |
-|-----------------------------------|----------------|
-| `primary`                         | `#003064`      |
-| `primary-lighter-10`              | `#004691`      |
-| `secondary`                       | `#b3003e`      |
-| `light-gray`                      | `#F5F6F7`      |
-| `medium-gray`                     | `#909498`      |
-| `dark-gray`                       | `#595959`      |
-| `focus-border`                    | `#003064`      |
-| `toolbar-background-color`        | `#d9dfe7`      |
-| `primary-background-color`        | `#c9daef`      |
-| `danger`                          | `#b3003e`      |
-| `bootstrap-form-control-color`    | `#000000`      |
-| `footer-text-color`               | `#b3003e`      |
-| `border-color-input`              | `#909498`      |
-| `border-color-divider-icon-input` | `#909498`      |
+| Color Name                        | Default Value |
+| --------------------------------- | ------------- |
+| `primary`                         | `#003064`     |
+| `primary-lighter-10`              | `#004691`     |
+| `secondary`                       | `#b3003e`     |
+| `light-gray`                      | `#F5F6F7`     |
+| `medium-gray`                     | `#909498`     |
+| `dark-gray`                       | `#595959`     |
+| `focus-border`                    | `#003064`     |
+| `toolbar-background-color`        | `#d9dfe7`     |
+| `primary-background-color`        | `#c9daef`     |
+| `danger`                          | `#b3003e`     |
+| `bootstrap-form-control-color`    | `#000000`     |
+| `footer-text-color`               | `#b3003e`     |
+| `border-color-input`              | `#909498`     |
+| `border-color-divider-icon-input` | `#909498`     |
 
 ## Development
 

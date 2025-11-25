@@ -6,12 +6,12 @@ youtube-player {
   padding-top: 56.25%; // 16:9 ratio
 }
 
-:host ::ng-deep youtube-player > *, {
+:host ::ng-deep youtube-player > * {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%!important;
-  height: 100%!important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 :host ::ng-deep youtube-player iframe {

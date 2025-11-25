@@ -1,7 +1,6 @@
 <div class="container px-0">
   @if (formHelper.pollForm && formHelper.appointment) {
-    <div [formGroup]="formHelper.pollForm"
-         class="row g-0 toolbar d-lg-none p-1 invalid-message-highlight">
+    <div [formGroup]="formHelper.pollForm" class="row g-0 toolbar d-lg-none p-1 invalid-message-highlight">
       <!-- add button ^ dropdown & edit button (only visible when _not_ in add or edit mode) -->
       @if (!formHelper.hasAddOrEditParticipantForm()) {
         <div class="col-auto mx-2 d-flex align-items-center">
@@ -9,9 +8,9 @@
             (click)="formHelper.addParticipant()"
             class="btn btn-round btn-secondary btn-add-participant p-0 border-0"
             type="button"
-            title="{{ 'poll.addParticipant' | translate}}"
+            title="{{ 'poll.addParticipant' | translate }}"
           >
-            <img aria-hidden="true" alt="" class="icon" src="assets/add-user.svg">
+            <img aria-hidden="true" alt="" class="icon" src="assets/add-user.svg" />
           </button>
         </div>
         @if (formHelper.hasParticipants()) {
@@ -19,9 +18,7 @@
             <label for="select-participant">{{ 'participant.select' | translate }}</label>
             <select class="form-control" formControlName="selectedParticipant" id="select-participant">
               @for (participant of formHelper.appointment.participants; track participant) {
-                <option
-                  [ngValue]="participant">{{ participant.name }}
-                </option>
+                <option [ngValue]="participant">{{ participant.name }}</option>
               }
             </select>
           </div>
@@ -30,9 +27,9 @@
               (click)="formHelper.editParticipant(getSelectedParticipant())"
               class="btn btn-transparent p-0 border-0"
               type="button"
-              title="{{ 'poll.editParticipant' | translate}}"
+              title="{{ 'poll.editParticipant' | translate }}"
             >
-              <img aria-hidden="true" alt="" class="icon icon-edit" src="assets/edit.svg">
+              <img aria-hidden="true" alt="" class="icon icon-edit" src="assets/edit.svg" />
             </button>
           </div>
         }
@@ -45,12 +42,16 @@
             <label for="name-add">{{ 'participant.name' | translate }}</label>
             <input
               required
-              [ngClass]="{'has-error': formHelper.getParticipantFormName().invalid
-              && (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)}"
+              [ngClass]="{
+                'has-error':
+                  formHelper.getParticipantFormName().invalid &&
+                  (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
+              }"
               class="form-control name-add"
               formControlName="name"
               id="name-add"
-              type="text">
+              type="text"
+            />
           </div>
           <div class="col-auto px-1 d-flex align-items-end">
             <!-- button to delete the currently edited participant -->
@@ -58,15 +59,17 @@
               (click)="formHelper.deleteEditParticipant(getSelectedParticipant())"
               class="btn btn-trash btn-transparent p-0 border-0"
               type="button"
-              title="{{ 'poll.deleteParticipant' | translate}}"
+              title="{{ 'poll.deleteParticipant' | translate }}"
             >
-              <img aria-hidden="true" alt="" class="icon icon-delete" src="assets/trash.svg">
+              <img aria-hidden="true" alt="" class="icon icon-delete" src="assets/trash.svg" />
             </button>
           </div>
           <div class="w-100"></div>
           <div class="col">
-            @if ((formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched)
-            && !!formHelper.getParticipantFormName().errors?.required) {
+            @if (
+              (formHelper.getParticipantFormName().dirty || formHelper.getParticipantFormName().touched) &&
+              !!formHelper.getParticipantFormName().errors?.required
+            ) {
               <div class="invalid-message" role="alert" aria-atomic="false">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 {{ 'poll.details.name.noName' | translate }}
@@ -110,7 +113,7 @@
                       title="{{ 'poll.downloadIcs' | translate }}"
                       type="button"
                     >
-                      <img aria-hidden="true" alt="" src="assets/download.svg">
+                      <img aria-hidden="true" alt="" src="assets/download.svg" />
                     </button>
                   </div>
                 }
@@ -119,7 +122,7 @@
             <td class="total-participants">
               <div class="px-1 d-flex justify-content-start align-items-center">
                 <div class="voting-status-summary-image">
-                  <img aria-hidden="true" alt="" src="assets/status_accepted.svg">
+                  <img aria-hidden="true" alt="" src="assets/status_accepted.svg" />
                 </div>
                 <div
                   class="font-weight-bold voting-status-summary-number mx-1"
@@ -139,14 +142,17 @@
                   src="assets/status_{{
                     formHelper.getVotingStatusBySuggestedDateIdAndParticipantId(
                       date.suggestedDateId,
-                      getSelectedParticipant().participantId)
-                    }}.svg">
+                      getSelectedParticipant().participantId
+                    )
+                  }}.svg"
+                />
               }
               @if (formHelper.hasAddOrEditParticipantForm()) {
                 @for (voting of formHelper.getParticipantFormVotings().controls; track voting; let j = $index) {
                   <ng-container
                     [formGroup]="formHelper.castToFormGroup(voting)"
-                    class="row g-0 justify-content-around align-items-center align-self-center">
+                    class="row g-0 justify-content-around align-items-center align-self-center"
+                  >
                     @if (formHelper.isVotingFromSuggestedDate(date, voting)) {
                       <app-poll-options
                         [formGroup]="formHelper.castToFormGroup(voting)"
@@ -162,27 +168,27 @@
         }
       </tbody>
       <tfoot class="d-table w-100">
-      <tr>
-        <td class="p-2">
-          <div class="d-flex justify-content-center align-items-center">
-            <button
-              (click)="formHelper.downloadCsv()"
-              class="download-csv btn btn-rounded btn-sm btn-light"
-              data-id="downloadCsvButtonMobile"
-              data-placement="top"
-              data-toggle="tooltip"
-              id="download-csv"
-              title="{{ 'poll.downloadCsv' | translate }}"
-              type="button"
-            >
-              <img aria-hidden="true" alt="" src="assets/calendar_grey.svg">
-            </button>
-            <span class="font-small ms-2">
-              {{ 'poll.downloadCsvDescription' | translate }}
-            </span>
-          </div>
-        </td>
-      </tr>
+        <tr>
+          <td class="p-2">
+            <div class="d-flex justify-content-center align-items-center">
+              <button
+                (click)="formHelper.downloadCsv()"
+                class="download-csv btn btn-rounded btn-sm btn-light"
+                data-id="downloadCsvButtonMobile"
+                data-placement="top"
+                data-toggle="tooltip"
+                id="download-csv"
+                title="{{ 'poll.downloadCsv' | translate }}"
+                type="button"
+              >
+                <img aria-hidden="true" alt="" src="assets/calendar_grey.svg" />
+              </button>
+              <span class="font-small ms-2">
+                {{ 'poll.downloadCsvDescription' | translate }}
+              </span>
+            </div>
+          </td>
+        </tr>
       </tfoot>
     </table>
   }

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Appointment} from '../shared/models';
+import { Component } from '@angular/core';
+import { Appointment } from '../shared/models';
 import { OverviewComponent } from '../overview/overview.component';
 
 @Component({
@@ -11,7 +11,5 @@ import { OverviewComponent } from '../overview/overview.component';
 export class AdminOverviewComponent {
   model: Appointment;
 
-  constructor() {
-  }
-
+  constructor() {}
 }

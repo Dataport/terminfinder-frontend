@@ -1,4 +1,4 @@
-<div #combo class="combo" [ngClass]="{'open': isOpen}">
+<div #combo class="combo" [ngClass]="{ open: isOpen }">
   <div id="combo-label" class="combo-label visually-hidden">
     {{ label() }}
   </div>
@@ -6,7 +6,7 @@
   <div
     #combobox
     class="combobox btn px-2 d-inline-flex justify-content-between align-items-center"
-    [ngClass]="{'open': isOpen}"
+    [ngClass]="{ open: isOpen }"
     role="combobox"
     (click)="toggleMenuState(false)"
     (blur)="onBlur($event)"
@@ -36,7 +36,7 @@
         [attr.id]="'combo-option-' + i"
         role="option"
         class="combo-option"
-        [ngClass]="{'option-current': i === activeIndex}"
+        [ngClass]="{ 'option-current': i === activeIndex }"
         (click)="selectOption(i)"
         [attr.aria-selected]="i === activeIndex"
         [attr.data-id]="option.dataId"
@@ -46,4 +46,3 @@
     }
   </div>
 </div>
-

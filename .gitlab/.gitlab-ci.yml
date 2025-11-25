@@ -1,4 +1,4 @@
 include:
-  - project: "dabstimmbox/open-source/oss-pipelines"
-    ref: "main"
-    file: "frontend.yml"
+  - project: 'dabstimmbox/open-source/oss-pipelines'
+    ref: 'main'
+    file: 'frontend.yml'

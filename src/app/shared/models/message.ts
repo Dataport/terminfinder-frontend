@@ -1,4 +1,4 @@
-import {MessageType} from './messageType';
+import { MessageType } from './messageType';
 
 export class Message {
   public message = '';

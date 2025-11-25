@@ -9,7 +9,8 @@
         id="logo"
         ngSrc="assets/logo.svg"
         height="height"
-        width="width">
+        width="width"
+      />
     </a>
     @if (!NullableUtils.isStringNullOrWhitespace(headlineHome)) {
       <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-id="headerTitle">
@@ -26,12 +27,7 @@
             title="{{ 'header.navItems.signLanguage.buttonLabel' | translate }}"
           >
             <span class="sr-only">{{ 'header.navItems.signLanguage.buttonLabel' | translate }}</span>
-            <img
-              aria-hidden="true"
-              alt=""
-              ngSrc="assets/sign-language.svg"
-              width="width"
-              height="height">
+            <img aria-hidden="true" alt="" ngSrc="assets/sign-language.svg" width="width" height="height" />
           </a>
         </li>
         <li>
@@ -42,12 +38,7 @@
             title="{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}"
           >
             <span class="sr-only">{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}</span>
-            <img
-              aria-hidden="true"
-              alt=""
-              ngSrc="assets/book.svg"
-              width="width"
-              height="height">
+            <img aria-hidden="true" alt="" ngSrc="assets/book.svg" width="width" height="height" />
           </a>
         </li>
         <li>
@@ -55,8 +46,8 @@
             [label]="'lang.languageSelect' | translate"
             [callback]="this.localeService.changeLanguage.bind(this.localeService)"
             [options]="[
-              {value: 'Deutsch', callbackArgs: 'de-DE', dataId: 'langGerman'},
-              {value: 'English', callbackArgs: 'en-EN', dataId: 'langEnglish'}
+              { value: 'Deutsch', callbackArgs: 'de-DE', dataId: 'langGerman' },
+              { value: 'English', callbackArgs: 'en-EN', dataId: 'langEnglish' }
             ]"
             [defaultOptionIndex]="localeService.getLocale().languageCode === 'de-DE' ? 0 : 1"
             [dataId]="'languageDropdown'"
@@ -67,11 +58,7 @@
     </nav>
   </header>
   @if (connectionError) {
-    <ngb-toast
-      [autohide]="false"
-      class="connectionError"
-      data-cy="connectionErrorNotification"
-    >
+    <ngb-toast [autohide]="false" class="connectionError" data-cy="connectionErrorNotification">
       Wichtige Bestandteile der Seite konnten nicht geladen werden. Bitte laden Sie die Seite neu!
     </ngb-toast>
   }

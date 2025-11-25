@@ -1,10 +1,10 @@
-import {Inject, Injectable, LOCALE_ID} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
-import {EnvConfig} from '../../../../environments/env-config.interface';
-import {TimeoutError} from 'rxjs';
-import {AppStateService} from '../app-state/app-state.service';
-import {HttpConstants} from './http-constants';
-import {NullableUtils} from '../../utils';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { EnvConfig } from '../../../../environments/env-config.interface';
+import { TimeoutError } from 'rxjs';
+import { AppStateService } from '../app-state/app-state.service';
+import { HttpConstants } from './http-constants';
+import { NullableUtils } from '../../utils';
 import {
   ApiError,
   ApiVersion,
@@ -13,9 +13,9 @@ import {
   AppointmentStatusType,
   Participant
 } from '../../models/api-data-v1-dto';
-import {Logger} from '../logging';
-import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
-import {timeout} from 'rxjs/operators';
+import { Logger } from '../logging';
+import { AppointmentPasswordValidationResult } from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
+import { timeout } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +36,11 @@ export class ApiDataService {
    * @constructor
    */
   constructor(
-    private http: HttpClient, private appState: AppStateService,
-    private logger: Logger, @Inject(LOCALE_ID) private localeId: string) {
+    private http: HttpClient,
+    private appState: AppStateService,
+    private logger: Logger,
+    @Inject(LOCALE_ID) private localeId: string
+  ) {
     const envConfig: EnvConfig = this.appState.getEnvConfig();
     this.apiBaseUrl = envConfig.apiBaseUrl;
     this.requestTimeoutInMs = envConfig.apiRequestTimeoutInMs;
@@ -53,7 +56,8 @@ export class ApiDataService {
   getApiVersion(): Promise<ApiVersion> {
     const payload = '';
     const url: string = this.apiBaseUrl + '/app';
-    return <Promise<ApiVersion>>this.http.get<ApiVersion>(url, this.getRequestOptions())
+    return <Promise<ApiVersion>>this.http
+      .get<ApiVersion>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<ApiVersion>) => {
@@ -77,8 +81,9 @@ export class ApiDataService {
     }
 
     const payload = JSON.stringify(appointment);
-    const url: string = this.apiBaseUrl + `/appointment/${this.uriEncodedCostumerId}`;
-    return <Promise<Appointment>>this.http.post<Appointment>(url, payload, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/appointment/${this.uriEncodedCostumerId}`;
+    return <Promise<Appointment>>this.http
+      .post<Appointment>(url, payload, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -102,8 +107,9 @@ export class ApiDataService {
     }
 
     const payload = JSON.stringify(appointment);
-    const url: string = this.apiBaseUrl + `/appointment/${this.uriEncodedCostumerId}`;
-    return <Promise<Appointment>>this.http.put<Appointment>(url, payload, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/appointment/${this.uriEncodedCostumerId}`;
+    return <Promise<Appointment>>this.http
+      .put<Appointment>(url, payload, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -127,8 +133,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl + `/appointment/${this.uriEncodedCostumerId}/${encodeURIComponent(id)}`;
-    return <Promise<Appointment>>this.http.get<Appointment>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/appointment/${this.uriEncodedCostumerId}/${encodeURIComponent(id)}`;
+    return <Promise<Appointment>>this.http
+      .get<Appointment>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -152,8 +159,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl + `/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(id)}`;
-    return <Promise<Appointment>>this.http.get<Appointment>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(id)}`;
+    return <Promise<Appointment>>this.http
+      .get<Appointment>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -171,7 +179,10 @@ export class ApiDataService {
    * Craete or update votings of participants of an appointment
    * @returns {Promise<Participant[]>} the participants and their votings
    */
-  createOrUpdateParticipantVotingsOfAppointmentById(appointmentId: string, participants: Participant[]): Promise<Participant[]> {
+  createOrUpdateParticipantVotingsOfAppointmentById(
+    appointmentId: string,
+    participants: Participant[]
+  ): Promise<Participant[]> {
     if (NullableUtils.isStringNullOrWhitespace(appointmentId)) {
       throw new Error('Submitted appointmentId value is null or undefined or empty');
     }
@@ -180,8 +191,9 @@ export class ApiDataService {
     }
 
     const payload = JSON.stringify(participants);
-    const url: string = this.apiBaseUrl + `/votings/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}`;
-    return <Promise<Participant[]>>this.http.put<Participant[]>(url, payload, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/votings/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}`;
+    return <Promise<Participant[]>>this.http
+      .put<Participant[]>(url, payload, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Participant[]>) => {
@@ -208,9 +220,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl +
-      `/suggestedDate/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/${encodeURIComponent(suggestedDateId)}`;
-    return <Promise<void>>this.http.delete<void>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/suggestedDate/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/${encodeURIComponent(suggestedDateId)}`;
+    return <Promise<void>>this.http
+      .delete<void>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<void>) => {
@@ -245,9 +257,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl +
-      `/participant/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/${encodeURIComponent(participantId)}`;
-    return <Promise<void>>this.http.delete<void>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/participant/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/${encodeURIComponent(participantId)}`;
+    return <Promise<void>>this.http
+      .delete<void>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<void>) => {
@@ -275,8 +287,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl + `/appointment/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/protection`;
-    return <Promise<AppointmentProtectionResult>>this.http.get<Appointment>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/appointment/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/protection`;
+    return <Promise<AppointmentProtectionResult>>this.http
+      .get<Appointment>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -296,8 +309,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl + `/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(adminId)}/protection`;
-    return <Promise<AppointmentProtectionResult>>this.http.get<Appointment>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(adminId)}/protection`;
+    return <Promise<AppointmentProtectionResult>>this.http
+      .get<Appointment>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -317,9 +331,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl
-      + `/appointment/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/passwordverification`;
-    return <Promise<AppointmentPasswordValidationResult>>this.http.get<AppointmentPasswordValidationResult>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/appointment/${this.uriEncodedCostumerId}/${encodeURIComponent(appointmentId)}/passwordverification`;
+    return <Promise<AppointmentPasswordValidationResult>>this.http
+      .get<AppointmentPasswordValidationResult>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<AppointmentPasswordValidationResult>) => {
@@ -343,9 +357,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl
-      + `/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(adminId)}/${encodeURIComponent(status)}/status`;
-    return <Promise<Appointment>>this.http.put<Appointment>(url, payload, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(adminId)}/${encodeURIComponent(status)}/status`;
+    return <Promise<Appointment>>this.http
+      .put<Appointment>(url, payload, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<Appointment>) => {
@@ -365,9 +379,9 @@ export class ApiDataService {
     }
 
     const payload = '';
-    const url: string = this.apiBaseUrl
-      + `/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(adminId)}/passwordverification`;
-    return <Promise<AppointmentPasswordValidationResult>>this.http.get<AppointmentPasswordValidationResult>(url, this.getRequestOptions())
+    const url: string = `${this.apiBaseUrl}/admin/${this.uriEncodedCostumerId}/${encodeURIComponent(adminId)}/passwordverification`;
+    return <Promise<AppointmentPasswordValidationResult>>this.http
+      .get<AppointmentPasswordValidationResult>(url, this.getRequestOptions())
       .pipe(timeout(this.requestTimeoutInMs))
       .toPromise()
       .then((res: HttpResponse<AppointmentPasswordValidationResult>) => {
@@ -387,10 +401,19 @@ export class ApiDataService {
       .set(HttpConstants.HTTP_HEADER_ACCEPT_LANGUAGE, this.localeId)
       .set(HttpConstants.HTTP_HEADER_ACCEPT, this.apiMediaType)
       .set(HttpConstants.HTTP_HEADER_CONTENT_TYPE, this.apiMediaType);
-    return {headers: headers, responseType: 'json', observe: 'response'};
+    return {
+      headers: headers,
+      responseType: 'json',
+      observe: 'response'
+    };
   }
 
-  private handleApiError(error: any, requestedUrl: string, payloadOfRequest: string, resourceType?: string): Promise<any> {
+  private handleApiError(
+    error: any,
+    requestedUrl: string,
+    payloadOfRequest: string,
+    resourceType?: string
+  ): Promise<any> {
     this.logger.warn(`Ein Fehler ist beim Zugriff auf die API aufgetreten`);
     this.logger.warn(`Angefragte URL: ${requestedUrl}`);
     this.logger.warn(`Body der Anfrage:`, payloadOfRequest);
@@ -408,51 +431,60 @@ export class ApiDataService {
             const apiError: ApiError = res.error as ApiError;
             if (res.status === HttpConstants.HTTP_STATUS_BADREQUEST) {
               if (apiError.code === '0063') {
-                errorMsg = 'Die Umfrage kann nicht mehr beantwortet werden, '
-                  + 'weil die Erstellerin oder der Ersteller sie in der Zwischenzeit pausiert hat.';
+                errorMsg =
+                  'Die Umfrage kann nicht mehr beantwortet werden, ' +
+                  'weil die Erstellerin oder der Ersteller sie in der Zwischenzeit pausiert hat.';
               } else {
-                errorMsg = `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}').`
-                  + `Wenn es sich deiner Meinung nach um einen clientseitigen Fehler handelt, `
-                  + 'leite die folgende Fehlermeldung bitte an die Betreuer des Clients weiter: '
-                  + ((NullableUtils.isObjectNullOrUndefined(apiError)) ? '' : `${apiError.code} - ${apiError.message}`);
+                errorMsg =
+                  `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}').` +
+                  `Wenn es sich deiner Meinung nach um einen clientseitigen Fehler handelt, ` +
+                  'leite die folgende Fehlermeldung bitte an die Betreuer des Clients weiter: ' +
+                  (NullableUtils.isObjectNullOrUndefined(apiError) ? '' : `${apiError.code} - ${apiError.message}`);
               }
             } else if (res.status === HttpConstants.HTTP_STATUS_FORBIDDEN) {
               errorMsg = 'Die verwendeten Zugangsdaten sind ungültig.';
             } else if (res.status === HttpConstants.HTTP_STATUS_UNAUTHORIZED) {
-              errorMsg = 'Der Benutzer konnte authentifiziert werden, aber besitzt nicht die nötigen Rechte zur Ausführung der Operation. '
-                + 'Bitte wende Dich ggf. an den Betreuer der API zur Behebung des Problems.';
+              errorMsg =
+                'Der Benutzer konnte authentifiziert werden, aber besitzt nicht die nötigen Rechte zur Ausführung der Operation. ' +
+                'Bitte wende Dich ggf. an den Betreuer der API zur Behebung des Problems.';
             } else if (res.status === HttpConstants.HTTP_STATUS_NOTFOUND) {
-              errorMsg = 'Die angeforderte ' + ((resourceType) ? resourceType : 'Ressource') + ' existiert nicht (mehr).';
+              errorMsg = 'Die angeforderte ' + (resourceType ? resourceType : 'Ressource') + ' existiert nicht (mehr).';
             } else if (res.status === HttpConstants.HTTP_STATUS_NOTACCEPTED) {
-              errorMsg = 'Die API akzeptiert die Anfrage mit dem gesendeten Media-Typ nicht. '
-                + 'Bitte wende Dich ggf. an die Betreuer des Clients zur Behebung des Problems.';
+              errorMsg =
+                'Die API akzeptiert die Anfrage mit dem gesendeten Media-Typ nicht. ' +
+                'Bitte wende Dich ggf. an die Betreuer des Clients zur Behebung des Problems.';
             } else if (res.status >= 400 && res.status < 500) {
-              errorMsg = `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}'). `
-                + 'Bitte kontaktiere die Betreuer des Clients.';
+              errorMsg =
+                `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}'). ` +
+                'Bitte kontaktiere die Betreuer des Clients.';
             } else if (res.status === HttpConstants.HTTP_STATUS_INTERNALSERVERERROR) {
-              errorMsg = 'Es ist ein interner Serverfehler bei der API aufgetreten. '
-                + 'Bitte wende Dich an den Betreuer der API zur Behebung des Problems.';
+              errorMsg =
+                'Es ist ein interner Serverfehler bei der API aufgetreten. ' +
+                'Bitte wende Dich an den Betreuer der API zur Behebung des Problems.';
             } else {
-              errorMsg = `Es ist ein unerwarteter Statuscode '${res.status}' von der API zurück gegeben worden. `
-                + 'Bitte kontaktiere die Betreuer des Clients.';
+              errorMsg =
+                `Es ist ein unerwarteter Statuscode '${res.status}' von der API zurück gegeben worden. ` +
+                'Bitte kontaktiere die Betreuer des Clients.';
             }
           } else {
-            errorMsg = `Es ist ein unerwarteter Media-Typ '${res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE)}' `
-              + 'in der Antwort von der API zurück gegeben worden. '
-              + 'Bitte kontaktiere die Betreuer des Clients.';
+            errorMsg =
+              `Es ist ein unerwarteter Media-Typ '${res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE)}' ` +
+              'in der Antwort von der API zurück gegeben worden. ' +
+              'Bitte kontaktiere die Betreuer des Clients.';
           }
         } else {
-          errorMsg = 'Die Antwort von der API enthält keinen Media-Typ. '
-            + 'Es handelt sich um einen serverseitigen Fehler. '
-            + 'Bitte konkaktiere den Betreuer der API.';
+          errorMsg =
+            'Die Antwort von der API enthält keinen Media-Typ. ' +
+            'Es handelt sich um einen serverseitigen Fehler. ' +
+            'Bitte konkaktiere den Betreuer der API.';
         }
       }
       this.logger.warn(`Body der Antwort:`, res.error);
-    } else // noinspection SuspiciousInstanceOfGuard
-    if (error instanceof TimeoutError) {
+    } else if (error instanceof TimeoutError) {
+      // noinspection SuspiciousInstanceOfGuard
       errorMsg = `Die API hat nicht in der erwarteten Zeit von ${this.requestTimeoutInSeconds} Sekunden geantwortet.`;
-    } else // noinspection SuspiciousInstanceOfGuard
-    if (error instanceof Error) {
+    } else if (error instanceof Error) {
+      // noinspection SuspiciousInstanceOfGuard
       const res: Error = error as Error;
       errorMsg = `Ein unerwarteter Fehler bei der Anfrage an die API aufgetreten (0): ${res.message}`;
     } else {

@@ -1,7 +1,7 @@
 name: sbom
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
 jobs:
   generate-and-compare-sbom:
@@ -17,7 +17,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y jq
       - uses: actions/setup-node@v6
         with:
-          node-version: 22.18.x
+          node-version: 22
           cache: 'npm'
       - name: Install dependencies
         run: npm ci

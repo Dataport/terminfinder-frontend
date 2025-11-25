@@ -1,11 +1,19 @@
-import {ChangeDetectionStrategy, Component, OnInit, input} from '@angular/core';
-import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Appointment} from '../shared/models';
-import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {Router} from '@angular/router';
-import {invalidPasswordValidator} from '../shared/validators/invalid-password.directive';
-import {NullableUtils} from '../shared/utils';
-import {RouteTitleService} from "../shared/services/route-title.service";
+import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
+import {
+  AbstractControl,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ValidationErrors,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
+import { Appointment } from '../shared/models';
+import { AppStateService } from '../shared/services/app-state/app-state.service';
+import { Router } from '@angular/router';
+import { invalidPasswordValidator } from '../shared/validators/invalid-password.directive';
+import { NullableUtils } from '../shared/utils';
+import { RouteTitleService } from '../shared/services/route-title.service';
 import { StepperComponent } from '../shared/components/stepper/stepper.component';
 import { AdminInfoComponent } from '../shared/components/admin-info/admin-info.component';
 import { NoopValueAccessorDirective } from '../shared/directives/noop-value-accessor.directive';
@@ -19,7 +27,17 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [StepperComponent, AdminInfoComponent, FormsModule, ReactiveFormsModule, NoopValueAccessorDirective, CheckboxFieldComponent, NgClass, NavigationComponent, TranslatePipe]
+  imports: [
+    StepperComponent,
+    AdminInfoComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    NoopValueAccessorDirective,
+    CheckboxFieldComponent,
+    NgClass,
+    NavigationComponent,
+    TranslatePipe
+  ]
 })
 export class SettingsComponent implements OnInit {
   settingsForm: UntypedFormGroup;
@@ -36,36 +54,44 @@ export class SettingsComponent implements OnInit {
     private router: Router,
     private fb: UntypedFormBuilder,
     private routeTitle: RouteTitleService
-  ) {
-  }
+  ) {}
 
   static checkPasswords(group: UntypedFormGroup): ValidationErrors | null {
     const password = group.controls.password;
     const passwordRepeat = group.controls.passwordRepeat;
-    return password == null || passwordRepeat == null || password.value === passwordRepeat.value ? null
-      : {notSame: true};
+    return password == null || passwordRepeat == null || password.value === passwordRepeat.value
+      ? null
+      : { notSame: true };
   }
 
   ngOnInit() {
     this.model = this.appStateService.getAppointment();
     const isPasswordEntered = !!this.model.password || this.appStateService.isAppointmentProtected;
     this.showPlaceholder = this.appStateService.isAppointmentProtected && this.isAdmin();
-    this.settingsForm = this.fb.group({
-      hasPassword: [isPasswordEntered || this.appStateService.isAppointmentProtected],
-      password: [
-        this.model.password, null
-      ],
-      passwordRepeat: [
-        this.model.password, null
-      ]
-    }, {
-      validator: isPasswordEntered ? SettingsComponent.checkPasswords : null
-    });
+    this.settingsForm = this.fb.group(
+      {
+        hasPassword: [isPasswordEntered || this.appStateService.isAppointmentProtected],
+        password: [
+          this.model.password,
+          null
+        ],
+        passwordRepeat: [
+          this.model.password,
+          null
+        ]
+      },
+      {
+        validator: isPasswordEntered ? SettingsComponent.checkPasswords : null
+      }
+    );
 
     // Add/remove validators if password checkbox has been checked/unchecked
     this.hasPassword().valueChanges.subscribe(() => {
       if (this.hasPassword().value && this.showPlaceholder) {
-        if (!NullableUtils.isStringNullOrEmpty(this.getPassword().value) || !NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value)) {
+        if (
+          !NullableUtils.isStringNullOrEmpty(this.getPassword().value) ||
+          !NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value)
+        ) {
           this.addValidators();
         } else {
           this.removeValidators();
@@ -78,7 +104,10 @@ export class SettingsComponent implements OnInit {
     });
 
     this.getPassword().valueChanges.subscribe(() => {
-      if (!NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value) || !NullableUtils.isStringNullOrEmpty(this.getPassword().value)) {
+      if (
+        !NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value) ||
+        !NullableUtils.isStringNullOrEmpty(this.getPassword().value)
+      ) {
         this.addValidators();
       } else if (this.showPlaceholder) {
         this.removeValidators();
@@ -86,7 +115,10 @@ export class SettingsComponent implements OnInit {
     });
 
     this.getPasswordRepeat().valueChanges.subscribe(() => {
-      if (!NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value) || !NullableUtils.isStringNullOrEmpty(this.getPassword().value)) {
+      if (
+        !NullableUtils.isStringNullOrEmpty(this.getPasswordRepeat().value) ||
+        !NullableUtils.isStringNullOrEmpty(this.getPassword().value)
+      ) {
         this.addValidators();
       } else if (this.showPlaceholder) {
         this.removeValidators();
@@ -153,11 +185,17 @@ export class SettingsComponent implements OnInit {
 
   private addValidators() {
     if (!this.getPassword().validator) {
-      this.getPassword().setValidators([Validators.required, invalidPasswordValidator()]);
+      this.getPassword().setValidators([
+        Validators.required,
+        invalidPasswordValidator()
+      ]);
       this.getPassword().updateValueAndValidity();
     }
     if (!this.getPasswordRepeat().validator) {
-      this.getPasswordRepeat().setValidators([Validators.required, invalidPasswordValidator()]);
+      this.getPasswordRepeat().setValidators([
+        Validators.required,
+        invalidPasswordValidator()
+      ]);
       this.getPasswordRepeat().updateValueAndValidity();
     }
     if (!this.settingsForm.validator) {

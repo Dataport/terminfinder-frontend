@@ -1,22 +1,25 @@
-import {Directive, forwardRef, Inject, LOCALE_ID} from '@angular/core';
-import {NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn} from '@angular/forms';
+import { Directive, forwardRef, Inject, LOCALE_ID } from '@angular/core';
+import { NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn } from '@angular/forms';
 import moment from 'moment';
-import {DateTimeGeneratorService} from '../services/generators';
-import {dateValidator} from './date-validator.directive';
-import {ValidatorUtils} from './validator-utils';
-import {MomentUtils, NullableUtils} from '../utils';
+import { DateTimeGeneratorService } from '../services/generators';
+import { dateValidator } from './date-validator.directive';
+import { ValidatorUtils } from './validator-utils';
+import { MomentUtils, NullableUtils } from '../utils';
 
-export function dateInFutureOrTodayValidator(localeId: string, dateTimeGenerator: DateTimeGeneratorService): ValidatorFn {
+export function dateInFutureOrTodayValidator(
+  localeId: string,
+  dateTimeGenerator: DateTimeGeneratorService
+): ValidatorFn {
   return (control: UntypedFormControl) => {
     if (NullableUtils.isObjectNullOrUndefined(control.value)) {
       return null;
     }
-    const isValidDate: boolean = (dateValidator(localeId))(control) === null;
+    const isValidDate: boolean = dateValidator(localeId)(control) === null;
     if (!isValidDate) {
       return null;
     }
 
-    const type = typeof (control.value);
+    const type = typeof control.value;
     let input_string;
 
     if (type === 'object') {
@@ -28,27 +31,33 @@ export function dateInFutureOrTodayValidator(localeId: string, dateTimeGenerator
     const parsedDate = MomentUtils.parseMomentDateFromString(input_string, localeId);
     const now: moment.Moment = dateTimeGenerator.now();
     const isValidValue = parsedDate.isSame(now, 'day') || parsedDate.isAfter(now);
-    return isValidValue ? null : {
-      invalidDateNotTodayNorInFuture: {
-        valid: false
-      }
-    };
+    return isValidValue
+      ? null
+      : {
+          invalidDateNotTodayNorInFuture: {
+            valid: false
+          }
+        };
   };
 }
 
 @Directive({
   selector: '[appValidateDateInFuture][ngModel],[appValidateDateInFuture][formControl]',
-  providers: [{
-    provide: NG_VALIDATORS,
-    useExisting: forwardRef(() => DateTodayOrInFutureValidatorDirective),
-    multi: true
-  }],
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => DateTodayOrInFutureValidatorDirective),
+      multi: true
+    }
+  ]
 })
 export class DateTodayOrInFutureValidatorDirective implements Validator {
-
   validator: Function;
 
-  constructor(@Inject(LOCALE_ID) private localeId: string, private dateTimeGenerator: DateTimeGeneratorService) {
+  constructor(
+    @Inject(LOCALE_ID) private localeId: string,
+    private dateTimeGenerator: DateTimeGeneratorService
+  ) {
     this.validator = dateInFutureOrTodayValidator(localeId, dateTimeGenerator);
   }
 

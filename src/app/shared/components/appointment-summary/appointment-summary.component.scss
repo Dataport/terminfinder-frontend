@@ -1,5 +1,5 @@
-@use 'src/default' as *;
-@import 'bootstrap/scss/mixins';
+@use "src/default" as *;
+@import "bootstrap/scss/mixins";
 
 #url,
 #name,
@@ -50,14 +50,14 @@ img.icon {
 }
 
 #description:before {
-  content: '...';
+  content: "...";
   position: absolute;
   right: 0;
   bottom: 0;
 }
 
 #description:after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   width: 1em;
@@ -72,9 +72,9 @@ img.icon {
 }
 
 #descriptionContainer a.collapsed:after {
-  content: 'mehr';
+  content: "mehr";
 }
 
 #descriptionContainer a:not(.collapsed):after {
-  content: 'weniger';
+  content: "weniger";
 }

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -8,8 +8,5 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [TranslatePipe]
 })
 export class AdminInfoComponent {
-
-  constructor() {
-  }
-
+  constructor() {}
 }

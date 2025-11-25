@@ -20,7 +20,9 @@
   <h2>Lizenzen:</h2>
   @for (element of summary; track element.packageName) {
     <div>
-      <div><em>{{ element.packageName }}:</em></div>
+      <div>
+        <em>{{ element.packageName }}:</em>
+      </div>
       <span>Author: {{ element.author }}</span>
       @for (license of element.licenses; track license.id) {
         <div>
@@ -35,6 +37,6 @@
     </div>
   }
 </section>
-<button (click)="back()" aria-label="Zurück"
-        class="btn btn-secondary w-100">{{ 'navigation.back' | translate }}
+<button (click)="back()" aria-label="Zurück" class="btn btn-secondary w-100">
+  {{ 'navigation.back' | translate }}
 </button>

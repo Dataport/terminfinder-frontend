@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Appointment, Message, MessageType} from '../shared/models';
-import {Appointment as ApiAppointment} from '../shared/models/api-data-v1-dto';
-import {AppStateService} from '../shared/services/app-state/app-state.service';
+import { Component, OnInit } from '@angular/core';
+import { Appointment, Message, MessageType } from '../shared/models';
+import { Appointment as ApiAppointment } from '../shared/models/api-data-v1-dto';
+import { AppStateService } from '../shared/services/app-state/app-state.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import {AppointmentStatusType} from '../shared/models/appointmentStatusType';
-import {DataRepositoryService} from '../shared/services/data-service';
-import {Logger} from '../shared/services/logging';
-import {ModelTransformerService} from '../shared/services/transformer';
-import {RouteTitleService} from "../shared/services/route-title.service";
+import { AppointmentStatusType } from '../shared/models/appointmentStatusType';
+import { DataRepositoryService } from '../shared/services/data-service';
+import { Logger } from '../shared/services/logging';
+import { ModelTransformerService } from '../shared/services/transformer';
+import { RouteTitleService } from '../shared/services/route-title.service';
 import { AppointmentSummaryComponent } from '../shared/components/appointment-summary/appointment-summary.component';
 import { DatesOverviewComponent } from '../shared/components/dates-overview/dates-overview.component';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -16,7 +16,12 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
-  imports: [AppointmentSummaryComponent, DatesOverviewComponent, RouterLink, TranslatePipe]
+  imports: [
+    AppointmentSummaryComponent,
+    DatesOverviewComponent,
+    RouterLink,
+    TranslatePipe
+  ]
 })
 export class AdminDashboardComponent implements OnInit {
   model: Appointment;
@@ -30,8 +35,7 @@ export class AdminDashboardComponent implements OnInit {
     private logger: Logger,
     private route: ActivatedRoute,
     private routeTitle: RouteTitleService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.route.data.subscribe((data: { appointment: Appointment }) => {
@@ -45,14 +49,15 @@ export class AdminDashboardComponent implements OnInit {
   public toggleStatus(): void {
     if (this.isStatusDisabled) return;
 
-    const statusType = this.isStarted
-      ? AppointmentStatusType.Paused
-      : AppointmentStatusType.Started;
+    const statusType = this.isStarted ? AppointmentStatusType.Paused : AppointmentStatusType.Started;
 
     this.dataRepoService
       .updateAppointmentStatus(this.model.adminId, statusType)
       .then((result: ApiAppointment) => {
-        this.logger.debug(`Status der Umfrage erfolgreich gesetzt; neuer Status: ${JSON.stringify(result.status)}`, result);
+        this.logger.debug(
+          `Status der Umfrage erfolgreich gesetzt; neuer Status: ${JSON.stringify(result.status)}`,
+          result
+        );
         this.model = ModelTransformerService.transformApiAppointmentToAppointment(result);
         this.appStateService.updateAppointment(this.model);
         this.isStarted = this.model.status === AppointmentStatusType.Started;

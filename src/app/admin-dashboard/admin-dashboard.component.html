@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-2">
-    <img aria-hidden="true" alt="" class="w-100" src="assets/dashboard.svg">
+    <img aria-hidden="true" alt="" class="w-100" src="assets/dashboard.svg" />
   </div>
 </div>
 <div class="row justify-content-center">
@@ -55,8 +55,10 @@
                     <img
                       aria-hidden="true"
                       alt=""
-                      class="icon" id="img_pause"
-                      src="assets/dashboard_{{isStarted ? 'pause' : 'continue'}}.svg">
+                      class="icon"
+                      id="img_pause"
+                      src="assets/dashboard_{{ isStarted ? 'pause' : 'continue' }}.svg"
+                    />
                     @if (isStarted) {
                       <span class="d-block font-medium text-bold" data-id="pauseText">
                         {{ 'poll.pause' | translate }}
@@ -77,7 +79,7 @@
               <div class="row">
                 <div class="col col-12">
                   <a class="w-100 d-inline-block" data-id="changePollLink" routerLink="/poll-admin">
-                    <img aria-hidden="true" alt="" class="icon" id="img_edit" src="assets/dashboard_edit.svg">
+                    <img aria-hidden="true" alt="" class="icon" id="img_edit" src="assets/dashboard_edit.svg" />
                     <span class="d-block font-medium text-bold" data-id="changePollText">
                       {{ 'poll.change' | translate }}
                     </span>

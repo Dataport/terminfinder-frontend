@@ -26,19 +26,20 @@
         <div class="row g-0">
           <h2 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h2>
         </div>
-        <app-checkbox-field [label]="'password.securePoll' | translate" data-id="securePollLabel" formControlName="hasPassword"/>
+        <app-checkbox-field
+          [label]="'password.securePoll' | translate"
+          data-id="securePollLabel"
+          formControlName="hasPassword"
+        />
         @if (hasPassword().value) {
           <div class="row pt-3">
             <div class="col-1 d-flex justify-content-start align-items-center">
-              <img aria-hidden="true" alt="" class="icon" src="assets/password.svg">
+              <img aria-hidden="true" alt="" class="icon" src="assets/password.svg" />
             </div>
             <div class="col-11 ps-3 ps-md-0">
-              <label
-                class="font-small text-bold text-primary"
-                for="password"
-              >
+              <label class="font-small text-bold text-primary" for="password">
                 {{ (showPlaceholder ? 'password.changePassword' : 'password.enterPassword') | translate }}
-                <br>
+                <br />
                 {{ 'password.minimum' | translate }}
               </label>
             </div>
@@ -96,13 +97,10 @@
           </div>
           <div class="row mt-4">
             <div class="col-1 d-flex justify-content-start align-items-center">
-              <img aria-hidden="true" alt="" class="icon" src="assets/password.svg">
+              <img aria-hidden="true" alt="" class="icon" src="assets/password.svg" />
             </div>
             <div class="col-11 ps-3 ps-md-0">
-              <label
-                class="font-small text-bold text-primary"
-                for="password-repeat"
-              >
+              <label class="font-small text-bold text-primary" for="password-repeat">
                 {{ 'password.repeat' | translate }}
               </label>
             </div>
@@ -119,12 +117,14 @@
                 id="password-repeat"
                 [type]="passwordRepeatHidden ? 'password' : 'text'"
                 aria-describedby="no-match set-password-repeat set-minimum-repeat"
-              >
+              />
               <button
                 class="btn btn-transparent"
                 type="button"
                 (click)="togglePasswordRepeatVisibility()"
-                [attr.aria-description]="'password.' + (passwordRepeatHidden ? 'showPassword' : 'hidePassword') | translate"
+                [attr.aria-description]="
+                  'password.' + (passwordRepeatHidden ? 'showPassword' : 'hidePassword') | translate
+                "
               >
                 <i class="fa-solid" [ngClass]="passwordRepeatHidden ? 'fa-eye-slash' : 'fa-eye'"></i>
               </button>

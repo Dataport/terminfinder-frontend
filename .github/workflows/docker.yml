@@ -2,9 +2,9 @@ name: docker
 
 on:
   workflow_run:
-    workflows: [ release ]
-    types: [ completed ]
-    branches: [ main ]
+    workflows: [release]
+    types: [completed]
+    branches: [main]
 
 jobs:
   build-push-opencode:

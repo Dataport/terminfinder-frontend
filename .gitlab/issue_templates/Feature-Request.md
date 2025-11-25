@@ -1,5 +1,6 @@
 # Story
-Als *Anforderer* möchte ich, dass ... um *Begründung*.
+
+Als _Anforderer_ möchte ich, dass ... um _Begründung_.
 
 # Technische Details
 

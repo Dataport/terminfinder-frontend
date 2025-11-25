@@ -1,0 +1,28 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "objectWrap": "preserve",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "multilineArraysWrapThreshold": 1,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "printWidth": 120
+      }
+    }
+  ],
+  "plugins": [
+    "prettier-plugin-multiline-arrays"
+  ]
+}

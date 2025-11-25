@@ -9,14 +9,15 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  imports: [NgOptimizedImage, RouterLink, TranslatePipe]
+  imports: [
+    NgOptimizedImage,
+    RouterLink,
+    TranslatePipe
+  ]
 })
 export class FooterComponent {
-
   readonly email = this.stringTransformService.decodeAndSanitize(environment.email);
   showReference = environment.showReference;
 
-  constructor(private stringTransformService: StringTransformService) {
-  }
-
+  constructor(private stringTransformService: StringTransformService) {}
 }

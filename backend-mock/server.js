@@ -79,7 +79,13 @@ function generateAppointments(participantCount = 3) {
     }
   ];
 
-  const suggestedDateIds = suggestedDates.reduce((acc, curr) => [...acc, curr.suggestedDateId], []);
+  const suggestedDateIds = suggestedDates.reduce(
+    (acc, curr) => [
+      ...acc,
+      curr.suggestedDateId
+    ],
+    []
+  );
 
   const votingStatus = {
     0: 'declined',
@@ -92,7 +98,7 @@ function generateAppointments(participantCount = 3) {
     const participantId = uuid.v4();
     let votings = [];
 
-    suggestedDateIds.forEach(suggestedDateId => {
+    suggestedDateIds.forEach((suggestedDateId) => {
       votings.push({
         suggestedDateId: suggestedDateId,
         votingId: uuid.v4(),
@@ -126,10 +132,10 @@ function generateAppointments(participantCount = 3) {
 }
 
 app.use(cors());
-app.use(express.json({type: mediaType}));
-app.use(express.urlencoded({extended: false}));
+app.use(express.json({ type: mediaType }));
+app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-  if (req.headers["content-type"] !== mediaType) {
+  if (req.headers['content-type'] !== mediaType) {
     res.status(406).send();
   } else {
     next();
@@ -137,7 +143,8 @@ app.use((req, res, next) => {
 });
 
 function isAppointmentValid(appointment) {
-  return !!appointment.appointmentId ||
+  return (
+    !!appointment.appointmentId ||
     !!appointment.customerId ||
     !!appointment.adminId ||
     !!appointment.creatorName ||
@@ -145,14 +152,17 @@ function isAppointmentValid(appointment) {
     !!appointment.description ||
     !!appointment.place ||
     !!appointment.status ||
-    !!appointment.suggestedDates.length;
+    !!appointment.suggestedDates.length
+  );
 }
 
 function filterAppointment(obj) {
-  const filtered = appointments.filter(appointment =>
-    (appointment.appointmentId === obj.appointmentId && appointment.customerId === obj.customerId) ||
-    (appointment.adminId === obj.adminId && appointment.customerId === obj.customerId));
-  return (filtered.length === 1) ? filtered[0] : null;
+  const filtered = appointments.filter(
+    (appointment) =>
+      (appointment.appointmentId === obj.appointmentId && appointment.customerId === obj.customerId) ||
+      (appointment.adminId === obj.adminId && appointment.customerId === obj.customerId)
+  );
+  return filtered.length === 1 ? filtered[0] : null;
 }
 
 function copyObject(obj) {
@@ -169,24 +179,24 @@ function isAuthenticated(isAdmin, requestAuth, appointment) {
 
 app.get('/app', (req, res) => {
   res.contentType(mediaType).status(200).json({
-    "versionNumber": '0.5.0',
-    "buildDate": '2020-10-01'
+    versionNumber: '0.5.0',
+    buildDate: '2020-10-01'
   });
 });
 
 app.post('/appointment/:customerId', (req, res) => {
   const obj = {
-    "appointmentId": uuid.v4(),
-    "customerId": req.params.customerId,
-    "adminId": uuid.v4(),
-    "creatorName": req.body.creatorName,
-    "subject": req.body.subject,
-    "description": req.body.description,
-    "place": req.body.place,
-    "status": req.body.status,
-    "password": req.body.password,
-    "suggestedDates": req.body.suggestedDates,
-    "participants": req.body.participants
+    appointmentId: uuid.v4(),
+    customerId: req.params.customerId,
+    adminId: uuid.v4(),
+    creatorName: req.body.creatorName,
+    subject: req.body.subject,
+    description: req.body.description,
+    place: req.body.place,
+    status: req.body.status,
+    password: req.body.password,
+    suggestedDates: req.body.suggestedDates,
+    participants: req.body.participants
   };
 
   if (!isAppointmentValid(obj)) {
@@ -195,7 +205,7 @@ app.post('/appointment/:customerId', (req, res) => {
       appointment: obj
     });
   }
-  obj.suggestedDates.forEach(suggestedDate => {
+  obj.suggestedDates.forEach((suggestedDate) => {
     suggestedDate.suggestedDateId = uuid.v4();
   });
   appointments.push(obj);
@@ -209,17 +219,17 @@ app.post('/appointment/:customerId', (req, res) => {
 
 app.put('/appointment/:customerId', (req, res) => {
   const obj = {
-    "appointmentId": req.body.appointmentId,
-    "customerId": req.params.customerId,
-    "adminId": req.body.adminId,
-    "creatorName": req.body.creatorName,
-    "subject": req.body.subject,
-    "description": req.body.description,
-    "place": req.body.place,
-    "status": req.body.status,
-    "password": req.body.password,
-    "suggestedDates": req.body.suggestedDates,
-    "participants": req.body.participants
+    appointmentId: req.body.appointmentId,
+    customerId: req.params.customerId,
+    adminId: req.body.adminId,
+    creatorName: req.body.creatorName,
+    subject: req.body.subject,
+    description: req.body.description,
+    place: req.body.place,
+    status: req.body.status,
+    password: req.body.password,
+    suggestedDates: req.body.suggestedDates,
+    participants: req.body.participants
   };
 
   if (!isAppointmentValid(obj)) {
@@ -229,8 +239,9 @@ app.put('/appointment/:customerId', (req, res) => {
     });
   }
 
-  appointments = appointments.filter(appointment =>
-    appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId);
+  appointments = appointments.filter(
+    (appointment) => appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId
+  );
   appointments.push(obj);
 
   const output = copyObject(filterAppointment(obj));
@@ -242,36 +253,42 @@ app.put('/appointment/:customerId', (req, res) => {
 
 app.get('/appointment/:customerId/:appointmentId/protection', (req, res) => {
   const obj = {
-    'appointmentId': req.params.appointmentId,
-    'customerId': req.params.customerId
+    appointmentId: req.params.appointmentId,
+    customerId: req.params.customerId
   };
   const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
-      'appointmentId': filtered.appointmentId,
-      'protected': !!filtered.password
+      appointmentId: filtered.appointmentId,
+      protected: !!filtered.password
     });
   } else {
-    res.contentType(mediaType).status(400).json({msg: `PROTECTION: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({ msg: `PROTECTION: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}` });
   }
 });
 
 app.get('/appointment/:customerId/:appointmentId/passwordverification', (req, res) => {
   const obj = {
-    'appointmentId': req.params.appointmentId,
-    'customerId': req.params.customerId
+    appointmentId: req.params.appointmentId,
+    customerId: req.params.customerId
   };
   const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
-      'appointmentId': filtered.appointmentId,
-      'passwordvalidation': isAuthenticated(false, req.headers.authorization, filtered),
-      'protected': !!filtered.password
+      appointmentId: filtered.appointmentId,
+      passwordvalidation: isAuthenticated(false, req.headers.authorization, filtered),
+      protected: !!filtered.password
     });
   } else {
-    res.contentType(mediaType).status(400).json({msg: `PW VERIFY: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({ msg: `PW VERIFY: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}` });
   }
 });
 
@@ -281,14 +298,18 @@ function shuffle(array) {
 
   // While there remain elements to shuffle...
   while (currentIndex !== 0) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+    [
+      array[currentIndex],
+      array[randomIndex]
+    ] = [
+      array[randomIndex],
+      array[currentIndex]
+    ];
   }
 
   return array;
@@ -296,12 +317,12 @@ function shuffle(array) {
 
 app.get('/appointment/:customerId/:appointmentId', (req, res) => {
   const obj = {
-    'appointmentId': req.params.appointmentId,
-    'customerId': req.params.customerId
+    appointmentId: req.params.appointmentId,
+    customerId: req.params.customerId
   };
   const filtered = copyObject(filterAppointment(obj));
   filtered.participants = shuffle(filtered.participants);
-  filtered.participants.forEach(participant => {
+  filtered.participants.forEach((participant) => {
     participant.votings = shuffle(participant.votings);
     if (filtered.suggestedDates.length >= 2) {
       participant.votings.pop();
@@ -312,49 +333,62 @@ app.get('/appointment/:customerId/:appointmentId', (req, res) => {
     filtered.password = null;
     res.contentType(mediaType).json(filtered);
   } else {
-    res.contentType(mediaType).status(400).json({msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({ msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}` });
   }
 });
 
 app.get('/admin/:customerId/:adminId/protection', (req, res) => {
   const obj = {
-    'adminId': req.params.adminId,
-    'customerId': req.params.customerId
+    adminId: req.params.adminId,
+    customerId: req.params.customerId
   };
   const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
-      'appointmentId': filtered.appointmentId,
-      'protected': !!filtered.password
+      appointmentId: filtered.appointmentId,
+      protected: !!filtered.password
     });
   } else {
-    res.contentType(mediaType).status(400).json({msg: `ADMIN PROTECTION: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({
+        msg: `ADMIN PROTECTION: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`
+      });
   }
 });
 
 app.get('/admin/:customerId/:adminId/passwordverification', (req, res) => {
   const obj = {
-    'adminId': req.params.adminId,
-    'customerId': req.params.customerId
+    adminId: req.params.adminId,
+    customerId: req.params.customerId
   };
   const filtered = filterAppointment(obj);
 
   if (filtered) {
     res.contentType(mediaType).json({
-      'appointmentId': filtered.appointmentId,
-      'passwordvalidation': isAuthenticated(true, req.headers.authorization, filtered),
-      'protected': !!filtered.password
+      appointmentId: filtered.appointmentId,
+      passwordvalidation: isAuthenticated(true, req.headers.authorization, filtered),
+      protected: !!filtered.password
     });
   } else {
-    res.contentType(mediaType).status(400).json({msg: `ADMIN PW VERIFY: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({
+        msg: `ADMIN PW VERIFY: No member with the id of ${req.params.customerId} & ${req.params.appointmentId}`
+      });
   }
 });
 
 app.get('/admin/:customerId/:adminId', (req, res) => {
   let obj = {
-    'adminId': req.params.adminId,
-    'customerId': req.params.customerId
+    adminId: req.params.adminId,
+    customerId: req.params.customerId
   };
   obj = copyObject(filterAppointment(obj));
 
@@ -362,14 +396,17 @@ app.get('/admin/:customerId/:adminId', (req, res) => {
     obj.password = null;
     res.contentType(mediaType).json(obj);
   } else {
-    res.contentType(mediaType).status(400).json({msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.adminId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({ msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.adminId}` });
   }
 });
 
 app.put('/admin/:customerId/:adminId/paused/status', (req, res) => {
   let obj = {
-    'adminId': req.params.adminId,
-    'customerId': req.params.customerId
+    adminId: req.params.adminId,
+    customerId: req.params.customerId
   };
   obj = filterAppointment(obj);
 
@@ -379,14 +416,17 @@ app.put('/admin/:customerId/:adminId/paused/status', (req, res) => {
     filtered.password = null;
     res.contentType(mediaType).json(filtered);
   } else {
-    res.contentType(mediaType).status(400).json({msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.adminId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({ msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.adminId}` });
   }
 });
 
 app.put('/admin/:customerId/:adminId/started/status', (req, res) => {
   let obj = {
-    'adminId': req.params.adminId,
-    'customerId': req.params.customerId
+    adminId: req.params.adminId,
+    customerId: req.params.customerId
   };
   obj = filterAppointment(obj);
 
@@ -396,14 +436,17 @@ app.put('/admin/:customerId/:adminId/started/status', (req, res) => {
     filtered.password = null;
     res.contentType(mediaType).json(filtered);
   } else {
-    res.contentType(mediaType).status(400).json({msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.adminId}`});
+    res
+      .contentType(mediaType)
+      .status(400)
+      .json({ msg: `APPOINTMENT: No member with the id of ${req.params.customerId} & ${req.params.adminId}` });
   }
 });
 
 app.put('/votings/:customerId/:appointmentId', (req, res) => {
   let obj = {
-    "appointmentId": req.params.appointmentId,
-    "customerId": req.params.customerId,
+    appointmentId: req.params.appointmentId,
+    customerId: req.params.customerId
   };
   obj = filterAppointment(obj);
   if (!obj) {
@@ -421,11 +464,11 @@ app.put('/votings/:customerId/:appointmentId', (req, res) => {
     });
   }
 
-  newParticipants.forEach(participant => {
+  newParticipants.forEach((participant) => {
     if (participant.participantId === null) {
       participant.participantId = uuid.v4();
     }
-    participant.votings.forEach(voting => {
+    participant.votings.forEach((voting) => {
       if (voting.votingId === null) {
         voting.votingId = uuid.v4();
       }
@@ -434,8 +477,8 @@ app.put('/votings/:customerId/:appointmentId', (req, res) => {
       }
     });
 
-    obj.participants = obj.participants.filter(participantObj =>
-      (participantObj.participantId !== participant.participantId)
+    obj.participants = obj.participants.filter(
+      (participantObj) => participantObj.participantId !== participant.participantId
     );
     obj.participants.push(participant);
   });
@@ -447,8 +490,9 @@ app.put('/votings/:customerId/:appointmentId', (req, res) => {
     });
   }
 
-  appointments = appointments.filter(appointment =>
-    appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId);
+  appointments = appointments.filter(
+    (appointment) => appointment.appointmentId !== obj.appointmentId || appointment.customerId !== obj.customerId
+  );
   appointments.push(obj);
 
   const output = filterAppointment(obj);

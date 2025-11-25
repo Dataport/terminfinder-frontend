@@ -1,5 +1,5 @@
-import {Component, input} from '@angular/core';
-import {Appointment} from '../../models';
+import { Component, input } from '@angular/core';
+import { Appointment } from '../../models';
 import { SuggestedDateComponent } from '../suggested-date/suggested-date.component';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -7,12 +7,13 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-dates-overview',
   templateUrl: './dates-overview.component.html',
   styleUrls: ['./dates-overview.component.scss'],
-  imports: [SuggestedDateComponent, TranslatePipe]
+  imports: [
+    SuggestedDateComponent,
+    TranslatePipe
+  ]
 })
 export class DatesOverviewComponent {
   readonly appointment = input<Appointment>(undefined);
 
-  constructor() {
-  }
-
+  constructor() {}
 }

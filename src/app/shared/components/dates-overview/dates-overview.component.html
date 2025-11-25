@@ -2,22 +2,20 @@
   <div class="date-time-overview mt-2 table-responsive">
     <table class="table table-borderless d-inline-block mt-1" data-id="overviewDates">
       <thead>
-      <tr>
-        @for (date of appointment().suggestedDates; track date; let i = $index) {
-          <th>
-            {{ 'date.date' | translate }} {{ i + 1 }}
-          </th>
-        }
-      </tr>
+        <tr>
+          @for (date of appointment().suggestedDates; track date; let i = $index) {
+            <th>{{ 'date.date' | translate }} {{ i + 1 }}</th>
+          }
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        @for (date of appointment().suggestedDates; track date; let i = $index) {
-          <td>
-            <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
-          </td>
-        }
-      </tr>
+        <tr>
+          @for (date of appointment().suggestedDates; track date; let i = $index) {
+            <td>
+              <app-suggested-date [date]="date" [index]="i"></app-suggested-date>
+            </td>
+          }
+        </tr>
       </tbody>
     </table>
   </div>

@@ -1,6 +1,6 @@
-import {SuggestedDate} from './suggestedDate';
-import {Participant} from './participant';
-import {AppointmentStatusType} from './appointmentStatusType';
+import { SuggestedDate } from './suggestedDate';
+import { Participant } from './participant';
+import { AppointmentStatusType } from './appointmentStatusType';
 
 export class Appointment {
   appointmentId: string;

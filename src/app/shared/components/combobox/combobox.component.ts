@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, input} from '@angular/core';
-import {NgClass} from "@angular/common";
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, input } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 enum SelectActions {
   Close,
@@ -49,8 +49,7 @@ export class ComboboxComponent implements AfterViewInit {
   searchString = '';
   searchTimeout: ReturnType<typeof setTimeout> = null;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngAfterViewInit(): void {
     this.selectOption(this.defaultOptionIndex());
@@ -71,7 +70,7 @@ export class ComboboxComponent implements AfterViewInit {
       this.selectOption(this.activeIndex);
       this.setMenuState(false);
     }
-  };
+  }
 
   protected onKeyDown(event: KeyboardEvent): void {
     const action = this.getActionFromKey(event);
@@ -136,7 +135,7 @@ export class ComboboxComponent implements AfterViewInit {
     if (callFocus) {
       this.comboboxElem.nativeElement.focus();
     }
-  };
+  }
 
   private setActiveIndex(index: number): void {
     if (typeof index === 'undefined') return;
@@ -157,8 +156,13 @@ export class ComboboxComponent implements AfterViewInit {
   }
 
   private getActionFromKey(event: KeyboardEvent): SelectActions | undefined {
-    const {key, altKey, ctrlKey, metaKey} = event;
-    const openKeys = ['ArrowDown', 'ArrowUp', 'Enter', ' '];
+    const { key, altKey, ctrlKey, metaKey } = event;
+    const openKeys = [
+      'ArrowDown',
+      'ArrowUp',
+      'Enter',
+      ' '
+    ];
 
     if (!this.isOpen && openKeys.includes(key)) {
       return SelectActions.Open;
@@ -167,9 +171,11 @@ export class ComboboxComponent implements AfterViewInit {
     if (key === 'Home') return SelectActions.First;
     if (key === 'End') return SelectActions.Last;
 
-    if (key === 'Backspace'
-      || key === 'Clear'
-      || (key.length === 1 && key !== ' ' && !altKey && !ctrlKey && !metaKey)) {
+    if (
+      key === 'Backspace' ||
+      key === 'Clear' ||
+      (key.length === 1 && key !== ' ' && !altKey && !ctrlKey && !metaKey)
+    ) {
       return SelectActions.Type;
     }
 
@@ -189,22 +195,18 @@ export class ComboboxComponent implements AfterViewInit {
   private buildSearchString(char: string): string {
     if (this.searchTimeout) clearTimeout(this.searchTimeout);
 
-    this.searchTimeout = setTimeout(() => this.searchString = '', SEARCH_TIMEOUT_DURATION);
+    this.searchTimeout = setTimeout(() => (this.searchString = ''), SEARCH_TIMEOUT_DURATION);
     this.searchString += char;
 
     return this.searchString;
   }
 
   private getIndexByString(filter: string): number {
-    return this.options().findIndex(option =>
-      option.value.toLowerCase()
-        .startsWith(filter.toLowerCase()));
+    return this.options().findIndex((option) => option.value.toLowerCase().startsWith(filter.toLowerCase()));
   }
 
   private getUpdatedIndex(action: SelectActions): number {
-    const maxIndex = this.options().length > 0
-      ? this.options().length - 1
-      : 0;
+    const maxIndex = this.options().length > 0 ? this.options().length - 1 : 0;
 
     switch (action) {
       case SelectActions.First:
@@ -235,8 +237,7 @@ export class ComboboxComponent implements AfterViewInit {
     // ensure the new option is visible on screen
     // ensure the new option is in view
     if (!this.isElementInView(this.optionElems.get(this.activeIndex).nativeElement)) {
-      this.optionElems.get(this.activeIndex).nativeElement
-        .scrollIntoView({behavior: 'smooth', block: 'nearest'});
+      this.optionElems.get(this.activeIndex).nativeElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
@@ -247,10 +248,8 @@ export class ComboboxComponent implements AfterViewInit {
     return (
       bounding.top >= 0 &&
       bounding.left >= 0 &&
-      bounding.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-      bounding.right <=
-      (window.innerWidth || document.documentElement.clientWidth)
+      bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
 
@@ -261,9 +260,12 @@ export class ComboboxComponent implements AfterViewInit {
 
   // ensure a given child element is within the parent's visible scroll area
   // if the child is not visible, scroll the parent
-  private maintainScrollVisibility(activeElement: ElementRef<HTMLDivElement>, scrollParent: ElementRef<HTMLDivElement>) {
-    const {offsetHeight, offsetTop} = activeElement.nativeElement;
-    const {offsetHeight: parentOffsetHeight, scrollTop} = scrollParent.nativeElement;
+  private maintainScrollVisibility(
+    activeElement: ElementRef<HTMLDivElement>,
+    scrollParent: ElementRef<HTMLDivElement>
+  ) {
+    const { offsetHeight, offsetTop } = activeElement.nativeElement;
+    const { offsetHeight: parentOffsetHeight, scrollTop } = scrollParent.nativeElement;
 
     const isAbove = offsetTop < scrollTop;
     const isBelow = offsetTop + offsetHeight > scrollTop + parentOffsetHeight;

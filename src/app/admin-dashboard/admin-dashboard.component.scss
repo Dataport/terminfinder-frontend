@@ -1,4 +1,4 @@
-@use 'src/default' as *;
+@use "src/default" as *;
 
 span {
   color: var(--primary, #{$primary});

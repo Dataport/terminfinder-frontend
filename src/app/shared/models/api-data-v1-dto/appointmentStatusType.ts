@@ -1,6 +1,6 @@
 export enum AppointmentStatusType {
-//  Undefined = 'undefined',
+  //  Undefined = 'undefined',
   Started = 'started',
-  Paused = 'paused',
-//  Deleted = 'deleted'
+  Paused = 'paused'
+  //  Deleted = 'deleted'
 }

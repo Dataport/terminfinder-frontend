@@ -6,8 +6,7 @@ import { Buffer } from 'buffer';
   providedIn: 'root'
 })
 export class StringTransformService {
-
-  constructor() { }
+  constructor() {}
 
   /**
    *
@@ -53,5 +52,4 @@ export class StringTransformService {
     const decoded = this.decode(input);
     return this.sanitize(decoded);
   }
-
 }

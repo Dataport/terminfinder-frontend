@@ -13,7 +13,6 @@ export function invalidLocationValidator(): ValidatorFn {
     useExisting: InvalidLocationDirective,
     multi: true
   }],
-  standalone: false
 })
 export class InvalidLocationDirective implements Validator {
   constructor() {

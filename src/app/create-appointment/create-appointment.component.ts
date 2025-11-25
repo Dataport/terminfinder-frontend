@@ -1,5 +1,5 @@
 import {Component, Inject, Input, LOCALE_ID, OnInit} from '@angular/core';
-import {AbstractControl, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {invalidNameValidator} from '../shared/validators/invalid-name.directive';
@@ -8,12 +8,18 @@ import {ValidatorConstants} from '../shared/constants/validatorConstants';
 import {Router} from '@angular/router';
 import {invalidLocationValidator} from '../shared/validators/invalid-location.directive';
 import {RouteTitleService} from "../shared/services/route-title.service";
+import { StepperComponent } from '../shared/components/stepper/stepper.component';
+import { AdminInfoComponent } from '../shared/components/admin-info/admin-info.component';
+import { NgClass } from '@angular/common';
+import { AutofocusDirective } from '../shared/directives/autofocus.directive';
+import { NavigationComponent } from '../shared/components/navigation/navigation.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-appointment',
   templateUrl: './create-appointment.component.html',
   styleUrls: ['./create-appointment.component.scss'],
-  standalone: false
+  imports: [StepperComponent, AdminInfoComponent, FormsModule, ReactiveFormsModule, NgClass, AutofocusDirective, NavigationComponent, TranslatePipe]
 })
 export class CreateAppointmentComponent implements OnInit {
   detailsForm: UntypedFormGroup;

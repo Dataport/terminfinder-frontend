@@ -19,7 +19,6 @@ export function invalidNameValidator(): ValidatorFn {
     useExisting: InvalidNameDirective,
     multi: true
   }],
-  standalone: false
 })
 export class InvalidNameDirective implements Validator {
   constructor() {

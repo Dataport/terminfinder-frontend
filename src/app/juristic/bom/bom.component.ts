@@ -3,6 +3,7 @@ import {Location} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {BomFile, LicenseSummary} from '../../shared/models';
 import {RouteTitleService} from "../../shared/services/route-title.service";
+import {TranslatePipe} from '@ngx-translate/core';
 
 type AmountOfLicencesElement = { license: string, amount: number }
 
@@ -10,7 +11,7 @@ type AmountOfLicencesElement = { license: string, amount: number }
   selector: 'app-bom',
   templateUrl: './bom.component.html',
   styleUrls: ['./bom.component.scss'],
-  standalone: false
+  imports: [TranslatePipe]
 })
 export class BomComponent implements OnInit {
 

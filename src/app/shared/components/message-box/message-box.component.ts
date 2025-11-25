@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {Message, MessageType} from '../../models';
 import {NullableUtils} from '../../utils';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-message-box',
   templateUrl: './message-box.component.html',
   styleUrls: ['./message-box.component.scss'],
-  standalone: false
+  imports: [NgClass]
 })
 export class MessageBoxComponent {
   isError = false;

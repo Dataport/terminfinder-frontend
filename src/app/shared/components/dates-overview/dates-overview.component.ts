@@ -1,11 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {Appointment} from '../../models';
+import { SuggestedDateComponent } from '../suggested-date/suggested-date.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dates-overview',
   templateUrl: './dates-overview.component.html',
   styleUrls: ['./dates-overview.component.scss'],
-  standalone: false
+  imports: [SuggestedDateComponent, TranslatePipe]
 })
 export class DatesOverviewComponent {
   @Input() appointment: Appointment;

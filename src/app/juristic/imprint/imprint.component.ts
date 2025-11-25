@@ -4,12 +4,14 @@ import { environment } from '../../../environments/environment';
 import { RouteTitleService } from "../../shared/services/route-title.service";
 import { StringTransformService } from 'src/app/shared/services/string-transform.service';
 import { SafeHtml } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-imprint',
   templateUrl: './imprint.component.html',
   styleUrls: ['./imprint.component.scss'],
-  standalone: false
+  imports: [RouterLink, TranslatePipe]
 })
 export class ImprintComponent implements OnInit {
 

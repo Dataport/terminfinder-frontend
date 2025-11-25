@@ -22,7 +22,6 @@ export function maxLengthArrayValidator(max: number): ValidatorFn {
     useExisting: forwardRef(() => MaxLengthArrayValidatorDirective),
     multi: true
   }],
-  standalone: false
 })
 export class MaxLengthArrayValidatorDirective implements Validator {
   validator: Function;

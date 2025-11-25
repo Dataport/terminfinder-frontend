@@ -30,7 +30,6 @@ export function dateValidator(localeId: string): ValidatorFn {
     useExisting: forwardRef(() => DateValidatorDirective),
     multi: true
   }],
-  standalone: false
 })
 export class DateValidatorDirective implements Validator {
   validator: Function;

@@ -32,7 +32,6 @@ export function timeValidator(localeId: string): ValidatorFn {
     useExisting: forwardRef(() => TimeValidatorDirective),
     multi: true
   }],
-  standalone: false
 })
 export class TimeValidatorDirective implements Validator {
 

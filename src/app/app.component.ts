@@ -8,12 +8,18 @@ import { LocaleService } from './shared/services/locale/locale.service';
 import { NullableUtils } from './shared/utils';
 import { ColorsService } from './shared/services/colors.service';
 import { StringTransformService } from './shared/services/string-transform.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { ComboboxComponent } from './shared/components/combobox/combobox.component';
+import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: false
+  imports: [RouterLink, NgOptimizedImage, ComboboxComponent, NgbToast, RouterOutlet, FooterComponent, TranslatePipe]
 })
 export class AppComponent implements OnInit {
   protected readonly NullableUtils = NullableUtils;

@@ -1,4 +1,6 @@
 import {Component, Input} from '@angular/core';
+import { NgClass } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 const STEPS: number[] = [0, 1, 2, 3];
 
@@ -6,7 +8,7 @@ const STEPS: number[] = [0, 1, 2, 3];
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss'],
-  standalone: false
+  imports: [NgClass, TranslatePipe]
 })
 export class StepperComponent {
   @Input() currentStep: number;

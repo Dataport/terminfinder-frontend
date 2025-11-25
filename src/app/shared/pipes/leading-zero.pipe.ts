@@ -1,10 +1,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {NullableUtils} from '../utils';
 
-@Pipe({
-  name: 'leadingZero',
-  standalone: false
-})
+@Pipe({ name: 'leadingZero' })
 export class LeadingZeroPipe implements PipeTransform {
   private static readonly MIN_SIZE = 1;
 

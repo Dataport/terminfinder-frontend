@@ -83,7 +83,6 @@ export function suggestedDateValidator(localeId: string, dateTimeGenerator: Date
     useExisting: forwardRef(() => SuggestedDateValidatorDirective),
     multi: true
   }],
-  standalone: false
 })
 export class SuggestedDateValidatorDirective implements Validator {
   constructor(@Inject(LOCALE_ID) private localeId: string, private dateTimeGenerator: DateTimeGeneratorService) {

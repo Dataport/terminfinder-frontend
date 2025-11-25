@@ -1,18 +1,20 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
-import {Router} from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {LinkGeneratorService} from '../shared/services/generators';
 import {environment} from '../../environments/environment';
-import {TranslateService} from "@ngx-translate/core";
+import { TranslateService, TranslatePipe } from "@ngx-translate/core";
 import {ToastrService} from "ngx-toastr";
 import {RouteTitleService} from "../shared/services/route-title.service";
+import { ClipboardModule } from 'ngx-clipboard';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-links',
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.scss'],
-  standalone: false
+  imports: [ClipboardModule, RouterLink, NgOptimizedImage, TranslatePipe]
 })
 export class LinksComponent implements OnInit {
   model: Appointment;

@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
-import {UntypedFormGroup} from '@angular/forms';
+import { UntypedFormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-poll-options',
   templateUrl: './poll-options.component.html',
   styleUrls: ['./poll-options.component.scss'],
-  standalone: false
+  imports: [FormsModule, ReactiveFormsModule, TranslatePipe]
 })
 export class PollOptionsComponent {
   @Input() formGroup: UntypedFormGroup;

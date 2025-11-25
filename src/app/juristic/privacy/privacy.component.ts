@@ -4,12 +4,13 @@ import { Location } from "@angular/common";
 import { RouteTitleService } from "../../shared/services/route-title.service";
 import { SafeHtml } from '@angular/platform-browser';
 import { StringTransformService } from 'src/app/shared/services/string-transform.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-privacy',
   templateUrl: './privacy.component.html',
   styleUrls: ['./privacy.component.scss'],
-  standalone: false
+  imports: [TranslatePipe]
 })
 export class PrivacyComponent implements OnInit {
 

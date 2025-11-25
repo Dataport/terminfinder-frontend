@@ -1,15 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RouteTitleService} from "../shared/services/route-title.service";
+import { AdIconsComponent } from '../shared/components/ad-icons/ad-icons.component';
+import { AutofocusDirective } from '../shared/directives/autofocus.directive';
+import { NgClass } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
-  standalone: false
+  imports: [AdIconsComponent, FormsModule, ReactiveFormsModule, AutofocusDirective, NgClass, TranslatePipe]
 })
 export class PasswordComponent implements OnInit {
 

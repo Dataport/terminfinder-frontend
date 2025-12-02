@@ -1,4 +1,4 @@
-import {Inject, Injectable, LOCALE_ID} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {Observable} from 'rxjs';
 import {ActivatedRouteSnapshot} from '@angular/router';
 import {Appointment} from '../../models';
@@ -14,14 +14,11 @@ import {Logger} from '../logging';
   providedIn: 'root'
 })
 export class AppointmentResolverService {
-  model: Appointment;
+  private appStateService = inject(AppStateService);
+  private dataRepoService = inject(DataRepositoryService);
+  private logger = inject(Logger);
 
-  constructor(
-    private appStateService: AppStateService,
-    private dataRepoService: DataRepositoryService,
-    private logger: Logger, @Inject(LOCALE_ID) private localeId: string,
-  ) {
-  }
+  model: Appointment;
 
   resolve(route: ActivatedRouteSnapshot): Promise<Appointment> | Observable<never> {
     this.model = this.appStateService.getAppointment();

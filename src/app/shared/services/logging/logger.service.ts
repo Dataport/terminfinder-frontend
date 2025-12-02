@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {AppStateService} from '../app-state/app-state.service';
 import {EnvConfig} from '../../../../environments/env-config.interface';
 import {DateTimeGeneratorService} from '../generators';
@@ -10,6 +10,9 @@ import {NullableUtils} from "../../utils";
 
 @Injectable()
 export class Logger implements LogInterface {
+  private appState = inject(AppStateService);
+  private dateTimeGenerator = inject(DateTimeGeneratorService);
+  private consoleProvider = inject(ConsoleProvider);
 
   private static readonly LOGGING_MOMENT_DATETIME_FORMAT_DEFAULT_VALUE = 'YYYY-MM-DDTHH:mm:ss.SSSZ';
   private static readonly LOG_LEVEL_THRESHOLD_DEFAULT_VALUE: LogLevel = LogLevel.TRACE;
@@ -17,8 +20,7 @@ export class Logger implements LogInterface {
   public readonly loggingMomentDateTimeFormat: string = Logger.LOGGING_MOMENT_DATETIME_FORMAT_DEFAULT_VALUE;
   public readonly logLevelThreshold: LogLevel = LogLevel.TRACE;
 
-  constructor(private appState: AppStateService, private dateTimeGenerator: DateTimeGeneratorService,
-              private consoleProvider: ConsoleProvider) {
+  constructor() {
     const envConfig: EnvConfig = this.appState.getEnvConfig();
 
     const hasLogOptions = !NullableUtils.isObjectNullOrUndefined(envConfig.consoleLoggingOptions);

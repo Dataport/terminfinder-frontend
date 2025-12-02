@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { Location } from "@angular/common";
 import { RouteTitleService } from "../../shared/services/route-title.service";
@@ -13,11 +13,11 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [TranslatePipe]
 })
 export class TermsOfServiceComponent implements OnInit {
+  private location = inject(Location);
+  private routeTitle = inject(RouteTitleService);
+  private stringTransformService = inject(StringTransformService);
 
   readonly termsOfService: SafeHtml = this.stringTransformService.decodeAndSanitize(environment.termsOfService);
-
-  constructor(private location: Location, private routeTitle: RouteTitleService, private stringTransformService: StringTransformService) {
-  }
 
   ngOnInit(): void {
     this.routeTitle.setTitle('tos.tos');

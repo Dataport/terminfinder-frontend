@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {ApiDataService} from './api-data-service.service';
 import {
   ApiVersion,
@@ -15,12 +15,9 @@ import {AppointmentPasswordValidationResult} from '../../models/api-data-v1-dto/
   providedIn: 'root'
 })
 export class DataRepositoryService {
+  private apiDataService = inject(ApiDataService);
+  private logger = inject(Logger);
 
-  constructor(
-    private apiDataService: ApiDataService,
-    private logger: Logger
-  ) {
-  }
 
   /**
    * Get the api version number

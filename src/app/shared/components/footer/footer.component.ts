@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { StringTransformService } from '../../services/string-transform.service';
 import { NgOptimizedImage } from '@angular/common';
@@ -12,11 +12,9 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [NgOptimizedImage, RouterLink, TranslatePipe]
 })
 export class FooterComponent {
+  private stringTransformService = inject(StringTransformService);
 
   readonly email = this.stringTransformService.decodeAndSanitize(environment.email);
   showReference = environment.showReference;
-
-  constructor(private stringTransformService: StringTransformService) {
-  }
 
 }

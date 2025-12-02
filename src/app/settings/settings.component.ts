@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit, input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, input, inject } from '@angular/core';
 import { AbstractControl, UntypedFormBuilder, UntypedFormGroup, ValidationErrors, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Appointment} from '../shared/models';
 import {AppStateService} from '../shared/services/app-state/app-state.service';
@@ -22,6 +22,11 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [StepperComponent, AdminInfoComponent, FormsModule, ReactiveFormsModule, NoopValueAccessorDirective, CheckboxFieldComponent, NgClass, NavigationComponent, TranslatePipe]
 })
 export class SettingsComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
+  private fb = inject(UntypedFormBuilder);
+  private routeTitle = inject(RouteTitleService);
+
   settingsForm: UntypedFormGroup;
   model: Appointment;
   adminId: string;
@@ -30,14 +35,6 @@ export class SettingsComponent implements OnInit {
   passwordRepeatHidden = true;
 
   readonly isAdmin = input(false);
-
-  constructor(
-    private appStateService: AppStateService,
-    private router: Router,
-    private fb: UntypedFormBuilder,
-    private routeTitle: RouteTitleService
-  ) {
-  }
 
   static checkPasswords(group: UntypedFormGroup): ValidationErrors | null {
     const password = group.controls.password;

@@ -1,6 +1,6 @@
 // noinspection JSUnusedLocalSymbols
 
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 
 import {AppStateService} from '../app-state/app-state.service';
@@ -16,6 +16,9 @@ import {LocaleService} from "../locale/locale.service";
   providedIn: 'root'
 })
 export class CanDeactivateGuard {
+  private appStateService = inject(AppStateService);
+  private translate = inject(TranslateService);
+
   private readonly confirmRoutes: string[] = [
     '/create',
     '/dates',
@@ -26,9 +29,6 @@ export class CanDeactivateGuard {
     '/admin/settings',
     '/admin/overview'
   ];
-
-  constructor(private appStateService: AppStateService, private translate: TranslateService) {
-  }
 
   canDeactivate(_, __, currentState: RouterStateSnapshot, nextState: RouterStateSnapshot): boolean {
     if (nextState.url !== '/home') {
@@ -51,9 +51,9 @@ export class CanDeactivateGuard {
   providedIn: 'root'
 })
 export class NameRequiredGuard {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
 
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
 
   canActivate(): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -69,9 +69,9 @@ export class NameRequiredGuard {
   providedIn: 'root'
 })
 export class TitleRequiredGuard {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
 
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
 
   canActivate(): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -87,9 +87,9 @@ export class TitleRequiredGuard {
   providedIn: 'root'
 })
 export class DatesRequiredGuard {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
 
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
 
   canActivate(): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -105,9 +105,9 @@ export class DatesRequiredGuard {
   providedIn: 'root'
 })
 export class AppointmentIdRequiredGuard {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
 
-  constructor(private appStateService: AppStateService, private router: Router) {
-  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const appointment: Appointment = this.appStateService.getAppointment();
@@ -128,11 +128,10 @@ export class AppointmentIdRequiredGuard {
   providedIn: 'root'
 })
 export class PasswordRequiredGuard {
+  private appStateService = inject(AppStateService);
+  private dataRepositoryService = inject(DataRepositoryService);
+  private router = inject(Router);
 
-  constructor(private appStateService: AppStateService,
-              private dataRepositoryService: DataRepositoryService,
-              private router: Router) {
-  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     this.initAppointment(route);
@@ -190,8 +189,8 @@ export class PasswordRequiredGuard {
   providedIn: 'root'
 })
 export class DefaultLanguageGuard {
-  constructor(private localeService: LocaleService) {
-  }
+  private localeService = inject(LocaleService);
+
 
   canActivate(): boolean {
     this.localeService.useDefaultLanguage();

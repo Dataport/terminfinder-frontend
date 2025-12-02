@@ -1,4 +1,4 @@
-import {Inject, Injectable, LOCALE_ID} from '@angular/core';
+import { Injectable, LOCALE_ID, inject } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {EnvConfig} from '../../../../environments/env-config.interface';
 import {TimeoutError} from 'rxjs';
@@ -21,6 +21,11 @@ import {timeout} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiDataService {
+  private http = inject(HttpClient);
+  private appState = inject(AppStateService);
+  private logger = inject(Logger);
+  private localeId = inject(LOCALE_ID);
+
   private readonly apiMediaType: string;
   private readonly apiBaseUrl: string;
   private readonly requestTimeoutInMs: number;
@@ -35,9 +40,7 @@ export class ApiDataService {
    * @param {string} localeId - The injected locale id e.g. 'en-US'
    * @constructor
    */
-  constructor(
-    private http: HttpClient, private appState: AppStateService,
-    private logger: Logger, @Inject(LOCALE_ID) private localeId: string) {
+  constructor() {
     const envConfig: EnvConfig = this.appState.getEnvConfig();
     this.apiBaseUrl = envConfig.apiBaseUrl;
     this.requestTimeoutInMs = envConfig.apiRequestTimeoutInMs;

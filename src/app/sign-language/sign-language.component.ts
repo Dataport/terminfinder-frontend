@@ -38,6 +38,8 @@ import {VideoPlayerComponent} from "../shared/components/video-player/video-play
   styleUrl: './sign-language.component.scss'
 })
 export class SignLanguageComponent implements OnInit {
+  private readonly routeTitle = inject(RouteTitleService);
+
   protected readonly location = inject(Location);
 
   protected readonly videos = [
@@ -57,9 +59,6 @@ export class SignLanguageComponent implements OnInit {
       placeholderSrc: 'assets/placeholder/Navigation_auf_der_Website.png'
     }
   ];
-
-  constructor(private readonly routeTitle: RouteTitleService) {
-  }
 
   ngOnInit(): void {
     this.routeTitle.setTitle('accessibility.signLanguage.header');

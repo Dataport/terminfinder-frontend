@@ -15,8 +15,8 @@ RUN npm run build-docker
 
 # We use the officially supported unprivileged image from nginx,
 # as recommended here: https://hub.docker.com/_/nginx#Running%20nginx%20as%20a%20non-root%20user
-FROM ${BASE_REPO_URI}/nginxinc/nginx-unprivileged:1.23.3-alpine
-# FROM docker.io/nginxinc/nginx-unprivileged:1.23.3-alpine
+FROM ${BASE_REPO_URI}/nginxinc/nginx-unprivileged:1.29.2-alpine
+
 WORKDIR /usr/share/nginx/html
 
 # Prepare files

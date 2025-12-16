@@ -7,7 +7,7 @@
 .run
 
 # auto generated
-src/environments/environment.ts
+src/environment.js
 src/index.html
 
 #download from cypress

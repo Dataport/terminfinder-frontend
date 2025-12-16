@@ -69,7 +69,7 @@ z.B. `@TITLE@` hinterlegt, um zur Laufzeit des Containers ersetzt zu werden. (do
 
 ## Farben
 
-Farben können entweder über die Umgebungsvariable `COLORS` oder über einen Cookie gesetzt werden. Cookies verden hierbei zuletzt angewandt und überschreiben Werte aus der Umgebungsvariable.
+Farben können entweder über die Umgebungsvariable `COLORS` wärend des Pre-Build-Prozesses oder über einen Cookie zur Laufzeit gesetzt werden. Cookies werden hierbei zuletzt angewandt und überschreiben Werte aus der Umgebungsvariable.
 
 Beispiel Umgebungsvariable:
 
@@ -104,6 +104,12 @@ document.cookie = 'secondary=#00ff00';
 | `footer-text-color`               | `#b3003e`     |
 | `border-color-input`              | `#909498`     |
 | `border-color-divider-icon-input` | `#909498`     |
+
+## Parametrisierung zu Laufzeit
+
+Zur Laufzeit kann die Datei `environment.js` angepasst werden.
+
+Für eine Beispielkonfiguration siehe `docker-compose.yml` bzw. `environment.js.example`
 
 ## Development
 

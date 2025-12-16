@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
       }
     });
 
-    this.colorsService.replaceCSSColorFromEnv(this.stringTransformService.decode(environment.colors));
+    this.colorsService.replaceCSSColorFromEnv(environment.colors);
     this.colorsService.replaceCSSColorsFromCookies();
   }
 }

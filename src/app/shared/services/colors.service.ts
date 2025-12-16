@@ -50,7 +50,7 @@ export class ColorsService {
    * @param colors A string representing a JSON object of type {@link ColorsInterface}.
    * @logs A warning if parsing fails or the content is not a valid JSON object.
    */
-  replaceCSSColorFromEnv(colors: string): void {
+  replaceCSSColorFromEnv(colors: ColorsInterface | string): void {
     this.logger.debug('replaceCSSColorFromEnv()');
 
     if (!colors) {
@@ -59,8 +59,8 @@ export class ColorsService {
     }
 
     try {
-      // Parse the string colors to a JSON object of type ColorsInterface
-      const colorObject: ColorsInterface = JSON.parse(this.stringTransformService.sanitize(colors));
+
+      const colorObject = (typeof colors === 'string') ? JSON.parse(colors) : colors;
 
       // Validate that the parsed result is a valid object
       if (!colorObject || typeof colorObject !== 'object' || Array.isArray(colorObject)) {

@@ -5,9 +5,9 @@ name: terminfinder
 services:
   terminfinder:
     build: .
-    # uncomment the next two lines to test parametrization. Change environment.js.example to your liking. 
+    # uncomment the next two lines to test parametrization. Change environment.js.example to your liking.
     # volumes:
-      # - ./environment.js.example:/usr/share/nginx/html/environment.js:ro
+    # - ./environment.js.example:/usr/share/nginx/html/environment.js:ro
     container_name: terminfinder
     hostname: terminfinder
     ports:

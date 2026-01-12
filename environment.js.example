@@ -1,7 +1,3 @@
-/*
- This __env variable will be changed after the build process.
- */
-
 window['__env'] = {
   version: '0.0.0',
   buildDateUtc: '2025-12-08T09:56:10.963Z',

@@ -59,7 +59,8 @@ export class ColorsService {
     }
 
     try {
-      const colorObject = typeof colors === 'string' ? JSON.parse(colors) : colors;
+      const colorObject: ColorsInterface =
+        typeof colors === 'string' ? JSON.parse(this.stringTransformService.sanitize(colors)) : colors;
 
       // Validate that the parsed result is a valid object
       if (!colorObject || typeof colorObject !== 'object' || Array.isArray(colorObject)) {

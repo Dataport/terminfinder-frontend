@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     private logger: Logger,
     private titleService: Title,
     private localStorageService: LocalStorageService,
-    private colorsService: ColorsService,
+    private colorsService: ColorsService
   ) {}
 
   ngOnInit(): void {

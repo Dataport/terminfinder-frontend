@@ -102,10 +102,7 @@ fs.readFile('./src/environment.js.tmpl', 'utf8', function (err, data) {
     )
     .replace('@SHOW_REFERENCE@', isBoolean(process.env.SHOW_REFERENCE) ? process.env.SHOW_REFERENCE : 'true')
     .replace('@API_REQUEST_TIMEOUT_IN_MS@', '20000')
-    .replace(
-      '@CONSOLE_LOGGING_OPTIONS@',
-      `{momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: 5}`
-    )
+    .replace('@CONSOLE_LOGGING_OPTIONS@', `{momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: 5}`)
     .replace(
       '@API_MEDIA_TYPE@',
       reformat(process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json')

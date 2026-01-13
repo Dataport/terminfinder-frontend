@@ -15,6 +15,8 @@ window['__env'] = {
   termsOfService: 'PGgyPnRvczwvaDI+',
   accessibility: 'PGgyPmFjY2Vzc2liaWxpdHk8L2gyPg==',
   apiRequestTimeoutInMs: 20000,
+  consoleLoggingOptions: {momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: 5}, // Logging Levels: 1 = Trace, 2 = Debug, 3 = Log, 4 = Info, 5 = Warn, 6 = Error 
+  apiMediaType: 'application/terminfinder.api-v1+json',
   colors: {
     primary: '#004dd1ff',
     secondary: '#e2fa07ff'

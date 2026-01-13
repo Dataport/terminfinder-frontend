@@ -101,7 +101,15 @@ fs.readFile('./src/environment.js.tmpl', 'utf8', function (err, data) {
       reformat(process.env.SURVEY_SURVEY_LINK_USER ? process.env.SURVEY_SURVEY_LINK_USER : undefined)
     )
     .replace('@SHOW_REFERENCE@', isBoolean(process.env.SHOW_REFERENCE) ? process.env.SHOW_REFERENCE : 'true')
-    .replace('@API_REQUEST_TIMEOUT_IN_MS@', '20000');
+    .replace('@API_REQUEST_TIMEOUT_IN_MS@', '20000')
+    .replace(
+      '@CONSOLE_LOGGING_OPTIONS@',
+      `{momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: 5}`
+    )
+    .replace(
+      '@API_MEDIA_TYPE@',
+      reformat(process.env.API_MEDIA_TYPE ? process.env.API_MEDIA_TYPE : 'application/terminfinder.api-v1+json')
+    );
 
   fs.writeFile('./src/environment.js', data, 'utf8', function (err) {
     if (err) {

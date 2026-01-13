@@ -57,7 +57,7 @@ Beispiel: `export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL='b
 | DOCKER                           | -        | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |
 | SURVEY_LINK_ADMIN                | -        | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Admins          |
 | SURVEY_LINK_USER                 | -        | `string` (url)           | ''                                     | falls vorhanden, Link für Nutzerbefragung von Umfrage-Teilnehmenden   |
-| EMAIL                            | -        | `string` (email address) | 'demo@example.com'                     | E-Mail-Adresse des First-Level-Supports für Nutzende                  |
+| EMAIL                            | -        | `string` (email address) | '<demo@example.com>'                   | E-Mail-Adresse des First-Level-Supports für Nutzende                  |
 | CUSTOMER_ID                      | -        | `string` (uuid)          | '00000000-0000-0000-0000-000000000000' | Anwendung ist Mandantenfähig - Mandanten-ID                           |
 | IMPRINT                          | -        | `string` (html)          | `<h2>Herausgeber</h2>...`              | Impressum - als `innerHTML`, string mit HTML-Tags                     |
 | PRIVACY                          | -        | `string` (html)          | `<h2>privacy</h2>`                     | Datenschutzerklärung - als `innerHTML`, string mit HTML-Tags          |
@@ -105,7 +105,7 @@ document.cookie = 'secondary=#00ff00';
 | `border-color-input`              | `#909498`     |
 | `border-color-divider-icon-input` | `#909498`     |
 
-## Parametrisierung zu Laufzeit
+## Parametrisierung zur Laufzeit
 
 Zur Laufzeit kann die Datei `environment.js` angepasst werden.
 

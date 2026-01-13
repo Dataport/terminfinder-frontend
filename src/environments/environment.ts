@@ -2,7 +2,6 @@
 // Only edit the file with the extension *.tmpl
 
 import { EnvConfig } from './env-config.interface';
-import { LogLevel } from '../app/shared/services/logging/logLevel';
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
 // @ts-ignore
@@ -25,7 +24,7 @@ export const environment: EnvConfig = {
   termsOfService: env.termsOfService,
   accessibility: env.accessibility,
   apiRequestTimeoutInMs: env.apiRequestTimeoutInMs,
-  consoleLoggingOptions: { momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: LogLevel.WARN },
-  apiMediaType: 'application/terminfinder.api-v1+json',
+  consoleLoggingOptions: env.consoleLoggingOptions,
+  apiMediaType: env.apiMediaType,
   colors: env.colors
 };

@@ -1,3 +1,4 @@
+import { ColorsInterface } from 'src/app/shared/utils/colors.interface';
 import { ConsoleLogOptionsInterface } from '../app/shared/services/logging/';
 
 export interface EnvConfig {
@@ -37,6 +38,6 @@ export interface EnvConfig {
   readonly surveyLinkUser?: string;
   /** Media type of api **/
   readonly apiMediaType: string;
-  /** Override colors in application. This is a base64 encoded string representing an object of type ColorsInterface **/
-  readonly colors: string;
+  /** Override colors in application. **/
+  readonly colors: ColorsInterface | string;
 }

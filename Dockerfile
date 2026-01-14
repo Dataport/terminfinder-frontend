@@ -11,7 +11,7 @@ RUN npm ci
 COPY tsconfig.json angular.json prebuild.js ./
 COPY src/ ./src/
 COPY .env/ ./.env/
-RUN npm run build-docker
+RUN npm run build
 
 # We use the officially supported unprivileged image from nginx,
 # as recommended here: https://hub.docker.com/_/nginx#Running%20nginx%20as%20a%20non-root%20user
@@ -21,7 +21,6 @@ WORKDIR /usr/share/nginx/html
 
 # Prepare files
 USER 0
-COPY docker-replace-parameters.sh /docker-entrypoint.d/60-docker-replace-parameters.sh
 COPY --from=build /app/dist/browser /usr/share/nginx/html/.
 RUN chown -R 101:0 /usr/share/nginx/html && chmod -R g+w /usr/share/nginx/html
 

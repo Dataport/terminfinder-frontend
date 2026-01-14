@@ -38,7 +38,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/locales",
-              "src/sbom.json"
+              "src/sbom.json",
+              "src/environment.js"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",

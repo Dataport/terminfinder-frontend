@@ -4,5 +4,4 @@
 .github/
 node_modules/
 src/index.html
-src/environments/environment.ts
 src/sbom.json

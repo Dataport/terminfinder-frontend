@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:62d3bb61-460e-409e-b8de-552d4e6bb038",
+  "serialNumber": "urn:uuid:b2e1db35-ca64-4b7b-b788-4546ea4943d4",
   "metadata": {
-    "timestamp": "2026-01-19T08:41:02.046Z",
+    "timestamp": "2026-01-19T10:28:25.272Z",
     "tools": {
       "components": [
         {
@@ -3019,57 +3019,6 @@
     },
     {
       "type": "library",
-      "name": "tslib",
-      "version": "2.5.2",
-      "bom-ref": "terminfinder@0.0.0|tslib@2.5.2",
-      "author": "Microsoft Corp.",
-      "description": "Runtime library for TypeScript helper functions",
-      "licenses": [
-        {
-          "license": {
-            "id": "0BSD",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/tslib@2.5.2",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/Microsoft/tslib.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://www.typescriptlang.org/",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/Microsoft/TypeScript/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/tslib/-/tslib-2.5.2.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "e6cbcead2036c37886143b351e26c454119b0eb018f366c54371d9de2c41fbcf27b1bb164282aa0d16f950160050f1336c19fa740a79811357825c926f1d4c94"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tslib"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "zone.js",
       "version": "0.15.1",
       "bom-ref": "terminfinder@0.0.0|zone.js@0.15.1",
@@ -3168,6 +3117,57 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tslib",
+      "version": "2.5.2",
+      "bom-ref": "terminfinder@0.0.0|tslib@2.5.2",
+      "author": "Microsoft Corp.",
+      "description": "Runtime library for TypeScript helper functions",
+      "licenses": [
+        {
+          "license": {
+            "id": "0BSD",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.5.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/Microsoft/tslib.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://www.typescriptlang.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/Microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tslib/-/tslib-2.5.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e6cbcead2036c37886143b351e26c454119b0eb018f366c54371d9de2c41fbcf27b1bb164282aa0d16f950160050f1336c19fa740a79811357825c926f1d4c94"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tslib"
         }
       ]
     },
@@ -8371,7 +8371,6 @@
         "terminfinder@0.0.0|smtp-address-parser@1.1.0",
         "terminfinder@0.0.0|tar-fs@2.1.4",
         "terminfinder@0.0.0|tar-stream@2.2.0",
-        "terminfinder@0.0.0|tslib@2.5.2",
         "terminfinder@0.0.0|zone.js@0.15.1"
       ]
     },
@@ -8696,9 +8695,6 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|tslib@2.5.2"
-    },
-    {
       "ref": "terminfinder@0.0.0|zone.js@0.15.1"
     },
     {
@@ -8712,6 +8708,9 @@
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|source-map@0.7.6"
       ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|tslib@2.5.2"
     },
     {
       "ref": "terminfinder@0.0.0|@angular/compiler-cli@20.3.16",

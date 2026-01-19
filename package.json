@@ -57,7 +57,6 @@
     "ngx-clipboard": "16.0.0",
     "ngx-toastr": "19.1.0",
     "rxjs": "7.8.2",
-    "tslib": "2.5.2",
     "zone.js": "0.15.1"
   },
   "devDependencies": {

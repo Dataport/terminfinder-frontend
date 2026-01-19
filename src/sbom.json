@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:68b74eba-dc9c-4190-aafa-abd1d205e07b",
+  "serialNumber": "urn:uuid:a7704a54-e8cc-4ff9-a0f8-8954618f70a5",
   "metadata": {
-    "timestamp": "2026-01-14T12:19:45.069Z",
+    "timestamp": "2026-01-19T00:08:41.116Z",
     "tools": {
       "components": [
         {
@@ -157,59 +157,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/architect"
-        }
-      ],
-      "components": [
-        {
-          "type": "library",
-          "name": "rxjs",
-          "version": "7.8.2",
-          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14|rxjs@7.8.2",
-          "author": "Ben Lesh",
-          "description": "Reactive Extensions for modern JavaScript",
-          "licenses": [
-            {
-              "license": {
-                "id": "Apache-2.0",
-                "acknowledgement": "declared"
-              }
-            }
-          ],
-          "purl": "pkg:npm/rxjs@7.8.2",
-          "externalReferences": [
-            {
-              "url": "git+https://github.com/reactivex/rxjs.git",
-              "type": "vcs",
-              "comment": "as detected from PackageJson property \"repository.url\""
-            },
-            {
-              "url": "https://rxjs.dev",
-              "type": "website",
-              "comment": "as detected from PackageJson property \"homepage\""
-            },
-            {
-              "url": "https://github.com/ReactiveX/RxJS/issues",
-              "type": "issue-tracker",
-              "comment": "as detected from PackageJson property \"bugs.url\""
-            },
-            {
-              "url": "https://registry.npmjs.org/rxjs/-/rxjs-7.8.2.tgz",
-              "type": "distribution",
-              "hashes": [
-                {
-                  "alg": "SHA-512",
-                  "content": "76129ff74dd4fcf41963a6e834db4019d59b1bce5601b8d3ff5c58a19202ec5018d3259aa4e05056c56b0e5e7c5bcebffded55a4c341b5157831a5df74cc9214"
-                }
-              ],
-              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-            }
-          ],
-          "properties": [
-            {
-              "name": "cdx:npm:package:path",
-              "value": "node_modules/@angular-devkit/architect/node_modules/rxjs"
-            }
-          ]
         }
       ]
     },
@@ -1214,8 +1161,8 @@
     {
       "type": "library",
       "name": "rxjs",
-      "version": "7.8.1",
-      "bom-ref": "terminfinder@0.0.0|rxjs@7.8.1",
+      "version": "7.8.2",
+      "bom-ref": "terminfinder@0.0.0|rxjs@7.8.2",
       "author": "Ben Lesh",
       "description": "Reactive Extensions for modern JavaScript",
       "licenses": [
@@ -1226,7 +1173,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/rxjs@7.8.1",
+      "purl": "pkg:npm/rxjs@7.8.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/reactivex/rxjs.git",
@@ -1244,12 +1191,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/rxjs/-/rxjs-7.8.1.tgz",
+          "url": "https://registry.npmjs.org/rxjs/-/rxjs-7.8.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "000dd3563fb40368ae2284245842bfb6a16306ada3fba3cee98d3325cbf32c016110520edc72f4be5b3d8562e77196c001b2b499aafba19e15d3bf48fea3ccc6"
+              "content": "76129ff74dd4fcf41963a6e834db4019d59b1bce5601b8d3ff5c58a19202ec5018d3259aa4e05056c56b0e5e7c5bcebffded55a4c341b5157831a5df74cc9214"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1413,59 +1360,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/core"
-        }
-      ],
-      "components": [
-        {
-          "type": "library",
-          "name": "rxjs",
-          "version": "7.8.2",
-          "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.14|rxjs@7.8.2",
-          "author": "Ben Lesh",
-          "description": "Reactive Extensions for modern JavaScript",
-          "licenses": [
-            {
-              "license": {
-                "id": "Apache-2.0",
-                "acknowledgement": "declared"
-              }
-            }
-          ],
-          "purl": "pkg:npm/rxjs@7.8.2",
-          "externalReferences": [
-            {
-              "url": "git+https://github.com/reactivex/rxjs.git",
-              "type": "vcs",
-              "comment": "as detected from PackageJson property \"repository.url\""
-            },
-            {
-              "url": "https://rxjs.dev",
-              "type": "website",
-              "comment": "as detected from PackageJson property \"homepage\""
-            },
-            {
-              "url": "https://github.com/ReactiveX/RxJS/issues",
-              "type": "issue-tracker",
-              "comment": "as detected from PackageJson property \"bugs.url\""
-            },
-            {
-              "url": "https://registry.npmjs.org/rxjs/-/rxjs-7.8.2.tgz",
-              "type": "distribution",
-              "hashes": [
-                {
-                  "alg": "SHA-512",
-                  "content": "76129ff74dd4fcf41963a6e834db4019d59b1bce5601b8d3ff5c58a19202ec5018d3259aa4e05056c56b0e5e7c5bcebffded55a4c341b5157831a5df74cc9214"
-                }
-              ],
-              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-            }
-          ],
-          "properties": [
-            {
-              "name": "cdx:npm:package:path",
-              "value": "node_modules/@angular-devkit/core/node_modules/rxjs"
-            }
-          ]
         }
       ]
     },
@@ -5710,7 +5604,7 @@
         "terminfinder@0.0.0|moment@2.30.1",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
         "terminfinder@0.0.0|ngx-toastr@19.1.0",
-        "terminfinder@0.0.0|rxjs@7.8.1",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.5.2",
         "terminfinder@0.0.0|zone.js@0.15.1"
       ]
@@ -5719,13 +5613,7 @@
       "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14",
       "dependsOn": [
         "terminfinder@0.0.0|@angular-devkit/core@20.3.14",
-        "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14|rxjs@7.8.2"
-      ]
-    },
-    {
-      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14|rxjs@7.8.2",
-      "dependsOn": [
-        "terminfinder@0.0.0|tslib@2.5.2"
+        "terminfinder@0.0.0|rxjs@7.8.2"
       ]
     },
     {
@@ -5739,7 +5627,7 @@
       "ref": "terminfinder@0.0.0|@angular/common@20.3.16",
       "dependsOn": [
         "terminfinder@0.0.0|@angular/core@20.3.16",
-        "terminfinder@0.0.0|rxjs@7.8.1",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.5.2"
       ]
     },
@@ -5753,7 +5641,7 @@
       "ref": "terminfinder@0.0.0|@angular/core@20.3.16",
       "dependsOn": [
         "terminfinder@0.0.0|@angular/compiler@20.3.16",
-        "terminfinder@0.0.0|rxjs@7.8.1",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.5.2",
         "terminfinder@0.0.0|zone.js@0.15.1"
       ]
@@ -5764,7 +5652,7 @@
         "terminfinder@0.0.0|@angular/common@20.3.16",
         "terminfinder@0.0.0|@angular/core@20.3.16",
         "terminfinder@0.0.0|@angular/platform-browser@20.3.16",
-        "terminfinder@0.0.0|rxjs@7.8.1",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.5.2"
       ]
     },
@@ -5804,7 +5692,7 @@
         "terminfinder@0.0.0|@angular/common@20.3.16",
         "terminfinder@0.0.0|@angular/core@20.3.16",
         "terminfinder@0.0.0|@angular/platform-browser@20.3.16",
-        "terminfinder@0.0.0|rxjs@7.8.1",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.5.2"
       ]
     },
@@ -5816,7 +5704,7 @@
         "terminfinder@0.0.0|@angular/forms@20.3.16",
         "terminfinder@0.0.0|@angular/localize@20.3.16",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
-        "terminfinder@0.0.0|rxjs@7.8.1",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.5.2"
       ]
     },
@@ -5834,7 +5722,7 @@
         "terminfinder@0.0.0|@angular/common@20.3.16",
         "terminfinder@0.0.0|@angular/core@20.3.16",
         "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
-        "terminfinder@0.0.0|rxjs@7.8.1"
+        "terminfinder@0.0.0|rxjs@7.8.2"
       ]
     },
     {
@@ -5883,7 +5771,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|rxjs@7.8.1",
+      "ref": "terminfinder@0.0.0|rxjs@7.8.2",
       "dependsOn": [
         "terminfinder@0.0.0|tslib@2.5.2"
       ]
@@ -5902,14 +5790,8 @@
         "terminfinder@0.0.0|chokidar@4.0.3",
         "terminfinder@0.0.0|jsonc-parser@3.3.1",
         "terminfinder@0.0.0|picomatch@4.0.3",
-        "terminfinder@0.0.0|@angular-devkit/core@20.3.14|rxjs@7.8.2",
+        "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|source-map@0.7.6"
-      ]
-    },
-    {
-      "ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.14|rxjs@7.8.2",
-      "dependsOn": [
-        "terminfinder@0.0.0|tslib@2.5.2"
       ]
     },
     {

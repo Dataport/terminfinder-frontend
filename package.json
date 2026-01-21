@@ -32,7 +32,7 @@
   },
   "private": true,
   "engines": {
-    "node": "24"
+    "node": "22.x || 24.x"
   },
   "dependencies": {
     "@angular-devkit/architect": "0.2003.14",

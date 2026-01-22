@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:889282f9-70e4-4a22-a7a0-6591043317a9",
+  "serialNumber": "urn:uuid:4fdb0539-f051-476d-a520-7fec50423882",
   "metadata": {
-    "timestamp": "2026-01-22T00:08:05.283Z",
+    "timestamp": "2026-01-22T08:52:12.320Z",
     "tools": {
       "components": [
         {
@@ -721,25 +721,27 @@
       "type": "library",
       "name": "http-loader",
       "group": "@ngx-translate",
-      "version": "8.0.0",
-      "bom-ref": "terminfinder@0.0.0|@ngx-translate/http-loader@8.0.0",
+      "version": "16.0.1",
+      "bom-ref": "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
+      "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe",
+      "description": "http loader for dynamically loading translation files for @ngx-translate/core",
       "licenses": [
         {
           "license": {
-            "name": "SEE LICENSE IN LICENSE",
+            "id": "MIT",
             "acknowledgement": "declared"
           }
         }
       ],
-      "purl": "pkg:npm/%40ngx-translate/http-loader@8.0.0",
+      "purl": "pkg:npm/%40ngx-translate/http-loader@16.0.1",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-8.0.0.tgz",
+          "url": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-16.0.1.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "48532c7547261c5e4e75990bd421c4a120306cfe446c038f4cb2dba0e0914683a0db53f8189c7ee758f119d25e1af7ba2d228b7f83dacbb0644f0984eafc5896"
+              "content": "c4910e529bece997dcf06e1c99099e805384a5f612a299531c7a22b0f36b0135e34418e968ab0168f397959b2e1545b65d5d34b35ea0232238fbdcf55e43b96f"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5595,7 +5597,7 @@
         "terminfinder@0.0.0|@angular/router@20.3.16",
         "terminfinder@0.0.0|@ng-bootstrap/ng-bootstrap@19.0.1",
         "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
-        "terminfinder@0.0.0|@ngx-translate/http-loader@8.0.0",
+        "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.0",
@@ -5716,12 +5718,11 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@ngx-translate/http-loader@8.0.0",
+      "ref": "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
       "dependsOn": [
         "terminfinder@0.0.0|@angular/common@20.3.16",
         "terminfinder@0.0.0|@angular/core@20.3.16",
-        "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
-        "terminfinder@0.0.0|rxjs@7.8.2"
+        "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {

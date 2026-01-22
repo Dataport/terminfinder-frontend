@@ -47,7 +47,7 @@
     "@angular/router": "20.3.16",
     "@ng-bootstrap/ng-bootstrap": "19.0.1",
     "@ngx-translate/core": "16.0.4",
-    "@ngx-translate/http-loader": "8.0.0",
+    "@ngx-translate/http-loader": "16.0.1",
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.8",
     "calendar-link": "2.11.0",

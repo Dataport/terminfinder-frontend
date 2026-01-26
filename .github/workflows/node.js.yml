@@ -39,7 +39,7 @@ jobs:
         env:
           CUSTOMER_ID: '22222222-2222-2222-2222-222222222222'
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           start: npm run http-server
           command: npm run ci-cypress

@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:1c55b71e-32cf-4054-b1f4-ef07a88d2542",
+  "serialNumber": "urn:uuid:c6217a32-3df1-4ecb-b3b8-a81b2fa076f2",
   "metadata": {
-    "timestamp": "2026-01-23T00:08:00.851Z",
+    "timestamp": "2026-01-26T07:34:04.383Z",
     "tools": {
       "components": [
         {
@@ -808,6 +808,66 @@
     },
     {
       "type": "library",
+      "name": "bindings",
+      "version": "1.5.0",
+      "bom-ref": "terminfinder@0.0.0|bindings@1.5.0",
+      "author": "Nathan Rajlich",
+      "description": "Helper module for loading your native module's .node file",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/bindings@1.5.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/TooTallNate/node-bindings.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/TooTallNate/node-bindings",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/TooTallNate/node-bindings/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a76abfb7f9a1bee3a3fd478b955eb9eba183fe0ba8c25af4847c42948d16f66ecc59890bd45d212e8fb401ec6cf4748f0ad4754974344c3dcc30aad765a8db89"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/bindings"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "bootstrap",
       "version": "5.3.8",
       "bom-ref": "terminfinder@0.0.0|bootstrap@5.3.8",
@@ -961,6 +1021,193 @@
     },
     {
       "type": "library",
+      "name": "decompress-response",
+      "version": "6.0.0",
+      "bom-ref": "terminfinder@0.0.0|decompress-response@6.0.0",
+      "author": "Sindre Sorhus",
+      "description": "Decompress a HTTP response if needed",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/decompress-response@6.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/sindresorhus/decompress-response.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/sindresorhus/decompress-response#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/sindresorhus/decompress-response/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/decompress-response/-/decompress-response-6.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "696df9c9933a05bff8a099599dc307d8b0a866d2574d1c444b5eef137868462a305369161da24a1644810e70d1f9c9bd27ef5085799113221fbf4a638bd7a309"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/decompress-response"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "deep-extend",
+      "version": "0.6.0",
+      "bom-ref": "terminfinder@0.0.0|deep-extend@0.6.0",
+      "author": "Viacheslav Lotsmanov",
+      "description": "Recursive object extending",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        },
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared",
+            "url": "https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE"
+          }
+        }
+      ],
+      "purl": "pkg:npm/deep-extend@0.6.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/unclechu/node-deep-extend.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/unclechu/node-deep-extend",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/unclechu/node-deep-extend/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2ce1f120e68f61d1e5251b4241f0c8559b5fc3fb9f33cfab563eb8f51207cdc9bfbc6c1045716de8e3ea2055ac9b65c432b34812d591eb8b18d4b10a0f6bc038"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/deep-extend"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "discontinuous-range",
+      "version": "1.0.0",
+      "bom-ref": "terminfinder@0.0.0|discontinuous-range@1.0.0",
+      "author": "David Tudury",
+      "description": "for adding, subtracting, and indexing discontinuous ranges of numbers",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/discontinuous-range@1.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/dtudury/discontinuous-range.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/dtudury/discontinuous-range",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/dtudury/discontinuous-range/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/discontinuous-range/-/discontinuous-range-1.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "73af0ba4b6cefbb90ffdbd47af5aacf3f049d3d1799216464f1ab166e873c699b024a3a04451c95886fdfca9aa9ea1e12dd3b9e5a3b1147fc4181bd441b2ff45"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/discontinuous-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "dompurify",
       "version": "3.3.1",
       "bom-ref": "terminfinder@0.0.0|dompurify@3.3.1",
@@ -1005,6 +1252,364 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/dompurify"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "expand-template",
+      "version": "2.0.3",
+      "bom-ref": "terminfinder@0.0.0|expand-template@2.0.3",
+      "author": "LM",
+      "description": "Expand placeholders in a template string",
+      "scope": "optional",
+      "licenses": [
+        {
+          "expression": "(MIT OR WTFPL)",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/expand-template@2.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/ralphtheninja/expand-template.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/ralphtheninja/expand-template",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ralphtheninja/expand-template/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/expand-template/-/expand-template-2.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5d87ee28cbe3e0edf97ffa4e5cb39b9dd211bf243effee8084e0e1f8e2968fd4bde3df291c79ff20cb331fe82dd1f04245630d7e4d594a9e71dc089f9a7236be"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/expand-template"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "file-uri-to-path",
+      "version": "1.0.0",
+      "bom-ref": "terminfinder@0.0.0|file-uri-to-path@1.0.0",
+      "author": "Nathan Rajlich",
+      "description": "Convert a file: URI to a file path",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/file-uri-to-path@1.0.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/TooTallNate/file-uri-to-path.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/TooTallNate/file-uri-to-path",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/TooTallNate/file-uri-to-path/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d19b7eb372fb55fd5b8b0599dbd6804625582f1ee23069c4525f71df77db07f8f78d1f35bbf3b62dba8af819b508348d0ca56d27f623c18ed351de5291e2d02f"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/file-uri-to-path"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fs-constants",
+      "version": "1.0.0",
+      "bom-ref": "terminfinder@0.0.0|fs-constants@1.0.0",
+      "author": "Mathias Buus",
+      "description": "Require constants across node and the browser",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fs-constants@1.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/mafintosh/fs-constants.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mafintosh/fs-constants",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mafintosh/fs-constants/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/fs-constants/-/fs-constants-1.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cba380c284887fb1728cc22ff78bbe6f9add85e6448f347adc64f26499b9aa1e018bed988302c2708fdf3c56642f93d28b13ade9934a9bec3e1dfa7f05c8b0a3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/fs-constants"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "github-from-package",
+      "version": "0.0.0",
+      "bom-ref": "terminfinder@0.0.0|github-from-package@0.0.0",
+      "author": "James Halliday",
+      "description": "return the github url from a package.json file",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/github-from-package@0.0.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/substack/github-from-package.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/substack/github-from-package",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/substack/github-from-package/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/github-from-package/-/github-from-package-0.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4b21f2dd3d6fd8d5179f6f4eb1677198ae91c070febe48f7bfc7a7f00381675c0143f842010e5b0104c3d36916e16f6d529ff7421e89f2bf44be7b62c8298e3b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/github-from-package"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mimic-response",
+      "version": "3.1.0",
+      "bom-ref": "terminfinder@0.0.0|mimic-response@3.1.0",
+      "author": "Sindre Sorhus",
+      "description": "Mimic a Node.js HTTP response stream",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/mimic-response@3.1.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/sindresorhus/mimic-response.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/sindresorhus/mimic-response#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/sindresorhus/mimic-response/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/mimic-response/-/mimic-response-3.1.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cf4c9623ee050ebaf0792f199ade048f91dd266932d79f8bd9ee96827dfe88ae5f5b36fa4f77e1345ab6f8c79345bd3ae1ce96af837fc2fd03cd04e33731cd19"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/mimic-response"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mkdirp-classic",
+      "version": "0.5.3",
+      "bom-ref": "terminfinder@0.0.0|mkdirp-classic@0.5.3",
+      "author": "Mathias Buus",
+      "description": "Mirror of mkdirp 0.5.2",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/mkdirp-classic@0.5.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/mafintosh/mkdirp-classic.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mafintosh/mkdirp-classic",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mafintosh/mkdirp-classic/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "80a2dc444321b6e651c1101fa8fdd1156f932b826a029541b4e21fb55823b8006902da7184f19a0dc7ef6e136f0f407c883d6852bfedc57df936371a63a36cfc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/mkdirp-classic"
         }
       ]
     },
@@ -1056,6 +1661,307 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/moment"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "moo",
+      "version": "0.5.2",
+      "bom-ref": "terminfinder@0.0.0|moo@0.5.2",
+      "author": "Tim Radvan",
+      "description": "Optimised tokenizer/lexer generator! 🐄 Much performance. Moo!",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/moo@0.5.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/tjvr/moo.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/tjvr/moo#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/tjvr/moo/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/moo/-/moo-0.5.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "8920092c760a9d7e3598a7092a3aaf9c037db1fd0b3034d70c4bc5bfe7dfb9147d6b5308b972e330d2fa12c9c31d290a2d358da90439ba8eb53f811b538354f9"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/moo"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nan",
+      "version": "2.22.2",
+      "bom-ref": "terminfinder@0.0.0|nan@2.22.2",
+      "description": "Native Abstractions for Node.js: C++ header for Node 0.8 -> 22 compatibility",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nan@2.22.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/nodejs/nan.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nodejs/nan#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/nan/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/nan/-/nan-2.22.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "0c03608711644b5a650dd46c5f45fda66d19e9224d37a80176d5df6a7c2867c868a02e60a2c1854811916075153f3d5ab0a03f90c46a0d1747ae5b99eb54a905"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/nan"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "napi-build-utils",
+      "version": "2.0.0",
+      "bom-ref": "terminfinder@0.0.0|napi-build-utils@2.0.0",
+      "author": "Jim Schlight",
+      "description": "A set of utilities to assist developers of tools that build N-API native add-ons",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/napi-build-utils@2.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/inspiredware/napi-build-utils.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/inspiredware/napi-build-utils#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/inspiredware/napi-build-utils/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/napi-build-utils/-/napi-build-utils-2.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1846eb6246df17b32835aa21da2186f383277ff5997c1d0674612c33cc33ec4c69c7f2e559fe54f2df67bc92974a9deaaf922c11b2b4e1c04686897f2b03ac58"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/napi-build-utils"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nearley",
+      "version": "2.20.1",
+      "bom-ref": "terminfinder@0.0.0|nearley@2.20.1",
+      "author": "Hardmath123",
+      "description": "Simple, fast, powerful parser toolkit for JavaScript.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nearley@2.20.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/hardmath123/nearley.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/hardmath123/nearley#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/hardmath123/nearley/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/nearley/-/nearley-2.20.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f8c73c51a01e6c5ce057e2a92399fb0dab2eb9008703cf5d9b09bb257c374d5e37ba47cd43d0e7047dcc75bda0fc8e05771736ea9c229815af8c8c3450020b49"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/nearley"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "commander",
+          "version": "2.20.3",
+          "bom-ref": "terminfinder@0.0.0|nearley@2.20.1|commander@2.20.3",
+          "author": "TJ Holowaychuk",
+          "description": "the complete solution for node.js command-line programs",
+          "scope": "optional",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/commander@2.20.3",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/tj/commander.js.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/tj/commander.js#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/tj/commander.js/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "1a956498cf2f176bd05248f62ef6660f7e49c5e24e2c2c09f5c524ba0ca4da7ba16efdfe989be92d862dfb4f9448cc44fa88fe7b2fe52449e1670ef9c7f38c71"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:development",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:extraneous",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/nearley/node_modules/commander"
+            }
+          ]
         }
       ]
     },
@@ -1162,6 +2068,486 @@
     },
     {
       "type": "library",
+      "name": "node-abi",
+      "version": "3.85.0",
+      "bom-ref": "terminfinder@0.0.0|node-abi@3.85.0",
+      "author": "Lukas Geiger",
+      "description": "Get the Node ABI for a given target and runtime, and vice versa.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/node-abi@3.85.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/electron/node-abi.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/electron/node-abi#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/electron/node-abi/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/node-abi/-/node-abi-3.85.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cec16199b900cf08537edea7777571706d1cbc9b13ef4acbf812061d656ae5f8ba3301ab1f0cea29ac5713e1e5d869a7188b670ca3cf90ee7f2d0aa356421d16"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/node-abi"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prebuild-install",
+      "version": "7.1.3",
+      "bom-ref": "terminfinder@0.0.0|prebuild-install@7.1.3",
+      "author": "Mathias Buus",
+      "description": "A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prebuild-install@7.1.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prebuild/prebuild-install.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/prebuild/prebuild-install",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prebuild/prebuild-install/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/prebuild-install/-/prebuild-install-7.1.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f0c7f671b57bc757173d420b003188df0ba17ea5afb622c0d627254c36c54599204504b436ab0f6698676bd57e1f24c469d85eb8f9a368932c6f329014eccbba"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/prebuild-install"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "railroad-diagrams",
+      "version": "1.0.0",
+      "bom-ref": "terminfinder@0.0.0|railroad-diagrams@1.0.0",
+      "author": "Tab Atkins Jr.",
+      "description": "A small JS+SVG library for drawing railroad syntax diagrams.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/railroad-diagrams@1.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/tabatkins/railroad-diagrams.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/tabatkins/railroad-diagrams",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/tabatkins/railroad-diagrams/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "733f770e335e2d8d2276b08d387e8fbe264644df46261b1d9bd8699f56024bcefd7e3e16fb1e4814986191165cc1580c98517b47cd9403fece87e47c94b660e8"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/railroad-diagrams"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "randexp",
+      "version": "0.4.6",
+      "bom-ref": "terminfinder@0.0.0|randexp@0.4.6",
+      "author": "Roly Fentanes",
+      "description": "Create random strings that match a given regular expression.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/randexp@0.4.6",
+      "externalReferences": [
+        {
+          "url": "git://github.com/fent/randexp.js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "http://fent.github.io/randexp.js/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/fent/randexp.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/randexp/-/randexp-0.4.6.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f3458d99df43034b6666bc3da906bad863cf59fb972649eb99598b731beae2e641758a9bd706282939a794651c86f5567b45e22eea58901a1754ec73dc2f0361"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/randexp"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rc",
+      "version": "1.2.8",
+      "bom-ref": "terminfinder@0.0.0|rc@1.2.8",
+      "author": "Dominic Tarr",
+      "description": "hardwired configuration loader",
+      "scope": "optional",
+      "licenses": [
+        {
+          "expression": "(BSD-2-Clause OR MIT OR Apache-2.0)",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/rc@1.2.8",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/dominictarr/rc.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/dominictarr/rc#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/dominictarr/rc/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/rc/-/rc-1.2.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cb76c682a2a3dd005dc4b6cb9289a5a2192fb00f207408944254812670617e7f813f18386dceb677c4dc056d79c1abc37e07b10a071c72485c66fcb0c9060f3b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/rc"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "ini",
+          "version": "1.3.8",
+          "bom-ref": "terminfinder@0.0.0|rc@1.2.8|ini@1.3.8",
+          "author": "Isaac Z. Schlueter",
+          "description": "An ini encoder/decoder for node",
+          "scope": "optional",
+          "licenses": [
+            {
+              "license": {
+                "id": "ISC",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/ini@1.3.8",
+          "externalReferences": [
+            {
+              "url": "git://github.com/isaacs/ini.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/isaacs/ini#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/isaacs/ini/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/ini/-/ini-1.3.8.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "255ff2ba0576bb35b988c4528990320ed41dfa7c6d5278de2edd1a70d770f7c90a2ebbee455c81f34b6c444384ef2bc65606a5859e913570a61079142812b17b"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:development",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:extraneous",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/rc/node_modules/ini"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "strip-json-comments",
+          "version": "2.0.1",
+          "bom-ref": "terminfinder@0.0.0|rc@1.2.8|strip-json-comments@2.0.1",
+          "author": "Sindre Sorhus",
+          "description": "Strip comments from JSON. Lets you use comments in your JSON files!",
+          "scope": "optional",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/strip-json-comments@2.0.1",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/sindresorhus/strip-json-comments.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/sindresorhus/strip-json-comments#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/sindresorhus/strip-json-comments/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "e2007c9dad3b7de715564388e91b387bb4fa34e4e48b91262fb4d476e4ece9bbb711d9d2c9c9ed549e2b7bc920640fb0c7d22e788d98d756df6e0c2dcee13429"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:development",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:extraneous",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/rc/node_modules/strip-json-comments"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ret",
+      "version": "0.1.15",
+      "bom-ref": "terminfinder@0.0.0|ret@0.1.15",
+      "author": "Roly Fentanes",
+      "description": "Tokenizes a string that represents a regular expression.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ret@0.1.15",
+      "externalReferences": [
+        {
+          "url": "git://github.com/fent/ret.js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/fent/ret.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/fent/ret.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ret/-/ret-0.1.15.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4d3958a5af8e2febcc30d1b6e314a5406109dc1fd1cc47d494b72dedbe46ff2b5abfec0fae9942a55305bb0cd76e479c26b6fa218a358856f44bdbf7efbe789a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ret"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "rxjs",
       "version": "7.8.2",
       "bom-ref": "terminfinder@0.0.0|rxjs@7.8.2",
@@ -1213,11 +2599,12 @@
     },
     {
       "type": "library",
-      "name": "zone.js",
-      "version": "0.15.1",
-      "bom-ref": "terminfinder@0.0.0|zone.js@0.15.1",
-      "author": "Brian Ford",
-      "description": "Zones for JavaScript",
+      "name": "schemes",
+      "version": "1.4.0",
+      "bom-ref": "terminfinder@0.0.0|schemes@1.4.0",
+      "author": "Peter Müller",
+      "description": "IANA Uniform Resource Identifier (URI) Schemes list, including crowd sourced unofficial ones",
+      "scope": "optional",
       "licenses": [
         {
           "license": {
@@ -1226,30 +2613,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/zone.js@0.15.1#packages/zone.js",
+      "purl": "pkg:npm/schemes@1.4.0",
       "externalReferences": [
         {
-          "url": "git://github.com/angular/angular.git#packages/zone.js",
+          "url": "git://github.com/Munter/schemes.git",
           "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+          "comment": "as detected from PackageJson property \"repository.url\""
         },
         {
-          "url": "https://github.com/angular/angular#readme",
+          "url": "https://github.com/Munter/schemes",
           "type": "website",
           "comment": "as detected from PackageJson property \"homepage\""
         },
         {
-          "url": "https://github.com/angular/angular/issues",
+          "url": "https://github.com/Munter/schemes/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/zone.js/-/zone.js-0.15.1.tgz",
+          "url": "https://registry.npmjs.org/schemes/-/schemes-1.4.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "5c4f7a9f9e8842924cecd0285ecc18dd744b716156f37c5ed0188039e303ecae64e7179c39eba5dd0729c7a1aa11e7873645b90d62f9ccec936c47c1e1eb62f3"
+              "content": "226172f456c2b109558271374c25a62cf0859d5cf1d251cbfe5fae987a650ea00a7747731699d2ea51592296a00656212b0cd59a5577e9e7346355d3bbc24101"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1257,8 +2644,378 @@
       ],
       "properties": [
         {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
           "name": "cdx:npm:package:path",
-          "value": "node_modules/zone.js"
+          "value": "node_modules/schemes"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "simple-concat",
+      "version": "1.0.1",
+      "bom-ref": "terminfinder@0.0.0|simple-concat@1.0.1",
+      "author": "Feross Aboukhadijeh",
+      "description": "Super-minimalist version of `concat-stream`. Less than 15 lines!",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/simple-concat@1.0.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/feross/simple-concat.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/feross/simple-concat",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/feross/simple-concat/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/simple-concat/-/simple-concat-1.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "71216d00fb518658efebd20ad214d5650f8e7c4f6778f8bfaed266c395231de57256ba04a895cfd6c173b4a532d6a53ec6fcf7bbfb1f6092daf78edbee700dd9"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/simple-concat"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "simple-get",
+      "version": "4.0.1",
+      "bom-ref": "terminfinder@0.0.0|simple-get@4.0.1",
+      "author": "Feross Aboukhadijeh",
+      "description": "Simplest way to make http get requests. Supports HTTPS, redirects, gzip/deflate, streams in < 100 lines.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/simple-get@4.0.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/feross/simple-get.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/feross/simple-get",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/feross/simple-get/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/simple-get/-/simple-get-4.0.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "6ebbfba795a01f48e6409af56430df2833927965a0f8e572a46f7d03fe6f6063ea27aa7189a1cbcbc9f1b458c103ba0c6b4d5e6c0f607e1d6e30216a3ae5f1bc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/simple-get"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "smtp-address-parser",
+      "version": "1.1.0",
+      "bom-ref": "terminfinder@0.0.0|smtp-address-parser@1.1.0",
+      "author": "Gene Hightower",
+      "description": "Parse an SMTP (RFC-5321) address",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/smtp-address-parser@1.1.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/gene-hightower/smtp-address-parser.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/gene-hightower/smtp-address-parser#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/gene-hightower/smtp-address-parser/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/smtp-address-parser/-/smtp-address-parser-1.1.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1b3d758db354d2996b45e53d4a3edf9ac852071c49f5285d0f6ab892d1c81e8feba531fa945c90a181d828834f26d3def1a1c59ec6ed5b8e8bb34b42081b0866"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/smtp-address-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tar-fs",
+      "version": "2.1.4",
+      "bom-ref": "terminfinder@0.0.0|tar-fs@2.1.4",
+      "author": "Mathias Buus",
+      "description": "filesystem bindings for tar-stream",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tar-fs@2.1.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/mafintosh/tar-fs.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mafintosh/tar-fs",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mafintosh/tar-fs/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "983023c2665d87b2d34faa4d95e674e58b7ae470b713e36243397aef6bd01b7f2322b7a1b4993f27798dc0883ebd28503dc2c5fcb57b08c9c35babe38fab1f61"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tar-fs"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "chownr",
+          "version": "1.1.4",
+          "bom-ref": "terminfinder@0.0.0|tar-fs@2.1.4|chownr@1.1.4",
+          "author": "Isaac Z. Schlueter",
+          "description": "like `chown -R`",
+          "scope": "optional",
+          "licenses": [
+            {
+              "license": {
+                "id": "ISC",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/chownr@1.1.4",
+          "externalReferences": [
+            {
+              "url": "git://github.com/isaacs/chownr.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/isaacs/chownr#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/isaacs/chownr/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/chownr/-/chownr-1.1.4.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "8c9d1bab36b296626d567360cd37923acf033dabe96d8804aff6f460bf3fd863b7c4912122716684a3149c42508d9ba62bb297185854cbcf4faec25695a90156"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:development",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:extraneous",
+              "value": "true"
+            },
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/tar-fs/node_modules/chownr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tar-stream",
+      "version": "2.2.0",
+      "bom-ref": "terminfinder@0.0.0|tar-stream@2.2.0",
+      "author": "Mathias Buus",
+      "description": "tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tar-stream@2.2.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/mafintosh/tar-stream.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mafintosh/tar-stream",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mafintosh/tar-stream/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.2.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ba37aa6dc780060c0c6711099e4d870d8d83967519fbda0471bd4acd355f6078a8d1413a746ef59fad1df03d88e2a36f95e5abad7a668e9b7bbd9785d4b9cc65"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tar-stream"
         }
       ]
     },
@@ -2086,6 +3843,605 @@
     },
     {
       "type": "library",
+      "name": "semver",
+      "version": "7.7.2",
+      "bom-ref": "terminfinder@0.0.0|semver@7.7.2",
+      "author": "GitHub Inc.",
+      "description": "The semantic version parser used by npm.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/semver@7.7.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/npm/node-semver.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/semver/-/semver-7.7.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "445d05c3eacee4031ff4c0326915c8e005745258f994c1ea571c5d4a08956e2c52097a049a65ff8e4d02b89c38fb74aaae860ef55a1487e1dcb898afbed25e98"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/semver"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "bom-ref": "terminfinder@0.0.0|detect-libc@2.1.2",
+      "author": "Lovell Fuller",
+      "description": "Node.js module to detect the C standard library (libc) implementation family and version",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/detect-libc@2.1.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/lovell/detect-libc.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/lovell/detect-libc#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/detect-libc/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "06d8f604e38ef37a375b21f9f5ef0c817b3111055c6ab9143a9118aee6c1d2eaf09cdd74c90dfae2bb22072535d67665a966199b4e62fe87fb8a8e26ce2841b5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/detect-libc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "minimist",
+      "version": "1.2.8",
+      "bom-ref": "terminfinder@0.0.0|minimist@1.2.8",
+      "author": "James Halliday",
+      "description": "parse argument options",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/minimist@1.2.8",
+      "externalReferences": [
+        {
+          "url": "git://github.com/minimistjs/minimist.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/minimistjs/minimist",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/minimistjs/minimist/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "db2c8047ca8190ddd8ba17896a7529582e54ddb6f9a2c0f2c0d07c4730d5943c031dba1c009bdeaaa8f5bbcf92543ee39164f8cafb070a95aaa96a80c5bd3308"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/minimist"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pump",
+      "version": "3.0.3",
+      "bom-ref": "terminfinder@0.0.0|pump@3.0.3",
+      "author": "Mathias Buus Madsen",
+      "description": "pipe streams together and close all of them if one of them closes",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pump@3.0.3",
+      "externalReferences": [
+        {
+          "url": "git://github.com/mafintosh/pump.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mafintosh/pump#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mafintosh/pump/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/pump/-/pump-3.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b68770c4b318eff85e49c2a69edc101bc09756459439d63122f636b34556000321fe777c4a862245a2a396befe882b3df387f63fccefadf59c0c36156fbdcd7c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/pump"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tunnel-agent",
+      "version": "0.6.0",
+      "bom-ref": "terminfinder@0.0.0|tunnel-agent@0.6.0",
+      "author": "Mikeal Rogers",
+      "description": "HTTP proxy tunneling agent. Formerly part of mikeal/request, now a standalone module.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tunnel-agent@0.6.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/mikeal/tunnel-agent.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mikeal/tunnel-agent#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mikeal/tunnel-agent/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.6.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "31c9cd895d65f1161e63cb41804a6ea1d082d662d475b48df826012fb909b093489ce3fc5230c3130764e8cc3ad2f74b2ebaf934729984c00e4ab476359b90fb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tunnel-agent"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "extend",
+      "version": "3.0.2",
+      "bom-ref": "terminfinder@0.0.0|extend@3.0.2",
+      "author": "Stefan Thomas",
+      "description": "Port of jQuery.extend for node.js and the browser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/extend@3.0.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/justmoon/node-extend.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/justmoon/node-extend#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/justmoon/node-extend/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/extend/-/extend-3.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "7e3aae0b9f5c0fb0b25babab3572b4141b9f9197288861bcd304ee3ee8d7e7dd1c0794ed967db4136501e12fd601156a8577df665d8b3604be81074f2088a6fe"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/extend"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "once",
+      "version": "1.4.0",
+      "bom-ref": "terminfinder@0.0.0|once@1.4.0",
+      "author": "Isaac Z. Schlueter",
+      "description": "Run a function exactly one time",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/once@1.4.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/isaacs/once.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/isaacs/once#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/isaacs/once/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "94d689808fb643951140191c7042874d038f697754c67659125413658d0c15402e684a9ed44f8dcaf81dcff688c8d8ba67d3333b976fd47f27e7cfc610ba77fb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/once"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "bl",
+      "version": "4.1.0",
+      "bom-ref": "terminfinder@0.0.0|bl@4.1.0",
+      "description": "Buffer List: collect buffers and access with a standard readable Buffer interface, streamable too!",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/bl@4.1.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/rvagg/bl.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/rvagg/bl",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/rvagg/bl/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/bl/-/bl-4.1.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "d56d3b70cf604ba0dc2e97ab65f1528fe6d62ed68f1923875a13e21b35e6bd525b44b746f36b07fca9fc12d5b556a595039e0029fda1e64e416e721bc05de1eb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/bl"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "end-of-stream",
+      "version": "1.4.5",
+      "bom-ref": "terminfinder@0.0.0|end-of-stream@1.4.5",
+      "author": "Mathias Buus",
+      "description": "Call a callback when a readable/writable/duplex stream has completed or failed.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/end-of-stream@1.4.5",
+      "externalReferences": [
+        {
+          "url": "git://github.com/mafintosh/end-of-stream.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/mafintosh/end-of-stream",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mafintosh/end-of-stream/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a2810673a1cfdbac57abf37e18218e4f424a08b0c6aead9b41466b43b832ac989900d27ff180d3c53a5005718c9fe59b2105cd569c96ca69bb2985480909f23a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/end-of-stream"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "inherits",
+      "version": "2.0.4",
+      "bom-ref": "terminfinder@0.0.0|inherits@2.0.4",
+      "description": "Browser-friendly inheritance fully compatible with standard node.js inherits()",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/inherits@2.0.4",
+      "externalReferences": [
+        {
+          "url": "git://github.com/isaacs/inherits.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/isaacs/inherits#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/isaacs/inherits/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "93fbc6697e3f6256b75b3c8c0af4d039761e207bea38ab67a8176ecd31e9ce9419cc0b2428c859d8af849c189233dcc64a820578ca572b16b8758799210a9ec1"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/inherits"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "readable-stream",
+      "version": "3.6.2",
+      "bom-ref": "terminfinder@0.0.0|readable-stream@3.6.2",
+      "description": "Streams3, a user-land copy of the stream library from Node.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/readable-stream@3.6.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/nodejs/readable-stream.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nodejs/readable-stream#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/readable-stream/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f6efec9e20ab6370f959db04447cc71381b66025eaa06e454c7522082e1221bafa5dc2d9058d39c9af442a361e93d3b9c4e0308c6abed497460404bb43d49ca0"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/readable-stream"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "ajv-formats",
       "version": "3.0.1",
       "bom-ref": "terminfinder@0.0.0|ajv-formats@3.0.1",
@@ -2541,57 +4897,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/reflect-metadata"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "semver",
-      "version": "7.7.2",
-      "bom-ref": "terminfinder@0.0.0|semver@7.7.2",
-      "author": "GitHub Inc.",
-      "description": "The semantic version parser used by npm.",
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/semver@7.7.2",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/npm/node-semver.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/npm/node-semver#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/npm/node-semver/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/semver/-/semver-7.7.2.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "445d05c3eacee4031ff4c0326915c8e005745258f994c1ea571c5d4a08956e2c52097a049a65ff8e4d02b89c38fb74aaae860ef55a1487e1dcb898afbed25e98"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/semver"
         }
       ]
     },
@@ -4198,6 +6503,280 @@
     },
     {
       "type": "library",
+      "name": "safe-buffer",
+      "version": "5.2.1",
+      "bom-ref": "terminfinder@0.0.0|safe-buffer@5.2.1",
+      "author": "Feross Aboukhadijeh",
+      "description": "Safer Node.js Buffer API",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/safe-buffer@5.2.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/feross/safe-buffer.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/feross/safe-buffer",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/feross/safe-buffer/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ae9dd2a34eca71d9a629b1af81a37141226bedb1954959394bd12ad45fa9a5b468ef4f9879a0f1930e4377c34f37e183e9b8e7626d95b8fb825e6a6e62f9825d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/safe-buffer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "wrappy",
+      "version": "1.0.2",
+      "bom-ref": "terminfinder@0.0.0|wrappy@1.0.2",
+      "author": "Isaac Z. Schlueter",
+      "description": "Callback wrapping utility",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/wrappy@1.0.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/npm/wrappy.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/npm/wrappy",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/npm/wrappy/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "9784a9fc346c7a8afdc0be84bd5dbe4ee427eb774c90f8d9feca7d5e48214c46d5f4a94f4b5c54b19deeeff2103b8c31b5c141e1b82940f45c477402bdeccf71"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/wrappy"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "buffer",
+      "version": "5.7.1",
+      "bom-ref": "terminfinder@0.0.0|buffer@5.7.1",
+      "author": "Feross Aboukhadijeh",
+      "description": "Node.js Buffer API, for the browser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/buffer@5.7.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/feross/buffer.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/feross/buffer",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/feross/buffer/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/buffer/-/buffer-5.7.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "10773220f050e0148696f8c1d7a9392a0009dbb088b0763fd8906609145ea38f32f6b43731a533597dca56505ae14eccc97d361dd563d0aec2dd6681de3bbb15"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/buffer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "string_decoder",
+      "version": "1.3.0",
+      "bom-ref": "terminfinder@0.0.0|string_decoder@1.3.0",
+      "description": "The string_decoder module from Node core",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/string_decoder@1.3.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/nodejs/string_decoder.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nodejs/string_decoder",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/string_decoder/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.3.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "864457f14d568c915df0bb03276c90ff0596c5aa2912c0015355df90cf00fa3d3ef392401a9a6dd7a72bd56860e8a21b6f8a2453a32a97a04e8febaea7fc0a78"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/string_decoder"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "util-deprecate",
+      "version": "1.0.2",
+      "bom-ref": "terminfinder@0.0.0|util-deprecate@1.0.2",
+      "author": "Nathan Rajlich",
+      "description": "The Node.js `util.deprecate()` function with browser support",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/util-deprecate@1.0.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/TooTallNate/util-deprecate.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/TooTallNate/util-deprecate",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/TooTallNate/util-deprecate/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "10f0f9ab5b97c85c49a42acb9c27359c79eade039ae83641a1c008888d93692080ed5089d5424331a802cc891736c5187c3d5d68afff2d3110f318886eb1ed73"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/util-deprecate"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "fast-deep-equal",
       "version": "3.1.3",
       "bom-ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3",
@@ -5225,6 +7804,116 @@
     },
     {
       "type": "library",
+      "name": "base64-js",
+      "version": "1.5.1",
+      "bom-ref": "terminfinder@0.0.0|base64-js@1.5.1",
+      "author": "T. Jameson Little",
+      "description": "Base64 encoding/decoding in pure JS",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/base64-js@1.5.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/beatgammit/base64-js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/beatgammit/base64-js",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/beatgammit/base64-js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "00aa5a6251e7f2de1255b3870b2f9be7e28a82f478bebb03f2f6efadb890269b3b7ca0d3923903af2ea38b4ad42630b49336cd78f2f0cf1abc8b2a68e35a9e58"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/base64-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ieee754",
+      "version": "1.2.1",
+      "bom-ref": "terminfinder@0.0.0|ieee754@1.2.1",
+      "author": "Feross Aboukhadijeh",
+      "description": "Read/write IEEE754 floating point numbers from/to a Buffer or array-like object",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ieee754@1.2.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/feross/ieee754.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/feross/ieee754#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/feross/ieee754/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "75ccaa843bd7d42e3a95765c56a0a92be16d31141574830debf0dfe63b36ce8b94b2a1bb23ab05c62b480beeca60adbd29d5ce2c776ef732f8b059e85509ea68"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ieee754"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "resolve-uri",
       "group": "@jridgewell",
       "version": "3.1.2",
@@ -5599,15 +8288,40 @@
         "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
         "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
+        "terminfinder@0.0.0|bindings@1.5.0",
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.0",
         "terminfinder@0.0.0|core-js@3.45.0",
+        "terminfinder@0.0.0|decompress-response@6.0.0",
+        "terminfinder@0.0.0|deep-extend@0.6.0",
+        "terminfinder@0.0.0|discontinuous-range@1.0.0",
         "terminfinder@0.0.0|dompurify@3.3.1",
+        "terminfinder@0.0.0|expand-template@2.0.3",
+        "terminfinder@0.0.0|file-uri-to-path@1.0.0",
+        "terminfinder@0.0.0|fs-constants@1.0.0",
+        "terminfinder@0.0.0|github-from-package@0.0.0",
+        "terminfinder@0.0.0|mimic-response@3.1.0",
+        "terminfinder@0.0.0|mkdirp-classic@0.5.3",
         "terminfinder@0.0.0|moment@2.30.1",
+        "terminfinder@0.0.0|moo@0.5.2",
+        "terminfinder@0.0.0|nan@2.22.2",
+        "terminfinder@0.0.0|napi-build-utils@2.0.0",
+        "terminfinder@0.0.0|nearley@2.20.1",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
         "terminfinder@0.0.0|ngx-toastr@19.1.0",
+        "terminfinder@0.0.0|node-abi@3.85.0",
+        "terminfinder@0.0.0|prebuild-install@7.1.3",
+        "terminfinder@0.0.0|railroad-diagrams@1.0.0",
+        "terminfinder@0.0.0|randexp@0.4.6",
+        "terminfinder@0.0.0|rc@1.2.8",
+        "terminfinder@0.0.0|ret@0.1.15",
         "terminfinder@0.0.0|rxjs@7.8.2",
-        "terminfinder@0.0.0|zone.js@0.15.1"
+        "terminfinder@0.0.0|schemes@1.4.0",
+        "terminfinder@0.0.0|simple-concat@1.0.1",
+        "terminfinder@0.0.0|simple-get@4.0.1",
+        "terminfinder@0.0.0|smtp-address-parser@1.1.0",
+        "terminfinder@0.0.0|tar-fs@2.1.4",
+        "terminfinder@0.0.0|tar-stream@2.2.0"
       ]
     },
     {
@@ -5643,8 +8357,7 @@
       "dependsOn": [
         "terminfinder@0.0.0|@angular/compiler@20.3.16",
         "terminfinder@0.0.0|rxjs@7.8.2",
-        "terminfinder@0.0.0|tslib@2.8.1",
-        "terminfinder@0.0.0|zone.js@0.15.1"
+        "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
@@ -5729,6 +8442,12 @@
       "ref": "terminfinder@0.0.0|@popperjs/core@2.11.8"
     },
     {
+      "ref": "terminfinder@0.0.0|bindings@1.5.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|file-uri-to-path@1.0.0"
+      ]
+    },
+    {
       "ref": "terminfinder@0.0.0|bootstrap@5.3.8",
       "dependsOn": [
         "terminfinder@0.0.0|@popperjs/core@2.11.8"
@@ -5744,13 +8463,64 @@
       "ref": "terminfinder@0.0.0|core-js@3.45.0"
     },
     {
+      "ref": "terminfinder@0.0.0|decompress-response@6.0.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|mimic-response@3.1.0"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|deep-extend@0.6.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|discontinuous-range@1.0.0"
+    },
+    {
       "ref": "terminfinder@0.0.0|dompurify@3.3.1",
       "dependsOn": [
         "terminfinder@0.0.0|@types/trusted-types@2.0.7"
       ]
     },
     {
+      "ref": "terminfinder@0.0.0|expand-template@2.0.3"
+    },
+    {
+      "ref": "terminfinder@0.0.0|file-uri-to-path@1.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|fs-constants@1.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|github-from-package@0.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|mimic-response@3.1.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|mkdirp-classic@0.5.3"
+    },
+    {
       "ref": "terminfinder@0.0.0|moment@2.30.1"
+    },
+    {
+      "ref": "terminfinder@0.0.0|moo@0.5.2"
+    },
+    {
+      "ref": "terminfinder@0.0.0|nan@2.22.2"
+    },
+    {
+      "ref": "terminfinder@0.0.0|napi-build-utils@2.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|nearley@2.20.1",
+      "dependsOn": [
+        "terminfinder@0.0.0|nearley@2.20.1|commander@2.20.3",
+        "terminfinder@0.0.0|moo@0.5.2",
+        "terminfinder@0.0.0|railroad-diagrams@1.0.0",
+        "terminfinder@0.0.0|randexp@0.4.6"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|nearley@2.20.1|commander@2.20.3"
     },
     {
       "ref": "terminfinder@0.0.0|ngx-clipboard@16.0.0",
@@ -5771,13 +8541,106 @@
       ]
     },
     {
+      "ref": "terminfinder@0.0.0|node-abi@3.85.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|semver@7.7.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|prebuild-install@7.1.3",
+      "dependsOn": [
+        "terminfinder@0.0.0|detect-libc@2.1.2",
+        "terminfinder@0.0.0|expand-template@2.0.3",
+        "terminfinder@0.0.0|github-from-package@0.0.0",
+        "terminfinder@0.0.0|minimist@1.2.8",
+        "terminfinder@0.0.0|mkdirp-classic@0.5.3",
+        "terminfinder@0.0.0|napi-build-utils@2.0.0",
+        "terminfinder@0.0.0|node-abi@3.85.0",
+        "terminfinder@0.0.0|pump@3.0.3",
+        "terminfinder@0.0.0|rc@1.2.8",
+        "terminfinder@0.0.0|simple-get@4.0.1",
+        "terminfinder@0.0.0|tar-fs@2.1.4",
+        "terminfinder@0.0.0|tunnel-agent@0.6.0"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|railroad-diagrams@1.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|randexp@0.4.6",
+      "dependsOn": [
+        "terminfinder@0.0.0|discontinuous-range@1.0.0",
+        "terminfinder@0.0.0|ret@0.1.15"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|rc@1.2.8",
+      "dependsOn": [
+        "terminfinder@0.0.0|deep-extend@0.6.0",
+        "terminfinder@0.0.0|rc@1.2.8|ini@1.3.8",
+        "terminfinder@0.0.0|minimist@1.2.8",
+        "terminfinder@0.0.0|rc@1.2.8|strip-json-comments@2.0.1"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|rc@1.2.8|ini@1.3.8"
+    },
+    {
+      "ref": "terminfinder@0.0.0|rc@1.2.8|strip-json-comments@2.0.1"
+    },
+    {
+      "ref": "terminfinder@0.0.0|ret@0.1.15"
+    },
+    {
       "ref": "terminfinder@0.0.0|rxjs@7.8.2",
       "dependsOn": [
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|zone.js@0.15.1"
+      "ref": "terminfinder@0.0.0|schemes@1.4.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|extend@3.0.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|simple-concat@1.0.1"
+    },
+    {
+      "ref": "terminfinder@0.0.0|simple-get@4.0.1",
+      "dependsOn": [
+        "terminfinder@0.0.0|decompress-response@6.0.0",
+        "terminfinder@0.0.0|once@1.4.0",
+        "terminfinder@0.0.0|simple-concat@1.0.1"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|smtp-address-parser@1.1.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|nearley@2.20.1"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|tar-fs@2.1.4",
+      "dependsOn": [
+        "terminfinder@0.0.0|tar-fs@2.1.4|chownr@1.1.4",
+        "terminfinder@0.0.0|mkdirp-classic@0.5.3",
+        "terminfinder@0.0.0|pump@3.0.3",
+        "terminfinder@0.0.0|tar-stream@2.2.0"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|tar-fs@2.1.4|chownr@1.1.4"
+    },
+    {
+      "ref": "terminfinder@0.0.0|tar-stream@2.2.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|bl@4.1.0",
+        "terminfinder@0.0.0|end-of-stream@1.4.5",
+        "terminfinder@0.0.0|fs-constants@1.0.0",
+        "terminfinder@0.0.0|inherits@2.0.4",
+        "terminfinder@0.0.0|readable-stream@3.6.2"
+      ]
     },
     {
       "ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.14",
@@ -5898,6 +8761,62 @@
       ]
     },
     {
+      "ref": "terminfinder@0.0.0|semver@7.7.2"
+    },
+    {
+      "ref": "terminfinder@0.0.0|detect-libc@2.1.2"
+    },
+    {
+      "ref": "terminfinder@0.0.0|minimist@1.2.8"
+    },
+    {
+      "ref": "terminfinder@0.0.0|pump@3.0.3",
+      "dependsOn": [
+        "terminfinder@0.0.0|end-of-stream@1.4.5",
+        "terminfinder@0.0.0|once@1.4.0"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|tunnel-agent@0.6.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|safe-buffer@5.2.1"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|extend@3.0.2"
+    },
+    {
+      "ref": "terminfinder@0.0.0|once@1.4.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|wrappy@1.0.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|bl@4.1.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|buffer@5.7.1",
+        "terminfinder@0.0.0|inherits@2.0.4",
+        "terminfinder@0.0.0|readable-stream@3.6.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|end-of-stream@1.4.5",
+      "dependsOn": [
+        "terminfinder@0.0.0|once@1.4.0"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|inherits@2.0.4"
+    },
+    {
+      "ref": "terminfinder@0.0.0|readable-stream@3.6.2",
+      "dependsOn": [
+        "terminfinder@0.0.0|inherits@2.0.4",
+        "terminfinder@0.0.0|string_decoder@1.3.0",
+        "terminfinder@0.0.0|util-deprecate@1.0.2"
+      ]
+    },
+    {
       "ref": "terminfinder@0.0.0|ajv-formats@3.0.1",
       "dependsOn": [
         "terminfinder@0.0.0|ajv@8.17.1"
@@ -5935,9 +8854,6 @@
     },
     {
       "ref": "terminfinder@0.0.0|reflect-metadata@0.2.2"
-    },
-    {
-      "ref": "terminfinder@0.0.0|semver@7.7.2"
     },
     {
       "ref": "terminfinder@0.0.0|typescript@5.8.3"
@@ -6128,6 +9044,28 @@
       "ref": "terminfinder@0.0.0|yargs-parser@22.0.0"
     },
     {
+      "ref": "terminfinder@0.0.0|safe-buffer@5.2.1"
+    },
+    {
+      "ref": "terminfinder@0.0.0|wrappy@1.0.2"
+    },
+    {
+      "ref": "terminfinder@0.0.0|buffer@5.7.1",
+      "dependsOn": [
+        "terminfinder@0.0.0|base64-js@1.5.1",
+        "terminfinder@0.0.0|ieee754@1.2.1"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|string_decoder@1.3.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|safe-buffer@5.2.1"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|util-deprecate@1.0.2"
+    },
+    {
       "ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3"
     },
     {
@@ -6208,6 +9146,12 @@
     },
     {
       "ref": "terminfinder@0.0.0|get-east-asian-width@1.4.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|base64-js@1.5.1"
+    },
+    {
+      "ref": "terminfinder@0.0.0|ieee754@1.2.1"
     },
     {
       "ref": "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.2"

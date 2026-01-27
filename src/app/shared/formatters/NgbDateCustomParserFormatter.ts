@@ -1,13 +1,11 @@
-import { Inject, Injectable, LOCALE_ID } from '@angular/core';
+import { Injectable, LOCALE_ID, inject } from '@angular/core';
 import { NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { ValidatorUtils } from '../validators/validator-utils';
 import { MomentUtils } from '../utils';
 
 @Injectable()
 export class NgbDateCustomParserFormatter extends NgbDateParserFormatter {
-  constructor(@Inject(LOCALE_ID) private localeId) {
-    super();
-  }
+  private localeId = inject(LOCALE_ID);
 
   parse(value: string): NgbDateStruct {
     try {

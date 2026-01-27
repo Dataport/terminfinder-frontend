@@ -1,4 +1,4 @@
-import { Directive, forwardRef, Inject, LOCALE_ID } from '@angular/core';
+import { Directive, forwardRef, LOCALE_ID, inject } from '@angular/core';
 import { NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn } from '@angular/forms';
 import moment from 'moment';
 import { NullableUtils } from '../utils';
@@ -36,10 +36,12 @@ export function dateValidator(localeId: string): ValidatorFn {
   ]
 })
 export class DateValidatorDirective implements Validator {
+  private localeId = inject(LOCALE_ID);
+
   validator: Function;
 
-  constructor(@Inject(LOCALE_ID) private localeId: string) {
-    this.validator = dateValidator(localeId);
+  constructor() {
+    this.validator = dateValidator(this.localeId);
   }
 
   validate(c: UntypedFormControl) {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeGerman from '@angular/common/locales/de';
 import localeEnglish from '@angular/common/locales/en';
@@ -18,6 +18,9 @@ export interface Locale {
 
 @Injectable({ providedIn: 'root' })
 export class LocaleService {
+  private translateService = inject(TranslateService);
+  private localStorageService = inject(LocalStorageService);
+
   private readonly DEFAULT_LOCALE: string = 'de-DE';
 
   private _locale: Locale = {
@@ -25,10 +28,7 @@ export class LocaleService {
     addressing: 'du'
   };
 
-  constructor(
-    private translateService: TranslateService,
-    private localStorageService: LocalStorageService
-  ) {
+  constructor() {
     if (environment.locale === 'en-EN') {
       this._locale.languageCode = 'en-EN';
     }

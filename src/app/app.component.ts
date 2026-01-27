@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import './operators';
 import { environment } from '../environments/environment';
 import { Logger } from './shared/services/logging';
@@ -30,19 +30,17 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class AppComponent implements OnInit {
+  localeService = inject(LocaleService);
+  private logger = inject(Logger);
+  private titleService = inject(Title);
+  private localStorageService = inject(LocalStorageService);
+  private colorsService = inject(ColorsService);
+  private stringTransformService = inject(StringTransformService);
+
   protected readonly NullableUtils = NullableUtils;
 
   connectionError = false;
   headlineHome = environment.title;
-
-  constructor(
-    public localeService: LocaleService,
-    private logger: Logger,
-    private titleService: Title,
-    private localStorageService: LocalStorageService,
-    private colorsService: ColorsService,
-    private stringTransformService: StringTransformService
-  ) {}
 
   ngOnInit(): void {
     this.logger.debug('ENV: ', environment);

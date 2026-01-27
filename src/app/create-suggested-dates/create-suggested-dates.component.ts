@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit, input } from '@angular/core';
+import { Component, LOCALE_ID, OnInit, input, inject } from '@angular/core';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
 import {
   AbstractControl,
@@ -50,6 +50,13 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class CreateSuggestedDatesComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private localeId = inject(LOCALE_ID);
+  private router = inject(Router);
+  private logger = inject(Logger);
+  private dateTimeGenerator = inject(DateTimeGeneratorService);
+  private routeTitle = inject(RouteTitleService);
+
   protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
 
   public static readonly MIN_NUMBER_SUGGESTED_DATES = ValidatorConstants.MIN_NUMBER_SUGGESTED_DATES;
@@ -97,14 +104,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   minDate: string;
   maxDate: string;
 
-  constructor(
-    private appStateService: AppStateService,
-    @Inject(LOCALE_ID) private localeId: string,
-    private router: Router,
-    private logger: Logger,
-    private dateTimeGenerator: DateTimeGeneratorService,
-    private routeTitle: RouteTitleService
-  ) {
+  constructor() {
     moment.locale(this.localeId);
   }
 

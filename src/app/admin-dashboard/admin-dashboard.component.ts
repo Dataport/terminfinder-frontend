@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Appointment, Message, MessageType } from '../shared/models';
 import { Appointment as ApiAppointment } from '../shared/models/api-data-v1-dto';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
@@ -24,18 +24,16 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class AdminDashboardComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private dataRepoService = inject(DataRepositoryService);
+  private logger = inject(Logger);
+  private route = inject(ActivatedRoute);
+  private routeTitle = inject(RouteTitleService);
+
   model: Appointment;
   isStarted: boolean;
   isStatusDisabled: boolean;
   apiError: Message;
-
-  constructor(
-    private appStateService: AppStateService,
-    private dataRepoService: DataRepositoryService,
-    private logger: Logger,
-    private route: ActivatedRoute,
-    private routeTitle: RouteTitleService
-  ) {}
 
   ngOnInit() {
     this.route.data.subscribe((data: { appointment: Appointment }) => {

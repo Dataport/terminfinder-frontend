@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, input, inject } from '@angular/core';
 import {
   AbstractControl,
   UntypedFormBuilder,
@@ -40,6 +40,11 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class SettingsComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
+  private fb = inject(UntypedFormBuilder);
+  private routeTitle = inject(RouteTitleService);
+
   settingsForm: UntypedFormGroup;
   model: Appointment;
   adminId: string;
@@ -48,13 +53,6 @@ export class SettingsComponent implements OnInit {
   passwordRepeatHidden = true;
 
   readonly isAdmin = input(false);
-
-  constructor(
-    private appStateService: AppStateService,
-    private router: Router,
-    private fb: UntypedFormBuilder,
-    private routeTitle: RouteTitleService
-  ) {}
 
   static checkPasswords(group: UntypedFormGroup): ValidationErrors | null {
     const password = group.controls.password;

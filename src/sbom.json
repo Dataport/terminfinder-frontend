@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:1ca944c2-ea95-448a-b6db-15db8eda3500",
+  "serialNumber": "urn:uuid:cda4bbb3-c860-45c1-bba1-b2d7b3b07154",
   "metadata": {
-    "timestamp": "2026-01-27T12:52:17.657Z",
+    "timestamp": "2026-01-27T13:01:59.086Z",
     "tools": {
       "components": [
         {
@@ -911,8 +911,8 @@
     {
       "type": "library",
       "name": "core-js",
-      "version": "3.45.0",
-      "bom-ref": "terminfinder@0.0.0|core-js@3.45.0",
+      "version": "3.47.0",
+      "bom-ref": "terminfinder@0.0.0|core-js@3.47.0",
       "author": "Denis Pushkarev",
       "description": "Standard library",
       "licenses": [
@@ -923,7 +923,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/core-js@3.45.0#packages/core-js",
+      "purl": "pkg:npm/core-js@3.47.0#packages/core-js",
       "externalReferences": [
         {
           "url": "git+https://github.com/zloirock/core-js.git#packages/core-js",
@@ -931,7 +931,7 @@
           "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
         },
         {
-          "url": "https://github.com/zloirock/core-js#readme",
+          "url": "https://core-js.io",
           "type": "website",
           "comment": "as detected from PackageJson property \"homepage\""
         },
@@ -941,12 +941,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/core-js/-/core-js-3.45.0.tgz",
+          "url": "https://registry.npmjs.org/core-js/-/core-js-3.47.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "7362992fd94fe038e4377864fda9f8a569f96f965e7e14499c0738da7e8b275f644a76de45b750644e5d49e1362c1a25d4ec090f75f5050bc54c0b1af1179e0c"
+              "content": "737436555906014caea6c8d19da357eaef03ab6bc07739bd8ae3e3e455b47d1c7397182af50dfd303ab5d08be6412a4b80740dc90cd098ea3a6e0187987dcd36"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5601,7 +5601,7 @@
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.0",
-        "terminfinder@0.0.0|core-js@3.45.0",
+        "terminfinder@0.0.0|core-js@3.47.0",
         "terminfinder@0.0.0|dompurify@3.3.1",
         "terminfinder@0.0.0|moment@2.30.1",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
@@ -5741,7 +5741,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|core-js@3.45.0"
+      "ref": "terminfinder@0.0.0|core-js@3.47.0"
     },
     {
       "ref": "terminfinder@0.0.0|dompurify@3.3.1",

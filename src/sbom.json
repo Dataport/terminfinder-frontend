@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:1c55b71e-32cf-4054-b1f4-ef07a88d2542",
+  "serialNumber": "urn:uuid:d8cdf9cf-39a4-4137-8ffe-aa9ccd93b005",
   "metadata": {
-    "timestamp": "2026-01-23T00:08:00.851Z",
+    "timestamp": "2026-01-27T01:00:58.994Z",
     "tools": {
       "components": [
         {
@@ -684,8 +684,8 @@
       "type": "library",
       "name": "core",
       "group": "@ngx-translate",
-      "version": "16.0.4",
-      "bom-ref": "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
+      "version": "17.0.0",
+      "bom-ref": "terminfinder@0.0.0|@ngx-translate/core@17.0.0",
       "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe",
       "description": "Translation library (i18n) for Angular",
       "licenses": [
@@ -696,15 +696,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40ngx-translate/core@16.0.4",
+      "purl": "pkg:npm/%40ngx-translate/core@17.0.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@ngx-translate/core/-/core-16.0.4.tgz",
+          "url": "git+https://github.com/ngx-translate/core.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/ngx-translate/core#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ngx-translate/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@ngx-translate/core/-/core-17.0.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "b3c9654cbd9226f44e86ab6dc6f12cec283eeaa49fe24bd93c560ef9c4ce63577c0d64e396eb5191602579970f3e8797f76ec39bb00b7cbd3b1bba180c9ef3eb"
+              "content": "45fb760f99ecda9ab8a2b2d98c4b71d6e84db8405ead47691541b521caad1ae8a98fa49abe007c4a4c6d35000b34303e11596fb0d0828c2d9ec1956d51e37aae"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5596,7 +5611,7 @@
         "terminfinder@0.0.0|@angular/platform-browser@20.3.16",
         "terminfinder@0.0.0|@angular/router@20.3.16",
         "terminfinder@0.0.0|@ng-bootstrap/ng-bootstrap@19.0.1",
-        "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
+        "terminfinder@0.0.0|@ngx-translate/core@17.0.0",
         "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|bootstrap@5.3.8",
@@ -5710,7 +5725,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
+      "ref": "terminfinder@0.0.0|@ngx-translate/core@17.0.0",
       "dependsOn": [
         "terminfinder@0.0.0|@angular/common@20.3.16",
         "terminfinder@0.0.0|@angular/core@20.3.16",

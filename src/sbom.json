@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:1c55b71e-32cf-4054-b1f4-ef07a88d2542",
+  "serialNumber": "urn:uuid:1ca944c2-ea95-448a-b6db-15db8eda3500",
   "metadata": {
-    "timestamp": "2026-01-23T00:08:00.851Z",
+    "timestamp": "2026-01-27T12:52:17.657Z",
     "tools": {
       "components": [
         {
@@ -2598,8 +2598,8 @@
     {
       "type": "library",
       "name": "typescript",
-      "version": "5.8.3",
-      "bom-ref": "terminfinder@0.0.0|typescript@5.8.3",
+      "version": "5.9.3",
+      "bom-ref": "terminfinder@0.0.0|typescript@5.9.3",
       "author": "Microsoft Corp.",
       "description": "TypeScript is a language for application scale JavaScript development",
       "licenses": [
@@ -2610,7 +2610,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/typescript@5.8.3",
+      "purl": "pkg:npm/typescript@5.9.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/microsoft/TypeScript.git",
@@ -2628,12 +2628,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/typescript/-/typescript-5.8.3.tgz",
+          "url": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a757625ba4ea2fd2f4ee7371bd130cee130cc387395cea3fd626cbe1a0081a6480b7db254c4d57830e4a5aea1fdae4cebc283d058ed9462f86685fbbb1f80f79"
+              "content": "8e5d6f6733c38a72ebf5e52ddc9feded5e8580d130f508ef04f772b33f4a7d00c3e357d0ac2d98e2f290762694a454f86d795bd511e12e9a7cc2d9ba3394e04b"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5805,7 +5805,7 @@
         "terminfinder@0.0.0|reflect-metadata@0.2.2",
         "terminfinder@0.0.0|semver@7.7.2",
         "terminfinder@0.0.0|tslib@2.8.1",
-        "terminfinder@0.0.0|typescript@5.8.3",
+        "terminfinder@0.0.0|typescript@5.9.3",
         "terminfinder@0.0.0|yargs@18.0.0"
       ]
     },
@@ -5940,7 +5940,7 @@
       "ref": "terminfinder@0.0.0|semver@7.7.2"
     },
     {
-      "ref": "terminfinder@0.0.0|typescript@5.8.3"
+      "ref": "terminfinder@0.0.0|typescript@5.9.3"
     },
     {
       "ref": "terminfinder@0.0.0|@ampproject/remapping@2.3.0",

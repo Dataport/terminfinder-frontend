@@ -42,7 +42,7 @@
     "@angular/core": "20.3.16",
     "@angular/forms": "20.3.16",
     "@angular/localize": "20.3.16",
-    "@angular/platform-browser": "20.3.16",
+    "@angular/platform-browser": "21.1.0",
     "@angular/platform-browser-dynamic": "20.3.16",
     "@angular/router": "20.3.16",
     "@ng-bootstrap/ng-bootstrap": "19.0.1",

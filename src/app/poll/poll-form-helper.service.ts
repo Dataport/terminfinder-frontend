@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Appointment, Participant, SuggestedDate, Voting, VotingStatusType } from '../shared/models';
 import {
   AbstractControl,
@@ -28,6 +28,9 @@ enum FormMode {
  */
 @Injectable()
 export class PollFormHelperService {
+  private fb = inject(UntypedFormBuilder);
+  private translate = inject(TranslateService);
+
   static readonly MAX_NUMBER_OF_PARTICIPANTS = ApiConstants.MAX_NUMBER_OF_PARTICIPANTS_OF_APPOINTMENT;
   /**
    * Initially the form contains values for the tos checkbox only.
@@ -40,10 +43,7 @@ export class PollFormHelperService {
   public lastEditedParticipant: Participant;
   public participantsToDelete: Participant[] = [];
 
-  constructor(
-    private fb: UntypedFormBuilder,
-    private translate: TranslateService
-  ) {
+  constructor() {
     this.formMode = FormMode.VIEW;
 
     this.pollForm = this.fb.group({

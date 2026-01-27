@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Appointment } from '../shared/models';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
@@ -23,6 +23,11 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class PasswordComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private routeTitle = inject(RouteTitleService);
+
   passwordForm: UntypedFormGroup;
   model: Appointment;
   isAdmin: boolean;
@@ -30,12 +35,7 @@ export class PasswordComponent implements OnInit {
   showIsInvalid = true;
   passwordHidden = true;
 
-  constructor(
-    private appStateService: AppStateService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private routeTitle: RouteTitleService
-  ) {
+  constructor() {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };

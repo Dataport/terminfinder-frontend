@@ -1,4 +1,4 @@
-import { Directive, forwardRef, Inject, LOCALE_ID } from '@angular/core';
+import { Directive, forwardRef, LOCALE_ID, inject } from '@angular/core';
 import { NG_VALIDATORS, UntypedFormControl, Validator, ValidatorFn } from '@angular/forms';
 import moment from 'moment';
 import { DateTimeGeneratorService } from '../services/generators';
@@ -52,13 +52,13 @@ export function dateInFutureOrTodayValidator(
   ]
 })
 export class DateTodayOrInFutureValidatorDirective implements Validator {
+  private localeId = inject(LOCALE_ID);
+  private dateTimeGenerator = inject(DateTimeGeneratorService);
+
   validator: Function;
 
-  constructor(
-    @Inject(LOCALE_ID) private localeId: string,
-    private dateTimeGenerator: DateTimeGeneratorService
-  ) {
-    this.validator = dateInFutureOrTodayValidator(localeId, dateTimeGenerator);
+  constructor() {
+    this.validator = dateInFutureOrTodayValidator(this.localeId, this.dateTimeGenerator);
   }
 
   validate(c: UntypedFormControl) {

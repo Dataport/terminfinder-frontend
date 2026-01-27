@@ -1,10 +1,10 @@
-import { AfterContentInit, Directive, ElementRef, input } from '@angular/core';
+import { AfterContentInit, Directive, ElementRef, input, inject } from '@angular/core';
 
 @Directive({ selector: '[appAutoFocus]' })
 export class AutofocusDirective implements AfterContentInit {
-  public readonly autoFocus = input<boolean>(true);
+  private el = inject(ElementRef);
 
-  constructor(private el: ElementRef) {}
+  public readonly autoFocus = input<boolean>(true);
 
   public ngAfterContentInit(): void {
     if (this.autoFocus()) {

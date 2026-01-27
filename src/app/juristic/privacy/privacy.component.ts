@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Location } from '@angular/common';
 import { RouteTitleService } from '../../shared/services/route-title.service';
@@ -13,13 +13,11 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [TranslatePipe]
 })
 export class PrivacyComponent implements OnInit {
-  readonly privacy: SafeHtml = this.stringTransformService.decodeAndSanitize(environment.privacy);
+  private location = inject(Location);
+  private routeTitle = inject(RouteTitleService);
+  private stringTransformService = inject(StringTransformService);
 
-  constructor(
-    private location: Location,
-    private routeTitle: RouteTitleService,
-    private stringTransformService: StringTransformService
-  ) {}
+  readonly privacy: SafeHtml = this.stringTransformService.decodeAndSanitize(environment.privacy);
 
   ngOnInit(): void {
     this.routeTitle.setTitle('privacy.declaration');

@@ -1,4 +1,4 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component, OnInit, input, inject } from '@angular/core';
 import { Appointment } from '../shared/models';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
 import { Router, RouterLink } from '@angular/router';
@@ -22,19 +22,17 @@ import { NgOptimizedImage } from '@angular/common';
   ]
 })
 export class LinksComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private linkGeneratorService = inject(LinkGeneratorService);
+  private router = inject(Router);
+  private translate = inject(TranslateService);
+  private toastr = inject(ToastrService);
+  private routeTitle = inject(RouteTitleService);
+
   model: Appointment;
   surveyLinkAdmin? = environment.surveyLinkAdmin;
 
   readonly isAdmin = input(false);
-
-  constructor(
-    private appStateService: AppStateService,
-    private linkGeneratorService: LinkGeneratorService,
-    private router: Router,
-    private translate: TranslateService,
-    private toastr: ToastrService,
-    private routeTitle: RouteTitleService
-  ) {}
 
   get adminLink(): string {
     return this.linkGeneratorService.generateAdminLink();

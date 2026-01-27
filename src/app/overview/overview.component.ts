@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit, input } from '@angular/core';
+import { Component, OnInit, input, inject } from '@angular/core';
 import { Appointment, Message, MessageType } from '../shared/models';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
 import { Logger } from '../shared/services/logging';
@@ -29,19 +29,16 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class OverviewComponent implements OnInit {
+  private dataRepoService = inject(DataRepositoryService);
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
+  private logger = inject(Logger);
+  private routeTitle = inject(RouteTitleService);
+
   model: Appointment;
   apiError: Message;
 
   readonly isAdmin = input(false);
-
-  constructor(
-    private dataRepoService: DataRepositoryService,
-    private appStateService: AppStateService,
-    @Inject(LOCALE_ID) private localeId: string,
-    private router: Router,
-    private logger: Logger,
-    private routeTitle: RouteTitleService
-  ) {}
 
   ngOnInit() {
     this.model = this.appStateService.getAppointment();

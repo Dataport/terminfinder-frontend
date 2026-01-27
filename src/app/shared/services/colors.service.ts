@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Logger } from './logging';
 import { ColorsInterface } from '../utils/colors.interface';
 import { StringTransformService } from './string-transform.service';
@@ -7,6 +7,9 @@ import { StringTransformService } from './string-transform.service';
   providedIn: 'root'
 })
 export class ColorsService {
+  private logger = inject(Logger);
+  private stringTransformService = inject(StringTransformService);
+
   colors: string[] = [
     'primary',
     'primary-lighter-10',
@@ -24,11 +27,6 @@ export class ColorsService {
     'border-color-input',
     'border-color-divider-icon-input'
   ];
-
-  constructor(
-    private logger: Logger,
-    private stringTransformService: StringTransformService
-  ) {}
 
   replaceCSSColorsFromCookies(): void {
     this.logger.debug('replaceCSSColorsFromCookies()');

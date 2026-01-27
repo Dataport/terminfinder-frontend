@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AppStateService } from '../app-state/app-state.service';
 import { Router } from '@angular/router';
 
@@ -6,10 +6,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LinkGeneratorService {
-  constructor(
-    private appStateService: AppStateService,
-    private router: Router
-  ) {}
+  private appStateService = inject(AppStateService);
+  private router = inject(Router);
 
   public generateAdminLink(): string {
     return `${this.router.createUrlTree([

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
@@ -8,10 +8,8 @@ import { NullableUtils } from '../utils';
   providedIn: 'root'
 })
 export class RouteTitleService {
-  constructor(
-    private translate: TranslateService,
-    private titleService: Title
-  ) {}
+  private translate = inject(TranslateService);
+  private titleService = inject(Title);
 
   /**
    * Prepends the translated key to the environment title

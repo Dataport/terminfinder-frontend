@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit, input } from '@angular/core';
+import { Component, OnInit, input, inject } from '@angular/core';
 import {
   AbstractControl,
   UntypedFormControl,
@@ -38,18 +38,15 @@ import { TranslatePipe } from '@ngx-translate/core';
   ]
 })
 export class CreateAppointmentComponent implements OnInit {
+  private appStateService = inject(AppStateService);
+  private logger = inject(Logger);
+  private router = inject(Router);
+  private routeTitle = inject(RouteTitleService);
+
   detailsForm: UntypedFormGroup;
   model: Appointment;
 
   readonly isAdmin = input(false);
-
-  constructor(
-    private appStateService: AppStateService,
-    private logger: Logger,
-    @Inject(LOCALE_ID) private localeId: string,
-    private router: Router,
-    private routeTitle: RouteTitleService
-  ) {}
 
   get name(): AbstractControl {
     return this.detailsForm.get('name');

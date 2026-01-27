@@ -1,4 +1,4 @@
-import { Directive, forwardRef, Inject, LOCALE_ID } from '@angular/core';
+import { Directive, forwardRef, LOCALE_ID, inject } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular/forms';
 import { ValidatorUtils } from './validator-utils';
 import { DateTimeGeneratorService } from '../services/generators';
@@ -95,10 +95,8 @@ export function suggestedDateValidator(
   ]
 })
 export class SuggestedDateValidatorDirective implements Validator {
-  constructor(
-    @Inject(LOCALE_ID) private localeId: string,
-    private dateTimeGenerator: DateTimeGeneratorService
-  ) {}
+  private localeId = inject(LOCALE_ID);
+  private dateTimeGenerator = inject(DateTimeGeneratorService);
 
   validate(control: AbstractControl): { [key: string]: any } | null {
     return suggestedDateValidator(this.localeId, this.dateTimeGenerator)(control);

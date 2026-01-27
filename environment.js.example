@@ -1,0 +1,24 @@
+window['__env'] = {
+  version: '0.0.0',
+  buildDateUtc: '2025-12-08T09:56:10.963Z',
+  surveyLinkAdmin: undefined,
+  surveyLinkUser: undefined,
+  title: 'Terminfinder Docker Test',
+  locale: 'de-DE',
+  addressing: 'sie',
+  apiBaseUrl: 'http://localhost:4201',
+  email: 'ZGVtb0BleGFtcGxlLmNvbQ==',
+  showReference: true,
+  customerId: '11111111-1111-1111-1111-111111111111',
+  imprint: 'CiAgPGgyPkhlcmF1c2dlYmVyPC9oMj4KICA8aDM+RmlybWVubmFtZTwvaDM+CiAgICA8cD4KICAgICAgRmlybWVuYWRyZXNzZQogICAgPC9wPgoKICAgIDxwPgogICAgICBLb250YWt0ZGF0ZW4KICAgIDwvcD4KCiAgPGgyPlJlY2h0bGljaGUgSGlud2Vpc2U8L2gyPgogICAgPHA+CiAgICAgIEhpbndlaXNlCiAgICA8L3A+CgogIDxoMj5SZWFsaXNpZXJ1bmc8L2gyPgogICAgPHA+CiAgICAgIERlc2lnbiwgRW50d2lja2x1bmcKICAgIDwvcD4KICAgIDxwPgogICAgICBEYXRhcG9ydDxicj4KICAgICAgQW5zdGFsdCDDtmZmZW50bGljaGVuIFJlY2h0czxicj4KICAgICAgQWx0ZW5ob2x6ZXIgU3RyYcOfZSAxMC0xNDxicj4KICAgICAgMjQxNjEgQWx0ZW5ob2x6PGJyPgogICAgICBUZWwuOiArNDkgKDApNDMxIDMyOTUtMDxicj4KICAgICAgRmF4LjogKzQ5ICgwKTQzMSAzMjk1LTA8YnI+CiAgICA8L3A+CiAgICA8cD4KICAgICAgRS1NYWlsOiA8YSBocmVmPSJtYWlsdG86ZGF0YXBvcnRkYWJzdGltbWJveEBkYXRhcG9ydC5kZSI+ZGF0YXBvcnRkYWJzdGltbWJveEBkYXRhcG9ydC5kZTwvYT4KICAgIDwvcD4KCiAgPGgyPkluaGFsdGU8L2gyPgogICAgPHA+CiAgICAgIEbDvHIgVm9sbHN0w6RuZGlna2VpdCwgRmVobGVyIHJlZGFrdGlvbmVsbGVyIHVuZCB0ZWNobmlzY2hlciBBcnQsIEF1c2xhc3N1bmdlbiBzb3dpZSBkaWUgUmljaHRpZ2tlaXQgZGVyIEVpbnRyYWd1bmdlbiBrYW5uIGtlaW5lCiAgICAgIEhhZnR1bmcgw7xiZXJub21tZW4gd2VyZGVuLiBJbnNiZXNvbmRlcmUga2FubiBrZWluZSBHZXfDpGhyIGbDvHIgZGllIFZvbGxzdMOkbmRpZ2tlaXQgdW5kIFJpY2h0aWdrZWl0IHZvbiBJbmZvcm1hdGlvbmVuIMO8YmVybm9tbWVuCiAgICAgIHdlcmRlbiwgZGllIMO8YmVyIHdlaXRlcmbDvGhyZW5kZSBMaW5rcyBlcnJlaWNodCB3ZXJkZW4uCiAgICA8L3A+CiAgICA8cD4KICAgICAgQW5iaWV0ZXIgZGllc2VyIExpbmtzIHNpbmQgZsO8ciBkaWUgZWlnZW5lbiBJbmhhbHRlLCBkaWUgc2llIHp1ciBOdXR6dW5nIGJlcmVpdGhhbHRlbiwgbmFjaCBkZW4gYWxsZ2VtZWluZW4gR2VzZXR6ZW4KICAgICAgdmVyYW50d29ydGxpY2guIFZvbiBkaWVzZW4gZWlnZW5lbiBJbmhhbHRlbiBzaW5kIFF1ZXJ2ZXJ3ZWlzZSBhdWYgZGllIHZvbiBhbmRlcmVuIEFuYmlldGVybiBiZXJlaXRnZWhhbHRlbmVuIEluaGFsdGUgenUKICAgICAgdW50ZXJzY2hlaWRlbi4KICAgIDwvcD4KCiAgPGRpdj5TdGFuZCAxMy4gU2VwdGVtYmVyIDIwMjI8L2Rpdj4K',
+  privacy: 'PGgyPnByaXZhY3k8L2gyPg==',
+  termsOfService: 'PGgyPnRvczwvaDI+',
+  accessibility: 'PGgyPmFjY2Vzc2liaWxpdHk8L2gyPg==',
+  apiRequestTimeoutInMs: 20000,
+  consoleLoggingOptions: {momentDateTimeFormat: 'YYYY-MM-DD HH:mm:ss.SSS', logLevelThreshold: 5}, // Logging Levels: 1 = Trace, 2 = Debug, 3 = Log, 4 = Info, 5 = Warn, 6 = Error 
+  apiMediaType: 'application/terminfinder.api-v1+json',
+  colors: {
+    primary: '#004dd1ff',
+    secondary: '#e2fa07ff'
+  }
+};

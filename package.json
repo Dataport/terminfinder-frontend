@@ -67,7 +67,7 @@
     "@angular-eslint/schematics": "19.8.1",
     "@angular-eslint/template-parser": "19.8.1",
     "@angular/cli": "20.3.14",
-    "@angular/compiler-cli": "20.3.16",
+    "@angular/compiler-cli": "21.1.0",
     "@angular/language-service": "20.3.16",
     "@cyclonedx/cyclonedx-npm": "4.1.2",
     "@cypress/schematic": "4.1.4",

@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:cda4bbb3-c860-45c1-bba1-b2d7b3b07154",
+  "serialNumber": "urn:uuid:20389928-e2ab-4199-9e22-ccd112332843",
   "metadata": {
-    "timestamp": "2026-01-27T13:01:59.086Z",
+    "timestamp": "2026-01-28T00:07:46.387Z",
     "tools": {
       "components": [
         {
@@ -112,8 +112,8 @@
       "type": "library",
       "name": "architect",
       "group": "@angular-devkit",
-      "version": "0.2003.14",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14",
+      "version": "0.2100.6",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2100.6",
       "author": "Angular Authors",
       "description": "Angular Build Facade",
       "licenses": [
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/architect@0.2003.14",
+      "purl": "pkg:npm/%40angular-devkit/architect@0.2100.6",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -142,12 +142,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2003.14.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2100.6.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "755956a9a62ed0f2201d306ed7ab98512ea524e2295c2a4e6213d6b98c2a768edae31d8771a80f43ea2651925303a92e921ed13a929c4688b2fc3b0efc382f50"
+              "content": "46c09750bcb234d1254470ce6d578406110e68b2bc41a2aef836985617e438e2af55e0e8108d22fb42689b33e11838dacd73cf606f013ce4e048ebe194479648"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -157,6 +157,60 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/architect"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "core",
+          "group": "@angular-devkit",
+          "version": "21.0.6",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2100.6|@angular-devkit/core@21.0.6",
+          "author": "Angular Authors",
+          "description": "Angular DevKit - Core Utility Library",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/%40angular-devkit/core@21.0.6",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/angular/angular-cli.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-21.0.6.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "aae850aef7dbb35cf30debf64f73ddc970ec4ebb618bd423c1e82a4781f20d92af6025b39972f0f4a8d272a11659448a54b846ec650bae66feb43b314451bd96"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/@angular-devkit/core"
+            }
+          ]
         }
       ]
     },
@@ -1259,58 +1313,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/zone.js"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "core",
-      "group": "@angular-devkit",
-      "version": "20.3.14",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.14",
-      "author": "Angular Authors",
-      "description": "Angular DevKit - Core Utility Library",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40angular-devkit/core@20.3.14",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/angular/angular-cli.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-20.3.14.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "8564158bbdda19d21122726a3626bbf588ba4b3a844e191f2ee83701d66236e36f60c6b1008df8ef23d0cf87f70ebfe2d10ba2a91abf4fccdfa9baf8ead7c2aa"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@angular-devkit/core"
         }
       ]
     },
@@ -5585,7 +5587,7 @@
     {
       "ref": "terminfinder@0.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2100.6",
         "terminfinder@0.0.0|@angular/animations@20.3.16",
         "terminfinder@0.0.0|@angular/common@20.3.16",
         "terminfinder@0.0.0|@angular/compiler@20.3.16",
@@ -5611,10 +5613,22 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.14",
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2100.6",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/core@20.3.14",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2100.6|@angular-devkit/core@21.0.6",
         "terminfinder@0.0.0|rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2100.6|@angular-devkit/core@21.0.6",
+      "dependsOn": [
+        "terminfinder@0.0.0|ajv-formats@3.0.1",
+        "terminfinder@0.0.0|ajv@8.17.1",
+        "terminfinder@0.0.0|chokidar@4.0.3",
+        "terminfinder@0.0.0|jsonc-parser@3.3.1",
+        "terminfinder@0.0.0|picomatch@4.0.3",
+        "terminfinder@0.0.0|rxjs@7.8.2",
+        "terminfinder@0.0.0|source-map@0.7.6"
       ]
     },
     {
@@ -5778,18 +5792,6 @@
     },
     {
       "ref": "terminfinder@0.0.0|zone.js@0.15.1"
-    },
-    {
-      "ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.14",
-      "dependsOn": [
-        "terminfinder@0.0.0|ajv-formats@3.0.1",
-        "terminfinder@0.0.0|ajv@8.17.1",
-        "terminfinder@0.0.0|chokidar@4.0.3",
-        "terminfinder@0.0.0|jsonc-parser@3.3.1",
-        "terminfinder@0.0.0|picomatch@4.0.3",
-        "terminfinder@0.0.0|rxjs@7.8.2",
-        "terminfinder@0.0.0|source-map@0.7.6"
-      ]
     },
     {
       "ref": "terminfinder@0.0.0|tslib@2.8.1"

@@ -102,8 +102,6 @@
     "uuid": "13.0.0"
   },
   "overrides": {
-    "@angular/cli": {
-      "tar": "7.5.4"
-    }
+    "tar": "7.5.7"
   }
 }

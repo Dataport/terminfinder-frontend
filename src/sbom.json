@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:26ab704a-f9e0-4330-8d6c-96c21e4eebb3",
+  "serialNumber": "urn:uuid:4e295a2e-2252-4241-bae7-760fec95ab38",
   "metadata": {
-    "timestamp": "2026-01-29T09:48:30.007Z",
+    "timestamp": "2026-01-29T10:32:39.827Z",
     "tools": {
       "components": [
         {
@@ -5278,8 +5278,8 @@
     {
       "type": "library",
       "name": "baseline-browser-mapping",
-      "version": "2.9.14",
-      "bom-ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.14",
+      "version": "2.9.19",
+      "bom-ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.19",
       "description": "A library for obtaining browser versions with their maximum supported Baseline feature set and Widely Available status.",
       "licenses": [
         {
@@ -5289,7 +5289,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/baseline-browser-mapping@2.9.14",
+      "purl": "pkg:npm/baseline-browser-mapping@2.9.19",
       "externalReferences": [
         {
           "url": "git+https://github.com/web-platform-dx/baseline-browser-mapping.git",
@@ -5307,12 +5307,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.9.14.tgz",
+          "url": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.9.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "074c54aae2e48862e01e1a4f06abe5ec659e81605436eba343a91777faf5537f0494f4fa3a4f0a67c7be16950611cd99a11414ceafda52768a15cfecbd65064a"
+              "content": "8a90ea0bc16b025ffbea9d9249629223e1fdb45c26eef62a5d0ac8b42ba254fb76e8a9b48d2f8dcd2b01580681bacbd26d071f246f898ad74c9bec190204d8aa"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5328,8 +5328,8 @@
     {
       "type": "library",
       "name": "caniuse-lite",
-      "version": "1.0.30001764",
-      "bom-ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001764",
+      "version": "1.0.30001766",
+      "bom-ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001766",
       "author": "Ben Briggs",
       "description": "A smaller version of caniuse-db, with only the essentials!",
       "licenses": [
@@ -5340,7 +5340,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/caniuse-lite@1.0.30001764",
+      "purl": "pkg:npm/caniuse-lite@1.0.30001766",
       "externalReferences": [
         {
           "url": "git+https://github.com/browserslist/caniuse-lite.git",
@@ -5358,12 +5358,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001764.tgz",
+          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001766.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f491aece5d8cfaf3cbfa9cfbd20b4c17db0774c15b63d149690062d7ce9c1ca1f7a52cc3bf3a142543d5e9faa22883325dbb9df592e0e05dd8cdad6f275fbdde"
+              "content": "e02d257c9d3f60f8c94076a0684f71d8495bebd088a843d9786d1a9d0b7d488bc8a0e1f86b8b9a465ef721abf23bed2a661e8c0cb1fffc3ad74e111828792660"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5379,8 +5379,8 @@
     {
       "type": "library",
       "name": "electron-to-chromium",
-      "version": "1.5.267",
-      "bom-ref": "terminfinder@0.0.0|electron-to-chromium@1.5.267",
+      "version": "1.5.282",
+      "bom-ref": "terminfinder@0.0.0|electron-to-chromium@1.5.282",
       "author": "Kilian Valkhof",
       "description": "Provides a list of electron-to-chromium version mappings",
       "licenses": [
@@ -5391,7 +5391,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/electron-to-chromium@1.5.267",
+      "purl": "pkg:npm/electron-to-chromium@1.5.282",
       "externalReferences": [
         {
           "url": "git+https://github.com/kilian/electron-to-chromium.git",
@@ -5409,12 +5409,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.267.tgz",
+          "url": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.282.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "d03aeeb26e8c5515d2389a466da49581c42cb81e211243291d7695b2d70f9a1bb92c879dc6cd7134afe7231990214fd13c2d3ed7fa3401565f05391334939d53"
+              "content": "1423e426da6cb76f14985cddf74de253b3dd7954df634280789cbe2e4d062d94708306079ff8ab45c6826d040e9abe55cad73feeb71abec60bbd333c4621d885"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6177,9 +6177,9 @@
     {
       "ref": "terminfinder@0.0.0|browserslist@4.28.1",
       "dependsOn": [
-        "terminfinder@0.0.0|baseline-browser-mapping@2.9.14",
-        "terminfinder@0.0.0|caniuse-lite@1.0.30001764",
-        "terminfinder@0.0.0|electron-to-chromium@1.5.267",
+        "terminfinder@0.0.0|baseline-browser-mapping@2.9.19",
+        "terminfinder@0.0.0|caniuse-lite@1.0.30001766",
+        "terminfinder@0.0.0|electron-to-chromium@1.5.282",
         "terminfinder@0.0.0|node-releases@2.0.27",
         "terminfinder@0.0.0|update-browserslist-db@1.2.3"
       ]
@@ -6213,13 +6213,13 @@
       "ref": "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.2"
     },
     {
-      "ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.14"
+      "ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.19"
     },
     {
-      "ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001764"
+      "ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001766"
     },
     {
-      "ref": "terminfinder@0.0.0|electron-to-chromium@1.5.267"
+      "ref": "terminfinder@0.0.0|electron-to-chromium@1.5.282"
     },
     {
       "ref": "terminfinder@0.0.0|node-releases@2.0.27"

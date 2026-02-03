@@ -9,10 +9,21 @@ updates:
     cooldown:
       default-days: 7
     groups:
+      angular-minor:
+        patterns:
+          - "@angular*"
+          - "@ng-bootstrap/ng-bootstrap"
+        update-types:
+          - "minor"
+          - "patch"
       typescript-eslint:
         patterns:
           - "typescript-eslint"
           - "@typescript-eslint/*"
+      jest:
+        patterns:
+          - "jest"
+          - "jest-environment-jsdom"
 
   - package-ecosystem: 'docker'
     directory: '/'

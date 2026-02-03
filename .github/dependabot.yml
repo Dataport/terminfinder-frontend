@@ -8,6 +8,11 @@ updates:
       - 'BGruenberg'
     cooldown:
       default-days: 7
+    groups:
+      typescript-eslint:
+        patterns:
+          - "typescript-eslint"
+          - "@typescript-eslint/*"
 
   - package-ecosystem: 'docker'
     directory: '/'

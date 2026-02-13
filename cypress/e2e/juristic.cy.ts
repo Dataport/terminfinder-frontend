@@ -2,7 +2,7 @@
 import values from '../fixtures/values.json';
 
 const getApiUrl = (url) => {
-  return Cypress.env('apiUrl') + url.replace('customerId', Cypress.env('customerId'));
+  return Cypress.expose('apiUrl') + url.replace('customerId', Cypress.expose('customerId'));
 };
 
 context('juristic', () => {

@@ -3,10 +3,10 @@ import values from '../fixtures/values.json';
 import path from 'path';
 
 const getBaseHref = (url = '') => {
-  return Cypress.env('baseHref') + url.replace('customerId', Cypress.env('customerId'));
+  return Cypress.expose('baseHref') + url.replace('customerId', Cypress.expose('customerId'));
 };
 const getApiUrl = (url) => {
-  return Cypress.env('apiUrl') + url.replace('customerId', Cypress.env('customerId'));
+  return Cypress.expose('apiUrl') + url.replace('customerId', Cypress.expose('customerId'));
 };
 
 const DOWNLOADS_FOLDER = Cypress.config('downloadsFolder');

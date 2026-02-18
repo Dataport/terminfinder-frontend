@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:d79cb913-fa82-4c91-bda5-fcbdca52ed94",
+  "serialNumber": "urn:uuid:e239006c-9873-497b-a665-7fd4e5a6303f",
   "metadata": {
-    "timestamp": "2026-02-18T07:39:15.409Z",
+    "timestamp": "2026-02-18T10:29:52.645Z",
     "tools": {
       "components": [
         {
@@ -2138,8 +2138,8 @@
     {
       "type": "library",
       "name": "ajv",
-      "version": "8.17.1",
-      "bom-ref": "terminfinder@0.0.0|ajv@8.17.1",
+      "version": "8.18.0",
+      "bom-ref": "terminfinder@0.0.0|ajv@8.18.0",
       "author": "Evgeny Poberezkin",
       "description": "Another JSON Schema Validator",
       "licenses": [
@@ -2150,7 +2150,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/ajv@8.17.1",
+      "purl": "pkg:npm/ajv@8.18.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/ajv-validator/ajv.git",
@@ -2168,12 +2168,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz",
+          "url": "https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "07f801b8d8394a2313acf902f80dbe716d11b33c316269fa558c41fe29e5052b52e67c7ac4722dfde84a46120c86abac97b6bc2e34286678c2b39be1c31390d6"
+              "content": "3e55cf78458c5cc67bb0f60e1ea983c8227371f36b52bddf18d2ad7b35f5e3291738422fc8af3577eab2771f3d298e4eef514a30f690daf05f04523934747adc"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5783,7 +5783,7 @@
       "ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.16",
       "dependsOn": [
         "terminfinder@0.0.0|ajv-formats@3.0.1",
-        "terminfinder@0.0.0|ajv@8.17.1",
+        "terminfinder@0.0.0|ajv@8.18.0",
         "terminfinder@0.0.0|chokidar@4.0.3",
         "terminfinder@0.0.0|jsonc-parser@3.3.1",
         "terminfinder@0.0.0|picomatch@4.0.3",
@@ -5900,11 +5900,11 @@
     {
       "ref": "terminfinder@0.0.0|ajv-formats@3.0.1",
       "dependsOn": [
-        "terminfinder@0.0.0|ajv@8.17.1"
+        "terminfinder@0.0.0|ajv@8.18.0"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|ajv@8.17.1",
+      "ref": "terminfinder@0.0.0|ajv@8.18.0",
       "dependsOn": [
         "terminfinder@0.0.0|fast-deep-equal@3.1.3",
         "terminfinder@0.0.0|fast-uri@3.1.0",

@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:cdf09d02-b285-4e1a-abaa-761a0c13a8c8",
+  "serialNumber": "urn:uuid:d79cb913-fa82-4c91-bda5-fcbdca52ed94",
   "metadata": {
-    "timestamp": "2026-02-13T10:03:25.175Z",
+    "timestamp": "2026-02-18T07:39:15.409Z",
     "tools": {
       "components": [
         {
@@ -5328,8 +5328,8 @@
     {
       "type": "library",
       "name": "caniuse-lite",
-      "version": "1.0.30001769",
-      "bom-ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001769",
+      "version": "1.0.30001770",
+      "bom-ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001770",
       "author": "Ben Briggs",
       "description": "A smaller version of caniuse-db, with only the essentials!",
       "licenses": [
@@ -5340,7 +5340,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/caniuse-lite@1.0.30001769",
+      "purl": "pkg:npm/caniuse-lite@1.0.30001770",
       "externalReferences": [
         {
           "url": "git+https://github.com/browserslist/caniuse-lite.git",
@@ -5358,12 +5358,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001769.tgz",
+          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001770.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "0427c52f5b078a342504658132e272859521ce8ef07abe6c563f61a9e901ffbc67d18a72fa9111fde7426109b87b16d78f85a2c921a9e343fc52e4e1eb0d6cae"
+              "content": "c7fd822d0d631c43516c78393d221ddac5ead4220ed42212bf05808f4dbb96d3151b650d816fb0f681f6f87ce01084457a66cbf1b5255ed7db0474757c2836c7"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -6178,7 +6178,7 @@
       "ref": "terminfinder@0.0.0|browserslist@4.28.1",
       "dependsOn": [
         "terminfinder@0.0.0|baseline-browser-mapping@2.9.19",
-        "terminfinder@0.0.0|caniuse-lite@1.0.30001769",
+        "terminfinder@0.0.0|caniuse-lite@1.0.30001770",
         "terminfinder@0.0.0|electron-to-chromium@1.5.286",
         "terminfinder@0.0.0|node-releases@2.0.27",
         "terminfinder@0.0.0|update-browserslist-db@1.2.3"
@@ -6216,7 +6216,7 @@
       "ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.19"
     },
     {
-      "ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001769"
+      "ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001770"
     },
     {
       "ref": "terminfinder@0.0.0|electron-to-chromium@1.5.286"

@@ -23,16 +23,52 @@ jobs:
           TAG=$(git tag --points-at HEAD)
 
           if [[ -z "$TAG" ]]; then
-            create_release=true
+            is_latest_tagged=false
           else
-            create_release=false
+            is_latest_tagged=true
           fi
 
-          echo "create_release=$create_release" >>"$GITHUB_OUTPUT"
+          echo "$is_latest_tagged"
+          echo "is_latest_tagged=$is_latest_tagged" >>"$GITHUB_OUTPUT"
+
+      - name: Get previous tag
+        id: prev_tag
+        run: |
+          set -euo pipefail
+          prev_tag=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || true)
+          echo "$prev_tag"
+          echo "prev_tag=$prev_tag" >>"$GITHUB_OUTPUT"
+
+      - name: Are there relevant commits, not only updating dev dependencies?
+        id: relevant_commits
+        run: |
+          set -euo pipefail
+
+          RANGE="${{ steps.prev_tag.outputs.prev_tag }}..HEAD"
+          if [[ -z "${{ steps.prev_tag.outputs.prev_tag }}" ]]; then
+            RANGE="HEAD"
+          fi
+
+          COMMITS=$(git log $RANGE --pretty=format:%s)
+          FILTERED=$(printf "%s\n" "$COMMITS" | grep -v '^build(deps-dev):' || true)
+
+          if [[ -n "$FILTERED" ]]; then
+            has_relevant=true
+            echo "Relevant commits found!"
+            echo "$FILTERED"
+          else
+            has_relevant=false
+            echo "Only dev dependencies were updated since latest release!"
+            echo "$COMMITS"
+          fi
+
+          echo "has_relevant=$has_relevant" >>"$GITHUB_OUTPUT"
 
       - uses: cperezabo/setup-git-mkver@v1.2.0
       - name: Create Release
-        if: steps.commit_tagged.outputs.create_release == 'true'
+        if: |
+          steps.commit_tagged.outputs.is_latest_tagged == 'false' &&
+          steps.relevant_commits.outputs.has_relevant == 'true'
         run: |
           gh api --method POST /repos/dataport/terminfinder-frontend/releases -f "tag_name=v$(git mkver next --format '{Docker}')" -F "generate_release_notes=true"
         env:

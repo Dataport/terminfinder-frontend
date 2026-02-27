@@ -35,16 +35,16 @@
     "node": "22.x || 24.x"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.2003.16",
-    "@angular/animations": "20.3.16",
-    "@angular/common": "20.3.16",
-    "@angular/compiler": "20.3.16",
-    "@angular/core": "20.3.16",
-    "@angular/forms": "20.3.16",
-    "@angular/localize": "20.3.16",
-    "@angular/platform-browser": "20.3.16",
-    "@angular/platform-browser-dynamic": "20.3.16",
-    "@angular/router": "20.3.16",
+    "@angular-devkit/architect": "0.2003.18",
+    "@angular/animations": "20.3.17",
+    "@angular/common": "20.3.17",
+    "@angular/compiler": "20.3.17",
+    "@angular/core": "20.3.17",
+    "@angular/forms": "20.3.17",
+    "@angular/localize": "20.3.17",
+    "@angular/platform-browser": "20.3.17",
+    "@angular/platform-browser-dynamic": "20.3.17",
+    "@angular/router": "20.3.17",
     "@ng-bootstrap/ng-bootstrap": "19.0.1",
     "@ngx-translate/core": "16.0.4",
     "@ngx-translate/http-loader": "16.0.1",
@@ -60,15 +60,15 @@
     "zone.js": "0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.16",
-    "@angular-eslint/builder": "19.8.1",
+    "@angular-devkit/build-angular": "20.3.18",
+    "@angular-eslint/builder": "20.7.0",
     "@angular-eslint/eslint-plugin": "20.7.0",
     "@angular-eslint/eslint-plugin-template": "20.7.0",
-    "@angular-eslint/schematics": "19.8.1",
+    "@angular-eslint/schematics": "20.7.0",
     "@angular-eslint/template-parser": "20.7.0",
-    "@angular/cli": "20.3.16",
-    "@angular/compiler-cli": "20.3.16",
-    "@angular/language-service": "20.3.16",
+    "@angular/cli": "20.3.18",
+    "@angular/compiler-cli": "20.3.17",
+    "@angular/language-service": "20.3.17",
     "@cyclonedx/cyclonedx-npm": "4.1.2",
     "@cypress/schematic": "5.0.0",
     "@fortawesome/fontawesome-free": "7.2.0",
@@ -102,7 +102,6 @@
     "uuid": "13.0.0"
   },
   "overrides": {
-    "tar": "7.5.8",
     "ajv": "8.18.0",
     "eslint": {
       "ajv": "^6.12.4"

@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:678a1975-3995-4c8b-9069-9e744f9c957a",
+  "serialNumber": "urn:uuid:193fcfdc-4aff-4c4a-a2b4-3c39cb8e7d87",
   "metadata": {
-    "timestamp": "2026-03-06T06:49:23.209Z",
+    "timestamp": "2026-03-11T00:12:44.926Z",
     "tools": {
       "components": [
         {
@@ -17,7 +17,7 @@
           "type": "application",
           "name": "cyclonedx-npm",
           "group": "@cyclonedx",
-          "version": "4.1.2",
+          "version": "4.2.0",
           "author": "Jan Kowalleck",
           "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
           "licenses": [
@@ -49,7 +49,7 @@
           "type": "library",
           "name": "cyclonedx-library",
           "group": "@cyclonedx",
-          "version": "9.4.1",
+          "version": "10.0.0",
           "author": "Jan Kowalleck",
           "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
           "licenses": [
@@ -94,7 +94,6 @@
           }
         }
       ],
-      "purl": "pkg:npm/terminfinder@0.0.0",
       "properties": [
         {
           "name": "cdx:npm:package:private",
@@ -176,7 +175,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/animations@20.3.17#packages/animations",
+      "purl": "pkg:npm/%40angular/animations@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/animations",
@@ -228,7 +227,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/common@20.3.17#packages/common",
+      "purl": "pkg:npm/%40angular/common@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/common",
@@ -280,7 +279,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/compiler@20.3.17#packages/compiler",
+      "purl": "pkg:npm/%40angular/compiler@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/compiler",
@@ -332,7 +331,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/core@20.3.17#packages/core",
+      "purl": "pkg:npm/%40angular/core@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/core",
@@ -384,7 +383,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@20.3.17#packages/forms",
+      "purl": "pkg:npm/%40angular/forms@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/forms",
@@ -488,7 +487,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser-dynamic@20.3.17#packages/platform-browser-dynamic",
+      "purl": "pkg:npm/%40angular/platform-browser-dynamic@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/platform-browser-dynamic",
@@ -540,7 +539,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@20.3.17#packages/platform-browser",
+      "purl": "pkg:npm/%40angular/platform-browser@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/platform-browser",
@@ -592,7 +591,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/router@20.3.17#packages/router",
+      "purl": "pkg:npm/%40angular/router@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/router",
@@ -923,7 +922,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/core-js@3.48.0#packages/core-js",
+      "purl": "pkg:npm/core-js@3.48.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/zloirock/core-js.git#packages/core-js",
@@ -1226,7 +1225,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/zone.js@0.15.1#packages/zone.js",
+      "purl": "pkg:npm/zone.js@0.15.1",
       "externalReferences": [
         {
           "url": "git://github.com/angular/angular.git#packages/zone.js",
@@ -1380,7 +1379,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/compiler-cli@20.3.17#packages/compiler-cli",
+      "purl": "pkg:npm/%40angular/compiler-cli@20.3.17",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/compiler-cli",
@@ -1432,7 +1431,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/core@7.28.3#packages/babel-core",
+      "purl": "pkg:npm/%40babel/core@7.28.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-core",
@@ -1587,7 +1586,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/babel__core@7.20.5#types/babel__core",
+      "purl": "pkg:npm/%40types/babel__core@7.20.5",
       "externalReferences": [
         {
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/babel__core",
@@ -1997,7 +1996,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/trusted-types@2.0.7#types/trusted-types",
+      "purl": "pkg:npm/%40types/trusted-types@2.0.7",
       "externalReferences": [
         {
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/trusted-types",
@@ -2406,7 +2405,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5#packages/sourcemap-codec",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
       "externalReferences": [
         {
           "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/sourcemap-codec",
@@ -2718,7 +2717,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/code-frame@7.29.0#packages/babel-code-frame",
+      "purl": "pkg:npm/%40babel/code-frame@7.29.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-code-frame",
@@ -2770,7 +2769,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/generator@7.28.3#packages/babel-generator",
+      "purl": "pkg:npm/%40babel/generator@7.28.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-generator",
@@ -2822,7 +2821,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-compilation-targets@7.28.6#packages/babel-helper-compilation-targets",
+      "purl": "pkg:npm/%40babel/helper-compilation-targets@7.28.6",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-compilation-targets",
@@ -2927,7 +2926,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-module-transforms@7.28.6#packages/babel-helper-module-transforms",
+      "purl": "pkg:npm/%40babel/helper-module-transforms@7.28.6",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-module-transforms",
@@ -2979,7 +2978,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helpers@7.28.6#packages/babel-helpers",
+      "purl": "pkg:npm/%40babel/helpers@7.28.6",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helpers",
@@ -3031,7 +3030,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/parser@7.29.0#packages/babel-parser",
+      "purl": "pkg:npm/%40babel/parser@7.29.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-parser",
@@ -3083,7 +3082,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/template@7.28.6#packages/babel-template",
+      "purl": "pkg:npm/%40babel/template@7.28.6",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-template",
@@ -3135,7 +3134,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/traverse@7.29.0#packages/babel-traverse",
+      "purl": "pkg:npm/%40babel/traverse@7.29.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-traverse",
@@ -3187,7 +3186,7 @@
               }
             }
           ],
-          "purl": "pkg:npm/%40babel/generator@7.29.1#packages/babel-generator",
+          "purl": "pkg:npm/%40babel/generator@7.29.1",
           "externalReferences": [
             {
               "url": "git+https://github.com/babel/babel.git#packages/babel-generator",
@@ -3241,7 +3240,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/types@7.29.0#packages/babel-types",
+      "purl": "pkg:npm/%40babel/types@7.29.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-types",
@@ -3445,7 +3444,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/babel__generator@7.27.0#types/babel__generator",
+      "purl": "pkg:npm/%40types/babel__generator@7.27.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/babel__generator",
@@ -3496,7 +3495,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/babel__template@7.4.4#types/babel__template",
+      "purl": "pkg:npm/%40types/babel__template@7.4.4",
       "externalReferences": [
         {
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/babel__template",
@@ -3547,7 +3546,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40types/babel__traverse@7.28.0#types/babel__traverse",
+      "purl": "pkg:npm/%40types/babel__traverse@7.28.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/babel__traverse",
@@ -4467,7 +4466,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40jridgewell/gen-mapping@0.3.13#packages/gen-mapping",
+      "purl": "pkg:npm/%40jridgewell/gen-mapping@0.3.13",
       "externalReferences": [
         {
           "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/gen-mapping",
@@ -4519,7 +4518,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.31#packages/trace-mapping",
+      "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.31",
       "externalReferences": [
         {
           "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/trace-mapping",
@@ -4571,7 +4570,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.28.5#packages/babel-helper-validator-identifier",
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.28.5",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-validator-identifier",
@@ -4776,7 +4775,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/compat-data@7.29.0#packages/babel-compat-data",
+      "purl": "pkg:npm/%40babel/compat-data@7.29.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-compat-data",
@@ -4828,7 +4827,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-validator-option@7.27.1#packages/babel-helper-validator-option",
+      "purl": "pkg:npm/%40babel/helper-validator-option@7.27.1",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-validator-option",
@@ -4982,7 +4981,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-module-imports@7.28.6#packages/babel-helper-module-imports",
+      "purl": "pkg:npm/%40babel/helper-module-imports@7.28.6",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-module-imports",
@@ -5034,7 +5033,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-globals@7.28.0#packages/babel-helper-globals",
+      "purl": "pkg:npm/%40babel/helper-globals@7.28.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-globals",
@@ -5086,7 +5085,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helper-string-parser@7.27.1#packages/babel-helper-string-parser",
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.27.1",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helper-string-parser",

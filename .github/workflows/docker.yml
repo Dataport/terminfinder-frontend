@@ -30,7 +30,7 @@ jobs:
             TAG="latest"
           fi
           echo "LATEST_TAG=$TAG" >> "$GITHUB_ENV"
-      - uses: docker/login-action@v3
+      - uses: docker/login-action@v4
         with:
           registry: registry.opencode.de
           username: access-token

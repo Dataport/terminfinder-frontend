@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:678a1975-3995-4c8b-9069-9e744f9c957a",
+  "serialNumber": "urn:uuid:6a03d273-a7f9-41bd-8f97-91d3cf7a077c",
   "metadata": {
-    "timestamp": "2026-03-06T06:49:23.209Z",
+    "timestamp": "2026-05-05T09:27:03.616Z",
     "tools": {
       "components": [
         {
@@ -112,8 +112,8 @@
       "type": "library",
       "name": "architect",
       "group": "@angular-devkit",
-      "version": "0.2003.18",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.18",
+      "version": "0.2003.25",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.25",
       "author": "Angular Authors",
       "description": "Angular Build Facade",
       "licenses": [
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/architect@0.2003.18",
+      "purl": "pkg:npm/%40angular-devkit/architect@0.2003.25",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -142,12 +142,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2003.18.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2003.25.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a4f1036f2df041be34612a47f94ae3a1d27bf19eead10bf2dc34e44bb98fd8420ce2bd16573f0e9712c64b6b8073ab5749b2197b46cfa74079e8feae7added53"
+              "content": "dfda53aade304a6a43d5678279ee3aa12197461e934753c577d199130c99a0cbc14ccb3c984dac5c6c5481de10ca2e42910d579c23395df8097235165104681a"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -164,8 +164,8 @@
       "type": "library",
       "name": "animations",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/animations@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/animations@20.3.19",
       "author": "angular",
       "description": "Angular - animations integration with web-animations",
       "licenses": [
@@ -176,7 +176,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/animations@20.3.17#packages/animations",
+      "purl": "pkg:npm/%40angular/animations@20.3.19#packages/animations",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/animations",
@@ -194,12 +194,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/animations/-/animations-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/animations/-/animations-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "2af76016309390e0f7595b788339893a85fdd7879ecbf11fbb63dbfca50cd01aa9d59a17885a48e3c1827756fa2acf0994305e01f823b69752501d9a2e731165"
+              "content": "fc58d4f62ec9e7cff205446181548888b0dcbb239f27101ad1bed9aceb31e8ff85112f8cd93d8129997957636e88fd9f0c5b63b15ed4f8cfd9f5435499e1c213"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -216,8 +216,8 @@
       "type": "library",
       "name": "common",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/common@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/common@20.3.19",
       "author": "angular",
       "description": "Angular - commonly needed directives and services",
       "licenses": [
@@ -228,7 +228,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/common@20.3.17#packages/common",
+      "purl": "pkg:npm/%40angular/common@20.3.19#packages/common",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/common",
@@ -246,12 +246,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/common/-/common-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/common/-/common-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "0ea77c7fca3d31e86ccd364807ba3b8eb1119702ce48aeb880d9e02b5e030906b3cf9969221005ea1063c7bce31e96bb2fd78060f2b54dac50517ca98f38f5f1"
+              "content": "85c07579410df0b19c2867380e5449f9a6d2e8061f6c41c364a83c2e75cdba091bc08e846f28760146130e1cd92f64b8687f82f1b8872a04981c50aa89e09184"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -268,8 +268,8 @@
       "type": "library",
       "name": "compiler",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/compiler@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/compiler@20.3.19",
       "author": "angular",
       "description": "Angular - the compiler library",
       "licenses": [
@@ -280,7 +280,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/compiler@20.3.17#packages/compiler",
+      "purl": "pkg:npm/%40angular/compiler@20.3.19#packages/compiler",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/compiler",
@@ -298,12 +298,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/compiler/-/compiler-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/compiler/-/compiler-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "723df1e9a164f7138ec57faa11d78df13e586e704d589e1430707f2d0a03afbff10892466b8d0885c380b897ae176906a93c31e8c0979ef8cef173907c785ef6"
+              "content": "1139200ca9b49763ee681b9b80f25ed1c732f2413be4316eebfcca733ed352e9372ab285d8e640a296db8dfb6c51264678236f09da87ce399c2fa850ea800ec0"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -320,8 +320,8 @@
       "type": "library",
       "name": "core",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/core@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/core@20.3.19",
       "author": "angular",
       "description": "Angular - the core framework",
       "licenses": [
@@ -332,7 +332,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/core@20.3.17#packages/core",
+      "purl": "pkg:npm/%40angular/core@20.3.19#packages/core",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/core",
@@ -350,12 +350,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/core/-/core-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/core/-/core-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "62542ac4c78723d5c9c3b23ba0cde160541de2541b2b7ec87650fdced44e230e458d7ea2ea598b53bf97d4c4064918b6afe5fd977219b65df78514cdbe4a1407"
+              "content": "4989f05beab9d5b4283ed185a06a2f9b53f918af5f3045ec1b49466840146a98ec91b9406325fb84b94cfe382e792a23bf64a386a345f1a5d1fa08c72e165534"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -372,8 +372,8 @@
       "type": "library",
       "name": "forms",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/forms@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/forms@20.3.19",
       "author": "angular",
       "description": "Angular - directives and services for creating forms",
       "licenses": [
@@ -384,7 +384,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@20.3.17#packages/forms",
+      "purl": "pkg:npm/%40angular/forms@20.3.19#packages/forms",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/forms",
@@ -402,12 +402,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/forms/-/forms-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/forms/-/forms-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "8864ba370cdcc89ce29db3cc6a9b10b5c374649eb6bebea172e97e14d6b8d0268ad9e3c2d384be0b99fe0c8a61cf09f0b051c30485ae4d045f93f94d61d37524"
+              "content": "589a2d77e2e1978146d9bd0af9a40dc900c7851e75e73282ba9863894a845bbb227d6ace43100d2caccf067806ac7ef96b200d1603da0dfed4dd9448a1b95c40"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -424,8 +424,8 @@
       "type": "library",
       "name": "localize",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/localize@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/localize@20.3.19",
       "author": "angular",
       "description": "Angular - library for localizing messages",
       "licenses": [
@@ -436,7 +436,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/localize@20.3.17",
+      "purl": "pkg:npm/%40angular/localize@20.3.19",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git",
@@ -454,12 +454,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/localize/-/localize-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/localize/-/localize-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "e0fe342bfb5f5c9c25c1aec5edac6768215a162d4feed71345c195a1cd281337df5a80c8b716065990710677b87f2fd98b236b354196d483de62bc473b80dd57"
+              "content": "6d73b0c73254bc7ce600323a733763627b8132297f50adc25b575f6eb0b532b94bb43d11ee0e1866cd3c27b6965ddfbf0382e64cf7e4a59848e40a711802f44e"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -476,8 +476,8 @@
       "type": "library",
       "name": "platform-browser-dynamic",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/platform-browser-dynamic@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/platform-browser-dynamic@20.3.19",
       "author": "angular",
       "description": "Angular - library for using Angular in a web browser with JIT compilation",
       "licenses": [
@@ -488,7 +488,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser-dynamic@20.3.17#packages/platform-browser-dynamic",
+      "purl": "pkg:npm/%40angular/platform-browser-dynamic@20.3.19#packages/platform-browser-dynamic",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/platform-browser-dynamic",
@@ -506,12 +506,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "c93c45b8643ecf427d92134885f159fa4913ed33856fc90564ac94cf40f11ce984d2afd312f359a32de35ceb3cc420457f5fba058d0da853653e76bebb0dfa15"
+              "content": "3a012bc3bc23702fbcc8a17987df6126af31fadbdcd3dd704e17e674be580be5371e046651a35916007f8d1edc6ff35e79e0b8d905b955cd2aa144c2f6b3272d"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -528,8 +528,8 @@
       "type": "library",
       "name": "platform-browser",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
       "author": "angular",
       "description": "Angular - library for using Angular in a web browser",
       "licenses": [
@@ -540,7 +540,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@20.3.17#packages/platform-browser",
+      "purl": "pkg:npm/%40angular/platform-browser@20.3.19#packages/platform-browser",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/platform-browser",
@@ -558,12 +558,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "180f292bed05dbf2867589f92cca4b06b3d39105301a3404f10faab22bce6b5e7470adceb83d29a393ef60ae7c97e9e218856f9b4c01d7118a4c74ce897ffee0"
+              "content": "4d165f6ad1f507f92b783c05470b692c4bab250eb4e38aa1e835a9bf1cd36ee81a1b9a2d2d024a4e4fb5cfcd7f2ac27042a735fb6e2ffb2bb2c1cd4b33b6aaef"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -580,8 +580,8 @@
       "type": "library",
       "name": "router",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/router@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/router@20.3.19",
       "author": "angular",
       "description": "Angular - the routing library",
       "licenses": [
@@ -592,7 +592,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/router@20.3.17#packages/router",
+      "purl": "pkg:npm/%40angular/router@20.3.19#packages/router",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/router",
@@ -610,12 +610,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/router/-/router-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/router/-/router-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a74af420e26151c9fc587c788244a57f089f92460ee66483b6ae223393ae9d94e549a792c4b6f5bd3460d95060c1dce980033e79948c0534d517f337a5da042d"
+              "content": "a87acc9e21ceb022789de666710568763bad2629725c05e4ec484b6bddf54322f4ab254a5689afe84d08dd417345a0b765e1dcfa1cc1754e82e9bbcc14a4e5d6"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1266,8 +1266,8 @@
       "type": "library",
       "name": "core",
       "group": "@angular-devkit",
-      "version": "20.3.18",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.18",
+      "version": "20.3.25",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.25",
       "author": "Angular Authors",
       "description": "Angular DevKit - Core Utility Library",
       "licenses": [
@@ -1278,7 +1278,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/core@20.3.18",
+      "purl": "pkg:npm/%40angular-devkit/core@20.3.25",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -1296,12 +1296,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-20.3.18.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-20.3.25.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "cc658c8cca84f2a5d8afc6da602b38de4f4794acfd2781a1dd8c7eed7134b92d18d4b5f3cc02debd2a14c3b1883dd4af3ab890240120b5613a40ab2ca921a5b5"
+              "content": "a527de584a12d72f73c6a4cec3412d8f63579119a9fda539db0767caadcaa9503d709b60c6d94e1e504136cc138a5e1d45ea23132fb42b5c499be98bb96b8bc4"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1369,8 +1369,8 @@
       "type": "library",
       "name": "compiler-cli",
       "group": "@angular",
-      "version": "20.3.17",
-      "bom-ref": "terminfinder@0.0.0|@angular/compiler-cli@20.3.17",
+      "version": "20.3.19",
+      "bom-ref": "terminfinder@0.0.0|@angular/compiler-cli@20.3.19",
       "description": "Angular - the compiler CLI for Node.js",
       "licenses": [
         {
@@ -1380,7 +1380,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/compiler-cli@20.3.17#packages/compiler-cli",
+      "purl": "pkg:npm/%40angular/compiler-cli@20.3.19#packages/compiler-cli",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular.git#packages/compiler-cli",
@@ -1398,12 +1398,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-20.3.17.tgz",
+          "url": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-20.3.19.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "c39a663b5a573bdb5432050c5acb690e6016879b359495a8fb6188fc1c9a5048016645ddd92f76b16a032fe6e1cbe252bc5cdd2c676e6ba06770704e5fb8448c"
+              "content": "113fc98cef2ceb69001df808b065e5bd6e555302ea1e6d37ab5cbfdb20fb6905bf59d0efb2c32cbd9bfb2a7978e34f7cf6f74e15e98819333054f6a4996a9198"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -2291,8 +2291,8 @@
     {
       "type": "library",
       "name": "picomatch",
-      "version": "4.0.3",
-      "bom-ref": "terminfinder@0.0.0|picomatch@4.0.3",
+      "version": "4.0.4",
+      "bom-ref": "terminfinder@0.0.0|picomatch@4.0.4",
       "author": "Jon Schlinkert",
       "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
       "licenses": [
@@ -2303,7 +2303,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/picomatch@4.0.3",
+      "purl": "pkg:npm/picomatch@4.0.4",
       "externalReferences": [
         {
           "url": "git+https://github.com/micromatch/picomatch.git",
@@ -2321,12 +2321,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.3.tgz",
+          "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "e604e680463fb2a2ba8055cb22c40d1f5f6559be1e6cf0cb03849d2cfeddb169085c75a51baea83ee56f5d21853e9a58673f190d9ab475862b6c77c109551bd5"
+              "content": "40ff3c0402af31a9bfdcdc47eaf8f6a36d51e8c8f165401dea7970012fe99c6bcdf4854ba1c2c7c46608cc5860e9f510fb9b61e8fe1dbf8796f635f70d2223ec"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5585,16 +5585,16 @@
     {
       "ref": "terminfinder@0.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/architect@0.2003.18",
-        "terminfinder@0.0.0|@angular/animations@20.3.17",
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/compiler@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
-        "terminfinder@0.0.0|@angular/forms@20.3.17",
-        "terminfinder@0.0.0|@angular/localize@20.3.17",
-        "terminfinder@0.0.0|@angular/platform-browser-dynamic@20.3.17",
-        "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
-        "terminfinder@0.0.0|@angular/router@20.3.17",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2003.25",
+        "terminfinder@0.0.0|@angular/animations@20.3.19",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/compiler@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
+        "terminfinder@0.0.0|@angular/forms@20.3.19",
+        "terminfinder@0.0.0|@angular/localize@20.3.19",
+        "terminfinder@0.0.0|@angular/platform-browser-dynamic@20.3.19",
+        "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
+        "terminfinder@0.0.0|@angular/router@20.3.19",
         "terminfinder@0.0.0|@ng-bootstrap/ng-bootstrap@19.0.1",
         "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
         "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
@@ -5611,57 +5611,57 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.18",
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2003.25",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/core@20.3.18",
+        "terminfinder@0.0.0|@angular-devkit/core@20.3.25",
         "terminfinder@0.0.0|rxjs@7.8.2"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/animations@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/animations@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/common@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/common@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/compiler@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/compiler@20.3.19",
       "dependsOn": [
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/core@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/core@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/compiler@20.3.17",
+        "terminfinder@0.0.0|@angular/compiler@20.3.19",
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.8.1",
         "terminfinder@0.0.0|zone.js@0.15.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/forms@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/forms@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
-        "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
+        "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/localize@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/localize@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/compiler-cli@20.3.17",
-        "terminfinder@0.0.0|@angular/compiler@20.3.17",
+        "terminfinder@0.0.0|@angular/compiler-cli@20.3.19",
+        "terminfinder@0.0.0|@angular/compiler@20.3.19",
         "terminfinder@0.0.0|@babel/core@7.28.3",
         "terminfinder@0.0.0|@types/babel__core@7.20.5",
         "terminfinder@0.0.0|tinyglobby@0.2.14",
@@ -5669,30 +5669,30 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/platform-browser-dynamic@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/platform-browser-dynamic@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/compiler@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
-        "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/compiler@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
+        "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/animations@20.3.17",
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/animations@20.3.19",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/router@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/router@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
-        "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
+        "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
@@ -5700,10 +5700,10 @@
     {
       "ref": "terminfinder@0.0.0|@ng-bootstrap/ng-bootstrap@19.0.1",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
-        "terminfinder@0.0.0|@angular/forms@20.3.17",
-        "terminfinder@0.0.0|@angular/localize@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
+        "terminfinder@0.0.0|@angular/forms@20.3.19",
+        "terminfinder@0.0.0|@angular/localize@20.3.19",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|tslib@2.8.1"
@@ -5712,16 +5712,16 @@
     {
       "ref": "terminfinder@0.0.0|@ngx-translate/core@16.0.4",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
     {
       "ref": "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
@@ -5755,8 +5755,8 @@
     {
       "ref": "terminfinder@0.0.0|ngx-clipboard@16.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|ngx-window-token@7.0.0",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
@@ -5764,9 +5764,9 @@
     {
       "ref": "terminfinder@0.0.0|ngx-toastr@19.1.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
-        "terminfinder@0.0.0|@angular/platform-browser@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
+        "terminfinder@0.0.0|@angular/platform-browser@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
@@ -5780,13 +5780,13 @@
       "ref": "terminfinder@0.0.0|zone.js@0.15.1"
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.18",
+      "ref": "terminfinder@0.0.0|@angular-devkit/core@20.3.25",
       "dependsOn": [
         "terminfinder@0.0.0|ajv-formats@3.0.1",
         "terminfinder@0.0.0|ajv@8.18.0",
         "terminfinder@0.0.0|chokidar@4.0.3",
         "terminfinder@0.0.0|jsonc-parser@3.3.1",
-        "terminfinder@0.0.0|picomatch@4.0.3",
+        "terminfinder@0.0.0|picomatch@4.0.4",
         "terminfinder@0.0.0|rxjs@7.8.2",
         "terminfinder@0.0.0|source-map@0.7.6"
       ]
@@ -5795,9 +5795,9 @@
       "ref": "terminfinder@0.0.0|tslib@2.8.1"
     },
     {
-      "ref": "terminfinder@0.0.0|@angular/compiler-cli@20.3.17",
+      "ref": "terminfinder@0.0.0|@angular/compiler-cli@20.3.19",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/compiler@20.3.17",
+        "terminfinder@0.0.0|@angular/compiler@20.3.19",
         "terminfinder@0.0.0|@babel/core@7.28.3",
         "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
         "terminfinder@0.0.0|chokidar@4.0.3",
@@ -5849,7 +5849,7 @@
       "ref": "terminfinder@0.0.0|tinyglobby@0.2.14",
       "dependsOn": [
         "terminfinder@0.0.0|fdir@6.5.0",
-        "terminfinder@0.0.0|picomatch@4.0.3"
+        "terminfinder@0.0.0|picomatch@4.0.4"
       ]
     },
     {
@@ -5892,8 +5892,8 @@
     {
       "ref": "terminfinder@0.0.0|ngx-window-token@7.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular/common@20.3.17",
-        "terminfinder@0.0.0|@angular/core@20.3.17",
+        "terminfinder@0.0.0|@angular/common@20.3.19",
+        "terminfinder@0.0.0|@angular/core@20.3.19",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },
@@ -5922,7 +5922,7 @@
       "ref": "terminfinder@0.0.0|jsonc-parser@3.3.1"
     },
     {
-      "ref": "terminfinder@0.0.0|picomatch@4.0.3"
+      "ref": "terminfinder@0.0.0|picomatch@4.0.4"
     },
     {
       "ref": "terminfinder@0.0.0|source-map@0.7.6"
@@ -6073,7 +6073,7 @@
     {
       "ref": "terminfinder@0.0.0|fdir@6.5.0",
       "dependsOn": [
-        "terminfinder@0.0.0|picomatch@4.0.3"
+        "terminfinder@0.0.0|picomatch@4.0.4"
       ]
     },
     {

@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:385a13d9-f99d-434f-8a6c-80878805488f",
+  "serialNumber": "urn:uuid:6996de7f-02aa-4527-b495-24ec4604a75b",
   "metadata": {
-    "timestamp": "2026-05-07T06:41:36.815Z",
+    "timestamp": "2026-05-07T07:02:03.677Z",
     "tools": {
       "components": [
         {
@@ -1626,8 +1626,8 @@
     {
       "type": "library",
       "name": "tinyglobby",
-      "version": "0.2.14",
-      "bom-ref": "terminfinder@0.0.0|tinyglobby@0.2.14",
+      "version": "0.2.16",
+      "bom-ref": "terminfinder@0.0.0|tinyglobby@0.2.16",
       "author": "Superchupu",
       "description": "A fast and minimal alternative to globby and fast-glob",
       "licenses": [
@@ -1638,7 +1638,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/tinyglobby@0.2.14",
+      "purl": "pkg:npm/tinyglobby@0.2.16",
       "externalReferences": [
         {
           "url": "git+https://github.com/SuperchupuDev/tinyglobby.git",
@@ -1646,7 +1646,7 @@
           "comment": "as detected from PackageJson property \"repository.url\""
         },
         {
-          "url": "https://github.com/SuperchupuDev/tinyglobby#readme",
+          "url": "https://superchupu.dev/tinyglobby",
           "type": "website",
           "comment": "as detected from PackageJson property \"homepage\""
         },
@@ -1656,12 +1656,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.14.tgz",
+          "url": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.16.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "b57e5eece3351e762bdbe6b60bfe15d21b4e71241ca124c7f4a8099d5bcd9b9ce6fdcc8458a27b8fb62eb6c1fd0b131db4e9242c5cb6007acc722f4833c20f65"
+              "content": "a67f7d561a0009847c9c51e1c6a8b1faebec6d78a77806ac5a6e688d7a0df311302b929ddff4eb84d9f5c01cae0f9d94c5644bcbca6efa444c9e2122e84abd66"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1823,108 +1823,6 @@
             {
               "name": "cdx:npm:package:path",
               "value": "node_modules/yargs/node_modules/emoji-regex"
-            }
-          ]
-        },
-        {
-          "type": "library",
-          "name": "strip-ansi",
-          "version": "7.1.2",
-          "bom-ref": "terminfinder@0.0.0|yargs@18.0.0|strip-ansi@7.1.2",
-          "author": "Sindre Sorhus",
-          "description": "Strip ANSI escape codes from a string",
-          "licenses": [
-            {
-              "license": {
-                "id": "MIT",
-                "acknowledgement": "declared"
-              }
-            }
-          ],
-          "purl": "pkg:npm/strip-ansi@7.1.2",
-          "externalReferences": [
-            {
-              "url": "git+https://github.com/chalk/strip-ansi.git",
-              "type": "vcs",
-              "comment": "as detected from PackageJson property \"repository.url\""
-            },
-            {
-              "url": "https://github.com/chalk/strip-ansi#readme",
-              "type": "website",
-              "comment": "as detected from PackageJson property \"homepage\""
-            },
-            {
-              "url": "https://github.com/chalk/strip-ansi/issues",
-              "type": "issue-tracker",
-              "comment": "as detected from PackageJson property \"bugs.url\""
-            },
-            {
-              "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.2.tgz",
-              "type": "distribution",
-              "hashes": [
-                {
-                  "alg": "SHA-512",
-                  "content": "826046b25a68409b609cc02f395a86669133f5dca82930b3cb69dfcff9fc68816137f8c213fac299cc5a6c1ea338e1d5fb458d9f294ec5ac4140f4af71692584"
-                }
-              ],
-              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-            }
-          ],
-          "properties": [
-            {
-              "name": "cdx:npm:package:path",
-              "value": "node_modules/yargs/node_modules/strip-ansi"
-            }
-          ]
-        },
-        {
-          "type": "library",
-          "name": "ansi-regex",
-          "version": "6.2.2",
-          "bom-ref": "terminfinder@0.0.0|yargs@18.0.0|ansi-regex@6.2.2",
-          "author": "Sindre Sorhus",
-          "description": "Regular expression for matching ANSI escape codes",
-          "licenses": [
-            {
-              "license": {
-                "id": "MIT",
-                "acknowledgement": "declared"
-              }
-            }
-          ],
-          "purl": "pkg:npm/ansi-regex@6.2.2",
-          "externalReferences": [
-            {
-              "url": "git+https://github.com/chalk/ansi-regex.git",
-              "type": "vcs",
-              "comment": "as detected from PackageJson property \"repository.url\""
-            },
-            {
-              "url": "https://github.com/chalk/ansi-regex#readme",
-              "type": "website",
-              "comment": "as detected from PackageJson property \"homepage\""
-            },
-            {
-              "url": "https://github.com/chalk/ansi-regex/issues",
-              "type": "issue-tracker",
-              "comment": "as detected from PackageJson property \"bugs.url\""
-            },
-            {
-              "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz",
-              "type": "distribution",
-              "hashes": [
-                {
-                  "alg": "SHA-512",
-                  "content": "06add2992a721476968cf93c21ff7273ab2f33c739e9d079040b56e106f0e631d3c305d77132e844c9290c9a7a54bd17ce559a0874d7ae415444c6260f4b0baa"
-                }
-              ],
-              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-            }
-          ],
-          "properties": [
-            {
-              "name": "cdx:npm:package:path",
-              "value": "node_modules/yargs/node_modules/ansi-regex"
             }
           ]
         }
@@ -2967,8 +2865,8 @@
       "type": "library",
       "name": "helpers",
       "group": "@babel",
-      "version": "7.28.6",
-      "bom-ref": "terminfinder@0.0.0|@babel/helpers@7.28.6",
+      "version": "7.29.2",
+      "bom-ref": "terminfinder@0.0.0|@babel/helpers@7.29.2",
       "author": "The Babel Team",
       "description": "Collection of helper functions used by Babel transforms.",
       "licenses": [
@@ -2979,7 +2877,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/helpers@7.28.6",
+      "purl": "pkg:npm/%40babel/helpers@7.29.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-helpers",
@@ -2997,12 +2895,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@babel/helpers/-/helpers-7.28.6.tgz",
+          "url": "https://registry.npmjs.org/@babel/helpers/-/helpers-7.29.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "c4e06fc2af3a1c7741ed65034df29f4ff56ec61ee012543e49fb62d82cbac8858d5b4e4ff2252c94e55c678fec29b13efe341aba4400773fe07f7ef6e2461dab"
+              "content": "1e81ae52ce2c09935ecd510a755730aa664df06a078ab2d470b69854d04ad89d0369d1ad75caa0af70426ef1fcf97528e0d1a3365dd53ad4a310a373a9f1602b"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -3019,8 +2917,8 @@
       "type": "library",
       "name": "parser",
       "group": "@babel",
-      "version": "7.29.0",
-      "bom-ref": "terminfinder@0.0.0|@babel/parser@7.29.0",
+      "version": "7.29.3",
+      "bom-ref": "terminfinder@0.0.0|@babel/parser@7.29.3",
       "author": "The Babel Team",
       "description": "A JavaScript parser",
       "licenses": [
@@ -3031,7 +2929,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/parser@7.29.0",
+      "purl": "pkg:npm/%40babel/parser@7.29.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-parser",
@@ -3049,12 +2947,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.0.tgz",
+          "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "2320e0155e467835155f861d17fdc23d42ed5464975cc2e1d7154881d0a0c40a64b6a9d0574afbffc36ab6183ef182c6680b5dc88968daa21d66b6c2bf8fbbc3"
+              "content": "6f772da50c29f8f44ebd4fdcb6d7383989783337c9516cba15983e3cc5dfce6b7ffb7f621d5174b037ea6b2f1340cdc90361143b229c159b7be635ab8908a3b0"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -3738,57 +3636,6 @@
         },
         {
           "type": "library",
-          "name": "strip-ansi",
-          "version": "7.1.2",
-          "bom-ref": "terminfinder@0.0.0|cliui@9.0.1|strip-ansi@7.1.2",
-          "author": "Sindre Sorhus",
-          "description": "Strip ANSI escape codes from a string",
-          "licenses": [
-            {
-              "license": {
-                "id": "MIT",
-                "acknowledgement": "declared"
-              }
-            }
-          ],
-          "purl": "pkg:npm/strip-ansi@7.1.2",
-          "externalReferences": [
-            {
-              "url": "git+https://github.com/chalk/strip-ansi.git",
-              "type": "vcs",
-              "comment": "as detected from PackageJson property \"repository.url\""
-            },
-            {
-              "url": "https://github.com/chalk/strip-ansi#readme",
-              "type": "website",
-              "comment": "as detected from PackageJson property \"homepage\""
-            },
-            {
-              "url": "https://github.com/chalk/strip-ansi/issues",
-              "type": "issue-tracker",
-              "comment": "as detected from PackageJson property \"bugs.url\""
-            },
-            {
-              "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.2.tgz",
-              "type": "distribution",
-              "hashes": [
-                {
-                  "alg": "SHA-512",
-                  "content": "826046b25a68409b609cc02f395a86669133f5dca82930b3cb69dfcff9fc68816137f8c213fac299cc5a6c1ea338e1d5fb458d9f294ec5ac4140f4af71692584"
-                }
-              ],
-              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-            }
-          ],
-          "properties": [
-            {
-              "name": "cdx:npm:package:path",
-              "value": "node_modules/cliui/node_modules/strip-ansi"
-            }
-          ]
-        },
-        {
-          "type": "library",
           "name": "wrap-ansi",
           "version": "9.0.2",
           "bom-ref": "terminfinder@0.0.0|cliui@9.0.1|wrap-ansi@9.0.2",
@@ -3886,57 +3733,6 @@
             {
               "name": "cdx:npm:package:path",
               "value": "node_modules/cliui/node_modules/emoji-regex"
-            }
-          ]
-        },
-        {
-          "type": "library",
-          "name": "ansi-regex",
-          "version": "6.2.2",
-          "bom-ref": "terminfinder@0.0.0|cliui@9.0.1|ansi-regex@6.2.2",
-          "author": "Sindre Sorhus",
-          "description": "Regular expression for matching ANSI escape codes",
-          "licenses": [
-            {
-              "license": {
-                "id": "MIT",
-                "acknowledgement": "declared"
-              }
-            }
-          ],
-          "purl": "pkg:npm/ansi-regex@6.2.2",
-          "externalReferences": [
-            {
-              "url": "git+https://github.com/chalk/ansi-regex.git",
-              "type": "vcs",
-              "comment": "as detected from PackageJson property \"repository.url\""
-            },
-            {
-              "url": "https://github.com/chalk/ansi-regex#readme",
-              "type": "website",
-              "comment": "as detected from PackageJson property \"homepage\""
-            },
-            {
-              "url": "https://github.com/chalk/ansi-regex/issues",
-              "type": "issue-tracker",
-              "comment": "as detected from PackageJson property \"bugs.url\""
-            },
-            {
-              "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz",
-              "type": "distribution",
-              "hashes": [
-                {
-                  "alg": "SHA-512",
-                  "content": "06add2992a721476968cf93c21ff7273ab2f33c739e9d079040b56e106f0e631d3c305d77132e844c9290c9a7a54bd17ce559a0874d7ae415444c6260f4b0baa"
-                }
-              ],
-              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-            }
-          ],
-          "properties": [
-            {
-              "name": "cdx:npm:package:path",
-              "value": "node_modules/cliui/node_modules/ansi-regex"
             }
           ]
         },
@@ -4250,8 +4046,8 @@
     {
       "type": "library",
       "name": "fast-uri",
-      "version": "3.1.0",
-      "bom-ref": "terminfinder@0.0.0|fast-uri@3.1.0",
+      "version": "3.1.2",
+      "bom-ref": "terminfinder@0.0.0|fast-uri@3.1.2",
       "author": "Vincent Le Goff",
       "description": "Dependency-free RFC 3986 URI toolbox",
       "licenses": [
@@ -4262,7 +4058,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-uri@3.1.0",
+      "purl": "pkg:npm/fast-uri@3.1.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/fastify/fast-uri.git",
@@ -4280,12 +4076,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz",
+          "url": "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "88f79e0ca25259fe0810e6ac555ae49d7a5a055d08029cff829ed2d9b6fb6782e58db976306251a889d9894ad0c15d7a729cf0fc3dd2e63e49ba58ff813e7600"
+              "content": "ad58dfec0ac6dcb4e4f854ba630f355750cbb999756d16cdadebfa4e677ff516aba1e791449840b7b8e0ffa605c5bbc04175026af4a86613cf8faa0ec7ee4a8d"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -4764,8 +4560,8 @@
       "type": "library",
       "name": "compat-data",
       "group": "@babel",
-      "version": "7.29.0",
-      "bom-ref": "terminfinder@0.0.0|@babel/compat-data@7.29.0",
+      "version": "7.29.3",
+      "bom-ref": "terminfinder@0.0.0|@babel/compat-data@7.29.3",
       "author": "The Babel Team",
       "description": "The compat-data to determine required Babel plugins",
       "licenses": [
@@ -4776,7 +4572,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40babel/compat-data@7.29.0",
+      "purl": "pkg:npm/%40babel/compat-data@7.29.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/babel/babel.git#packages/babel-compat-data",
@@ -4794,12 +4590,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.29.0.tgz",
+          "url": "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.29.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "4f534226a4ff8fdf9c9fc7ef92dee3b706cb05f2c2ff5cb573b36d09e5c5460cc64ec69f8baf0c46ff32ce46126a9067140e8bdd4d9549cd367220f3a0026126"
+              "content": "2c856a338eb34166618f5eea03cc1be275bf8b1af6cb5370fabd5eb6201681133a53522a3fe2cd84bd72838e348d8651ef68c259c59b2d6cc8a2c1feb8fd5faa"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -4867,8 +4663,8 @@
     {
       "type": "library",
       "name": "browserslist",
-      "version": "4.28.1",
-      "bom-ref": "terminfinder@0.0.0|browserslist@4.28.1",
+      "version": "4.28.2",
+      "bom-ref": "terminfinder@0.0.0|browserslist@4.28.2",
       "author": "Andrey Sitnik",
       "description": "Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-env-preset",
       "licenses": [
@@ -4879,7 +4675,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/browserslist@4.28.1",
+      "purl": "pkg:npm/browserslist@4.28.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/browserslist/browserslist.git",
@@ -4897,12 +4693,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/browserslist/-/browserslist-4.28.1.tgz",
+          "url": "https://registry.npmjs.org/browserslist/-/browserslist-4.28.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "642e417742e02578301aa5249d963fbe4510d38afc3579c9677c988b8bc3992899982fe975237435b3513f16696ed3b8b807c350015f7cef086683371a3f0890"
+              "content": "e3cc52ae2658620fbca979daf64c2a8c8573b90c62f8a616a76fb99c262760a3d3af42ef0fcf49aa4d8eaf9a20c73d0d50c7c88e1876948517fcbc97f41e2822"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5174,6 +4970,57 @@
     },
     {
       "type": "library",
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "bom-ref": "terminfinder@0.0.0|strip-ansi@7.2.0",
+      "author": "Sindre Sorhus",
+      "description": "Strip ANSI escape codes from a string",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/strip-ansi@7.2.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/chalk/strip-ansi.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/chalk/strip-ansi#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/chalk/strip-ansi/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.2.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "c833cc363a785b27d80641e78c844b7dc6b58ba28cc860adb1582829eff3d7eeafba481a10d76018166df9998a3dce206afbc46793a01df1ddadace180dc86ef"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/strip-ansi"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "get-east-asian-width",
       "version": "1.5.0",
       "bom-ref": "terminfinder@0.0.0|get-east-asian-width@1.5.0",
@@ -5278,8 +5125,8 @@
     {
       "type": "library",
       "name": "baseline-browser-mapping",
-      "version": "2.9.19",
-      "bom-ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.19",
+      "version": "2.10.27",
+      "bom-ref": "terminfinder@0.0.0|baseline-browser-mapping@2.10.27",
       "description": "A library for obtaining browser versions with their maximum supported Baseline feature set and Widely Available status.",
       "licenses": [
         {
@@ -5289,7 +5136,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/baseline-browser-mapping@2.9.19",
+      "purl": "pkg:npm/baseline-browser-mapping@2.10.27",
       "externalReferences": [
         {
           "url": "git+https://github.com/web-platform-dx/baseline-browser-mapping.git",
@@ -5307,12 +5154,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.9.19.tgz",
+          "url": "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.27.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "8a90ea0bc16b025ffbea9d9249629223e1fdb45c26eef62a5d0ac8b42ba254fb76e8a9b48d2f8dcd2b01580681bacbd26d071f246f898ad74c9bec190204d8aa"
+              "content": "cc4b3fb9f999a1477b59fb4aa4ac97693e91171a50e509bdc72b4a447bc97f1155f43149919a61f51bc9d4b70e522d19d595628ccb5eeb925b20b795fbc41010"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5328,8 +5175,8 @@
     {
       "type": "library",
       "name": "caniuse-lite",
-      "version": "1.0.30001770",
-      "bom-ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001770",
+      "version": "1.0.30001792",
+      "bom-ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001792",
       "author": "Ben Briggs",
       "description": "A smaller version of caniuse-db, with only the essentials!",
       "licenses": [
@@ -5340,7 +5187,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/caniuse-lite@1.0.30001770",
+      "purl": "pkg:npm/caniuse-lite@1.0.30001792",
       "externalReferences": [
         {
           "url": "git+https://github.com/browserslist/caniuse-lite.git",
@@ -5358,12 +5205,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001770.tgz",
+          "url": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001792.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "c7fd822d0d631c43516c78393d221ddac5ead4220ed42212bf05808f4dbb96d3151b650d816fb0f681f6f87ce01084457a66cbf1b5255ed7db0474757c2836c7"
+              "content": "8552cc519160478249e800add6e1044af40dd7f74156a3c0298d2182b57bd1e377dfdd4aea3b807d38ca64b2af38cb31f0fc40ee0b18d7fb4b30c4dc7c52cba7"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5379,8 +5226,8 @@
     {
       "type": "library",
       "name": "electron-to-chromium",
-      "version": "1.5.286",
-      "bom-ref": "terminfinder@0.0.0|electron-to-chromium@1.5.286",
+      "version": "1.5.352",
+      "bom-ref": "terminfinder@0.0.0|electron-to-chromium@1.5.352",
       "author": "Kilian Valkhof",
       "description": "Provides a list of electron-to-chromium version mappings",
       "licenses": [
@@ -5391,30 +5238,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/electron-to-chromium@1.5.286",
+      "purl": "pkg:npm/electron-to-chromium@1.5.352",
       "externalReferences": [
         {
-          "url": "git+https://github.com/kilian/electron-to-chromium.git",
+          "url": "git+https://github.com/Kilian/electron-to-chromium.git",
           "type": "vcs",
           "comment": "as detected from PackageJson property \"repository.url\""
         },
         {
-          "url": "https://github.com/kilian/electron-to-chromium#readme",
+          "url": "https://github.com/Kilian/electron-to-chromium#readme",
           "type": "website",
           "comment": "as detected from PackageJson property \"homepage\""
         },
         {
-          "url": "https://github.com/kilian/electron-to-chromium/issues",
+          "url": "https://github.com/Kilian/electron-to-chromium/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.286.tgz",
+          "url": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.352.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f6d7c35e127844a14d7ab7e37427197ee7eee3dbe0eb6d3be3530db36e9af7e6e12d385d07ea6580c7a8bbdf0201a1eefd60138f688738e1d3a75856b40063d8"
+              "content": "f701e4f31e9dcae8a6a1ed7c11d8833d6284c4d77162aa387e7e05c0e555a5eafa4714f7726a41c0191659f48e09826341d21ca3f9cf84984d2e69f851f83562"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5430,8 +5277,8 @@
     {
       "type": "library",
       "name": "node-releases",
-      "version": "2.0.27",
-      "bom-ref": "terminfinder@0.0.0|node-releases@2.0.27",
+      "version": "2.0.38",
+      "bom-ref": "terminfinder@0.0.0|node-releases@2.0.38",
       "author": "Sergey Rubanov",
       "description": "Node.js releases data",
       "licenses": [
@@ -5442,7 +5289,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/node-releases@2.0.27",
+      "purl": "pkg:npm/node-releases@2.0.38",
       "externalReferences": [
         {
           "url": "git+https://github.com/chicoxyzzy/node-releases.git",
@@ -5460,12 +5307,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/node-releases/-/node-releases-2.0.27.tgz",
+          "url": "https://registry.npmjs.org/node-releases/-/node-releases-2.0.38.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "9e687794291867782b66fa9c087f9f8e643b5fe1f439e6603f8d0e89eac4680a6d5f85e87cc87993035b5a1ee505db94cc2715ffc919f8d0cb0b09b68a8ac894"
+              "content": "dea4fff3c63715b1ff2b1e2cce9410e07cd46d5ac73ca4cb56956870a88b7e862fc3d5d218e5f61660f677a0eb5db558c804131761de17a332f239b3c7bfc247"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5579,6 +5426,57 @@
           "value": "node_modules/yallist"
         }
       ]
+    },
+    {
+      "type": "library",
+      "name": "ansi-regex",
+      "version": "6.2.2",
+      "bom-ref": "terminfinder@0.0.0|ansi-regex@6.2.2",
+      "author": "Sindre Sorhus",
+      "description": "Regular expression for matching ANSI escape codes",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ansi-regex@6.2.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/chalk/ansi-regex.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/chalk/ansi-regex#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/chalk/ansi-regex/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "06add2992a721476968cf93c21ff7273ab2f33c739e9d079040b56e106f0e631d3c305d77132e844c9290c9a7a54bd17ce559a0874d7ae415444c6260f4b0baa"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ansi-regex"
+        }
+      ]
     }
   ],
   "dependencies": [
@@ -5664,7 +5562,7 @@
         "terminfinder@0.0.0|@angular/compiler@20.3.19",
         "terminfinder@0.0.0|@babel/core@7.28.3",
         "terminfinder@0.0.0|@types/babel__core@7.20.5",
-        "terminfinder@0.0.0|tinyglobby@0.2.14",
+        "terminfinder@0.0.0|tinyglobby@0.2.16",
         "terminfinder@0.0.0|yargs@18.0.0"
       ]
     },
@@ -5817,8 +5715,8 @@
         "terminfinder@0.0.0|@babel/generator@7.28.3",
         "terminfinder@0.0.0|@babel/helper-compilation-targets@7.28.6",
         "terminfinder@0.0.0|@babel/helper-module-transforms@7.28.6",
-        "terminfinder@0.0.0|@babel/helpers@7.28.6",
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/helpers@7.29.2",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/template@7.28.6",
         "terminfinder@0.0.0|@babel/traverse@7.29.0",
         "terminfinder@0.0.0|@babel/types@7.29.0",
@@ -5838,7 +5736,7 @@
     {
       "ref": "terminfinder@0.0.0|@types/babel__core@7.20.5",
       "dependsOn": [
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/types@7.29.0",
         "terminfinder@0.0.0|@types/babel__generator@7.27.0",
         "terminfinder@0.0.0|@types/babel__template@7.4.4",
@@ -5846,7 +5744,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|tinyglobby@0.2.14",
+      "ref": "terminfinder@0.0.0|tinyglobby@0.2.16",
       "dependsOn": [
         "terminfinder@0.0.0|fdir@6.5.0",
         "terminfinder@0.0.0|picomatch@4.0.4"
@@ -5868,20 +5766,11 @@
       "dependsOn": [
         "terminfinder@0.0.0|yargs@18.0.0|emoji-regex@10.6.0",
         "terminfinder@0.0.0|get-east-asian-width@1.5.0",
-        "terminfinder@0.0.0|yargs@18.0.0|strip-ansi@7.1.2"
+        "terminfinder@0.0.0|strip-ansi@7.2.0"
       ]
     },
     {
       "ref": "terminfinder@0.0.0|yargs@18.0.0|emoji-regex@10.6.0"
-    },
-    {
-      "ref": "terminfinder@0.0.0|yargs@18.0.0|strip-ansi@7.1.2",
-      "dependsOn": [
-        "terminfinder@0.0.0|yargs@18.0.0|ansi-regex@6.2.2"
-      ]
-    },
-    {
-      "ref": "terminfinder@0.0.0|yargs@18.0.0|ansi-regex@6.2.2"
     },
     {
       "ref": "terminfinder@0.0.0|dayjs@1.11.20"
@@ -5907,7 +5796,7 @@
       "ref": "terminfinder@0.0.0|ajv@8.18.0",
       "dependsOn": [
         "terminfinder@0.0.0|fast-deep-equal@3.1.3",
-        "terminfinder@0.0.0|fast-uri@3.1.0",
+        "terminfinder@0.0.0|fast-uri@3.1.2",
         "terminfinder@0.0.0|json-schema-traverse@1.0.0",
         "terminfinder@0.0.0|require-from-string@2.0.2"
       ]
@@ -5960,7 +5849,7 @@
     {
       "ref": "terminfinder@0.0.0|@babel/generator@7.28.3",
       "dependsOn": [
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/types@7.29.0",
         "terminfinder@0.0.0|@jridgewell/gen-mapping@0.3.13",
         "terminfinder@0.0.0|@jridgewell/trace-mapping@0.3.31",
@@ -5970,9 +5859,9 @@
     {
       "ref": "terminfinder@0.0.0|@babel/helper-compilation-targets@7.28.6",
       "dependsOn": [
-        "terminfinder@0.0.0|@babel/compat-data@7.29.0",
+        "terminfinder@0.0.0|@babel/compat-data@7.29.3",
         "terminfinder@0.0.0|@babel/helper-validator-option@7.27.1",
-        "terminfinder@0.0.0|browserslist@4.28.1",
+        "terminfinder@0.0.0|browserslist@4.28.2",
         "terminfinder@0.0.0|lru-cache@5.1.1",
         "terminfinder@0.0.0|@babel/helper-compilation-targets@7.28.6|semver@6.3.1"
       ]
@@ -5990,14 +5879,14 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@babel/helpers@7.28.6",
+      "ref": "terminfinder@0.0.0|@babel/helpers@7.29.2",
       "dependsOn": [
         "terminfinder@0.0.0|@babel/template@7.28.6",
         "terminfinder@0.0.0|@babel/types@7.29.0"
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@babel/parser@7.29.0",
+      "ref": "terminfinder@0.0.0|@babel/parser@7.29.3",
       "dependsOn": [
         "terminfinder@0.0.0|@babel/types@7.29.0"
       ]
@@ -6006,7 +5895,7 @@
       "ref": "terminfinder@0.0.0|@babel/template@7.28.6",
       "dependsOn": [
         "terminfinder@0.0.0|@babel/code-frame@7.29.0",
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/types@7.29.0"
       ]
     },
@@ -6016,7 +5905,7 @@
         "terminfinder@0.0.0|@babel/code-frame@7.29.0",
         "terminfinder@0.0.0|@babel/traverse@7.29.0|@babel/generator@7.29.1",
         "terminfinder@0.0.0|@babel/helper-globals@7.28.0",
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/template@7.28.6",
         "terminfinder@0.0.0|@babel/types@7.29.0",
         "terminfinder@0.0.0|debug@4.4.3"
@@ -6025,7 +5914,7 @@
     {
       "ref": "terminfinder@0.0.0|@babel/traverse@7.29.0|@babel/generator@7.29.1",
       "dependsOn": [
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/types@7.29.0",
         "terminfinder@0.0.0|@jridgewell/gen-mapping@0.3.13",
         "terminfinder@0.0.0|@jridgewell/trace-mapping@0.3.31",
@@ -6060,7 +5949,7 @@
     {
       "ref": "terminfinder@0.0.0|@types/babel__template@7.4.4",
       "dependsOn": [
-        "terminfinder@0.0.0|@babel/parser@7.29.0",
+        "terminfinder@0.0.0|@babel/parser@7.29.3",
         "terminfinder@0.0.0|@babel/types@7.29.0"
       ]
     },
@@ -6080,7 +5969,7 @@
       "ref": "terminfinder@0.0.0|cliui@9.0.1",
       "dependsOn": [
         "terminfinder@0.0.0|cliui@9.0.1|string-width@7.2.0",
-        "terminfinder@0.0.0|cliui@9.0.1|strip-ansi@7.1.2",
+        "terminfinder@0.0.0|strip-ansi@7.2.0",
         "terminfinder@0.0.0|cliui@9.0.1|wrap-ansi@9.0.2"
       ]
     },
@@ -6089,13 +5978,7 @@
       "dependsOn": [
         "terminfinder@0.0.0|cliui@9.0.1|emoji-regex@10.6.0",
         "terminfinder@0.0.0|get-east-asian-width@1.5.0",
-        "terminfinder@0.0.0|cliui@9.0.1|strip-ansi@7.1.2"
-      ]
-    },
-    {
-      "ref": "terminfinder@0.0.0|cliui@9.0.1|strip-ansi@7.1.2",
-      "dependsOn": [
-        "terminfinder@0.0.0|cliui@9.0.1|ansi-regex@6.2.2"
+        "terminfinder@0.0.0|strip-ansi@7.2.0"
       ]
     },
     {
@@ -6103,14 +5986,11 @@
       "dependsOn": [
         "terminfinder@0.0.0|cliui@9.0.1|ansi-styles@6.2.3",
         "terminfinder@0.0.0|cliui@9.0.1|string-width@7.2.0",
-        "terminfinder@0.0.0|cliui@9.0.1|strip-ansi@7.1.2"
+        "terminfinder@0.0.0|strip-ansi@7.2.0"
       ]
     },
     {
       "ref": "terminfinder@0.0.0|cliui@9.0.1|emoji-regex@10.6.0"
-    },
-    {
-      "ref": "terminfinder@0.0.0|cliui@9.0.1|ansi-regex@6.2.2"
     },
     {
       "ref": "terminfinder@0.0.0|cliui@9.0.1|ansi-styles@6.2.3"
@@ -6131,7 +6011,7 @@
       "ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3"
     },
     {
-      "ref": "terminfinder@0.0.0|fast-uri@3.1.0"
+      "ref": "terminfinder@0.0.0|fast-uri@3.1.2"
     },
     {
       "ref": "terminfinder@0.0.0|json-schema-traverse@1.0.0"
@@ -6169,18 +6049,18 @@
       "ref": "terminfinder@0.0.0|jsesc@3.1.0"
     },
     {
-      "ref": "terminfinder@0.0.0|@babel/compat-data@7.29.0"
+      "ref": "terminfinder@0.0.0|@babel/compat-data@7.29.3"
     },
     {
       "ref": "terminfinder@0.0.0|@babel/helper-validator-option@7.27.1"
     },
     {
-      "ref": "terminfinder@0.0.0|browserslist@4.28.1",
+      "ref": "terminfinder@0.0.0|browserslist@4.28.2",
       "dependsOn": [
-        "terminfinder@0.0.0|baseline-browser-mapping@2.9.19",
-        "terminfinder@0.0.0|caniuse-lite@1.0.30001770",
-        "terminfinder@0.0.0|electron-to-chromium@1.5.286",
-        "terminfinder@0.0.0|node-releases@2.0.27",
+        "terminfinder@0.0.0|baseline-browser-mapping@2.10.27",
+        "terminfinder@0.0.0|caniuse-lite@1.0.30001792",
+        "terminfinder@0.0.0|electron-to-chromium@1.5.352",
+        "terminfinder@0.0.0|node-releases@2.0.38",
         "terminfinder@0.0.0|update-browserslist-db@1.2.3"
       ]
     },
@@ -6207,33 +6087,42 @@
       "ref": "terminfinder@0.0.0|ms@2.1.3"
     },
     {
+      "ref": "terminfinder@0.0.0|strip-ansi@7.2.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|ansi-regex@6.2.2"
+      ]
+    },
+    {
       "ref": "terminfinder@0.0.0|get-east-asian-width@1.5.0"
     },
     {
       "ref": "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.2"
     },
     {
-      "ref": "terminfinder@0.0.0|baseline-browser-mapping@2.9.19"
+      "ref": "terminfinder@0.0.0|baseline-browser-mapping@2.10.27"
     },
     {
-      "ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001770"
+      "ref": "terminfinder@0.0.0|caniuse-lite@1.0.30001792"
     },
     {
-      "ref": "terminfinder@0.0.0|electron-to-chromium@1.5.286"
+      "ref": "terminfinder@0.0.0|electron-to-chromium@1.5.352"
     },
     {
-      "ref": "terminfinder@0.0.0|node-releases@2.0.27"
+      "ref": "terminfinder@0.0.0|node-releases@2.0.38"
     },
     {
       "ref": "terminfinder@0.0.0|update-browserslist-db@1.2.3",
       "dependsOn": [
-        "terminfinder@0.0.0|browserslist@4.28.1",
+        "terminfinder@0.0.0|browserslist@4.28.2",
         "terminfinder@0.0.0|escalade@3.2.0",
         "terminfinder@0.0.0|picocolors@1.1.1"
       ]
     },
     {
       "ref": "terminfinder@0.0.0|yallist@3.1.1"
+    },
+    {
+      "ref": "terminfinder@0.0.0|ansi-regex@6.2.2"
     }
   ]
 }

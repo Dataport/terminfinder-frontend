@@ -10,6 +10,10 @@ label {
   }
 }
 
+.form-check-input[type="checkbox"] {
+  border-color: var(--primary, #{$primary});
+}
+
 .multiline {
   white-space: pre-line;
   vertical-align: text-bottom;

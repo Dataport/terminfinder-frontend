@@ -1,0 +1,12 @@
+name: version.yml
+on:
+  pull_request:
+    branches: [ 'main' ]
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cperezabo/setup-git-mkver@v1.2.0
+      - name: Next Version
+        run: git mkver next --format '{Docker}')

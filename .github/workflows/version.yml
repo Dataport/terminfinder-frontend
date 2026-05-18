@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: cperezabo/setup-git-mkver@v1.2.0
       - name: Next Version
-        run: git mkver next --format '{Docker}')
+        run: git mkver next --format '{Docker}'

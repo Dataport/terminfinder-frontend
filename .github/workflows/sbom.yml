@@ -2,6 +2,9 @@ name: sbom
 on:
   pull_request:
     branches: ['main']
+    paths-ignore:
+      - ".github/**"
+      - "docs/**"
 
 jobs:
   generate-and-compare-sbom:

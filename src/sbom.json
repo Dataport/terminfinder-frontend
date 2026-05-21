@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:162025e8-56e4-4f6d-bfd9-ecc422f60a73",
+  "serialNumber": "urn:uuid:d7a71eef-17b5-4ff4-af27-b0e7e9b807fa",
   "metadata": {
-    "timestamp": "2026-05-21T01:18:01.584Z",
+    "timestamp": "2026-05-21T07:18:16.597Z",
     "tools": {
       "components": [
         {
@@ -962,8 +962,8 @@
     {
       "type": "library",
       "name": "dompurify",
-      "version": "3.4.2",
-      "bom-ref": "terminfinder@0.0.0|dompurify@3.4.2",
+      "version": "3.4.3",
+      "bom-ref": "terminfinder@0.0.0|dompurify@3.4.3",
       "author": "Dr.-Ing. Mario Heiderich, Cure53",
       "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It's written in JavaScript and works in all modern browsers (Safari, Opera (15+), Internet Explorer (10+), Firefox and Chrome - as well as almost anything else using Blink or WebKit). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
       "licenses": [
@@ -972,7 +972,7 @@
           "acknowledgement": "declared"
         }
       ],
-      "purl": "pkg:npm/dompurify@3.4.2",
+      "purl": "pkg:npm/dompurify@3.4.3",
       "externalReferences": [
         {
           "url": "git://github.com/cure53/DOMPurify.git",
@@ -990,12 +990,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.2.tgz",
+          "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "947792f5203f20a788145c987221c1af69f4bf554c3e54a3f38dc774b3b08dbd8ec4dc1dabd5f2931aa193e144e3633301d1ef2276c0a25484e2685a84fa635c"
+              "content": "555c0989d209729d61a60d8e31730bdd95513d84998aae1a5fba8187cdc1488a4e6910ea23eab18578e32169e9ce4397866a742fcd659e8304d669c273d1f8f0"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5500,7 +5500,7 @@
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.2",
         "terminfinder@0.0.0|core-js@3.49.0",
-        "terminfinder@0.0.0|dompurify@3.4.2",
+        "terminfinder@0.0.0|dompurify@3.4.3",
         "terminfinder@0.0.0|moment@2.30.1",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
         "terminfinder@0.0.0|ngx-toastr@19.1.0",
@@ -5642,7 +5642,7 @@
       "ref": "terminfinder@0.0.0|core-js@3.49.0"
     },
     {
-      "ref": "terminfinder@0.0.0|dompurify@3.4.2",
+      "ref": "terminfinder@0.0.0|dompurify@3.4.3",
       "dependsOn": [
         "terminfinder@0.0.0|@types/trusted-types@2.0.7"
       ]

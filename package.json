@@ -35,7 +35,7 @@
     "node": "22.x || 24.x"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.2003.25",
+    "@angular-devkit/architect": "0.2003.26",
     "@angular/animations": "20.3.21",
     "@angular/common": "20.3.21",
     "@angular/compiler": "20.3.21",
@@ -60,13 +60,13 @@
     "zone.js": "0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.25",
+    "@angular-devkit/build-angular": "20.3.26",
     "@angular-eslint/builder": "20.7.0",
     "@angular-eslint/eslint-plugin": "20.7.0",
     "@angular-eslint/eslint-plugin-template": "20.7.0",
     "@angular-eslint/schematics": "20.7.0",
     "@angular-eslint/template-parser": "20.7.0",
-    "@angular/cli": "20.3.25",
+    "@angular/cli": "20.3.26",
     "@angular/compiler-cli": "20.3.21",
     "@angular/language-service": "20.3.21",
     "@cyclonedx/cyclonedx-npm": "4.2.1",

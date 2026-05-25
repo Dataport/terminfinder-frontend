@@ -35,7 +35,7 @@ jobs:
           registry: registry.opencode.de
           username: access-token
           password: ${{ secrets.OPENCODE_DOCKER_ACCESS_TOKEN }}
-      - uses: docker/build-push-action@v7.1.0
+      - uses: docker/build-push-action@v7.2.0
         with:
           context: .
           push: true

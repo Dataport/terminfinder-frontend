@@ -81,7 +81,7 @@
     "concurrently": "9.2.1",
     "cors": "2.8.6",
     "cypress": "15.15",
-    "dayjs": "1.11.20",
+    "dayjs": "1.11.21",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",

@@ -1,6 +1,6 @@
 /// <reference types="@angular/localize" />
 
-import { isDevMode, LOCALE_ID, importProvidersFrom } from '@angular/core';
+import { isDevMode, LOCALE_ID, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { appRoutes, createTranslateLoader } from './app/app.module';
 import { environment } from './environments/environment';
 import { LogLevel } from './app/shared/services/logging/logLevel';
@@ -40,6 +40,7 @@ if (!environment.apiBaseUrl) {
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideZoneChangeDetection(),
     importProvidersFrom(
       BrowserModule,
       FormsModule,

@@ -34,8 +34,6 @@ export class AppComponent implements OnInit {
   private titleService = inject(Title);
   private localStorageService = inject(LocalStorageService);
   private colorsService = inject(ColorsService);
-  private stringTransformService = inject(StringTransformService);
-
   protected readonly NullableUtils = NullableUtils;
 
   connectionError = false;

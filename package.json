@@ -78,7 +78,7 @@
     "@typescript-eslint/eslint-plugin": "8.60.0",
     "@typescript-eslint/parser": "8.60.0",
     "btoa": "1.2.1",
-    "concurrently": "9.2.1",
+    "concurrently": "10.0.0",
     "cors": "2.8.6",
     "cypress": "15.16",
     "dayjs": "1.11.21",

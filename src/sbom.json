@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:b5f80ba9-412e-49e7-80f7-7815c463805a",
+  "serialNumber": "urn:uuid:a2c9ecec-fb99-4088-bbbd-2343c8415a4c",
   "metadata": {
-    "timestamp": "2026-06-02T13:26:09.850Z",
+    "timestamp": "2026-06-09T00:07:38.426Z",
     "tools": {
       "components": [
         {
@@ -860,8 +860,8 @@
     {
       "type": "library",
       "name": "calendar-link",
-      "version": "2.11.2",
-      "bom-ref": "terminfinder@0.0.0|calendar-link@2.11.2",
+      "version": "2.11.3",
+      "bom-ref": "terminfinder@0.0.0|calendar-link@2.11.3",
       "author": "Anand Chowdhary",
       "description": "📅 Calendar link generator for popular services, like Google, Outlook, and Yahoo.",
       "licenses": [
@@ -872,7 +872,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/calendar-link@2.11.2",
+      "purl": "pkg:npm/calendar-link@2.11.3",
       "externalReferences": [
         {
           "url": "git+https://github.com/AnandChowdhary/calendar-link.git",
@@ -890,12 +890,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/calendar-link/-/calendar-link-2.11.2.tgz",
+          "url": "https://registry.npmjs.org/calendar-link/-/calendar-link-2.11.3.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "1e5b8c28f9eb1622a8b00cb532c7c4546eb6e5b97f9f0218d49b27d48ae51d1f4c5fddbe5e377329ec8098e6343f0d7731dd05bb80c09b35dd34dd8a747f8156"
+              "content": "50ec7e96a26e74b872cf7fd4772029355f3e61f35147f71eaf2b22a8520db1e1bb732f28276dfc5b2f16079eb956e40696f33a53c475671efc0a4c7a27a95529"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5550,7 +5550,7 @@
         "terminfinder@0.0.0|@ngx-translate/http-loader@16.0.1",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|bootstrap@5.3.8",
-        "terminfinder@0.0.0|calendar-link@2.11.2",
+        "terminfinder@0.0.0|calendar-link@2.11.3",
         "terminfinder@0.0.0|core-js@3.49.0",
         "terminfinder@0.0.0|dompurify@3.4.6",
         "terminfinder@0.0.0|moment@2.30.1",
@@ -5686,7 +5686,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|calendar-link@2.11.2",
+      "ref": "terminfinder@0.0.0|calendar-link@2.11.3",
       "dependsOn": [
         "terminfinder@0.0.0|dayjs@1.11.21"
       ]

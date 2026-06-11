@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:b5f80ba9-412e-49e7-80f7-7815c463805a",
+  "serialNumber": "urn:uuid:3fb13843-705d-4bf0-8904-8fad5e427f57",
   "metadata": {
-    "timestamp": "2026-06-02T13:26:09.850Z",
+    "timestamp": "2026-06-11T00:06:16.714Z",
     "tools": {
       "components": [
         {
@@ -112,8 +112,8 @@
       "type": "library",
       "name": "architect",
       "group": "@angular-devkit",
-      "version": "0.2102.13",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.13",
+      "version": "0.2200.0",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0",
       "author": "Angular Authors",
       "description": "Angular Build Facade",
       "licenses": [
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/architect@0.2102.13",
+      "purl": "pkg:npm/%40angular-devkit/architect@0.2200.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -142,12 +142,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2102.13.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2200.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "7e17b28b480fc7a6fbb53f9643e78f973746a8a8cf2d42bbdb083967da6456d439f9537ff3207d9a54659a88af9e077615e346f7031e3729d664663272739657"
+              "content": "3c07e72913360bb7abd8fc009122ef930fc0b673114dc99d1baa4eadbdc37bef9e553b8378d0ae62c22aaf282f905125ae9b0c1dc9c00304cdb6fc8c76cf1bfb"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -157,6 +157,111 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/architect"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "core",
+          "group": "@angular-devkit",
+          "version": "22.0.0",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0|@angular-devkit/core@22.0.0",
+          "author": "Angular Authors",
+          "description": "Angular DevKit - Core Utility Library",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/%40angular-devkit/core@22.0.0",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/angular/angular-cli.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-22.0.0.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "18211a964175eeeca05e78c73727885ae4f39b5e930e584d2c7b316de61e252278f1a9f09198ac2ff2fea05cc49a0f011aac78f273068f61157b827c003ad29e"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/@angular-devkit/core"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "ajv",
+          "version": "8.20.0",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0|ajv@8.20.0",
+          "author": "Evgeny Poberezkin",
+          "description": "Another JSON Schema Validator",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/ajv@8.20.0",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/ajv-validator/ajv.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://ajv.js.org",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/ajv-validator/ajv/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "4e16e58be3a53a3fa230f60505505f2773a60809da4b2367e0cd6fcfd4fa1a46b926df5b6bf1c8479ea3a32eb9b58ea4c7f142179557341f35f58eff194ac118"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/ajv"
+            }
+          ]
         }
       ]
     },
@@ -1264,58 +1369,6 @@
     },
     {
       "type": "library",
-      "name": "core",
-      "group": "@angular-devkit",
-      "version": "21.2.13",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.13",
-      "author": "Angular Authors",
-      "description": "Angular DevKit - Core Utility Library",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40angular-devkit/core@21.2.13",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/angular/angular-cli.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-21.2.13.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "f632da1dc52be81ba6218f670ac0626f5abada9db9f677fefa07768a0609ee62e6d70ff4c0469cb19d5c0bcc021847babf1f1af83ac3f8454243ace2bde3c6d8"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@angular-devkit/core"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "tslib",
       "version": "2.8.1",
       "bom-ref": "terminfinder@0.0.0|tslib@2.8.1",
@@ -2082,57 +2135,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/ajv-formats"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "ajv",
-      "version": "8.18.0",
-      "bom-ref": "terminfinder@0.0.0|ajv@8.18.0",
-      "author": "Evgeny Poberezkin",
-      "description": "Another JSON Schema Validator",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ajv@8.18.0",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/ajv-validator/ajv.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://ajv.js.org",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/ajv-validator/ajv/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "3e55cf78458c5cc67bb0f60e1ea983c8227371f36b52bddf18d2ad7b35f5e3291738422fc8af3577eab2771f3d298e4eef514a30f690daf05f04523934747adc"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/ajv"
         }
       ]
     },
@@ -4046,6 +4048,57 @@
     },
     {
       "type": "library",
+      "name": "ajv",
+      "version": "8.18.0",
+      "bom-ref": "terminfinder@0.0.0|ajv@8.18.0",
+      "author": "Evgeny Poberezkin",
+      "description": "Another JSON Schema Validator",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ajv@8.18.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/ajv-validator/ajv.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://ajv.js.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ajv-validator/ajv/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3e55cf78458c5cc67bb0f60e1ea983c8227371f36b52bddf18d2ad7b35f5e3291738422fc8af3577eab2771f3d298e4eef514a30f690daf05f04523934747adc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ajv"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "fast-deep-equal",
       "version": "3.1.3",
       "bom-ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3",
@@ -5535,7 +5588,7 @@
     {
       "ref": "terminfinder@0.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/architect@0.2102.13",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0",
         "terminfinder@0.0.0|@angular/animations@21.2.15",
         "terminfinder@0.0.0|@angular/common@21.2.15",
         "terminfinder@0.0.0|@angular/compiler@21.2.15",
@@ -5561,10 +5614,31 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.13",
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/core@21.2.13",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0|@angular-devkit/core@22.0.0",
         "terminfinder@0.0.0|rxjs@7.8.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0|@angular-devkit/core@22.0.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|ajv-formats@3.0.1",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0|ajv@8.20.0",
+        "terminfinder@0.0.0|chokidar@5.0.0",
+        "terminfinder@0.0.0|jsonc-parser@3.3.1",
+        "terminfinder@0.0.0|picomatch@4.0.4",
+        "terminfinder@0.0.0|rxjs@7.8.2",
+        "terminfinder@0.0.0|source-map@0.7.6"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2200.0|ajv@8.20.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|fast-deep-equal@3.1.3",
+        "terminfinder@0.0.0|fast-uri@3.1.2",
+        "terminfinder@0.0.0|json-schema-traverse@1.0.0",
+        "terminfinder@0.0.0|require-from-string@2.0.2"
       ]
     },
     {
@@ -5731,18 +5805,6 @@
       "ref": "terminfinder@0.0.0|zone.js@0.15.1"
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.13",
-      "dependsOn": [
-        "terminfinder@0.0.0|ajv-formats@3.0.1",
-        "terminfinder@0.0.0|ajv@8.18.0",
-        "terminfinder@0.0.0|chokidar@5.0.0",
-        "terminfinder@0.0.0|jsonc-parser@3.3.1",
-        "terminfinder@0.0.0|picomatch@4.0.4",
-        "terminfinder@0.0.0|rxjs@7.8.2",
-        "terminfinder@0.0.0|source-map@0.7.6"
-      ]
-    },
-    {
       "ref": "terminfinder@0.0.0|tslib@2.8.1"
     },
     {
@@ -5846,15 +5908,6 @@
       "ref": "terminfinder@0.0.0|ajv-formats@3.0.1",
       "dependsOn": [
         "terminfinder@0.0.0|ajv@8.18.0"
-      ]
-    },
-    {
-      "ref": "terminfinder@0.0.0|ajv@8.18.0",
-      "dependsOn": [
-        "terminfinder@0.0.0|fast-deep-equal@3.1.3",
-        "terminfinder@0.0.0|fast-uri@3.1.2",
-        "terminfinder@0.0.0|json-schema-traverse@1.0.0",
-        "terminfinder@0.0.0|require-from-string@2.0.2"
       ]
     },
     {
@@ -6062,6 +6115,15 @@
     },
     {
       "ref": "terminfinder@0.0.0|yargs-parser@22.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|ajv@8.18.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|fast-deep-equal@3.1.3",
+        "terminfinder@0.0.0|fast-uri@3.1.2",
+        "terminfinder@0.0.0|json-schema-traverse@1.0.0",
+        "terminfinder@0.0.0|require-from-string@2.0.2"
+      ]
     },
     {
       "ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3"

@@ -39,7 +39,7 @@
     "@angular/common": "21.2.15",
     "@angular/compiler": "21.2.15",
     "@angular/core": "21.2.15",
-    "@angular/forms": "21.2.15",
+    "@angular/forms": "22.0.0",
     "@angular/localize": "21.2.15",
     "@angular/platform-browser": "21.2.15",
     "@angular/platform-browser-dynamic": "21.2.15",

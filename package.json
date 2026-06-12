@@ -94,7 +94,7 @@
     "ngx-translate-testing": "7.0.0",
     "prettier": "3.8.3",
     "prettier-eslint": "16.4.2",
-    "prettier-plugin-multiline-arrays": "4.1.8",
+    "prettier-plugin-multiline-arrays": "4.1.9",
     "typescript": "5.9.3",
     "typescript-eslint": "8.60.0",
     "uuid": "14.0.0"

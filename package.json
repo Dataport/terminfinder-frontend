@@ -67,7 +67,7 @@
     "@angular-eslint/template-parser": "21.4.0",
     "@angular/cli": "21.2.13",
     "@angular/compiler-cli": "21.2.15",
-    "@angular/language-service": "21.2.15",
+    "@angular/language-service": "22.0.0",
     "@cyclonedx/cyclonedx-npm": "4.2.1",
     "@cypress/schematic": "5.0.0",
     "@fortawesome/fontawesome-free": "7.2.0",

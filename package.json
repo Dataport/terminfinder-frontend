@@ -91,7 +91,6 @@
     "http-server": "14.1.1",
     "jest": "30.4.2",
     "jest-environment-jsdom": "30.4.1",
-    "ngx-translate-testing": "7.0.0",
     "prettier": "3.8.3",
     "prettier-eslint": "16.4.2",
     "prettier-plugin-multiline-arrays": "4.1.8",

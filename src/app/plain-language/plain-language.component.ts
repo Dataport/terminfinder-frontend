@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Location, NgOptimizedImage } from '@angular/common';
 import { RouteTitleService } from '../shared/services/route-title.service';
 
 @Component({
   selector: 'app-plain-language',
   imports: [
-    TranslateModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    TranslatePipe
   ],
   template: `
     <div class="d-flex flex-column px-4">

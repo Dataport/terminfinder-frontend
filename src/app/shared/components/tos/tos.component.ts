@@ -1,8 +1,8 @@
 import { Component, input } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { CheckboxFieldComponent } from '../checkbox-field/checkbox-field.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-tos',
@@ -12,7 +12,7 @@ import { CheckboxFieldComponent } from '../checkbox-field/checkbox-field.compone
     CheckboxFieldComponent,
     ReactiveFormsModule,
     RouterLink,
-    TranslateModule
+    TranslatePipe
   ]
 })
 export class TosComponent {

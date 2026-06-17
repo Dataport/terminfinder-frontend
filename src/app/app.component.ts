@@ -13,7 +13,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { ComboboxComponent } from './shared/components/combobox/combobox.component';
 import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +31,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
   localeService = inject(LocaleService);
+  translateService = inject(TranslateService);
   private logger = inject(Logger);
   private titleService = inject(Title);
   private localStorageService = inject(LocalStorageService);
@@ -49,9 +50,10 @@ export class AppComponent implements OnInit {
     const lang = this.localStorageService.get('language');
     this.logger.debug('LANG: ', lang);
 
-    this.localeService.initLanguage(lang).subscribe({
-      error: () => {
-        this.connectionError = true;
+    this.localeService.initLanguage(lang);
+    this.translateService.onLangChange.subscribe({
+      next: (lang) => {
+        this.connectionError = Object.keys(lang.translations).length == 0;
       }
     });
 

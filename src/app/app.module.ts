@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
@@ -28,7 +27,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AppointmentResolverService } from './shared/services/resolver/appointment-resolver.service';
 import { ImprintComponent } from './juristic/imprint/imprint.component';
 import { AccessibilityComponent } from './juristic/accessibility/accessibility.component';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 import { BomComponent } from './juristic/bom/bom.component';
 import { PrivacyComponent } from './juristic/privacy/privacy.component';
@@ -157,7 +155,3 @@ export const appRoutes: Routes = [
 ];
 
 registerLocaleData(localeDe, environment.locale);
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './locales/', '.json');
-}

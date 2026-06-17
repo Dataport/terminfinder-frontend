@@ -18,8 +18,8 @@ export interface Locale {
 
 @Injectable({ providedIn: 'root' })
 export class LocaleService {
-  private translateService = inject(TranslateService);
-  private localStorageService = inject(LocalStorageService);
+  private readonly translateService = inject(TranslateService);
+  private readonly localStorageService = inject(LocalStorageService);
 
   private readonly DEFAULT_LOCALE: string = 'de-DE';
 
@@ -84,9 +84,9 @@ export class LocaleService {
 
   initLanguage(lang: string) {
     if (!NullableUtils.isStringNullOrWhitespace(lang)) {
-      return this.changeLanguage(lang);
+      this.changeLanguage(lang);
     } else {
-      return this.changeLanguage(navigator.language);
+      this.changeLanguage(navigator.language);
     }
   }
 
@@ -100,7 +100,7 @@ export class LocaleService {
     moment.locale(this._locale.languageCode);
     document.querySelector('html')?.setAttribute('lang', this.getIsoLanguageCode());
 
-    return this.translateService.use(this.getLanguageCodeWithAddressing());
+    this.translateService.use(this.getLanguageCodeWithAddressing());
   }
 
   getLanguageCodeWithAddressing() {

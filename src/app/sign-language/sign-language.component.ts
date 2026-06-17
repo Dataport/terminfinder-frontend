@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Location, NgOptimizedImage } from '@angular/common';
 import { RouteTitleService } from '../shared/services/route-title.service';
 import { VideoPlayerComponent } from '../shared/components/video-player/video-player.component';
@@ -7,9 +7,9 @@ import { VideoPlayerComponent } from '../shared/components/video-player/video-pl
 @Component({
   selector: 'app-sign-language',
   imports: [
-    TranslateModule,
     NgOptimizedImage,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    TranslatePipe
   ],
   template: `
     <div class="d-flex flex-column px-4">

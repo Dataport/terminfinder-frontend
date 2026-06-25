@@ -92,7 +92,7 @@
     "jest": "30.4.2",
     "jest-environment-jsdom": "30.4.1",
     "prettier": "3.8.3",
-    "prettier-eslint": "17.0.1",
+    "prettier-eslint": "17.1.0",
     "prettier-plugin-multiline-arrays": "4.1.8",
     "typescript": "5.9.3",
     "typescript-eslint": "8.61.1",

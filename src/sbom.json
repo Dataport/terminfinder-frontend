@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:4b5d743d-5f4a-4a13-856a-90eb5236db55",
+  "serialNumber": "urn:uuid:285bdaf6-ed38-4642-b7ba-4a93ab222a9b",
   "metadata": {
-    "timestamp": "2026-06-22T05:21:44.598Z",
+    "timestamp": "2026-06-25T00:05:37.123Z",
     "tools": {
       "components": [
         {
@@ -112,8 +112,8 @@
       "type": "library",
       "name": "architect",
       "group": "@angular-devkit",
-      "version": "0.2102.15",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.15",
+      "version": "0.2102.16",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.16",
       "author": "Angular Authors",
       "description": "Angular Build Facade",
       "licenses": [
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/architect@0.2102.15",
+      "purl": "pkg:npm/%40angular-devkit/architect@0.2102.16",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -142,12 +142,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2102.15.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2102.16.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "119417bba8fb27b394c66a7120eda6c5de7c3539426fb1ce00e7cb2c6764ee545cc19782c678c64736fbdad5e52602048b7228398c1c5b47edd9c83baff77aa8"
+              "content": "14350a3e9abbd2727018ae022023c3df55e67ac0441afe7b67e24108f5ab4dae6655921709091ea39c1a21a35fcc09cb75ba5def850b249dcc0cd56de2268666"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1281,8 +1281,8 @@
       "type": "library",
       "name": "core",
       "group": "@angular-devkit",
-      "version": "21.2.15",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.15",
+      "version": "21.2.16",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.16",
       "author": "Angular Authors",
       "description": "Angular DevKit - Core Utility Library",
       "licenses": [
@@ -1293,7 +1293,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/core@21.2.15",
+      "purl": "pkg:npm/%40angular-devkit/core@21.2.16",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -1311,12 +1311,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-21.2.15.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-21.2.16.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "c7b130b90b4c18700d5739c7a70c848bfde5328fe44686b1576c3b9576d11a34decf0bf848f68e07086b20609b01516ce41d7389f7f88d9ce8aece28c2509382"
+              "content": "6d1a2dd1daa89f1752b86cd7c8e62d5498acfeef4227272b7c2fda6b12de305dfb80ab56232091d8a1643115c0a2257f00a939fcdbaea8336a7104bdc391b716"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5550,7 +5550,7 @@
     {
       "ref": "terminfinder@0.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/architect@0.2102.15",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2102.16",
         "terminfinder@0.0.0|@angular/animations@21.2.17",
         "terminfinder@0.0.0|@angular/common@21.2.17",
         "terminfinder@0.0.0|@angular/compiler@21.2.17",
@@ -5576,9 +5576,9 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.15",
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.16",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/core@21.2.15",
+        "terminfinder@0.0.0|@angular-devkit/core@21.2.16",
         "terminfinder@0.0.0|rxjs@7.8.2"
       ]
     },
@@ -5748,7 +5748,7 @@
       "ref": "terminfinder@0.0.0|zone.js@0.15.1"
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.15",
+      "ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.16",
       "dependsOn": [
         "terminfinder@0.0.0|ajv-formats@3.0.1",
         "terminfinder@0.0.0|ajv@8.18.0",

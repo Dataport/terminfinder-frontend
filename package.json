@@ -74,8 +74,8 @@
     "@stylistic/eslint-plugin": "5.10.0",
     "@types/jest": "30.0.0",
     "@types/node": "26.0.0",
-    "@typescript-eslint/eslint-plugin": "8.61.1",
-    "@typescript-eslint/parser": "8.61.1",
+    "@typescript-eslint/eslint-plugin": "8.62.0",
+    "@typescript-eslint/parser": "8.62.0",
     "btoa": "1.2.1",
     "cors": "2.8.6",
     "cypress": "15.17",
@@ -95,7 +95,7 @@
     "prettier-eslint": "17.0.1",
     "prettier-plugin-multiline-arrays": "4.1.8",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.61.1",
+    "typescript-eslint": "8.62.0",
     "uuid": "14.0.0"
   },
   "allowScripts": {

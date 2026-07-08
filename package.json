@@ -91,7 +91,7 @@
     "http-server": "14.1.1",
     "jest": "30.4.2",
     "jest-environment-jsdom": "30.4.1",
-    "prettier": "3.9.3",
+    "prettier": "3.9.4",
     "prettier-eslint": "17.0.1",
     "prettier-plugin-multiline-arrays": "4.1.8",
     "typescript": "5.9.3",

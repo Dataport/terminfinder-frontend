@@ -34,7 +34,7 @@
     "node": "22.x || 24.x"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.2102.17",
+    "@angular-devkit/architect": "0.2102.18",
     "@angular/animations": "21.2.17",
     "@angular/common": "21.2.17",
     "@angular/compiler": "21.2.17",
@@ -65,7 +65,7 @@
     "@angular-eslint/eslint-plugin-template": "21.4.0",
     "@angular-eslint/schematics": "21.4.0",
     "@angular-eslint/template-parser": "21.4.0",
-    "@angular/cli": "21.2.17",
+    "@angular/cli": "21.2.18",
     "@angular/compiler-cli": "21.2.17",
     "@angular/language-service": "21.2.17",
     "@cyclonedx/cyclonedx-npm": "5.0.0",

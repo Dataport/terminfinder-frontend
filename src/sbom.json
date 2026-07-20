@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:ee4f1490-652b-45f9-a01a-d9799b0d3474",
+  "serialNumber": "urn:uuid:a9ddc593-3064-45fd-afde-fbfb3ae825df",
   "metadata": {
-    "timestamp": "2026-07-17T00:06:07.103Z",
+    "timestamp": "2026-07-20T00:06:03.266Z",
     "tools": {
       "components": [
         {
@@ -977,8 +977,8 @@
     {
       "type": "library",
       "name": "dompurify",
-      "version": "3.4.11",
-      "bom-ref": "terminfinder@0.0.0|dompurify@3.4.11",
+      "version": "3.4.12",
+      "bom-ref": "terminfinder@0.0.0|dompurify@3.4.12",
       "author": "Dr.-Ing. Mario Heiderich, Cure53",
       "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It runs as JavaScript and works in all modern browsers, as well as in Node.js (via jsdom). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
       "licenses": [
@@ -987,7 +987,7 @@
           "acknowledgement": "declared"
         }
       ],
-      "purl": "pkg:npm/dompurify@3.4.11",
+      "purl": "pkg:npm/dompurify@3.4.12",
       "externalReferences": [
         {
           "url": "git://github.com/cure53/DOMPurify.git",
@@ -1005,12 +1005,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.11.tgz",
+          "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.12.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "ce1954575d86b1a47332c7fdab9336e78621038f95b85d1f1be405aaee9a629a0694ab73fb0f3ffe305c195601810911e461e352899e8d8f38015fbfb8f6d677"
+              "content": "cd0bc67adf19dac59b4210a67c5cff4f94161f6a019a39ea2b7aaf3a36aa68d2eb2c417dd7659a994fa88674e9d1309ea7f305547a5d26e09911d14e7539c416"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5567,7 +5567,7 @@
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.2",
         "terminfinder@0.0.0|core-js@3.49.0",
-        "terminfinder@0.0.0|dompurify@3.4.11",
+        "terminfinder@0.0.0|dompurify@3.4.12",
         "terminfinder@0.0.0|moment@2.30.1",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
         "terminfinder@0.0.0|ngx-toastr@19.1.0",
@@ -5712,7 +5712,7 @@
       "ref": "terminfinder@0.0.0|core-js@3.49.0"
     },
     {
-      "ref": "terminfinder@0.0.0|dompurify@3.4.11",
+      "ref": "terminfinder@0.0.0|dompurify@3.4.12",
       "dependsOn": [
         "terminfinder@0.0.0|@types/trusted-types@2.0.7"
       ]

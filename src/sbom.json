@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:ee4f1490-652b-45f9-a01a-d9799b0d3474",
+  "serialNumber": "urn:uuid:f0009f34-a3a3-49fc-a642-56ca41b61466",
   "metadata": {
-    "timestamp": "2026-07-17T00:06:07.103Z",
+    "timestamp": "2026-07-22T09:45:43.079Z",
     "tools": {
       "components": [
         {
@@ -84,7 +84,7 @@
       "name": "terminfinder",
       "version": "0.0.0",
       "bom-ref": "terminfinder@0.0.0",
-      "author": "Copyright © 2022-2023 Dataport AöR",
+      "author": "Copyright © 2022-2026 Dataport AöR",
       "description": "Erstelle Umfragen und komme mit deinen Leuten auf einen Nenner!",
       "licenses": [
         {

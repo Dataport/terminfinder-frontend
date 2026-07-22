@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:f0009f34-a3a3-49fc-a642-56ca41b61466",
+  "serialNumber": "urn:uuid:c8ef386c-901e-47fd-8e97-f701eb5ef599",
   "metadata": {
-    "timestamp": "2026-07-22T09:45:43.079Z",
+    "timestamp": "2026-07-22T09:53:16.925Z",
     "tools": {
       "components": [
         {
@@ -4113,8 +4113,8 @@
     {
       "type": "library",
       "name": "fast-uri",
-      "version": "3.1.2",
-      "bom-ref": "terminfinder@0.0.0|fast-uri@3.1.2",
+      "version": "3.1.4",
+      "bom-ref": "terminfinder@0.0.0|fast-uri@3.1.4",
       "author": "Vincent Le Goff",
       "description": "Dependency-free RFC 3986 URI toolbox",
       "licenses": [
@@ -4125,7 +4125,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/fast-uri@3.1.2",
+      "purl": "pkg:npm/fast-uri@3.1.4",
       "externalReferences": [
         {
           "url": "git+https://github.com/fastify/fast-uri.git",
@@ -4143,12 +4143,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.2.tgz",
+          "url": "https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.4.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "ad58dfec0ac6dcb4e4f854ba630f355750cbb999756d16cdadebfa4e677ff516aba1e791449840b7b8e0ffa605c5bbc04175026af4a86613cf8faa0ec7ee4a8d"
+              "content": "f099db910e23b83caf62ce26805190aa0e32098b450ed52d9a9d90210ab5d5965ee42150e7072a9b5aea0e0021fd074cc92b819cfccc5222543591b937f02243"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5879,7 +5879,7 @@
       "ref": "terminfinder@0.0.0|ajv@8.18.0",
       "dependsOn": [
         "terminfinder@0.0.0|fast-deep-equal@3.1.3",
-        "terminfinder@0.0.0|fast-uri@3.1.2",
+        "terminfinder@0.0.0|fast-uri@3.1.4",
         "terminfinder@0.0.0|json-schema-traverse@1.0.0",
         "terminfinder@0.0.0|require-from-string@2.0.2"
       ]
@@ -6084,7 +6084,7 @@
       "ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3"
     },
     {
-      "ref": "terminfinder@0.0.0|fast-uri@3.1.2"
+      "ref": "terminfinder@0.0.0|fast-uri@3.1.4"
     },
     {
       "ref": "terminfinder@0.0.0|json-schema-traverse@1.0.0"

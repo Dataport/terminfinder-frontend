@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:3e16bc95-db37-43a5-afa5-997d8b0fcbed",
+  "serialNumber": "urn:uuid:4cf6044e-07a0-435d-9b69-e15c04d6e118",
   "metadata": {
-    "timestamp": "2026-08-17T07:29:06.269Z",
+    "timestamp": "2026-08-18T06:34:47.263Z",
     "tools": {
       "components": [
         {
@@ -926,8 +926,8 @@
     {
       "type": "library",
       "name": "core-js",
-      "version": "3.49.0",
-      "bom-ref": "terminfinder@0.0.0|core-js@3.49.0",
+      "version": "3.50.0",
+      "bom-ref": "terminfinder@0.0.0|core-js@3.50.0",
       "author": "Denis Pushkarev",
       "description": "Standard library",
       "licenses": [
@@ -938,7 +938,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/core-js@3.49.0",
+      "purl": "pkg:npm/core-js@3.50.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/zloirock/core-js.git#packages/core-js",
@@ -956,12 +956,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/core-js/-/core-js-3.49.0.tgz",
+          "url": "https://registry.npmjs.org/core-js/-/core-js-3.50.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "7acd54dbe613b73a7093154bc0015d4a968833241aab43c1826dd80f55b7429b27d4d0263b72928197eefa8192595bba36f2c7a07095fda61cb04e70881ec02e"
+              "content": "0515a038b2a415e0a046e751eb3aecf29f57259704d7882bcca30cb2ca18ae4ea4aedb8467b31328f218e51cce9eab0428847d92cb7bc0dce986db6b693f98ab"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5566,7 +5566,7 @@
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.2",
-        "terminfinder@0.0.0|core-js@3.49.0",
+        "terminfinder@0.0.0|core-js@3.50.0",
         "terminfinder@0.0.0|dompurify@3.4.13",
         "terminfinder@0.0.0|moment@2.30.1",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
@@ -5709,7 +5709,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|core-js@3.49.0"
+      "ref": "terminfinder@0.0.0|core-js@3.50.0"
     },
     {
       "ref": "terminfinder@0.0.0|dompurify@3.4.13",

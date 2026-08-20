@@ -34,7 +34,7 @@
     "node": "22.x || 24.x"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.2102.21",
+    "@angular-devkit/architect": "0.2201.3",
     "@angular/animations": "21.2.20",
     "@angular/common": "21.2.20",
     "@angular/compiler": "21.2.20",

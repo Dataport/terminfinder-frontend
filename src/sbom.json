@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:0774fb49-bd3b-4f68-b51f-1c932e4e42c7",
+  "serialNumber": "urn:uuid:a5090e66-e739-429b-8151-252ad0052960",
   "metadata": {
-    "timestamp": "2026-08-19T06:07:26.933Z",
+    "timestamp": "2026-08-25T00:05:59.793Z",
     "tools": {
       "components": [
         {
@@ -1950,8 +1950,8 @@
     {
       "type": "library",
       "name": "dayjs",
-      "version": "1.11.21",
-      "bom-ref": "terminfinder@0.0.0|dayjs@1.11.21",
+      "version": "1.11.23",
+      "bom-ref": "terminfinder@0.0.0|dayjs@1.11.23",
       "author": "iamkun",
       "description": "2KB immutable date time library alternative to Moment.js with the same modern API ",
       "licenses": [
@@ -1962,7 +1962,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/dayjs@1.11.21",
+      "purl": "pkg:npm/dayjs@1.11.23",
       "externalReferences": [
         {
           "url": "git+https://github.com/iamkun/dayjs.git",
@@ -1980,12 +1980,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/dayjs/-/dayjs-1.11.21.tgz",
+          "url": "https://registry.npmjs.org/dayjs/-/dayjs-1.11.23.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f7c213f8739a8408ac89bcffca329bcee381c1872327b0422cfcc04721e2c84066473e1f6ad17e28f26ccc41d7b06623506db7e1a1ff70e8d6d70c136ca51994"
+              "content": "4034c25343343314778507e794325fc1e91089a6a79b5b9b383db7d6eef758172443f7ec6a6c112e2136181cfa0f76bfc45d4d81f8832c98d705ad6160e613b5"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5705,7 +5705,7 @@
     {
       "ref": "terminfinder@0.0.0|calendar-link@2.11.2",
       "dependsOn": [
-        "terminfinder@0.0.0|dayjs@1.11.21"
+        "terminfinder@0.0.0|dayjs@1.11.23"
       ]
     },
     {
@@ -5856,7 +5856,7 @@
       "ref": "terminfinder@0.0.0|yargs@18.0.0|emoji-regex@10.6.0"
     },
     {
-      "ref": "terminfinder@0.0.0|dayjs@1.11.21"
+      "ref": "terminfinder@0.0.0|dayjs@1.11.23"
     },
     {
       "ref": "terminfinder@0.0.0|@types/trusted-types@2.0.7"

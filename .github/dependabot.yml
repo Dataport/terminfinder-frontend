@@ -24,6 +24,10 @@ updates:
         patterns:
           - "jest"
           - "jest-environment-jsdom"
+      cypress:
+        patterns:
+          - "cypress"
+          - "@cypress/schematics"
 
   - package-ecosystem: 'docker'
     directory: '/'

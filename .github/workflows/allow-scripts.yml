@@ -2,7 +2,7 @@ name: allow-scripts
 
 on:
   pull_request:
-    branches: [ 'main' ]
+    branches: [ 'main', 'dependencies' ]
     paths:
       - 'package.json'
       - 'package-lock.json'

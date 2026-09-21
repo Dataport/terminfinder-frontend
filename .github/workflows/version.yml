@@ -1,7 +1,7 @@
 name: version.yml
 on:
   pull_request:
-    branches: [ 'main' ]
+    branches: [ 'main', 'dependencies' ]
 
 permissions:
   contents: read

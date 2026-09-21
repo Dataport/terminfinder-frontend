@@ -1,0 +1,69 @@
+name: allow-scripts
+
+on:
+  pull_request:
+    branches: [ 'main' ]
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies without running scripts
+        run: npm ci --no-audit --no-fund --ignore-scripts --loglevel=error
+
+      - name: Refresh allowScripts block
+        run: npm approve-scripts --all
+
+      - name: Fail if package.json is stale
+        run: git diff --exit-code -- package.json
+
+  update:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies without running scripts
+        run: npm ci --no-audit --no-fund --ignore-scripts --loglevel=error
+
+      - name: Refresh allowScripts block
+        run: npm approve-scripts --all
+
+      - name: Commit updated allowScripts block
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet -- package.json; then
+            echo "allowScripts is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add package.json
+          git commit -m "chore: update allowScripts"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

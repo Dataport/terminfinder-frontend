@@ -1,0 +1,35 @@
+name: dependencies-status
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+permissions:
+  contents: read
+
+jobs:
+  dependencies-merged:
+    if: github.event.pull_request.head.ref != 'dependencies'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check dependencies branch
+        run: |
+          set -euo pipefail
+
+          git fetch origin main dependencies --no-tags
+
+          if ! git diff --quiet origin/main...origin/dependencies; then
+            echo "::error::The dependencies branch contains changes that are not merged into main."
+            echo "Merge dependencies into main before merging this pull request."
+            git diff --stat origin/main...origin/dependencies
+            exit 1
+          fi
+
+          echo "The dependencies branch has no unmerged effective changes."

@@ -2,6 +2,7 @@ version: 2
 updates:
   - package-ecosystem: 'npm'
     directory: '/'
+    target-branch: 'dependencies'
     schedule:
       interval: 'daily'
     assignees:
@@ -31,6 +32,7 @@ updates:
 
   - package-ecosystem: 'docker'
     directory: '/'
+    target-branch: 'dependencies'
     schedule:
       interval: weekly
       day: monday
@@ -39,6 +41,7 @@ updates:
 
   - package-ecosystem: 'github-actions'
     directory: '/'
+    target-branch: 'dependencies'
     schedule:
       interval: weekly
       day: monday

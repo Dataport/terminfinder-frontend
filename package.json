@@ -21,7 +21,7 @@
     "prebuild": "node --env-file=.env/.build.env prebuild.js",
     "prebuild-docker": "node --env-file=.env/.docker.env prebuild.js",
     "generate-sbom": "npx @cyclonedx/cyclonedx-npm --omit dev --omit optional --omit peer --output-file src/sbom.json",
-    "ci-cypress": "(npm run http-server &) && (npx cypress run --expose baseHref=http://localhost:4200,apiUrl=http://localhost:4200,customerId=22222222-2222-2222-2222-222222222222)",
+    "ci-cypress": "npx cypress run --expose baseHref=http://localhost:4200,apiUrl=http://localhost:4200,customerId=22222222-2222-2222-2222-222222222222",
     "http-server": "npx http-server dist/browser -c-1 -s -p 4200",
     "cy-verify": "npx cypress verify",
     "cy-info": "npx cypress info",

@@ -45,6 +45,7 @@ jobs:
         uses: cypress-io/github-action@v7
         with:
           start: npm run http-server
+          wait-on: http://localhost:4200
           command: npm run ci-cypress
       - name: Upload screenshots
         if: failure()

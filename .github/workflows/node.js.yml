@@ -9,6 +9,10 @@ on:
       - ".github/**"
       - "docs/**"
 
+concurrency:
+  group: node-js-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint-audit:
     permissions:

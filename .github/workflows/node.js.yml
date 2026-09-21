@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 24
           cache: 'npm'
-      - run: npm ci
+      - run: npm ci --no-audit --no-fund --loglevel=error
       - run: npm run lint
       - run: npm run test
       - run: npm audit --omit=dev
@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 24
           cache: 'npm'
-      - run: npm ci
+      - run: npm ci --no-audit --no-fund --loglevel=error
       - run: npm run build
         env:
           CUSTOMER_ID: '22222222-2222-2222-2222-222222222222'

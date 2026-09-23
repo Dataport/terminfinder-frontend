@@ -251,9 +251,7 @@
   },
   "errors": {
     "api": {
-      "0045": "Die Umfrage kann nicht mehr beantwortet werden, weil die Erstellerin oder der Ersteller sie in der Zwischenzeit pausiert hat.",
-      "0100": "Authentifizierung fehlgeschlagen.",
-      "contactOperator": "Die API hat den Fehlercode {{code}} gemeldet. Bitte informieren Sie den Betreiber.",
+      "contactOperator": "Die API hat den Fehlercode {{code}} gemeldet. Bitte kontaktiere den Betreiber.",
       "requestFailed": "Fehler beim Ermitteln der Daten von der API: {{error}}",
       "noInternet": "Bitte prüfe, ob du mit dem Internet verbunden bist und ob die API erreichbar ist.",
       "badRequest": "Die Anfrage ist ungültig (Statuscode: '{{status}}'). {{details}}",
@@ -262,7 +260,7 @@
       "notFound": "Die angeforderte {{resource}} existiert nicht (mehr).",
       "resource": "Ressource",
       "notAccepted": "Die API akzeptiert den gesendeten Media-Typ nicht.",
-      "client": "Die Anfrage ist ungültig (Statuscode: '{{status}}'). Bitte kontaktiere die Betreiber des Clients.",
+      "client": "Die Anfrage ist ungültig (Statuscode: '{{status}}'). Bitte kontaktiere den Betreiber.",
       "server": "Es ist ein interner Serverfehler bei der API aufgetreten.",
       "unexpectedStatus": "Die API hat den unerwarteten Statuscode '{{status}}' zurückgegeben.",
       "mediaType": "Die API hat den unerwarteten Media-Typ '{{mediaType}}' zurückgegeben.",

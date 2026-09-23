@@ -251,8 +251,6 @@
   },
   "errors": {
     "api": {
-      "0045": "This poll can no longer be answered because its creator paused it in the meantime.",
-      "0100": "Authentication failed.",
       "contactOperator": "The API reported error {{code}}: {{message}}. Please contact the provider.",
       "requestFailed": "Error while retrieving data from the API: {{error}}",
       "noInternet": "Please check your internet connection and whether the API is reachable.",

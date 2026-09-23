@@ -251,8 +251,6 @@
   },
   "errors": {
     "api": {
-      "0045": "Die Umfrage kann nicht mehr beantwortet werden, weil die Erstellerin oder der Ersteller sie in der Zwischenzeit pausiert hat.",
-      "0100": "Authentifizierung fehlgeschlagen.",
       "contactOperator": "Die API hat den Fehlercode {{code}} gemeldet. Bitte informieren Sie den Betreiber.",
       "requestFailed": "Fehler beim Ermitteln der Daten von der API: {{error}}",
       "noInternet": "Bitte prüfen sie, ob sie mit dem Internet verbunden sind und ob die API erreichbar ist.",

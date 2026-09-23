@@ -424,78 +424,79 @@ export class ApiDataService {
     let errorMsg: string;
     if (typeof error === 'string') {
       errorMsg = error;
-    } else if (error instanceof HttpErrorResponse) {
-      const res: HttpErrorResponse = error as HttpErrorResponse;
-
-      if (res.status === HttpConstants.HTTP_STATUS_NOINTERNETCON) {
-        errorMsg = this.translate.instant('errors.api.noInternet');
-      } else {
-        if (res.headers.has(HttpConstants.HTTP_HEADER_CONTENT_TYPE)) {
-          if (res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE).startsWith(this.apiMediaType)) {
-            const apiError: ApiError = res.error as ApiError;
-            const translatedApiError = this.getTranslatedApiError(apiError);
-
-            if (translatedApiError) {
-              errorMsg = translatedApiError;
-            } else if (res.status === HttpConstants.HTTP_STATUS_BADREQUEST) {
-              errorMsg = this.translate.instant('errors.api.badRequest', {
-                status: res.status,
-                details: NullableUtils.isObjectNullOrUndefined(apiError)
-                  ? ''
-                  : `${apiError.code} - ${apiError.message}`
-              });
-            } else if (res.status === HttpConstants.HTTP_STATUS_FORBIDDEN) {
-              errorMsg = this.translate.instant('errors.api.forbidden');
-            } else if (res.status === HttpConstants.HTTP_STATUS_UNAUTHORIZED) {
-              errorMsg = this.translate.instant('errors.api.unauthorized');
-            } else if (res.status === HttpConstants.HTTP_STATUS_NOTFOUND) {
-              errorMsg = this.translate.instant('errors.api.notFound', {
-                resource: resourceType ? resourceType : this.translate.instant('errors.api.resource')
-              });
-            } else if (res.status === HttpConstants.HTTP_STATUS_NOTACCEPTED) {
-              errorMsg = this.translate.instant('errors.api.notAccepted');
-            } else if (res.status >= 400 && res.status < 500) {
-              errorMsg = this.translate.instant('errors.api.client', { status: res.status });
-            } else if (res.status === HttpConstants.HTTP_STATUS_INTERNALSERVERERROR) {
-              errorMsg = this.translate.instant('errors.api.server');
-            } else {
-              errorMsg = this.translate.instant('errors.api.unexpectedStatus', { status: res.status });
-            }
-          } else {
-            errorMsg = this.translate.instant('errors.api.mediaType', {
-              mediaType: res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE)
-            });
-          }
-        } else {
-          errorMsg = this.translate.instant('errors.api.missingContentType');
-        }
-      }
-      this.logger.warn(`Body der Antwort:`, res.error);
-    } else if (error instanceof TimeoutError) {
-      // noinspection SuspiciousInstanceOfGuard
-      errorMsg = this.translate.instant('errors.api.timeout', { seconds: this.requestTimeoutInSeconds });
-    } else if (error instanceof Error) {
-      // noinspection SuspiciousInstanceOfGuard
-      const res: Error = error as Error;
-      errorMsg = this.translate.instant('errors.api.unexpected', { error: res.message });
-    } else {
-      errorMsg = this.translate.instant('errors.api.unexpected', { error: JSON.stringify(error) });
+      return Promise.reject(new Error(errorMsg));
     }
 
-    return Promise.reject(errorMsg);
+    switch (error.constructor) {
+      case HttpErrorResponse:
+        errorMsg = this.getErrorMessageForHttpErrorResponse(error, resourceType);
+        break;
+      case TimeoutError:
+        errorMsg = this.translate.instant('errors.api.timeout', { seconds: this.requestTimeoutInSeconds });
+        break;
+      case Error: {
+        const res: Error = error as Error;
+        errorMsg = this.translate.instant('errors.api.unexpected', { error: res.message });
+        break;
+      }
+      default:
+        errorMsg = this.translate.instant('errors.api.unexpected', { error: JSON.stringify(error) });
+    }
+
+    return Promise.reject(new Error(errorMsg));
   }
 
-  private getTranslatedApiError(apiError: ApiError): string | null {
-    if (NullableUtils.isObjectNullOrUndefined(apiError) || NullableUtils.isStringNullOrWhitespace(apiError.code)) {
-      return null;
+  private getErrorMessageForHttpErrorResponse(res: HttpErrorResponse, resourceType?: string) {
+    if (res.status === HttpConstants.HTTP_STATUS_NOINTERNETCON) {
+      return this.translate.instant('errors.api.noInternet');
     }
 
-    const key = `errors.api.${apiError.code}`;
-    const translated = this.translate.instant(key);
-    if (translated !== key) {
-      return translated;
+    this.logger.warn(`Body der Antwort:`, res.error);
+
+    if (!res.headers.has(HttpConstants.HTTP_HEADER_CONTENT_TYPE)) {
+      return this.translate.instant('errors.api.missingContentType');
     }
 
-    return this.translate.instant('errors.api.contactOperator', { code: apiError.code });
+    if (!res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE).startsWith(this.apiMediaType)) {
+      return this.translate.instant('errors.api.mediaType', {
+        mediaType: res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE)
+      });
+    }
+
+    let errorMsg: string;
+    const apiError: ApiError = res.error as ApiError;
+
+    switch (res.status) {
+      case HttpConstants.HTTP_STATUS_BADREQUEST:
+        errorMsg = this.translate.instant('errors.api.badRequest', {
+          status: res.status,
+          details: NullableUtils.isObjectNullOrUndefined(apiError) ? '' : `${apiError.code} - ${apiError.message}`
+        });
+        break;
+      case HttpConstants.HTTP_STATUS_FORBIDDEN:
+        errorMsg = this.translate.instant('errors.api.forbidden');
+        break;
+      case HttpConstants.HTTP_STATUS_UNAUTHORIZED:
+        errorMsg = this.translate.instant('errors.api.unauthorized');
+        break;
+      case HttpConstants.HTTP_STATUS_NOTFOUND:
+        errorMsg = this.translate.instant('errors.api.notFound', {
+          resource: resourceType ? resourceType : this.translate.instant('errors.api.resource')
+        });
+        break;
+      case HttpConstants.HTTP_STATUS_NOTACCEPTED:
+        errorMsg = this.translate.instant('errors.api.notAccepted');
+        break;
+      case HttpConstants.HTTP_STATUS_INTERNALSERVERERROR:
+        errorMsg = this.translate.instant('errors.api.server');
+        break;
+      default:
+        errorMsg =
+          res.status > 400 && res.status < 500
+            ? this.translate.instant('errors.api.client', { status: res.status })
+            : this.translate.instant('errors.api.unexpectedStatus', { status: res.status });
+    }
+
+    return errorMsg;
   }
 }

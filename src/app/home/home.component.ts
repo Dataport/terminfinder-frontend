@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
       })
       .catch((err: any) => {
         this.apiError = {
-          message: `Fehler beim Ermitteln der Daten von der API: ${err}`,
+          message: this.translate.instant('errors.api.requestFailed', { error: err }),
           messageType: MessageType.ERROR
         };
       });

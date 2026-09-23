@@ -16,7 +16,7 @@
     {{ notification.message }}
   </div>
 }
-@if (formHelper) {
+@if (formHelper && model) {
   <form [formGroup]="formHelper.pollForm" [attr.aria-label]="'poll.participate' | translate">
     <div class="row mx-md-3 mx-sm-1">
       <div class="col p-sm-2">

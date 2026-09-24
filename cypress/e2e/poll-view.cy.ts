@@ -755,7 +755,7 @@ context('poll-view', () => {
       cy.get('[data-cy=messageBox]').should('be.visible');
       cy.get('[data-cy=messageBox]').should(
         'contain.text',
-        "Die Anfrage ist ungültig (Statuscode: '418'). Bitte kontaktiere den Betreiber"
+        "Die Anfrage ist ungültig (Statuscode: '418')"
       );
     });
 

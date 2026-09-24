@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:04206c6d-769d-4f32-ab8e-b17afb102c4b",
+  "serialNumber": "urn:uuid:9263f9d3-1708-4efa-bb56-0dba35962781",
   "metadata": {
-    "timestamp": "2026-09-21T07:08:44.029Z",
+    "timestamp": "2026-09-24T07:57:14.610Z",
     "tools": {
       "components": [
         {
@@ -1026,9 +1026,8 @@
     {
       "type": "library",
       "name": "moment",
-      "version": "2.30.1",
-      "bom-ref": "terminfinder@0.0.0|moment@2.30.1",
-      "author": "Iskren Ivov Chernev",
+      "version": "2.31.0",
+      "bom-ref": "terminfinder@0.0.0|moment@2.31.0",
       "description": "Parse, validate, manipulate, and display dates",
       "licenses": [
         {
@@ -1038,7 +1037,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/moment@2.30.1",
+      "purl": "pkg:npm/moment@2.31.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/moment/moment.git",
@@ -1056,12 +1055,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/moment/-/moment-2.30.1.tgz",
+          "url": "https://registry.npmjs.org/moment/-/moment-2.31.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "b849ad3616c33ab58f152fa176314205fcbd7f6628cb3469c1c97e0eaa42ead697db5173b132d055b315fd6ecfccd497eb1fdb842d73037736510e4dcc7ea1a3"
+              "content": "d1a70e4df32258e85e612e1ea166fcd3260c6ff24bbd5bfd4876ecd8f7a1683cdf506d01c3ce7948aca4d082939cf19ae7e5366e68b75baf25d7eb062d7fe9bf"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5568,7 +5567,7 @@
         "terminfinder@0.0.0|calendar-link@2.11.2",
         "terminfinder@0.0.0|core-js@3.50.0",
         "terminfinder@0.0.0|dompurify@3.4.15",
-        "terminfinder@0.0.0|moment@2.30.1",
+        "terminfinder@0.0.0|moment@2.31.0",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
         "terminfinder@0.0.0|ngx-toastr@19.1.0",
         "terminfinder@0.0.0|rxjs@7.8.2",
@@ -5718,7 +5717,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|moment@2.30.1"
+      "ref": "terminfinder@0.0.0|moment@2.31.0"
     },
     {
       "ref": "terminfinder@0.0.0|ngx-clipboard@16.0.0",

@@ -25,10 +25,10 @@ jobs:
 
           git fetch origin main dependencies --no-tags
 
-          if ! git diff --quiet origin/main...origin/dependencies; then
+          if ! git diff --quiet origin/main..origin/dependencies; then
             echo "::error::The dependencies branch contains changes that are not merged into main."
             echo "Merge dependencies into main before merging this pull request."
-            git diff --stat origin/main...origin/dependencies
+            git diff --stat origin/main..origin/dependencies
             exit 1
           fi
 

@@ -136,40 +136,45 @@ export class PasswordRequiredGuard {
       ? this.dataRepositoryService.isAdminProtected(appointment.adminId)
       : this.dataRepositoryService.isAppointmentProtected(appointment.appointmentId);
 
-    return protectionFunction.then((data: AppointmentProtectionResult) => {
-      if (data.protected) {
-        this.appStateService.isAppointmentProtected = true;
-        if (NullableUtils.isStringNullOrWhitespace(this.appStateService.getCredentials())) {
-          this.router.navigate(['/password']).then();
-          return false;
-        }
-        // check the password
-        const passwordFunction: Promise<AppointmentPasswordValidationResult> = this.appStateService.isAdmin
-          ? this.dataRepositoryService.isAdminPasswordCorrect(appointment.adminId)
-          : this.dataRepositoryService.isPasswordCorrect(appointment.appointmentId);
-        return passwordFunction.then((correctResult: AppointmentPasswordValidationResult) => {
-          // if the password is wrong navigate back to the password page
-          if (!correctResult.passwordvalidation) {
-            // necessary to detect changes when repeatedly navigating to the same page
-            this.router.onSameUrlNavigation = 'reload';
-            this.router
-              // prettier-ignore
-              .navigate([
-                '/password',
-                { invalid: true }
-                // prettier-ignore
-              ])
-              .then();
+    return protectionFunction
+      .then((data: AppointmentProtectionResult) => {
+        if (data.protected) {
+          this.appStateService.isAppointmentProtected = true;
+          if (NullableUtils.isStringNullOrWhitespace(this.appStateService.getCredentials())) {
+            this.router.navigate(['/password']).then();
             return false;
-          } else {
-            return true;
           }
-        });
-      } else {
-        // always allow access for unprotected polls
+          // check the password
+          const passwordFunction: Promise<AppointmentPasswordValidationResult> = this.appStateService.isAdmin
+            ? this.dataRepositoryService.isAdminPasswordCorrect(appointment.adminId)
+            : this.dataRepositoryService.isPasswordCorrect(appointment.appointmentId);
+          return passwordFunction.then((correctResult: AppointmentPasswordValidationResult) => {
+            // if the password is wrong navigate back to the password page
+            if (!correctResult.passwordvalidation) {
+              // necessary to detect changes when repeatedly navigating to the same page
+              this.router.onSameUrlNavigation = 'reload';
+              this.router
+                // prettier-ignore
+                .navigate([
+                  '/password',
+                  { invalid: true }
+                  // prettier-ignore
+                ])
+                .then();
+              return false;
+            } else {
+              return true;
+            }
+          });
+        } else {
+          // always allow access for unprotected polls
+          return true;
+        }
+      })
+      .catch(() => {
+        // Let PollComponent load the resource and show its API error instead of cancelling navigation.
         return true;
-      }
-    });
+      });
   }
 
   private initAppointment(route: ActivatedRouteSnapshot): void {

@@ -579,4 +579,232 @@ context('poll-view', () => {
       );
     });
   });
+
+  describe('API error visible', () => {
+    it('wrong content type', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'dummy'
+          },
+          statusCode: 400
+        }
+      ).as('mediaType');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@mediaType');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should(
+        'contain.text',
+        "Die API hat den unerwarteten Media-Typ 'dummy' zurückgegeben"
+      );
+    });
+
+    it('400', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 400
+        }
+      ).as('badRequest');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@badRequest');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should('contain.text', "Die Anfrage ist ungültig (Statuscode: '400')");
+    });
+
+    it('401', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 401
+        }
+      ).as('forbidden');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@forbidden');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should('contain.text', 'Die verwendeten Zugangsdaten sind ungültig');
+    });
+
+    it('403', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 403
+        }
+      ).as('unauthorized');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@unauthorized');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should(
+        'contain.text',
+        'Der Benutzer konnte authentifiziert werden, besitzt aber nicht die nötigen Rechte'
+      );
+    });
+
+    it('404', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 404,
+          body: []
+        }
+      ).as('notFound');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@notFound');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should('contain.text', 'Die angeforderte Ressource existiert nicht (mehr)');
+    });
+
+    it('406', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 406
+        }
+      ).as('notAcceptable');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@notAcceptable');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should('contain.text', 'Die API akzeptiert den gesendeten Media-Typ nicht');
+    });
+
+    it('500', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 500
+        }
+      ).as('internalServerError');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@internalServerError');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should('contain.text', 'Es ist ein interner Serverfehler bei der API aufgetreten');
+    });
+
+    it('418', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 418
+        }
+      ).as('imATeapot');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@imATeapot');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should(
+        'contain.text',
+        "Die Anfrage ist ungültig (Statuscode: '418'). Bitte kontaktiere den Betreiber"
+      );
+    });
+
+    it('503', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        {
+          headers: {
+            'content-type': 'application/terminfinder.api-v1+json'
+          },
+          statusCode: 503
+        }
+      ).as('serviceUnavailable');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@serviceUnavailable');
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should(
+        'contain.text',
+        "Die API hat den unerwarteten Statuscode '503' zurückgegeben"
+      );
+    });
+
+    // Don't wait 20s on every CI run, check manually if needed
+    xit('timeout', () => {
+      cy.intercept(
+        {
+          method: 'GET',
+          url: getApiUrl(values.getAppointmentUrl)
+        },
+        (req) => {
+          req.headers['content-type'] = 'application/terminfinder.api-v1+json';
+          req.reply({
+            delay: 21 * 1000
+          });
+        }
+      ).as('timeoutApi');
+
+      cy.visit(getBaseHref(values.inviteLink));
+      cy.wait('@timeoutApi', {
+        timeout: 22 * 1000
+      });
+
+      cy.get('[data-cy=messageBox]').should('be.visible');
+      cy.get('[data-cy=messageBox]').should('contain.text', 'Die API hat nicht innerhalb von 20 Sekunden geantwortet');
+    });
+  });
 });

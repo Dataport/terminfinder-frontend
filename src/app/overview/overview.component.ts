@@ -13,7 +13,7 @@ import { AppointmentSummaryComponent } from '../shared/components/appointment-su
 import { DatesOverviewComponent } from '../shared/components/dates-overview/dates-overview.component';
 import { MessageBoxComponent } from '../shared/components/message-box/message-box.component';
 import { NavigationComponent } from '../shared/components/navigation/navigation.component';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-overview',
@@ -34,6 +34,7 @@ export class OverviewComponent implements OnInit {
   private router = inject(Router);
   private logger = inject(Logger);
   private routeTitle = inject(RouteTitleService);
+  private translate = inject(TranslateService);
 
   model: Appointment;
   apiError: Message;
@@ -68,7 +69,7 @@ export class OverviewComponent implements OnInit {
       })
       .catch((err: any) => {
         this.apiError = {
-          message: `Fehler beim Ermitteln der Daten von der API: ${err}`,
+          message: this.translate.instant('errors.api.requestFailed', { error: err }),
           messageType: MessageType.ERROR
         };
       });
@@ -93,7 +94,7 @@ export class OverviewComponent implements OnInit {
       })
       .catch((err: any) => {
         this.apiError = {
-          message: `Fehler beim Ermitteln der Daten von der API: ${err}`,
+          message: this.translate.instant('errors.api.requestFailed', { error: err }),
           messageType: MessageType.ERROR
         };
       });

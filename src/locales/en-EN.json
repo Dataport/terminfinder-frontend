@@ -249,6 +249,26 @@
     "repeat": "Repeat password",
     "noMatch": "The entered passwords do not match."
   },
+  "errors": {
+    "api": {
+      "contactOperator": "The API reported error {{code}}: {{message}}. Please contact the provider.",
+      "requestFailed": "Error while retrieving data from the API: {{error}}",
+      "noInternet": "Please check your internet connection and whether the API is reachable.",
+      "badRequest": "The request is invalid (status code: '{{status}}'). {{details}}",
+      "forbidden": "The provided credentials are invalid.",
+      "unauthorized": "The user was authenticated but does not have the required permissions.",
+      "notFound": "The requested {{resource}} does not exist anymore.",
+      "resource": "resource",
+      "notAccepted": "The API does not accept the submitted media type.",
+      "client": "The request is invalid (status code: '{{status}}'). Please contact the provider.",
+      "server": "An internal API server error occurred.",
+      "unexpectedStatus": "The API returned the unexpected status code '{{status}}'.",
+      "mediaType": "The API returned the unexpected media type '{{mediaType}}'.",
+      "missingContentType": "The API response does not contain a media type.",
+      "timeout": "The API did not respond within {{seconds}} seconds.",
+      "unexpected": "An unexpected error occurred while requesting the API: {{error}}"
+    }
+  },
   "participant": {
     "participants": "Participants",
     "select": "Select participant",

@@ -16,6 +16,7 @@ import {
 import { Logger } from '../logging';
 import { AppointmentPasswordValidationResult } from '../../models/api-data-v1-dto/appointmentPasswordValidationResult';
 import { timeout } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class ApiDataService {
   private appState = inject(AppStateService);
   private logger = inject(Logger);
   private localeId = inject(LOCALE_ID);
+  private translate = inject(TranslateService);
 
   private readonly apiMediaType: string;
   private readonly apiBaseUrl: string;
@@ -418,78 +420,83 @@ export class ApiDataService {
     this.logger.warn(`Angefragte URL: ${requestedUrl}`);
     this.logger.warn(`Body der Anfrage:`, payloadOfRequest);
     this.logger.warn(`Fehlermeldung:`, error);
+
     let errorMsg: string;
     if (typeof error === 'string') {
       errorMsg = error;
-    } else if (error instanceof HttpErrorResponse) {
-      const res: HttpErrorResponse = error as HttpErrorResponse;
-      if (res.status === HttpConstants.HTTP_STATUS_NOINTERNETCON) {
-        errorMsg = 'Bitte prüfe ob du mit dem Internet verbunden bist und ob die API erreichbar ist.';
-      } else {
-        if (res.headers.has(HttpConstants.HTTP_HEADER_CONTENT_TYPE)) {
-          if (res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE).startsWith(this.apiMediaType)) {
-            const apiError: ApiError = res.error as ApiError;
-            if (res.status === HttpConstants.HTTP_STATUS_BADREQUEST) {
-              if (apiError.code === '0063') {
-                errorMsg =
-                  'Die Umfrage kann nicht mehr beantwortet werden, ' +
-                  'weil die Erstellerin oder der Ersteller sie in der Zwischenzeit pausiert hat.';
-              } else {
-                errorMsg =
-                  `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}').` +
-                  `Wenn es sich deiner Meinung nach um einen clientseitigen Fehler handelt, ` +
-                  'leite die folgende Fehlermeldung bitte an die Betreuer des Clients weiter: ' +
-                  (NullableUtils.isObjectNullOrUndefined(apiError) ? '' : `${apiError.code} - ${apiError.message}`);
-              }
-            } else if (res.status === HttpConstants.HTTP_STATUS_FORBIDDEN) {
-              errorMsg = 'Die verwendeten Zugangsdaten sind ungültig.';
-            } else if (res.status === HttpConstants.HTTP_STATUS_UNAUTHORIZED) {
-              errorMsg =
-                'Der Benutzer konnte authentifiziert werden, aber besitzt nicht die nötigen Rechte zur Ausführung der Operation. ' +
-                'Bitte wende Dich ggf. an den Betreuer der API zur Behebung des Problems.';
-            } else if (res.status === HttpConstants.HTTP_STATUS_NOTFOUND) {
-              errorMsg = 'Die angeforderte ' + (resourceType ? resourceType : 'Ressource') + ' existiert nicht (mehr).';
-            } else if (res.status === HttpConstants.HTTP_STATUS_NOTACCEPTED) {
-              errorMsg =
-                'Die API akzeptiert die Anfrage mit dem gesendeten Media-Typ nicht. ' +
-                'Bitte wende Dich ggf. an die Betreuer des Clients zur Behebung des Problems.';
-            } else if (res.status >= 400 && res.status < 500) {
-              errorMsg =
-                `Die Anfrage, die der Client gesendet hat, ist ungültig (Statuscode: '${res.status}'). ` +
-                'Bitte kontaktiere die Betreuer des Clients.';
-            } else if (res.status === HttpConstants.HTTP_STATUS_INTERNALSERVERERROR) {
-              errorMsg =
-                'Es ist ein interner Serverfehler bei der API aufgetreten. ' +
-                'Bitte wende Dich an den Betreuer der API zur Behebung des Problems.';
-            } else {
-              errorMsg =
-                `Es ist ein unerwarteter Statuscode '${res.status}' von der API zurück gegeben worden. ` +
-                'Bitte kontaktiere die Betreuer des Clients.';
-            }
-          } else {
-            errorMsg =
-              `Es ist ein unerwarteter Media-Typ '${res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE)}' ` +
-              'in der Antwort von der API zurück gegeben worden. ' +
-              'Bitte kontaktiere die Betreuer des Clients.';
-          }
-        } else {
-          errorMsg =
-            'Die Antwort von der API enthält keinen Media-Typ. ' +
-            'Es handelt sich um einen serverseitigen Fehler. ' +
-            'Bitte konkaktiere den Betreuer der API.';
-        }
-      }
-      this.logger.warn(`Body der Antwort:`, res.error);
-    } else if (error instanceof TimeoutError) {
-      // noinspection SuspiciousInstanceOfGuard
-      errorMsg = `Die API hat nicht in der erwarteten Zeit von ${this.requestTimeoutInSeconds} Sekunden geantwortet.`;
-    } else if (error instanceof Error) {
-      // noinspection SuspiciousInstanceOfGuard
-      const res: Error = error as Error;
-      errorMsg = `Ein unerwarteter Fehler bei der Anfrage an die API aufgetreten (0): ${res.message}`;
-    } else {
-      errorMsg = 'Ein unerwarteter Fehler bei der Anfrage an die API aufgetreten (1): ' + JSON.stringify(error);
+      return Promise.reject(new Error(errorMsg));
     }
-    return Promise.reject(errorMsg);
+
+    switch (error.constructor) {
+      case HttpErrorResponse:
+        errorMsg = this.getErrorMessageForHttpErrorResponse(error, resourceType);
+        break;
+      case TimeoutError:
+        errorMsg = this.translate.instant('errors.api.timeout', { seconds: this.requestTimeoutInSeconds });
+        break;
+      case Error: {
+        const res: Error = error as Error;
+        errorMsg = this.translate.instant('errors.api.unexpected', { error: res.message });
+        break;
+      }
+      default:
+        errorMsg = this.translate.instant('errors.api.unexpected', { error: JSON.stringify(error) });
+    }
+
+    return Promise.reject(new Error(errorMsg));
+  }
+
+  private getErrorMessageForHttpErrorResponse(res: HttpErrorResponse, resourceType?: string) {
+    if (res.status === HttpConstants.HTTP_STATUS_NOINTERNETCON) {
+      return this.translate.instant('errors.api.noInternet');
+    }
+
+    this.logger.warn(`Body der Antwort:`, res.error);
+
+    if (!res.headers.has(HttpConstants.HTTP_HEADER_CONTENT_TYPE)) {
+      return this.translate.instant('errors.api.missingContentType');
+    }
+
+    if (!res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE).startsWith(this.apiMediaType)) {
+      return this.translate.instant('errors.api.mediaType', {
+        mediaType: res.headers.get(HttpConstants.HTTP_HEADER_CONTENT_TYPE)
+      });
+    }
+
+    let errorMsg: string;
+    const apiError: ApiError = res.error as ApiError;
+
+    switch (res.status) {
+      case HttpConstants.HTTP_STATUS_BADREQUEST:
+        errorMsg = this.translate.instant('errors.api.badRequest', {
+          status: res.status,
+          details: NullableUtils.isObjectNullOrUndefined(apiError) ? '' : `${apiError.code} - ${apiError.message}`
+        });
+        break;
+      case HttpConstants.HTTP_STATUS_FORBIDDEN:
+        errorMsg = this.translate.instant('errors.api.forbidden');
+        break;
+      case HttpConstants.HTTP_STATUS_UNAUTHORIZED:
+        errorMsg = this.translate.instant('errors.api.unauthorized');
+        break;
+      case HttpConstants.HTTP_STATUS_NOTFOUND:
+        errorMsg = this.translate.instant('errors.api.notFound', {
+          resource: resourceType ? resourceType : this.translate.instant('errors.api.resource')
+        });
+        break;
+      case HttpConstants.HTTP_STATUS_NOTACCEPTED:
+        errorMsg = this.translate.instant('errors.api.notAccepted');
+        break;
+      case HttpConstants.HTTP_STATUS_INTERNALSERVERERROR:
+        errorMsg = this.translate.instant('errors.api.server');
+        break;
+      default:
+        errorMsg =
+          res.status > 400 && res.status < 500
+            ? this.translate.instant('errors.api.client', { status: res.status })
+            : this.translate.instant('errors.api.unexpectedStatus', { status: res.status });
+    }
+
+    return errorMsg;
   }
 }

@@ -22,7 +22,7 @@ import { NgClass } from '@angular/common';
 import { AutofocusDirective } from '../shared/directives/autofocus.directive';
 import { PollOptionsComponent } from '../shared/components/poll-options/poll-options.component';
 import { TosComponent } from '../shared/components/tos/tos.component';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-poll',
@@ -51,6 +51,7 @@ export class PollComponent implements OnInit {
   formHelper = inject(PollFormHelperService);
   private routeTitle = inject(RouteTitleService);
   private changeDetector = inject(ChangeDetectorRef);
+  private translate = inject(TranslateService);
 
   model: Appointment;
   apiError: Message;
@@ -218,7 +219,7 @@ export class PollComponent implements OnInit {
       })
       .catch((err: any) => {
         this.apiError = {
-          message: `Fehler beim Ermitteln der Daten von der API: ${err}`,
+          message: this.translate.instant('errors.api.requestFailed', { error: err }),
           messageType: MessageType.ERROR
         };
         this.routeTitle.setTitle('poll.answer');

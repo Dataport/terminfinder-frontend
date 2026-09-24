@@ -249,6 +249,26 @@
     "repeat": "Passwort wiederholen",
     "noMatch": "Die Passwörter stimmen nicht überein."
   },
+  "errors": {
+    "api": {
+      "contactOperator": "Die API hat den Fehlercode {{code}} gemeldet. Bitte informieren Sie den Betreiber.",
+      "requestFailed": "Fehler beim Ermitteln der Daten von der API: {{error}}",
+      "noInternet": "Bitte prüfen sie, ob sie mit dem Internet verbunden sind und ob die API erreichbar ist.",
+      "badRequest": "Die Anfrage ist ungültig (Statuscode: '{{status}}'). {{details}}",
+      "forbidden": "Die verwendeten Zugangsdaten sind ungültig.",
+      "unauthorized": "Der Benutzer konnte authentifiziert werden, besitzt aber nicht die nötigen Rechte.",
+      "notFound": "Die angeforderte {{resource}} existiert nicht (mehr).",
+      "resource": "Ressource",
+      "notAccepted": "Die API akzeptiert den gesendeten Media-Typ nicht.",
+      "client": "Die Anfrage ist ungültig (Statuscode: '{{status}}'). Bitte informieren Sie den Betreiber.",
+      "server": "Es ist ein interner Serverfehler bei der API aufgetreten.",
+      "unexpectedStatus": "Die API hat den unerwarteten Statuscode '{{status}}' zurückgegeben.",
+      "mediaType": "Die API hat den unerwarteten Media-Typ '{{mediaType}}' zurückgegeben.",
+      "missingContentType": "Die Antwort der API enthält keinen Media-Typ.",
+      "timeout": "Die API hat nicht innerhalb von {{seconds}} Sekunden geantwortet.",
+      "unexpected": "Ein unerwarteter Fehler bei der Anfrage an die API ist aufgetreten: {{error}}"
+    }
+  },
   "participant": {
     "participants": "Teilnehmende",
     "select": "TeilnehmerIn auswählen",

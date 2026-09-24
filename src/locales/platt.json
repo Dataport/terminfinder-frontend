@@ -209,6 +209,26 @@
     "repeat": "Passwoort wedderhalen",
     "noMatch": "De Passwöör stimmt nich övereen."
   },
+  "errors": {
+    "api": {
+      "contactOperator": "De API hett de Fehlercode {{code}} meldet. Bidde informeer de Bedrieber.",
+      "requestFailed": "Fehler bi't Halen vun de Daten ut de API: {{error}}",
+      "noInternet": "Bitte prööv, of du Internet hest un de API errickbar is.",
+      "badRequest": "De Anfraag is nich richtik (Statuscode: '{{status}}'). {{details}}",
+      "forbidden": "De Anmeldedaaten sünd nich richtig.",
+      "unauthorized": "De Nutzer is authentefezert, hett aver nich de nödig Rechte.",
+      "notFound": "De anforderte {{resource}} gifft dat nich (mehr).",
+      "resource": "Ressource",
+      "notAccepted": "De API nimmt den övergeven Media-Typ nich an.",
+      "client": "De Anfraag is nich richtig (Statuscode: '{{status}}'). Bidde informeer de Bedrieber.",
+      "server": "Dat hett en internen Serverfehler in de API geven.",
+      "unexpectedStatus": "De API hett de unerwaartede Statuscode '{{status}}' torüchgeven.",
+      "mediaType": "De API hett de unerwaartede Media-Typ '{{mediaType}}' torüchgeven.",
+      "missingContentType": "De API-Antwoort hett keen Media-Typ.",
+      "timeout": "De API hett nich binnen {{seconds}} Sekunnen antwoort.",
+      "unexpected": "Dat hett bi de API-Anfraag en unerwaartede Fehler geven: {{error}}"
+    }
+  },
   "participant": {
     "participants": "Deelnahm",
     "select": "Deelnehmer wählen",

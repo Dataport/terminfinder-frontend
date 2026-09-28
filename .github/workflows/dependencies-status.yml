@@ -1,35 +1,48 @@
 name: dependencies-status
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - 'main'
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   dependencies-merged:
-    if: github.event.pull_request.head.ref != 'dependencies'
+    if: github.event.pull_request.head.ref != 'dependencies' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Check dependencies branch
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
 
           git fetch origin main dependencies --no-tags
 
           if ! git diff --quiet origin/main..origin/dependencies; then
-            echo "::error::The dependencies branch contains changes that are not merged into main."
-            echo "Merge dependencies into main before merging this pull request."
+            pr_url=$(gh pr list --base main --head "${GITHUB_REPOSITORY_OWNER}:dependencies" --state open --json url --jq '.[0].url')
+            if [ -z "$pr_url" ]; then
+              pr_url=$(gh pr create --base main --head dependencies \
+                --title "build: update dependencies" \
+                --body "The dependencies branch differs from main. Review and squash-merge this PR before merging other PRs into main.")
+              echo "Created dependencies PR: $pr_url"
+            else
+              echo "Dependencies PR is already open: $pr_url"
+            fi
+
+            echo "::error::The dependencies branch differs from main. Review and squash-merge $pr_url before merging this pull request."
             git diff --stat origin/main..origin/dependencies
             exit 1
           fi
 
-          echo "The dependencies branch has no unmerged effective changes."
+          echo "The dependencies branch has no changes relative to main."

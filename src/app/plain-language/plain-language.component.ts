@@ -37,7 +37,7 @@ import { RouteTitleService } from '../shared/services/route-title.service';
         href="#"
         (click)="location.back()"
       >
-        <img aria-hidden="true" alt="" ngSrc="../../assets/back.svg" class="back-btn" width="width" height="2.75rem" />
+        <img aria-hidden="true" alt="" ngSrc="../../assets/back.svg" class="back-btn" width="32" height="32" />
         {{ 'accessibility.plainLanguage.backToTheFuture' | translate }}
         <div class="hidden"></div>
       </a>

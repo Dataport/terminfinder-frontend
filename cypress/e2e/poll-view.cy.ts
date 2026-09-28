@@ -753,10 +753,7 @@ context('poll-view', () => {
       cy.wait('@imATeapot');
 
       cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should(
-        'contain.text',
-        "Die Anfrage ist ungültig (Statuscode: '418')"
-      );
+      cy.get('[data-cy=messageBox]').should('contain.text', "Die Anfrage ist ungültig (Statuscode: '418')");
     });
 
     it('503', () => {

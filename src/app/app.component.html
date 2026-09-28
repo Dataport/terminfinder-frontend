@@ -2,15 +2,7 @@
   <header class="row justify-content-center align-items-center" id="head">
     <a class="col-xs-12 col-sm-6 col-lg" routerLink="/">
       <span class="sr-only">{{ 'header.home' | translate }}</span>
-      <img
-        aria-hidden="true"
-        alt=""
-        data-id="headerLogo"
-        id="logo"
-        ngSrc="assets/logo.svg"
-        height="height"
-        width="width"
-      />
+      <img aria-hidden="true" alt="" data-id="headerLogo" id="logo" src="assets/logo.svg" />
     </a>
     @if (!NullableUtils.isStringNullOrWhitespace(headlineHome)) {
       <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-id="headerTitle">
@@ -27,7 +19,7 @@
             title="{{ 'header.navItems.signLanguage.buttonLabel' | translate }}"
           >
             <span class="sr-only">{{ 'header.navItems.signLanguage.buttonLabel' | translate }}</span>
-            <img aria-hidden="true" alt="" ngSrc="assets/sign-language.svg" width="width" height="height" />
+            <img aria-hidden="true" alt="" ngSrc="assets/sign-language.svg" width="24" height="24" />
           </a>
         </li>
         <li>
@@ -38,7 +30,7 @@
             title="{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}"
           >
             <span class="sr-only">{{ 'header.navItems.plainLanguage.buttonLabel' | translate }}</span>
-            <img aria-hidden="true" alt="" ngSrc="assets/book.svg" width="width" height="height" />
+            <img aria-hidden="true" alt="" ngSrc="assets/book.svg" width="24" height="24" />
           </a>
         </li>
         <li>

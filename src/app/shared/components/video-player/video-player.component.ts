@@ -1,13 +1,11 @@
 import { Component, input, signal } from '@angular/core';
 import { SanitizeUrlPipe } from '../../pipes/sanitize-url.pipe';
-import { NgOptimizedImage } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-video-player',
   imports: [
     SanitizeUrlPipe,
-    NgOptimizedImage,
     TranslatePipe
   ],
   template: `
@@ -18,7 +16,7 @@ import { TranslatePipe } from '@ngx-translate/core';
           (click)="loadIframe()"
           [attr.aria-label]="title() + ' - ' + ('accessibility.signLanguage.startVideo' | translate)"
         >
-          <img [ngSrc]="placeholderSrc()" width="width" height="height" alt="" aria-hidden="true" />
+          <img [src]="placeholderSrc()" alt="" aria-hidden="true" />
         </button>
       } @else {
         @if (videoSrc()) {

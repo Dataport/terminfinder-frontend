@@ -29,7 +29,7 @@ jobs:
 
           git fetch origin main dependencies --no-tags
 
-          if ! git diff --quiet origin/main..origin/dependencies; then
+          if ! git diff --quiet origin/main...origin/dependencies; then
             pr_url=$(gh pr list --base main --head "${GITHUB_REPOSITORY_OWNER}:dependencies" --state open --json url --jq '.[0].url')
             if [ -z "$pr_url" ]; then
               pr_url=$(gh pr create --base main --head dependencies \
@@ -41,7 +41,7 @@ jobs:
             fi
 
             echo "::error::The dependencies branch differs from main. Review and squash-merge $pr_url before merging this pull request."
-            git diff --stat origin/main..origin/dependencies
+            git diff --stat origin/main...origin/dependencies
             exit 1
           fi
 

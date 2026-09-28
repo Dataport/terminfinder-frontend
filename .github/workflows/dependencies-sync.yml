@@ -1,0 +1,48 @@
+name: dependencies-sync
+
+on:
+  pull_request_target:
+    types: [ closed ]
+    branches:
+      - 'main'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-dependencies:
+    if: >-
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.ref == 'dependencies' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync dependencies branch with main
+        env:
+          MERGED_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          git fetch origin main dependencies --no-tags
+          current_head=$(git rev-parse origin/dependencies)
+
+          # Replay only commits added after the squash-merged head onto main.
+          # Without new commits this simply resets dependencies to main.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B dependencies origin/dependencies
+          if ! git rebase --onto origin/main "$MERGED_HEAD" dependencies; then
+            git rebase --abort
+            echo "::error::Could not rebase new dependency commits onto main. Sync the dependencies branch manually."
+            exit 1
+          fi
+
+          git push --force-with-lease="refs/heads/dependencies:$current_head" origin dependencies
+          echo "Synced dependencies with main ($(git rev-list --count origin/main..dependencies) pending commit(s))."

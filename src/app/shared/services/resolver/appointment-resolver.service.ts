@@ -9,6 +9,11 @@ import { ModelTransformerService } from '../transformer';
 import { DataRepositoryService } from '../data-service';
 import { Logger } from '../logging';
 
+export interface AppointmentResolverResult {
+  appointment: Appointment | null;
+  error?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +24,7 @@ export class AppointmentResolverService {
 
   model: Appointment;
 
-  resolve(route: ActivatedRouteSnapshot): Promise<Appointment> | Observable<never> {
+  resolve(route: ActivatedRouteSnapshot): Promise<AppointmentResolverResult> | Observable<never> {
     this.model = this.appStateService.getAppointment();
     const adminId = route.paramMap.get('adminId');
     if (NullableUtils.isObjectNullOrUndefined(adminId)) {
@@ -28,16 +33,16 @@ export class AppointmentResolverService {
     return this.getAppointment(adminId);
   }
 
-  private getAppointment(adminId: string): Promise<Appointment> | null {
+  private getAppointment(adminId: string): Promise<AppointmentResolverResult> {
     return this.dataRepoService
       .readAppointmentByAdminId(adminId)
       .then((data: ApiAppointment) => {
         this.logger.debug(`Umfrage mittels AdminId empfangen mit den Werten: ${JSON.stringify(data)}`, data);
-        return ModelTransformerService.transformApiAppointmentToAppointment(data);
+        return { appointment: ModelTransformerService.transformApiAppointmentToAppointment(data) };
       })
       .catch((err: any) => {
         this.logger.error(`Fehler beim Ermitteln der Daten von der API: ${err}`);
-        return null;
+        return { appointment: null, error: err?.message ?? String(err) };
       });
   }
 }

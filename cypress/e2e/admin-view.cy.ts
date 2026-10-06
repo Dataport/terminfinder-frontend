@@ -36,12 +36,14 @@ context('admin-view', () => {
         body: values.getAdmin
       }
     );
-
-    cy.visit(getBaseHref(values.adminLink));
-    cy.location('href').should('include', '/#/admin/');
   });
 
   describe('Main components visible', () => {
+    beforeEach(() => {
+      cy.visit(getBaseHref(values.adminLink));
+      cy.location('href').should('include', '/#/admin/');
+    });
+
     it('Shows main components', () => {
       cy.get('#head');
       cy.get('[data-id=headerTitle]');
@@ -74,6 +76,11 @@ context('admin-view', () => {
   });
 
   describe('Pause and Continue', () => {
+    beforeEach(() => {
+      cy.visit(getBaseHref(values.adminLink));
+      cy.location('href').should('include', '/#/admin/');
+    });
+
     it('Pause button sends correct api request', () => {
       cy.intercept(
         {
@@ -113,6 +120,11 @@ context('admin-view', () => {
   });
 
   describe('Change appointment', () => {
+    beforeEach(() => {
+      cy.visit(getBaseHref(values.adminLink));
+      cy.location('href').should('include', '/#/admin/');
+    });
+
     it('All changes in admin view', () => {
       cy.intercept(
         {
@@ -171,6 +183,29 @@ context('admin-view', () => {
 
       cy.get('[data-id=adminLinks]');
       cy.location('href').should('include', '/#/admin/links');
+    });
+  });
+
+  describe('API error visible', () => {
+    const cases = [
+      { status: 404, text: 'Die angeforderte Ressource existiert nicht (mehr)' },
+      { status: 500, text: 'Es ist ein interner Serverfehler bei der API aufgetreten' },
+      { status: 503, text: "Die API hat den unerwarteten Statuscode '503' zurückgegeben" }
+    ];
+
+    cases.forEach(({ status, text }) => {
+      it(String(status), () => {
+        cy.intercept(
+          { method: 'GET', url: getApiUrl(values.getAdminUrl) },
+          { headers: { 'content-type': 'application/terminfinder.api-v1+json' }, statusCode: status }
+        ).as('apiError');
+
+        cy.visit(getBaseHref(values.adminLink));
+        cy.wait('@apiError');
+
+        cy.get('[data-cy=messageBox]').should('be.visible').and('contain.text', text);
+        cy.get('[data-id=statusPollButton]').should('not.exist');
+      });
     });
   });
 });

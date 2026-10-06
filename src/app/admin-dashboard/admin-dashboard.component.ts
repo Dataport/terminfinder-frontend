@@ -10,7 +10,9 @@ import { ModelTransformerService } from '../shared/services/transformer';
 import { RouteTitleService } from '../shared/services/route-title.service';
 import { AppointmentSummaryComponent } from '../shared/components/appointment-summary/appointment-summary.component';
 import { DatesOverviewComponent } from '../shared/components/dates-overview/dates-overview.component';
-import { TranslatePipe } from '@ngx-translate/core';
+import { MessageBoxComponent } from '../shared/components/message-box/message-box.component';
+import { AppointmentResolverResult } from '../shared/services/resolver/appointment-resolver.service';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -19,6 +21,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [
     AppointmentSummaryComponent,
     DatesOverviewComponent,
+    MessageBoxComponent,
     RouterLink,
     TranslatePipe
   ]
@@ -29,6 +32,7 @@ export class AdminDashboardComponent implements OnInit {
   private logger = inject(Logger);
   private route = inject(ActivatedRoute);
   private routeTitle = inject(RouteTitleService);
+  private translate = inject(TranslateService);
 
   model: Appointment;
   isStarted: boolean;
@@ -36,10 +40,17 @@ export class AdminDashboardComponent implements OnInit {
   apiError: Message;
 
   ngOnInit() {
-    this.route.data.subscribe((data: { appointment: Appointment }) => {
-      this.model = data.appointment;
+    this.route.data.subscribe((data: { appointment: AppointmentResolverResult }) => {
+      if (!data.appointment.appointment) {
+        this.apiError = {
+          message: this.translate.instant('errors.api.requestFailed', { error: data.appointment.error }),
+          messageType: MessageType.ERROR
+        };
+        return;
+      }
+      this.model = data.appointment.appointment;
       this.isStarted = this.model.status === AppointmentStatusType.Started;
-      this.appStateService.updateAppointment(data.appointment);
+      this.appStateService.updateAppointment(this.model);
     });
     this.routeTitle.setTitle('poll.configure');
   }

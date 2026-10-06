@@ -581,6 +581,35 @@ context('poll-view', () => {
   });
 
   describe('API error visible', () => {
+    const cases = [
+      { status: 400, text: "Die Anfrage ist ungültig (Statuscode: '400')" },
+      { status: 401, text: 'Die verwendeten Zugangsdaten sind ungültig' },
+      { status: 403, text: 'Der Benutzer konnte authentifiziert werden, besitzt aber nicht die nötigen Rechte' },
+      { status: 404, text: 'Die angeforderte Ressource existiert nicht (mehr)' },
+      { status: 406, text: 'Die API akzeptiert den gesendeten Media-Typ nicht' },
+      { status: 500, text: 'Es ist ein interner Serverfehler bei der API aufgetreten' },
+      { status: 418, text: "Die Anfrage ist ungültig (Statuscode: '418')" },
+      { status: 503, text: "Die API hat den unerwarteten Statuscode '503' zurückgegeben" }
+    ];
+
+    cases.forEach(({ status, text }) => {
+      it(String(status), () => {
+        cy.intercept(
+          { method: 'GET', url: getApiUrl(values.getAppointmentUrl) },
+          {
+            headers: { 'content-type': 'application/terminfinder.api-v1+json' },
+            statusCode: status,
+            ...(status === 404 ? { body: [] } : {})
+          }
+        ).as('apiError');
+
+        cy.visit(getBaseHref(values.inviteLink));
+        cy.wait('@apiError');
+
+        cy.get('[data-cy=messageBox]').should('be.visible').and('contain.text', text);
+      });
+    });
+
     it('wrong content type', () => {
       cy.intercept(
         {
@@ -602,181 +631,6 @@ context('poll-view', () => {
       cy.get('[data-cy=messageBox]').should(
         'contain.text',
         "Die API hat den unerwarteten Media-Typ 'dummy' zurückgegeben"
-      );
-    });
-
-    it('400', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 400
-        }
-      ).as('badRequest');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@badRequest');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should('contain.text', "Die Anfrage ist ungültig (Statuscode: '400')");
-    });
-
-    it('401', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 401
-        }
-      ).as('forbidden');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@forbidden');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should('contain.text', 'Die verwendeten Zugangsdaten sind ungültig');
-    });
-
-    it('403', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 403
-        }
-      ).as('unauthorized');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@unauthorized');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should(
-        'contain.text',
-        'Der Benutzer konnte authentifiziert werden, besitzt aber nicht die nötigen Rechte'
-      );
-    });
-
-    it('404', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 404,
-          body: []
-        }
-      ).as('notFound');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@notFound');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should('contain.text', 'Die angeforderte Ressource existiert nicht (mehr)');
-    });
-
-    it('406', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 406
-        }
-      ).as('notAcceptable');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@notAcceptable');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should('contain.text', 'Die API akzeptiert den gesendeten Media-Typ nicht');
-    });
-
-    it('500', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 500
-        }
-      ).as('internalServerError');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@internalServerError');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should('contain.text', 'Es ist ein interner Serverfehler bei der API aufgetreten');
-    });
-
-    it('418', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 418
-        }
-      ).as('imATeapot');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@imATeapot');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should('contain.text', "Die Anfrage ist ungültig (Statuscode: '418')");
-    });
-
-    it('503', () => {
-      cy.intercept(
-        {
-          method: 'GET',
-          url: getApiUrl(values.getAppointmentUrl)
-        },
-        {
-          headers: {
-            'content-type': 'application/terminfinder.api-v1+json'
-          },
-          statusCode: 503
-        }
-      ).as('serviceUnavailable');
-
-      cy.visit(getBaseHref(values.inviteLink));
-      cy.wait('@serviceUnavailable');
-
-      cy.get('[data-cy=messageBox]').should('be.visible');
-      cy.get('[data-cy=messageBox]').should(
-        'contain.text',
-        "Die API hat den unerwarteten Statuscode '503' zurückgegeben"
       );
     });
 

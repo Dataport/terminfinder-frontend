@@ -9,14 +9,18 @@ updates:
       - 'BGruenberg'
     cooldown:
       default-days: 7
+    ignore:
+      - dependency-name: "@angular*"
+        update-types: [
+          "version-update:semver-minor",
+          "version-update:semver-patch"
+        ]
+      - dependency-name: "@ng-bootstrap/ng-bootstrap"
+        update-types: [
+          "version-update:semver-minor",
+          "version-update:semver-patch"
+        ]
     groups:
-      angular-minor:
-        patterns:
-          - "@angular*"
-          - "@ng-bootstrap/ng-bootstrap"
-        update-types:
-          - "minor"
-          - "patch"
       typescript-eslint:
         patterns:
           - "typescript-eslint"
@@ -29,6 +33,27 @@ updates:
         patterns:
           - "cypress"
           - "@cypress/schematics"
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    target-branch: 'main'
+    schedule:
+      interval: 'daily'
+    assignees:
+      - 'BGruenberg'
+    cooldown:
+      default-days: 7
+    allow:
+      - dependency-name: "@angular*"
+      - dependency-name: "@ng-bootstrap/ng-bootstrap"
+    groups:
+      angular-minor:
+        patterns:
+          - "@angular*"
+          - "@ng-bootstrap/ng-bootstrap"
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: 'docker'
     directory: '/'

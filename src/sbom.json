@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:a50674be-61d9-4bc9-8631-d2e837b2c4e1",
+  "serialNumber": "urn:uuid:3aa9d732-b136-443c-9a9d-b37e68e35c8f",
   "metadata": {
-    "timestamp": "2026-10-01T07:16:45.745Z",
+    "timestamp": "2026-10-07T09:39:18.467Z",
     "tools": {
       "components": [
         {
@@ -2410,8 +2410,8 @@
       "type": "library",
       "name": "sourcemap-codec",
       "group": "@jridgewell",
-      "version": "1.5.5",
-      "bom-ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
+      "version": "1.6.0",
+      "bom-ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.6.0",
       "author": "Justin Ridgewell",
       "description": "Encode/decode sourcemap mappings",
       "licenses": [
@@ -2422,7 +2422,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/sourcemap-codec",
@@ -2440,12 +2440,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz",
+          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "71843ddf5d20aeac6e7966e5f96b885086a251a0dc8fb58eab97d58449633558117ce52163d7f2db34ef7e8a96b2779b87c4a5ef45527056c80af2672ca0743a"
+              "content": "4fb8dffb9ce0b191f0349e25bd0eff69ecdbca4d27357fb32555a998703b558b04c7b6bbaabe5183921bb4916a920cdee58dacaeeab545463c43cdfb39dee217"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5769,7 +5769,7 @@
       "dependsOn": [
         "terminfinder@0.0.0|@angular/compiler@21.2.25",
         "terminfinder@0.0.0|@babel/core@7.29.7",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.6.0",
         "terminfinder@0.0.0|chokidar@5.0.0",
         "terminfinder@0.0.0|convert-source-map@1.9.0",
         "terminfinder@0.0.0|reflect-metadata@0.2.2",
@@ -5899,7 +5899,7 @@
       "ref": "terminfinder@0.0.0|source-map@0.7.6"
     },
     {
-      "ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
+      "ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.6.0"
     },
     {
       "ref": "terminfinder@0.0.0|convert-source-map@1.9.0"
@@ -6106,7 +6106,7 @@
     {
       "ref": "terminfinder@0.0.0|@jridgewell/gen-mapping@0.3.13",
       "dependsOn": [
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5",
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.6.0",
         "terminfinder@0.0.0|@jridgewell/trace-mapping@0.3.31"
       ]
     },
@@ -6114,7 +6114,7 @@
       "ref": "terminfinder@0.0.0|@jridgewell/trace-mapping@0.3.31",
       "dependsOn": [
         "terminfinder@0.0.0|@jridgewell/resolve-uri@3.1.2",
-        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
+        "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.6.0"
       ]
     },
     {

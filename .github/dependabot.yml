@@ -46,6 +46,9 @@ updates:
     allow:
       - dependency-name: "@angular*"
       - dependency-name: "@ng-bootstrap/ng-bootstrap"
+    ignore:
+      - dependency-name: "@angular-devkit/architect"
+        versions: [">=0.2200.0"]
     groups:
       angular-minor:
         patterns:

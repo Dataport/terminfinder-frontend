@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:a50674be-61d9-4bc9-8631-d2e837b2c4e1",
+  "serialNumber": "urn:uuid:e0e4a612-b518-478b-9efe-1d4716961e66",
   "metadata": {
-    "timestamp": "2026-10-01T07:16:45.745Z",
+    "timestamp": "2026-10-07T09:38:58.449Z",
     "tools": {
       "components": [
         {
@@ -112,8 +112,8 @@
       "type": "library",
       "name": "architect",
       "group": "@angular-devkit",
-      "version": "0.2102.24",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.24",
+      "version": "0.2202.0",
+      "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0",
       "author": "Angular Authors",
       "description": "Angular Build Facade",
       "licenses": [
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40angular-devkit/architect@0.2102.24",
+      "purl": "pkg:npm/%40angular-devkit/architect@0.2202.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/angular/angular-cli.git",
@@ -142,12 +142,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2102.24.tgz",
+          "url": "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.2202.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "53f77997fd6b7eb35295b1a3313ba7cb3c3187edaf25c7b7cb4af4b48c7f34e1596e7621abe831f9edf7991ea8c48e3293fd4992cebb96dbecb6b26e05b55b62"
+              "content": "1f163c2712dddd6c458f8e41b4350767d23a84ee0a79b4f3df6510e1990f87410c2bf4d976ca5b4a0c1dda5a358c4e9af7492744042402c9c14cac16bc64a6dc"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -157,6 +157,213 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@angular-devkit/architect"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "core",
+          "group": "@angular-devkit",
+          "version": "22.2.0",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|@angular-devkit/core@22.2.0",
+          "author": "Angular Authors",
+          "description": "Angular DevKit - Core Utility Library",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/%40angular-devkit/core@22.2.0",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/angular/angular-cli.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/angular/angular-cli/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-22.2.0.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "7442c1c17b49594c4500b74456f764f2a2be5c16b5ec41f91fd3599bed38d7f7ac8cd8ba49a64cbaca8182bd8f64aabb843f8eda34821076decbf870933d80c2"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/@angular-devkit/core"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "ajv",
+          "version": "8.20.0",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|ajv@8.20.0",
+          "author": "Evgeny Poberezkin",
+          "description": "Another JSON Schema Validator",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/ajv@8.20.0",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/ajv-validator/ajv.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://ajv.js.org",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/ajv-validator/ajv/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/ajv/-/ajv-8.20.0.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "4e16e58be3a53a3fa230f60505505f2773a60809da4b2367e0cd6fcfd4fa1a46b926df5b6bf1c8479ea3a32eb9b58ea4c7f142179557341f35f58eff194ac118"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/ajv"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "picomatch",
+          "version": "4.0.7",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|picomatch@4.0.7",
+          "author": "Jon Schlinkert",
+          "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/picomatch@4.0.7",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/micromatch/picomatch.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/micromatch/picomatch",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/micromatch/picomatch/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "a9c26ef3c436216a89b030f9dbd24a31dc069bf76f2275b81ef427470887f49b62849bf318eb1c0ed1c4df1d6904a794393cac43c91598b9c9da426eef285c18"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/picomatch"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "source-map",
+          "version": "0.8.0",
+          "bom-ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|source-map@0.8.0",
+          "author": "Nick Fitzgerald",
+          "description": "Generates and consumes source maps",
+          "licenses": [
+            {
+              "license": {
+                "id": "BSD-3-Clause",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/source-map@0.8.0",
+          "externalReferences": [
+            {
+              "url": "git+ssh://git@github.com/mozilla/source-map.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/mozilla/source-map",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/mozilla/source-map/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/source-map/-/source-map-0.8.0.tgz",
+              "type": "distribution",
+              "hashes": [
+                {
+                  "alg": "SHA-512",
+                  "content": "77c12abcbfa4fd23970ab792fd2533836722c87a8104b70dff2b918c5b1bbd58474c4da981e8bba008663ccee45856e45fa3923107d4ab829b905ddabbd96161"
+                }
+              ],
+              "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/@angular-devkit/architect/node_modules/source-map"
+            }
+          ]
         }
       ]
     },
@@ -1278,58 +1485,6 @@
     },
     {
       "type": "library",
-      "name": "core",
-      "group": "@angular-devkit",
-      "version": "21.2.24",
-      "bom-ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.24",
-      "author": "Angular Authors",
-      "description": "Angular DevKit - Core Utility Library",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/%40angular-devkit/core@21.2.24",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/angular/angular-cli.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/angular/angular-cli/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/@angular-devkit/core/-/core-21.2.24.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "40b60b77a39c7d04b9a964e5cc6d7f77c9454dc24315cb18eac39a195b6baee6220f1adb78cda226db682282b3bdb34f44e172a377c0355409395872b695d63e"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@angular-devkit/core"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "tslib",
       "version": "2.8.1",
       "bom-ref": "terminfinder@0.0.0|tslib@2.8.1",
@@ -2153,57 +2308,6 @@
     },
     {
       "type": "library",
-      "name": "ajv",
-      "version": "8.18.0",
-      "bom-ref": "terminfinder@0.0.0|ajv@8.18.0",
-      "author": "Evgeny Poberezkin",
-      "description": "Another JSON Schema Validator",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/ajv@8.18.0",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/ajv-validator/ajv.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://ajv.js.org",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/ajv-validator/ajv/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "3e55cf78458c5cc67bb0f60e1ea983c8227371f36b52bddf18d2ad7b35f5e3291738422fc8af3577eab2771f3d298e4eef514a30f690daf05f04523934747adc"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/ajv"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "chokidar",
       "version": "5.0.0",
       "bom-ref": "terminfinder@0.0.0|chokidar@5.0.0",
@@ -2301,108 +2405,6 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/jsonc-parser"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "picomatch",
-      "version": "4.0.4",
-      "bom-ref": "terminfinder@0.0.0|picomatch@4.0.4",
-      "author": "Jon Schlinkert",
-      "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/picomatch@4.0.4",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/micromatch/picomatch.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/micromatch/picomatch",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/micromatch/picomatch/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "40ff3c0402af31a9bfdcdc47eaf8f6a36d51e8c8f165401dea7970012fe99c6bcdf4854ba1c2c7c46608cc5860e9f510fb9b61e8fe1dbf8796f635f70d2223ec"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/picomatch"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "source-map",
-      "version": "0.7.6",
-      "bom-ref": "terminfinder@0.0.0|source-map@0.7.6",
-      "author": "Nick Fitzgerald",
-      "description": "Generates and consumes source maps",
-      "licenses": [
-        {
-          "license": {
-            "id": "BSD-3-Clause",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/source-map@0.7.6",
-      "externalReferences": [
-        {
-          "url": "git+ssh://git@github.com/mozilla/source-map.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/mozilla/source-map",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/mozilla/source-map/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        },
-        {
-          "url": "https://registry.npmjs.org/source-map/-/source-map-0.7.6.tgz",
-          "type": "distribution",
-          "hashes": [
-            {
-              "alg": "SHA-512",
-              "content": "8b9bafb7c0b78a489678d65255935671f64f22d1503ac6135003a47143c677c0ea0f2d6e3948a48ede5d1beb91970caf475d3c15bf4339de06bd77d3d0ddbfb9"
-            }
-          ],
-          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/source-map"
         }
       ]
     },
@@ -3600,6 +3602,57 @@
     },
     {
       "type": "library",
+      "name": "picomatch",
+      "version": "4.0.4",
+      "bom-ref": "terminfinder@0.0.0|picomatch@4.0.4",
+      "author": "Jon Schlinkert",
+      "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picomatch@4.0.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/micromatch/picomatch.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/micromatch/picomatch",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/micromatch/picomatch/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "40ff3c0402af31a9bfdcdc47eaf8f6a36d51e8c8f165401dea7970012fe99c6bcdf4854ba1c2c7c46608cc5860e9f510fb9b61e8fe1dbf8796f635f70d2223ec"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/picomatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "cliui",
       "version": "9.0.1",
       "bom-ref": "terminfinder@0.0.0|cliui@9.0.1",
@@ -4055,6 +4108,57 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/yargs-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "ajv",
+      "version": "8.18.0",
+      "bom-ref": "terminfinder@0.0.0|ajv@8.18.0",
+      "author": "Evgeny Poberezkin",
+      "description": "Another JSON Schema Validator",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/ajv@8.18.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/ajv-validator/ajv.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://ajv.js.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ajv-validator/ajv/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ajv/-/ajv-8.18.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3e55cf78458c5cc67bb0f60e1ea983c8227371f36b52bddf18d2ad7b35f5e3291738422fc8af3577eab2771f3d298e4eef514a30f690daf05f04523934747adc"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/ajv"
         }
       ]
     },
@@ -5549,7 +5653,7 @@
     {
       "ref": "terminfinder@0.0.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/architect@0.2102.24",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0",
         "terminfinder@0.0.0|@angular/animations@21.2.25",
         "terminfinder@0.0.0|@angular/common@21.2.25",
         "terminfinder@0.0.0|@angular/compiler@21.2.25",
@@ -5575,11 +5679,38 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2102.24",
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0",
       "dependsOn": [
-        "terminfinder@0.0.0|@angular-devkit/core@21.2.24",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|@angular-devkit/core@22.2.0",
         "terminfinder@0.0.0|rxjs@7.8.2"
       ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|@angular-devkit/core@22.2.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|ajv-formats@3.0.1",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|ajv@8.20.0",
+        "terminfinder@0.0.0|chokidar@5.0.0",
+        "terminfinder@0.0.0|jsonc-parser@3.3.1",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|picomatch@4.0.7",
+        "terminfinder@0.0.0|rxjs@7.8.2",
+        "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|source-map@0.8.0"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|ajv@8.20.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|fast-deep-equal@3.1.3",
+        "terminfinder@0.0.0|fast-uri@3.1.8",
+        "terminfinder@0.0.0|json-schema-traverse@1.0.0",
+        "terminfinder@0.0.0|require-from-string@2.0.2"
+      ]
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|picomatch@4.0.7"
+    },
+    {
+      "ref": "terminfinder@0.0.0|@angular-devkit/architect@0.2202.0|source-map@0.8.0"
     },
     {
       "ref": "terminfinder@0.0.0|@angular/animations@21.2.25",
@@ -5747,18 +5878,6 @@
       "ref": "terminfinder@0.0.0|zone.js@0.15.1"
     },
     {
-      "ref": "terminfinder@0.0.0|@angular-devkit/core@21.2.24",
-      "dependsOn": [
-        "terminfinder@0.0.0|ajv-formats@3.0.1",
-        "terminfinder@0.0.0|ajv@8.18.0",
-        "terminfinder@0.0.0|chokidar@5.0.0",
-        "terminfinder@0.0.0|jsonc-parser@3.3.1",
-        "terminfinder@0.0.0|picomatch@4.0.4",
-        "terminfinder@0.0.0|rxjs@7.8.2",
-        "terminfinder@0.0.0|source-map@0.7.6"
-      ]
-    },
-    {
       "ref": "terminfinder@0.0.0|tslib@2.8.1"
     },
     {
@@ -5875,15 +5994,6 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|ajv@8.18.0",
-      "dependsOn": [
-        "terminfinder@0.0.0|fast-deep-equal@3.1.3",
-        "terminfinder@0.0.0|fast-uri@3.1.8",
-        "terminfinder@0.0.0|json-schema-traverse@1.0.0",
-        "terminfinder@0.0.0|require-from-string@2.0.2"
-      ]
-    },
-    {
       "ref": "terminfinder@0.0.0|chokidar@5.0.0",
       "dependsOn": [
         "terminfinder@0.0.0|readdirp@5.0.0"
@@ -5891,12 +6001,6 @@
     },
     {
       "ref": "terminfinder@0.0.0|jsonc-parser@3.3.1"
-    },
-    {
-      "ref": "terminfinder@0.0.0|picomatch@4.0.4"
-    },
-    {
-      "ref": "terminfinder@0.0.0|source-map@0.7.6"
     },
     {
       "ref": "terminfinder@0.0.0|@jridgewell/sourcemap-codec@1.5.5"
@@ -6038,6 +6142,9 @@
       ]
     },
     {
+      "ref": "terminfinder@0.0.0|picomatch@4.0.4"
+    },
+    {
       "ref": "terminfinder@0.0.0|cliui@9.0.1",
       "dependsOn": [
         "terminfinder@0.0.0|cliui@9.0.1|string-width@7.2.0",
@@ -6078,6 +6185,15 @@
     },
     {
       "ref": "terminfinder@0.0.0|yargs-parser@22.0.0"
+    },
+    {
+      "ref": "terminfinder@0.0.0|ajv@8.18.0",
+      "dependsOn": [
+        "terminfinder@0.0.0|fast-deep-equal@3.1.3",
+        "terminfinder@0.0.0|fast-uri@3.1.8",
+        "terminfinder@0.0.0|json-schema-traverse@1.0.0",
+        "terminfinder@0.0.0|require-from-string@2.0.2"
+      ]
     },
     {
       "ref": "terminfinder@0.0.0|fast-deep-equal@3.1.3"

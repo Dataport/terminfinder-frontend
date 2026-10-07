@@ -4,7 +4,7 @@
       <button
         (click)="onBack()"
         class="btn btn-primary btn-with-image btn-back w-100"
-        data-id="back"
+        data-cy="back"
         id="back"
         type="button"
       >
@@ -19,7 +19,7 @@
         [attr.aria-disabled]="isInvalid()"
         [ngClass]="{ disabled: isInvalid() }"
         class="btn btn-secondary btn-with-image btn-next w-100"
-        data-id="next"
+        data-cy="next"
         id="next"
         type="button"
       >

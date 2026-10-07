@@ -16,7 +16,7 @@
     aria-controls="listbox"
     aria-haspopup="listbox"
     aria-labelledby="combo-label"
-    [attr.data-id]="dataId()"
+    [attr.data-cy]="dataCy()"
     tabindex="0"
   >
     {{ options()[activeIndex].value }}
@@ -39,7 +39,7 @@
         [ngClass]="{ 'option-current': i === activeIndex }"
         (click)="selectOption(i)"
         [attr.aria-selected]="i === activeIndex"
-        [attr.data-id]="option.dataId"
+        [attr.data-cy]="option.dataCy"
       >
         {{ option.label ? option.label : option.value }}
       </div>

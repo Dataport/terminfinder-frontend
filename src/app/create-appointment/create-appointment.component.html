@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin()) {
-    <h1 class="text-center mb-2" data-id="addDetailsHeading" id="add-details-heading">
+    <h1 class="text-center mb-2" data-cy="addDetailsHeading" id="add-details-heading">
       {{ 'poll.addDetails' | translate }}
     </h1>
   }
@@ -11,7 +11,7 @@
   }
 </div>
 <div class="row justify-content-center">
-  <app-stepper [currentStep]="0" data-id="stepperComponent"></app-stepper>
+  <app-stepper [currentStep]="0" data-cy="stepperComponent"></app-stepper>
 </div>
 @if (isAdmin()) {
   <app-admin-info></app-admin-info>
@@ -34,11 +34,11 @@
               <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/title.svg" />
             </div>
             <div class="col invalid-message-highlight">
-              <label data-id="titleLabel" for="title">{{ 'poll.title.placeholder' | translate }}</label>
+              <label data-cy="titleLabel" for="title">{{ 'poll.title.placeholder' | translate }}</label>
               <input
                 required
                 class="form-control"
-                data-id="titleInput"
+                data-cy="titleInput"
                 formControlName="title"
                 id="title"
                 type="text"
@@ -47,7 +47,7 @@
               @if ((title.dirty || title.touched) && !!title.errors?.required) {
                 <div
                   class="invalid-message"
-                  data-id="msgRequiredTitle"
+                  data-cy="msgRequiredTitle"
                   id="required-title"
                   role="alert"
                   aria-atomic="false"
@@ -59,7 +59,7 @@
               @if (!!title.errors?.invalidName) {
                 <div
                   class="invalid-message"
-                  data-id="msgInvalidTitle"
+                  data-cy="msgInvalidTitle"
                   id="invalid-title"
                   role="alert"
                   aria-atomic="false"
@@ -71,7 +71,7 @@
               @if (!!title.errors?.maxlength) {
                 <div
                   class="invalid-message"
-                  data-id="msgLongTitle"
+                  data-cy="msgLongTitle"
                   id="maxLength-title"
                   role="alert"
                   aria-atomic="false"
@@ -92,12 +92,12 @@
               <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/user.svg" />
             </div>
             <div class="col invalid-message-highlight">
-              <label data-id="nameLabel" for="name">{{ 'poll.details.name.yourName' | translate }}</label>
+              <label data-cy="nameLabel" for="name">{{ 'poll.details.name.yourName' | translate }}</label>
               <input
                 required
                 appAutoFocus
                 class="form-control"
-                data-id="nameInput"
+                data-cy="nameInput"
                 formControlName="name"
                 id="name"
                 type="text"
@@ -106,7 +106,7 @@
               @if ((name.dirty || name.touched) && !!name.errors?.required) {
                 <div
                   class="invalid-message"
-                  data-id="msgRequiredName"
+                  data-cy="msgRequiredName"
                   id="required-name"
                   role="alert"
                   aria-atomic="false"
@@ -118,7 +118,7 @@
               @if (!!name.errors?.invalidName) {
                 <div
                   class="invalid-message"
-                  data-id="msgInvalidName"
+                  data-cy="msgInvalidName"
                   id="invalid-name"
                   role="alert"
                   aria-atomic="false"
@@ -128,7 +128,7 @@
                 </div>
               }
               @if (!!name.errors?.maxlength) {
-                <div class="invalid-message" data-id="msgLongName" id="long-name" role="alert" aria-atomic="false">
+                <div class="invalid-message" data-cy="msgLongName" id="long-name" role="alert" aria-atomic="false">
                   <i class="fa-solid fa-triangle-exclamation"></i>
                   {{ 'poll.details.name.tooLong' | translate }}
                 </div>
@@ -145,10 +145,10 @@
               <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/location.svg" />
             </div>
             <div class="col invalid-message-highlight">
-              <label data-id="locationLabel" for="location">{{ 'poll.details.place.placeOptional' | translate }}</label>
+              <label data-cy="locationLabel" for="location">{{ 'poll.details.place.placeOptional' | translate }}</label>
               <input
                 class="form-control"
-                data-id="locationInput"
+                data-cy="locationInput"
                 formControlName="location"
                 id="location"
                 type="text"
@@ -157,7 +157,7 @@
               @if (!!location.errors?.invalidName) {
                 <div
                   class="invalid-message"
-                  data-id="msgInvalidLocation"
+                  data-cy="msgInvalidLocation"
                   id="invalid-location"
                   role="alert"
                   aria-atomic="false"
@@ -169,7 +169,7 @@
               @if (!!location.errors?.maxlength) {
                 <div
                   class="invalid-message"
-                  data-id="msgLongLocation"
+                  data-cy="msgLongLocation"
                   id="maxLength-location"
                   role="alert"
                   aria-atomic="false"
@@ -190,12 +190,12 @@
               <img aria-hidden="true" alt="" class="icon m-2 mt-3 mt-lg-4" src="assets/description.svg" />
             </div>
             <div class="col invalid-message-highlight">
-              <label data-id="descriptionLabel" for="description">
+              <label data-cy="descriptionLabel" for="description">
                 {{ 'poll.details.description.descriptionOptional' | translate }}
               </label>
               <textarea
                 class="form-control"
-                data-id="descriptionInput"
+                data-cy="descriptionInput"
                 formControlName="description"
                 id="description"
                 rows="4"
@@ -205,7 +205,7 @@
               @if (!!description.errors?.maxlength) {
                 <div
                   class="invalid-message"
-                  data-id="msgLongDescription"
+                  data-cy="msgLongDescription"
                   id="maxLength-description"
                   role="alert"
                   aria-atomic="false"

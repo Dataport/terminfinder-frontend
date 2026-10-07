@@ -44,8 +44,8 @@ context('poll-view', () => {
 
     it('Shows main components', () => {
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
-      cy.get('[data-id=pollHeading]');
+      cy.get('[data-cy=headerTitle]');
+      cy.get('[data-cy=pollHeading]');
 
       cy.get('[data-cy=overviewTitleValue]').should('contain.html', 'Test-Titel');
       cy.get('[data-cy=overviewPlaceLabel]');
@@ -56,18 +56,18 @@ context('poll-view', () => {
         'Test-Beschreibung<br>Neue Zeile 1<br><br>Neue Zeile 2'
       );
 
-      cy.get('[data-id=numberParticipants]');
-      cy.get('[data-id=tableHead]');
-      cy.get('[data-id=tableBody]');
-      cy.get('[data-id=participantSummary]');
-      cy.get('[data-id=addParticipantButton]');
+      cy.get('[data-cy=numberParticipants]');
+      cy.get('[data-cy=tableHead]');
+      cy.get('[data-cy=tableBody]');
+      cy.get('[data-cy=participantSummary]');
+      cy.get('[data-cy=addParticipantButton]');
 
-      cy.get('[data-id=tos]');
-      cy.get('[data-id=checkbox]');
-      cy.get('[data-id=submitNoParticipationButton]').should('not.exist');
-      cy.get('[data-id=addParticipantButton]');
+      cy.get('[data-cy=tos]');
+      cy.get('[data-cy=checkbox]');
+      cy.get('[data-cy=submitNoParticipationButton]').should('not.exist');
+      cy.get('[data-cy=addParticipantButton]');
 
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=footer]');
     });
   });
 
@@ -109,39 +109,39 @@ context('poll-view', () => {
     });
 
     it('Shows no name msg', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').click();
-      cy.get('[data-id=pollHeading]').click();
-      cy.get('[data-id=noNameMsg]');
+      cy.get('[data-cy=nameInput]').click();
+      cy.get('[data-cy=pollHeading]').click();
+      cy.get('[data-cy=noNameMsg]');
 
-      cy.get('[data-id=nameInput]').type('a');
-      cy.get('[data-id=noNameMsg]').should('not.exist');
+      cy.get('[data-cy=nameInput]').type('a');
+      cy.get('[data-cy=noNameMsg]').should('not.exist');
     });
 
     it('Shows name invalid msg', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').clear();
-      cy.get('[data-id=nameInput]').type('❌');
-      cy.get('[data-id=nameInvalidMsg]');
+      cy.get('[data-cy=nameInput]').clear();
+      cy.get('[data-cy=nameInput]').type('❌');
+      cy.get('[data-cy=nameInvalidMsg]');
     });
 
     it('Shows name too long msg', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').clear();
-      cy.get('[data-id=nameInput]').type(values.tooLongString);
-      cy.get('[data-id=tooLongMsg]');
+      cy.get('[data-cy=nameInput]').clear();
+      cy.get('[data-cy=nameInput]').type(values.tooLongString);
+      cy.get('[data-cy=tooLongMsg]');
     });
 
     it('Disappears on delete button', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').clear();
-      cy.get('[data-id=nameInput]').type('a');
-      cy.get('[data-id=deleteParticipantButton]').click();
-      cy.get('[data-id=nameInput]').should('not.exist');
+      cy.get('[data-cy=nameInput]').clear();
+      cy.get('[data-cy=nameInput]').type('a');
+      cy.get('[data-cy=deleteParticipantButton]').click();
+      cy.get('[data-cy=nameInput]').should('not.exist');
     });
   });
 
@@ -164,7 +164,7 @@ context('poll-view', () => {
     });
 
     it('Shows options', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
       cy.get('#desktop-voting-status-declined-0');
       cy.get('#desktop-voting-status-questionable-0');
@@ -176,7 +176,7 @@ context('poll-view', () => {
     });
 
     it('Options clickable', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
       cy.get('#desktop-voting-status-declined-0').click();
       cy.get('#desktop-voting-status-questionable-0').click();
@@ -197,8 +197,8 @@ context('poll-view', () => {
     });
 
     it('Options change column counter', () => {
-      cy.get('[data-id=addParticipantButton]').click();
-      cy.get('[data-id=nameInput]').type('a');
+      cy.get('[data-cy=addParticipantButton]').click();
+      cy.get('[data-cy=nameInput]').type('a');
 
       cy.get('#summary-column-0').should('contain.html', '0');
       cy.get('#desktop-voting-status-accepted-0').click();
@@ -220,31 +220,31 @@ context('poll-view', () => {
     });
 
     it('Options change summary counter', () => {
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').type('Test');
-      cy.get('[data-id=nameInput]').should('have.value', 'Test');
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=nameInput]').type('Test');
+      cy.get('[data-cy=nameInput]').should('have.value', 'Test');
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=addedParticipation]').should('not.exist');
+      cy.get('[data-cy=addedParticipation]').should('not.exist');
       cy.get('#desktop-voting-status-accepted-0').click();
       cy.get('#desktop-voting-status-accepted-0').should('be.checked');
-      cy.get('[data-id=addedParticipation]').should('contain.html', '1');
+      cy.get('[data-cy=addedParticipation]').should('contain.html', '1');
       cy.get('#desktop-voting-status-questionable-0').click();
       cy.get('#desktop-voting-status-questionable-0').should('be.checked');
-      cy.get('[data-id=addedParticipation]').should('contain.html', '0');
+      cy.get('[data-cy=addedParticipation]').should('contain.html', '0');
 
       cy.get('#desktop-voting-status-accepted-0').click();
       cy.get('#desktop-voting-status-accepted-0').should('be.checked');
       cy.get('#desktop-voting-status-accepted-1').click();
       cy.get('#desktop-voting-status-accepted-1').should('be.checked');
-      cy.get('[data-id=addedParticipation]').should('contain.html', '2');
+      cy.get('[data-cy=addedParticipation]').should('contain.html', '2');
 
       cy.get('#desktop-voting-status-declined-0').click();
       cy.get('#desktop-voting-status-declined-0').should('be.checked');
       cy.get('#desktop-voting-status-declined-1').click();
       cy.get('#desktop-voting-status-declined-1').should('be.checked');
-      cy.get('[data-id=addedParticipation]').should('not.exist');
+      cy.get('[data-cy=addedParticipation]').should('not.exist');
     });
   });
 
@@ -267,35 +267,35 @@ context('poll-view', () => {
     });
 
     it('Shows inactive button on loading', () => {
-      cy.get('[data-id=submitPoll]').should('have.attr', 'aria-disabled', 'true');
-      cy.get('[data-id=submitNoParticipationButton]').should('not.exist');
+      cy.get('[data-cy=submitPoll]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=submitNoParticipationButton]').should('not.exist');
     });
 
     it('Shows inactive button on invalid form', () => {
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitPoll]').should('have.attr', 'aria-disabled', 'true');
-      cy.get('[data-id=submitNoParticipationButton]').should('not.exist');
+      cy.get('[data-cy=submitPoll]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=submitNoParticipationButton]').should('not.exist');
 
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').type('Test');
-      cy.get('[data-id=nameInput]').should('have.value', 'Test');
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=nameInput]').type('Test');
+      cy.get('[data-cy=nameInput]').should('have.value', 'Test');
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitNoParticipationButton]').should('have.attr', 'aria-disabled', 'true');
-      cy.get('[data-id=submitPoll]').should('not.exist');
+      cy.get('[data-cy=submitNoParticipationButton]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=submitPoll]').should('not.exist');
 
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitPoll]').should('not.exist');
-      cy.get('[data-id=submitNoParticipationButton]').should('be.enabled');
+      cy.get('[data-cy=submitPoll]').should('not.exist');
+      cy.get('[data-cy=submitNoParticipationButton]').should('be.enabled');
 
       cy.get('#desktop-voting-status-accepted-0').click();
       cy.get('#desktop-voting-status-accepted-0').should('be.checked');
 
-      cy.get('[data-id=submitNoParticipationButton]').should('not.exist');
-      cy.get('[data-id=submitPoll]').should('be.enabled');
+      cy.get('[data-cy=submitNoParticipationButton]').should('not.exist');
+      cy.get('[data-cy=submitPoll]').should('be.enabled');
     });
 
     it('Submits new participation', () => {
@@ -326,13 +326,13 @@ context('poll-view', () => {
         }
       );
 
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').type('Test');
-      cy.get('[data-id=nameInput]').should('have.value', 'Test');
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=nameInput]').type('Test');
+      cy.get('[data-cy=nameInput]').should('have.value', 'Test');
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitNoParticipationButton]').click();
+      cy.get('[data-cy=submitNoParticipationButton]').click();
 
       cy.url().should('include', '/#/poll');
     });
@@ -369,17 +369,17 @@ context('poll-view', () => {
         }
       );
 
-      cy.get('[data-id=addParticipantButton]').click();
+      cy.get('[data-cy=addParticipantButton]').click();
 
-      cy.get('[data-id=nameInput]').type('Testerin');
-      cy.get('[data-id=nameInput]').should('have.value', 'Testerin');
+      cy.get('[data-cy=nameInput]').type('Testerin');
+      cy.get('[data-cy=nameInput]').should('have.value', 'Testerin');
 
       cy.get('#desktop-voting-status-accepted-1').click();
       cy.get('#desktop-voting-status-accepted-1').should('be.checked');
 
       cy.get('#summary-column-1').should('contain.html', '2');
 
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
       cy.intercept(
         {
@@ -394,11 +394,11 @@ context('poll-view', () => {
         }
       );
 
-      cy.get('[data-id=submitPoll]').click();
+      cy.get('[data-cy=submitPoll]').click();
 
       cy.url().should('include', '/#/poll');
-      cy.get('[data-id=numberParticipants]').should('contain.html', '2 Teilnehmende');
-      cy.get('[data-id=submitPoll]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=numberParticipants]').should('contain.html', '2 Teilnehmende');
+      cy.get('[data-cy=submitPoll]').should('have.attr', 'aria-disabled', 'true');
     });
   });
 
@@ -434,9 +434,9 @@ context('poll-view', () => {
       cy.get('#desktop-voting-status-accepted-0').click();
       cy.get('#desktop-voting-status-accepted-0').should('be.checked');
 
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitPoll]').click();
+      cy.get('[data-cy=submitPoll]').click();
 
       cy.wait('@apiCheckPutParticipant').then((interception) => {
         assert.equal(interception.request.method, 'PUT');
@@ -469,14 +469,14 @@ context('poll-view', () => {
 
       cy.get('#editButton-0').click();
 
-      cy.get('[data-id=nameEditLabel]');
-      cy.get('[data-id=nameEditInput]').clear();
-      cy.get('[data-id=nameEditInput]').type('NeuerName');
-      cy.get('[data-id=nameEditInput]').should('have.value', 'NeuerName');
+      cy.get('[data-cy=nameEditLabel]');
+      cy.get('[data-cy=nameEditInput]').clear();
+      cy.get('[data-cy=nameEditInput]').type('NeuerName');
+      cy.get('[data-cy=nameEditInput]').should('have.value', 'NeuerName');
 
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitPoll]').click();
+      cy.get('[data-cy=submitPoll]').click();
 
       cy.wait('@apiCheckPutParticipant').then((interception) => {
         assert.equal(interception.request.method, 'PUT');
@@ -495,11 +495,11 @@ context('poll-view', () => {
 
       cy.get('#editButton-0').click();
 
-      cy.get('[data-id=deleteEditedParticipantButton]').click();
+      cy.get('[data-cy=deleteEditedParticipantButton]').click();
 
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=submitPoll]').click();
+      cy.get('[data-cy=submitPoll]').click();
 
       cy.wait('@apiCheckDeleteParticipant').then((interception) => {
         assert.equal(interception.request.method, 'DELETE');
@@ -527,7 +527,7 @@ context('poll-view', () => {
     });
 
     it('Download csv file', () => {
-      cy.get('[data-id=downloadCsvButton]').click();
+      cy.get('[data-cy=downloadCsvButton]').click();
 
       const downloadedFilename = path.join(DOWNLOADS_FOLDER, 'Umfrage-Test-Titel.csv');
 
@@ -570,7 +570,7 @@ context('poll-view', () => {
     });
 
     it('Download csv file with incomplete data', () => {
-      cy.get('[data-id=downloadCsvButton]').click();
+      cy.get('[data-cy=downloadCsvButton]').click();
 
       const downloadedFilename = path.join(DOWNLOADS_FOLDER, 'Umfrage-Test-Titel.csv');
 

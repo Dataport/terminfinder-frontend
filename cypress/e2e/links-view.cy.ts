@@ -9,40 +9,40 @@ context('links-view', () => {
   describe('Main components visible', () => {
     it('Has main components', () => {
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
-      cy.get('[data-id=linksHeading]');
-      cy.get('[data-id=appointmentTitle]');
+      cy.get('[data-cy=headerTitle]');
+      cy.get('[data-cy=linksHeading]');
+      cy.get('[data-cy=appointmentTitle]');
 
-      cy.get('[data-id=inviteLinkDescription]');
-      cy.get('[data-id=inviteLinkWarning]');
-      cy.get('[data-id=inviteLinkEmail]');
-      cy.get('[data-id=linkAdmin]');
-      cy.get('[data-id=inviteLink]');
-      cy.get('[data-id=inviteLinkCopy]');
-      cy.get('[data-id=inviteLinkNavigate]');
+      cy.get('[data-cy=inviteLinkDescription]');
+      cy.get('[data-cy=inviteLinkWarning]');
+      cy.get('[data-cy=inviteLinkEmail]');
+      cy.get('[data-cy=linkAdmin]');
+      cy.get('[data-cy=inviteLink]');
+      cy.get('[data-cy=inviteLinkCopy]');
+      cy.get('[data-cy=inviteLinkNavigate]');
 
-      cy.get('[data-id=adminLinkDescription]');
-      cy.get('[data-id=adminLinkWarning]');
-      cy.get('[data-id=adminLink]');
-      cy.get('[data-id=adminLinkCopy]');
-      cy.get('[data-id=adminLinkNavigate]');
+      cy.get('[data-cy=adminLinkDescription]');
+      cy.get('[data-cy=adminLinkWarning]');
+      cy.get('[data-cy=adminLink]');
+      cy.get('[data-cy=adminLinkCopy]');
+      cy.get('[data-cy=adminLinkNavigate]');
 
-      cy.get('[data-id=newAppointmentButton]').should('be.enabled');
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=newAppointmentButton]').should('be.enabled');
+      cy.get('[data-cy=footer]');
     });
   });
 
   describe('Links are correct', () => {
     it('Shows correct links', () => {
-      cy.get('[data-id=inviteLink]').should('contain', values.inviteLink);
+      cy.get('[data-cy=inviteLink]').should('contain', values.inviteLink);
 
-      cy.get('[data-id=adminLink]').should('contain', values.adminLink);
+      cy.get('[data-cy=adminLink]').should('contain', values.adminLink);
     });
   });
 
   describe('Navigation to new appointment works', () => {
     it('Navigates on click of new appointment button', () => {
-      cy.get('[data-id=newAppointmentButton]').click();
+      cy.get('[data-cy=newAppointmentButton]').click();
       cy.url().should('include', '/#/home');
     });
   });

@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin()) {
-    <h1 class="text-center mb-2" data-id="settingsAdditionalHeading" id="settings-additional-heading">
+    <h1 class="text-center mb-2" data-cy="settingsAdditionalHeading" id="settings-additional-heading">
       {{ 'settings.additional' | translate }}
     </h1>
   } @else {
@@ -10,7 +10,7 @@
   }
 </div>
 <div class="row justify-content-center">
-  <app-stepper [currentStep]="2" data-id="stepperComponent"></app-stepper>
+  <app-stepper [currentStep]="2" data-cy="stepperComponent"></app-stepper>
 </div>
 @if (isAdmin()) {
   <app-admin-info></app-admin-info>
@@ -24,11 +24,11 @@
     >
       <div class="section-container p-4 pr-5">
         <div class="row g-0">
-          <h2 class="my-1 font-medium text-bold" data-id="generatePassword">{{ 'password.generate' | translate }}</h2>
+          <h2 class="my-1 font-medium text-bold" data-cy="generatePassword">{{ 'password.generate' | translate }}</h2>
         </div>
         <app-checkbox-field
           [label]="'password.securePoll' | translate"
-          data-id="securePollLabel"
+          data-cy="securePollLabel"
           formControlName="hasPassword"
         />
         @if (hasPassword().value) {
@@ -51,7 +51,7 @@
                 [placeholder]="showPlaceholder ? '********' : ''"
                 autocomplete="new-password"
                 class="slim-input form-control"
-                data-id="passwordInput"
+                data-cy="passwordInput"
                 formControlName="password"
                 id="password"
                 [type]="passwordHidden ? 'password' : 'text'"
@@ -71,7 +71,7 @@
                 @if (!!getPassword().errors?.required) {
                   <div
                     class="col invalid-message"
-                    data-id="errorMsgSetPassword"
+                    data-cy="errorMsgSetPassword"
                     id="set-password"
                     role="alert"
                     aria-atomic="false"
@@ -83,7 +83,7 @@
                 @if (!!getPassword().errors?.invalidPassword) {
                   <div
                     class="col invalid-message"
-                    data-id="errorMsgSetMinimum"
+                    data-cy="errorMsgSetMinimum"
                     id="set-minimum"
                     role="alert"
                     aria-atomic="false"
@@ -112,7 +112,7 @@
                 [placeholder]="showPlaceholder ? '********' : ''"
                 autocomplete="new-password"
                 class="slim-input form-control"
-                data-id="repeatPasswordInput"
+                data-cy="repeatPasswordInput"
                 formControlName="passwordRepeat"
                 id="password-repeat"
                 [type]="passwordRepeatHidden ? 'password' : 'text'"
@@ -137,7 +137,7 @@
                 @if (!!getPasswordRepeat().errors?.required) {
                   <div
                     class="col invalid-message"
-                    data-id="errorMsgSetPassword"
+                    data-cy="errorMsgSetPassword"
                     id="set-password-repeat"
                     role="alert"
                     aria-atomic="false"
@@ -149,7 +149,7 @@
                   @if (!!settingsForm.errors?.notSame) {
                     <div
                       class="col invalid-message"
-                      data-id="errorMsgNoMatch"
+                      data-cy="errorMsgNoMatch"
                       id="no-match"
                       role="alert"
                       aria-atomic="false"
@@ -161,7 +161,7 @@
                   @if (!!getPasswordRepeat().errors?.invalidPassword) {
                     <div
                       class="col invalid-message"
-                      data-id="errorMsgSetMinimum"
+                      data-cy="errorMsgSetMinimum"
                       id="set-minimum-repeat"
                       role="alert"
                       aria-atomic="false"

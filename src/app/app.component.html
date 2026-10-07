@@ -2,10 +2,10 @@
   <header class="row justify-content-center align-items-center" id="head">
     <a class="col-xs-12 col-sm-6 col-lg" routerLink="/">
       <span class="sr-only">{{ 'header.home' | translate }}</span>
-      <img aria-hidden="true" alt="" data-id="headerLogo" id="logo" src="assets/logo.svg" />
+      <img aria-hidden="true" alt="" data-cy="headerLogo" id="logo" src="assets/logo.svg" />
     </a>
     @if (!NullableUtils.isStringNullOrWhitespace(headlineHome)) {
-      <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-id="headerTitle">
+      <div class="col-xs-12 col-sm-6 col-lg h1 my-md-auto" data-cy="headerTitle">
         {{ headlineHome }}
       </div>
     }
@@ -38,11 +38,11 @@
             [label]="'lang.languageSelect' | translate"
             [callback]="this.localeService.changeLanguage.bind(this.localeService)"
             [options]="[
-              { value: 'Deutsch', callbackArgs: 'de-DE', dataId: 'langGerman' },
-              { value: 'English', callbackArgs: 'en-EN', dataId: 'langEnglish' }
+              { value: 'Deutsch', callbackArgs: 'de-DE', dataCy: 'langGerman' },
+              { value: 'English', callbackArgs: 'en-EN', dataCy: 'langEnglish' }
             ]"
             [defaultOptionIndex]="localeService.getLocale().languageCode === 'de-DE' ? 0 : 1"
-            [dataId]="'languageDropdown'"
+            [dataCy]="'languageDropdown'"
             id="language-dropdown"
           />
         </li>

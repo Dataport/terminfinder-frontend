@@ -7,33 +7,33 @@ context('app-component', () => {
 
   describe('Language dropdown works', () => {
     it('Has main components', () => {
-      cy.get('[data-id=languageDropdown]').contains('Deutsch').click();
+      cy.get('[data-cy=languageDropdown]').contains('Deutsch').click();
 
-      cy.get('[data-id=langGerman]');
-      cy.get('[data-id=langEnglish]');
-      // cy.get('[data-id=langPlatt]');
+      cy.get('[data-cy=langGerman]');
+      cy.get('[data-cy=langEnglish]');
+      // cy.get('[data-cy=langPlatt]');
     });
 
     it('Changes button text', () => {
-      cy.get('[data-id=languageDropdown]').contains('Deutsch').click();
+      cy.get('[data-cy=languageDropdown]').contains('Deutsch').click();
 
-      cy.get('[data-id=langGerman]').click();
-      cy.get('[data-id=languageDropdown]').contains('Deutsch').click();
+      cy.get('[data-cy=langGerman]').click();
+      cy.get('[data-cy=languageDropdown]').contains('Deutsch').click();
 
-      cy.get('[data-id=langEnglish]').click();
-      cy.get('[data-id=languageDropdown]').contains('English').click();
+      cy.get('[data-cy=langEnglish]').click();
+      cy.get('[data-cy=languageDropdown]').contains('English').click();
     });
 
     it('Changes content lang', () => {
-      cy.get('[data-id=createPollSlogan]').should(($span) => {
+      cy.get('[data-cy=createPollSlogan]').should(($span) => {
         expect($span.text()).to.match(/Erstelle Umfragen|Sie suchen einen/);
       });
       cy.get('html').invoke('attr', 'lang').should('eq', 'de');
 
-      cy.get('[data-id=languageDropdown]').click();
-      cy.get('[data-id=langEnglish]').click();
-      cy.get('[data-id=languageDropdown]').contains('English').click();
-      cy.get('[data-id=createPollSlogan]').contains('Create appointments');
+      cy.get('[data-cy=languageDropdown]').click();
+      cy.get('[data-cy=langEnglish]').click();
+      cy.get('[data-cy=languageDropdown]').contains('English').click();
+      cy.get('[data-cy=createPollSlogan]').contains('Create appointments');
       cy.get('html').invoke('attr', 'lang').should('eq', 'en');
     });
 
@@ -43,8 +43,8 @@ context('app-component', () => {
         expect(localStorage.getItem('language')).to.be.null;
       });
 
-      cy.get('[data-id=languageDropdown]').click();
-      cy.get('[data-id=langGerman]')
+      cy.get('[data-cy=languageDropdown]').click();
+      cy.get('[data-cy=langGerman]')
         .click()
         .should(() => {
           expect(localStorage.getItem('language')).equal('"de-DE"');
@@ -52,12 +52,12 @@ context('app-component', () => {
 
       cy.moveToHomeView();
 
-      cy.get('[data-id=createPollSlogan]').should(($span) => {
+      cy.get('[data-cy=createPollSlogan]').should(($span) => {
         expect($span.text()).to.match(/Erstelle Umfragen|Sie suchen einen/);
       });
 
-      cy.get('[data-id=languageDropdown]').click();
-      cy.get('[data-id=langEnglish]')
+      cy.get('[data-cy=languageDropdown]').click();
+      cy.get('[data-cy=langEnglish]')
         .click()
         .should(() => {
           expect(localStorage.getItem('language')).to.eq('"en-EN"');
@@ -65,7 +65,7 @@ context('app-component', () => {
 
       cy.moveToHomeView();
 
-      cy.get('[data-id=createPollSlogan]').contains('Create appointments');
+      cy.get('[data-cy=createPollSlogan]').contains('Create appointments');
     });
   });
 });

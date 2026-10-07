@@ -1,6 +1,6 @@
 @if (appointment()) {
   <div class="date-time-overview mt-2 table-responsive">
-    <table class="table table-borderless d-inline-block mt-1" data-id="overviewDates">
+    <table class="table table-borderless d-inline-block mt-1" data-cy="overviewDates">
       <thead>
         <tr>
           @for (date of appointment().suggestedDates; track date; let i = $index) {

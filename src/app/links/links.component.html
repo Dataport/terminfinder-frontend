@@ -3,25 +3,25 @@
     <div class="row justify-content-center mt-4 mb-0">
       <div class="col text-center">
         <h1 class="text-primary">{{ 'links.done' | translate }}</h1>
-        <p class="text-center font-medium text-bold mb-2" data-id="linksHeading">
+        <p class="text-center font-medium text-bold mb-2" data-cy="linksHeading">
           {{ 'links.share' | translate }}
         </p>
-        <p class="mb-2" data-id="appointmentTitle">{{ model.title }}</p>
+        <p class="mb-2" data-cy="appointmentTitle">{{ model.title }}</p>
       </div>
     </div>
     <div class="row mt-4">
       <div class="col section-container pt-3 pb-4">
-        <h2 class="link-description" data-id="inviteLinkDescription">
+        <h2 class="link-description" data-cy="inviteLinkDescription">
           {{ 'links.invite.description' | translate }}
         </h2>
         <div class="row g-0 pb-1">
-          <div class="col text-danger text-bold my-1" data-id="inviteLinkWarning">
+          <div class="col text-danger text-bold my-1" data-cy="inviteLinkWarning">
             {{ 'links.loosingLink' | translate }}
           </div>
         </div>
         <div class="row g-0 link-container justify-content-end align-items-center px-2 py-2">
           <div class="col-12 text-primary">
-            <div class="link" data-id="inviteLink" id="link-appointment">
+            <div class="link" data-cy="inviteLink" id="link-appointment">
               {{ absoluteAppointmentLink }}
             </div>
           </div>
@@ -30,7 +30,7 @@
               <button
                 (click)="createPollMail()"
                 class="col-12 col-md-auto btn btn-transparent text-primary"
-                data-id="inviteLinkEmail"
+                data-cy="inviteLinkEmail"
                 type="button"
                 [attr.aria-description]="'links.invite.base' | translate"
               >
@@ -42,7 +42,7 @@
                 (cbOnSuccess)="btnCopyAppointmentLink.focus(); showToastPollLinkCopied()"
                 (cbOnError)="btnCopyAppointmentLink.focus(); showToastPollLinkCopyFailed()"
                 class="col-12 col-md-auto btn btn-transparent text-primary"
-                data-id="inviteLinkCopy"
+                data-cy="inviteLinkCopy"
                 ngxClipboard
                 type="button"
               >
@@ -53,7 +53,7 @@
                 rel="noopener noreferrer"
                 target="_blank"
                 class="col-12 col-md-auto btn btn-transparent text-primary link-with-image text-center align-items-center justify-content-center"
-                data-id="inviteLinkNavigate"
+                data-cy="inviteLinkNavigate"
               >
                 {{ 'links.invite.open' | translate }}
                 <img
@@ -71,17 +71,17 @@
     </div>
     <div class="row mt-3">
       <div class="col section-container pt-3 pb-4">
-        <h2 class="link-description" data-id="adminLinkDescription">
+        <h2 class="link-description" data-cy="adminLinkDescription">
           {{ 'links.admin.description' | translate }}
         </h2>
         <div class="row g-0 pb-1">
-          <div class="col text-danger text-bold my-1" data-id="adminLinkWarning">
+          <div class="col text-danger text-bold my-1" data-cy="adminLinkWarning">
             {{ 'links.loosingLink' | translate }}
           </div>
         </div>
         <div class="row g-0 link-container justify-content-end align-items-center px-2 py-2">
           <div class="col-12 text-primary">
-            <div class="link" data-id="adminLink" id="link-admin">
+            <div class="link" data-cy="adminLink" id="link-admin">
               {{ absoluteAdminLink }}
             </div>
           </div>
@@ -90,7 +90,7 @@
               <button
                 (click)="createAdminMail()"
                 class="col-12 col-md-auto btn btn-transparent text-primary"
-                data-id="linkAdmin"
+                data-cy="linkAdmin"
                 type="button"
                 [attr.aria-description]="'links.admin.base' | translate"
               >
@@ -102,7 +102,7 @@
                 (cbOnSuccess)="btnCopyAdminLink.focus(); showToastAdminLinkCopied()"
                 (cbOnError)="btnCopyAdminLink.focus(); showToastAdminLinkCopyFailed()"
                 class="col-12 col-md-auto btn btn-transparent text-primary"
-                data-id="adminLinkCopy"
+                data-cy="adminLinkCopy"
                 ngxClipboard
                 type="button"
               >
@@ -113,7 +113,7 @@
                 rel="noopener noreferrer"
                 target="_blank"
                 class="col-12 col-md-auto btn btn-transparent text-primary link-with-image text-center align-items-center justify-content-center"
-                data-id="adminLinkNavigate"
+                data-cy="adminLinkNavigate"
               >
                 {{ 'links.admin.open' | translate }}
                 <img
@@ -154,7 +154,7 @@
       <button
         (click)="createNewAppointment()"
         class="btn btn-secondary btn-block w-100"
-        data-id="newAppointmentButton"
+        data-cy="newAppointmentButton"
         id="create-poll"
         type="button"
       >

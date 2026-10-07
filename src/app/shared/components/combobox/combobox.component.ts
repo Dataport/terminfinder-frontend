@@ -18,7 +18,7 @@ export interface ComboboxOption {
   value: string;
   label?: string;
   callbackArgs?: any;
-  dataId?: string;
+  dataCy?: string;
 }
 
 const SEARCH_TIMEOUT_DURATION = 500;
@@ -35,7 +35,7 @@ export class ComboboxComponent implements AfterViewInit {
   readonly options = input<ComboboxOption[]>(undefined);
   readonly defaultOptionIndex = input(0);
   readonly callback = input<(args: any) => void>(undefined);
-  readonly dataId = input<string>('');
+  readonly dataCy = input<string>('');
 
   // refs
   @ViewChild('combo') comboElem!: ElementRef<HTMLDivElement>;

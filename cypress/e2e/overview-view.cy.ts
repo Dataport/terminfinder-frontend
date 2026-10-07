@@ -13,9 +13,9 @@ context('overview-view', () => {
   describe('Main components visible', () => {
     it('Has main components', () => {
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
-      cy.get('[data-id=stepperComponent]');
-      cy.get('[data-id=overviewHeading]');
+      cy.get('[data-cy=headerTitle]');
+      cy.get('[data-cy=stepperComponent]');
+      cy.get('[data-cy=overviewHeading]');
 
       cy.get('[data-cy=overviewNameLabel]');
       cy.get('[data-cy=overviewNameValue]');
@@ -31,10 +31,10 @@ context('overview-view', () => {
       cy.get('[data-cy=overviewDeleteLabel]');
       cy.get('[data-cy=overviewDeleteValue]');
 
-      cy.get('[data-id=overviewDates]');
-      cy.get('[data-id=back]').should('be.enabled');
-      cy.get('[data-id=next]').should('be.enabled');
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=overviewDates]');
+      cy.get('[data-cy=back]').should('be.enabled');
+      cy.get('[data-cy=next]').should('be.enabled');
+      cy.get('[data-cy=footer]');
     });
   });
 
@@ -48,9 +48,9 @@ context('overview-view', () => {
         ''
       ).as('apiCheck');
 
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
       cy.url().should('include', '/#/overview');
-      cy.get('[data-id=errorMessageBox]');
+      cy.get('[data-cy=errorMessageBox]');
     });
 
     it('Sends api call, shows error on wrong response status code', () => {
@@ -65,10 +65,10 @@ context('overview-view', () => {
         }
       ).as('apiCheck');
 
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
       cy.wait('@apiCheck');
       cy.url().should('include', '/#/overview');
-      cy.get('[data-id=errorMessageBox]');
+      cy.get('[data-cy=errorMessageBox]');
     });
 
     it('Sends api call, shows links on correct answer', () => {
@@ -83,7 +83,7 @@ context('overview-view', () => {
         }
       ).as('apiCheck');
 
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
       cy.wait('@apiCheck');
       cy.url().should('include', '/#/links');
     });

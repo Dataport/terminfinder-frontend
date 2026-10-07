@@ -1,10 +1,10 @@
 <div class="row justify-content-center mt-4 mb-0">
-  <h1 class="text-center" data-id="overviewHeading">
+  <h1 class="text-center" data-cy="overviewHeading">
     {{ 'poll.checkData' | translate }}
   </h1>
 </div>
 <div class="row justify-content-center">
-  <app-stepper [currentStep]="3" data-id="stepperComponent"></app-stepper>
+  <app-stepper [currentStep]="3" data-cy="stepperComponent"></app-stepper>
 </div>
 <div class="row px-3">
   <div class="col">
@@ -25,7 +25,7 @@
     </div>
     @if (apiError) {
       <div class="row mt-2">
-        <app-message-box [message]="apiError" data-id="errorMessageBox"></app-message-box>
+        <app-message-box [message]="apiError" data-cy="errorMessageBox"></app-message-box>
       </div>
     }
     @if (isAdmin()) {

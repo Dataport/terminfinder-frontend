@@ -25,16 +25,16 @@ context('password-view', () => {
       cy.url().should('include', '/#/password');
 
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
+      cy.get('[data-cy=headerTitle]');
 
-      cy.get('[data-id=adIcons]');
-      cy.get('[data-id=locked]');
-      cy.get('[data-id=enter]');
-      cy.get('[data-id=passwordInput]').should('have.attr', 'type', 'password');
+      cy.get('[data-cy=adIcons]');
+      cy.get('[data-cy=locked]');
+      cy.get('[data-cy=enter]');
+      cy.get('[data-cy=passwordInput]').should('have.attr', 'type', 'password');
 
-      cy.get('[data-id=userButton]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=userButton]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=footer]');
     });
 
     it('Has main components in admin', () => {
@@ -51,9 +51,9 @@ context('password-view', () => {
       cy.visit(getBaseHref(values.adminLink));
       cy.url().should('include', '/#/password');
 
-      cy.get('[data-id=adminButton]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=adminButton]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=footer]');
     });
   });
 
@@ -81,14 +81,14 @@ context('password-view', () => {
 
       cy.visit(getBaseHref(values.inviteLink));
 
-      cy.get('[data-id=passwordInput]').type('a');
+      cy.get('[data-cy=passwordInput]').type('a');
 
-      cy.get('[data-id=userButton]').click();
+      cy.get('[data-cy=userButton]').click();
       cy.url().should('include', ';invalid=true');
-      cy.get('[data-id=msgInvalid]');
+      cy.get('[data-cy=msgInvalid]');
 
-      cy.get('[data-id=passwordInput]').type('a');
-      cy.get('[data-id=msgInvalid]').should('not.exist');
+      cy.get('[data-cy=passwordInput]').type('a');
+      cy.get('[data-cy=msgInvalid]').should('not.exist');
     });
 
     it('Shows message on correct pw input', () => {
@@ -130,9 +130,9 @@ context('password-view', () => {
 
       cy.visit(getBaseHref(values.inviteLink));
 
-      cy.get('[data-id=passwordInput]').type(values.password);
+      cy.get('[data-cy=passwordInput]').type(values.password);
 
-      cy.get('[data-id=userButton]').click();
+      cy.get('[data-cy=userButton]').click();
       cy.url().should('include', '/#/poll');
     });
   });

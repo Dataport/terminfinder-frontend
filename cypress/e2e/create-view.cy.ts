@@ -9,100 +9,100 @@ context('create-view', () => {
   describe('Main components visible', () => {
     it('Has main components', () => {
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
-      cy.get('[data-id=stepperComponent]');
-      cy.get('[data-id=addDetailsHeading]');
-      cy.get('[data-id=titleLabel]');
-      cy.get('[data-id=titleInput]');
-      cy.get('[data-id=nameLabel]');
-      cy.get('[data-id=nameInput]');
-      cy.get('[data-id=locationLabel]');
-      cy.get('[data-id=locationInput]');
-      cy.get('[data-id=descriptionLabel]');
-      cy.get('[data-id=descriptionInput]');
+      cy.get('[data-cy=headerTitle]');
+      cy.get('[data-cy=stepperComponent]');
+      cy.get('[data-cy=addDetailsHeading]');
+      cy.get('[data-cy=titleLabel]');
+      cy.get('[data-cy=titleInput]');
+      cy.get('[data-cy=nameLabel]');
+      cy.get('[data-cy=nameInput]');
+      cy.get('[data-cy=locationLabel]');
+      cy.get('[data-cy=locationInput]');
+      cy.get('[data-cy=descriptionLabel]');
+      cy.get('[data-cy=descriptionInput]');
 
-      cy.get('[data-id=back]').should('not.exist');
-      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=back]').should('not.exist');
+      cy.get('[data-cy=next]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=footer]');
     });
   });
 
   describe('Form control works', () => {
     it('Adds information', () => {
-      cy.get('[data-id=next]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=next]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=nameInput]').type('Test-Name', { delay: 0 }).should('have.value', 'Test-Name');
+      cy.get('[data-cy=nameInput]').type('Test-Name', { delay: 0 }).should('have.value', 'Test-Name');
 
-      cy.get('[data-id=next]').should('be.enabled');
+      cy.get('[data-cy=next]').should('be.enabled');
 
-      cy.get('[data-id=locationInput]').type('Test-Ort', { delay: 0 }).should('have.value', 'Test-Ort');
+      cy.get('[data-cy=locationInput]').type('Test-Ort', { delay: 0 }).should('have.value', 'Test-Ort');
 
-      cy.get('[data-id=descriptionInput]')
+      cy.get('[data-cy=descriptionInput]')
         .type('Test-Beschreibung', { delay: 0 })
         .should('have.value', 'Test-Beschreibung');
 
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
 
       cy.location('href').should('include', '/#/dates');
     });
 
     it('Shows error messages on wrong input title', () => {
-      cy.get('[data-id=msgRequiredTitle]').should('not.exist');
-      cy.get('[data-id=msgInvalidTitle]').should('not.exist');
-      cy.get('[data-id=msgLongTitle]').should('not.exist');
+      cy.get('[data-cy=msgRequiredTitle]').should('not.exist');
+      cy.get('[data-cy=msgInvalidTitle]').should('not.exist');
+      cy.get('[data-cy=msgLongTitle]').should('not.exist');
 
-      cy.get('[data-id=titleInput]').type('❌');
-      cy.get('[data-id=msgInvalidTitle]');
+      cy.get('[data-cy=titleInput]').type('❌');
+      cy.get('[data-cy=msgInvalidTitle]');
 
-      cy.get('[data-id=titleInput]').clear();
-      cy.get('[data-id=msgRequiredTitle]');
+      cy.get('[data-cy=titleInput]').clear();
+      cy.get('[data-cy=msgRequiredTitle]');
 
-      cy.get('[data-id=titleInput]').type(values.tooLongString, { delay: 0 });
-      cy.get('[data-id=msgLongTitle]');
+      cy.get('[data-cy=titleInput]').type(values.tooLongString, { delay: 0 });
+      cy.get('[data-cy=msgLongTitle]');
     });
 
     it('Shows error messages on wrong input name', () => {
-      cy.get('[data-id=msgRequiredName]').should('not.exist');
-      cy.get('[data-id=msgInvalidName]').should('not.exist');
-      cy.get('[data-id=msgLongName]').should('not.exist');
+      cy.get('[data-cy=msgRequiredName]').should('not.exist');
+      cy.get('[data-cy=msgInvalidName]').should('not.exist');
+      cy.get('[data-cy=msgLongName]').should('not.exist');
 
-      cy.get('[data-id=nameInput]').type('❌');
-      cy.get('[data-id=msgInvalidName]');
+      cy.get('[data-cy=nameInput]').type('❌');
+      cy.get('[data-cy=msgInvalidName]');
 
-      cy.get('[data-id=nameInput]').clear();
-      cy.get('[data-id=msgRequiredName]');
+      cy.get('[data-cy=nameInput]').clear();
+      cy.get('[data-cy=msgRequiredName]');
 
-      cy.get('[data-id=nameInput]').type(values.tooLongString, { delay: 0 });
-      cy.get('[data-id=msgLongName]');
+      cy.get('[data-cy=nameInput]').type(values.tooLongString, { delay: 0 });
+      cy.get('[data-cy=msgLongName]');
     });
 
     it('Shows error messages on wrong input Location', () => {
-      cy.get('[data-id=msgInvalidLocation]').should('not.exist');
-      cy.get('[data-id=msgLongLocation]').should('not.exist');
+      cy.get('[data-cy=msgInvalidLocation]').should('not.exist');
+      cy.get('[data-cy=msgLongLocation]').should('not.exist');
 
-      cy.get('[data-id=locationInput]').type('❌');
-      cy.get('[data-id=msgInvalidLocation]');
+      cy.get('[data-cy=locationInput]').type('❌');
+      cy.get('[data-cy=msgInvalidLocation]');
 
-      cy.get('[data-id=locationInput]').clear();
+      cy.get('[data-cy=locationInput]').clear();
 
-      cy.get('[data-id=locationInput]').type(values.tooLongString, { delay: 0 });
-      cy.get('[data-id=msgLongLocation]');
+      cy.get('[data-cy=locationInput]').type(values.tooLongString, { delay: 0 });
+      cy.get('[data-cy=msgLongLocation]');
     });
 
     it('Shows error messages on wrong input Description', () => {
-      cy.get('[data-id=msgLongDescription]').should('not.exist');
+      cy.get('[data-cy=msgLongDescription]').should('not.exist');
 
-      cy.get('[data-id=descriptionInput]').type('❌');
+      cy.get('[data-cy=descriptionInput]').type('❌');
 
-      cy.get('[data-id=descriptionInput]').clear();
+      cy.get('[data-cy=descriptionInput]').clear();
 
-      cy.get('[data-id=descriptionInput]')
+      cy.get('[data-cy=descriptionInput]')
         .type(values.tooLongString, { delay: 0 })
         .type(values.tooLongString, { delay: 0 })
         .type(values.tooLongString, { delay: 0 })
         .type(values.tooLongString, { delay: 0 })
         .type(values.tooLongString, { delay: 0 });
-      cy.get('[data-id=msgLongDescription]');
+      cy.get('[data-cy=msgLongDescription]');
     });
   });
 });

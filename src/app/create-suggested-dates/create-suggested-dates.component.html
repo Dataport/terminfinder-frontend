@@ -1,6 +1,6 @@
 <div class="row justify-content-center mt-4 mb-0">
   @if (!isAdmin()) {
-    <h1 class="text-center mb-2" data-id="dateChooseHeading" id="date-choose-heading">
+    <h1 class="text-center mb-2" data-cy="dateChooseHeading" id="date-choose-heading">
       {{ 'date.choose' | translate }}
     </h1>
   }
@@ -11,7 +11,7 @@
   }
 </div>
 <div class="row justify-content-center">
-  <app-stepper [currentStep]="1" data-id="stepperComponent"></app-stepper>
+  <app-stepper [currentStep]="1" data-cy="stepperComponent"></app-stepper>
 </div>
 @if (isAdmin()) {
   <app-admin-info></app-admin-info>
@@ -32,7 +32,7 @@
       >
         <!-- title of the container -->
         <div class="section-title text-center p-3 position-relative">
-          <h2 class="font-medium text-bold d-inline" data-id="enterDate">{{ 'date.enter' | translate }} {{ i + 1 }}</h2>
+          <h2 class="font-medium text-bold d-inline" data-cy="enterDate">{{ 'date.enter' | translate }} {{ i + 1 }}</h2>
           <span class="position-absolute">
             <button
               (click)="deleteSuggestedDateFormByIndex(i)"
@@ -62,7 +62,7 @@
                   col: !getShowSuggestedDateEndDateOnDifferentDayFormValue(i)
                 }"
               >
-                <label data-id="startDateLabel" for="suggested-date-start-date-{{ i }}">
+                <label data-cy="startDateLabel" for="suggested-date-start-date-{{ i }}">
                   {{ 'date.start' | translate }} ({{ 'date.placeholder' | translate }})
                 </label>
                 <input
@@ -70,7 +70,7 @@
                   appAutoFocus
                   type="date"
                   id="suggested-date-start-date-{{ i }}"
-                  data-id="startDateInput"
+                  data-cy="startDateInput"
                   class="form-control date"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE"
                   min="{{ minDate }}"
@@ -85,7 +85,7 @@
                   @if (!!getStartDateOfSuggestedStartDateByIndex(i).errors?.required) {
                     <div
                       class="invalid-message no-padding"
-                      data-id="msgRequiredStartDate"
+                      data-cy="msgRequiredStartDate"
                       id="required-start-date"
                       role="alert"
                       aria-atomic="false"
@@ -109,7 +109,7 @@
                   @if (!!getStartDateOfSuggestedStartDateByIndex(i).errors?.invalidDateNotTodayNorInFuture) {
                     <div
                       class="invalid-message no-padding"
-                      data-id="msgNotInFutureStartDate"
+                      data-cy="msgNotInFutureStartDate"
                       id="not-in-future-start-date"
                       role="alert"
                       aria-atomic="false"
@@ -138,7 +138,7 @@
                     appAutoFocus
                     type="date"
                     id="suggested-date-end-date-{{ i }}"
-                    data-id="endDateInput"
+                    data-cy="endDateInput"
                     class="form-control date"
                     [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE"
                     min="{{ minDate }}"
@@ -178,7 +178,7 @@
                         (click)="closeAllControlsExcept(i); setShowStartTimesControlValue(i, true)"
                         [disabled]="!isSuggestedDateEditableByIndex(i)"
                         class="form-control col date"
-                        data-id="addTimesButton"
+                        data-cy="addTimesButton"
                         type="button"
                       >
                         {{ 'time.add' | translate }}
@@ -205,7 +205,7 @@
                 <input
                   appAutoFocus
                   type="time"
-                  data-id="startTimeInput"
+                  data-cy="startTimeInput"
                   id="suggested-date-start-time-{{ i }}"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME"
@@ -231,7 +231,7 @@
                 <input
                   type="time"
                   id="suggested-date-end-time-{{ i }}"
-                  data-id="endTimeInput"
+                  data-cy="endTimeInput"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME"
                   [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
@@ -250,7 +250,7 @@
               (click)="showSuggestedDateEndDateOnDifferentDayForm(i)"
               [disabled]="!isSuggestedDateEditableByIndex(i)"
               class="btn btn-default btn-transparent btn-with-image btn-suggested-date-end-at-different-day font-weight-bold mt-1 mb-1"
-              data-id="endAtOtherDayButton"
+              data-cy="endAtOtherDayButton"
               type="button"
             >
               {{ 'date.endAtOtherDay' | translate }}
@@ -282,7 +282,7 @@
                       "
                       [disabled]="!isSuggestedDateEditableByIndex(i)"
                       class="form-control col date"
-                      data-id="addTimesWithEndOnOtherDay"
+                      data-cy="addTimesWithEndOnOtherDay"
                       type="button"
                     >
                       {{ 'time.add' | translate }}
@@ -310,7 +310,7 @@
                   [autoFocus]="!getShowEndDateEndTimeControl(i) || getEndDateOfSuggestedStartDateByIndex(i).touched"
                   type="time"
                   id="suggested-date-start-time-{{ i }}"
-                  data-id="startTimeInputSecondColumn"
+                  data-cy="startTimeInputSecondColumn"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME"
                   [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
@@ -338,7 +338,7 @@
                 <input
                   type="time"
                   id="suggested-date-end-time-different-day-{{ i }}"
-                  data-id="endTimeInputSecondColumn"
+                  data-cy="endTimeInputSecondColumn"
                   class="form-control time"
                   [formControlName]="SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME"
                   [ngClass]="{ disabled: !isSuggestedDateEditableByIndex(i) }"
@@ -359,7 +359,7 @@
             }"
             class="col form-group invalid-message-highlight"
           >
-            <label data-id="descriptionLabel" for="suggested-date-description-{{ i }}">
+            <label data-cy="descriptionLabel" for="suggested-date-description-{{ i }}">
               {{ 'poll.details.description.descriptionOptional' | translate }}
             </label>
             <div class="input-group">
@@ -371,7 +371,7 @@
               <input
                 type="text"
                 id="suggested-date-description-{{ i }}"
-                data-id="descriptionInput"
+                data-cy="descriptionInput"
                 class="form-control"
                 [attr.aria-disabled]="!isSuggestedDateEditableByIndex(i)"
                 [tabindex]="!isSuggestedDateEditableByIndex(i) ? -1 : 0"
@@ -384,7 +384,7 @@
               <div
                 class="invalid-message"
                 id="description-too-long"
-                data-id="descriptionTooLong"
+                data-cy="descriptionTooLong"
                 role="alert"
                 aria-atomic="false"
               >
@@ -453,7 +453,7 @@
     }
     <div class="row mt-2 justify-content-center">
       <div class="col-auto text-center">
-        <button (click)="addSuggestedDate()" class="w-100 btn-circle" data-id="addSuggestedDateButton" type="button">
+        <button (click)="addSuggestedDate()" class="w-100 btn-circle" data-cy="addSuggestedDateButton" type="button">
           <img
             aria-hidden="true"
             alt=""

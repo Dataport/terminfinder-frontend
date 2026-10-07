@@ -46,8 +46,8 @@ context('admin-view', () => {
 
     it('Shows main components', () => {
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
-      cy.get('[data-id=adminHeading]');
+      cy.get('[data-cy=headerTitle]');
+      cy.get('[data-cy=adminHeading]');
 
       cy.get('[data-cy=overviewUrlLabel]');
       cy.get('[data-cy=overviewUrlValue]');
@@ -62,16 +62,16 @@ context('admin-view', () => {
       cy.get('[data-cy=overviewDeleteLabel]');
       cy.get('[data-cy=overviewDeleteValue]');
 
-      cy.get('[data-id=overviewDates]');
-      cy.get('[data-id=statusPollButton]');
-      cy.get('[data-id=pauseText]');
-      cy.get('[data-id=continueEverytime]');
+      cy.get('[data-cy=overviewDates]');
+      cy.get('[data-cy=statusPollButton]');
+      cy.get('[data-cy=pauseText]');
+      cy.get('[data-cy=continueEverytime]');
 
-      cy.get('[data-id=changePollLink]');
-      cy.get('[data-id=changePollText]');
-      cy.get('[data-id=changeDetails]');
+      cy.get('[data-cy=changePollLink]');
+      cy.get('[data-cy=changePollText]');
+      cy.get('[data-cy=changeDetails]');
 
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=footer]');
     });
   });
 
@@ -95,10 +95,10 @@ context('admin-view', () => {
         }
       ).as('apiPutPause');
 
-      cy.get('[data-id=statusPollButton]').click();
+      cy.get('[data-cy=statusPollButton]').click();
       cy.wait('@apiPutPause');
-      cy.get('[data-id=pauseText]').should('not.exist');
-      cy.get('[data-id=continueText]');
+      cy.get('[data-cy=pauseText]').should('not.exist');
+      cy.get('[data-cy=continueText]');
 
       cy.intercept(
         {
@@ -112,10 +112,10 @@ context('admin-view', () => {
           body: values.putAdminStatusStarted
         }
       ).as('apiPutStarted');
-      cy.get('[data-id=statusPollButton]').click();
+      cy.get('[data-cy=statusPollButton]').click();
       cy.wait('@apiPutStarted');
-      cy.get('[data-id=continueText]').should('not.exist');
-      cy.get('[data-id=pauseText]');
+      cy.get('[data-cy=continueText]').should('not.exist');
+      cy.get('[data-cy=pauseText]');
     });
   });
 
@@ -150,38 +150,38 @@ context('admin-view', () => {
         }
       ).as('apiPutCreateAppointment');
 
-      cy.get('[data-id=changePollLink]').click();
+      cy.get('[data-cy=changePollLink]').click();
 
-      cy.get('[data-id=adminCreateAppoint]');
+      cy.get('[data-cy=adminCreateAppoint]');
       cy.location('href').should('include', '/#/poll-admin');
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
 
-      cy.get('[data-id=adminSuggestedDates]');
+      cy.get('[data-cy=adminSuggestedDates]');
       cy.location('href').should('include', '/#/admin/dates');
       cy.get('#removeDate-0').click();
       cy.get('#suggested-date-start-date-0').type(dayjs().add(2, 'd').format('YYYY-MM-DD'));
-      cy.get('[data-id=addSuggestedDateButton]').click();
+      cy.get('[data-cy=addSuggestedDateButton]').click();
       cy.get('#suggested-date-start-date-1').type(dayjs().add(1, 'd').format('YYYY-MM-DD'));
       cy.get('#suggested-date-start-date-1').should('have.value', dayjs().add(1, 'd').format('YYYY-MM-DD'));
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
 
-      cy.get('[data-id=adminSettings]');
+      cy.get('[data-cy=adminSettings]');
       cy.location('href').should('include', '/#/admin/settings');
-      cy.get('[data-id=checkbox]').click();
-      cy.get('[data-id=passwordInput]').type('Hallo2021!');
-      cy.get('[data-id=passwordInput]').should('have.value', 'Hallo2021!');
-      cy.get('[data-id=repeatPasswordInput]').type('Hallo2021!');
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=checkbox]').click();
+      cy.get('[data-cy=passwordInput]').type('Hallo2021!');
+      cy.get('[data-cy=passwordInput]').should('have.value', 'Hallo2021!');
+      cy.get('[data-cy=repeatPasswordInput]').type('Hallo2021!');
+      cy.get('[data-cy=next]').click();
 
-      cy.get('[data-id=adminOverview]');
+      cy.get('[data-cy=adminOverview]');
       cy.location('href').should('include', '/#/admin/overview');
-      cy.get('[data-id=headerTitle]');
+      cy.get('[data-cy=headerTitle]');
 
-      cy.get('[data-id=next]').click();
+      cy.get('[data-cy=next]').click();
       cy.wait('@apiDeleteSuggestedDate');
       cy.wait('@apiPutCreateAppointment');
 
-      cy.get('[data-id=adminLinks]');
+      cy.get('[data-cy=adminLinks]');
       cy.location('href').should('include', '/#/admin/links');
     });
   });
@@ -204,7 +204,7 @@ context('admin-view', () => {
         cy.wait('@apiError');
 
         cy.get('[data-cy=messageBox]').should('be.visible').and('contain.text', text);
-        cy.get('[data-id=statusPollButton]').should('not.exist');
+        cy.get('[data-cy=statusPollButton]').should('not.exist');
       });
     });
   });

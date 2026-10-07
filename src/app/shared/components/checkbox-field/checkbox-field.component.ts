@@ -18,7 +18,7 @@ import { NgTemplateOutlet } from '@angular/common';
         [required]="required()"
         [formControl]="ngControl.control"
         id="checkbox"
-        data-id="checkbox"
+        data-cy="checkbox"
         class="form-check-input"
         type="checkbox"
         value=""

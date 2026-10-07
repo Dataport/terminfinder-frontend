@@ -16,15 +16,15 @@ context('home-view', () => {
 
     it('Has main components', () => {
       cy.get('#head');
-      cy.get('[data-id=headerTitle]');
-      cy.get('[data-id=headerLogo]');
-      cy.get('[data-id=adIcons]');
-      cy.get('[data-id=createPollSlogan]');
-      cy.get('[data-id=createPollLabel]');
-      cy.get('[data-id=createPollInput]');
-      cy.get('[data-id=tosComponent]');
-      cy.get('[data-id=createPollButton]');
-      cy.get('[data-id=footer]');
+      cy.get('[data-cy=headerTitle]');
+      cy.get('[data-cy=headerLogo]');
+      cy.get('[data-cy=adIcons]');
+      cy.get('[data-cy=createPollSlogan]');
+      cy.get('[data-cy=createPollLabel]');
+      cy.get('[data-cy=createPollInput]');
+      cy.get('[data-cy=tosComponent]');
+      cy.get('[data-cy=createPollButton]');
+      cy.get('[data-cy=footer]');
     });
   });
 
@@ -80,31 +80,31 @@ context('home-view', () => {
     });
 
     it('Shows error messages on wrong input title', () => {
-      cy.get('[data-id=msgRequiredTitle]').should('not.exist');
-      cy.get('[data-id=msgInvalidTitle]').should('not.exist');
-      cy.get('[data-id=msgLongTitle]').should('not.exist');
+      cy.get('[data-cy=msgRequiredTitle]').should('not.exist');
+      cy.get('[data-cy=msgInvalidTitle]').should('not.exist');
+      cy.get('[data-cy=msgLongTitle]').should('not.exist');
 
-      cy.get('[data-id=createPollInput]').type('❌');
-      cy.get('[data-id=msgInvalidTitle]');
+      cy.get('[data-cy=createPollInput]').type('❌');
+      cy.get('[data-cy=msgInvalidTitle]');
 
-      cy.get('[data-id=createPollInput]').clear();
-      cy.get('[data-id=msgRequiredTitle]');
+      cy.get('[data-cy=createPollInput]').clear();
+      cy.get('[data-cy=msgRequiredTitle]');
 
-      cy.get('[data-id=createPollInput]').type(values.tooLongString);
-      cy.get('[data-id=msgLongTitle]');
+      cy.get('[data-cy=createPollInput]').type(values.tooLongString);
+      cy.get('[data-cy=msgLongTitle]');
     });
 
     it('Fills out form correctly an navigates to next page', () => {
-      cy.get('[data-id=createPollButton]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=createPollButton]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=createPollInput]').type('Test-Titel');
-      cy.get('[data-id=createPollInput]').should('have.value', 'Test-Titel');
+      cy.get('[data-cy=createPollInput]').type('Test-Titel');
+      cy.get('[data-cy=createPollInput]').should('have.value', 'Test-Titel');
 
-      cy.get('[data-id=createPollButton]').should('have.attr', 'aria-disabled', 'true');
+      cy.get('[data-cy=createPollButton]').should('have.attr', 'aria-disabled', 'true');
 
-      cy.get('[data-id=checkbox]').click();
+      cy.get('[data-cy=checkbox]').click();
 
-      cy.get('[data-id=createPollButton]').click();
+      cy.get('[data-cy=createPollButton]').click();
 
       cy.location('href').should('include', '/#/create');
     });
@@ -144,7 +144,7 @@ context('home-view', () => {
       });
       cy.url().should('include', '/#/home');
 
-      cy.get('[data-id=apiErrorComponent]');
+      cy.get('[data-cy=apiErrorComponent]');
     });
   });
 });

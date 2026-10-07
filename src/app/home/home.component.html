@@ -11,7 +11,7 @@
       </div>
     }
     <app-ad-icons></app-ad-icons>
-    <div class="row justify-content-center my-2 my-lg-4" data-id="createPollSlogan">
+    <div class="row justify-content-center my-2 my-lg-4" data-cy="createPollSlogan">
       <h1 class="text-center">
         {{ 'home.slogan' | translate }}
       </h1>
@@ -19,7 +19,7 @@
     <div class="row g-0 justify-content-center">
       <form (ngSubmit)="onSubmit()" [formGroup]="titleForm" class="col" aria-labelledby="create-poll-label">
         <div class="form-row justify-content-center">
-          <label class="col" id="create-poll-label" data-id="createPollLabel" for="title">
+          <label class="col" id="create-poll-label" data-cy="createPollLabel" for="title">
             {{ 'poll.title.set' | translate }}
           </label>
         </div>
@@ -28,7 +28,7 @@
             <input
               required
               class="form-control"
-              data-id="createPollInput"
+              data-cy="createPollInput"
               formControlName="title"
               id="title"
               placeholder="{{ 'home.placeholder' | translate }}"
@@ -38,7 +38,7 @@
             @if ((title.dirty || title.touched) && !!title.errors?.required) {
               <div
                 class="invalid-message"
-                data-id="msgRequiredTitle"
+                data-cy="msgRequiredTitle"
                 id="required-title"
                 role="alert"
                 aria-atomic="false"
@@ -50,7 +50,7 @@
             @if (!!title.errors?.invalidName) {
               <div
                 class="invalid-message"
-                data-id="msgInvalidTitle"
+                data-cy="msgInvalidTitle"
                 id="invalid-title"
                 role="alert"
                 aria-atomic="false"
@@ -60,21 +60,21 @@
               </div>
             }
             @if (!!title.errors?.maxlength) {
-              <div class="invalid-message" data-id="msgLongTitle" id="long-title" role="alert" aria-atomic="false">
+              <div class="invalid-message" data-cy="msgLongTitle" id="long-title" role="alert" aria-atomic="false">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 {{ 'poll.title.tooLong' | translate }}
               </div>
             }
           </div>
         </div>
-        <app-tos [tosFormGroup]="titleForm" data-id="tosComponent"></app-tos>
+        <app-tos [tosFormGroup]="titleForm" data-cy="tosComponent"></app-tos>
         <div class="form-row mt-2">
           <div class="col pt-3">
             <button
               [attr.aria-disabled]="titleForm.invalid"
               [ngClass]="{ disabled: titleForm.invalid }"
               class="btn btn-secondary w-100"
-              data-id="createPollButton"
+              data-cy="createPollButton"
               id="btn-submit"
               type="submit"
             >
@@ -89,7 +89,7 @@
     @if (apiError) {
       <div class="row mt-2">
         <div class="col">
-          <app-message-box [message]="apiError" data-id="apiErrorComponent"></app-message-box>
+          <app-message-box [message]="apiError" data-cy="apiErrorComponent"></app-message-box>
         </div>
       </div>
     }

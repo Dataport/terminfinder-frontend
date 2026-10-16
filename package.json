@@ -34,7 +34,7 @@
     "node": "22.x || 24.x"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.2102.24",
+    "@angular-devkit/architect": "0.2102.26",
     "@angular/animations": "21.2.25",
     "@angular/common": "21.2.25",
     "@angular/compiler": "21.2.25",
@@ -59,7 +59,7 @@
     "zone.js": "0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "21.2.25",
+    "@angular-devkit/build-angular": "21.2.26",
     "@angular-eslint/builder": "21.4.0",
     "@angular-eslint/eslint-plugin": "21.4.0",
     "@angular-eslint/eslint-plugin-template": "21.4.0",

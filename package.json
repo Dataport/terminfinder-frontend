@@ -50,7 +50,7 @@
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.8",
     "calendar-link": "2.11.2",
-    "core-js": "3.50.0",
+    "core-js": "3.51.0",
     "dompurify": "3.4.17",
     "moment": "2.31.0",
     "ngx-clipboard": "16.0.0",
@@ -105,8 +105,8 @@
     "unrs-resolver@1.12.2": true,
     "esbuild@0.28.1": true,
     "esbuild@0.27.7": true,
-    "core-js@3.50.0": true,
     "@parcel/watcher@2.6.0": true,
-    "cypress@16.2.0": true
+    "cypress@16.2.0": true,
+    "core-js@3.51.0": true
   }
 }

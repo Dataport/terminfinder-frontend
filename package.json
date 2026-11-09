@@ -101,12 +101,12 @@
   "allowScripts": {
     "libxmljs2@0.37.0": true,
     "lmdb@3.5.1": true,
-    "msgpackr-extract@3.0.4": true,
     "unrs-resolver@1.12.2": true,
     "esbuild@0.28.1": true,
     "esbuild@0.27.7": true,
     "core-js@3.50.0": true,
     "@parcel/watcher@2.6.0": true,
-    "cypress@16.1.0": true
+    "cypress@16.1.0": true,
+    "msgpackr-extract@3.0.7": true
   }
 }

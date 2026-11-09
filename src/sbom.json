@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:b9de3f91-752a-46ba-8a54-3572a48966a8",
+  "serialNumber": "urn:uuid:1fb14844-8b61-4885-baf4-7c3cbe2d18bc",
   "metadata": {
-    "timestamp": "2026-11-09T08:44:00.027Z",
+    "timestamp": "2026-11-09T10:44:18.826Z",
     "tools": {
       "components": [
         {
@@ -684,9 +684,9 @@
       "type": "library",
       "name": "core",
       "group": "@ngx-translate",
-      "version": "18.0.0",
-      "bom-ref": "terminfinder@0.0.0|@ngx-translate/core@18.0.0",
-      "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe",
+      "version": "18.1.0",
+      "bom-ref": "terminfinder@0.0.0|@ngx-translate/core@18.1.0",
+      "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe, Raphael Balet",
       "description": "Translation library (i18n) for Angular",
       "licenses": [
         {
@@ -696,7 +696,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40ngx-translate/core@18.0.0",
+      "purl": "pkg:npm/%40ngx-translate/core@18.1.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/ngx-translate/core.git",
@@ -714,12 +714,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@ngx-translate/core/-/core-18.0.0.tgz",
+          "url": "https://registry.npmjs.org/@ngx-translate/core/-/core-18.1.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "67dbbd01769ebb27871e29a2bef250be16a5fcb24d07ee6d947f858a6494e1043ad45aed443aa0ca7ea77c56dce826fee7d34365db21e107932723c295d154c0"
+              "content": "5186f16149a86d46e83bd69af0b3beac905fbf16f046c22b6c223bf9f0b9946cf0c1c55b4341623f2b18160642f895ac181c3ffb3eeed5aeaf722259cea5eb71"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -736,9 +736,9 @@
       "type": "library",
       "name": "http-loader",
       "group": "@ngx-translate",
-      "version": "18.0.0",
-      "bom-ref": "terminfinder@0.0.0|@ngx-translate/http-loader@18.0.0",
-      "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe",
+      "version": "18.1.0",
+      "bom-ref": "terminfinder@0.0.0|@ngx-translate/http-loader@18.1.0",
+      "author": "Andreas Löw / CodeAndWeb GmbH, Olivier Combe, Raphael Balet",
       "description": "http loader for dynamically loading translation files for @ngx-translate/core",
       "licenses": [
         {
@@ -748,15 +748,30 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40ngx-translate/http-loader@18.0.0",
+      "purl": "pkg:npm/%40ngx-translate/http-loader@18.1.0",
       "externalReferences": [
         {
-          "url": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-18.0.0.tgz",
+          "url": "git+https://github.com/ngx-translate/core.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/ngx-translate/core#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ngx-translate/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@ngx-translate/http-loader/-/http-loader-18.1.0.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a7a42935c537ae40988c76ca54869d718b6697f363a6bd1a2e9f27789e2e2564385e6f5fd3d6c878f84e8dd8c0147ba94e9b4aa8aac6d49da04a2dd14b081878"
+              "content": "92be5a39b42c787d9f134d9e9922698ca2177e41c1814c6e6daf3cb8566447768dd8944059c228b015bc4ac538678aeaae09415b56621bf1f36ce0ff1721ddc5"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5560,8 +5575,8 @@
         "terminfinder@0.0.0|@angular/platform-browser@21.2.26",
         "terminfinder@0.0.0|@angular/router@21.2.26",
         "terminfinder@0.0.0|@ng-bootstrap/ng-bootstrap@20.0.0",
-        "terminfinder@0.0.0|@ngx-translate/core@18.0.0",
-        "terminfinder@0.0.0|@ngx-translate/http-loader@18.0.0",
+        "terminfinder@0.0.0|@ngx-translate/core@18.1.0",
+        "terminfinder@0.0.0|@ngx-translate/http-loader@18.1.0",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
         "terminfinder@0.0.0|bootstrap@5.3.8",
         "terminfinder@0.0.0|calendar-link@2.11.2",
@@ -5675,7 +5690,7 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@ngx-translate/core@18.0.0",
+      "ref": "terminfinder@0.0.0|@ngx-translate/core@18.1.0",
       "dependsOn": [
         "terminfinder@0.0.0|@angular/common@21.2.26",
         "terminfinder@0.0.0|@angular/core@21.2.26",
@@ -5684,11 +5699,11 @@
       ]
     },
     {
-      "ref": "terminfinder@0.0.0|@ngx-translate/http-loader@18.0.0",
+      "ref": "terminfinder@0.0.0|@ngx-translate/http-loader@18.1.0",
       "dependsOn": [
         "terminfinder@0.0.0|@angular/common@21.2.26",
         "terminfinder@0.0.0|@angular/core@21.2.26",
-        "terminfinder@0.0.0|@ngx-translate/core@18.0.0",
+        "terminfinder@0.0.0|@ngx-translate/core@18.1.0",
         "terminfinder@0.0.0|tslib@2.8.1"
       ]
     },

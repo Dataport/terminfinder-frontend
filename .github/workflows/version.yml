@@ -13,6 +13,9 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: cperezabo/setup-git-mkver@v1.2.0
+      - uses: cperezabo/setup-git-mkver@v1
+        with:
+          version: "1.2.0"
       - name: Next Version
+        continue-on-error: true
         run: git mkver next --format '{Docker}'

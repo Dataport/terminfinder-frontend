@@ -16,6 +16,7 @@ import { timeValidator } from '../shared/validators/time-validator.directive';
 import { dateInFutureOrTodayValidator } from '../shared/validators/date-today-or-in-future-validator.directive';
 import { minLengthArrayValidator } from '../shared/validators/min-length-array-validator.directive';
 import { maxLengthArrayValidator } from '../shared/validators/max-length-array-validator.directive';
+import { uniqueSuggestedDateValidator } from '../shared/validators/unique-suggested-dates-validator.directive';
 import { DateTimeGeneratorService } from '../shared/services/generators';
 import { ValidatorConstants } from '../shared/constants/validatorConstants';
 import { suggestedDateValidator } from '../shared/validators/suggested-date-validator.directive';
@@ -143,6 +144,14 @@ export class CreateSuggestedDatesComponent implements OnInit {
     const now: moment.Moment = new DateTimeGeneratorService().now();
     this.minDate = now.format(ValidatorConstants.MOMENT_FORMAT_DATE);
     this.maxDate = now.add(5, 'years').format(ValidatorConstants.MOMENT_FORMAT_DATE);
+
+    // duplicates depend on sibling entries, so every entry must be re-validated on any change
+    this.getSuggestedDatesFromForm().valueChanges.subscribe(() => {
+      this.getSuggestedDatesFromForm().controls.forEach((group) =>
+        group.updateValueAndValidity({ onlySelf: true, emitEvent: false })
+      );
+      this.getSuggestedDatesFromForm().updateValueAndValidity({ emitEvent: false });
+    });
 
     if (this.isAdmin()) {
       this.routeTitle.setTitle('date.change');
@@ -318,6 +327,51 @@ export class CreateSuggestedDatesComponent implements OnInit {
     this.getSuggestedDatesFromForm().push(this.createSuggestedDateForm());
   }
 
+  public canAddSuggestedDate(): boolean {
+    const length = this.getSuggestedDatesFromForm().length;
+    return length === 0 || (this.isBelowSuggestedDateLimit() && this.hasLastSuggestedDateBeenEditedOrLoaded());
+  }
+
+  private isBelowSuggestedDateLimit(): boolean {
+    return this.getSuggestedDatesFromForm().length <= CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES;
+  }
+
+  // When in admin mode: every date from the model is pristine but valid. Adding & copying must be possible without editing
+  private hasLastSuggestedDateBeenEditedOrLoaded(): boolean {
+    const length = this.getSuggestedDatesFromForm().length;
+    return length <= this.model.length || this.getSuggestedDatesForm(length - 1).dirty;
+  }
+
+  public canCopyLastSuggestedDate(): boolean {
+    const length = this.getSuggestedDatesFromForm().length;
+    return length > 0 && this.isBelowSuggestedDateLimit() && this.hasLastSuggestedDateBeenEditedOrLoaded();
+  }
+
+  public copyLastSuggestedDate(): void {
+    if (!this.canCopyLastSuggestedDate()) {
+      return;
+    }
+    const lastSuggestedDateIndex = this.getSuggestedDatesFromForm().length - 1;
+    const source = this.getSuggestedDatesForm(lastSuggestedDateIndex).getRawValue();
+    const copy = this.createSuggestedDateForm();
+    // description is not copied
+    copy.patchValue({
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE]:
+        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE],
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME]:
+        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME],
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE]:
+        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE],
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME]:
+        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME],
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME]:
+        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME],
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]:
+        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]
+    });
+    this.getSuggestedDatesFromForm().push(copy);
+  }
+
   public onSubmit(): void {
     const model: Appointment = this.appStateService.getAppointment();
     this.logger.debug(
@@ -463,7 +517,10 @@ export class CreateSuggestedDatesComponent implements OnInit {
           [Validators.maxLength(ValidatorConstants.MAX_LENGTH_DATE_DESCRIPTION)]
         )
       },
-      [suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin())]
+      [
+        suggestedDateValidator(this.localeId, this.dateTimeGenerator, this.isAdmin()),
+        uniqueSuggestedDateValidator()
+      ]
     );
   }
 

@@ -395,33 +395,45 @@
           </div>
         </div>
         <!-- error messages for this date entry -->
-        @if (getSuggestedDatesForm(i).dirty && !!getSuggestedDatesForm(i).errors) {
+        @if (!!getSuggestedDatesForm(i).errors) {
           <div class="row mb-2">
             <div
               [ngClass]="{ 'has-error': getSuggestedDatesForm(i).invalid }"
               class="col my-1 px-1 px-lg-3 my-1 form-group"
             >
-              @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
-                <div class="invalid-message" id="start-date-after-end-date" role="alert" aria-atomic="false">
-                  <i class="fa-solid fa-triangle-exclamation"></i>
-                  {{ 'date.startAfterEnd' | translate }}
-                </div>
+              @if (getSuggestedDatesForm(i).dirty) {
+                @if (!!getSuggestedDatesForm(i).errors?.startDateAfterEndDate) {
+                  <div class="invalid-message" id="start-date-after-end-date" role="alert" aria-atomic="false">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    {{ 'date.startAfterEnd' | translate }}
+                  </div>
+                }
+                @if (!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered) {
+                  <div
+                    class="invalid-message"
+                    id="end-time-entered-but-no-start-time-entered"
+                    role="alert"
+                    aria-atomic="false"
+                  >
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    {{ 'date.noStart' | translate }}
+                  </div>
+                }
+                @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
+                  <div class="invalid-message" id="start-date-time-in-past" role="alert" aria-atomic="false">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    {{ 'date.inPast' | translate }}
+                  </div>
+                }
               }
-              @if (!!getSuggestedDatesForm(i).errors?.endTimeEnteredButNoStartTimeEntered) {
-                <div
-                  class="invalid-message"
-                  id="end-time-entered-but-no-start-time-entered"
-                  role="alert"
-                  aria-atomic="false"
-                >
+              <!-- shown even when pristine: copied entries are not dirty but can still be duplicates -->
+              @if (!!getSuggestedDatesForm(i).errors?.duplicateSuggestedDate) {
+                <div class="invalid-message" id="duplicate-suggested-date-{{ i }}" role="alert" aria-atomic="false">
                   <i class="fa-solid fa-triangle-exclamation"></i>
-                  {{ 'date.noStart' | translate }}
-                </div>
-              }
-              @if (!!getSuggestedDatesForm(i).errors?.startDateTimeInPast) {
-                <div class="invalid-message" id="start-date-time-in-past" role="alert" aria-atomic="false">
-                  <i class="fa-solid fa-triangle-exclamation"></i>
-                  {{ 'date.inPast' | translate }}
+                  {{
+                    'date.duplicate'
+                      | translate: { number: getSuggestedDatesForm(i).errors?.duplicateSuggestedDate.duplicateOf }
+                  }}
                 </div>
               }
             </div>
@@ -453,17 +465,39 @@
     }
     <div class="row mt-2 justify-content-center">
       <div class="col-auto text-center">
-        <button (click)="addSuggestedDate()" class="w-100 btn-circle" data-cy="addSuggestedDateButton" type="button">
-          <img
-            aria-hidden="true"
-            alt=""
-            class="icon"
-            id="img_pause"
-            ngSrc="assets/add-suggested-date.svg"
-            height="80"
-            width="80"
-          />
-          <span class="d-block font-weight-bold text-primary">{{ 'date.add' | translate }}</span>
+        <button
+          (click)="addSuggestedDate()"
+          class="w-100 btn-circle"
+          data-cy="addSuggestedDateButton"
+          type="button"
+          [ngClass]="{ disabled: !canAddSuggestedDate() }"
+          [attr.aria-disabled]="!canAddSuggestedDate()"
+        >
+          <img aria-hidden="true" alt="" class="icon" ngSrc="assets/add-suggested-date.svg" height="80" width="80" />
+          <span
+            class="d-block font-weight-bold"
+            [class.text-primary]="canAddSuggestedDate()"
+            [class.text-muted]="!canAddSuggestedDate()"
+            >{{ 'date.add' | translate }}</span
+          >
+        </button>
+      </div>
+      <div class="col-auto text-center">
+        <button
+          (click)="copyLastSuggestedDate()"
+          [ngClass]="{ disabled: !canCopyLastSuggestedDate() }"
+          [attr.aria-disabled]="!canCopyLastSuggestedDate()"
+          class="w-100 btn-circle"
+          data-cy="copySuggestedDateButton"
+          type="button"
+        >
+          <img aria-hidden="true" alt="" class="icon" ngSrc="assets/copy-suggested-date.svg" height="80" width="80" />
+          <span
+            class="d-block font-weight-bold"
+            [class.text-primary]="canCopyLastSuggestedDate()"
+            [class.text-muted]="!canCopyLastSuggestedDate()"
+            >{{ 'date.copy' | translate: { number: getSuggestedDatesFromForm().length } }}</span
+          >
         </button>
       </div>
     </div>

@@ -111,6 +111,8 @@
     "enter": "Termineingabe",
     "start": "Startdatum",
     "add": "Weiteres Datum hinzufügen",
+    "copy": "Termineingabe {{number}} kopieren",
+    "duplicate": "Diese Termineingabe ist identisch mit Termineingabe {{number}}. Bitte ändere Datum, Uhrzeit oder Beschreibung.",
     "placeholder": "TT.MM.JJJJ",
     "setStart": "Bitte gib ein Startdatum an.",
     "startInvalid": "Bitte gib ein gültiges Startdatum an.",

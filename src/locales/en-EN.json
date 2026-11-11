@@ -111,6 +111,8 @@
     "enter": "Enter date",
     "start": "Start date",
     "add": "Add another date",
+    "copy": "Copy date {{number}}",
+    "duplicate": "This date entry is identical to date {{number}}. Please change the date, the time or the description.",
     "placeholder": "DD.MM.YYYY",
     "setStart": "Please set a start date.",
     "startInvalid": "Please set a valid start date.",

@@ -331,22 +331,20 @@ export class CreateSuggestedDatesComponent implements OnInit {
 
   public canAddSuggestedDate(): boolean {
     const length = this.getSuggestedDatesFromForm().length;
-    return length === 0 || (this.isBelowSuggestedDateLimit() && this.hasLastSuggestedDateBeenEditedOrLoaded());
+    return length === 0 || (this.isBelowSuggestedDateLimit() && this.isLastSuggestedDateValid());
   }
 
   private isBelowSuggestedDateLimit(): boolean {
     return this.getSuggestedDatesFromForm().length <= CreateSuggestedDatesComponent.MAX_NUMBER_SUGGESTED_DATES;
   }
 
-  // When in admin mode: every date from the model is pristine but valid. Adding & copying must be possible without editing
-  private hasLastSuggestedDateBeenEditedOrLoaded(): boolean {
-    const length = this.getSuggestedDatesFromForm().length;
-    return length <= this.model.length || this.getSuggestedDatesForm(length - 1).dirty;
+  private isLastSuggestedDateValid(): boolean {
+    return this.getSuggestedDatesForm(this.getSuggestedDatesFromForm().length - 1).valid;
   }
 
   public canCopyLastSuggestedDate(mode: SuggestedDateCopyMode = SuggestedDateCopyMode.ALL): boolean {
     const length = this.getSuggestedDatesFromForm().length;
-    if (length === 0 || !this.isBelowSuggestedDateLimit() || !this.hasLastSuggestedDateBeenEditedOrLoaded()) {
+    if (length === 0 || !this.isBelowSuggestedDateLimit() || !this.isLastSuggestedDateValid()) {
       return false;
     }
 

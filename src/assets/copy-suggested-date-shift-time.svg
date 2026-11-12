@@ -1,0 +1,25 @@
+<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1 {
+      fill: #f5f6f7;
+      stroke: #003064;
+      stroke-miterlimit: 10;
+    }
+
+    .cls-2 {
+      fill: #003064;
+    }</style>
+  </defs>
+  <title>icons_terminfinder</title>
+  <g id="Dashboard">
+    <g id="Back">
+      <circle class="cls-1" cx="40" cy="40" r="34.5"/>
+    </g>
+  </g>
+  <g id="Uhrzeit-verschieben" transform="translate(40 40) scale(1.15) translate(-40 -40)">
+    <circle class="cls-2" cx="38.1" cy="38.3" r="16.3"/>
+    <path d="M38.1,28.4v9.9l5.8,4.1" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle class="cls-2" cx="49.3" cy="50.3" r="9.45" stroke="#fff" stroke-width="2.4"/>
+    <path d="M44.8,50.3h9m-3.6-3.6l3.6,3.6-3.6,3.6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -111,7 +111,13 @@
     "enter": "Enter date",
     "start": "Start date",
     "add": "Add another date",
-    "copy": "Copy date {{number}}",
+    "copy": {
+      "label": "Copy date {{number}}:",
+      "all": "Copy everything",
+      "dateOnly": "Date only",
+      "shiftTime": "Shift time range",
+      "nextDay": "Next day, same time"
+    },
     "duplicate": "This date entry is identical to date {{number}}. Please change the date, the time or the description.",
     "placeholder": "DD.MM.YYYY",
     "setStart": "Please set a start date.",

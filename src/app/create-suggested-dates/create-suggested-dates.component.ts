@@ -1,13 +1,13 @@
-import { Component, LOCALE_ID, OnInit, input, inject } from '@angular/core';
+import { Component, inject, input, LOCALE_ID, OnInit } from '@angular/core';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
 import {
   AbstractControl,
+  FormsModule,
+  ReactiveFormsModule,
   UntypedFormArray,
   UntypedFormControl,
   UntypedFormGroup,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule
+  Validators
 } from '@angular/forms';
 import { Logger } from '../shared/services/logging';
 import { Router } from '@angular/router';
@@ -21,7 +21,8 @@ import { DateTimeGeneratorService } from '../shared/services/generators';
 import { ValidatorConstants } from '../shared/constants/validatorConstants';
 import { suggestedDateValidator } from '../shared/validators/suggested-date-validator.directive';
 import { SuggestedDatesFormConstants } from './suggested-dates-form-constants';
-import { Appointment, SuggestedDate } from '../shared/models';
+import { SUGGESTED_DATE_COPY_MODE_OPTIONS } from './suggested-date-copy-mode-options';
+import { Appointment, SuggestedDate, SuggestedDateCopyMode } from '../shared/models';
 import { ValidatorUtils } from '../shared/validators/validator-utils';
 import moment from 'moment';
 import { MomentUtils, NullableUtils } from '../shared/utils';
@@ -29,7 +30,7 @@ import { ApiConstants } from '../shared/constants/apiConstants';
 import { RouteTitleService } from '../shared/services/route-title.service';
 import { StepperComponent } from '../shared/components/stepper/stepper.component';
 import { AdminInfoComponent } from '../shared/components/admin-info/admin-info.component';
-import { NgOptimizedImage, NgClass } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import { AutofocusDirective } from '../shared/directives/autofocus.directive';
 import { NavigationComponent } from '../shared/components/navigation/navigation.component';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -59,6 +60,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   private routeTitle = inject(RouteTitleService);
 
   protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
+  protected readonly copyModeOptions = SUGGESTED_DATE_COPY_MODE_OPTIONS;
 
   public static readonly MIN_NUMBER_SUGGESTED_DATES = ValidatorConstants.MIN_NUMBER_SUGGESTED_DATES;
   public static readonly MAX_NUMBER_SUGGESTED_DATES = ValidatorConstants.MAX_NUMBER_SUGGESTED_DATES;
@@ -342,34 +344,101 @@ export class CreateSuggestedDatesComponent implements OnInit {
     return length <= this.model.length || this.getSuggestedDatesForm(length - 1).dirty;
   }
 
-  public canCopyLastSuggestedDate(): boolean {
+  public canCopyLastSuggestedDate(mode: SuggestedDateCopyMode = SuggestedDateCopyMode.ALL): boolean {
     const length = this.getSuggestedDatesFromForm().length;
-    return length > 0 && this.isBelowSuggestedDateLimit() && this.hasLastSuggestedDateBeenEditedOrLoaded();
+    if (length === 0 || !this.isBelowSuggestedDateLimit() || !this.hasLastSuggestedDateBeenEditedOrLoaded()) {
+      return false;
+    }
+
+    return mode !== SuggestedDateCopyMode.SHIFT_TIME || this.getShiftedTimesOfLastSuggestedDate() !== null;
   }
 
-  public copyLastSuggestedDate(): void {
-    if (!this.canCopyLastSuggestedDate()) {
+  public copyLastSuggestedDate(mode: SuggestedDateCopyMode = SuggestedDateCopyMode.ALL): void {
+    if (!this.canCopyLastSuggestedDate(mode)) {
       return;
     }
-    const lastSuggestedDateIndex = this.getSuggestedDatesFromForm().length - 1;
-    const source = this.getSuggestedDatesForm(lastSuggestedDateIndex).getRawValue();
+
+    const source = this.getSuggestedDatesForm(this.getSuggestedDatesFromForm().length - 1).getRawValue();
     const copy = this.createSuggestedDateForm();
-    // description is not copied
-    copy.patchValue({
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE]:
-        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE],
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME]:
-        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME],
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE]:
-        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE],
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME]:
-        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME],
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME]:
-        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME],
-      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]:
-        source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]
-    });
+    // description is never copied
+    copy.patchValue(this.createCopyValues(source, mode));
     this.getSuggestedDatesFromForm().push(copy);
+  }
+
+  private createCopyValues(source: Record<string, unknown>, mode: SuggestedDateCopyMode): Record<string, unknown> {
+    const startDate = source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE] as string;
+    const endDate = source[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE] as string;
+    const onDifferentDay = source[
+      SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM
+    ] as boolean;
+
+    const copyValues: Record<string, unknown> = {
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE]: startDate,
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE]: endDate,
+      [SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM]:
+        onDifferentDay
+    };
+
+    const timeKeys = [
+      SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME,
+      SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME,
+      SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE_END_TIME
+    ];
+
+    switch (mode) {
+      case SuggestedDateCopyMode.DATE_ONLY:
+        break;
+      case SuggestedDateCopyMode.NEXT_DAY:
+        copyValues[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE] = this.addOneDay(startDate);
+        copyValues[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_END_DATE] = this.addOneDay(endDate);
+        timeKeys.forEach((key) => (copyValues[key] = source[key]));
+        break;
+      case SuggestedDateCopyMode.SHIFT_TIME: {
+        const shiftedTime = this.getShiftedTimesOfLastSuggestedDate();
+        copyValues[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME] = shiftedTime.start;
+        copyValues[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME] = shiftedTime.end;
+        break;
+      }
+      default:
+        timeKeys.forEach((key) => (copyValues[key] = source[key]));
+    }
+
+    return copyValues;
+  }
+
+  private addOneDay(value: string): string | null {
+    const parsed = this.parseDateFromString(value);
+    return parsed === null ? null : parsed.add(1, 'day').format(ValidatorConstants.MOMENT_FORMAT_DATE);
+  }
+
+  // The new start is the old end. The new end is the old end plus the old duration.
+  // example: 10:00 - 11:00 becomes 11:00 - 12:00
+  // Returns null if there is no same-day time range, the range is empty, or the shift would pass midnight.
+  private getShiftedTimesOfLastSuggestedDate(): { start: string; end: string } | null {
+    const lastSuggestedDate = this.getSuggestedDatesForm(this.getSuggestedDatesFromForm().length - 1).getRawValue();
+    const startTime = lastSuggestedDate[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_TIME];
+    const endTime = lastSuggestedDate[SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_START_DATE_END_TIME];
+    const onDifferentDay =
+      lastSuggestedDate[
+        SuggestedDatesFormConstants.FORM_KEY_SUGGESTED_DATE_SHOW_SUGGESTED_START_DATE_ON_DIFFERENT_DAY_FORM
+      ];
+
+    if (onDifferentDay || NullableUtils.isStringNullOrEmpty(startTime) || NullableUtils.isStringNullOrEmpty(endTime)) {
+      return null;
+    }
+
+    const start = this.parseTimeFromString(startTime);
+    const end = this.parseTimeFromString(endTime);
+
+    if (!start.isValid() || !end.isValid() || !end.isAfter(start)) {
+      return null;
+    }
+
+    const newEnd = end.clone().add(end.diff(start, 'minutes'), 'minutes');
+
+    return newEnd.isSame(end, 'day')
+      ? { start: endTime, end: newEnd.format(ValidatorConstants.MOMENT_FORMAT_TIME) }
+      : null;
   }
 
   public onSubmit(): void {

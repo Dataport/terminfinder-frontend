@@ -111,7 +111,13 @@
     "enter": "Termineingabe",
     "start": "Startdatum",
     "add": "Weiteres Datum hinzufügen",
-    "copy": "Termineingabe {{number}} kopieren",
+    "copy": {
+      "label": "Termineingabe {{number}} kopieren:",
+      "all": "Alles übernehmen",
+      "dateOnly": "Nur Datum übernehmen",
+      "shiftTime": "Zeitraum verschieben",
+      "nextDay": "Nächster Tag, gleiche Uhrzeit"
+    },
     "duplicate": "Diese Termineingabe ist identisch mit Termineingabe {{number}}. Bitte ändern Sie Datum, Uhrzeit oder Beschreibung.",
     "placeholder": "TT.MM.JJJJ",
     "setStart": "Bitte geben Sie ein Startdatum an.",

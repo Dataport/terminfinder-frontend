@@ -1,4 +1,5 @@
 export * from './message';
+export * from './suggestedDateCopyMode';
 export * from './messageType';
 export * from './participant';
 export * from './suggestedDate';

@@ -102,7 +102,13 @@
     "enter": "Termininngaav",
     "start": "Startdaag",
     "add": "Annere Datum toföög",
-    "copy": "Termininngaav {{number}} kopeern",
+    "copy": {
+      "label": "Termininngaav {{number}} kopeern:",
+      "all": "Alles övernehmen",
+      "dateOnly": "Blos Datum övernehmen",
+      "shiftTime": "Kloktiet na achtern schuven",
+      "nextDay": "Nächste Daag, gliege Kloktiet"
+    },
     "duplicate": "Disse Termininngaav is gliek as Termininngaav {{number}}. Bitte änner de Datum, Tiet or Beschriebung.",
     "rejected": "Termin aflehnen",
     "questionable": "Termin fraglich",

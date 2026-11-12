@@ -463,39 +463,41 @@
         </div>
       </div>
     }
-    <div class="section-container copy-modes mt-2" role="group" aria-labelledby="copy-modes-label">
-      <div
-        id="copy-modes-label"
-        class="font-weight-bold text-center p-2"
-        [class.text-primary]="canCopyLastSuggestedDate()"
-        [class.text-muted]="!canCopyLastSuggestedDate()"
-      >
-        {{ 'date.copy.label' | translate: { number: getSuggestedDatesFromForm().length } }}
-      </div>
-      <div class="divider-single"></div>
-      <div class="row justify-content-center">
-        @for (option of copyModeOptions; track option.mode) {
-          <div class="col-3 p-2 text-center copy-mode-option">
-            <button
-              (click)="copyLastSuggestedDate(option.mode)"
-              class="w-100 btn-circle"
-              [attr.data-cy]="'copySuggestedDateButton-' + option.mode"
-              type="button"
-              [ngClass]="{ disabled: !canCopyLastSuggestedDate(option.mode) }"
-              [attr.aria-disabled]="!canCopyLastSuggestedDate(option.mode)"
-            >
-              <img aria-hidden="true" alt="" class="icon" [ngSrc]="option.icon" height="80" width="80" />
-              <span
-                class="d-block font-weight-bold"
-                [class.text-primary]="canCopyLastSuggestedDate(option.mode)"
-                [class.text-muted]="!canCopyLastSuggestedDate(option.mode)"
-                >{{ option.labelKey | translate }}</span
+    @if (getSuggestedDatesFromForm().length > 0) {
+      <div class="section-container copy-modes mt-2" role="group" aria-labelledby="copy-modes-label">
+        <div
+          id="copy-modes-label"
+          class="font-weight-bold text-center p-2"
+          [class.text-primary]="canCopyLastSuggestedDate()"
+          [class.text-muted]="!canCopyLastSuggestedDate()"
+        >
+          {{ 'date.copy.label' | translate: { number: getSuggestedDatesFromForm().length } }}
+        </div>
+        <div class="divider-single"></div>
+        <div class="row justify-content-center">
+          @for (option of copyModeOptions; track option.mode) {
+            <div class="col-3 p-2 text-center copy-mode-option">
+              <button
+                (click)="copyLastSuggestedDate(option.mode)"
+                class="w-100 btn-circle"
+                [attr.data-cy]="'copySuggestedDateButton-' + option.mode"
+                type="button"
+                [ngClass]="{ disabled: !canCopyLastSuggestedDate(option.mode) }"
+                [attr.aria-disabled]="!canCopyLastSuggestedDate(option.mode)"
               >
-            </button>
-          </div>
-        }
+                <img aria-hidden="true" alt="" class="icon" [ngSrc]="option.icon" height="80" width="80" />
+                <span
+                  class="d-block font-weight-bold"
+                  [class.text-primary]="canCopyLastSuggestedDate(option.mode)"
+                  [class.text-muted]="!canCopyLastSuggestedDate(option.mode)"
+                  >{{ option.labelKey | translate }}</span
+                >
+              </button>
+            </div>
+          }
+        </div>
       </div>
-    </div>
+    }
     <div class="row mt-2 justify-content-center">
       <div class="col-auto text-center">
         <button

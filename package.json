@@ -68,7 +68,7 @@
     "@angular/cli": "21.2.29",
     "@angular/compiler-cli": "21.2.26",
     "@angular/language-service": "21.2.26",
-    "@cyclonedx/cyclonedx-npm": "6.0.1",
+    "@cyclonedx/cyclonedx-npm": "7.0.0",
     "@cypress/schematic": "6.0.0",
     "@fortawesome/fontawesome-free": "7.2.0",
     "@stylistic/eslint-plugin": "5.10.0",

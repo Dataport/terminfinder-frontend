@@ -112,7 +112,7 @@
     "start": "Startdatum",
     "add": "Weiteres Datum hinzufügen",
     "copy": {
-      "label": "Termineingabe {{number}} kopieren:",
+      "label": "Werte kopieren",
       "all": "Alles übernehmen",
       "dateOnly": "Nur Datum übernehmen",
       "shiftTime": "Zeitraum verschieben",

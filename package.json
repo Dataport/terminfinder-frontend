@@ -68,23 +68,23 @@
     "@angular/cli": "21.2.29",
     "@angular/compiler-cli": "21.2.26",
     "@angular/language-service": "21.2.26",
-    "@cyclonedx/cyclonedx-npm": "6.0.1",
+    "@cyclonedx/cyclonedx-npm": "7.0.0",
     "@cypress/schematic": "6.0.0",
     "@fortawesome/fontawesome-free": "7.2.0",
     "@stylistic/eslint-plugin": "5.10.0",
     "@types/jest": "30.0.0",
     "@types/node": "26.6.6",
-    "@typescript-eslint/eslint-plugin": "8.72.1",
-    "@typescript-eslint/parser": "8.72.1",
+    "@typescript-eslint/eslint-plugin": "8.72.2",
+    "@typescript-eslint/parser": "8.72.2",
     "btoa": "1.2.1",
     "cors": "2.8.6",
-    "cypress": "16.2.1",
+    "cypress": "16.3.0",
     "dayjs": "1.11.21",
     "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jest": "29.17.0",
-    "eslint-plugin-jsdoc": "65.4.2",
+    "eslint-plugin-jsdoc": "65.4.5",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-prettier": "5.5.5",
     "express": "5.3.0",
@@ -95,7 +95,7 @@
     "prettier-eslint": "17.0.1",
     "prettier-plugin-multiline-arrays": "4.1.8",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.72.1",
+    "typescript-eslint": "8.72.2",
     "uuid": "14.0.0"
   },
   "allowScripts": {
@@ -106,7 +106,7 @@
     "esbuild@0.27.7": true,
     "@parcel/watcher@2.6.0": true,
     "core-js@3.51.0": true,
-    "cypress@16.2.1": true,
-    "msgpackr-extract@3.0.7": true
+    "msgpackr-extract@3.0.7": true,
+    "cypress@16.3.0": true
   }
 }

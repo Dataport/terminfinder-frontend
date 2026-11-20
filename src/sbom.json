@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
   "version": 1,
-  "serialNumber": "urn:uuid:788ae99e-51bd-4ae6-86a2-6b5635990bfc",
+  "serialNumber": "urn:uuid:f88dc1fb-cba4-4355-8f4f-dcb98dcf1c05",
   "metadata": {
-    "timestamp": "2026-11-20T06:44:15.916Z",
+    "timestamp": "2026-11-20T11:22:38.270Z",
     "tools": {
       "components": [
         {
@@ -114,7 +114,7 @@
       "properties": [
         {
           "name": "cdx:npm:package:constraint:engine:node",
-          "value": "22.x || 24.x"
+          "value": "24.x || 26.x"
         },
         {
           "name": "cdx:npm:package:private",

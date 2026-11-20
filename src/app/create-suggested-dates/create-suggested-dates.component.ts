@@ -1,4 +1,4 @@
-import { Component, inject, input, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, input, LOCALE_ID, OnInit, signal, viewChild } from '@angular/core';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
 import {
   AbstractControl,
@@ -59,8 +59,14 @@ export class CreateSuggestedDatesComponent implements OnInit {
   private dateTimeGenerator = inject(DateTimeGeneratorService);
   private routeTitle = inject(RouteTitleService);
 
-  protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
   protected readonly copyModeOptions = SUGGESTED_DATE_COPY_MODE_OPTIONS;
+  protected readonly copyModesExpanded = signal(false);
+  protected readonly copyModesWide = signal(false);
+  private readonly copyModesBar = viewChild<ElementRef<HTMLElement>>('copyModesBar');
+  private readonly copyModesPanel = viewChild<ElementRef<HTMLElement>>('copyModesPanel');
+  private copyModesTimer?: ReturnType<typeof setTimeout>;
+
+  protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
 
   public static readonly MIN_NUMBER_SUGGESTED_DATES = ValidatorConstants.MIN_NUMBER_SUGGESTED_DATES;
   public static readonly MAX_NUMBER_SUGGESTED_DATES = ValidatorConstants.MAX_NUMBER_SUGGESTED_DATES;
@@ -147,7 +153,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
     this.minDate = now.format(ValidatorConstants.MOMENT_FORMAT_DATE);
     this.maxDate = now.add(5, 'years').format(ValidatorConstants.MOMENT_FORMAT_DATE);
 
-    // duplicates depend on sibling entries, so every entry must be re-validated on any change
     this.getSuggestedDatesFromForm().valueChanges.subscribe(() => {
       this.getSuggestedDatesFromForm().controls.forEach((group) =>
         group.updateValueAndValidity({ onlySelf: true, emitEvent: false })
@@ -342,6 +347,65 @@ export class CreateSuggestedDatesComponent implements OnInit {
     return this.getSuggestedDatesForm(this.getSuggestedDatesFromForm().length - 1).valid;
   }
 
+  private static getTransitionMs(element: HTMLElement): number {
+    return Math.max(
+      ...getComputedStyle(element)
+        .transitionDuration.split(',')
+        .map((duration) => Number.parseFloat(duration) * (duration.includes('ms') ? 1 : 1000))
+    );
+  }
+
+  protected toggleCopyModes(): void {
+    const copyModesBar = this.copyModesBar()?.nativeElement;
+    const copyModesPanel = this.copyModesPanel()?.nativeElement;
+
+    if (!copyModesBar || !copyModesPanel) {
+      return;
+    }
+
+    clearTimeout(this.copyModesTimer);
+
+    if (!this.copyModesExpanded()) {
+      this.openCopyModesBar(copyModesBar);
+    } else {
+      this.closeCopyModesBar(copyModesBar, copyModesPanel);
+    }
+  }
+
+  // copyModesBar widens first, then the options open
+  private openCopyModesBar(copyModesBar: HTMLElement) {
+    if (!this.copyModesWide()) {
+      copyModesBar.style.setProperty('--copy-modes-collapsed-width', `${copyModesBar.getBoundingClientRect().width}px`);
+      copyModesBar.getBoundingClientRect();
+    }
+
+    this.copyModesWide.set(true);
+    this.copyModesTimer = setTimeout(
+      () => this.copyModesExpanded.set(true),
+      CreateSuggestedDatesComponent.getTransitionMs(copyModesBar)
+    );
+  }
+
+  // options close first, then the copyModesBar shrinks to its content width
+  private closeCopyModesBar(copyModesBar: HTMLElement, copyModesPanel: HTMLElement) {
+    this.copyModesExpanded.set(false);
+
+    this.copyModesTimer = setTimeout(() => {
+      this.copyModesWide.set(false);
+
+      this.copyModesTimer = setTimeout(
+        () => copyModesBar.style.removeProperty('--copy-modes-collapsed-width'),
+        CreateSuggestedDatesComponent.getTransitionMs(copyModesBar)
+      );
+    }, CreateSuggestedDatesComponent.getTransitionMs(copyModesPanel));
+  }
+
+  private resetCopyBarState() {
+    clearTimeout(this.copyModesTimer);
+    this.copyModesExpanded.set(false);
+    this.copyModesWide.set(false);
+  }
+
   public canCopyLastSuggestedDate(mode: SuggestedDateCopyMode = SuggestedDateCopyMode.ALL): boolean {
     const length = this.getSuggestedDatesFromForm().length;
     if (length === 0 || !this.isBelowSuggestedDateLimit() || !this.isLastSuggestedDateValid()) {
@@ -478,6 +542,11 @@ export class CreateSuggestedDatesComponent implements OnInit {
       this.suggestedDatesToDelete.push(itemToDelete);
     }
     this.getSuggestedDatesFromForm().removeAt(index);
+
+    if (this.getSuggestedDatesFromForm().length === 0) {
+      // If all suggested dates are deleted, adding a new one starts the copy bar in a closed state
+      this.resetCopyBarState();
+    }
   }
 
   public isSuggestedDateEditableByIndex(index: number): boolean {

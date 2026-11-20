@@ -103,7 +103,7 @@
     "start": "Startdaag",
     "add": "Annere Datum toföög",
     "copy": {
-      "label": "Termininngaav {{number}} kopeern:",
+      "label": "Werte kopeern",
       "all": "Alles övernehmen",
       "dateOnly": "Blos Datum övernehmen",
       "shiftTime": "Kloktiet na achtern schuven",

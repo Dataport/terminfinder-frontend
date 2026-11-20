@@ -112,7 +112,7 @@
     "start": "Start date",
     "add": "Add another date",
     "copy": {
-      "label": "Copy date {{number}}:",
+      "label": "Copy values",
       "all": "Copy everything",
       "dateOnly": "Date only",
       "shiftTime": "Shift time range",

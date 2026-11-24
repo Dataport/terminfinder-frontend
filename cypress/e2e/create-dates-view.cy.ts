@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import * as dayjs from 'dayjs';
 import * as utc from 'dayjs/plugin/utc';
-// import values from "../fixtures/values.json";
+import values from '../fixtures/values.json';
 
 dayjs.extend(utc);
 
@@ -151,19 +151,17 @@ context('create-dates-view', () => {
       cy.get('[data-cy=startTimeInput]').clear();
     });
 
-    // TODO disabled until backend supports feature
-    // it('Accepts valid description', () => {
-    //   cy.get('[data-cy=descriptionInput]')
-    //     .type('Test-Beschreibung', {delay: 0})
-    //     .should('have.value', 'Test-Beschreibung');
-    // });
-    //
-    // it('Does not accept too long description', () => {
-    //   cy.get('[data-cy=descriptionTooLong]').should('not.exist');
-    //   cy.get('[data-cy=descriptionInput]')
-    //     .type(values.tooLongString, {delay: 0});
-    //   cy.get('[data-cy=descriptionTooLong]');
-    // });
+    it('Accepts valid description', () => {
+      cy.get('[data-cy=descriptionInput]')
+        .type('Test-Beschreibung', { delay: 0 })
+        .should('have.value', 'Test-Beschreibung');
+    });
+
+    it('Does not accept too long description', () => {
+      cy.get('[data-cy=descriptionTooLong]').should('not.exist');
+      cy.get('[data-cy=descriptionInput]').type(values.tooLongString, { delay: 0 });
+      cy.get('[data-cy=descriptionTooLong]');
+    });
   });
 
   describe('Adds new suggested date', () => {

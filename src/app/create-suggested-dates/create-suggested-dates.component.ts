@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, input, LOCALE_ID, OnInit, signal, viewChild } from '@angular/core';
+import { Component, inject, input, LOCALE_ID, OnInit } from '@angular/core';
 import { AppStateService } from '../shared/services/app-state/app-state.service';
 import {
   AbstractControl,
@@ -21,7 +21,6 @@ import { DateTimeGeneratorService } from '../shared/services/generators';
 import { ValidatorConstants } from '../shared/constants/validatorConstants';
 import { suggestedDateValidator } from '../shared/validators/suggested-date-validator.directive';
 import { SuggestedDatesFormConstants } from './suggested-dates-form-constants';
-import { SUGGESTED_DATE_COPY_MODE_OPTIONS } from './suggested-date-copy-mode-options';
 import { Appointment, SuggestedDate, SuggestedDateCopyMode } from '../shared/models';
 import { ValidatorUtils } from '../shared/validators/validator-utils';
 import moment from 'moment';
@@ -34,6 +33,7 @@ import { NgClass, NgOptimizedImage } from '@angular/common';
 import { AutofocusDirective } from '../shared/directives/autofocus.directive';
 import { NavigationComponent } from '../shared/components/navigation/navigation.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { CopyModesBarComponent } from './copy-modes-bar/copy-modes-bar.component';
 
 @Component({
   selector: 'app-create-suggested-dates',
@@ -48,7 +48,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     NgClass,
     AutofocusDirective,
     NavigationComponent,
-    TranslatePipe
+    TranslatePipe,
+    CopyModesBarComponent
   ]
 })
 export class CreateSuggestedDatesComponent implements OnInit {
@@ -59,12 +60,7 @@ export class CreateSuggestedDatesComponent implements OnInit {
   private dateTimeGenerator = inject(DateTimeGeneratorService);
   private routeTitle = inject(RouteTitleService);
 
-  protected readonly copyModeOptions = SUGGESTED_DATE_COPY_MODE_OPTIONS;
-  protected readonly copyModesExpanded = signal(false);
-  protected readonly copyModesWide = signal(false);
-  private readonly copyModesBar = viewChild<ElementRef<HTMLElement>>('copyModesBar');
-  private readonly copyModesPanel = viewChild<ElementRef<HTMLElement>>('copyModesPanel');
-  private copyModesTimer?: ReturnType<typeof setTimeout>;
+  protected readonly canCopyMode = (mode: SuggestedDateCopyMode): boolean => this.canCopyLastSuggestedDate(mode);
 
   protected readonly SuggestedDatesFormConstants = SuggestedDatesFormConstants;
 
@@ -347,65 +343,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
     return this.getSuggestedDatesForm(this.getSuggestedDatesFromForm().length - 1).valid;
   }
 
-  private static getTransitionMs(element: HTMLElement): number {
-    return Math.max(
-      ...getComputedStyle(element)
-        .transitionDuration.split(',')
-        .map((duration) => Number.parseFloat(duration) * (duration.includes('ms') ? 1 : 1000))
-    );
-  }
-
-  protected toggleCopyModes(): void {
-    const copyModesBar = this.copyModesBar()?.nativeElement;
-    const copyModesPanel = this.copyModesPanel()?.nativeElement;
-
-    if (!copyModesBar || !copyModesPanel) {
-      return;
-    }
-
-    clearTimeout(this.copyModesTimer);
-
-    if (!this.copyModesExpanded()) {
-      this.openCopyModesBar(copyModesBar);
-    } else {
-      this.closeCopyModesBar(copyModesBar, copyModesPanel);
-    }
-  }
-
-  // copyModesBar widens first, then the options open
-  private openCopyModesBar(copyModesBar: HTMLElement) {
-    if (!this.copyModesWide()) {
-      copyModesBar.style.setProperty('--copy-modes-collapsed-width', `${copyModesBar.getBoundingClientRect().width}px`);
-      copyModesBar.getBoundingClientRect();
-    }
-
-    this.copyModesWide.set(true);
-    this.copyModesTimer = setTimeout(
-      () => this.copyModesExpanded.set(true),
-      CreateSuggestedDatesComponent.getTransitionMs(copyModesBar)
-    );
-  }
-
-  // options close first, then the copyModesBar shrinks to its content width
-  private closeCopyModesBar(copyModesBar: HTMLElement, copyModesPanel: HTMLElement) {
-    this.copyModesExpanded.set(false);
-
-    this.copyModesTimer = setTimeout(() => {
-      this.copyModesWide.set(false);
-
-      this.copyModesTimer = setTimeout(
-        () => copyModesBar.style.removeProperty('--copy-modes-collapsed-width'),
-        CreateSuggestedDatesComponent.getTransitionMs(copyModesBar)
-      );
-    }, CreateSuggestedDatesComponent.getTransitionMs(copyModesPanel));
-  }
-
-  private resetCopyBarState() {
-    clearTimeout(this.copyModesTimer);
-    this.copyModesExpanded.set(false);
-    this.copyModesWide.set(false);
-  }
-
   public canCopyLastSuggestedDate(mode: SuggestedDateCopyMode = SuggestedDateCopyMode.ALL): boolean {
     const length = this.getSuggestedDatesFromForm().length;
     if (length === 0 || !this.isBelowSuggestedDateLimit() || !this.isLastSuggestedDateValid()) {
@@ -542,11 +479,6 @@ export class CreateSuggestedDatesComponent implements OnInit {
       this.suggestedDatesToDelete.push(itemToDelete);
     }
     this.getSuggestedDatesFromForm().removeAt(index);
-
-    if (this.getSuggestedDatesFromForm().length === 0) {
-      // If all suggested dates are deleted, adding a new one starts the copy bar in a closed state
-      this.resetCopyBarState();
-    }
   }
 
   public isSuggestedDateEditableByIndex(index: number): boolean {

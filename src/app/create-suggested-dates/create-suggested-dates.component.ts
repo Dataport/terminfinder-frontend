@@ -327,6 +327,9 @@ export class CreateSuggestedDatesComponent implements OnInit {
   }
 
   public addSuggestedDate(): void {
+    if (!this.canAddSuggestedDate()) {
+      return;
+    }
     this.getSuggestedDatesFromForm().push(this.createSuggestedDateForm());
   }
 

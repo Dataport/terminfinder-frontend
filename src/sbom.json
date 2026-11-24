@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
   "version": 1,
-  "serialNumber": "urn:uuid:f88dc1fb-cba4-4355-8f4f-dcb98dcf1c05",
+  "serialNumber": "urn:uuid:56349998-9d9a-4724-bf84-8829f9db6b41",
   "metadata": {
-    "timestamp": "2026-11-20T11:22:38.270Z",
+    "timestamp": "2026-11-24T12:23:09.369Z",
     "tools": {
       "components": [
         {
@@ -17,7 +17,7 @@
           "type": "application",
           "name": "cyclonedx-npm",
           "group": "@cyclonedx",
-          "version": "7.0.0",
+          "version": "7.0.1",
           "author": "Jan Kowalleck",
           "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
           "licenses": [
@@ -907,8 +907,8 @@
     {
       "type": "library",
       "name": "bootstrap",
-      "version": "5.3.8",
-      "bom-ref": "terminfinder@0.0.0|bootstrap@5.3.8",
+      "version": "5.3.9",
+      "bom-ref": "terminfinder@0.0.0|bootstrap@5.3.9",
       "author": "The Bootstrap Authors",
       "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
       "licenses": [
@@ -919,7 +919,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/bootstrap@5.3.8",
+      "purl": "pkg:npm/bootstrap@5.3.9",
       "externalReferences": [
         {
           "url": "git+https://github.com/twbs/bootstrap.git",
@@ -937,12 +937,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.8.tgz",
+          "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-5.3.9.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "1cfd52643a9a2c33f0b0d8aa46a8b935c3f44925dc897dacf44f91caa24822a1a8faf25e37900954cf7c097996fd6bb1d274392fb8de59476994211fd047beb6"
+              "content": "db4714d2b71fc3c59dc6d55b99f53ec53d848ef553c3d468aff87542f77b0d70ae8d183c38ef667410ac9931dd2457f706e69d981349b6022e517b01a92924ff"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1064,8 +1064,8 @@
     {
       "type": "library",
       "name": "dompurify",
-      "version": "3.4.17",
-      "bom-ref": "terminfinder@0.0.0|dompurify@3.4.17",
+      "version": "3.4.18",
+      "bom-ref": "terminfinder@0.0.0|dompurify@3.4.18",
       "author": "Dr.-Ing. Mario Heiderich, Cure53",
       "description": "DOMPurify is a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. It runs as JavaScript and works in all modern browsers, as well as in Node.js (via jsdom). DOMPurify is written by security people who have vast background in web attacks and XSS. Fear not.",
       "licenses": [
@@ -1074,7 +1074,7 @@
           "acknowledgement": "declared"
         }
       ],
-      "purl": "pkg:npm/dompurify@3.4.17",
+      "purl": "pkg:npm/dompurify@3.4.18",
       "externalReferences": [
         {
           "url": "git://github.com/cure53/DOMPurify.git",
@@ -1092,12 +1092,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz",
+          "url": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.18.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "07fa52958547439f24a88483ff20e3b89d727f3237e26d60178940a1dd9bc1246188de0ae429771fc01fee1a81d8f9932fdd75b5d12e7679d79f9167851a33d3"
+              "content": "a1f7b7c08fee366ebc1c89c005814962a431470d4468a02335dac554aaa3518f9466eaef35dd8bfc7b907b4f7bb3fe118af5a26723fab53edaa13f1ab637e1c2"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -5862,10 +5862,10 @@
         "terminfinder@0.0.0|@ngx-translate/core@18.1.0",
         "terminfinder@0.0.0|@ngx-translate/http-loader@18.1.0",
         "terminfinder@0.0.0|@popperjs/core@2.11.8",
-        "terminfinder@0.0.0|bootstrap@5.3.8",
+        "terminfinder@0.0.0|bootstrap@5.3.9",
         "terminfinder@0.0.0|calendar-link@2.11.2",
         "terminfinder@0.0.0|core-js@3.51.0",
-        "terminfinder@0.0.0|dompurify@3.4.17",
+        "terminfinder@0.0.0|dompurify@3.4.18",
         "terminfinder@0.0.0|moment@2.31.0",
         "terminfinder@0.0.0|ngx-clipboard@16.0.0",
         "terminfinder@0.0.0|ngx-toastr@19.1.0",
@@ -5995,7 +5995,7 @@
       "ref": "terminfinder@0.0.0|@popperjs/core@2.11.8"
     },
     {
-      "ref": "terminfinder@0.0.0|bootstrap@5.3.8",
+      "ref": "terminfinder@0.0.0|bootstrap@5.3.9",
       "dependsOn": [
         "terminfinder@0.0.0|@popperjs/core@2.11.8"
       ]
@@ -6010,7 +6010,7 @@
       "ref": "terminfinder@0.0.0|core-js@3.51.0"
     },
     {
-      "ref": "terminfinder@0.0.0|dompurify@3.4.17",
+      "ref": "terminfinder@0.0.0|dompurify@3.4.18",
       "dependsOn": [
         "terminfinder@0.0.0|@types/trusted-types@2.0.7"
       ]

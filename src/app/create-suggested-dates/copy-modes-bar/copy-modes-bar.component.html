@@ -1,0 +1,52 @@
+<div class="copy-modes-wrapper d-flex justify-content-center">
+  <div
+    #copyModesBar
+    class="section-container copy-modes"
+    [class.expanded]="copyModesExpanded()"
+    [class.wide]="copyModesWide()"
+    role="group"
+    aria-labelledby="copy-modes-label"
+  >
+    <button
+      id="copy-modes-label"
+      type="button"
+      class="copy-modes-toggle btn btn-transparent border-0 w-100 font-weight-bold py-2 px-4"
+      data-cy="copyModesToggle"
+      aria-controls="copy-modes-panel"
+      [attr.aria-expanded]="copyModesExpanded()"
+      [class.text-primary]="canCopy()(SuggestedDateCopyMode.ALL)"
+      [class.text-muted]="!canCopy()(SuggestedDateCopyMode.ALL)"
+      (click)="toggleCopyModes()"
+    >
+      {{ 'date.copy.label' | translate }}
+      <span class="copy-modes-chevron" [class.expanded]="copyModesExpanded()" aria-hidden="true"></span>
+    </button>
+    <div #copyModesPanel id="copy-modes-panel" class="copy-modes-panel" [class.expanded]="copyModesExpanded()">
+      <div class="copy-modes-panel-inner">
+        <div class="divider-single"></div>
+        <div class="row justify-content-center">
+          @for (option of copyModeOptions; track option.mode) {
+            <div class="col p-2 text-center copy-mode-option">
+              <button
+                (click)="copyMode.emit(option.mode)"
+                class="w-100 btn-circle"
+                [attr.data-cy]="'copySuggestedDateButton-' + option.mode"
+                type="button"
+                [ngClass]="{ disabled: !canCopy()(option.mode) }"
+                [attr.aria-disabled]="!canCopy()(option.mode)"
+              >
+                <img aria-hidden="true" alt="" class="icon" [ngSrc]="option.icon" height="80" width="80" />
+                <span
+                  class="d-block font-weight-bold"
+                  [class.text-primary]="canCopy()(option.mode)"
+                  [class.text-muted]="!canCopy()(option.mode)"
+                  >{{ option.labelKey | translate }}</span
+                >
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

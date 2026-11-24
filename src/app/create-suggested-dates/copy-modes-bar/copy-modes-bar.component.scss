@@ -1,0 +1,104 @@
+@use "sass:map";
+@use "src/default" as *;
+@import "bootstrap/scss/mixins";
+
+:host {
+  display: block;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.copy-modes {
+  // JS only sets the collapsed pixel width, so the open width follows the viewport in CSS
+  width: var(--copy-modes-collapsed-width, fit-content);
+  max-width: 100%;
+  position: relative;
+  z-index: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transition: width 0.4s ease;
+
+  &.wide {
+    width: 80%;
+
+    // suggested date has a border-radius. copy-modes has to be smaller than that to fit visually inside.
+    @media (max-width: map.get($grid-breakpoints, sm)) {
+      width: calc(100% - 2 * #{$border-radius});
+    }
+  }
+
+  .copy-modes-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 0;
+  }
+
+  .copy-modes-chevron {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-25%) rotate(45deg);
+    transition: transform 0.2s ease;
+
+    &.expanded {
+      transform: translateY(25%) rotate(225deg);
+    }
+  }
+
+  .copy-modes-panel {
+    container: copy-modes-panel / inline-size;
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.35s ease,
+      visibility 0.35s;
+
+    &.expanded {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+  }
+
+  .copy-modes-panel-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .copy-mode-option {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .copy-mode-option:not(:first-child) {
+    border-left: 1px solid $medium-gray;
+  }
+
+  .btn-circle span {
+    font-size: 0.875rem;
+  }
+}
+
+@container copy-modes-panel (width < 400px) {
+  .copy-modes {
+    .copy-mode-option {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .copy-mode-option:nth-child(odd) {
+      border-left: none;
+    }
+
+    .copy-mode-option:nth-child(n + 3) {
+      border-top: 1px solid $medium-gray;
+    }
+  }
+}

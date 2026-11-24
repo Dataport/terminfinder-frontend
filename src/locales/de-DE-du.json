@@ -113,10 +113,17 @@
     "add": "Weiteres Datum hinzufügen",
     "copy": {
       "label": "Werte kopieren",
-      "all": "Alles übernehmen",
-      "dateOnly": "Nur Datum übernehmen",
+      "labelHint": "Diesen Termin als Vorlage für einen neuen Termin verwenden",
+      "optionsLabel": "Kopieroptionen für diesen Termin",
+      "all": "Alles kopieren",
+      "allHint": "Datum und Uhrzeit dieses Termins",
+      "dateOnly": "Nur Datum",
+      "dateOnlyHint": "Nur das Datum, die Uhrzeit bleibt leer",
       "shiftTime": "Zeitraum verschieben",
-      "nextDay": "Nächster Tag, gleiche Uhrzeit"
+      "shiftTimeHint": "Der neue Termin beginnt, wenn dieser endet (10–11 Uhr wird 11–12 Uhr)",
+      "shiftTimeDisabled": "Dieser Termin braucht eine Start- und Endzeit am selben Tag, und die verschobene Zeit darf nicht über Mitternacht hinausgehen",
+      "nextDay": "Nächster Tag, gleiche Uhrzeit",
+      "nextDayHint": "Datum und Uhrzeit dieses Termins, aber einen Tag später"
     },
     "duplicate": "Diese Termineingabe ist identisch mit Termineingabe {{number}}. Bitte ändere Datum, Uhrzeit oder Beschreibung.",
     "placeholder": "TT.MM.JJJJ",

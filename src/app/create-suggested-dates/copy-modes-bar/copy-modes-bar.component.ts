@@ -1,5 +1,6 @@
 import { Component, DestroyRef, ElementRef, inject, input, output, signal, viewChild } from '@angular/core';
 import { NgClass, NgOptimizedImage } from '@angular/common';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SuggestedDateCopyMode } from '../../shared/models';
 import { SUGGESTED_DATE_COPY_MODE_OPTIONS } from '../suggested-date-copy-mode-options';
@@ -11,6 +12,7 @@ import { SUGGESTED_DATE_COPY_MODE_OPTIONS } from '../suggested-date-copy-mode-op
   imports: [
     NgClass,
     NgOptimizedImage,
+    NgbTooltip,
     TranslatePipe
   ]
 })
@@ -33,6 +35,10 @@ export class CopyModesBarComponent {
   }
 
   protected toggleCopyModes(): void {
+    if (!this.copyModesExpanded() && !this.canCopy()(SuggestedDateCopyMode.ALL)) {
+      return;
+    }
+
     const copyModesBar = this.copyModesBar()?.nativeElement;
     const copyModesPanel = this.copyModesPanel()?.nativeElement;
 

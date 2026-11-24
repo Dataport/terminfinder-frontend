@@ -104,10 +104,17 @@
     "add": "Annere Datum toföög",
     "copy": {
       "label": "Werte kopeern",
-      "all": "Alles övernehmen",
-      "dateOnly": "Blos Datum övernehmen",
-      "shiftTime": "Kloktiet na achtern schuven",
-      "nextDay": "Nächste Daag, gliege Kloktiet"
+      "labelHint": "Disse Termin as Vörlaag för en niee Termin bruken",
+      "optionsLabel": "Kopeer-Optionen för disse Termin",
+      "all": "Alles kopeern",
+      "allHint": "Datum un Kloktiet vun disse Termin",
+      "dateOnly": "Blos Datum",
+      "dateOnlyHint": "Blos dat Datum, de Kloktiet blifft leer",
+      "shiftTime": "Tietruhm na achtern schuven",
+      "shiftTimeHint": "De nieje Termin fangt an, wenn disse uphöört (10–11 Klock warrt 11–12 Klock)",
+      "shiftTimeDisabled": "Disse Termin bruukt en Start- un Enndtiet an densülvigen Dag, un de schuven Tiet dörff nich över Mitternacht gahn",
+      "nextDay": "Nächste Dag, gliege Kloktiet",
+      "nextDayHint": "Datum un Kloktiet vun disse Termin, man en Dag later"
     },
     "duplicate": "Disse Termininngaav is gliek as Termininngaav {{number}}. Bitte änner de Datum, Tiet or Beschriebung.",
     "rejected": "Termin aflehnen",

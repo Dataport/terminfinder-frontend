@@ -113,10 +113,17 @@
     "add": "Add another date",
     "copy": {
       "label": "Copy values",
+      "labelHint": "Use this date as a template for a new date",
+      "optionsLabel": "Copy options for this date",
       "all": "Copy everything",
+      "allHint": "Date and time of this date",
       "dateOnly": "Date only",
+      "dateOnlyHint": "Only the date, the time stays empty",
       "shiftTime": "Shift time range",
-      "nextDay": "Next day, same time"
+      "shiftTimeHint": "The new date starts when this one ends (10–11 becomes 11–12)",
+      "shiftTimeDisabled": "This date needs a start and end time on the same day, and the shifted time must not pass midnight",
+      "nextDay": "Next day, same time",
+      "nextDayHint": "Date and time of this date, but one day later"
     },
     "duplicate": "This date entry is identical to date {{number}}. Please change the date, the time or the description.",
     "placeholder": "DD.MM.YYYY",

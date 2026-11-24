@@ -84,6 +84,11 @@
   .btn-circle span {
     font-size: 0.875rem;
   }
+
+  .btn-circle[aria-disabled="true"] {
+    pointer-events: auto;
+    cursor: not-allowed;
+  }
 }
 
 @container copy-modes-panel (width < 400px) {

@@ -71,7 +71,7 @@
     "@cyclonedx/cyclonedx-npm": "7.0.0",
     "@cypress/schematic": "6.0.0",
     "@fortawesome/fontawesome-free": "7.2.0",
-    "@stylistic/eslint-plugin": "6.0.0",
+    "@stylistic/eslint-plugin": "6.0.1",
     "@types/jest": "30.0.0",
     "@types/node": "26.6.6",
     "@typescript-eslint/eslint-plugin": "8.73.0",

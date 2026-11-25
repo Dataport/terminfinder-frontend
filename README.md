@@ -52,6 +52,7 @@ Beispiel: `export TITLE='Terminfinder-SH' API_URL='https://test.de/api' EMAIL='b
 | ADDRESSING (used on german only) | ja       | `'du'` or `'sie'`        | `'du'`                                 | Wird der User geduzt oder gesiezt. Nicht vom User anpassbar.          |
 | API_URL                          | ja       | `string` (url)           | ''                                     | URL des Backends. Bei keinem Wert wird die aktuelle URL verwendet     |
 | COLORS                           | ja       | `string` (json object)   | null                                   | Anpassung der Farben. Siehe Kapitel [Farben](#farben)                 |
+| ALLOW_INDEXING                   | ja       | `boolean`                | `true`                                 | `false` fügt das Meta-Tag `robots` mit `noindex, nofollow` hinzu      |
 | PRODUCTION                       | -        | `boolean`                | `true`                                 | Flag für Angular, Log-Level, Timeout-Zeit für XHR                     |
 | VERSION                          | -        | `string`                 | package.json - version                 | Versionsnummer, die im Impressum angezeigt wird                       |
 | DOCKER                           | -        | `boolean`                | `false`                                | Sollen Parameter zum Start des Docker-Images angepasst werden können. |

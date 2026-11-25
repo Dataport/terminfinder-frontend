@@ -58,11 +58,35 @@ module.exports = [
           style: 'kebab-case'
         }
       ],
-      '@stylistic/array-bracket-newline': [
+      '@stylistic/list-style': [
         'error',
         {
-          multiline: true,
-          minItems: 2
+          singleLine: {
+            maxItems: Number.POSITIVE_INFINITY
+          },
+          multiLine: {
+            minItems: 0
+          },
+          overrides: {
+            '[]': {
+              singleLine: {
+                maxItems: 1
+              },
+              multiLine: {
+                minItems: 1
+              }
+            },
+            '{}': 'off',
+            '()': 'off',
+            ObjectPattern: {
+              singleLine: {
+                spacing: 'always'
+              },
+              multiLine: {
+                minItems: 1
+              }
+            }
+          }
         }
       ],
       '@stylistic/multiline-ternary': [
@@ -81,14 +105,6 @@ module.exports = [
           max: 1,
           maxEOF: 1,
           maxBOF: 0
-        }
-      ],
-      '@stylistic/object-curly-newline': [
-        'error',
-        {
-          ObjectPattern: {
-            multiline: true
-          }
         }
       ],
       '@stylistic/template-curly-spacing': 'error',

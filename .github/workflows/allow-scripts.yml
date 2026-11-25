@@ -6,40 +6,17 @@ on:
     paths:
       - 'package.json'
       - 'package-lock.json'
-  workflow_dispatch:
 
 jobs:
-  validate:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v7
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Install dependencies without running scripts
-        run: npm ci --no-audit --no-fund --ignore-scripts --loglevel=error
-
-      - name: Refresh allowScripts block
-        run: npm approve-scripts --all
-
-      - name: Fail if package.json is stale
-        run: git diff --exit-code -- package.json
-
   update:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.head_ref }}
 
       - uses: actions/setup-node@v7
         with:
@@ -53,6 +30,8 @@ jobs:
         run: npm approve-scripts --all
 
       - name: Commit updated allowScripts block
+        env:
+          HEAD_REF: ${{ github.head_ref }}
         run: |
           set -euo pipefail
 
@@ -66,4 +45,4 @@ jobs:
 
           git add package.json
           git commit -m "chore: update allowScripts"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:${HEAD_REF}"

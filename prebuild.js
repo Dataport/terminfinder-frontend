@@ -140,7 +140,16 @@ fs.readFile('./src/index.html.tmpl', 'utf8', function (err, data) {
     throw err;
   }
 
-  data = data.replace('@TITLE@', process.env.TITLE);
+  if (process.env.DOCKER === 'true') {
+    data = data.replace('@TITLE@', process.env.TITLE);
+  } else {
+    data = data
+      .replace('@TITLE@', process.env.TITLE)
+      .replace(
+        '@ROBOTS_META@',
+        process.env.ALLOW_INDEXING === 'false' ? '<meta name="robots" content="noindex, nofollow">' : ''
+      );
+  }
 
   fs.writeFile('./src/index.html', data, 'utf8', function (err) {
     if (err) {

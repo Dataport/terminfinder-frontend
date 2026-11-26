@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@angular-devkit/architect": "0.2102.30",
-    "@angular/animations": "21.2.26",
+    "@angular/animations": "22.3.0",
     "@angular/common": "21.2.26",
     "@angular/compiler": "21.2.26",
     "@angular/core": "21.2.26",
